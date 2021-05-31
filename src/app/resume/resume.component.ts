@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {PrimeIcons} from "primeng/api";
 
 @Component({
@@ -7,39 +7,38 @@ import {PrimeIcons} from "primeng/api";
   styleUrls: ['./resume.component.scss']
 })
 export class ResumeComponent {
-  events1: any[] = [];
-
-  events2: any[] | undefined;
+  missions: any[] = [];
 
   ngOnInit() {
-    this.events1 = [
+    this.missions = [
       {
-        status: "Ordered",
-        date: "15/10/2020 10:30",
-        icon: PrimeIcons.SHOPPING_CART,
+        client: "Orange",
+        description: "Réalisation de deux projets fullstack (frontend et backend) en autonome. " +
+          "Pour le compte d'une équipe gérant la Big Data au sein du Service des Ressources Humaines d'Orange dans un premier temps (projet O2H). " +
+          "Et pour le compte d'une équipe sécurité elle même appartenant à l'entité Ressources Humaines d'Air France (projet SPDP)",
+        date: "15/10/2020 - 15/10/2020",
+        icon: PrimeIcons.CHECK,
         color: "#9C27B0"
       },
       {
-        status: "Processing",
+        name: "Processing",
         date: "15/10/2020 14:00",
-        icon: PrimeIcons.COG,
+        icon: PrimeIcons.CHECK,
         color: "#673AB7"
       },
       {
-        status: "Shipped",
+        name: "Shipped",
         date: "15/10/2020 16:15",
-        icon: PrimeIcons.ENVELOPE,
+        icon: PrimeIcons.CHECK,
         color: "#FF9800"
       },
       {
-        status: "Delivered",
+        name: "Delivered",
         date: "16/10/2020 10:00",
         icon: PrimeIcons.CHECK,
         color: "#607D8B"
       }
     ];
-
-    this.events2 = ["2020", "2021", "2022", "2023"];
   }
 
 }

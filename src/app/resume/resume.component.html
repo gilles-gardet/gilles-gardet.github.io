@@ -1,18 +1,28 @@
-<div class="card">
-  <h5>Customized</h5>
-  <p-timeline [value]="events1" align="alternate" styleClass="customized-timeline">
-    <ng-template pTemplate="marker" let-event>
-            <span class="custom-marker p-shadow-2" [style.backgroundColor]="event.color">
-                <i [ngClass]="event.icon"></i>
+<p-card header="Profil" style="margin-bottom: 1rem">
+  <div>
+    <p>Je profite d’une expérience de 7 ans en tant que concepteur développeur en matière de systèmes d’information.</p>
+    <p>Principalement spécialisé dans les technologies backend (Java, Spring...), que j'ai pu éprouver sur différentes
+      missions elles-mêmes touchant à plusieurs domaines d'activités (domaine du spatial, des ressources humaines, des
+      collectivités...).</p>
+    <p>J'ai néanmoins un profil fullstack de par les nombreux projets frontend que j'ai pu réaliser en parallèle.</p>
+    <p>J'ai l'habitude de travailler avec les méthodes Agiles que j'affectionne quand il s'agit de conduire un projet
+      (Scrum, Kanban..).</p>
+  </div>
+</p-card>
+<p-card header="Expérience">
+  <p-timeline [value]="missions" align="alternate" styleClass="customized-timeline">
+    <ng-template pTemplate="marker" let-mission>
+            <span class="custom-marker p-shadow-2" [style.backgroundColor]="mission.color">
+                <i [ngClass]="mission.icon"></i>
             </span>
     </ng-template>
-    <ng-template pTemplate="content" let-event>
-      <p-card [header]="event.status" [subheader]="event.date">
-        <img *ngIf="event.image" [src]="'assets/showcase/images/demo/product/' + event.image" [alt]="event.name" width="200" class="p-shadow-2" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-          quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+    <ng-template pTemplate="content" let-mission>
+      <p-card [header]="mission.client" [subheader]="mission.date">
+        <img *ngIf="mission.image" [src]="'assets/showcase/images/demo/product/' + mission.image" [alt]="mission.name"
+             width="200" class="p-shadow-2"/>
+        <p>{{mission.description}}</p>
         <button pButton label="Read more" class="p-button-text"></button>
       </p-card>
     </ng-template>
   </p-timeline>
-</div>
+</p-card>
