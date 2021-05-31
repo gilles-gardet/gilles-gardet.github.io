@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --dark: hsl(0, 0%, 20%);
+  --primary-clear: hsl(203, 19%, 90%);
+  --secondary-clear: hsl(203, 19%, 80%);
+  --white: hsl(110, 100%, 100%);
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 736px;
+  --breakpoint-lg: 960px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1440px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, "Segoe UI", Roboto, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: var(--dark);
+  background-color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+a.fancy, a.fancy:visited {
+  font-size: 1.2rem;
+  text-decoration: none;
+  background-image: linear-gradient(
+      transparent 2px,
+      #ff7900 2px,
+      #ff7900 4px,
+      transparent 4px
+  ),
+  linear-gradient(
+      transparent 2px,
+      #d8dce9 2px,
+      #d8dce9 4px,
+      transparent 4px
+  );
+  background-size: 0 6px, 100% 6px;
+  background-position: 0 bottom, 0 bottom;
+  transition: background-size 0.3s ease-in-out;
+  background-repeat: no-repeat;
+  padding-bottom: 4px;
+  border-bottom: 6px solid transparent;
+}
+
+a.fancy:hover {
+  background-size: 100% 6px;
+}
+
+@supports (-ms-ime-align:auto) {
+  a.fancy, a.fancy:visited {
+    background-image: linear-gradient(#ff7900, #ff7900),
+    linear-gradient(#d8dce9, #d8dce9);
+    background-size: 0 2px, 100% 2px;
+    padding-bottom: 2px;
+  }
+  a.fancy:hover {
+    background-size: 100% 2px;
+  }
+}

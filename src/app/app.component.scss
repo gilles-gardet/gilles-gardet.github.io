@@ -1,0 +1,15 @@
+#container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto 10rem minmax(10rem, 50rem) auto;
+
+  > aside {
+    position: sticky;
+    background-color: var(--secondary-clear);
+  }
+
+  > main {
+    display: flex;
+    background-color: var(--primary-clear);
+  }
+}
