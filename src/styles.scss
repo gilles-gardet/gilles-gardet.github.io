@@ -12,13 +12,8 @@
 }
 
 * {
-  box-sizing: border-box;
   font-family: 'Helvetica Neue', Helvetica, Arial, "Segoe UI", Roboto, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
-  color: var(--dark);
-  background-color: var(--white);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .no-margin {
