@@ -9,6 +9,9 @@ import { ResumeComponent } from './resume/resume.component';
 import {CardModule} from "primeng/card";
 import {TimelineModule} from "primeng/timeline";
 import {ButtonModule} from "primeng/button";
+import {RatingModule} from "primeng/rating";
+import {FormsModule} from "@angular/forms";
+import {ProgressBarModule} from "primeng/progressbar";
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import {ButtonModule} from "primeng/button";
     BrowserAnimationsModule,
     BrowserModule,
     CardModule,
-    TimelineModule
+    TimelineModule,
+    FormsModule,
+    ProgressBarModule
   ],
   bootstrap: [AppComponent]
 })

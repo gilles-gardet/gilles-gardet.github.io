@@ -1,4 +1,5 @@
-<p-card header="Profil" style="margin-bottom: 1rem">
+<!--PROFIL-->
+<p-card header="Profil">
   <div>
     <p>Je profite d’une expérience de 7 ans en tant que concepteur développeur en matière de systèmes d’information.</p>
     <p>Principalement spécialisé dans les technologies backend (Java, Spring...), que j'ai pu éprouver sur différentes
@@ -9,6 +10,16 @@
       (Scrum, Kanban..).</p>
   </div>
 </p-card>
+<!--LANGUAGES-->
+<p-card header="Langages et outils">
+  <ng-container *ngFor="let tool of tools">
+    <div class="tool">
+      <span>{{tool.name}}</span>
+      <p-progressBar [value]="tool.rate" [showValue]="false"></p-progressBar>
+    </div>
+  </ng-container>
+</p-card>
+<!--EXPERIENCE-->
 <p-card header="Expérience">
   <p-timeline [value]="missions" align="alternate" styleClass="customized-timeline">
     <ng-template pTemplate="marker" let-mission>
@@ -21,8 +32,14 @@
         <img *ngIf="mission.image" [src]="'assets/showcase/images/demo/product/' + mission.image" [alt]="mission.name"
              width="200" class="p-shadow-2"/>
         <p>{{mission.description}}</p>
-        <button pButton label="Read more" class="p-button-text"></button>
+        <button pButton label="En savoir plus" class="p-button-text"></button>
       </p-card>
     </ng-template>
   </p-timeline>
+</p-card>
+<!--LOISIRS-->
+<p-card header="Loisirs">
+  <span>Basketball en compétition (niveau excellence)</span>
+  <span>Course à pied (marathon de Toulouse en équipe)</span>
+  <span>Développement</span>
 </p-card>

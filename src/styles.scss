@@ -9,6 +9,9 @@
   --breakpoint-lg: 960px;
   --breakpoint-xl: 1200px;
   --breakpoint-xxl: 1440px;
+  --bg-color: hsl(49 37% 94%);
+  --typewriterSpeed: 6s;
+  --typewriterCharacters: 29;
 }
 
 * {
@@ -16,8 +19,14 @@
   font-size: 14px;
 }
 
-.no-margin {
+body {
   margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background: var(--bg-color);
 }
 
 a.fancy, a.fancy:visited {

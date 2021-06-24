@@ -1,6 +1,21 @@
 :host {
   padding: 2rem;
 
+  .tool {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    > span {
+      flex: 1;
+      text-align: start;
+    }
+
+    > p-progressbar {
+      flex: 6;
+    }
+  }
+
   .custom-marker {
     display: flex;
     width: 2rem;
@@ -16,6 +31,11 @@
     .p-timeline-event-content,
     .p-timeline-event-opposite {
       line-height: 1;
+    }
+
+    .p-progressbar {
+      height: 0.5rem;
+      border-radius: 5px;
     }
   }
 
@@ -40,5 +60,4 @@
       }
     }
   }
-
 }
