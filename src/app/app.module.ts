@@ -12,6 +12,11 @@ import {ButtonModule} from "primeng/button";
 import {RatingModule} from "primeng/rating";
 import {FormsModule} from "@angular/forms";
 import {ProgressBarModule} from "primeng/progressbar";
+import {AvatarModule} from "primeng/avatar";
+import {TagModule} from "primeng/tag";
+import {ChipModule} from "primeng/chip";
+import {PanelModule} from "primeng/panel";
+import {DividerModule} from "primeng/divider";
 
 @NgModule({
   declarations: [
@@ -19,16 +24,21 @@ import {ProgressBarModule} from "primeng/progressbar";
     SidebarComponent,
     ResumeComponent
   ],
-  imports: [
-    AppRoutingModule,
-    ButtonModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    CardModule,
-    TimelineModule,
-    FormsModule,
-    ProgressBarModule
-  ],
+    imports: [
+        AppRoutingModule,
+        ButtonModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        CardModule,
+        TimelineModule,
+        FormsModule,
+        ProgressBarModule,
+        AvatarModule,
+        TagModule,
+        ChipModule,
+        PanelModule,
+        DividerModule
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'portfolio';
+  /**
+   * Navigate with a smooth scroll to the element given as parameter
+   *
+   * @param element the event throwed on the click of the navigate button
+   */
+  scrollToPortfolio(element: any): void {
+    element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }
 }

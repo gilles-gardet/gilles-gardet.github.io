@@ -1,0 +1,10 @@
+:host {
+  position: sticky;
+  top: 2rem;
+
+  ::ng-deep {
+    p-chip[label='gilles.gardet@gmail.com']:hover {
+      cursor: pointer;
+    }
+  }
+}

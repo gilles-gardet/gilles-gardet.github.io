@@ -1,81 +1,57 @@
-import {Component} from '@angular/core';
-import {PrimeIcons} from "primeng/api";
+import {AfterViewInit, Component} from '@angular/core';
+import {of} from "rxjs";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss']
 })
-export class ResumeComponent {
+export class ResumeComponent implements AfterViewInit {
   missions: any[] = [];
   tools: any[] = [];
+  experience: Date = new Date(2013, 4);
+  birthday: Date = new Date(1986, 5);
 
-  ngOnInit() {
-    this.missions = [
-      {
-        client: "Orange",
-        description: `Réalisation de deux projets fullstack (frontend et backend) en autonome.
-        Pour le compte d'une équipe gérant la Big Data au sein du Service des Ressources Humaines d'Orange dans un premier temps (projet O2H).
-        Et pour le compte d'une équipe sécurité elle même appartenant à l'entité Ressources Humaines d'Air France (projet SPDP)`,
-        date: "15/10/2020 - 15/10/2020",
-        icon: PrimeIcons.BOOKMARK,
-        color: "#607D8B",
-        tools: [
-          'Git',
-          'Gitlab',
-          'CSS',
-          'Angular',
-          'PrimeNG',
-          'Rest',
-          'Sass',
-          'TypeScript',
-          'NodeJS',
-          'NestJS',
-          'PCF',
-          'TypeORM',
-          'Sequelize'
-        ]
-      },
-      {
-        name: "MAIF",
-        description: "Refonte d'une application permettant de gérer des avances de remboursement inter- assureur, s'appuyant sur des technologies vieillissantes (Lotus Notes).\n" +
-          "L'application doit permettre des imports/exports de fichiers, et permettre de gérer les entités précédemment importées au travers d'une vue web designé comme une SPA (Single Page Application).",
-        date: "15/10/2020 14:00",
-        icon: PrimeIcons.BOOKMARK,
-        color: "#607D8B"
-      },
-      {
-        name: "Air France",
-        date: "15/10/2020 16:15",
-        icon: PrimeIcons.BOOKMARK,
-        color: "#607D8B"
-      },
-      {
-        name: "Air France",
-        date: "16/10/2020 10:00",
-        icon: PrimeIcons.BOOKMARK,
-        color: "#607D8B"
-      }
-    ];
-    this.tools = [
-      {name: 'HTML', rate: 60},
-      {name: 'Java', rate: 60},
-      {name: 'Spring Boot', rate: 60},
-      {name: 'Spring MVC', rate: 60},
-      {name: 'Spring Data', rate: 60},
-      {name: 'Spring Security', rate: 60},
-      {name: 'CSS', rate: 60},
-      {name: 'Sass', rate: 60},
-      {name: 'Javascript', rate: 60},
-      {name: 'SQL', rate: 60},
-      {name: 'TypeScript', rate: 60},
-      {name: 'Angular', rate: 60},
-      {name: 'NestJS', rate: 60},
-      {name: 'ReactJS', rate: 60},
-      {name: 'Hibernate', rate: 60},
-      {name: 'Typeorm', rate: 60},
-      {name: 'Kotlin', rate: 60},
-    ];
+  /**
+   * A lifecycle hook that is called after Angular has initialized all data-bound properties of a directive
+   */
+  ngOnInit(): void {
+    of(environment?.missions).subscribe(response => this.missions = response);
+    of(environment?.tools).subscribe(response => this.tools = response);
   }
 
+  /**
+   * A lifecycle hook that is called after Angular has fully initialized a component's view
+   */
+  ngAfterViewInit(): void {
+    const intersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+      // trigger the animation on the intersection according to the side of the timeline event
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll(':nth-child(2n + 1) > .p-timeline-event-content')
+            .forEach((element: Element) => element.classList.add('mission__animation-right'));
+          entry.target.querySelectorAll(':nth-child(2n) > .p-timeline-event-content')
+            .forEach((element: Element) => element.classList.add('mission__animation-left'));
+        } else {
+          entry.target.querySelectorAll(':nth-child(2n + 1) > .p-timeline-event-content')
+            .forEach((element: Element) => element.classList.remove('mission__animation-right'));
+          entry.target.querySelectorAll(':nth-child(2n) > .p-timeline-event-content')
+            .forEach((element: Element) => element.classList.remove('mission__animation-left'));
+        }
+      })
+    }, {
+      threshold: 0
+    });
+    const experienceElement = document.querySelector('p-panel[header="Expérience"] .p-component .p-timeline-alternate');
+    if (experienceElement) intersectionObserver.observe(experienceElement);
+  }
+
+  /**
+   * Calculate the number of years between a given date and the current date
+   * @param {Date} date the date to substract to the current date
+   */
+  numberOfYearsFromDateToCurrentDate(date: Date): number {
+    return new Date().getFullYear() - date.getFullYear();
+  }
 }

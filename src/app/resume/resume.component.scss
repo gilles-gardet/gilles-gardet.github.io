@@ -1,18 +1,19 @@
 :host {
-  padding: 2rem;
+  display: grid;
+  grid-row-gap: 2rem;
 
   .tool {
     display: flex;
-    flex-direction: row;
     align-items: center;
 
     > span {
       flex: 1;
       text-align: start;
+      white-space: nowrap;
     }
 
     > p-progressbar {
-      flex: 6;
+      flex: 2;
     }
   }
 
@@ -36,6 +37,90 @@
     .p-progressbar {
       height: 0.5rem;
       border-radius: 5px;
+    }
+
+    .p-panel-header {
+      justify-content: center;
+    }
+
+    .mission__animation-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      animation: fadeIn 3s forwards;
+      -webkit-animation: fadeIn 3s forwards;
+      -moz-animation: fadeIn 3s forwards;
+      -o-animation: fadeIn 3s forwards;
+      -ms-animation: fadeIn 3s forwards;
+    }
+
+    .mission__animation-right {
+      opacity: 0;
+      transform: translateX(40px);
+      animation: fadeIn 3s forwards;
+      -webkit-animation: fadeIn 3s forwards;
+      -moz-animation: fadeIn 3s forwards;
+      -o-animation: fadeIn 3s forwards;
+      -ms-animation: fadeIn 3s forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @-moz-keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @-webkit-keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @-o-keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @-ms-keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+      to {
+        transform: translateX(0);
+      }
     }
   }
 

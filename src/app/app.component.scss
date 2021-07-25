@@ -4,7 +4,13 @@
   grid-template: 1fr 1fr / 18rem minmax(18rem, 65rem);
   justify-content: center;
   scroll-snap-type: y mandatory;
-  // overflow-y: scroll;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .welcome {
     height: 100vh;
@@ -13,7 +19,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    scroll-snap-align: start;
+    scroll-snap-align: end;
 
     .welcome__content {
 
@@ -61,6 +67,10 @@
       opacity: 0;
       animation: bounce 1.5s infinite calc(var(--typewriterSpeed) + 3s),
       visibility 1.5s forwards calc(var(--typewriterSpeed) + 3s);
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     @keyframes typewriter {
@@ -102,15 +112,12 @@
   }
 
   > aside {
-    height: 100vh;
-    position: sticky;
-    background-color: var(--secondary-clear);
-    scroll-snap-align: start;
+    padding: 2rem 0;
   }
 
   > main {
-    display: flex;
-    height: 100vh;
     scroll-snap-align: start;
+    display: flex;
+    padding: 2rem;
   }
 }

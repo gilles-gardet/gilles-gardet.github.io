@@ -27,6 +27,7 @@ body {
   place-content: center;
   text-align: center;
   background: var(--bg-color);
+  scroll-behavior: smooth;
 }
 
 a.fancy, a.fancy:visited {
