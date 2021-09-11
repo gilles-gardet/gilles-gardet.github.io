@@ -1,26 +1,33 @@
 <!--PROFIL-->
 <p-panel header="Profil et généralités">
-  <div style="text-align: start;">
-    <p>Je profite d’une expérience de <b>{{numberOfYearsFromDateToCurrentDate(experience)}} ans</b> en tant que
-      concepteur développeur en matière de systèmes d’information.</p>
-    <p>Principalement spécialisé dans les technologies <b>backend</b> (Java, Spring...), que j'ai pu éprouver sur
-      différentes
-      missions elles-mêmes touchant à plusieurs domaines d'activités (domaine du spatial, des ressources humaines, des
-      collectivités...).</p>
-    <p>J'ai néanmoins un profil <b>fullstack</b> de par les nombreux projets frontend que j'ai pu réaliser en parallèle.
+  <div style="text-align: start">
+    <p>
+      Je profite d’une expérience de
+      <b>{{ numberOfYearsFromDateToCurrentDate(experience) }} ans</b> en tant que concepteur développeur en matière de
+      systèmes d’information.
     </p>
-    <p>J'ai l'habitude de travailler avec les méthodes <b>Agiles</b> que j'affectionne quand il s'agit de conduire un
-      projet
-      (Scrum, Kanban..).</p>
+    <p>
+      Principalement spécialisé dans les technologies <b>backend</b> (Java, Spring...), que j'ai pu éprouver sur
+      différentes missions elles-mêmes touchant à plusieurs domaines d'activités (domaine du spatial, des ressources
+      humaines, des collectivités...).
+    </p>
+    <p>
+      J'ai néanmoins un profil <b>fullstack</b> de par les nombreux projets frontend que j'ai pu réaliser en parallèle.
+    </p>
+    <p>
+      J'ai l'habitude de travailler avec les méthodes <b>Agiles</b> que j'affectionne quand il s'agit de conduire un
+      projet (Scrum, Kanban..).
+    </p>
   </div>
 </p-panel>
 <!--LANGUAGES-->
 <p-panel header="Langages et outils">
   <div
-    style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 2rem; grid-row-gap: 1rem; padding: 0 2rem;">
+    style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 2rem; grid-row-gap: 1rem; padding: 0 2rem"
+  >
     <ng-container *ngFor="let tool of tools">
       <div class="tool">
-        <span>{{tool.name}}</span>
+        <span>{{ tool.name }}</span>
         <p-progressBar [value]="tool.rate" [showValue]="false"></p-progressBar>
       </div>
     </ng-container>
@@ -28,17 +35,28 @@
 </p-panel>
 <!--EXPERIENCE-->
 <p-panel header="Expérience">
+  <markdown [data]="markdown"></markdown>
   <p-timeline [value]="missions" align="alternate" styleClass="customized-timeline">
     <ng-template pTemplate="marker" let-mission>
-            <span class="custom-marker p-shadow-2" [style.backgroundColor]="mission.color">
-                <i [ngClass]="mission.icon"></i>
-            </span>
+      <span class="custom-marker p-shadow-2" [style.backgroundColor]="'#607D8B'">
+        <i [ngClass]="'pi pi-bookmark'"></i>
+      </span>
     </ng-template>
     <ng-template pTemplate="content" let-mission>
-      <p-card [header]="mission.client" [subheader]="mission.date" [style]="{backgroundColor: 'hsl(48, 37%, 94%)'}" styleClass="mission">
-        <img *ngIf="mission.image" [src]="'assets/showcase/images/demo/product/' + mission.image" [alt]="mission.name"
-             width="200" class="p-shadow-2"/>
-        <p>{{mission.description}}</p>
+      <p-card
+        [header]="mission.client"
+        [subheader]="missionTimelapse(mission.startDate, mission.endDate)"
+        [style]="{ backgroundColor: 'hsl(48, 37%, 94%)' }"
+        styleClass="mission"
+      >
+        <img
+          *ngIf="mission.image"
+          [src]="'assets/showcase/images/demo/product/' + mission.image"
+          [alt]="mission.name"
+          width="200"
+          class="p-shadow-2"
+        />
+        <p>{{ mission.description }}</p>
         <button pButton label="En savoir plus" class="p-button-text"></button>
       </p-card>
     </ng-template>

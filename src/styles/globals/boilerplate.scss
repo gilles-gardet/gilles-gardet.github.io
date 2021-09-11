@@ -1,27 +1,17 @@
-:root {
-  --dark: hsl(0, 0%, 20%);
-  --primary-clear: hsl(203, 19%, 90%);
-  --secondary-clear: hsl(203, 19%, 80%);
-  --white: hsl(110, 100%, 100%);
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 480px;
-  --breakpoint-md: 736px;
-  --breakpoint-lg: 960px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-xxl: 1440px;
-  --bg-color: hsl(49 37% 94%);
-  --typewriterSpeed: 6s;
-  --typewriterCharacters: 29;
+html {
+  font-size: 100%;
+  box-sizing: border-box;
 }
 
-* {
-  font-family: 'Helvetica Neue', Helvetica, Arial, "Segoe UI", Roboto, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
   margin: 0;
-  font-family: "Source Sans Pro", sans-serif;
+  padding: 0;
   min-height: 100vh;
   display: grid;
   place-content: center;
