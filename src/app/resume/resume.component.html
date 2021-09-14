@@ -35,7 +35,6 @@
 </p-panel>
 <!--EXPERIENCE-->
 <p-panel header="Expérience">
-  <markdown [data]="markdown"></markdown>
   <p-timeline [value]="missions" align="alternate" styleClass="customized-timeline">
     <ng-template pTemplate="marker" let-mission>
       <span class="custom-marker p-shadow-2" [style.backgroundColor]="'#607D8B'">
@@ -49,14 +48,7 @@
         [style]="{ backgroundColor: 'hsl(48, 37%, 94%)' }"
         styleClass="mission"
       >
-        <img
-          *ngIf="mission.image"
-          [src]="'assets/showcase/images/demo/product/' + mission.image"
-          [alt]="mission.name"
-          width="200"
-          class="p-shadow-2"
-        />
-        <p>{{ mission.description }}</p>
+        <markdown [src]="missionFromDate(mission.startDate)"></markdown>
         <button pButton label="En savoir plus" class="p-button-text"></button>
       </p-card>
     </ng-template>

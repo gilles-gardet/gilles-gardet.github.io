@@ -1,8 +1,9 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { of } from 'rxjs';
+import {EMPTY, Observable, of} from 'rxjs';
 import { environment } from '@environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { MarkdownService } from 'ngx-markdown';
+import {map, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'portfolio-resume',
@@ -14,7 +15,6 @@ export class ResumeComponent implements AfterViewInit {
   tools: any[] = [];
   experience: Date = new Date(2013, 4);
   birthday: Date = new Date(1986, 5);
-  markdown: string | undefined;
 
   /**
    * Constructor
@@ -32,9 +32,18 @@ export class ResumeComponent implements AfterViewInit {
   ngOnInit(): void {
     of(environment?.missions).subscribe((response) => (this.missions = response));
     of(environment?.tools).subscribe((response) => (this.tools = response));
-    this.httpClient
-      .get(`/assets/missions/201901_full.md`, { responseType: 'text' })
-      .subscribe((value: string) => (this.markdown = this.markdownService.compile(value)));
+  }
+
+  /**
+   * Retrieve the mission from the passed date
+   *
+   * @param startingDate the starting date of the mission
+   * @return descritption the mission description we want to display
+   */
+  missionFromDate(startingDate: string): string {
+    const date = new Date(startingDate);
+    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
+    return `/assets/missions/${date.getFullYear()}${month}/${date.getFullYear()}${month}_light.md`;
   }
 
   /**
@@ -124,6 +133,11 @@ export class ResumeComponent implements AfterViewInit {
     if (end) {
       const endTimestamp = Date.parse(end);
       endDate = new Date(endTimestamp);
+    }
+    if (this.monthBetweenDates(startDate, endDate) > 12 && this.monthBetweenDates(startDate, endDate) % 12 > 0) {
+      const years = Math.trunc(this.monthBetweenDates(startDate, endDate) / 12);
+      const months = this.monthBetweenDates(startDate, endDate) % 12;
+      return `${years} an${years > 1 ? 's' : ''} et ${months} mois`;
     }
     return `${this.monthBetweenDates(startDate, endDate)} mois`;
   }
