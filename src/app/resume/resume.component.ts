@@ -1,9 +1,8 @@
 import { AfterViewInit, Component } from '@angular/core';
-import {EMPTY, Observable, of} from 'rxjs';
+import { of } from 'rxjs';
 import { environment } from '@environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { MarkdownService } from 'ngx-markdown';
-import {map, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'portfolio-resume',
@@ -13,8 +12,9 @@ import {map, tap} from 'rxjs/operators';
 export class ResumeComponent implements AfterViewInit {
   missions: any[] = [];
   tools: any[] = [];
+  selectedStartDate: string = '';
   experience: Date = new Date(2013, 4);
-  birthday: Date = new Date(1986, 5);
+  displayDialog = false;
 
   /**
    * Constructor
@@ -38,12 +38,13 @@ export class ResumeComponent implements AfterViewInit {
    * Retrieve the mission from the passed date
    *
    * @param startingDate the starting date of the mission
-   * @return descritption the mission description we want to display
+   * @param type the type of mardown file to fetch
+   * @return description the mission description we want to display
    */
-  missionFromDate(startingDate: string): string {
+  missionFromDate(startingDate: string, type: string): string {
     const date = new Date(startingDate);
     const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
-    return `/assets/missions/${date.getFullYear()}${month}/${date.getFullYear()}${month}_light.md`;
+    return `/assets/missions/${date.getFullYear()}${month}/${date.getFullYear()}${month}_${type}.md`;
   }
 
   /**
@@ -155,5 +156,13 @@ export class ResumeComponent implements AfterViewInit {
     months -= start.getMonth();
     months += end.getMonth();
     return months <= 0 ? 0 : months;
+  }
+
+  /**
+   * Open the details dialog
+   */
+  openDialog(date: string): void {
+    this.displayDialog = true;
+    this.selectedStartDate = date;
   }
 }

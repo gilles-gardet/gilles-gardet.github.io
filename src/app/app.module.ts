@@ -18,6 +18,7 @@ import { PanelModule } from 'primeng/panel';
 import { DividerModule } from 'primeng/divider';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [AppComponent, ResumeComponent, SidebarComponent],
@@ -37,6 +38,7 @@ import { MarkdownModule } from 'ngx-markdown';
     ProgressBarModule,
     TagModule,
     TimelineModule,
+    DialogModule,
   ],
   bootstrap: [AppComponent],
 })

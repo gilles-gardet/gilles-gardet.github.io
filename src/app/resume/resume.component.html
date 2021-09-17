@@ -1,6 +1,6 @@
 <!--PROFIL-->
-<p-panel header="Profil et généralités">
-  <div style="text-align: start">
+<p-panel header='Profil et généralités'>
+  <div style='text-align: start'>
     <p>
       Je profite d’une expérience de
       <b>{{ numberOfYearsFromDateToCurrentDate(experience) }} ans</b> en tant que concepteur développeur en matière de
@@ -21,50 +21,57 @@
   </div>
 </p-panel>
 <!--LANGUAGES-->
-<p-panel header="Langages et outils">
+<p-panel header='Langages et outils'>
   <div
-    style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 2rem; grid-row-gap: 1rem; padding: 0 2rem"
+    style='display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 2rem; grid-row-gap: 1rem; padding: 0 2rem'
   >
-    <ng-container *ngFor="let tool of tools">
-      <div class="tool">
+    <ng-container *ngFor='let tool of tools'>
+      <div class='tool'>
         <span>{{ tool.name }}</span>
-        <p-progressBar [value]="tool.rate" [showValue]="false"></p-progressBar>
+        <p-progressBar [value]='tool.rate' [showValue]='false'></p-progressBar>
       </div>
     </ng-container>
   </div>
 </p-panel>
 <!--EXPERIENCE-->
-<p-panel header="Expérience">
-  <p-timeline [value]="missions" align="alternate" styleClass="customized-timeline">
-    <ng-template pTemplate="marker" let-mission>
-      <span class="custom-marker p-shadow-2" [style.backgroundColor]="'#607D8B'">
+<p-panel header='Expérience'>
+  <p-timeline [value]='missions' align='alternate' styleClass='customized-timeline'>
+    <ng-template pTemplate='marker' let-mission>
+      <span class='custom-marker p-shadow-2' [style.backgroundColor]="'#607D8B'">
         <i [ngClass]="'pi pi-bookmark'"></i>
       </span>
     </ng-template>
-    <ng-template pTemplate="content" let-mission>
+    <ng-template pTemplate='content' let-mission>
       <p-card
-        [header]="mission.client"
-        [subheader]="missionTimelapse(mission.startDate, mission.endDate)"
+        [header]='mission.client'
+        [subheader]='missionTimelapse(mission.startDate, mission.endDate)'
         [style]="{ backgroundColor: 'hsl(48, 37%, 94%)' }"
-        styleClass="mission"
+        styleClass='mission'
       >
-        <markdown [src]="missionFromDate(mission.startDate)"></markdown>
-        <button pButton label="En savoir plus" class="p-button-text"></button>
+        <markdown [src]="missionFromDate(mission.startDate, 'light')"></markdown>
+        <button pButton label='En savoir plus' class='p-button-text' (click)='openDialog(mission.startDate)'></button>
       </p-card>
     </ng-template>
   </p-timeline>
 </p-panel>
 <!--LOISIRS-->
-<p-panel header="Loisirs">
-  <div class="p-grid p-flex-column">
-    <div class="p-col">
+<p-panel header='Loisirs'>
+  <div class='p-grid p-flex-column'>
+    <div class='p-col'>
       <p-tag>Basketball en compétition (niveau excellence)</p-tag>
     </div>
-    <div class="p-col">
+    <div class='p-col'>
       <p-tag>Course à pied (marathon de Toulouse en équipe)</p-tag>
     </div>
-    <div class="p-col">
+    <div class='p-col'>
       <p-tag>Développement</p-tag>
     </div>
   </div>
 </p-panel>
+<!--DETAILS-->
+<p-dialog [(visible)]='displayDialog'>
+  <div>
+    <markdown [src]="missionFromDate(selectedStartDate, 'light')"></markdown>
+    <markdown [src]="missionFromDate(selectedStartDate, 'full')"></markdown>
+  </div>
+</p-dialog>
