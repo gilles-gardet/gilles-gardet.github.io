@@ -73,7 +73,7 @@
   </div>
 </p-panel>
 <!--DETAILS-->
-<p-dialog *ngIf="selectedMission" [(visible)]="displayDialog" [header]="selectedMission?.client">
+<p-dialog *ngIf="selectedMission" [(visible)]="displayDialog" [header]="selectedMission?.client" [modal]="true">
   <div style="display: flex; flex-direction: column; text-align: left">
     <markdown [src]="missionFromDate(selectedMission?.startDate, 'light')"></markdown>
     <markdown [src]="missionFromDate(selectedMission?.startDate, 'full')"></markdown>
