@@ -1,0 +1,10 @@
+::ng-deep {
+  .p-card-title,
+  .p-card-subtitle {
+    text-align: center;
+  }
+
+  .p-tag, .p-progressbar .p-progressbar-value {
+    background: var(--dark-grey);
+  }
+}

@@ -2,16 +2,16 @@
   <div class="welcome">
     <div class="welcome__content">
       <h1>Bonjour, je m'appelle Gilles.</h1>
-      <p class="subtitle">Bienvenue sur mon Curriculum Vitae !</p>
+      <p class="welcome__content__subtitle">Bienvenue sur mon CV 😊</p>
     </div>
     <a (click)="scrollToPortfolio(portfolio)">
-      <img src="assets/chevron.svg" alt="lien portfolio" style="width: 3rem" class="portfolio__goto">
+      <img src="assets/chevron.svg" alt="lien portfolio" style="width: 3rem" class="welcome__content__goto">
     </a>
   </div>
   <aside>
     <portfolio-sidebar></portfolio-sidebar>
   </aside>
-  <main #portfolio id="portfolio">
+  <main #portfolio>
     <portfolio-resume></portfolio-resume>
   </main>
 </div>

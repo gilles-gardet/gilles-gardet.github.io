@@ -1,12 +1,14 @@
+@use "src/styles/primeng/override";
+
 #container {
   height: 100vh;
   display: grid;
   grid-template: 1fr 1fr / 18rem minmax(18rem, 65rem);
   justify-content: center;
-  //scroll-snap-type: y mandatory;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  //scroll-snap-type: y mandatory;
 
   &::-webkit-scrollbar {
     display: none;
@@ -21,8 +23,7 @@
     align-items: center;
     scroll-snap-align: end;
 
-    .welcome__content {
-
+    &__content {
       h1 {
         font-size: clamp(1rem, 3vw + 1rem, 4rem);
         position: relative;
@@ -48,11 +49,10 @@
           width: 0.125em;
           background: black;
           animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards,
-          blink 750ms steps(var(--typewriterCharacters)) infinite;
+            blink 750ms steps(var(--typewriterCharacters)) infinite;
         }
       }
-
-      .subtitle {
+      &__subtitle {
         color: hsl(0 0% 0% / 0.7);
         margin: 5rem 0;
         font-size: 2rem;
@@ -61,17 +61,18 @@
         transform: translateY(3rem);
         animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
       }
-    }
 
-    .portfolio__goto {
-      opacity: 0;
-      animation: bounce 1.5s infinite calc(var(--typewriterSpeed) + 3s),
-      visibility 1.5s forwards calc(var(--typewriterSpeed) + 3s);
+      &__goto {
+        opacity: 0;
+        animation: bounce 1.5s infinite calc(var(--typewriterSpeed) + 3s),
+        visibility 1.5s forwards calc(var(--typewriterSpeed) + 3s);
 
-      &:hover {
-        cursor: pointer;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
+
 
     @keyframes typewriter {
       to {
@@ -92,7 +93,11 @@
     }
 
     @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
         transform: translateY(0);
       }
       40% {

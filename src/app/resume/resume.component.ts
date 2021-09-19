@@ -12,7 +12,7 @@ import { MarkdownService } from 'ngx-markdown';
 export class ResumeComponent implements AfterViewInit {
   missions: any[] = [];
   tools: any[] = [];
-  selectedStartDate: string = '';
+  selectedMission: any = null;
   experience: Date = new Date(2013, 4);
   displayDialog = false;
 
@@ -161,8 +161,8 @@ export class ResumeComponent implements AfterViewInit {
   /**
    * Open the details dialog
    */
-  openDialog(date: string): void {
+  openDialog(mission: any): void {
     this.displayDialog = true;
-    this.selectedStartDate = date;
+    this.selectedMission = mission;
   }
 }
