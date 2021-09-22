@@ -76,6 +76,20 @@ export class ResumeComponent implements AfterViewInit {
         threshold: 0,
       }
     );
+    // const rateIntersectionObserver = new IntersectionObserver(
+    //   (entries: IntersectionObserverEntry[]) => {
+    //     // trigger the animation on the intersection according to the side of the timeline event
+    //     entries.forEach((entry: IntersectionObserverEntry) => {
+    //       if (entry.isIntersecting)
+    //         entry.target
+    //           .querySelectorAll('.p-progressbar-value')
+    //           .forEach((element: Element) => );
+    //     });
+    //   },
+    //   {
+    //     threshold: 0,
+    //   }
+    // );
     const experienceElement = document.querySelector('p-panel[header="Expérience"] .p-component .p-timeline-alternate');
     if (experienceElement) intersectionObserver.observe(experienceElement);
   }

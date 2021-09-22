@@ -3,17 +3,25 @@
   grid-row-gap: 2rem;
 
   .tool {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 1rem;
+    padding: 0 2rem;
 
-    > span {
-      flex: 1;
-      text-align: start;
-      white-space: nowrap;
-    }
+    &__languages {
+      display: flex;
+      align-items: center;
 
-    > p-progressbar {
-      flex: 2;
+      > span {
+        flex: 1;
+        text-align: start;
+        white-space: nowrap;
+      }
+
+      > p-progressbar {
+        flex: 2;
+      }
     }
   }
 
@@ -129,6 +137,10 @@
   }
 
   @media screen and (max-width: 960px) {
+    .tool {
+      grid-template-columns: 1fr;
+    }
+
     ::ng-deep {
       .customized-timeline {
         .p-timeline-event:nth-child(even) {

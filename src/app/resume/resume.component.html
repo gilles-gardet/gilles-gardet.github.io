@@ -22,11 +22,9 @@
 </p-panel>
 <!--LANGUAGES-->
 <p-panel header="Langages et outils">
-  <div
-    style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 2rem; grid-row-gap: 1rem; padding: 0 2rem"
-  >
+  <div class="tool">
     <ng-container *ngFor="let tool of tools">
-      <div class="tool">
+      <div class="tool__languages">
         <span>{{ tool.name }}</span>
         <p-progressBar [value]="tool.rate" [showValue]="false"></p-progressBar>
       </div>
