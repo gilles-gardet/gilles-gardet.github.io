@@ -6,7 +6,7 @@
   display: grid;
   grid-template: 1fr 1fr / 18rem minmax(18rem, 65rem);
   justify-content: center;
-  overflow-y: scroll;
+  // overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
   //scroll-snap-type: y mandatory;
