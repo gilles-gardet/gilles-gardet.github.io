@@ -76,7 +76,7 @@
   [(visible)]="displayDialog"
   [header]="selectedMission?.client"
   [modal]="true"
-  [style]="{ minWidth: '30rem' }"
+  [style]="{ maxWidth: '1280px', minWidth: '80vh' }"
 >
   <div *ngIf="!loading; else progress" style="display: flex; flex-direction: column; text-align: left">
     <markdown

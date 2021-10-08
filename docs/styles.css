@@ -75,7 +75,8 @@ a.fancy:hover {
 ::ng-deep code {
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
   font-size: 0.7rem;
-  background-color: lightgray;
+  background-color: #1c1c1c;
+  color: var(--primary-clear);
   border-radius: 5px;
   padding: 0.2rem;
 }

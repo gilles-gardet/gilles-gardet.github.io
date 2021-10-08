@@ -185,7 +185,7 @@ export class ResumeComponent implements AfterViewInit {
    * Event catched when the markdown service has finished to parsed the file
    */
   onLoad(): void {
-    this.loading = false;
+    // this.loading = false;
   }
 
   /**
