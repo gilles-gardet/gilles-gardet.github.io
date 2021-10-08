@@ -71,9 +71,26 @@
   </div>
 </p-panel>
 <!--DETAILS-->
-<p-dialog *ngIf="selectedMission" [(visible)]="displayDialog" [header]="selectedMission?.client" [modal]="true">
-  <div style="display: flex; flex-direction: column; text-align: left">
-    <markdown [src]="missionFromDate(selectedMission?.startDate, 'light')"></markdown>
-    <markdown [src]="missionFromDate(selectedMission?.startDate, 'full')"></markdown>
+<p-dialog
+  *ngIf="selectedMission"
+  [(visible)]="displayDialog"
+  [header]="selectedMission?.client"
+  [modal]="true"
+  [style]="{ minWidth: '30rem' }"
+>
+  <div *ngIf="!loading; else progress" style="display: flex; flex-direction: column; text-align: left">
+    <markdown
+      [src]="missionFromDate(selectedMission?.startDate, 'light')"
+      (load)="onLoad()"
+      (ready)="onReady()"
+    ></markdown>
+    <markdown
+      [src]="missionFromDate(selectedMission?.startDate, 'full')"
+      (load)="onLoad()"
+      (ready)="onReady()"
+    ></markdown>
   </div>
+  <ng-template #progress>
+    <p-progressSpinner></p-progressSpinner>
+  </ng-template>
 </p-dialog>

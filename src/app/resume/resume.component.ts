@@ -15,6 +15,7 @@ export class ResumeComponent implements AfterViewInit {
   selectedMission: any = null;
   experience: Date = new Date(2013, 4);
   displayDialog = false;
+  loading = false;
 
   /**
    * Constructor
@@ -178,5 +179,19 @@ export class ResumeComponent implements AfterViewInit {
   openDialog(mission: any): void {
     this.displayDialog = true;
     this.selectedMission = mission;
+  }
+
+  /**
+   * Event catched when the markdown service has finished to parsed the file
+   */
+  onLoad(): void {
+    this.loading = false;
+  }
+
+  /**
+   * Event catched when the markdown service has started to parsed the file
+   */
+  onReady(): void {
+    this.loading = true;
   }
 }

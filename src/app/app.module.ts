@@ -19,6 +19,7 @@ import { DividerModule } from 'primeng/divider';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
 import { DialogModule } from 'primeng/dialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [AppComponent, ResumeComponent, SidebarComponent],
@@ -39,6 +40,7 @@ import { DialogModule } from 'primeng/dialog';
     TagModule,
     TimelineModule,
     DialogModule,
+    ProgressSpinnerModule,
   ],
   bootstrap: [AppComponent],
 })
