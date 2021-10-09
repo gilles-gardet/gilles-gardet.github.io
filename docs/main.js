@@ -284,7 +284,7 @@ function ResumeComponent_p_dialog_37_div_1_Template(rf, ctx) { if (rf & 1) {
 function ResumeComponent_p_dialog_37_ng_template_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "p-progressSpinner");
 } }
-const _c1 = function () { return { maxWidth: "1280px", minWidth: "80vh" }; };
+const _c1 = function () { return { maxWidth: "1280px", minWidth: "70vw" }; };
 function ResumeComponent_p_dialog_37_Template(rf, ctx) { if (rf & 1) {
     const _r18 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "p-dialog", 20);
@@ -463,7 +463,7 @@ class ResumeComponent {
      * Event catched when the markdown service has finished to parsed the file
      */
     onLoad() {
-        // this.loading = false;
+        this.loading = false;
     }
     /**
      * Event catched when the markdown service has started to parsed the file
