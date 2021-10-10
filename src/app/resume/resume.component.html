@@ -79,19 +79,8 @@
   [style]="{ maxWidth: '1280px', minWidth: '70vw' }"
   (onHide)="selectedMission = null"
 >
-  <div *ngIf="!loading; else progress" style="display: flex; flex-direction: column; text-align: left">
-    <markdown
-      [src]="missionFromDate(selectedMission?.startDate, 'light')"
-      (load)="onLoad()"
-      (ready)="onReady()"
-    ></markdown>
-    <markdown
-      [src]="missionFromDate(selectedMission?.startDate, 'full')"
-      (load)="onLoad()"
-      (ready)="onReady()"
-    ></markdown>
+  <div style="display: flex; flex-direction: column; text-align: left">
+    <markdown [src]="missionFromDate(selectedMission?.startDate, 'light')"></markdown>
+    <markdown [src]="missionFromDate(selectedMission?.startDate, 'full')"></markdown>
   </div>
-  <ng-template #progress>
-    <p-progressSpinner></p-progressSpinner>
-  </ng-template>
 </p-dialog>
