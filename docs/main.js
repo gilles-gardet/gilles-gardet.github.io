@@ -288,7 +288,7 @@ const _c1 = function () { return { maxWidth: "1280px", minWidth: "70vw" }; };
 function ResumeComponent_p_dialog_37_Template(rf, ctx) { if (rf & 1) {
     const _r18 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "p-dialog", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("visibleChange", function ResumeComponent_p_dialog_37_Template_p_dialog_visibleChange_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r18); const ctx_r17 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r17.displayDialog = $event; });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("visibleChange", function ResumeComponent_p_dialog_37_Template_p_dialog_visibleChange_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r18); const ctx_r17 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r17.displayDialog = $event; })("onHide", function ResumeComponent_p_dialog_37_Template_p_dialog_onHide_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r18); const ctx_r19 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r19.selectedMission = null; });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, ResumeComponent_p_dialog_37_div_1_Template, 3, 2, "div", 21);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, ResumeComponent_p_dialog_37_ng_template_2_Template, 1, 0, "ng-template", null, 22, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplateRefExtractor"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -316,6 +316,7 @@ class ResumeComponent {
         this.experience = new Date(2013, 4);
         this.displayDialog = false;
         this.loading = false;
+        this.clones = [];
         // empty
     }
     /**
@@ -323,7 +324,11 @@ class ResumeComponent {
      */
     ngOnInit() {
         (0,rxjs__WEBPACK_IMPORTED_MODULE_2__.of)(_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment === null || _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment === void 0 ? void 0 : _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.missions).subscribe((response) => (this.missions = response));
-        (0,rxjs__WEBPACK_IMPORTED_MODULE_2__.of)(_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment === null || _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment === void 0 ? void 0 : _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.tools).subscribe((response) => (this.tools = response));
+        (0,rxjs__WEBPACK_IMPORTED_MODULE_2__.of)(_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment === null || _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment === void 0 ? void 0 : _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.tools).subscribe((response) => {
+            this.tools = response;
+            this.clones = response;
+            this.tools = this.tools.map((tool) => ({ name: tool.name, rate: 0 }));
+        });
     }
     /**
      * Retrieve the mission from the passed date
@@ -364,23 +369,24 @@ class ResumeComponent {
         }, {
             threshold: 0,
         });
-        // const rateIntersectionObserver = new IntersectionObserver(
-        //   (entries: IntersectionObserverEntry[]) => {
-        //     // trigger the animation on the intersection according to the side of the timeline event
-        //     entries.forEach((entry: IntersectionObserverEntry) => {
-        //       if (entry.isIntersecting)
-        //         entry.target
-        //           .querySelectorAll('.p-progressbar-value')
-        //           .forEach((element: Element) => );
-        //     });
-        //   },
-        //   {
-        //     threshold: 0,
-        //   }
-        // );
         const experienceElement = document.querySelector('p-panel[header="Expérience"] .p-component .p-timeline-alternate');
         if (experienceElement)
             intersectionObserver.observe(experienceElement);
+        const rateIntersectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    this.tools.forEach((tool) => (tool.rate = this.clones.find((clone) => clone.name === tool.name).rate));
+                }
+                else {
+                    this.tools = this.tools.map((tool) => ({ name: tool.name, rate: 0 }));
+                }
+            });
+        }, {
+            threshold: 0,
+        });
+        const rateElement = document.querySelector('p-panel[header="Langages et outils"] .p-component');
+        if (rateElement)
+            rateIntersectionObserver.observe(rateElement);
     }
     /**
      * Calculate the number of years between a given date and the current date
@@ -473,7 +479,7 @@ class ResumeComponent {
     }
 }
 ResumeComponent.ɵfac = function ResumeComponent_Factory(t) { return new (t || ResumeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__.HttpClient), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_markdown__WEBPACK_IMPORTED_MODULE_4__.MarkdownService)); };
-ResumeComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: ResumeComponent, selectors: [["portfolio-resume"]], decls: 38, vars: 4, consts: [["header", "Profil et g\u00E9n\u00E9ralit\u00E9s"], [2, "text-align", "start"], ["header", "Langages et outils"], [1, "tool"], [4, "ngFor", "ngForOf"], ["header", "Exp\u00E9rience"], ["align", "alternate", "styleClass", "customized-timeline", 3, "value"], ["pTemplate", "marker"], ["pTemplate", "content"], ["header", "Loisirs"], [1, "p-grid", "p-flex-column", 2, "display", "flex", "flex-direction", "column", "gap", "1rem"], [3, "visible", "header", "modal", "style", "visibleChange", 4, "ngIf"], [1, "tool__languages"], [3, "value", "showValue"], [1, "custom-marker", "p-shadow-2"], [3, "ngClass"], ["styleClass", "mission", 3, "header", "subheader"], [3, "src"], [2, "display", "flex", "justify-content", "center"], ["pButton", "", "type", "button", "icon", "pi pi-info-circle", "iconPos", "left", "label", "En savoir plus", 1, "p-button-secondary", "p-button-rounded", "p-button-outlined", 3, "click"], [3, "visible", "header", "modal", "visibleChange"], ["style", "display: flex; flex-direction: column; text-align: left", 4, "ngIf", "ngIfElse"], ["progress", ""], [2, "display", "flex", "flex-direction", "column", "text-align", "left"], [3, "src", "load", "ready"]], template: function ResumeComponent_Template(rf, ctx) { if (rf & 1) {
+ResumeComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: ResumeComponent, selectors: [["portfolio-resume"]], decls: 38, vars: 4, consts: [["header", "Profil et g\u00E9n\u00E9ralit\u00E9s"], [2, "text-align", "start"], ["header", "Langages et outils"], [1, "tool"], [4, "ngFor", "ngForOf"], ["header", "Exp\u00E9rience"], ["align", "alternate", "styleClass", "customized-timeline", 3, "value"], ["pTemplate", "marker"], ["pTemplate", "content"], ["header", "Loisirs"], [1, "p-grid", "p-flex-column", 2, "display", "flex", "flex-direction", "column", "gap", "1rem"], [3, "visible", "header", "modal", "style", "visibleChange", "onHide", 4, "ngIf"], [1, "tool__languages"], [3, "value", "showValue"], [1, "custom-marker", "p-shadow-2"], [3, "ngClass"], ["styleClass", "mission", 3, "header", "subheader"], [3, "src"], [2, "display", "flex", "justify-content", "center"], ["pButton", "", "type", "button", "icon", "pi pi-info-circle", "iconPos", "left", "label", "En savoir plus", 1, "p-button-secondary", "p-button-rounded", "p-button-outlined", 3, "click"], [3, "visible", "header", "modal", "visibleChange", "onHide"], ["style", "display: flex; flex-direction: column; text-align: left", 4, "ngIf", "ngIfElse"], ["progress", ""], [2, "display", "flex", "flex-direction", "column", "text-align", "left"], [3, "src", "load", "ready"]], template: function ResumeComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "p-panel", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "p");
