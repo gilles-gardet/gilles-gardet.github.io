@@ -16,6 +16,7 @@ export class ResumeComponent implements AfterViewInit {
   experience: Date = new Date(2013, 4);
   displayDialog = false;
   loading = false;
+  clones: any[] = [];
 
   /**
    * Constructor
@@ -32,7 +33,11 @@ export class ResumeComponent implements AfterViewInit {
    */
   ngOnInit(): void {
     of(environment?.missions).subscribe((response) => (this.missions = response));
-    of(environment?.tools).subscribe((response) => (this.tools = response));
+    of(environment?.tools).subscribe((response) => {
+      this.tools = response;
+      this.clones = response;
+      this.tools = this.tools.map((tool) => ({ name: tool.name, rate: 0 }));
+    });
   }
 
   /**
@@ -77,22 +82,24 @@ export class ResumeComponent implements AfterViewInit {
         threshold: 0,
       }
     );
-    // const rateIntersectionObserver = new IntersectionObserver(
-    //   (entries: IntersectionObserverEntry[]) => {
-    //     // trigger the animation on the intersection according to the side of the timeline event
-    //     entries.forEach((entry: IntersectionObserverEntry) => {
-    //       if (entry.isIntersecting)
-    //         entry.target
-    //           .querySelectorAll('.p-progressbar-value')
-    //           .forEach((element: Element) => );
-    //     });
-    //   },
-    //   {
-    //     threshold: 0,
-    //   }
-    // );
     const experienceElement = document.querySelector('p-panel[header="Expérience"] .p-component .p-timeline-alternate');
     if (experienceElement) intersectionObserver.observe(experienceElement);
+    const rateIntersectionObserver = new IntersectionObserver(
+      (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
+          if (entry.isIntersecting) {
+            this.tools.forEach((tool) => (tool.rate = this.clones.find((clone) => clone.name === tool.name).rate));
+          } else {
+            this.tools = this.tools.map((tool) => ({ name: tool.name, rate: 0 }));
+          }
+        });
+      },
+      {
+        threshold: 0,
+      }
+    );
+    const rateElement = document.querySelector('p-panel[header="Langages et outils"] .p-component');
+    if (rateElement) rateIntersectionObserver.observe(rateElement);
   }
 
   /**
