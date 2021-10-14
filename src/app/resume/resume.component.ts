@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { of } from 'rxjs';
+import { forkJoin, Observable, of } from 'rxjs';
 import { environment } from '@environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { MarkdownService } from 'ngx-markdown';
@@ -16,6 +16,9 @@ export class ResumeComponent implements AfterViewInit {
   experience: Date = new Date(2013, 4);
   displayDialog = false;
   clones: any[] = [];
+  loading = true;
+  innerFullMission: string = '';
+  innerLightMission: string = '';
 
   /**
    * Constructor
@@ -185,5 +188,29 @@ export class ResumeComponent implements AfterViewInit {
   openDialog(mission: any): void {
     this.displayDialog = true;
     this.selectedMission = mission;
+  }
+
+  /**
+   * Re-initialize the loader of the dialog content
+   */
+  onDialogHiding(): void {
+    this.loading = true;
+  }
+
+  /**
+   *
+   */
+  onMissionLoading(): void {
+    const fullMission: Observable<string> = this.markdownService.getSource(
+      this.missionFromDate(this.selectedMission?.startDate, 'full')
+    );
+    const lightMission: Observable<string> = this.markdownService.getSource(
+      this.missionFromDate(this.selectedMission?.startDate, 'light')
+    );
+    forkJoin({ lightMission, fullMission }).subscribe((value) => {
+      this.innerLightMission = this.markdownService.compile(value.lightMission);
+      this.innerFullMission = this.markdownService.compile(value.fullMission);
+      setTimeout(() => (this.loading = false), 600);
+    });
   }
 }

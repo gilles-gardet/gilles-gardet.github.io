@@ -76,11 +76,23 @@
   [(visible)]="displayDialog"
   [header]="selectedMission?.client"
   [modal]="true"
-  [style]="{ maxWidth: '1280px', minWidth: '70vw' }"
-  (onHide)="selectedMission = null"
+  [style]="{ maxWidth: '1280px' }"
+  (onHide)="onDialogHiding()"
+  [closeOnEscape]="true"
+  (onShow)="onMissionLoading()"
 >
-  <div style="display: flex; flex-direction: column; text-align: left">
-    <markdown [src]="missionFromDate(selectedMission?.startDate, 'light')"></markdown>
-    <markdown [src]="missionFromDate(selectedMission?.startDate, 'full')"></markdown>
+  <ng-template pTemplate="header">
+    <span style="font-style: italic; margin: 0 1rem">{{
+      missionTimelapse(selectedMission?.startDate, selectedMission?.endDate)
+    }}</span>
+  </ng-template>
+  <div *ngIf="loading; else missionContent">
+    <p-progressSpinner strokeWidth="6" styleClass="custom-spinner"></p-progressSpinner>
   </div>
+  <ng-template #missionContent>
+    <div style="display: flex; flex-direction: column; text-align: left">
+      <div [innerHTML]="innerLightMission"></div>
+      <div [innerHTML]="innerFullMission"></div>
+    </div>
+  </ng-template>
 </p-dialog>
