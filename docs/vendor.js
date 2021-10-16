@@ -72952,6 +72952,276 @@ RippleModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["
 
 /***/ }),
 
+/***/ 5484:
+/*!************************************************************!*\
+  !*** ./node_modules/primeng/fesm2015/primeng-scrolltop.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ScrollTop": () => (/* binding */ ScrollTop),
+/* harmony export */   "ScrollTopModule": () => (/* binding */ ScrollTopModule)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/animations */ 7238);
+/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ 1818);
+
+
+
+
+
+
+
+const _c0 = function (a0, a1) {
+  return {
+    showTransitionParams: a0,
+    hideTransitionParams: a1
+  };
+};
+
+const _c1 = function (a1) {
+  return {
+    value: "open",
+    params: a1
+  };
+};
+
+function ScrollTop_button_0_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("@animation.start", function ScrollTop_button_0_Template_button_animation_animation_start_0_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r2);
+      const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+      return ctx_r1.onEnter();
+    })("click", function ScrollTop_button_0_Template_button_click_0_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r2);
+      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+      return ctx_r3.onClick();
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "span", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+
+  if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx_r0.styleClass);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("@animation", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](11, _c1, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](8, _c0, ctx_r0.showTransitionOptions, ctx_r0.hideTransitionOptions)))("ngClass", ctx_r0.containerClass())("ngStyle", ctx_r0.style);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx_r0.icon);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", "p-scrolltop-icon");
+  }
+}
+
+class ScrollTop {
+  constructor(el, cd) {
+    this.el = el;
+    this.cd = cd;
+    this.target = "window";
+    this.threshold = 400;
+    this.icon = "pi pi-chevron-up";
+    this.behavior = "smooth";
+    this.showTransitionOptions = '.15s';
+    this.hideTransitionOptions = '.15s';
+    this.visible = false;
+  }
+
+  ngOnInit() {
+    if (this.target === 'window') this.bindDocumentScrollListener();else if (this.target === 'parent') this.bindParentScrollListener();
+  }
+
+  onClick() {
+    let scrollElement = this.target === 'window' ? window : this.el.nativeElement.parentElement;
+    scrollElement.scroll({
+      top: 0,
+      behavior: this.behavior
+    });
+  }
+
+  onEnter() {
+    this.el.nativeElement.children[0].style.zIndex = primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.generateZIndex();
+  }
+
+  checkVisibility(scrollY) {
+    if (scrollY > this.threshold) this.visible = true;else this.visible = false;
+    this.cd.markForCheck();
+  }
+
+  bindParentScrollListener() {
+    this.scrollListener = () => {
+      this.checkVisibility(this.el.nativeElement.parentElement.scrollTop);
+    };
+
+    this.el.nativeElement.parentElement.addEventListener('scroll', this.scrollListener);
+  }
+
+  bindDocumentScrollListener() {
+    this.scrollListener = () => {
+      this.checkVisibility(primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.getWindowScrollTop());
+    };
+
+    window.addEventListener('scroll', this.scrollListener);
+  }
+
+  unbindParentScrollListener() {
+    if (this.scrollListener) {
+      this.el.nativeElement.parentElement.removeEventListener('scroll', this.scrollListener);
+      this.scrollListener = null;
+    }
+  }
+
+  unbindDocumentScrollListener() {
+    if (this.scrollListener) {
+      window.removeEventListener('scroll', this.scrollListener);
+      this.scrollListener = null;
+    }
+  }
+
+  containerClass() {
+    return {
+      'p-scrolltop p-link p-component': true,
+      'p-scrolltop-sticky': this.target !== 'window'
+    };
+  }
+
+  ngOnDestroy() {
+    if (this.target === 'window') this.unbindDocumentScrollListener();else if (this.target === 'parent') this.unbindParentScrollListener();
+  }
+
+}
+
+ScrollTop.ɵfac = function ScrollTop_Factory(t) {
+  return new (t || ScrollTop)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectorRef));
+};
+
+ScrollTop.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+  type: ScrollTop,
+  selectors: [["p-scrollTop"]],
+  inputs: {
+    styleClass: "styleClass",
+    style: "style",
+    target: "target",
+    threshold: "threshold",
+    icon: "icon",
+    behavior: "behavior",
+    showTransitionOptions: "showTransitionOptions",
+    hideTransitionOptions: "hideTransitionOptions"
+  },
+  decls: 1,
+  vars: 1,
+  consts: [["type", "button", 3, "ngClass", "class", "ngStyle", "click", 4, "ngIf"], ["type", "button", 3, "ngClass", "ngStyle", "click"], [3, "ngClass"]],
+  template: function ScrollTop_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ScrollTop_button_0_Template, 2, 13, "button", 0);
+    }
+
+    if (rf & 2) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.visible);
+    }
+  },
+  directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_2__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_2__.NgStyle],
+  styles: [".p-scrolltop{position:fixed;bottom:20px;right:20px;display:flex;align-items:center;justify-content:center}.p-scrolltop-sticky{position:sticky}.p-scrolltop-sticky.p-link{margin-left:auto}"],
+  encapsulation: 2,
+  data: {
+    animation: [(0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.trigger)('animation', [(0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.state)('void', (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.style)({
+      opacity: 0
+    })), (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.state)('open', (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.style)({
+      opacity: 1
+    })), (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.transition)('void => open', (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.animate)('{{showTransitionParams}}')), (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.transition)('open => void', (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.animate)('{{hideTransitionParams}}'))])]
+  },
+  changeDetection: 0
+});
+
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ScrollTop, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
+    args: [{
+      selector: 'p-scrollTop',
+      template: `
+        <button  *ngIf="visible" [@animation]="{value: 'open', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" (@animation.start)="onEnter()"
+            [ngClass]="containerClass()" (click)="onClick()" [class]="styleClass" [ngStyle]="style" type="button">
+            <span [class]="icon" [ngClass]="'p-scrolltop-icon'"></span>
+        </button>
+    `,
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
+      styleUrls: ['./scrolltop.css'],
+      animations: [(0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.trigger)('animation', [(0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.state)('void', (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.style)({
+        opacity: 0
+      })), (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.state)('open', (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.style)({
+        opacity: 1
+      })), (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.transition)('void => open', (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.animate)('{{showTransitionParams}}')), (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.transition)('open => void', (0,_angular_animations__WEBPACK_IMPORTED_MODULE_3__.animate)('{{hideTransitionParams}}'))])]
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ElementRef
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectorRef
+    }];
+  }, {
+    styleClass: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+    }],
+    style: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+    }],
+    target: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+    }],
+    threshold: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+    }],
+    icon: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+    }],
+    behavior: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+    }],
+    showTransitionOptions: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+    }],
+    hideTransitionOptions: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+    }]
+  });
+})();
+
+class ScrollTopModule {}
+
+ScrollTopModule.ɵfac = function ScrollTopModule_Factory(t) {
+  return new (t || ScrollTopModule)();
+};
+
+ScrollTopModule.ɵmod = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+  type: ScrollTopModule
+});
+ScrollTopModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+  imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_2__.CommonModule]]
+});
+
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ScrollTopModule, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.NgModule,
+    args: [{
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.CommonModule],
+      exports: [ScrollTop],
+      declarations: [ScrollTop]
+    }]
+  }], null, null);
+})();
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+ //# sourceMappingURL=primeng-scrolltop.js.map
+
+/***/ }),
+
 /***/ 3771:
 /*!******************************************************!*\
   !*** ./node_modules/primeng/fesm2015/primeng-tag.js ***!

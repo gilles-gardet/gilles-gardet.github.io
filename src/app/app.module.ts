@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
 import { DialogModule } from 'primeng/dialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ScrollTopModule } from 'primeng/scrolltop';
 
 @NgModule({
   declarations: [AppComponent, ResumeComponent, SidebarComponent],
@@ -41,6 +42,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     TimelineModule,
     DialogModule,
     ProgressSpinnerModule,
+    ScrollTopModule,
   ],
   bootstrap: [AppComponent],
 })
