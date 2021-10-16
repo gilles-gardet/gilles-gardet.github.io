@@ -75,6 +75,20 @@
     .p-dialog .p-dialog-content {
       border-bottom-right-radius: 3px;
       border-bottom-left-radius: 3px;
+      display: flex;
+      justify-content: center;
+
+      .mission__content {
+        max-height: 100px;
+        max-width: 100px;
+        color: white;
+        transition: max-height 800ms ease-in-out, max-width 800ms ease-in-out, color 800ms ease-in-out 800ms;
+      }
+      .mission__content-transition {
+        max-height: 100vh;
+        max-width: calc(1280px - 3rem);
+        color: black;
+      }
     }
 
     .p-progressbar {

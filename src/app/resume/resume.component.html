@@ -86,13 +86,17 @@
       missionTimelapse(selectedMission?.startDate, selectedMission?.endDate)
     }}</span>
   </ng-template>
-  <div *ngIf="loading; else missionContent">
-    <p-progressSpinner strokeWidth="6" styleClass="custom-spinner"></p-progressSpinner>
-  </div>
-  <ng-template #missionContent>
-    <div style="display: flex; flex-direction: column; text-align: left">
-      <div [innerHTML]="innerLightMission"></div>
-      <div [innerHTML]="innerFullMission"></div>
+  <ng-template pTemplate="content">
+    <div [class.mission__content-transition]="!loading" class="mission__content">
+      <div *ngIf="loading; else missionContent">
+        <p-progressSpinner strokeWidth="6" styleClass="custom-spinner"></p-progressSpinner>
+      </div>
+      <ng-template #missionContent>
+        <div style="display: flex; flex-direction: column; text-align: left">
+          <div [innerHTML]="innerLightMission"></div>
+          <div [innerHTML]="innerFullMission"></div>
+        </div>
+      </ng-template>
     </div>
   </ng-template>
 </p-dialog>
