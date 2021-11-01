@@ -1,39 +1,51 @@
-import { AfterViewInit, Component } from '@angular/core';
-import { forkJoin, Observable, of } from 'rxjs';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { Subscription, forkJoin, Observable, of } from 'rxjs';
 import { environment } from '@environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { MarkdownService } from 'ngx-markdown';
+import { ConfigService } from '../services/config.service';
+import { Config } from '../domains/config.interface';
 
 @Component({
   selector: 'portfolio-resume',
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss'],
 })
-export class ResumeComponent implements AfterViewInit {
+export class ResumeComponent implements AfterViewInit, OnDestroy {
+  subscription: Subscription | undefined;
+  config: Config | undefined;
+
+  selectedMission: any = null;
   missions: any[] = [];
   tools: any[] = [];
-  selectedMission: any = null;
-  experience: Date = new Date(2013, 4);
-  displayDialog = false;
   clones: any[] = [];
+  displayDialog = false;
   loading = true;
   innerFullMission: string = '';
   innerLightMission: string = '';
+  experience: Date = new Date(2013, 4);
 
   /**
    * Constructor
    *
+   * @param configService the configuration service to be injected as a dependency
    * @param httpClient the HTTP client to be injected as a dependency
    * @param markdownService the markdown service to be injected as a dependency
    */
-  constructor(private httpClient: HttpClient, private markdownService: MarkdownService) {
+  constructor(
+    private configService: ConfigService,
+    private httpClient: HttpClient,
+    private markdownService: MarkdownService
+  ) {
     // empty
   }
 
   /**
-   * A lifecycle hook that is called after Angular has initialized all data-bound properties of a directive
+   * @inheritDoc
    */
   ngOnInit(): void {
+    this.config = this.configService.config;
+    this.subscription = this.configService.configUpdate$.subscribe((config) => (this.config = config));
     of(environment?.missions).subscribe((response) => (this.missions = response));
     of(environment?.tools).subscribe((response) => {
       this.tools = response;
@@ -59,6 +71,34 @@ export class ResumeComponent implements AfterViewInit {
    * A lifecycle hook that is called after Angular has fully initialized a component's view
    */
   ngAfterViewInit(): void {
+    this._animateSkillsOnView();
+    ResumeComponent._animateMissionsOnView();
+  }
+
+  /**
+   * Animate the skills bar when visible on screen
+   */
+  private _animateSkillsOnView(): void {
+    const rateIntersectionObserver = new IntersectionObserver(
+      (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
+          if (entry.isIntersecting) {
+            this.tools.forEach((tool) => (tool.rate = this.clones.find((clone) => clone.name === tool.name).rate));
+          }
+        });
+      },
+      {
+        threshold: 0,
+      }
+    );
+    const rateElement = document.querySelector('p-panel[header="Langages et outils"] .p-component');
+    if (rateElement) rateIntersectionObserver.observe(rateElement);
+  }
+
+  /**
+   * Animate the missions cards when visible on screen
+   */
+  private static _animateMissionsOnView(): void {
     const intersectionObserver = new IntersectionObserver(
       (entries: IntersectionObserverEntry[]) => {
         // trigger the animation on the intersection according to the side of the timeline event
@@ -70,13 +110,6 @@ export class ResumeComponent implements AfterViewInit {
             entry.target
               .querySelectorAll(':nth-child(2n) > .p-timeline-event-content')
               .forEach((element: Element) => element.classList.add('mission__animation-left'));
-          } else {
-            entry.target
-              .querySelectorAll(':nth-child(2n + 1) > .p-timeline-event-content')
-              .forEach((element: Element) => element.classList.remove('mission__animation-right'));
-            entry.target
-              .querySelectorAll(':nth-child(2n) > .p-timeline-event-content')
-              .forEach((element: Element) => element.classList.remove('mission__animation-left'));
           }
         });
       },
@@ -86,22 +119,6 @@ export class ResumeComponent implements AfterViewInit {
     );
     const experienceElement = document.querySelector('p-panel[header="Expérience"] .p-component .p-timeline-alternate');
     if (experienceElement) intersectionObserver.observe(experienceElement);
-    const rateIntersectionObserver = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry: IntersectionObserverEntry) => {
-          if (entry.isIntersecting) {
-            this.tools.forEach((tool) => (tool.rate = this.clones.find((clone) => clone.name === tool.name).rate));
-          } else {
-            this.tools = this.tools.map((tool) => ({ name: tool.name, rate: 0 }));
-          }
-        });
-      },
-      {
-        threshold: 0,
-      }
-    );
-    const rateElement = document.querySelector('p-panel[header="Langages et outils"] .p-component');
-    if (rateElement) rateIntersectionObserver.observe(rateElement);
   }
 
   /**
@@ -198,7 +215,7 @@ export class ResumeComponent implements AfterViewInit {
   }
 
   /**
-   *
+   * Parse the markdown contained in the selected mission file
    */
   onMissionLoading(): void {
     const fullMission: Observable<string> = this.markdownService.getSource(
@@ -210,7 +227,33 @@ export class ResumeComponent implements AfterViewInit {
     forkJoin({ lightMission, fullMission }).subscribe((value) => {
       this.innerLightMission = this.markdownService.compile(value.lightMission);
       this.innerFullMission = this.markdownService.compile(value.fullMission);
-      setTimeout(() => (this.loading = false), 600);
+      setTimeout(() => {
+        this.loading = false;
+        document
+          .querySelector('p-dialog > .p-dialog-mask > .p-dialog > .p-dialog-content')
+          ?.classList.add('p-dialog-content-scroll');
+      }, 600);
     });
+  }
+
+  /**
+   * Change the theme mode (dark or light)
+   *
+   * @param event the event throwed
+   * @param theme the theme
+   * @param dark the darkmode flag
+   */
+  changeTheme(event: Event, theme: string, dark: boolean): void {
+    let themeElement = document.getElementById('theme');
+    themeElement?.setAttribute('href', themeElement.getAttribute('href')?.replace(this.config?.theme!, theme)!);
+    this.configService.updateConfig({ ...this.config, ...{ theme, dark } });
+    event.preventDefault();
+  }
+
+  /**
+   * @inheritDoc
+   */
+  ngOnDestroy(): void {
+    if (this.subscription) this.subscription.unsubscribe();
   }
 }

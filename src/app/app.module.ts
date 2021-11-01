@@ -21,8 +21,11 @@ import { MarkdownModule } from 'ngx-markdown';
 import { DialogModule } from 'primeng/dialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ScrollTopModule } from 'primeng/scrolltop';
+import { ConfigService } from './services/config.service';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 @NgModule({
+  bootstrap: [AppComponent],
   declarations: [AppComponent, ResumeComponent, SidebarComponent],
   imports: [
     AppRoutingModule,
@@ -32,19 +35,20 @@ import { ScrollTopModule } from 'primeng/scrolltop';
     ButtonModule,
     CardModule,
     ChipModule,
+    DialogModule,
     DividerModule,
     FormsModule,
     HttpClientModule,
     MarkdownModule.forRoot(),
     PanelModule,
     ProgressBarModule,
-    TagModule,
-    TimelineModule,
-    DialogModule,
     ProgressSpinnerModule,
     ScrollTopModule,
+    TagModule,
+    TimelineModule,
+    ScrollPanelModule,
   ],
-  bootstrap: [AppComponent],
+  providers: [ConfigService],
 })
 export class AppModule {
   // empty
