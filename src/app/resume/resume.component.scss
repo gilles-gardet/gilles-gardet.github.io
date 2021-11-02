@@ -169,6 +169,10 @@
       justify-content: center;
     }
 
+    .p-button.p-button-secondary.p-button-outlined {
+      color: var(--dark);
+    }
+
     .mission__animation-left {
       opacity: 0;
       transform: translateX(-40px);

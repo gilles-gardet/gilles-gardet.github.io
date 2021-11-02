@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnDestroy } from '@angular/core';
 import { Subscription, forkJoin, Observable, of } from 'rxjs';
 import { environment } from '@environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -14,6 +14,7 @@ import { Config } from '../domains/config.interface';
 export class ResumeComponent implements AfterViewInit, OnDestroy {
   subscription: Subscription | undefined;
   config: Config | undefined;
+  screenWidth: any;
 
   selectedMission: any = null;
   missions: any[] = [];
@@ -52,6 +53,15 @@ export class ResumeComponent implements AfterViewInit, OnDestroy {
       this.clones = response;
       this.tools = this.tools.map((tool) => ({ name: tool.name, rate: 0 }));
     });
+    this.screenWidth = window.innerWidth;
+  }
+
+  /**
+   * Listen for the screen size changes and keep track of these sizes
+   */
+  @HostListener('window:resize', ['$event'])
+  onWindowResize(): void {
+    this.screenWidth = window.innerWidth;
   }
 
   /**
@@ -72,7 +82,7 @@ export class ResumeComponent implements AfterViewInit, OnDestroy {
    */
   ngAfterViewInit(): void {
     this._animateSkillsOnView();
-    ResumeComponent._animateMissionsOnView();
+    this._animateMissionsOnView();
   }
 
   /**
@@ -98,18 +108,24 @@ export class ResumeComponent implements AfterViewInit, OnDestroy {
   /**
    * Animate the missions cards when visible on screen
    */
-  private static _animateMissionsOnView(): void {
+  private _animateMissionsOnView(): void {
     const intersectionObserver = new IntersectionObserver(
       (entries: IntersectionObserverEntry[]) => {
         // trigger the animation on the intersection according to the side of the timeline event
         entries.forEach((entry: IntersectionObserverEntry) => {
           if (entry.isIntersecting) {
-            entry.target
-              .querySelectorAll(':nth-child(2n + 1) > .p-timeline-event-content')
-              .forEach((element: Element) => element.classList.add('mission__animation-right'));
-            entry.target
-              .querySelectorAll(':nth-child(2n) > .p-timeline-event-content')
-              .forEach((element: Element) => element.classList.add('mission__animation-left'));
+            if (this.screenWidth > 960) {
+              entry.target
+                .querySelectorAll(':nth-child(2n + 1) > .p-timeline-event-content')
+                .forEach((element: Element) => element.classList.add('mission__animation-right'));
+              entry.target
+                .querySelectorAll(':nth-child(2n) > .p-timeline-event-content')
+                .forEach((element: Element) => element.classList.add('mission__animation-left'));
+            } else {
+              entry.target
+                .querySelectorAll('.p-timeline-event-content')
+                .forEach((element: Element) => element.classList.add('mission__animation-right'));
+            }
           }
         });
       },
@@ -117,8 +133,12 @@ export class ResumeComponent implements AfterViewInit, OnDestroy {
         threshold: 0,
       }
     );
-    const experienceElement = document.querySelector('p-panel[header="Expérience"] .p-component .p-timeline-alternate');
-    if (experienceElement) intersectionObserver.observe(experienceElement);
+    const experienceElements = document.querySelectorAll(
+      'p-panel[header="Expérience"] .p-component .p-timeline-alternate .p-timeline-event'
+    );
+    experienceElements.forEach((experienceElement) => {
+      intersectionObserver.observe(experienceElement);
+    });
   }
 
   /**
