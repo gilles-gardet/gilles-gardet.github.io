@@ -2,9 +2,9 @@
 @use "src/styles/globals/code";
 
 #container {
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
-  grid-template: 1fr 1fr / 18rem minmax(18rem, 65rem);
+  grid-template: 1fr / 18rem minmax(18rem, 65rem);
   justify-content: center;
 
   .welcome {

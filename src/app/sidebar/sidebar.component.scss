@@ -1,40 +1,40 @@
-:host {
-  position: sticky;
-  top: 2rem;
+::ng-deep {
+  p-card > div.p-card {
+    position: sticky;
+    top: 2rem;
+  }
 
-  ::ng-deep {
-    p-chip[label='gilles.gardet@gmail.com'] {
-      --params: 0.8s ease;
+  p-chip[label='gilles.gardet@gmail.com'] {
+    --params: 0.8s ease;
 
-      .p-chip {
-        position: relative;
-        overflow: hidden;
-        transition: color var(--params), background-color var(--params);
-        background-color: var(--grey);
-        z-index: 0;
+    .p-chip {
+      position: relative;
+      overflow: hidden;
+      transition: color var(--params), background-color var(--params);
+      background-color: var(--grey);
+      z-index: 0;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background-color: var(--dark-grey);
+        transform: translateX(100%);
+        transition: transform var(--params), opacity var(--params);
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: var(--white);
+        background-color: transparent;
 
         &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: -1;
-          background-color: var(--dark-grey);
-          transform: translateX(100%);
-          transition: transform var(--params), opacity var(--params);
-        }
-
-        &:hover {
-          cursor: pointer;
-          color: var(--white);
-          background-color: transparent;
-
-          &::before {
-            transform: translateX(0);
-            opacity: 1;
-          }
+          transform: translateX(0);
+          opacity: 1;
         }
       }
     }
