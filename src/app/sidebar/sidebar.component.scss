@@ -4,6 +4,23 @@
     top: 2rem;
   }
 
+  button.p-button {
+    border: 1px solid #495057;
+    background: #495057;
+    &.p-button.p-button-text,
+    &.p-button.p-button-text:enabled:hover,
+    &.p-button.p-button-text:enabled:active {
+      color: #495057;
+    }
+    &.p-button.p-button-text:enabled:hover,
+    &.p-button.p-button-text:enabled:active {
+      background: rgba(75, 85, 94, 0.04);
+    }
+    &.p-button:focus,
+    &.p-button.p-button-text:enabled:active {
+      box-shadow: 0 0 0 0.2rem #aab1b9;
+    }
+  }
   p-chip[label='gilles.gardet@gmail.com'] {
     --params: 0.8s ease;
 

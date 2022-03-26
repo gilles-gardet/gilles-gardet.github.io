@@ -6,6 +6,11 @@ export const environment = {
   production: false,
   missions: [
     {
+      client: 'Air France - Dev Portal',
+      startDate: '2019-01-01',
+      endDate: null,
+    },
+    {
       client: 'Orange - SPDP & O2H',
       startDate: '2020-12-01',
       endDate: null,
@@ -14,11 +19,6 @@ export const environment = {
       client: 'MAIF - Gimaweb',
       startDate: '2020-07-01',
       endDate: '2020-12-01',
-    },
-    {
-      client: 'Air France - Dev Portal',
-      startDate: '2019-01-01',
-      endDate: '2020-07-01',
     },
     {
       client: 'Air France - CCAPI',

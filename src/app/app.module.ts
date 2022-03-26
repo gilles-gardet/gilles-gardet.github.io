@@ -23,6 +23,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { ConfigService } from './services/config.service';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { RippleModule } from 'primeng/ripple';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -47,6 +49,8 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
     TagModule,
     TimelineModule,
     ScrollPanelModule,
+    RippleModule,
+    TooltipModule,
   ],
   providers: [ConfigService],
 })
