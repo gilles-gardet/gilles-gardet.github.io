@@ -18,6 +18,8 @@ body {
   text-align: center;
   background: var(--bg-color);
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  overflow-y: auto;
 }
 
 a.fancy, a.fancy:visited {
