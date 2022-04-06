@@ -71120,156 +71120,6 @@ DialogModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["
 
 /***/ }),
 
-/***/ 669:
-/*!**********************************************************!*\
-  !*** ./node_modules/primeng/fesm2015/primeng-divider.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Divider": () => (/* binding */ Divider),
-/* harmony export */   "DividerModule": () => (/* binding */ DividerModule)
-/* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 8583);
-
-
-
-
-const _c0 = ["*"];
-
-class Divider {
-  constructor() {
-    this.layout = "horizontal";
-    this.type = "solid";
-  }
-
-  containerClass() {
-    return {
-      'p-divider p-component': true,
-      'p-divider-horizontal': this.layout === "horizontal",
-      'p-divider-vertical': this.layout === "vertical",
-      'p-divider-solid': this.type === "solid",
-      'p-divider-dashed': this.type === "dashed",
-      'p-divider-dotted': this.type === "dotted",
-      'p-divider-left': this.layout === 'horizontal' && (!this.align || this.align === 'left'),
-      'p-divider-center': this.layout === 'horizontal' && this.align === 'center' || this.layout === 'vertical' && (!this.align || this.align === 'center'),
-      'p-divider-right': this.layout === 'horizontal' && this.align === 'right',
-      'p-divider-top': this.layout === 'vertical' && this.align === 'top',
-      'p-divider-bottom': this.layout === 'vertical' && this.align === 'bottom'
-    };
-  }
-
-}
-
-Divider.ɵfac = function Divider_Factory(t) {
-  return new (t || Divider)();
-};
-
-Divider.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-  type: Divider,
-  selectors: [["p-divider"]],
-  inputs: {
-    styleClass: "styleClass",
-    style: "style",
-    layout: "layout",
-    type: "type",
-    align: "align"
-  },
-  ngContentSelectors: _c0,
-  decls: 3,
-  vars: 4,
-  consts: [["role", "separator", 3, "ngClass", "ngStyle"], [1, "p-divider-content"]],
-  template: function Divider_Template(rf, ctx) {
-    if (rf & 1) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](2);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    }
-
-    if (rf & 2) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx.styleClass);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", ctx.containerClass())("ngStyle", ctx.style);
-    }
-  },
-  directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_1__.NgStyle],
-  styles: [".p-divider-horizontal{display:flex;width:100%;position:relative;align-items:center}.p-divider-horizontal:before{position:absolute;display:block;top:50%;left:0;width:100%;content:\"\"}.p-divider-horizontal.p-divider-left{justify-content:flex-start}.p-divider-horizontal.p-divider-right{justify-content:flex-end}.p-divider-horizontal.p-divider-center{justify-content:center}.p-divider-content{z-index:1}.p-divider-vertical{min-height:100%;margin:0 1rem;display:flex;position:relative;justify-content:center}.p-divider-vertical:before{position:absolute;display:block;top:0;left:50%;height:100%;content:\"\"}.p-divider-vertical.p-divider-top{align-items:flex-start}.p-divider-vertical.p-divider-center{align-items:center}.p-divider-vertical.p-divider-bottom{align-items:flex-end}.p-divider-solid.p-divider-horizontal:before{border-top-style:solid}.p-divider-solid.p-divider-vertical:before{border-left-style:solid}.p-divider-dashed.p-divider-horizontal:before{border-top-style:dashed}.p-divider-dashed.p-divider-vertical:before{border-left-style:dashed}.p-divider-dotted.p-divider-horizontal:before{border-top-style:dotted;border-left-style:dotted}"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-
-(function () {
-  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](Divider, [{
-    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
-    args: [{
-      selector: 'p-divider',
-      template: `
-        <div [ngClass]="containerClass()" [class]="styleClass" [ngStyle]="style" role="separator">
-            <div class="p-divider-content">
-                <ng-content></ng-content>
-            </div>
-        </div>
-    `,
-      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
-      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
-      styleUrls: ['./divider.css']
-    }]
-  }], null, {
-    styleClass: [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
-    }],
-    style: [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
-    }],
-    layout: [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
-    }],
-    type: [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
-    }],
-    align: [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
-    }]
-  });
-})();
-
-class DividerModule {}
-
-DividerModule.ɵfac = function DividerModule_Factory(t) {
-  return new (t || DividerModule)();
-};
-
-DividerModule.ɵmod = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
-  type: DividerModule
-});
-DividerModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-  imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__.CommonModule]]
-});
-
-(function () {
-  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DividerModule, [{
-    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.NgModule,
-    args: [{
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__.CommonModule],
-      exports: [Divider],
-      declarations: [Divider]
-    }]
-  }], null, null);
-})();
-/**
- * Generated bundle index. Do not edit.
- */
-
-
- //# sourceMappingURL=primeng-divider.js.map
-
-/***/ }),
-
 /***/ 1818:
 /*!******************************************************!*\
   !*** ./node_modules/primeng/fesm2015/primeng-dom.js ***!
@@ -71932,6 +71782,264 @@ FocusTrapModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1_
 
 
  //# sourceMappingURL=primeng-focustrap.js.map
+
+/***/ }),
+
+/***/ 5301:
+/*!**************************************************************!*\
+  !*** ./node_modules/primeng/fesm2015/primeng-inputswitch.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "INPUTSWITCH_VALUE_ACCESSOR": () => (/* binding */ INPUTSWITCH_VALUE_ACCESSOR),
+/* harmony export */   "InputSwitch": () => (/* binding */ InputSwitch),
+/* harmony export */   "InputSwitchModule": () => (/* binding */ InputSwitchModule)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ 3679);
+
+
+
+
+
+
+const _c0 = function (a1, a2, a3) {
+  return {
+    "p-inputswitch p-component": true,
+    "p-inputswitch-checked": a1,
+    "p-disabled": a2,
+    "p-focus": a3
+  };
+};
+
+const INPUTSWITCH_VALUE_ACCESSOR = {
+  provide: _angular_forms__WEBPACK_IMPORTED_MODULE_0__.NG_VALUE_ACCESSOR,
+  useExisting: (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.forwardRef)(() => InputSwitch),
+  multi: true
+};
+
+class InputSwitch {
+  constructor(cd) {
+    this.cd = cd;
+    this.onChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.EventEmitter();
+    this.checked = false;
+    this.focused = false;
+
+    this.onModelChange = () => {};
+
+    this.onModelTouched = () => {};
+  }
+
+  onClick(event, cb) {
+    if (!this.disabled && !this.readonly) {
+      event.preventDefault();
+      this.toggle(event);
+      cb.focus();
+    }
+  }
+
+  onInputChange(event) {
+    if (!this.readonly) {
+      const inputChecked = event.target.checked;
+      this.updateModel(event, inputChecked);
+    }
+  }
+
+  toggle(event) {
+    this.updateModel(event, !this.checked);
+  }
+
+  updateModel(event, value) {
+    this.checked = value;
+    this.onModelChange(this.checked);
+    this.onChange.emit({
+      originalEvent: event,
+      checked: this.checked
+    });
+  }
+
+  onFocus(event) {
+    this.focused = true;
+  }
+
+  onBlur(event) {
+    this.focused = false;
+    this.onModelTouched();
+  }
+
+  writeValue(checked) {
+    this.checked = checked;
+    this.cd.markForCheck();
+  }
+
+  registerOnChange(fn) {
+    this.onModelChange = fn;
+  }
+
+  registerOnTouched(fn) {
+    this.onModelTouched = fn;
+  }
+
+  setDisabledState(val) {
+    this.disabled = val;
+    this.cd.markForCheck();
+  }
+
+}
+
+InputSwitch.ɵfac = function InputSwitch_Factory(t) {
+  return new (t || InputSwitch)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectorRef));
+};
+
+InputSwitch.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+  type: InputSwitch,
+  selectors: [["p-inputSwitch"]],
+  inputs: {
+    style: "style",
+    styleClass: "styleClass",
+    tabindex: "tabindex",
+    inputId: "inputId",
+    name: "name",
+    disabled: "disabled",
+    readonly: "readonly",
+    ariaLabelledBy: "ariaLabelledBy"
+  },
+  outputs: {
+    onChange: "onChange"
+  },
+  features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([INPUTSWITCH_VALUE_ACCESSOR])],
+  decls: 5,
+  vars: 15,
+  consts: [[3, "ngClass", "ngStyle", "click"], [1, "p-hidden-accessible"], ["type", "checkbox", "role", "switch", 3, "checked", "disabled", "change", "focus", "blur"], ["cb", ""], [1, "p-inputswitch-slider"]],
+  template: function InputSwitch_Template(rf, ctx) {
+    if (rf & 1) {
+      const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function InputSwitch_Template_div_click_0_listener($event) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r1);
+
+        const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵreference"](3);
+
+        return ctx.onClick($event, _r0);
+      });
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "input", 2, 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("change", function InputSwitch_Template_input_change_2_listener($event) {
+        return ctx.onInputChange($event);
+      })("focus", function InputSwitch_Template_input_focus_2_listener($event) {
+        return ctx.onFocus($event);
+      })("blur", function InputSwitch_Template_input_blur_2_listener($event) {
+        return ctx.onBlur($event);
+      });
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](4, "span", 4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    }
+
+    if (rf & 2) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵclassMap"](ctx.styleClass);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction3"](11, _c0, ctx.checked, ctx.disabled, ctx.focused))("ngStyle", ctx.style);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("checked", ctx.checked)("disabled", ctx.disabled);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵattribute"]("id", ctx.inputId)("name", ctx.name)("tabindex", ctx.tabindex)("aria-checked", ctx.checked)("aria-labelledby", ctx.ariaLabelledBy);
+    }
+  },
+  directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_2__.NgStyle],
+  styles: [".p-inputswitch{position:relative;display:inline-block;-webkit-user-select:none;-ms-user-select:none;user-select:none}.p-inputswitch-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0}.p-inputswitch-slider:before{position:absolute;content:\"\";top:50%}"],
+  encapsulation: 2,
+  changeDetection: 0
+});
+
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](InputSwitch, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Component,
+    args: [{
+      selector: 'p-inputSwitch',
+      template: `
+        <div [ngClass]="{'p-inputswitch p-component': true, 'p-inputswitch-checked': checked, 'p-disabled': disabled, 'p-focus': focused}" 
+            [ngStyle]="style" [class]="styleClass" (click)="onClick($event, cb)">
+            <div class="p-hidden-accessible">
+                <input #cb type="checkbox" [attr.id]="inputId" [attr.name]="name" [attr.tabindex]="tabindex" [checked]="checked" (change)="onInputChange($event)"
+                    (focus)="onFocus($event)" (blur)="onBlur($event)" [disabled]="disabled" role="switch" [attr.aria-checked]="checked" [attr.aria-labelledby]="ariaLabelledBy"/>
+            </div>
+            <span class="p-inputswitch-slider"></span>
+        </div>
+    `,
+      providers: [INPUTSWITCH_VALUE_ACCESSOR],
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectionStrategy.OnPush,
+      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewEncapsulation.None,
+      styleUrls: ['./inputswitch.css']
+    }]
+  }], function () {
+    return [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectorRef
+    }];
+  }, {
+    style: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    styleClass: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    tabindex: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    inputId: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    name: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    disabled: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    readonly: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    ariaLabelledBy: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    onChange: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Output
+    }]
+  });
+})();
+
+class InputSwitchModule {}
+
+InputSwitchModule.ɵfac = function InputSwitchModule_Factory(t) {
+  return new (t || InputSwitchModule)();
+};
+
+InputSwitchModule.ɵmod = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
+  type: InputSwitchModule
+});
+InputSwitchModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
+  imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_2__.CommonModule]]
+});
+
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](InputSwitchModule, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.NgModule,
+    args: [{
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.CommonModule],
+      exports: [InputSwitch],
+      declarations: [InputSwitch]
+    }]
+  }], null, null);
+})();
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+ //# sourceMappingURL=primeng-inputswitch.js.map
 
 /***/ }),
 
@@ -72949,384 +73057,6 @@ RippleModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["
 
 
  //# sourceMappingURL=primeng-ripple.js.map
-
-/***/ }),
-
-/***/ 6025:
-/*!**************************************************************!*\
-  !*** ./node_modules/primeng/fesm2015/primeng-scrollpanel.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ScrollPanel": () => (/* binding */ ScrollPanel),
-/* harmony export */   "ScrollPanelModule": () => (/* binding */ ScrollPanelModule)
-/* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 8583);
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ 1818);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/api */ 3013);
-
-
-
-
-
-
-const _c0 = ["container"];
-const _c1 = ["content"];
-const _c2 = ["xBar"];
-const _c3 = ["yBar"];
-
-function ScrollPanel_ng_container_6_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainer"](0);
-  }
-}
-
-const _c4 = ["*"];
-
-class ScrollPanel {
-  constructor(el, zone, cd) {
-    this.el = el;
-    this.zone = zone;
-    this.cd = cd;
-
-    this.timeoutFrame = fn => setTimeout(fn, 0);
-  }
-
-  ngAfterViewInit() {
-    this.zone.runOutsideAngular(() => {
-      this.moveBar();
-      this.moveBar = this.moveBar.bind(this);
-      this.onXBarMouseDown = this.onXBarMouseDown.bind(this);
-      this.onYBarMouseDown = this.onYBarMouseDown.bind(this);
-      this.onDocumentMouseMove = this.onDocumentMouseMove.bind(this);
-      this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
-      window.addEventListener('resize', this.moveBar);
-      this.contentViewChild.nativeElement.addEventListener('scroll', this.moveBar);
-      this.contentViewChild.nativeElement.addEventListener('mouseenter', this.moveBar);
-      this.xBarViewChild.nativeElement.addEventListener('mousedown', this.onXBarMouseDown);
-      this.yBarViewChild.nativeElement.addEventListener('mousedown', this.onYBarMouseDown);
-      this.calculateContainerHeight();
-      this.initialized = true;
-    });
-  }
-
-  ngAfterContentInit() {
-    this.templates.forEach(item => {
-      switch (item.getType()) {
-        case 'content':
-          this.contentTemplate = item.template;
-          break;
-
-        default:
-          this.contentTemplate = item.template;
-          break;
-      }
-    });
-  }
-
-  calculateContainerHeight() {
-    let container = this.containerViewChild.nativeElement;
-    let content = this.contentViewChild.nativeElement;
-    let xBar = this.xBarViewChild.nativeElement;
-    let containerStyles = getComputedStyle(container),
-        xBarStyles = getComputedStyle(xBar),
-        pureContainerHeight = primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.getHeight(container) - parseInt(xBarStyles['height'], 10);
-
-    if (containerStyles['max-height'] != "none" && pureContainerHeight == 0) {
-      if (content.offsetHeight + parseInt(xBarStyles['height'], 10) > parseInt(containerStyles['max-height'], 10)) {
-        container.style.height = containerStyles['max-height'];
-      } else {
-        container.style.height = content.offsetHeight + parseFloat(containerStyles.paddingTop) + parseFloat(containerStyles.paddingBottom) + parseFloat(containerStyles.borderTopWidth) + parseFloat(containerStyles.borderBottomWidth) + "px";
-      }
-    }
-  }
-
-  moveBar() {
-    let container = this.containerViewChild.nativeElement;
-    let content = this.contentViewChild.nativeElement;
-    /* horizontal scroll */
-
-    let xBar = this.xBarViewChild.nativeElement;
-    let totalWidth = content.scrollWidth;
-    let ownWidth = content.clientWidth;
-    let bottom = (container.clientHeight - xBar.clientHeight) * -1;
-    this.scrollXRatio = ownWidth / totalWidth;
-    /* vertical scroll */
-
-    let yBar = this.yBarViewChild.nativeElement;
-    let totalHeight = content.scrollHeight;
-    let ownHeight = content.clientHeight;
-    let right = (container.clientWidth - yBar.clientWidth) * -1;
-    this.scrollYRatio = ownHeight / totalHeight;
-    this.requestAnimationFrame(() => {
-      if (this.scrollXRatio >= 1) {
-        primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.addClass(xBar, 'p-scrollpanel-hidden');
-      } else {
-        primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.removeClass(xBar, 'p-scrollpanel-hidden');
-        const xBarWidth = Math.max(this.scrollXRatio * 100, 10);
-        const xBarLeft = content.scrollLeft * (100 - xBarWidth) / (totalWidth - ownWidth);
-        xBar.style.cssText = 'width:' + xBarWidth + '%; left:' + xBarLeft + '%;bottom:' + bottom + 'px;';
-      }
-
-      if (this.scrollYRatio >= 1) {
-        primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.addClass(yBar, 'p-scrollpanel-hidden');
-      } else {
-        primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.removeClass(yBar, 'p-scrollpanel-hidden');
-        const yBarHeight = Math.max(this.scrollYRatio * 100, 10);
-        const yBarTop = content.scrollTop * (100 - yBarHeight) / (totalHeight - ownHeight);
-        yBar.style.cssText = 'height:' + yBarHeight + '%; top: calc(' + yBarTop + '% - ' + xBar.clientHeight + 'px);right:' + right + 'px;';
-      }
-    });
-    this.cd.markForCheck();
-  }
-
-  onYBarMouseDown(e) {
-    this.isYBarClicked = true;
-    this.lastPageY = e.pageY;
-    primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.addClass(this.yBarViewChild.nativeElement, 'p-scrollpanel-grabbed');
-    primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.addClass(document.body, 'p-scrollpanel-grabbed');
-    document.addEventListener('mousemove', this.onDocumentMouseMove);
-    document.addEventListener('mouseup', this.onDocumentMouseUp);
-    e.preventDefault();
-  }
-
-  onXBarMouseDown(e) {
-    this.isXBarClicked = true;
-    this.lastPageX = e.pageX;
-    primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.addClass(this.xBarViewChild.nativeElement, 'p-scrollpanel-grabbed');
-    primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.addClass(document.body, 'p-scrollpanel-grabbed');
-    document.addEventListener('mousemove', this.onDocumentMouseMove);
-    document.addEventListener('mouseup', this.onDocumentMouseUp);
-    e.preventDefault();
-  }
-
-  onDocumentMouseMove(e) {
-    if (this.isXBarClicked) {
-      this.onMouseMoveForXBar(e);
-    } else if (this.isYBarClicked) {
-      this.onMouseMoveForYBar(e);
-    } else {
-      this.onMouseMoveForXBar(e);
-      this.onMouseMoveForYBar(e);
-    }
-  }
-
-  onMouseMoveForXBar(e) {
-    let deltaX = e.pageX - this.lastPageX;
-    this.lastPageX = e.pageX;
-    this.requestAnimationFrame(() => {
-      this.contentViewChild.nativeElement.scrollLeft += deltaX / this.scrollXRatio;
-    });
-  }
-
-  onMouseMoveForYBar(e) {
-    let deltaY = e.pageY - this.lastPageY;
-    this.lastPageY = e.pageY;
-    this.requestAnimationFrame(() => {
-      this.contentViewChild.nativeElement.scrollTop += deltaY / this.scrollYRatio;
-    });
-  }
-
-  scrollTop(scrollTop) {
-    let scrollableHeight = this.contentViewChild.nativeElement.scrollHeight - this.contentViewChild.nativeElement.clientHeight;
-    scrollTop = scrollTop > scrollableHeight ? scrollableHeight : scrollTop > 0 ? scrollTop : 0;
-    this.contentViewChild.nativeElement.scrollTop = scrollTop;
-  }
-
-  onDocumentMouseUp(e) {
-    primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.removeClass(this.yBarViewChild.nativeElement, 'p-scrollpanel-grabbed');
-    primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.removeClass(this.xBarViewChild.nativeElement, 'p-scrollpanel-grabbed');
-    primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.removeClass(document.body, 'p-scrollpanel-grabbed');
-    document.removeEventListener('mousemove', this.onDocumentMouseMove);
-    document.removeEventListener('mouseup', this.onDocumentMouseUp);
-    this.isXBarClicked = false;
-    this.isYBarClicked = false;
-  }
-
-  requestAnimationFrame(f) {
-    let frame = window.requestAnimationFrame || this.timeoutFrame;
-    frame(f);
-  }
-
-  ngOnDestroy() {
-    if (this.initialized) {
-      window.removeEventListener('resize', this.moveBar);
-      this.contentViewChild.nativeElement.removeEventListener('scroll', this.moveBar);
-      this.contentViewChild.nativeElement.removeEventListener('mouseenter', this.moveBar);
-      this.xBarViewChild.nativeElement.removeEventListener('mousedown', this.onXBarMouseDown);
-      this.yBarViewChild.nativeElement.removeEventListener('mousedown', this.onYBarMouseDown);
-    }
-  }
-
-  refresh() {
-    this.moveBar();
-  }
-
-}
-
-ScrollPanel.ɵfac = function ScrollPanel_Factory(t) {
-  return new (t || ScrollPanel)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.NgZone), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectorRef));
-};
-
-ScrollPanel.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-  type: ScrollPanel,
-  selectors: [["p-scrollPanel"]],
-  contentQueries: function ScrollPanel_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵcontentQuery"](dirIndex, primeng_api__WEBPACK_IMPORTED_MODULE_2__.PrimeTemplate, 4);
-    }
-
-    if (rf & 2) {
-      let _t;
-
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.templates = _t);
-    }
-  },
-  viewQuery: function ScrollPanel_Query(rf, ctx) {
-    if (rf & 1) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c0, 5);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c1, 5);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c2, 5);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c3, 5);
-    }
-
-    if (rf & 2) {
-      let _t;
-
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.containerViewChild = _t.first);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.contentViewChild = _t.first);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.xBarViewChild = _t.first);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.yBarViewChild = _t.first);
-    }
-  },
-  inputs: {
-    style: "style",
-    styleClass: "styleClass"
-  },
-  ngContentSelectors: _c4,
-  decls: 11,
-  vars: 5,
-  consts: [[3, "ngClass", "ngStyle"], ["container", ""], [1, "p-scrollpanel-wrapper"], [1, "p-scrollpanel-content"], ["content", ""], [4, "ngTemplateOutlet"], [1, "p-scrollpanel-bar", "p-scrollpanel-bar-x"], ["xBar", ""], [1, "p-scrollpanel-bar", "p-scrollpanel-bar-y"], ["yBar", ""]],
-  template: function ScrollPanel_Template(rf, ctx) {
-    if (rf & 1) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojectionDef"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0, 1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3, 4);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵprojection"](5);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, ScrollPanel_ng_container_6_Template, 1, 0, "ng-container", 5);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "div", 6, 7);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "div", 8, 9);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    }
-
-    if (rf & 2) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx.styleClass);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", "p-scrollpanel p-component")("ngStyle", ctx.style);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx.contentTemplate);
-    }
-  },
-  directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgStyle, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgTemplateOutlet],
-  styles: [".p-scrollpanel-wrapper{overflow:hidden;width:100%;height:100%;position:relative;z-index:1;float:left}.p-scrollpanel-content{height:calc(100% + 18px);width:calc(100% + 18px);padding:0 18px 18px 0;position:relative;overflow:auto;box-sizing:border-box}.p-scrollpanel-bar{position:relative;background:#c1c1c1;border-radius:3px;z-index:2;cursor:pointer;opacity:0;transition:opacity .25s linear}.p-scrollpanel-bar-y{width:9px;top:0}.p-scrollpanel-bar-x{height:9px;bottom:0}.p-scrollpanel-hidden{visibility:hidden}.p-scrollpanel:active .p-scrollpanel-bar,.p-scrollpanel:hover .p-scrollpanel-bar{opacity:1}.p-scrollpanel-grabbed{-webkit-user-select:none;-ms-user-select:none;user-select:none}"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-
-(function () {
-  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ScrollPanel, [{
-    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
-    args: [{
-      selector: 'p-scrollPanel',
-      template: `
-        <div #container [ngClass]="'p-scrollpanel p-component'" [ngStyle]="style" [class]="styleClass">
-            <div class="p-scrollpanel-wrapper">
-                <div #content class="p-scrollpanel-content">
-                    <ng-content></ng-content>
-                    <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
-                </div>
-            </div>
-            <div #xBar class="p-scrollpanel-bar p-scrollpanel-bar-x"></div>
-            <div #yBar class="p-scrollpanel-bar p-scrollpanel-bar-y"></div>   
-        </div>
-    `,
-      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
-      encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
-      styleUrls: ['./scrollpanel.css']
-    }]
-  }], function () {
-    return [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ElementRef
-    }, {
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.NgZone
-    }, {
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectorRef
-    }];
-  }, {
-    style: [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
-    }],
-    styleClass: [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
-    }],
-    containerViewChild: [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewChild,
-      args: ['container']
-    }],
-    contentViewChild: [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewChild,
-      args: ['content']
-    }],
-    xBarViewChild: [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewChild,
-      args: ['xBar']
-    }],
-    yBarViewChild: [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewChild,
-      args: ['yBar']
-    }],
-    templates: [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ContentChildren,
-      args: [primeng_api__WEBPACK_IMPORTED_MODULE_2__.PrimeTemplate]
-    }]
-  });
-})();
-
-class ScrollPanelModule {}
-
-ScrollPanelModule.ɵfac = function ScrollPanelModule_Factory(t) {
-  return new (t || ScrollPanelModule)();
-};
-
-ScrollPanelModule.ɵmod = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
-  type: ScrollPanelModule
-});
-ScrollPanelModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-  imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule]]
-});
-
-(function () {
-  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ScrollPanelModule, [{
-    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.NgModule,
-    args: [{
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule],
-      exports: [ScrollPanel],
-      declarations: [ScrollPanel]
-    }]
-  }], null, null);
-})();
-/**
- * Generated bundle index. Do not edit.
- */
-
-
- //# sourceMappingURL=primeng-scrollpanel.js.map
 
 /***/ }),
 
@@ -76320,6 +76050,224 @@ function of(...args) {
 
 /***/ }),
 
+/***/ 1571:
+/*!***************************************************************!*\
+  !*** ./node_modules/rxjs/_esm2015/internal/observable/zip.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "zip": () => (/* binding */ zip),
+/* harmony export */   "ZipOperator": () => (/* binding */ ZipOperator),
+/* harmony export */   "ZipSubscriber": () => (/* binding */ ZipSubscriber)
+/* harmony export */ });
+/* harmony import */ var _fromArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fromArray */ 6693);
+/* harmony import */ var _util_isArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/isArray */ 9796);
+/* harmony import */ var _Subscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Subscriber */ 7393);
+/* harmony import */ var _internal_symbol_iterator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../internal/symbol/iterator */ 377);
+/* harmony import */ var _innerSubscribe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../innerSubscribe */ 5345);
+
+
+
+
+
+function zip(...observables) {
+    const resultSelector = observables[observables.length - 1];
+    if (typeof resultSelector === 'function') {
+        observables.pop();
+    }
+    return (0,_fromArray__WEBPACK_IMPORTED_MODULE_0__.fromArray)(observables, undefined).lift(new ZipOperator(resultSelector));
+}
+class ZipOperator {
+    constructor(resultSelector) {
+        this.resultSelector = resultSelector;
+    }
+    call(subscriber, source) {
+        return source.subscribe(new ZipSubscriber(subscriber, this.resultSelector));
+    }
+}
+class ZipSubscriber extends _Subscriber__WEBPACK_IMPORTED_MODULE_1__.Subscriber {
+    constructor(destination, resultSelector, values = Object.create(null)) {
+        super(destination);
+        this.resultSelector = resultSelector;
+        this.iterators = [];
+        this.active = 0;
+        this.resultSelector = (typeof resultSelector === 'function') ? resultSelector : undefined;
+    }
+    _next(value) {
+        const iterators = this.iterators;
+        if ((0,_util_isArray__WEBPACK_IMPORTED_MODULE_2__.isArray)(value)) {
+            iterators.push(new StaticArrayIterator(value));
+        }
+        else if (typeof value[_internal_symbol_iterator__WEBPACK_IMPORTED_MODULE_3__.iterator] === 'function') {
+            iterators.push(new StaticIterator(value[_internal_symbol_iterator__WEBPACK_IMPORTED_MODULE_3__.iterator]()));
+        }
+        else {
+            iterators.push(new ZipBufferIterator(this.destination, this, value));
+        }
+    }
+    _complete() {
+        const iterators = this.iterators;
+        const len = iterators.length;
+        this.unsubscribe();
+        if (len === 0) {
+            this.destination.complete();
+            return;
+        }
+        this.active = len;
+        for (let i = 0; i < len; i++) {
+            let iterator = iterators[i];
+            if (iterator.stillUnsubscribed) {
+                const destination = this.destination;
+                destination.add(iterator.subscribe());
+            }
+            else {
+                this.active--;
+            }
+        }
+    }
+    notifyInactive() {
+        this.active--;
+        if (this.active === 0) {
+            this.destination.complete();
+        }
+    }
+    checkIterators() {
+        const iterators = this.iterators;
+        const len = iterators.length;
+        const destination = this.destination;
+        for (let i = 0; i < len; i++) {
+            let iterator = iterators[i];
+            if (typeof iterator.hasValue === 'function' && !iterator.hasValue()) {
+                return;
+            }
+        }
+        let shouldComplete = false;
+        const args = [];
+        for (let i = 0; i < len; i++) {
+            let iterator = iterators[i];
+            let result = iterator.next();
+            if (iterator.hasCompleted()) {
+                shouldComplete = true;
+            }
+            if (result.done) {
+                destination.complete();
+                return;
+            }
+            args.push(result.value);
+        }
+        if (this.resultSelector) {
+            this._tryresultSelector(args);
+        }
+        else {
+            destination.next(args);
+        }
+        if (shouldComplete) {
+            destination.complete();
+        }
+    }
+    _tryresultSelector(args) {
+        let result;
+        try {
+            result = this.resultSelector.apply(this, args);
+        }
+        catch (err) {
+            this.destination.error(err);
+            return;
+        }
+        this.destination.next(result);
+    }
+}
+class StaticIterator {
+    constructor(iterator) {
+        this.iterator = iterator;
+        this.nextResult = iterator.next();
+    }
+    hasValue() {
+        return true;
+    }
+    next() {
+        const result = this.nextResult;
+        this.nextResult = this.iterator.next();
+        return result;
+    }
+    hasCompleted() {
+        const nextResult = this.nextResult;
+        return Boolean(nextResult && nextResult.done);
+    }
+}
+class StaticArrayIterator {
+    constructor(array) {
+        this.array = array;
+        this.index = 0;
+        this.length = 0;
+        this.length = array.length;
+    }
+    [_internal_symbol_iterator__WEBPACK_IMPORTED_MODULE_3__.iterator]() {
+        return this;
+    }
+    next(value) {
+        const i = this.index++;
+        const array = this.array;
+        return i < this.length ? { value: array[i], done: false } : { value: null, done: true };
+    }
+    hasValue() {
+        return this.array.length > this.index;
+    }
+    hasCompleted() {
+        return this.array.length === this.index;
+    }
+}
+class ZipBufferIterator extends _innerSubscribe__WEBPACK_IMPORTED_MODULE_4__.SimpleOuterSubscriber {
+    constructor(destination, parent, observable) {
+        super(destination);
+        this.parent = parent;
+        this.observable = observable;
+        this.stillUnsubscribed = true;
+        this.buffer = [];
+        this.isComplete = false;
+    }
+    [_internal_symbol_iterator__WEBPACK_IMPORTED_MODULE_3__.iterator]() {
+        return this;
+    }
+    next() {
+        const buffer = this.buffer;
+        if (buffer.length === 0 && this.isComplete) {
+            return { value: null, done: true };
+        }
+        else {
+            return { value: buffer.shift(), done: false };
+        }
+    }
+    hasValue() {
+        return this.buffer.length > 0;
+    }
+    hasCompleted() {
+        return this.buffer.length === 0 && this.isComplete;
+    }
+    notifyComplete() {
+        if (this.buffer.length > 0) {
+            this.isComplete = true;
+            this.parent.notifyInactive();
+        }
+        else {
+            this.destination.complete();
+        }
+    }
+    notifyNext(innerValue) {
+        this.buffer.push(innerValue);
+        this.parent.checkIterators();
+    }
+    subscribe() {
+        return (0,_innerSubscribe__WEBPACK_IMPORTED_MODULE_4__.innerSubscribe)(this.observable, new _innerSubscribe__WEBPACK_IMPORTED_MODULE_4__.SimpleInnerSubscriber(this));
+    }
+}
+//# sourceMappingURL=zip.js.map
+
+/***/ }),
+
 /***/ 5304:
 /*!*********************************************************************!*\
   !*** ./node_modules/rxjs/_esm2015/internal/operators/catchError.js ***!
@@ -77258,6 +77206,52 @@ class TakeLastSubscriber extends _Subscriber__WEBPACK_IMPORTED_MODULE_2__.Subscr
     }
 }
 //# sourceMappingURL=takeLast.js.map
+
+/***/ }),
+
+/***/ 6782:
+/*!********************************************************************!*\
+  !*** ./node_modules/rxjs/_esm2015/internal/operators/takeUntil.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "takeUntil": () => (/* binding */ takeUntil)
+/* harmony export */ });
+/* harmony import */ var _innerSubscribe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../innerSubscribe */ 5345);
+
+function takeUntil(notifier) {
+    return (source) => source.lift(new TakeUntilOperator(notifier));
+}
+class TakeUntilOperator {
+    constructor(notifier) {
+        this.notifier = notifier;
+    }
+    call(subscriber, source) {
+        const takeUntilSubscriber = new TakeUntilSubscriber(subscriber);
+        const notifierSubscription = (0,_innerSubscribe__WEBPACK_IMPORTED_MODULE_0__.innerSubscribe)(this.notifier, new _innerSubscribe__WEBPACK_IMPORTED_MODULE_0__.SimpleInnerSubscriber(takeUntilSubscriber));
+        if (notifierSubscription && !takeUntilSubscriber.seenValue) {
+            takeUntilSubscriber.add(notifierSubscription);
+            return source.subscribe(takeUntilSubscriber);
+        }
+        return takeUntilSubscriber;
+    }
+}
+class TakeUntilSubscriber extends _innerSubscribe__WEBPACK_IMPORTED_MODULE_0__.SimpleOuterSubscriber {
+    constructor(destination) {
+        super(destination);
+        this.seenValue = false;
+    }
+    notifyNext() {
+        this.seenValue = true;
+        this.complete();
+    }
+    notifyComplete() {
+    }
+}
+//# sourceMappingURL=takeUntil.js.map
 
 /***/ }),
 

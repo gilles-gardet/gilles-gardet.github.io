@@ -18,8 +18,14 @@
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "paths": {
-      "@environments/*": ["./src/environments/*"]
-    }
+      "@environments/*": ["./src/environments/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@core/*": ["./src/app/core/*"],
+      "@shared/*": ["./src/app/shared/*"],
+      "@features/*": ["./src/app/features/*"],
+    },
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
