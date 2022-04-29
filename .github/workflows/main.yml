@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: audit and test
 on:
   push:
     branches: [ master ]
