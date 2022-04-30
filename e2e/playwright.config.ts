@@ -10,7 +10,8 @@ const config: PlaywrightTestConfig = {
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: process.env.CI ? 'github' : 'list',
+  // reporter: process.env.CI ? [['html', { outputFolder: 'report' }], ['github']] : 'list',
+  reporter: [['html', { outputFolder: 'report' }], ['github']],
   use: {
     actionTimeout: 0,
     trace: 'on-first-retry',
