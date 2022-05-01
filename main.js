@@ -804,10 +804,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primeng_avatar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/avatar */ 9713);
 /* harmony import */ var primeng_chip__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/chip */ 4580);
 /* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/button */ 4633);
-/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/ripple */ 2875);
-/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primeng/tooltip */ 1210);
-/* harmony import */ var primeng_inputswitch__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primeng/inputswitch */ 2236);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ 587);
+/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primeng/ripple */ 2875);
+/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/tooltip */ 1210);
+/* harmony import */ var primeng_inputswitch__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primeng/inputswitch */ 2236);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ 587);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
 
 
@@ -830,20 +830,20 @@ SidebarModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["
             primeng_card__WEBPACK_IMPORTED_MODULE_4__.CardModule,
             primeng_chip__WEBPACK_IMPORTED_MODULE_5__.ChipModule,
             _angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule,
-            primeng_ripple__WEBPACK_IMPORTED_MODULE_7__.RippleModule,
-            primeng_tooltip__WEBPACK_IMPORTED_MODULE_8__.TooltipModule,
-            primeng_inputswitch__WEBPACK_IMPORTED_MODULE_9__.InputSwitchModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_10__.FormsModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormsModule,
+            primeng_inputswitch__WEBPACK_IMPORTED_MODULE_8__.InputSwitchModule,
+            primeng_ripple__WEBPACK_IMPORTED_MODULE_9__.RippleModule,
+            primeng_tooltip__WEBPACK_IMPORTED_MODULE_10__.TooltipModule,
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](SidebarModule, { declarations: [_features_sidebar_components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_0__.SidebarComponent], imports: [primeng_avatar__WEBPACK_IMPORTED_MODULE_2__.AvatarModule,
         primeng_button__WEBPACK_IMPORTED_MODULE_3__.ButtonModule,
         primeng_card__WEBPACK_IMPORTED_MODULE_4__.CardModule,
         primeng_chip__WEBPACK_IMPORTED_MODULE_5__.ChipModule,
         _angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule,
-        primeng_ripple__WEBPACK_IMPORTED_MODULE_7__.RippleModule,
-        primeng_tooltip__WEBPACK_IMPORTED_MODULE_8__.TooltipModule,
-        primeng_inputswitch__WEBPACK_IMPORTED_MODULE_9__.InputSwitchModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_10__.FormsModule], exports: [_features_sidebar_components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_0__.SidebarComponent] }); })();
+        _angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormsModule,
+        primeng_inputswitch__WEBPACK_IMPORTED_MODULE_8__.InputSwitchModule,
+        primeng_ripple__WEBPACK_IMPORTED_MODULE_9__.RippleModule,
+        primeng_tooltip__WEBPACK_IMPORTED_MODULE_10__.TooltipModule], exports: [_features_sidebar_components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_0__.SidebarComponent] }); })();
 
 
 /***/ }),
