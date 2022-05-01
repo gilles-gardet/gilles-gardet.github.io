@@ -18,10 +18,10 @@ import { FormsModule } from '@angular/forms';
     CardModule,
     ChipModule,
     CommonModule,
+    FormsModule,
+    InputSwitchModule,
     RippleModule,
     TooltipModule,
-    InputSwitchModule,
-    FormsModule,
   ],
   exports: [SidebarComponent],
 })

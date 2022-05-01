@@ -15,8 +15,24 @@ jobs:
         with:
           node-version: '14.x'
       - name: Audit dependencies
-        run: yarn audit
+        run: |
+          yarn audit --groups dependencies
+          yarn audit --groups devDependencies
   test:
+    needs:
+      - audit
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: yarn install
+      - name: Run unit tests
+        run: yarn run test:ci
+  e2e:
     needs:
       - audit
     continue-on-error: true
@@ -44,6 +60,7 @@ jobs:
     needs:
       - audit
       - test
+      - e2e
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
