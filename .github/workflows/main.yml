@@ -32,6 +32,13 @@ jobs:
         run: yarn install
       - name: Run unit tests
         run: yarn run test:ci
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: report
+          path: coverage
+          retention-days: 30
   e2e:
     needs:
       - audit
