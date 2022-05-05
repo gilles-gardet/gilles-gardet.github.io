@@ -32,13 +32,12 @@ jobs:
         run: yarn install
       - name: Run unit tests
         run: yarn run test:ci
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        if: always()
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
         with:
-          name: report
-          path: coverage
-          retention-days: 30
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/cobertura-coverage.xml
+          verbose: true
   e2e:
     needs:
       - audit
