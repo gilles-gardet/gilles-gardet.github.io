@@ -465,13 +465,8 @@ class ResumeComponent {
      * @return the formated date
      */
     formatDate(date) {
-        const addTwoDigits = (number) => {
-            if (number < 10) {
-                return `0${number}`;
-            }
-            return `${number}`;
-        };
-        return `${addTwoDigits(date.getDay() + 1)}/${addTwoDigits(date.getMonth() + 1)}/${date.getFullYear()}`;
+        const addTwoDigits = (number) => (number < 10 ? `0${number}` : `${number}`);
+        return `${addTwoDigits(date.getDate())}/${addTwoDigits(date.getMonth() + 1)}/${date.getFullYear()}`;
     }
     /**
      * Calculate the mission duration
