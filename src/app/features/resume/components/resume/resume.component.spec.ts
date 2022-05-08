@@ -12,7 +12,7 @@ import { TagModule } from 'primeng/tag';
 import { TimelineModule } from 'primeng/timeline';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { expect } from '@playwright/test';
+import { of } from 'rxjs';
 
 const tools = [
   {
@@ -203,6 +203,7 @@ window.IntersectionObserver = jest.fn().mockImplementation(() => ({
 
 describe('ResumeComponent', () => {
   let resumeComponent: ResumeComponent;
+  let markdownService: MarkdownService;
   let componentFixture: ComponentFixture<ResumeComponent>;
 
   beforeEach(
@@ -226,6 +227,7 @@ describe('ResumeComponent', () => {
         providers: [MarkdownService],
       }).compileComponents();
       componentFixture = TestBed.createComponent(ResumeComponent);
+      markdownService = TestBed.inject(MarkdownService);
       resumeComponent = componentFixture.componentInstance;
       componentFixture.detectChanges();
     })
@@ -289,6 +291,68 @@ describe('ResumeComponent', () => {
     const secondDate: Date = new Date('2022-04-16');
     const secondFormatedDate = resumeComponent.formatDate(secondDate);
     expect(secondFormatedDate).toEqual('16/04/2022');
+  });
+
+  it(`should provide the mission duration label in months`, async () => {
+    const start: Date = new Date('2018-10-02');
+    const end: Date = new Date('2022-04-16');
+    const missionDuration = resumeComponent.missionDuration(start.toDateString());
+    expect(missionDuration).toEqual('3 ans et 7 mois');
+    const missionWithEndDuration = resumeComponent.missionDuration(start.toDateString(), end.toDateString());
+    expect(missionWithEndDuration).toEqual('3 ans et 6 mois');
+  });
+
+  it(`should provide the mission duration number in months`, async () => {
+    const start: Date = new Date('2018-10-02');
+    const end: Date = new Date('2022-04-16');
+    const missionDuration = resumeComponent.monthBetweenDates(start, end);
+    expect(missionDuration).toBe(42);
+  });
+
+  it(`should open the dialog with the selected mission`, async () => {
+    const mission = {
+      client: 'Test',
+      endDate: null,
+      startDate: '2022-01-01',
+    };
+    resumeComponent.displayDialog = false;
+    resumeComponent.selectedMission = null;
+    expect(resumeComponent.displayDialog).toBeFalsy();
+    expect(resumeComponent.selectedMission).toBeNull();
+    resumeComponent.openDialog(mission);
+    expect(resumeComponent.displayDialog).toBeTruthy();
+    expect(resumeComponent.selectedMission).toEqual(mission);
+  });
+
+  it(`should remove the loader on dialog hiding`, async () => {
+    resumeComponent.loading = false;
+    expect(resumeComponent.loading).toBeFalsy();
+    resumeComponent.onDialogHiding();
+    expect(resumeComponent.loading).toBeTruthy();
+  });
+
+  it(`should fetch the mission's content during the mission's loading`, async () => {
+    const mission = {
+      client: 'Test',
+      endDate: null,
+      startDate: '2022-01-01',
+    };
+    resumeComponent.loading = true;
+    resumeComponent.selectedMission = mission;
+    jest.spyOn(markdownService, 'getSource').mockReturnValue(of('test'));
+    jest.spyOn(markdownService, 'compile');
+    expect(document.body.querySelector('p-dialog-content-scroll')).toBeNull();
+    resumeComponent.onMissionLoading();
+    expect(markdownService.getSource).toHaveBeenCalledTimes(2);
+    expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/202201/202201_full.md');
+    expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/202201/202201_light.md');
+    expect(resumeComponent.innerFullMission).toEqual('<p>test</p>&#10;');
+    expect(resumeComponent.innerLightMission).toEqual('<p>test</p>&#10;');
+    expect(markdownService.compile).toHaveBeenNthCalledWith(2, 'test');
+    setTimeout(() => {
+      expect(resumeComponent.loading).toBeFalsy();
+      expect(document.body.querySelector('p-dialog-content-scroll')).not.toBeNull();
+    }, 600);
   });
 
   afterEach(() => {
