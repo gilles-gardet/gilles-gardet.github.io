@@ -471,8 +471,8 @@ class ResumeComponent {
     /**
      * Calculate the mission duration
      *
-     * @param {string} start the date (string) on which the mission started
-     * @param {string} end the date (string) on which the mission ended
+     * @param {string} start the date on which the mission started
+     * @param {string} end the date on which the mission ended
      * @return label representing the mission duration
      */
     missionDuration(start, end) {
