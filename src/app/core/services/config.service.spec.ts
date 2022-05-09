@@ -1,12 +1,17 @@
 import { ConfigService } from '@core/services/config.service';
-import { waitForAsync } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
 
 describe('ConfigService', () => {
   let service: ConfigService;
 
   beforeEach(
     waitForAsync(() => {
-      service = new ConfigService();
+      TestBed.configureTestingModule({
+        imports: [CommonModule],
+        providers: [ConfigService],
+      });
+      service = TestBed.inject(ConfigService);
     })
   );
 

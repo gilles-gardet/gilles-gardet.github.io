@@ -3,7 +3,7 @@ const { compilerOptions } = require('./tsconfig');
 
 module.exports = {
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>/src/app/**/*.{js,ts}', '!**/*.module.ts'],
+  collectCoverageFrom: ['<rootDir>/src/app/**/*.{js,ts}'],
   coverageReporters: ['clover', 'html', 'cobertura'],
   coverageDirectory: 'coverage',
   globals: {
