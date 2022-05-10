@@ -11,9 +11,10 @@ import { SharedModule } from '@shared/shared.module';
 import { TagModule } from 'primeng/tag';
 import { DialogModule } from 'primeng/dialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
 
 @NgModule({
-  declarations: [ResumeComponent],
+  declarations: [HobbiesComponent, ResumeComponent],
   imports: [
     CardModule,
     CommonModule,
