@@ -844,7 +844,7 @@ class SkillsComponent {
         this.clones = [];
     }
     /**
-     * {@in}
+     * @inheritDoc
      */
     ngAfterViewInit() {
         this._animateSkillsOnView();
