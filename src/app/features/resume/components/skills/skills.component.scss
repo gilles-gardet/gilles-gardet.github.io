@@ -1,0 +1,35 @@
+.skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 1rem;
+  padding: 0 2rem;
+
+  &__languages {
+    display: flex;
+    align-items: center;
+
+    > span {
+      flex: 1;
+      text-align: start;
+      margin-right: 1rem;
+    }
+
+    > p-progressbar {
+      flex: 2;
+    }
+  }
+}
+
+::ng-deep {
+  .p-progressbar {
+    height: 0.5rem;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .skills {
+    grid-template-columns: 1fr;
+  }
+}

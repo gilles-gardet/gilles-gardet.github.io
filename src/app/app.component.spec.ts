@@ -8,9 +8,9 @@ import { MarkdownModule } from 'ngx-markdown';
 import { ResumeModule } from '@features/resume/resume.module';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { SharedModule } from '@shared/shared.module';
-import { SidebarModule } from '@features/sidebar/sidebar.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { APP_BASE_HREF } from '@angular/common';
+import { ContactModule } from '@features/contact/contact.module';
 
 window.IntersectionObserver = jest.fn().mockImplementation(() => ({
   observe: () => null,
@@ -28,13 +28,13 @@ describe('AppComponent', () => {
           AppRoutingModule,
           BrowserAnimationsModule,
           BrowserModule,
+          ContactModule,
           CoreModule,
           HttpClientTestingModule,
           MarkdownModule.forRoot(),
           ResumeModule,
           ScrollTopModule,
           SharedModule,
-          SidebarModule,
         ],
         providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
       }).compileComponents();

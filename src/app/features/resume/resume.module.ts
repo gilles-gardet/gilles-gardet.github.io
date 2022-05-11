@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ResumeComponent } from '@features/resume/components/resume/resume.component';
-import { ConfigService } from '@core/services/config.service';
 import { PanelModule } from 'primeng/panel';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { TimelineModule } from 'primeng/timeline';
@@ -12,9 +11,12 @@ import { TagModule } from 'primeng/tag';
 import { DialogModule } from 'primeng/dialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
+import { SummaryComponent } from '@features/resume/components/summary/summary.component';
+import { SkillsComponent } from '@features/resume/components/skills/skills.component';
+import { MissionsComponent } from '@features/resume/components/missions/missions.component';
 
 @NgModule({
-  declarations: [HobbiesComponent, ResumeComponent],
+  declarations: [HobbiesComponent, MissionsComponent, ResumeComponent, SkillsComponent, SummaryComponent],
   imports: [
     CardModule,
     CommonModule,

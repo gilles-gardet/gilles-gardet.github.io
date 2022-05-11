@@ -13,6 +13,10 @@ import { TimelineModule } from 'primeng/timeline';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
+import { SummaryComponent } from '@features/resume/components/summary/summary.component';
+import { SkillsComponent } from '@features/resume/components/skills/skills.component';
+import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
+import { MissionsComponent } from '@features/resume/components/missions/missions.component';
 
 const tools = [
   {
@@ -154,7 +158,7 @@ const emptyTools = [
     rate: 0,
   },
 ];
-const missions = [
+export const missions = [
   {
     client: 'Air France KLM (Inetum) - Dev Portal',
     endDate: null,
@@ -209,7 +213,7 @@ describe('ResumeComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [ResumeComponent],
+        declarations: [HobbiesComponent, MissionsComponent, ResumeComponent, SkillsComponent, SummaryComponent],
         imports: [
           BrowserAnimationsModule,
           CardModule,
@@ -237,76 +241,13 @@ describe('ResumeComponent', () => {
     expect(resumeComponent).toBeTruthy();
   });
 
-  it('should set screen size on init', async () => {
-    expect(resumeComponent.screenWidth).toBe(1024);
-  });
-
   it('should set missions values on init', async () => {
     expect(resumeComponent.missions).toStrictEqual(missions);
   });
 
   it('should set tools values on init', async () => {
-    expect(resumeComponent.tools).toStrictEqual(emptyTools);
+    expect(resumeComponent.skills).toStrictEqual(emptyTools);
     expect(resumeComponent.clones).toStrictEqual(tools);
-  });
-
-  it('should change the variable used to store the width when resizing the screen', async () => {
-    (window as any).innerWidth = 2048;
-    window.dispatchEvent(new Event('resize'));
-    componentFixture.detectChanges();
-    expect(resumeComponent.screenWidth).toBe(2048);
-  });
-
-  it(`should get the path of the full mardown file related to a mission's date`, async () => {
-    const path = resumeComponent.missionFromDate('2019-01-01', 'full');
-    expect(path).toEqual('/assets/resume/missions/201901/201901_full.md');
-  });
-
-  it(`should get the path of the light mardown file related to a mission's date`, async () => {
-    const path = resumeComponent.missionFromDate('2019-01-01', 'light');
-    expect(path).toEqual('/assets/resume/missions/201901/201901_light.md');
-  });
-
-  it(`should get the number of years between a given date and the current date`, async () => {
-    jest.useFakeTimers();
-    jest.setSystemTime(new Date('2022-04-16'));
-    const date: Date = new Date('2018-10-02');
-    const years = resumeComponent.numberOfYearsFromDateToCurrentDate(date);
-    expect(years).toBe(4);
-  });
-
-  it(`should get the timelapse label of a mission`, async () => {
-    const start: Date = new Date('2018-10-02');
-    const end: Date = new Date('2022-04-16');
-    const timelapseDone = resumeComponent.missionTimelapse(start.toDateString(), end.toDateString());
-    expect(timelapseDone).toEqual('02/10/2018 - 16/04/2022 (3 ans et 6 mois)');
-    const timelapseCurrent = resumeComponent.missionTimelapse(start.toDateString());
-    expect(timelapseCurrent).toEqual('02/10/2018 - en cours (3 ans et 7 mois)');
-  });
-
-  it(`should format the given date to be human readable`, async () => {
-    const firstDate: Date = new Date('2018-10-02');
-    const firstFormatedDate = resumeComponent.formatDate(firstDate);
-    expect(firstFormatedDate).toEqual('02/10/2018');
-    const secondDate: Date = new Date('2022-04-16');
-    const secondFormatedDate = resumeComponent.formatDate(secondDate);
-    expect(secondFormatedDate).toEqual('16/04/2022');
-  });
-
-  it(`should provide the mission duration label in months`, async () => {
-    const start: Date = new Date('2018-10-02');
-    const end: Date = new Date('2022-04-16');
-    const missionDuration = resumeComponent.missionDuration(start.toDateString());
-    expect(missionDuration).toEqual('3 ans et 7 mois');
-    const missionWithEndDuration = resumeComponent.missionDuration(start.toDateString(), end.toDateString());
-    expect(missionWithEndDuration).toEqual('3 ans et 6 mois');
-  });
-
-  it(`should provide the mission duration number in months`, async () => {
-    const start: Date = new Date('2018-10-02');
-    const end: Date = new Date('2022-04-16');
-    const missionDuration = resumeComponent.monthBetweenDates(start, end);
-    expect(missionDuration).toBe(42);
   });
 
   it(`should open the dialog with the selected mission`, async () => {
@@ -353,9 +294,5 @@ describe('ResumeComponent', () => {
       expect(resumeComponent.loading).toBeFalsy();
       expect(document.body.querySelector('p-dialog-content-scroll')).not.toBeNull();
     }, 600);
-  });
-
-  afterEach(() => {
-    jest.useRealTimers();
   });
 });

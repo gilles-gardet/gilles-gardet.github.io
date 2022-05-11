@@ -4,11 +4,11 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'portfolio-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss'],
+  selector: 'portfolio-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss'],
 })
-export class SidebarComponent implements OnDestroy {
+export class ContactComponent implements OnDestroy {
   private _unsubscribe$ = new Subject();
   themeChecked: boolean | undefined;
 

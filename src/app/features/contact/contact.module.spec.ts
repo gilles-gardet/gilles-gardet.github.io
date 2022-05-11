@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 import { APP_BASE_HREF } from '@angular/common';
-import { SidebarModule } from '@features/sidebar/sidebar.module';
+import { ContactModule } from '@features/contact/contact.module';
 
-describe('SidebarModule', () => {
+describe('ContactModule', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [SidebarModule],
+      imports: [ContactModule],
       providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
     });
   });
 
   it('should create', () => {
-    const module = TestBed.inject(SidebarModule);
+    const module = TestBed.inject(ContactModule);
     expect(module).toBeTruthy();
   });
 });

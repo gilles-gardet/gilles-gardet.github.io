@@ -11,4 +11,9 @@
   p-scrolltop > button.p-scrolltop {
     z-index: 1004;
   }
+
+  p-panel .p-panel-header {
+    display: grid;
+    justify-content: center;
+  }
 }

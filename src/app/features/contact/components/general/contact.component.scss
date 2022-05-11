@@ -1,3 +1,36 @@
+.general {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .general {
+    &__name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+
+    &__presentation {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    &__button {
+      &-left {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+      }
+
+      &-right {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+      }
+    }
+  }
+}
+
 ::ng-deep {
   p-card > div.p-card {
     position: sticky;
@@ -7,20 +40,24 @@
   button.p-button {
     border: 1px solid var(--button);
     background: var(--button);
+
     &.p-button.p-button-text,
     &.p-button.p-button-text:enabled:hover,
     &.p-button.p-button-text:enabled:active {
       color: var(--button);
     }
+
     &.p-button.p-button-text:enabled:hover,
     &.p-button.p-button-text:enabled:active {
       background: rgba(75, 85, 94, 0.04);
     }
+
     &.p-button:focus,
     &.p-button.p-button-text:enabled:active {
       box-shadow: 0 0 0 0.2rem #aab1b9;
     }
   }
+
   p-chip[label='gilles.gardet@gmail.com'] {
     --params: 0.8s ease;
 

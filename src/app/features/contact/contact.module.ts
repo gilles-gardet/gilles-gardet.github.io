@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidebarComponent } from '@features/sidebar/components/sidebar/sidebar.component';
 import { CardModule } from 'primeng/card';
 import { AvatarModule } from 'primeng/avatar';
 import { ChipModule } from 'primeng/chip';
@@ -9,9 +8,10 @@ import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { FormsModule } from '@angular/forms';
+import { ContactComponent } from '@features/contact/components/general/contact.component';
 
 @NgModule({
-  declarations: [SidebarComponent],
+  declarations: [ContactComponent],
   imports: [
     AvatarModule,
     ButtonModule,
@@ -23,6 +23,6 @@ import { FormsModule } from '@angular/forms';
     RippleModule,
     TooltipModule,
   ],
-  exports: [SidebarComponent],
+  exports: [ContactComponent],
 })
-export class SidebarModule {}
+export class ContactModule {}

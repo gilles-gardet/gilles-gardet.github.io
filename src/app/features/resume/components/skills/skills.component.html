@@ -1,0 +1,10 @@
+<p-panel header="Langages et outils">
+  <div class="skills">
+    <ng-container *ngFor="let skill of skills">
+      <div class="skills__languages">
+        <span>{{ skill.name }}</span>
+        <p-progressBar [value]="skill.rate" [showValue]="false"></p-progressBar>
+      </div>
+    </ng-container>
+  </div>
+</p-panel>
