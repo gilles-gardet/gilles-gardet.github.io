@@ -574,7 +574,7 @@ function ResumeComponent_p_dialog_4_ng_template_1_Template(rf, ctx) { if (rf & 1
 } if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](ctx_r1.missionTimelapse(ctx_r1.selectedMission == null ? null : ctx_r1.selectedMission.startDate, ctx_r1.selectedMission == null ? null : ctx_r1.selectedMission.endDate));
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](ctx_r1.selectedMission.timelapse);
 } }
 function ResumeComponent_p_dialog_4_ng_template_2_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div");
@@ -614,8 +614,9 @@ function ResumeComponent_p_dialog_4_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]();
+    let tmp_2_0;
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleMap"](_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpureFunction0"](8, _c0));
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("visible", ctx_r0.displayDialog)("header", ctx_r0.selectedMission == null ? null : ctx_r0.selectedMission.client)("modal", true)("closeOnEscape", true)("dismissableMask", true)("blockScroll", true);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("visible", ctx_r0.displayDialog)("header", (tmp_2_0 = ctx_r0.selectedMission) == null ? null : tmp_2_0.client)("modal", true)("closeOnEscape", true)("dismissableMask", true)("blockScroll", true);
 } }
 class ResumeComponent {
     /**
@@ -624,7 +625,7 @@ class ResumeComponent {
     constructor(markdownService) {
         this.markdownService = markdownService;
         this._unsubscribe$ = new rxjs__WEBPACK_IMPORTED_MODULE_7__.Subject();
-        this.selectedMission = null;
+        this.selectedMission = {};
         this.missions = [];
         this.skills = [];
         this.clones = [];
@@ -831,8 +832,8 @@ class SkillsComponent {
     _animateSkillsOnView() {
         const rateIntersectionObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    this.skills.forEach((tool) => { var _a; return (tool.rate = (_a = this.clones) === null || _a === void 0 ? void 0 : _a.find((clone) => clone.name === tool.name).rate); });
+                if (entry.isIntersecting && this.clones.length > 0) {
+                    this.skills.forEach((tool) => { var _a, _b; return (tool.rate = (_b = (_a = this.clones) === null || _a === void 0 ? void 0 : _a.find((clone) => clone.name === tool.name)) === null || _b === void 0 ? void 0 : _b.rate); });
                 }
             });
         }, {
