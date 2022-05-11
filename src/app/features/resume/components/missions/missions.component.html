@@ -1,14 +1,14 @@
 <p-panel header="Expérience">
   <p-timeline [value]="missions" align="alternate" styleClass="customized-timeline">
-    <ng-template pTemplate="marker" let-mission>
+    <ng-template pTemplate="marker">
       <span class="custom-marker p-shadow-2" [style.backgroundColor]="'#607D8B'">
         <i [ngClass]="'pi pi-bookmark'"></i>
       </span>
     </ng-template>
     <ng-template pTemplate="content" let-mission>
       <p-card
-        [header]="mission.client"
-        [subheader]="mission.timelapse"
+        [header]="mission['client']"
+        [subheader]="mission['timelapse']"
         [style]="{ backgroundColor: 'hsl(204, 19%, 98%)' }"
         styleClass="mission"
       >

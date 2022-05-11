@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
+import { Skill } from '@core/models/skill.model';
 
 @Component({
   selector: 'portfolio-skills',
@@ -6,8 +7,8 @@ import { AfterViewInit, Component, Input } from '@angular/core';
   styleUrls: ['./skills.component.scss'],
 })
 export class SkillsComponent implements AfterViewInit {
-  @Input() skills: any[] = [];
-  @Input() clones: any[] = [];
+  @Input() skills: Skill[] = [];
+  @Input() clones: Skill[] = [];
 
   /**
    * @inheritDoc
@@ -23,8 +24,10 @@ export class SkillsComponent implements AfterViewInit {
     const rateIntersectionObserver = new IntersectionObserver(
       (entries: IntersectionObserverEntry[]) => {
         entries.forEach((entry: IntersectionObserverEntry) => {
-          if (entry.isIntersecting) {
-            this.skills.forEach((tool) => (tool.rate = this.clones?.find((clone) => clone.name === tool.name).rate));
+          if (entry.isIntersecting && this.clones.length > 0) {
+            this.skills.forEach(
+              (tool: Skill) => (tool.rate = this.clones?.find((clone: Skill) => clone.name === tool.name)?.rate!)
+            );
           }
         });
       },

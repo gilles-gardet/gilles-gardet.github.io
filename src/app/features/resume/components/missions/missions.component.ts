@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Mission } from '@core/models/mission.model';
 
 @Component({
   selector: 'portfolio-missions',
@@ -6,8 +7,8 @@ import { AfterViewInit, Component, EventEmitter, HostListener, Input, OnInit, Ou
   styleUrls: ['./missions.component.scss'],
 })
 export class MissionsComponent implements OnInit, AfterViewInit {
-  @Input() missions: any[] = [];
-  @Output() openDialog = new EventEmitter<any>();
+  @Input() missions: Mission[] = [];
+  @Output() openDialog = new EventEmitter<Mission>();
 
   screenWidth: any;
 
@@ -73,7 +74,7 @@ export class MissionsComponent implements OnInit, AfterViewInit {
   /**
    * Open the details dialog
    */
-  emitOpenMissionDialog(mission: any): void {
+  emitOpenMissionDialog(mission: Mission): void {
     this.openDialog.emit(mission);
   }
 }

@@ -17,6 +17,7 @@ import { SummaryComponent } from '@features/resume/components/summary/summary.co
 import { SkillsComponent } from '@features/resume/components/skills/skills.component';
 import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
 import { MissionsComponent } from '@features/resume/components/missions/missions.component';
+import { Mission } from '@core/models/mission.model';
 
 const tools = [
   {
@@ -253,13 +254,13 @@ describe('ResumeComponent', () => {
   it(`should open the dialog with the selected mission`, async () => {
     const mission = {
       client: 'Test',
-      endDate: null,
+      endDate: undefined,
       startDate: '2022-01-01',
-    };
+    } as Mission;
     resumeComponent.displayDialog = false;
-    resumeComponent.selectedMission = null;
+    resumeComponent.selectedMission = {} as Mission;
     expect(resumeComponent.displayDialog).toBeFalsy();
-    expect(resumeComponent.selectedMission).toBeNull();
+    expect(resumeComponent.selectedMission).toEqual({});
     resumeComponent.openDialog(mission);
     expect(resumeComponent.displayDialog).toBeTruthy();
     expect(resumeComponent.selectedMission).toEqual(mission);
@@ -275,9 +276,9 @@ describe('ResumeComponent', () => {
   it(`should fetch the mission's content during the mission's loading`, async () => {
     const mission = {
       client: 'Test',
-      endDate: null,
+      endDate: undefined,
       startDate: '2022-01-01',
-    };
+    } as Mission;
     resumeComponent.loading = true;
     resumeComponent.selectedMission = mission;
     jest.spyOn(markdownService, 'getSource').mockReturnValue(of('test'));

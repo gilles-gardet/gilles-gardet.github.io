@@ -42,7 +42,6 @@ describe('MissionsComponent', () => {
         providers: [MarkdownService],
       }).compileComponents();
       componentFixture = TestBed.createComponent(MissionsComponent);
-      missionsComponent = componentFixture.componentInstance;
       componentFixture.detectChanges();
     })
   );

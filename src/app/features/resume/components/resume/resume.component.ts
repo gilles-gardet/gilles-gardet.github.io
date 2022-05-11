@@ -4,6 +4,8 @@ import { MarkdownService } from 'ngx-markdown';
 import { map, takeUntil } from 'rxjs/operators';
 import missions from '@assets/resume/missions.json';
 import skills from '@assets/resume/skills.json';
+import { Mission } from '@core/models/mission.model';
+import { Skill } from '@core/models/skill.model';
 
 @Component({
   selector: 'portfolio-resume',
@@ -12,10 +14,10 @@ import skills from '@assets/resume/skills.json';
 })
 export class ResumeComponent implements OnInit, OnDestroy {
   private _unsubscribe$ = new Subject();
-  selectedMission: any = null;
-  missions: any[] = [];
-  skills: any[] = [];
-  clones: any[] = [];
+  selectedMission: Mission = {} as Mission;
+  missions: Mission[] = [];
+  skills: Skill[] = [];
+  clones: Skill[] = [];
   displayDialog = false;
   loading = true;
   innerFullMission: string = '';
@@ -30,11 +32,11 @@ export class ResumeComponent implements OnInit, OnDestroy {
    * @inheritDoc
    */
   ngOnInit(): void {
-    const missions$ = of(missions);
-    const skills$ = of(skills);
+    const missions$ = of(missions as Mission[]);
+    const skills$ = of(skills as Skill[]);
     zip(missions$, skills$)
-      .pipe(map(([missions, skills]: [any, any]) => ({ missions, skills })))
-      .subscribe((result: { missions: any[]; skills: any[] }) => {
+      .pipe(map(([missions, skills]: [Mission[], Skill[]]) => ({ missions, skills })))
+      .subscribe((result: { missions: Mission[]; skills: Skill[] }) => {
         this.missions = result.missions.map((mission) => {
           return {
             ...mission,
@@ -129,7 +131,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
   /**
    * Open the details dialog
    */
-  openDialog(mission: any): void {
+  openDialog(mission: Mission): void {
     this.displayDialog = true;
     this.selectedMission = mission;
   }
