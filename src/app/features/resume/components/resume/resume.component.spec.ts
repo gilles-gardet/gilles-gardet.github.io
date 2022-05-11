@@ -242,7 +242,7 @@ describe('ResumeComponent', () => {
   });
 
   it('should set missions values on init', async () => {
-    expect(resumeComponent.missions).toStrictEqual(missions);
+    expect(resumeComponent.missions).toMatchObject(missions);
   });
 
   it('should set tools values on init', async () => {
@@ -294,5 +294,53 @@ describe('ResumeComponent', () => {
       expect(resumeComponent.loading).toBeFalsy();
       expect(document.body.querySelector('p-dialog-content-scroll')).not.toBeNull();
     }, 600);
+  });
+
+  it(`should get the path of the full mardown file related to a mission's date`, async () => {
+    const path = resumeComponent.missionFromDate('2019-01-01', 'full');
+    expect(path).toEqual('/assets/resume/missions/201901/201901_full.md');
+  });
+
+  it(`should get the path of the light mardown file related to a mission's date`, async () => {
+    const path = resumeComponent.missionFromDate('2019-01-01', 'light');
+    expect(path).toEqual('/assets/resume/missions/201901/201901_light.md');
+  });
+
+  it(`should get the timelapse label of a mission`, async () => {
+    const start: Date = new Date('2018-10-02');
+    const end: Date = new Date('2022-04-16');
+    const timelapseDone = resumeComponent.missionTimelapse(start.toDateString(), end.toDateString());
+    expect(timelapseDone).toEqual('02/10/2018 - 16/04/2022 (3 ans et 6 mois)');
+    const timelapseCurrent = resumeComponent.missionTimelapse(start.toDateString());
+    expect(timelapseCurrent).toEqual('02/10/2018 - en cours (3 ans et 7 mois)');
+  });
+
+  it(`should format the given date to be human readable`, async () => {
+    const firstDate: Date = new Date('2018-10-02');
+    const firstFormatedDate = resumeComponent.formatDate(firstDate);
+    expect(firstFormatedDate).toEqual('02/10/2018');
+    const secondDate: Date = new Date('2022-04-16');
+    const secondFormatedDate = resumeComponent.formatDate(secondDate);
+    expect(secondFormatedDate).toEqual('16/04/2022');
+  });
+
+  it(`should provide the mission duration label in months`, async () => {
+    const start: Date = new Date('2018-10-02');
+    const end: Date = new Date('2022-04-16');
+    const missionDuration = resumeComponent.missionDuration(start.toDateString());
+    expect(missionDuration).toEqual('3 ans et 7 mois');
+    const missionWithEndDuration = resumeComponent.missionDuration(start.toDateString(), end.toDateString());
+    expect(missionWithEndDuration).toEqual('3 ans et 6 mois');
+  });
+
+  it(`should provide the mission duration number in months`, async () => {
+    const start: Date = new Date('2018-10-02');
+    const end: Date = new Date('2022-04-16');
+    const missionDuration = resumeComponent.monthBetweenDates(start, end);
+    expect(missionDuration).toBe(42);
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
   });
 });

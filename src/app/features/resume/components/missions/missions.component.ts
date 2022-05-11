@@ -1,23 +1,15 @@
 import { AfterViewInit, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { BaseMission } from '@core/abstractions/mission.abstract';
 
 @Component({
   selector: 'portfolio-missions',
   templateUrl: './missions.component.html',
   styleUrls: ['./missions.component.scss'],
 })
-export class MissionsComponent extends BaseMission implements OnInit, AfterViewInit {
+export class MissionsComponent implements OnInit, AfterViewInit {
   @Input() missions: any[] = [];
   @Output() openDialog = new EventEmitter<any>();
 
   screenWidth: any;
-
-  /**
-   * Constructor
-   */
-  constructor() {
-    super();
-  }
 
   /**
    * @inheritDoc
@@ -27,7 +19,7 @@ export class MissionsComponent extends BaseMission implements OnInit, AfterViewI
   }
 
   /**
-   * A lifecycle hook that is called after Angular has fully initialized a component's view
+   * @inheritDoc
    */
   ngAfterViewInit(): void {
     this._animateMissionsOnView();
