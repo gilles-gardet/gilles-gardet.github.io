@@ -3775,7 +3775,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵPRE_STYLE": () => (/* binding */ ɵPRE_STYLE)
 /* harmony export */ });
 /**
- * @license Angular v13.3.6
+ * @license Angular v13.3.7
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -5020,7 +5020,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ 1631);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
 /**
- * @license Angular v13.3.6
+ * @license Angular v13.3.7
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -10577,7 +10577,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
 /**
- * @license Angular v13.3.6
+ * @license Angular v13.3.7
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -17212,7 +17212,7 @@ function isPlatformWorkerUi(platformId) {
  */
 
 
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('13.3.6');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('13.3.7');
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
@@ -17549,7 +17549,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 9151);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 6942);
 /**
- * @license Angular v13.3.6
+ * @license Angular v13.3.7
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -20705,7 +20705,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 8623);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 4514);
 /**
- * @license Angular v13.3.6
+ * @license Angular v13.3.7
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -22549,8 +22549,16 @@ function updateTransplantedViewCount(lContainer, amount) {
 const instructionState = {
     lFrame: createLFrame(null),
     bindingsEnabled: true,
-    isInCheckNoChangesMode: false,
 };
+/**
+ * In this mode, any changes in bindings will throw an ExpressionChangedAfterChecked error.
+ *
+ * Necessary to support ChangeDetectorRef.checkNoChanges().
+ *
+ * The `checkNoChanges` function is invoked only in ngDevMode=true and verifies that no unintended
+ * changes exist in the change detector or its children.
+ */
+let _isInCheckNoChangesMode = false;
 /**
  * Returns true if the instruction state stack is empty.
  *
@@ -22677,11 +22685,12 @@ function getContextLView() {
     return instructionState.lFrame.contextLView;
 }
 function isInCheckNoChangesMode() {
-    // TODO(misko): remove this from the LView since it is ngDevMode=true mode only.
-    return instructionState.isInCheckNoChangesMode;
+    !ngDevMode && throwError('Must never be called in production mode');
+    return _isInCheckNoChangesMode;
 }
 function setIsInCheckNoChangesMode(mode) {
-    instructionState.isInCheckNoChangesMode = mode;
+    !ngDevMode && throwError('Must never be called in production mode');
+    _isInCheckNoChangesMode = mode;
 }
 // top level variables should not be exported for performance reasons (PERF_NOTES.md)
 function getBindingRoot() {
@@ -29093,7 +29102,7 @@ const NO_CHANGE = (typeof ngDevMode === 'undefined' || ngDevMode) ? { __brand__:
  */
 function ɵɵadvance(delta) {
     ngDevMode && assertGreaterThan(delta, 0, 'Can only advance forward');
-    selectIndexInternal(getTView(), getLView(), getSelectedIndex() + delta, isInCheckNoChangesMode());
+    selectIndexInternal(getTView(), getLView(), getSelectedIndex() + delta, !!ngDevMode && isInCheckNoChangesMode());
 }
 function selectIndexInternal(tView, lView, index, checkNoChangesMode) {
     ngDevMode && assertIndexInDeclRange(lView, index);
@@ -30184,7 +30193,7 @@ function refreshView(tView, lView, templateFn, context) {
     enterView(lView);
     // Check no changes mode is a dev only mode used to verify that bindings have not changed
     // since they were assigned. We do not want to execute lifecycle hooks in that mode.
-    const isInCheckNoChangesPass = isInCheckNoChangesMode();
+    const isInCheckNoChangesPass = ngDevMode && isInCheckNoChangesMode();
     try {
         resetPreOrderHookFlags(lView);
         setBindingIndex(tView.bindingStartIndex);
@@ -30294,10 +30303,13 @@ function refreshView(tView, lView, templateFn, context) {
 }
 function renderComponentOrTemplate(tView, lView, templateFn, context) {
     const rendererFactory = lView[RENDERER_FACTORY];
-    const normalExecutionPath = !isInCheckNoChangesMode();
+    // Check no changes mode is a dev only mode used to verify that bindings have not changed
+    // since they were assigned. We do not want to invoke renderer factory functions in that mode
+    // to avoid any possible side-effects.
+    const checkNoChangesMode = !!ngDevMode && isInCheckNoChangesMode();
     const creationModeIsActive = isCreationMode(lView);
     try {
-        if (normalExecutionPath && !creationModeIsActive && rendererFactory.begin) {
+        if (!checkNoChangesMode && !creationModeIsActive && rendererFactory.begin) {
             rendererFactory.begin();
         }
         if (creationModeIsActive) {
@@ -30306,7 +30318,7 @@ function renderComponentOrTemplate(tView, lView, templateFn, context) {
         refreshView(tView, lView, templateFn, context);
     }
     finally {
-        if (normalExecutionPath && !creationModeIsActive && rendererFactory.end) {
+        if (!checkNoChangesMode && !creationModeIsActive && rendererFactory.end) {
             rendererFactory.end();
         }
     }
@@ -30319,7 +30331,7 @@ function executeTemplate(tView, lView, templateFn, rf, context) {
         if (isUpdatePhase && lView.length > HEADER_OFFSET) {
             // When we're updating, inherently select 0 so we don't
             // have to generate that instruction for most update blocks.
-            selectIndexInternal(tView, lView, HEADER_OFFSET, isInCheckNoChangesMode());
+            selectIndexInternal(tView, lView, HEADER_OFFSET, !!ngDevMode && isInCheckNoChangesMode());
         }
         const preHookType = isUpdatePhase ? 2 /* TemplateUpdateStart */ : 0 /* TemplateCreateStart */;
         profiler(preHookType, context);
@@ -41834,7 +41846,7 @@ class Version {
 /**
  * @publicApi
  */
-const VERSION = new Version('13.3.6');
+const VERSION = new Version('13.3.7');
 
 /**
  * @license
@@ -42166,7 +42178,9 @@ class ViewRef$1 {
      * introduce other changes.
      */
     checkNoChanges() {
-        checkNoChangesInternal(this._lView[TVIEW], this._lView, this.context);
+        if (ngDevMode) {
+            checkNoChangesInternal(this._lView[TVIEW], this._lView, this.context);
+        }
     }
     attachToViewContainerRef() {
         if (this._appRef) {
@@ -42197,7 +42211,9 @@ class RootViewRef extends ViewRef$1 {
         detectChangesInRootView(this._view);
     }
     checkNoChanges() {
-        checkNoChangesInRootView(this._view);
+        if (ngDevMode) {
+            checkNoChangesInRootView(this._view);
+        }
     }
     get context() {
         return null;
@@ -49560,7 +49576,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 4350);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 6942);
 /**
- * @license Angular v13.3.6
+ * @license Angular v13.3.7
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -58819,7 +58835,7 @@ FormBuilder.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["
  */
 
 
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('13.3.6');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('13.3.7');
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
@@ -58876,7 +58892,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/animations/browser */ 289);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 6362);
 /**
- * @license Angular v13.3.6
+ * @license Angular v13.3.7
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -59636,7 +59652,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ 6362);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
 /**
- * @license Angular v13.3.6
+ * @license Angular v13.3.7
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -62369,7 +62385,7 @@ DomSanitizerImpl.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_
  */
 
 
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('13.3.6');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('13.3.7');
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
@@ -62495,7 +62511,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! rxjs/operators */ 6675);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/common */ 6362);
 /**
- * @license Angular v13.3.6
+ * @license Angular v13.3.7
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -69838,7 +69854,7 @@ function provideRouterInitializer() {
  */
 
 
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('13.3.6');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('13.3.7');
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
