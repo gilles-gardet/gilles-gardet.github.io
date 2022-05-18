@@ -1,0 +1,77 @@
+@media print {
+  body {
+    overflow: visible;
+    //background: hsl(208, 23%, 98%);
+    background: white;
+  }
+
+  button {
+    display: none !important;
+  }
+
+  #container > aside {
+    padding-top: 2rem !important;
+    padding-bottom: 0 !important;
+  }
+
+  .pagebreak-avoid {
+    page-break-after: avoid;
+    page-break-before: avoid;
+  }
+
+  .pagebreak-after {
+    page-break-after: always;
+  }
+
+  .pagebreak-before {
+    page-break-before: always;
+  }
+
+  .p-card {
+    box-shadow: none !important;
+    border: 1px solid #dee2e6;
+  }
+
+  portfolio-missions > p-panel > div,
+  portfolio-hobbies > p-panel > div {
+    page-break-before: always;
+    padding-top: 2rem;
+  }
+
+  .customized-timeline {
+    &.p-timeline {
+      display: block;
+    }
+
+    .p-timeline-event,
+    .p-card .p-card-body {
+      page-break-inside: avoid;
+      page-break-after: auto;
+      page-break-before: auto;
+    }
+    .p-timeline-event:not(:first-child) {
+      padding-top: 2rem;
+    }
+
+    .p-timeline-event-separator {
+      display: none;
+    }
+
+    .p-timeline-event-opposite {
+      flex: 0;
+      padding: 0 !important;
+    }
+
+    .p-card {
+      margin-top: 1rem;
+    }
+
+    .p-timeline-event:nth-child(even) {
+      flex-direction: row !important;
+    }
+  }
+}
+
+@page {
+  margin: auto;
+}
