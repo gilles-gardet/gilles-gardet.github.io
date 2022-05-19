@@ -3775,7 +3775,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵPRE_STYLE": () => (/* binding */ ɵPRE_STYLE)
 /* harmony export */ });
 /**
- * @license Angular v13.3.8
+ * @license Angular v13.3.9
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -5020,7 +5020,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ 1631);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
 /**
- * @license Angular v13.3.8
+ * @license Angular v13.3.9
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -10577,7 +10577,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
 /**
- * @license Angular v13.3.8
+ * @license Angular v13.3.9
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -17212,7 +17212,7 @@ function isPlatformWorkerUi(platformId) {
  */
 
 
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('13.3.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('13.3.9');
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
@@ -17549,7 +17549,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 9151);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 6942);
 /**
- * @license Angular v13.3.8
+ * @license Angular v13.3.9
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -20705,7 +20705,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 8623);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 4514);
 /**
- * @license Angular v13.3.8
+ * @license Angular v13.3.9
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -41846,7 +41846,7 @@ class Version {
 /**
  * @publicApi
  */
-const VERSION = new Version('13.3.8');
+const VERSION = new Version('13.3.9');
 
 /**
  * @license
@@ -49576,7 +49576,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 4350);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 6942);
 /**
- * @license Angular v13.3.8
+ * @license Angular v13.3.9
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -58835,7 +58835,7 @@ FormBuilder.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["
  */
 
 
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('13.3.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('13.3.9');
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
@@ -58892,7 +58892,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/animations/browser */ 289);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 6362);
 /**
- * @license Angular v13.3.8
+ * @license Angular v13.3.9
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -59652,7 +59652,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ 6362);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
 /**
- * @license Angular v13.3.8
+ * @license Angular v13.3.9
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -62385,7 +62385,7 @@ DomSanitizerImpl.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_
  */
 
 
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('13.3.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('13.3.9');
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
@@ -62511,7 +62511,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! rxjs/operators */ 6675);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/common */ 6362);
 /**
- * @license Angular v13.3.8
+ * @license Angular v13.3.9
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -69854,7 +69854,7 @@ function provideRouterInitializer() {
  */
 
 
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('13.3.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('13.3.9');
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
