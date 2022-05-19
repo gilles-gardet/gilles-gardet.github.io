@@ -21,7 +21,7 @@ jobs:
   test:
     needs:
       - audit
-    continue-on-error: true
+    continue-on-error: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -41,7 +41,7 @@ jobs:
   e2e:
     needs:
       - audit
-    continue-on-error: true
+    continue-on-error: false
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
