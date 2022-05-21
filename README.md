@@ -1,4 +1,4 @@
-# Curriculum Vitae - Gilles Gardet
+# 🗃 Curriculum Vitae - Gilles Gardet
 
 Application réalisée à l'aide d'[Angular](https://angular.io/) et de la librairie de composant [PrimeNG](https://www.primefaces.org/primeng/).  
 Le but étant de faire un Curriculum Vitae "intéractif", facilement maintenable et hébergé via [Github pages](https://pages.github.com/).
@@ -15,7 +15,7 @@ L'application est de plus autonome dans le sens où elle ne nécessite pas de BF
 [![deployment](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/pages/pages-build-deployment/badge.svg?branch=pages)](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/pages/pages-build-deployment)
 [![codecov](https://codecov.io/gh/gilles-gardet/gilles-gardet.github.io/branch/master/graph/badge.svg?token=MJD58OG7SA)](https://codecov.io/gh/gilles-gardet/gilles-gardet.github.io)
 
-## Environnement de développement
+## 🚀 Environnement de développement
 
 Cette application s'appuit sur [pnpm](https://pnpm.io/) pour gérer ses dépendances et sur [nvm](https://github.com/nvm-sh/nvm) pour faciliter la gestion de la version de **NodeJS** à utiliser.
 
@@ -25,7 +25,7 @@ En premier lieu, il faut exécuter la commande ```pnpm install``` depuis la raci
 - La commande `pnpm test` lance les tests unitaires en s'appuyant sur la bibliothèque [Jest](https://jestjs.io/).
 - La commande `pnpm e2e` lance les tests *end-to-end* en s'appuyant sur la bibliothèque [Playwright](https://playwright.dev/).
 
-## Intégration continue
+## ⚙️ Intégration continue
 
 L'application est déployée sur [Github pages](https://pages.github.com/) via l'utilisation d'un [plugin](https://github.com/marketplace/actions/deploy-to-github-pages) au niveau de la CI/CD.
 
@@ -36,11 +36,13 @@ Ces étapes comprennent :
 - tests end-to-end sur l'ensemble de la SPA
 - déploiement sur l'environnement github pages
 
-## Fonctionnalités à venir
+## 🔍 Fonctionnalités à venir
 
 Il est prévu de rajouter à l'application plusieurs fonctionnalités :
+- [x] Responsive et adapaté aux petits écrans
+- [x] Adapter le style lorsque l'on veut imprimer la page (sur chrome seulement)
 - [x] Mise en place de tests end-to-end avec [Playwright](https://playwright.dev/)
-- [ ] Ajout d'une **darkmode**
+- [ ] Ajout d'un **darkmode** qui s'appuirait sur les préférences utilisateur en premier lieu
 - [ ] Possibilité de changer la langue en français ou en anglais
 
-> **Note :** À terme l'application devrait proposer un dark mode ainsi que le choix du langage (Français ou Anglais)
+> **⚠️ Attention :** L'application est toujours en cours de développement ne réflète donc pas toujours mon actualité.

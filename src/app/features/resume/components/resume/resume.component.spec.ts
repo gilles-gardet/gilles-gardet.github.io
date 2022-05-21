@@ -285,6 +285,7 @@ describe('ResumeComponent', () => {
     jest.spyOn(markdownService, 'compile');
     expect(document.body.querySelector('.p-dialog-content-scroll')).toBeNull();
     resumeComponent.onMissionLoading();
+    componentFixture.detectChanges();
     expect(markdownService.getSource).toHaveBeenCalledTimes(2);
     expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/202201/202201_full.md');
     expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/202201/202201_light.md');
@@ -293,7 +294,7 @@ describe('ResumeComponent', () => {
     expect(markdownService.compile).toHaveBeenNthCalledWith(2, 'test');
     await new Promise((resolve) => setTimeout(resolve, 600));
     expect(resumeComponent.loading).toBeFalsy();
-    // expect(document.body.querySelector('.p-dialog-content-scroll')).not.toBeNull();
+    expect(document.body.getElementsByClassName('p-dialog-content-scroll')[0]).not.toBeNull();
   });
 
   it(`should get the path of the full mardown file related to a mission's date`, async () => {
