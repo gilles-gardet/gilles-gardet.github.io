@@ -9,7 +9,8 @@
     "test": "ng test --maxWorkers=1",
     "test:ci": "ng test -- --ci --reporters=default --coverage",
     "e2e": "pnpm playwright test --config=e2e/playwright.config.ts",
-    "e2e:debug": "PWDEBUG=1 pnpm playwright test --config=e2e/playwright.config.ts --reporter=html"
+    "e2e:debug": "PWDEBUG=1 pnpm playwright test --config=e2e/playwright.config.ts --reporter=html",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -36,9 +37,12 @@
     "@angular-devkit/build-angular": "~13.3.4",
     "@angular/cli": "~13.3.4",
     "@angular/compiler-cli": "~13.3.5",
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
     "@playwright/test": "^1.21.1",
     "@types/jest": "^27.4.1",
     "@types/node": "^12.11.1",
+    "husky": "^8.0.0",
     "jest": "^27.5.1",
     "jest-preset-angular": "^11.1.2",
     "ts-jest": "^27.1.4",

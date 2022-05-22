@@ -20,6 +20,7 @@ L'application est de plus autonome dans le sens où elle ne nécessite pas de BF
 Cette application s'appuit sur [pnpm](https://pnpm.io/) pour gérer ses dépendances et sur [nvm](https://github.com/nvm-sh/nvm) pour faciliter la gestion de la version de **NodeJS** à utiliser.
 
 En premier lieu, il faut exécuter la commande ```pnpm install``` depuis la racine du répertoire du projet pour installer les dépendances nécessaire au lancement du projet.
+Cela devrait par la même occasion permettre l'installation d'un outil de gestion des commits (à savoir [husky](https://typicode.github.io/husky/#/)) afin de valider les tests et les messages de commit.
 
 - La commande `pnpm start` démarre l'application à l'adresse suivante par défaut `http://localhost:4200/`. L'application se recharge automatiquement en cas de changement des fichiers sources du projet.
 - La commande `pnpm test` lance les tests unitaires en s'appuyant sur la bibliothèque [Jest](https://jestjs.io/).
@@ -45,4 +46,5 @@ Il est prévu de rajouter à l'application plusieurs fonctionnalités :
 - [ ] Ajout d'un **darkmode** qui s'appuirait sur les préférences utilisateur en premier lieu
 - [ ] Possibilité de changer la langue en français ou en anglais
 
-> **⚠️ Attention :** L'application est toujours en cours de développement ne réflète donc pas toujours mon actualité.
+> **Note**
+> L'application est toujours en cours de développement et ne réflète donc pas toujours mon actualité.
