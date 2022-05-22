@@ -9,11 +9,15 @@ C'est aussi l'occasion de tester au moins partiellement [GitHub Actions](https:/
 
 Le CV est directement accessible à l'adresse [gilles-gardet.gihub.io](https://gilles-gardet.github.io/).
 
-L'application est de plus autonome dans le sens où elle ne nécessite pas de *BFF* (Backend For Frontend) pour requêter le contenu à afficher, les descriptifs sont en effet embarqués dans les assets de l'application au format **Markdown** puis parsé avant d'être finalement affichés.
+> **Note**  
+> L'application est toujours en cours de développement et ne réflète donc pas toujours mon actualité.
+
+À noter que l'application est de plus autonome dans le sens où elle ne nécessite pas de *BFF* (Backend For Frontend) pour requêter le contenu à afficher, les descriptifs sont en effet embarqués dans les assets de l'application au format **Markdown** puis parsé avant d'être finalement affichés.
 
 [![audit test & build](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/main.yml)
 [![deployment](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/pages/pages-build-deployment/badge.svg?branch=pages)](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/pages/pages-build-deployment)
 [![codecov](https://codecov.io/gh/gilles-gardet/gilles-gardet.github.io/branch/master/graph/badge.svg?token=MJD58OG7SA)](https://codecov.io/gh/gilles-gardet/gilles-gardet.github.io)
+[![CodeFactor](https://www.codefactor.io/repository/github/gilles-gardet/gilles-gardet.github.io/badge)](https://www.codefactor.io/repository/github/gilles-gardet/gilles-gardet.github.io)
 
 ## 🚀 Environnement de développement
 
@@ -51,6 +55,3 @@ Il est prévu de rajouter à l'application plusieurs fonctionnalités :
 - [x] Mise en place de tests end-to-end avec [Playwright](https://playwright.dev/)
 - [ ] Ajout d'un **darkmode** qui s'appuirait sur les préférences utilisateur en premier lieu
 - [ ] Possibilité de changer la langue en français ou en anglais
-
-> **Note**  
-> L'application est toujours en cours de développement et ne réflète donc pas toujours mon actualité.
