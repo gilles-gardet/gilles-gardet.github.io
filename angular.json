@@ -26,7 +26,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "src/styles/styles.scss",
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
@@ -34,7 +37,10 @@
               "node_modules/primeicons/primeicons.css",
               "node_modules/prismjs/themes/prism-okaidia.css"
             ],
-            "scripts": ["node_modules/marked/marked.min.js", "node_modules/prismjs/prism.js"]
+            "scripts": [
+              "node_modules/marked/marked.min.js",
+              "node_modules/prismjs/prism.js"
+            ]
           },
           "configurations": {
             "development": {
@@ -60,9 +66,13 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "polyfills": ["src/polyfills.ts"],
+            "polyfills": [
+              "src/polyfills.ts"
+            ],
             "tsConfig": "tsconfig.spec.json",
-            "testMatch": ["**/?(*.)+(spec).ts"]
+            "testMatch": [
+              "**/?(*.)+(spec).ts"
+            ]
           }
         },
         "extract-i18n": {
@@ -70,9 +80,21 @@
           "options": {
             "browserTarget": "portfolio:build"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "portfolio"
+  "defaultProject": "portfolio",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

@@ -9,7 +9,7 @@ C'est aussi l'occasion de tester au moins partiellement [GitHub Actions](https:/
 
 Le CV est directement accessible à l'adresse [gilles-gardet.gihub.io](https://gilles-gardet.github.io/).
 
-L'application est de plus autonome dans le sens où elle ne nécessite pas de BFF (Backend For Frontend) pour requêter le contenu à afficher, les descriptifs sont en effet embarqués dans les assets de l'application au format **Markdown** puis parsé avant d'être finalement affichés.
+L'application est de plus autonome dans le sens où elle ne nécessite pas de *BFF* (Backend For Frontend) pour requêter le contenu à afficher, les descriptifs sont en effet embarqués dans les assets de l'application au format **Markdown** puis parsé avant d'être finalement affichés.
 
 [![audit test & build](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/main.yml)
 [![deployment](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/pages/pages-build-deployment/badge.svg?branch=pages)](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/pages/pages-build-deployment)
@@ -20,8 +20,14 @@ L'application est de plus autonome dans le sens où elle ne nécessite pas de BF
 Cette application s'appuit sur [pnpm](https://pnpm.io/) pour gérer ses dépendances et sur [nvm](https://github.com/nvm-sh/nvm) pour faciliter la gestion de la version de **NodeJS** à utiliser.
 
 En premier lieu, il faut exécuter la commande ```pnpm install``` depuis la racine du répertoire du projet pour installer les dépendances nécessaire au lancement du projet.
-Cela devrait par la même occasion permettre l'installation d'un outil de gestion des commits (à savoir [husky](https://typicode.github.io/husky/#/)) afin de valider les tests et les messages de commit.
 
+Cela devrait par la même occasion permettre l'installation d'un outil de gestion des commits (à savoir [husky](https://typicode.github.io/husky/#/)).  
+Ce dernier s'occupe de : 
+1. *"[linter](https://en.wikipedia.org/wiki/Lint_(software))"* le code en s'appuyant sur [eslint](https://eslint.org/) et formater le code via [prettier](https://prettier.io/) (avant le commit)
+2. valider le message de commit via [commitlint](https://commitlint.js.org/#/) (au commit)
+3. valider les tests unitaires [jest](https://jestjs.io/) (avant de pousser le commit sur la branche distante)
+
+Les scripts principaux gérant notamment les cycles de vie de l'application sont les suivants :
 - La commande `pnpm start` démarre l'application à l'adresse suivante par défaut `http://localhost:4200/`. L'application se recharge automatiquement en cas de changement des fichiers sources du projet.
 - La commande `pnpm test` lance les tests unitaires en s'appuyant sur la bibliothèque [Jest](https://jestjs.io/).
 - La commande `pnpm e2e` lance les tests *end-to-end* en s'appuyant sur la bibliothèque [Playwright](https://playwright.dev/).
@@ -32,10 +38,10 @@ L'application est déployée sur [Github pages](https://pages.github.com/) via l
 
 L'ensemble des étapes de la *pipeline* sont centralisées dans le fichier [main.yml](./.github/workflows/main.yml).  
 Ces étapes comprennent :
-- audit des dépendances (en passant par yarn)
-- tests unitaires sur les composants (avec récupération de la couverture de test et affichage sous forme de badge) 
-- tests end-to-end sur l'ensemble de la SPA
-- déploiement sur l'environnement github pages
+- **audit** des dépendances (en passant par yarn)
+- **tests unitaires** sur les composants (avec récupération de la couverture de test et affichage sous forme de badge) 
+- tests **end-to-end** sur l'ensemble de la *[SPA](https://developer.mozilla.org/fr/docs/Glossary/SPA)*
+- **déploiement** sur l'environnement github pages (grace au [plugin](https://github.com/marketplace/actions/deploy-to-github-pages) précédemment évoqué)
 
 ## 🔍 Fonctionnalités à venir
 
@@ -46,5 +52,5 @@ Il est prévu de rajouter à l'application plusieurs fonctionnalités :
 - [ ] Ajout d'un **darkmode** qui s'appuirait sur les préférences utilisateur en premier lieu
 - [ ] Possibilité de changer la langue en français ou en anglais
 
-> **Note**
+> **Note**  
 > L'application est toujours en cours de développement et ne réflète donc pas toujours mon actualité.
