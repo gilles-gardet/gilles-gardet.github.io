@@ -16,7 +16,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const routes = [];
+const routes = [
+    {
+        path: '',
+        pathMatch: 'full',
+        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_resume_resume-page_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! @pages/resume/resume-page.module */ 9271)).then((module) => module.ResumePageModule),
+    },
+    {
+        path: '**',
+        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_resume_resume-page_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! @pages/resume/resume-page.module */ 9271)).then((module) => module.ResumePageModule),
+    },
+];
 class AppRoutingModule {
 }
 AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); };
