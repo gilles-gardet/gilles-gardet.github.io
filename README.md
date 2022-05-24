@@ -47,6 +47,20 @@ Ces étapes comprennent :
 - tests **end-to-end** sur l'ensemble de la *[SPA](https://developer.mozilla.org/fr/docs/Glossary/SPA)*
 - **déploiement** sur l'environnement github pages (grace au [plugin](https://github.com/marketplace/actions/deploy-to-github-pages) précédemment évoqué)
 
+> **Warning**  
+> Il est nécessaires de créer des snapshots expressément pour le *job* de test e2e car ceux-ci sont liées au navigateur de l'OS (dans notre cas **Alpine**).
+> 
+> Pour mettre à jour les snapshots de playwright il faut passer par une image docker *pinned* (ex: 1.22.0-focal) sur un poste local :
+>
+> Lancer l'image via `docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.22.0-focal /bin/bash`  
+> Puis en executant directement dans l'image le workflow suivant :
+> - `npm i -g pnpm`
+> - `pnpm install`
+> - `npx playwright install`
+> - `pnpm playwright test --config=e2e/playwright.config.ts --update-snapshots`
+>
+> Normalement les snapshots devraient être mis à jours directement dans le répertoire local [e2e/integration/page.spec.ts-snapshots](./e2e/integration/page.spec.ts-snapshots)
+
 ## 🔍 Fonctionnalités à venir
 
 Il est prévu de rajouter à l'application plusieurs fonctionnalités :

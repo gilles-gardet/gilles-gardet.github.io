@@ -3,12 +3,12 @@ import { devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   testDir: './integration',
-  timeout: 120 * 1000,
+  timeout: 120 * 1_000,
   expect: {
-    timeout: 5000,
+    timeout: 5_000,
   },
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
+  retries: 1,
   workers: process.env.CI ? 1 : undefined,
   reporter: process.env.CI ? [['html', { outputFolder: 'report' }], ['github']] : 'list',
   use: {
@@ -25,7 +25,7 @@ const config: PlaywrightTestConfig = {
   ],
   webServer: {
     command: 'npx ng serve',
-    port: 4200,
+    port: 4_200,
   },
 };
 export default config;

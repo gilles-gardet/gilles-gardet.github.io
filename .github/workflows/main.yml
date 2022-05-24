@@ -41,7 +41,7 @@ jobs:
   e2e:
     needs:
       - audit
-    continue-on-error: false
+    continue-on-error: true
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
