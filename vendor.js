@@ -79800,8 +79800,9 @@ class Tooltip {
       } else if (this.getOption('tooltipEvent') === 'focus') {
         this.focusListener = this.onFocus.bind(this);
         this.blurListener = this.onBlur.bind(this);
-        this.el.nativeElement.addEventListener('focus', this.focusListener);
-        this.el.nativeElement.addEventListener('blur', this.blurListener);
+        let target = this.getTarget(this.el.nativeElement);
+        target.addEventListener('focus', this.focusListener);
+        target.addEventListener('blur', this.blurListener);
       }
     });
   }
@@ -80163,6 +80164,10 @@ class Tooltip {
     return this._tooltipOptions[option];
   }
 
+  getTarget(el) {
+    return primeng_dom__WEBPACK_IMPORTED_MODULE_0__.DomHandler.hasClass(el, 'p-inputwrapper') ? primeng_dom__WEBPACK_IMPORTED_MODULE_0__.DomHandler.findSingle(el, 'input') : el;
+  }
+
   preAlign(position) {
     this.container.style.left = -999 + 'px';
     this.container.style.top = -999 + 'px';
@@ -80222,8 +80227,9 @@ class Tooltip {
       this.el.nativeElement.removeEventListener('mouseleave', this.mouseLeaveListener);
       this.el.nativeElement.removeEventListener('click', this.clickListener);
     } else if (this.getOption('tooltipEvent') === 'focus') {
-      this.el.nativeElement.removeEventListener('focus', this.focusListener);
-      this.el.nativeElement.removeEventListener('blur', this.blurListener);
+      let target = this.getTarget(this.el.nativeElement);
+      target.removeEventListener('focus', this.focusListener);
+      target.removeEventListener('blur', this.blurListener);
     }
 
     this.unbindDocumentResizeListener();
