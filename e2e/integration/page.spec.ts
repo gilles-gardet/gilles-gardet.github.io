@@ -4,10 +4,15 @@ test.beforeEach(async ({ page }) => {
   await page.goto('http://localhost:4200');
 });
 
-test.describe('Page structure', () => {
+test.describe('General page structure', () => {
   test('Title should be Gilles Gardet', async ({ page }) => {
     await expect(page).toHaveURL('http://localhost:4200');
     await expect(page).toHaveTitle('Gilles Gardet');
+  });
+
+  test('should have a sidebar', async ({ page }) => {
+    const aside = page.locator('aside');
+    await expect(aside).toBeVisible();
   });
 
   test('Should have a panel "profil et généralités"', async ({ page }) => {
@@ -33,7 +38,7 @@ test.describe('Page structure', () => {
 
   test('Should match the snapshot of the panel "loisirs"', async ({ page }) => {
     const panel = page.locator('p-panel[header="Loisirs"]');
-    expect(await page.locator('p-panel[header="Loisirs"]').screenshot()).toMatchSnapshot('hobbies.png');
+    expect(await panel.screenshot()).toMatchSnapshot('hobbies.png');
   });
 });
 
@@ -50,7 +55,6 @@ test.describe('Sidebar structure', () => {
   test('should have a contact button', async ({ page }) => {
     const button = page.locator('aside p-chip');
     await expect(button).toContainText('gilles.gardet@gmail.com');
-
   });
 
   test('should have a download cv button', async ({ page }) => {
@@ -64,5 +68,30 @@ test.describe('Sidebar structure', () => {
   test('Should match the snapshot of the sidebar', async ({ page }) => {
     const sidebar = page.locator('aside portfolio-contact');
     expect(await sidebar.screenshot()).toMatchSnapshot('sidebar.png');
+  });
+});
+
+test.describe('Summary panel structure', () => {
+  test('should have a description', async ({ page }) => {
+    const content = page.locator('portfolio-summary .p-panel-content');
+    await expect(content).toBeVisible();
+    await expect(content).toContainText(
+      ` Je bénéficie d’une expérience de 9 ans en tant que concepteur développeur en matière de systèmes 
+      d’information.  Principalement spécialisé dans les technologies backend (Java, Spring...), que j'ai pu éprouver sur 
+      différentes missions elles-mêmes touchant à plusieurs domaines d'activités (domaine du spatial, des ressources 
+      humaines, des collectivités...).  J'ai néanmoins un profil fullstack de par les nombreux projets frontend que j'ai 
+      pu réaliser en parallèle.  J'ai l'habitude de travailler avec les méthodes Agiles que j'affectionne quand il s'agit 
+      de conduire un projet (Scrum, Kanban..). `
+    );
+  });
+
+  test('should have important keyword in bold', async ({ page }) => {
+    const bolds = page.locator('portfolio-summary .p-panel-content b');
+    const texts = await bolds.allTextContents();
+    await expect(texts).toHaveLength(4);
+    expect(texts).toContain('9 ans');
+    expect(texts).toContain('backend');
+    expect(texts).toContain('fullstack');
+    expect(texts).toContain('Agiles');
   });
 });
