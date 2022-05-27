@@ -1,9 +1,9 @@
+<div class="scroll-wrapper">
+  <div id="scroll-tracker"></div>
+</div>
 <portfolio-summary></portfolio-summary>
 <portfolio-skills [skills]="skills" [clones]="clones"></portfolio-skills>
-<portfolio-missions
-  [missions]="missions"
-  (openDialog)="openDialog($event)"
-></portfolio-missions>
+<portfolio-missions [missions]="missions" (openDialog)="openDialog($event)"></portfolio-missions>
 <portfolio-hobbies></portfolio-hobbies>
 
 <p-dialog

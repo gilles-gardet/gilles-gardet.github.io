@@ -42,7 +42,7 @@ test.describe('General page structure', () => {
   });
 });
 
-test.describe('Sidebar structure', () => {
+test.describe('Contact card structure', () => {
   test('should have a name and a short description with an avatar', async ({ page }) => {
     const aside = page.locator('aside');
     await expect(aside).toBeVisible();
@@ -93,5 +93,15 @@ test.describe('Summary panel structure', () => {
     expect(texts).toContain('backend');
     expect(texts).toContain('fullstack');
     expect(texts).toContain('Agiles');
+  });
+});
+
+test.describe('Skills panel structure', () => {
+  test('should have a description', async ({ page }) => {
+    const skills = page.locator('portfolio-skills .p-panel-content .skills__languages');
+    const texts = await skills.allTextContents();
+    await expect(texts).toHaveLength(17);
+    expect(await skills.locator('span').count()).toBe(17);
+    expect(await skills.locator('.p-progressbar').count()).toBe(17);
   });
 });
