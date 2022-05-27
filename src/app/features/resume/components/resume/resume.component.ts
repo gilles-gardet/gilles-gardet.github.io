@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { forkJoin, Observable, of, Subject, zip } from 'rxjs';
 import { MarkdownService } from 'ngx-markdown';
 import { map, takeUntil } from 'rxjs/operators';
@@ -48,6 +48,17 @@ export class ResumeComponent implements OnInit, OnDestroy {
         this.clones = result.skills;
         this.skills = result.skills.map((skill) => ({ name: skill.name, rate: 0 }));
       });
+  }
+
+  /**
+   * Listen for the page scroll in order to display a reading indicator
+   */
+  @HostListener('window:scroll', ['$event'])
+  onPageScroll(): void {
+    const scrollTracker: any = document.getElementById('scroll-tracker');
+    let scrollDistance = document.documentElement.scrollTop || document.body.scrollTop;
+    let progressWidth = (scrollDistance / (document.body.scrollHeight - document.documentElement.clientHeight)) * 100;
+    scrollTracker!.style.width = progressWidth + '%';
   }
 
   /**
