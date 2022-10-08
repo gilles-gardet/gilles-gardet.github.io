@@ -28,7 +28,7 @@ class ResumePageRoutingModule {
 }
 ResumePageRoutingModule.ɵfac = function ResumePageRoutingModule_Factory(t) { return new (t || ResumePageRoutingModule)(); };
 ResumePageRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: ResumePageRoutingModule });
-ResumePageRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule.forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule] });
+ResumePageRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule.forChild(routes), _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](ResumePageRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule] }); })();
 
 
@@ -54,7 +54,7 @@ class ResumePageModule {
 }
 ResumePageModule.ɵfac = function ResumePageModule_Factory(t) { return new (t || ResumePageModule)(); };
 ResumePageModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineNgModule"]({ type: ResumePageModule });
-ResumePageModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({ imports: [[_features_resume_resume_module__WEBPACK_IMPORTED_MODULE_1__.ResumeModule, _pages_resume_resume_page_routing_module__WEBPACK_IMPORTED_MODULE_0__.ResumePageRoutingModule]] });
+ResumePageModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({ imports: [_features_resume_resume_module__WEBPACK_IMPORTED_MODULE_1__.ResumeModule, _pages_resume_resume_page_routing_module__WEBPACK_IMPORTED_MODULE_0__.ResumePageRoutingModule] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](ResumePageModule, { imports: [_features_resume_resume_module__WEBPACK_IMPORTED_MODULE_1__.ResumeModule, _pages_resume_resume_page_routing_module__WEBPACK_IMPORTED_MODULE_0__.ResumePageRoutingModule] }); })();
 
 
