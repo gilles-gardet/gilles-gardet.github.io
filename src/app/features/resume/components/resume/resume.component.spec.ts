@@ -211,32 +211,30 @@ describe('ResumeComponent', () => {
   let markdownService: MarkdownService;
   let componentFixture: ComponentFixture<ResumeComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [HobbiesComponent, MissionsComponent, ResumeComponent, SkillsComponent, SummaryComponent],
-        imports: [
-          BrowserAnimationsModule,
-          CardModule,
-          CommonModule,
-          DialogModule,
-          HttpClientTestingModule,
-          MarkdownModule.forRoot(),
-          PanelModule,
-          ProgressBarModule,
-          ProgressSpinnerModule,
-          SharedModule,
-          TagModule,
-          TimelineModule,
-        ],
-        providers: [MarkdownService],
-      }).compileComponents();
-      componentFixture = TestBed.createComponent(ResumeComponent);
-      markdownService = TestBed.inject(MarkdownService);
-      resumeComponent = componentFixture.componentInstance;
-      componentFixture.detectChanges();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [HobbiesComponent, MissionsComponent, ResumeComponent, SkillsComponent, SummaryComponent],
+      imports: [
+        BrowserAnimationsModule,
+        CardModule,
+        CommonModule,
+        DialogModule,
+        HttpClientTestingModule,
+        MarkdownModule.forRoot(),
+        PanelModule,
+        ProgressBarModule,
+        ProgressSpinnerModule,
+        SharedModule,
+        TagModule,
+        TimelineModule,
+      ],
+      providers: [MarkdownService],
+    }).compileComponents();
+    componentFixture = TestBed.createComponent(ResumeComponent);
+    markdownService = TestBed.inject(MarkdownService);
+    resumeComponent = componentFixture.componentInstance;
+    componentFixture.detectChanges();
+  }));
 
   it('should create', async () => {
     expect(resumeComponent).toBeTruthy();
@@ -282,7 +280,7 @@ describe('ResumeComponent', () => {
     resumeComponent.loading = true;
     resumeComponent.selectedMission = mission;
     jest.spyOn(markdownService, 'getSource').mockReturnValue(of('test'));
-    jest.spyOn(markdownService, 'compile');
+    jest.spyOn(markdownService, 'parse');
     expect(document.body.querySelector('.p-dialog-content-scroll')).toBeNull();
     resumeComponent.onMissionLoading();
     componentFixture.detectChanges();
@@ -291,7 +289,7 @@ describe('ResumeComponent', () => {
     expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/202201/202201_light.md');
     expect(resumeComponent.innerFullMission).toEqual('<p>test</p>&#10;');
     expect(resumeComponent.innerLightMission).toEqual('<p>test</p>&#10;');
-    expect(markdownService.compile).toHaveBeenNthCalledWith(2, 'test');
+    expect(markdownService.parse).toHaveBeenNthCalledWith(2, 'test');
     await new Promise((resolve) => setTimeout(resolve, 600));
     expect(resumeComponent.loading).toBeFalsy();
     expect(document.body.getElementsByClassName('p-dialog-content-scroll')[0]).not.toBeNull();
@@ -313,7 +311,7 @@ describe('ResumeComponent', () => {
     const timelapseDone = resumeComponent.missionTimelapse(start.toDateString(), end.toDateString());
     expect(timelapseDone).toEqual('02/10/2018 - 16/04/2022 (3 ans et 6 mois)');
     const timelapseCurrent = resumeComponent.missionTimelapse(start.toDateString());
-    expect(timelapseCurrent).toEqual('02/10/2018 - en cours (3 ans et 7 mois)');
+    expect(timelapseCurrent).toMatch(/02\/10\/2018 - en cours/);
   });
 
   it(`should format the given date to be human readable`, async () => {
@@ -329,7 +327,7 @@ describe('ResumeComponent', () => {
     const start: Date = new Date('2018-10-02');
     const end: Date = new Date('2022-04-16');
     const missionDuration = resumeComponent.missionDuration(start.toDateString());
-    expect(missionDuration).toEqual('3 ans et 7 mois');
+    expect(missionDuration).toMatch(/^[0-9] ans/);
     const missionWithEndDuration = resumeComponent.missionDuration(start.toDateString(), end.toDateString());
     expect(missionWithEndDuration).toEqual('3 ans et 6 mois');
   });

@@ -15,28 +15,26 @@ describe('ContactComponent', () => {
   let componentFixture: ComponentFixture<ContactComponent>;
   let configService: ConfigService;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ContactComponent],
-        imports: [
-          AvatarModule,
-          ButtonModule,
-          CardModule,
-          ChipModule,
-          CommonModule,
-          InputSwitchModule,
-          RippleModule,
-          TooltipModule,
-        ],
-        providers: [ConfigService],
-      }).compileComponents();
-      componentFixture = TestBed.createComponent(ContactComponent);
-      configService = TestBed.inject(ConfigService);
-      contactComponent = componentFixture.componentInstance;
-      componentFixture.detectChanges();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ContactComponent],
+      imports: [
+        AvatarModule,
+        ButtonModule,
+        CardModule,
+        ChipModule,
+        CommonModule,
+        InputSwitchModule,
+        RippleModule,
+        TooltipModule,
+      ],
+      providers: [ConfigService],
+    }).compileComponents();
+    componentFixture = TestBed.createComponent(ContactComponent);
+    configService = TestBed.inject(ConfigService);
+    contactComponent = componentFixture.componentInstance;
+    componentFixture.detectChanges();
+  }));
 
   it('should create', async () => {
     expect(contactComponent).toBeTruthy();
@@ -96,7 +94,7 @@ describe('ContactComponent', () => {
     expect(anchorMock.click).toHaveBeenCalled();
     expect(document.body.appendChild).toHaveBeenCalledWith(anchorMock);
     expect(document.body.removeChild).toHaveBeenCalledWith(anchorMock);
-    expect(anchorMock.href).toEqual('https://github.com/just-jeb/assets/pdf/CV_GARDET_Gilles.pdf');
+    expect(anchorMock.href).toContain('/assets/pdf/CV_GARDET_Gilles.pdf');
     expect(anchorMock.download).toEqual('gardet_gilles.pdf');
   });
 });

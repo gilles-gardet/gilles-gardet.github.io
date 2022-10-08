@@ -116,12 +116,17 @@ export class ResumeComponent implements OnInit, OnDestroy {
       const endTimestamp = Date.parse(end);
       endDate = new Date(endTimestamp);
     }
-    if (this.monthBetweenDates(startDate, endDate) > 12 && this.monthBetweenDates(startDate, endDate) % 12 > 0) {
-      const years = Math.trunc(this.monthBetweenDates(startDate, endDate) / 12);
-      const months = this.monthBetweenDates(startDate, endDate) % 12;
+    let monthsBetweenDates: number = this.monthBetweenDates(startDate, endDate);
+    if (monthsBetweenDates > 12 && monthsBetweenDates % 12 > 0) {
+      const years = Math.trunc(monthsBetweenDates / 12);
+      const months = monthsBetweenDates % 12;
       return `${years} an${years > 1 ? 's' : ''} et ${months} mois`;
     }
-    return `${this.monthBetweenDates(startDate, endDate)} mois`;
+    if (monthsBetweenDates % 12 === 0) {
+      const years = Math.trunc(monthsBetweenDates / 12);
+      return `${years} an${years > 1 ? 's' : ''}`;
+    }
+    return `${monthsBetweenDates} mois`;
   }
 
   /**
@@ -167,8 +172,8 @@ export class ResumeComponent implements OnInit, OnDestroy {
     forkJoin({ lightMission, fullMission })
       .pipe(takeUntil(this._unsubscribe$))
       .subscribe((value) => {
-        this.innerLightMission = this.markdownService.compile(value.lightMission);
-        this.innerFullMission = this.markdownService.compile(value.fullMission);
+        this.innerLightMission = this.markdownService.parse(value.lightMission);
+        this.innerFullMission = this.markdownService.parse(value.fullMission);
         setTimeout(() => {
           this.loading = false;
           document
