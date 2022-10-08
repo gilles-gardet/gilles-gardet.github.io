@@ -10,7 +10,7 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { SharedModule } from '@shared/shared.module';
 import { CoreModule } from '@core/core.module';
 import { ResumeModule } from '@features/resume/resume.module';
-import { ContactModule } from '@features/contact/contact.module';
+import { ContactComponent } from '@features/contact/components/general/contact.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -19,7 +19,7 @@ import { ContactModule } from '@features/contact/contact.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    ContactModule,
+    ContactComponent,
     CoreModule,
     HttpClientModule,
     MarkdownModule.forRoot(),

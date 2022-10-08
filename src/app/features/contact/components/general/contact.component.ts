@@ -1,23 +1,43 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, inject, OnDestroy } from "@angular/core";
 import { ConfigService } from '@core/services/config.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { AvatarModule } from 'primeng/avatar';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { ChipModule } from 'primeng/chip';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { RippleModule } from 'primeng/ripple';
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'portfolio-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
+  standalone: true,
+  imports: [
+    AvatarModule,
+    ButtonModule,
+    CardModule,
+    ChipModule,
+    CommonModule,
+    FormsModule,
+    InputSwitchModule,
+    RippleModule,
+    TooltipModule,
+  ],
 })
 export class ContactComponent implements OnDestroy {
   private _unsubscribe$ = new Subject();
+  configService = inject(ConfigService);
   themeChecked: boolean | undefined;
 
   /**
    * Constructor
-   *
-   * @param configService the config service to be injected as a dependency
    */
-  constructor(private configService: ConfigService) {
+  constructor() {
     this.configService.theme$.pipe(takeUntil(this._unsubscribe$)).subscribe((theme: string) => {
       this.themeChecked = theme === 'light';
       document.body.classList.toggle('dark', !this.themeChecked!);

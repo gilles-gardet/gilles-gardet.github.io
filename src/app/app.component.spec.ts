@@ -10,7 +10,7 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { SharedModule } from '@shared/shared.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { APP_BASE_HREF } from '@angular/common';
-import { ContactModule } from '@features/contact/contact.module';
+import { ContactComponent } from '@features/contact/components/general/contact.component';
 
 window.IntersectionObserver = jest.fn().mockImplementation(() => ({
   observe: () => null,
@@ -20,29 +20,27 @@ describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [AppComponent],
-        imports: [
-          AppRoutingModule,
-          BrowserAnimationsModule,
-          BrowserModule,
-          ContactModule,
-          CoreModule,
-          HttpClientTestingModule,
-          MarkdownModule.forRoot(),
-          ResumeModule,
-          ScrollTopModule,
-          SharedModule,
-        ],
-        providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
-      }).compileComponents();
-      fixture = TestBed.createComponent(AppComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [AppComponent],
+      imports: [
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        ContactComponent,
+        CoreModule,
+        HttpClientTestingModule,
+        MarkdownModule.forRoot(),
+        ResumeModule,
+        ScrollTopModule,
+        SharedModule,
+      ],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+    }).compileComponents();
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
 
   it('should create', async () => {
     expect(component).toBeTruthy();
