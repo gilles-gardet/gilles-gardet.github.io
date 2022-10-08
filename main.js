@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "AppComponent": () => (/* binding */ AppComponent)
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 3184);
-/* harmony import */ var _features_contact_components_general_contact_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @features/contact/components/general/contact.component */ 2629);
+/* harmony import */ var _features_contact_components_general_contact_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./features/contact/components/general/contact.component */ 2629);
 /* harmony import */ var _features_resume_components_resume_resume_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @features/resume/components/resume/resume.component */ 4692);
 /* harmony import */ var primeng_scrolltop__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/scrolltop */ 2071);
 
@@ -90,7 +90,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @shared/shared.module */ 4466);
 /* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @core/core.module */ 294);
 /* harmony import */ var _features_resume_resume_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @features/resume/resume.module */ 8260);
-/* harmony import */ var _features_contact_contact_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @features/contact/contact.module */ 981);
+/* harmony import */ var _features_contact_components_general_contact_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @features/contact/components/general/contact.component */ 2629);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 3184);
 
 
@@ -112,7 +112,7 @@ AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵ
 AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineInjector"]({ imports: [_app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule,
         _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__.BrowserAnimationsModule,
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__.BrowserModule,
-        _features_contact_contact_module__WEBPACK_IMPORTED_MODULE_5__.ContactModule,
+        _features_contact_components_general_contact_component__WEBPACK_IMPORTED_MODULE_5__.ContactComponent,
         _core_core_module__WEBPACK_IMPORTED_MODULE_3__.CoreModule,
         _angular_common_http__WEBPACK_IMPORTED_MODULE_9__.HttpClientModule,
         ngx_markdown__WEBPACK_IMPORTED_MODULE_10__.MarkdownModule.forRoot(),
@@ -122,7 +122,7 @@ AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵ
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent], imports: [_app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule,
         _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__.BrowserAnimationsModule,
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__.BrowserModule,
-        _features_contact_contact_module__WEBPACK_IMPORTED_MODULE_5__.ContactModule,
+        _features_contact_components_general_contact_component__WEBPACK_IMPORTED_MODULE_5__.ContactComponent,
         _core_core_module__WEBPACK_IMPORTED_MODULE_3__.CoreModule,
         _angular_common_http__WEBPACK_IMPORTED_MODULE_9__.HttpClientModule, ngx_markdown__WEBPACK_IMPORTED_MODULE_10__.MarkdownModule, _features_resume_resume_module__WEBPACK_IMPORTED_MODULE_4__.ResumeModule,
         primeng_scrolltop__WEBPACK_IMPORTED_MODULE_11__.ScrollTopModule,
@@ -208,16 +208,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ContactComponent": () => (/* binding */ ContactComponent)
 /* harmony export */ });
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 5921);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 2218);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 3184);
 /* harmony import */ var _core_services_config_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @core/services/config.service */ 8914);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 5921);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 2218);
 /* harmony import */ var primeng_avatar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/avatar */ 9713);
 /* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/button */ 4633);
 /* harmony import */ var primeng_card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/card */ 6480);
 /* harmony import */ var primeng_chip__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/chip */ 4580);
-/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primeng/ripple */ 2875);
-/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primeng/tooltip */ 1210);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ 6362);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ 587);
+/* harmony import */ var primeng_inputswitch__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/inputswitch */ 2236);
+/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/ripple */ 2875);
+/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/tooltip */ 1210);
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -231,13 +244,11 @@ __webpack_require__.r(__webpack_exports__);
 class ContactComponent {
     /**
      * Constructor
-     *
-     * @param configService the config service to be injected as a dependency
      */
-    constructor(configService) {
-        this.configService = configService;
+    constructor() {
         this._unsubscribe$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__.Subject();
-        this.configService.theme$.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.takeUntil)(this._unsubscribe$)).subscribe((theme) => {
+        this.configService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_core_services_config_service__WEBPACK_IMPORTED_MODULE_0__.ConfigService);
+        this.configService.theme$.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.takeUntil)(this._unsubscribe$)).subscribe((theme) => {
             this.themeChecked = theme === 'light';
             document.body.classList.toggle('dark', !this.themeChecked);
         });
@@ -276,81 +287,26 @@ class ContactComponent {
         this._unsubscribe$.unsubscribe();
     }
 }
-ContactComponent.ɵfac = function ContactComponent_Factory(t) { return new (t || ContactComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_core_services_config_service__WEBPACK_IMPORTED_MODULE_0__.ConfigService)); };
-ContactComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: ContactComponent, selectors: [["portfolio-contact"]], decls: 9, vars: 0, consts: [[1, "general"], ["size", "xlarge", "shape", "circle", "styleClass", "p-mt-5", "image", "assets/pictures/me.jpg"], [1, "general__name"], [1, "general__presentation"], ["label", "gilles.gardet@gmail.com", "icon", "pi pi-envelope", "styleClass", "p-mr-2", 3, "click"], ["pButton", "", "pRipple", "", "type", "submit", "icon", "pi pi-cloud-download", "pTooltip", "T\u00E9l\u00E9charger mon CV au format PDF", 1, "p-button-rounded", "p-button-text", "general__button-left", 3, "click"]], template: function ContactComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "p-card")(1, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](2, "p-avatar", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "span", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](4, "Gilles Gardet");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](5, "span", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](6, "D\u00E9veloppeur fullstack, curieux par nature et passionn\u00E9 par son m\u00E9tier.");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "p-chip", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function ContactComponent_Template_p_chip_click_7_listener() { return ctx.openEmailClient(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "button", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function ContactComponent_Template_button_click_8_listener() { return ctx.downloadCurriculumVitae(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
-    } }, dependencies: [primeng_avatar__WEBPACK_IMPORTED_MODULE_4__.Avatar, primeng_button__WEBPACK_IMPORTED_MODULE_5__.ButtonDirective, primeng_card__WEBPACK_IMPORTED_MODULE_6__.Card, primeng_chip__WEBPACK_IMPORTED_MODULE_7__.Chip, primeng_ripple__WEBPACK_IMPORTED_MODULE_8__.Ripple, primeng_tooltip__WEBPACK_IMPORTED_MODULE_9__.Tooltip], styles: [".general[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.general[_ngcontent-%COMP%]   .general__name[_ngcontent-%COMP%] {\n  font-size: 1.2rem;\n  font-weight: bold;\n  margin: 1rem 0;\n}\n.general[_ngcontent-%COMP%]   .general__presentation[_ngcontent-%COMP%] {\n  text-align: left;\n  margin-bottom: 1rem;\n}\n.general[_ngcontent-%COMP%]   .general__button-left[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0.5rem;\n  left: 0.5rem;\n}\n.general[_ngcontent-%COMP%]   .general__button-right[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0.5rem;\n  left: 0.5rem;\n}\n  p-card > div.p-card {\n  position: sticky;\n  top: 2rem;\n}\n  button.p-button {\n  border: 1px solid var(--button);\n  background: var(--button);\n}\n  button.p-button.p-button.p-button-text,   button.p-button.p-button.p-button-text:enabled:hover,   button.p-button.p-button.p-button-text:enabled:active {\n  color: var(--button);\n}\n  button.p-button.p-button.p-button-text:enabled:hover,   button.p-button.p-button.p-button-text:enabled:active {\n  background: rgba(75, 85, 94, 0.04);\n}\n  button.p-button.p-button:focus,   button.p-button.p-button.p-button-text:enabled:active {\n  box-shadow: 0 0 0 0.2rem #aab1b9;\n}\n  p-chip[label=\"gilles.gardet@gmail.com\"] {\n  --params: 0.8s ease;\n}\n  p-chip[label=\"gilles.gardet@gmail.com\"] .p-chip {\n  position: relative;\n  overflow: hidden;\n  transition: color var(--params), background-color var(--params);\n  background-color: var(--chip-bg);\n  z-index: 0;\n}\n  p-chip[label=\"gilles.gardet@gmail.com\"] .p-chip::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: -1;\n  background-color: var(--dark-grey);\n  transform: translateX(100%);\n  transition: transform var(--params), opacity var(--params);\n}\n  p-chip[label=\"gilles.gardet@gmail.com\"] .p-chip:hover {\n  cursor: pointer;\n  color: var(--white);\n  background-color: transparent;\n}\n  p-chip[label=\"gilles.gardet@gmail.com\"] .p-chip:hover::before {\n  transform: translateX(0);\n  opacity: 1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbnRhY3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxtQkFBQTtBQUNGO0FBRUk7RUFDRSxpQkFBQTtFQUNBLGlCQUFBO0VBQ0EsY0FBQTtBQUFOO0FBR0k7RUFDRSxnQkFBQTtFQUNBLG1CQUFBO0FBRE47QUFLTTtFQUNFLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUFIUjtBQU1NO0VBQ0Usa0JBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQUpSO0FBV0U7RUFDRSxnQkFBQTtFQUNBLFNBQUE7QUFSSjtBQVdFO0VBQ0UsK0JBQUE7RUFDQSx5QkFBQTtBQVRKO0FBV0k7RUFHRSxvQkFBQTtBQVhOO0FBY0k7RUFFRSxrQ0FBQTtBQWJOO0FBZ0JJO0VBRUUsZ0NBQUE7QUFmTjtBQW1CRTtFQUNFLG1CQUFBO0FBakJKO0FBbUJJO0VBQ0Usa0JBQUE7RUFDQSxnQkFBQTtFQUNBLCtEQUFBO0VBQ0EsZ0NBQUE7RUFDQSxVQUFBO0FBakJOO0FBbUJNO0VBQ0UsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLE9BQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7RUFDQSxrQ0FBQTtFQUNBLDJCQUFBO0VBQ0EsMERBQUE7QUFqQlI7QUFvQk07RUFDRSxlQUFBO0VBQ0EsbUJBQUE7RUFDQSw2QkFBQTtBQWxCUjtBQW9CUTtFQUNFLHdCQUFBO0VBQ0EsVUFBQTtBQWxCViIsImZpbGUiOiJjb250YWN0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmdlbmVyYWwge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuXG4gIC5nZW5lcmFsIHtcbiAgICAmX19uYW1lIHtcbiAgICAgIGZvbnQtc2l6ZTogMS4ycmVtO1xuICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgICBtYXJnaW46IDFyZW0gMDtcbiAgICB9XG5cbiAgICAmX19wcmVzZW50YXRpb24ge1xuICAgICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgICAgIG1hcmdpbi1ib3R0b206IDFyZW07XG4gICAgfVxuXG4gICAgJl9fYnV0dG9uIHtcbiAgICAgICYtbGVmdCB7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgdG9wOiAwLjVyZW07XG4gICAgICAgIGxlZnQ6IDAuNXJlbTtcbiAgICAgIH1cblxuICAgICAgJi1yaWdodCB7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgdG9wOiAwLjVyZW07XG4gICAgICAgIGxlZnQ6IDAuNXJlbTtcbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cblxuOjpuZy1kZWVwIHtcbiAgcC1jYXJkID4gZGl2LnAtY2FyZCB7XG4gICAgcG9zaXRpb246IHN0aWNreTtcbiAgICB0b3A6IDJyZW07XG4gIH1cblxuICBidXR0b24ucC1idXR0b24ge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWJ1dHRvbik7XG4gICAgYmFja2dyb3VuZDogdmFyKC0tYnV0dG9uKTtcblxuICAgICYucC1idXR0b24ucC1idXR0b24tdGV4dCxcbiAgICAmLnAtYnV0dG9uLnAtYnV0dG9uLXRleHQ6ZW5hYmxlZDpob3ZlcixcbiAgICAmLnAtYnV0dG9uLnAtYnV0dG9uLXRleHQ6ZW5hYmxlZDphY3RpdmUge1xuICAgICAgY29sb3I6IHZhcigtLWJ1dHRvbik7XG4gICAgfVxuXG4gICAgJi5wLWJ1dHRvbi5wLWJ1dHRvbi10ZXh0OmVuYWJsZWQ6aG92ZXIsXG4gICAgJi5wLWJ1dHRvbi5wLWJ1dHRvbi10ZXh0OmVuYWJsZWQ6YWN0aXZlIHtcbiAgICAgIGJhY2tncm91bmQ6IHJnYmEoNzUsIDg1LCA5NCwgMC4wNCk7XG4gICAgfVxuXG4gICAgJi5wLWJ1dHRvbjpmb2N1cyxcbiAgICAmLnAtYnV0dG9uLnAtYnV0dG9uLXRleHQ6ZW5hYmxlZDphY3RpdmUge1xuICAgICAgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtICNhYWIxYjk7XG4gICAgfVxuICB9XG5cbiAgcC1jaGlwW2xhYmVsPSdnaWxsZXMuZ2FyZGV0QGdtYWlsLmNvbSddIHtcbiAgICAtLXBhcmFtczogMC44cyBlYXNlO1xuXG4gICAgLnAtY2hpcCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICBvdmVyZmxvdzogaGlkZGVuO1xuICAgICAgdHJhbnNpdGlvbjogY29sb3IgdmFyKC0tcGFyYW1zKSwgYmFja2dyb3VuZC1jb2xvciB2YXIoLS1wYXJhbXMpO1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY2hpcC1iZyk7XG4gICAgICB6LWluZGV4OiAwO1xuXG4gICAgICAmOjpiZWZvcmUge1xuICAgICAgICBjb250ZW50OiAnJztcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICB0b3A6IDA7XG4gICAgICAgIGxlZnQ6IDA7XG4gICAgICAgIHJpZ2h0OiAwO1xuICAgICAgICBib3R0b206IDA7XG4gICAgICAgIHotaW5kZXg6IC0xO1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1kYXJrLWdyZXkpO1xuICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMTAwJSk7XG4gICAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSB2YXIoLS1wYXJhbXMpLCBvcGFjaXR5IHZhcigtLXBhcmFtcyk7XG4gICAgICB9XG5cbiAgICAgICY6aG92ZXIge1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGNvbG9yOiB2YXIoLS13aGl0ZSk7XG4gICAgICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuXG4gICAgICAgICY6OmJlZm9yZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDApO1xuICAgICAgICAgIG9wYWNpdHk6IDE7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */"] });
-
-
-/***/ }),
-
-/***/ 981:
-/*!****************************************************!*\
-  !*** ./src/app/features/contact/contact.module.ts ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ContactModule": () => (/* binding */ ContactModule)
-/* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ 6362);
-/* harmony import */ var primeng_card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/card */ 6480);
-/* harmony import */ var primeng_avatar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/avatar */ 9713);
-/* harmony import */ var primeng_chip__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/chip */ 4580);
-/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/button */ 4633);
-/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primeng/ripple */ 2875);
-/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/tooltip */ 1210);
-/* harmony import */ var primeng_inputswitch__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primeng/inputswitch */ 2236);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ 587);
-/* harmony import */ var _features_contact_components_general_contact_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @features/contact/components/general/contact.component */ 2629);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
-
-
-
-
-
-
-
-
-
-
-
-class ContactModule {
-}
-ContactModule.ɵfac = function ContactModule_Factory(t) { return new (t || ContactModule)(); };
-ContactModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: ContactModule });
-ContactModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ imports: [primeng_avatar__WEBPACK_IMPORTED_MODULE_2__.AvatarModule,
-        primeng_button__WEBPACK_IMPORTED_MODULE_3__.ButtonModule,
-        primeng_card__WEBPACK_IMPORTED_MODULE_4__.CardModule,
-        primeng_chip__WEBPACK_IMPORTED_MODULE_5__.ChipModule,
-        _angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormsModule,
-        primeng_inputswitch__WEBPACK_IMPORTED_MODULE_8__.InputSwitchModule,
-        primeng_ripple__WEBPACK_IMPORTED_MODULE_9__.RippleModule,
-        primeng_tooltip__WEBPACK_IMPORTED_MODULE_10__.TooltipModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](ContactModule, { declarations: [_features_contact_components_general_contact_component__WEBPACK_IMPORTED_MODULE_0__.ContactComponent], imports: [primeng_avatar__WEBPACK_IMPORTED_MODULE_2__.AvatarModule,
-        primeng_button__WEBPACK_IMPORTED_MODULE_3__.ButtonModule,
-        primeng_card__WEBPACK_IMPORTED_MODULE_4__.CardModule,
-        primeng_chip__WEBPACK_IMPORTED_MODULE_5__.ChipModule,
-        _angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormsModule,
-        primeng_inputswitch__WEBPACK_IMPORTED_MODULE_8__.InputSwitchModule,
-        primeng_ripple__WEBPACK_IMPORTED_MODULE_9__.RippleModule,
-        primeng_tooltip__WEBPACK_IMPORTED_MODULE_10__.TooltipModule], exports: [_features_contact_components_general_contact_component__WEBPACK_IMPORTED_MODULE_0__.ContactComponent] }); })();
+ContactComponent.ɵfac = function ContactComponent_Factory(t) { return new (t || ContactComponent)(); };
+ContactComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: ContactComponent, selectors: [["portfolio-contact"]], standalone: true, features: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵStandaloneFeature"]], decls: 9, vars: 0, consts: [[1, "general"], ["size", "xlarge", "shape", "circle", "styleClass", "p-mt-5", "image", "assets/pictures/me.jpg"], [1, "general__name"], [1, "general__presentation"], ["label", "gilles.gardet@gmail.com", "icon", "pi pi-envelope", "styleClass", "p-mr-2", 3, "click"], ["pButton", "", "pRipple", "", "type", "submit", "icon", "pi pi-cloud-download", "pTooltip", "T\u00E9l\u00E9charger mon CV au format PDF", 1, "p-button-rounded", "p-button-text", "general__button-left", 3, "click"]], template: function ContactComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "p-card")(1, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](2, "p-avatar", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "span", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](4, "Gilles Gardet");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "span", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](6, "D\u00E9veloppeur fullstack, curieux par nature et passionn\u00E9 par son m\u00E9tier.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](7, "p-chip", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function ContactComponent_Template_p_chip_click_7_listener() { return ctx.openEmailClient(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](8, "button", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function ContactComponent_Template_button_click_8_listener() { return ctx.downloadCurriculumVitae(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()()();
+    } }, dependencies: [primeng_avatar__WEBPACK_IMPORTED_MODULE_4__.AvatarModule, primeng_avatar__WEBPACK_IMPORTED_MODULE_4__.Avatar, primeng_button__WEBPACK_IMPORTED_MODULE_5__.ButtonModule, primeng_button__WEBPACK_IMPORTED_MODULE_5__.ButtonDirective, primeng_card__WEBPACK_IMPORTED_MODULE_6__.CardModule, primeng_card__WEBPACK_IMPORTED_MODULE_6__.Card, primeng_chip__WEBPACK_IMPORTED_MODULE_7__.ChipModule, primeng_chip__WEBPACK_IMPORTED_MODULE_7__.Chip, _angular_common__WEBPACK_IMPORTED_MODULE_8__.CommonModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_9__.FormsModule,
+        primeng_inputswitch__WEBPACK_IMPORTED_MODULE_10__.InputSwitchModule,
+        primeng_ripple__WEBPACK_IMPORTED_MODULE_11__.RippleModule, primeng_ripple__WEBPACK_IMPORTED_MODULE_11__.Ripple, primeng_tooltip__WEBPACK_IMPORTED_MODULE_12__.TooltipModule, primeng_tooltip__WEBPACK_IMPORTED_MODULE_12__.Tooltip], styles: [".general[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.general[_ngcontent-%COMP%]   .general__name[_ngcontent-%COMP%] {\n  font-size: 1.2rem;\n  font-weight: bold;\n  margin: 1rem 0;\n}\n.general[_ngcontent-%COMP%]   .general__presentation[_ngcontent-%COMP%] {\n  text-align: left;\n  margin-bottom: 1rem;\n}\n.general[_ngcontent-%COMP%]   .general__button-left[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0.5rem;\n  left: 0.5rem;\n}\n.general[_ngcontent-%COMP%]   .general__button-right[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0.5rem;\n  left: 0.5rem;\n}\n  p-card > div.p-card {\n  position: sticky;\n  top: 2rem;\n}\n  button.p-button {\n  border: 1px solid var(--button);\n  background: var(--button);\n}\n  button.p-button.p-button.p-button-text,   button.p-button.p-button.p-button-text:enabled:hover,   button.p-button.p-button.p-button-text:enabled:active {\n  color: var(--button);\n}\n  button.p-button.p-button.p-button-text:enabled:hover,   button.p-button.p-button.p-button-text:enabled:active {\n  background: rgba(75, 85, 94, 0.04);\n}\n  button.p-button.p-button:focus,   button.p-button.p-button.p-button-text:enabled:active {\n  box-shadow: 0 0 0 0.2rem #aab1b9;\n}\n  p-chip[label=\"gilles.gardet@gmail.com\"] {\n  --params: 0.8s ease;\n}\n  p-chip[label=\"gilles.gardet@gmail.com\"] .p-chip {\n  position: relative;\n  overflow: hidden;\n  transition: color var(--params), background-color var(--params);\n  background-color: var(--chip-bg);\n  z-index: 0;\n}\n  p-chip[label=\"gilles.gardet@gmail.com\"] .p-chip::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: -1;\n  background-color: var(--dark-grey);\n  transform: translateX(100%);\n  transition: transform var(--params), opacity var(--params);\n}\n  p-chip[label=\"gilles.gardet@gmail.com\"] .p-chip:hover {\n  cursor: pointer;\n  color: var(--white);\n  background-color: transparent;\n}\n  p-chip[label=\"gilles.gardet@gmail.com\"] .p-chip:hover::before {\n  transform: translateX(0);\n  opacity: 1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbnRhY3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxtQkFBQTtBQUNGO0FBRUk7RUFDRSxpQkFBQTtFQUNBLGlCQUFBO0VBQ0EsY0FBQTtBQUFOO0FBR0k7RUFDRSxnQkFBQTtFQUNBLG1CQUFBO0FBRE47QUFLTTtFQUNFLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUFIUjtBQU1NO0VBQ0Usa0JBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQUpSO0FBV0U7RUFDRSxnQkFBQTtFQUNBLFNBQUE7QUFSSjtBQVdFO0VBQ0UsK0JBQUE7RUFDQSx5QkFBQTtBQVRKO0FBV0k7RUFHRSxvQkFBQTtBQVhOO0FBY0k7RUFFRSxrQ0FBQTtBQWJOO0FBZ0JJO0VBRUUsZ0NBQUE7QUFmTjtBQW1CRTtFQUNFLG1CQUFBO0FBakJKO0FBbUJJO0VBQ0Usa0JBQUE7RUFDQSxnQkFBQTtFQUNBLCtEQUFBO0VBQ0EsZ0NBQUE7RUFDQSxVQUFBO0FBakJOO0FBbUJNO0VBQ0UsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLE9BQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7RUFDQSxrQ0FBQTtFQUNBLDJCQUFBO0VBQ0EsMERBQUE7QUFqQlI7QUFvQk07RUFDRSxlQUFBO0VBQ0EsbUJBQUE7RUFDQSw2QkFBQTtBQWxCUjtBQW9CUTtFQUNFLHdCQUFBO0VBQ0EsVUFBQTtBQWxCViIsImZpbGUiOiJjb250YWN0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmdlbmVyYWwge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuXG4gIC5nZW5lcmFsIHtcbiAgICAmX19uYW1lIHtcbiAgICAgIGZvbnQtc2l6ZTogMS4ycmVtO1xuICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgICBtYXJnaW46IDFyZW0gMDtcbiAgICB9XG5cbiAgICAmX19wcmVzZW50YXRpb24ge1xuICAgICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgICAgIG1hcmdpbi1ib3R0b206IDFyZW07XG4gICAgfVxuXG4gICAgJl9fYnV0dG9uIHtcbiAgICAgICYtbGVmdCB7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgdG9wOiAwLjVyZW07XG4gICAgICAgIGxlZnQ6IDAuNXJlbTtcbiAgICAgIH1cblxuICAgICAgJi1yaWdodCB7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgdG9wOiAwLjVyZW07XG4gICAgICAgIGxlZnQ6IDAuNXJlbTtcbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cblxuOjpuZy1kZWVwIHtcbiAgcC1jYXJkID4gZGl2LnAtY2FyZCB7XG4gICAgcG9zaXRpb246IHN0aWNreTtcbiAgICB0b3A6IDJyZW07XG4gIH1cblxuICBidXR0b24ucC1idXR0b24ge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWJ1dHRvbik7XG4gICAgYmFja2dyb3VuZDogdmFyKC0tYnV0dG9uKTtcblxuICAgICYucC1idXR0b24ucC1idXR0b24tdGV4dCxcbiAgICAmLnAtYnV0dG9uLnAtYnV0dG9uLXRleHQ6ZW5hYmxlZDpob3ZlcixcbiAgICAmLnAtYnV0dG9uLnAtYnV0dG9uLXRleHQ6ZW5hYmxlZDphY3RpdmUge1xuICAgICAgY29sb3I6IHZhcigtLWJ1dHRvbik7XG4gICAgfVxuXG4gICAgJi5wLWJ1dHRvbi5wLWJ1dHRvbi10ZXh0OmVuYWJsZWQ6aG92ZXIsXG4gICAgJi5wLWJ1dHRvbi5wLWJ1dHRvbi10ZXh0OmVuYWJsZWQ6YWN0aXZlIHtcbiAgICAgIGJhY2tncm91bmQ6IHJnYmEoNzUsIDg1LCA5NCwgMC4wNCk7XG4gICAgfVxuXG4gICAgJi5wLWJ1dHRvbjpmb2N1cyxcbiAgICAmLnAtYnV0dG9uLnAtYnV0dG9uLXRleHQ6ZW5hYmxlZDphY3RpdmUge1xuICAgICAgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtICNhYWIxYjk7XG4gICAgfVxuICB9XG5cbiAgcC1jaGlwW2xhYmVsPSdnaWxsZXMuZ2FyZGV0QGdtYWlsLmNvbSddIHtcbiAgICAtLXBhcmFtczogMC44cyBlYXNlO1xuXG4gICAgLnAtY2hpcCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICBvdmVyZmxvdzogaGlkZGVuO1xuICAgICAgdHJhbnNpdGlvbjogY29sb3IgdmFyKC0tcGFyYW1zKSwgYmFja2dyb3VuZC1jb2xvciB2YXIoLS1wYXJhbXMpO1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY2hpcC1iZyk7XG4gICAgICB6LWluZGV4OiAwO1xuXG4gICAgICAmOjpiZWZvcmUge1xuICAgICAgICBjb250ZW50OiAnJztcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICB0b3A6IDA7XG4gICAgICAgIGxlZnQ6IDA7XG4gICAgICAgIHJpZ2h0OiAwO1xuICAgICAgICBib3R0b206IDA7XG4gICAgICAgIHotaW5kZXg6IC0xO1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1kYXJrLWdyZXkpO1xuICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMTAwJSk7XG4gICAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSB2YXIoLS1wYXJhbXMpLCBvcGFjaXR5IHZhcigtLXBhcmFtcyk7XG4gICAgICB9XG5cbiAgICAgICY6aG92ZXIge1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGNvbG9yOiB2YXIoLS13aGl0ZSk7XG4gICAgICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuXG4gICAgICAgICY6OmJlZm9yZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDApO1xuICAgICAgICAgIG9wYWNpdHk6IDE7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */"] });
 
 
 /***/ }),
