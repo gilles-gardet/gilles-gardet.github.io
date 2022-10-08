@@ -72,7 +72,8 @@
             "tsConfig": "tsconfig.spec.json",
             "testMatch": [
               "**/?(*.)+(spec).ts"
-            ]
+            ],
+            "maxWorkers": 1
           }
         },
         "extract-i18n": {

@@ -7,8 +7,8 @@
     "lint": "ng lint",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test --maxWorkers=1",
-    "test:ci": "ng test -- --ci --reporters=default --coverage",
+    "test": "ng test portfolio",
+    "test:ci": "ng test --ci=true --reporters=default --coverage=true",
     "e2e": "pnpm playwright test --config=e2e/playwright.config.ts",
     "prepare": "husky install"
   },
@@ -68,5 +68,8 @@
     "src/**/*.{css,scss,json,js,ts,html}": [
       "prettier ---write --ignore-unknown"
     ]
+  },
+  "resolutions": {
+    "d3-color": "^3.1.0"
   }
 }
