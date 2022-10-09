@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy } from "@angular/core";
+import { Component, inject, OnDestroy } from '@angular/core';
 import { ConfigService } from '@core/services/config.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -6,11 +6,11 @@ import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ChipModule } from 'primeng/chip';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
+import { SharedModule } from '@shared/shared.module';
 
 @Component({
   selector: 'portfolio-contact',
@@ -22,10 +22,10 @@ import { TooltipModule } from 'primeng/tooltip';
     ButtonModule,
     CardModule,
     ChipModule,
-    CommonModule,
     FormsModule,
     InputSwitchModule,
     RippleModule,
+    SharedModule,
     TooltipModule,
   ],
 })

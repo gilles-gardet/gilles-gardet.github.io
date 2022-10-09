@@ -9,17 +9,14 @@ describe('HobbiesComponent', () => {
   let hobbiesComponent: HobbiesComponent;
   let componentFixture: ComponentFixture<HobbiesComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [HobbiesComponent],
-        imports: [BrowserAnimationsModule, CommonModule, PanelModule, TagModule],
-      }).compileComponents();
-      componentFixture = TestBed.createComponent(HobbiesComponent);
-      hobbiesComponent = componentFixture.componentInstance;
-      componentFixture.detectChanges();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [BrowserAnimationsModule, CommonModule, PanelModule, TagModule],
+    }).compileComponents();
+    componentFixture = TestBed.createComponent(HobbiesComponent);
+    hobbiesComponent = componentFixture.componentInstance;
+    componentFixture.detectChanges();
+  }));
 
   it('should create', async () => {
     expect(hobbiesComponent).toBeTruthy();

@@ -5,11 +5,13 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: () => import('@pages/resume/resume-page.module').then((module) => module.ResumePageModule),
+    loadComponent: () =>
+      import('@features/resume/components/resume/resume.component').then((module) => module.ResumeComponent),
   },
   {
     path: '**',
-    loadChildren: () => import('@pages/resume/resume-page.module').then((module) => module.ResumePageModule),
+    loadComponent: () =>
+      import('@features/resume/components/resume/resume.component').then((module) => module.ResumeComponent),
   },
 ];
 

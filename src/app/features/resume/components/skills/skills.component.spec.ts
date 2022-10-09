@@ -13,17 +13,14 @@ describe('SkillsComponent', () => {
   let skillsComponent: SkillsComponent;
   let componentFixture: ComponentFixture<SkillsComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [SkillsComponent],
-        imports: [BrowserAnimationsModule, CommonModule, PanelModule, ProgressBarModule],
-      }).compileComponents();
-      componentFixture = TestBed.createComponent(SkillsComponent);
-      skillsComponent = componentFixture.componentInstance;
-      componentFixture.detectChanges();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [BrowserAnimationsModule, CommonModule, PanelModule, ProgressBarModule],
+    }).compileComponents();
+    componentFixture = TestBed.createComponent(SkillsComponent);
+    skillsComponent = componentFixture.componentInstance;
+    componentFixture.detectChanges();
+  }));
 
   it('should create', async () => {
     expect(skillsComponent).toBeTruthy();

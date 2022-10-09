@@ -24,7 +24,6 @@ describe('MissionsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [MissionsComponent],
       imports: [
         BrowserAnimationsModule,
         CardModule,

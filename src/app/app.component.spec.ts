@@ -5,12 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from '@core/core.module';
 import { MarkdownModule } from 'ngx-markdown';
-import { ResumeModule } from '@features/resume/resume.module';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { SharedModule } from '@shared/shared.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { APP_BASE_HREF } from '@angular/common';
 import { ContactComponent } from '@features/contact/components/general/contact.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 window.IntersectionObserver = jest.fn().mockImplementation(() => ({
   observe: () => null,
@@ -22,7 +22,6 @@ describe('AppComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent],
       imports: [
         AppRoutingModule,
         BrowserAnimationsModule,
@@ -31,11 +30,11 @@ describe('AppComponent', () => {
         CoreModule,
         HttpClientTestingModule,
         MarkdownModule.forRoot(),
-        ResumeModule,
         ScrollTopModule,
         SharedModule,
       ],
       providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;

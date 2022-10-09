@@ -1,10 +1,17 @@
 import { AfterViewInit, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Mission } from '@core/models/mission.model';
+import { PanelModule } from 'primeng/panel';
+import { TimelineModule } from 'primeng/timeline';
+import { CardModule } from 'primeng/card';
+import { SharedModule } from '@shared/shared.module';
+import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
   selector: 'portfolio-missions',
   templateUrl: './missions.component.html',
   styleUrls: ['./missions.component.scss'],
+  standalone: true,
+  imports: [CardModule, MarkdownModule, PanelModule, SharedModule, TimelineModule],
 })
 export class MissionsComponent implements OnInit, AfterViewInit {
   @Input() missions: Mission[] = [];

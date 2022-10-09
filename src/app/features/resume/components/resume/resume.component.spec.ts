@@ -213,7 +213,6 @@ describe('ResumeComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [HobbiesComponent, MissionsComponent, ResumeComponent, SkillsComponent, SummaryComponent],
       imports: [
         BrowserAnimationsModule,
         CardModule,

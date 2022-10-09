@@ -1,10 +1,15 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { Skill } from '@core/models/skill.model';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { PanelModule } from 'primeng/panel';
+import { SharedModule } from '@shared/shared.module';
 
 @Component({
   selector: 'portfolio-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
+  standalone: true,
+  imports: [PanelModule, ProgressBarModule, SharedModule],
 })
 export class SkillsComponent implements AfterViewInit {
   @Input() skills: Skill[] = [];

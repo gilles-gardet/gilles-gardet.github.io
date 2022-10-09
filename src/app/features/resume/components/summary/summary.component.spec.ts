@@ -8,17 +8,14 @@ describe('SummaryComponent', () => {
   let summaryComponent: SummaryComponent;
   let componentFixture: ComponentFixture<SummaryComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [SummaryComponent],
-        imports: [BrowserAnimationsModule, CommonModule, PanelModule],
-      }).compileComponents();
-      componentFixture = TestBed.createComponent(SummaryComponent);
-      summaryComponent = componentFixture.componentInstance;
-      componentFixture.detectChanges();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [BrowserAnimationsModule, CommonModule, PanelModule],
+    }).compileComponents();
+    componentFixture = TestBed.createComponent(SummaryComponent);
+    summaryComponent = componentFixture.componentInstance;
+    componentFixture.detectChanges();
+  }));
 
   it('should create', async () => {
     expect(summaryComponent).toBeTruthy();

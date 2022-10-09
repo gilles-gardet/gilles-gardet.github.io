@@ -1,19 +1,37 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnDestroy, OnInit } from '@angular/core';
 import { forkJoin, Observable, of, Subject, zip } from 'rxjs';
 import { MarkdownService } from 'ngx-markdown';
 import { map, takeUntil } from 'rxjs/operators';
-import missions from '@assets/resume/missions.json';
-import skills from '@assets/resume/skills.json';
 import { Mission } from '@core/models/mission.model';
 import { Skill } from '@core/models/skill.model';
+import { SummaryComponent } from '@features/resume/components/summary/summary.component';
+import { SkillsComponent } from '@features/resume/components/skills/skills.component';
+import { MissionsComponent } from '@features/resume/components/missions/missions.component';
+import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
+import { DialogModule } from 'primeng/dialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { SharedModule } from '@shared/shared.module';
+import missions from '@assets/resume/missions.json';
+import skills from '@assets/resume/skills.json';
 
 @Component({
   selector: 'portfolio-resume',
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss'],
+  standalone: true,
+  imports: [
+    DialogModule,
+    HobbiesComponent,
+    MissionsComponent,
+    ProgressSpinnerModule,
+    SharedModule,
+    SkillsComponent,
+    SummaryComponent,
+  ],
 })
 export class ResumeComponent implements OnInit, OnDestroy {
   private _unsubscribe$ = new Subject();
+  markdownService = inject(MarkdownService);
   selectedMission: Mission = {} as Mission;
   missions: Mission[] = [];
   skills: Skill[] = [];
@@ -22,11 +40,6 @@ export class ResumeComponent implements OnInit, OnDestroy {
   loading = true;
   innerFullMission: string = '';
   innerLightMission: string = '';
-
-  /**
-   * Constructor
-   */
-  constructor(private markdownService: MarkdownService) {}
 
   /**
    * @inheritDoc

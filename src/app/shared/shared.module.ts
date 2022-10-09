@@ -6,6 +6,6 @@ import { ButtonModule } from 'primeng/button';
 @NgModule({
   declarations: [SlideButtonComponent],
   imports: [ButtonModule, CommonModule],
-  exports: [SlideButtonComponent],
+  exports: [CommonModule, SlideButtonComponent],
 })
 export class SharedModule {}
