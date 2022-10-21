@@ -19,7 +19,10 @@
   (onShow)="onMissionLoading()"
 >
   <ng-template pTemplate="header">
-    <span class="mission__timelapse">{{ selectedMission.timelapse }}</span>
+    <div class="mission__title">
+      <h2 class="prose prose-2xl font-bold text-slate-600">{{ selectedMission.client }}</h2>
+      <span class="mission__title__timelapse">{{ selectedMission.timelapse }}</span>
+    </div>
   </ng-template>
   <ng-template pTemplate="content">
     <div [class.mission__content-transition]="!loading" class="mission__content">

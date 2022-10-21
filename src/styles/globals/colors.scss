@@ -1,11 +1,12 @@
 :root {
-  --dark: hsl(0, 0%, 20%);
-  --primary-clear: hsl(203, 19%, 90%);
-  --secondary-clear: hsl(203, 19%, 80%);
-  --white: hsl(110, 100%, 100%);
-  --chip-bg: hsl(216, 14%, 89%);
-  --dark-grey: hsl(199, 19%, 46%);
-  --bg-color: hsl(49 37% 94%);
   --button: hsl(210, 9%, 31%);
-  --typewriter-text: hsl(0 0% 0% / 0.7);
+  --slide-button-bg: hsl(210, 17%, 98%);
+  --code-text: hsl(203, 19%, 90%);
+  --chip-bg: hsl(216, 14%, 89%);
+  --body-bg: hsl(0deg 0% 92%);
+  --typewriter-bg: hsl(49 37% 94%);
+  --white: hsl(110, 100%, 100%);
+  --dark-grey: hsl(210, 9%, 31%);
+  --dark: hsl(0, 0%, 20%);
+  --black: hsl(0 0% 0% / 0.7);
 }

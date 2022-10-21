@@ -13,10 +13,6 @@ import { TimelineModule } from 'primeng/timeline';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
-import { SummaryComponent } from '@features/resume/components/summary/summary.component';
-import { SkillsComponent } from '@features/resume/components/skills/skills.component';
-import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
-import { MissionsComponent } from '@features/resume/components/missions/missions.component';
 import { Mission } from '@core/models/mission.model';
 
 const tools = [

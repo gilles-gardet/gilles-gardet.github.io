@@ -4,7 +4,7 @@ const { compilerOptions } = require('./tsconfig');
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ['<rootDir>/src/app/**/*.{js,ts}'],
-  coverageReporters: ['clover', 'html', 'cobertura'],
+  coverageReporters: ['clover', 'html', 'cobertura', 'text-summary'],
   coverageDirectory: 'coverage',
   globals: {
     'ts-jest': {

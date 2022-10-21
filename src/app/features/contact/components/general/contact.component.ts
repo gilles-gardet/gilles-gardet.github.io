@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy } from '@angular/core';
 import { ConfigService } from '@core/services/config.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -11,12 +11,10 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { SharedModule } from '@shared/shared.module';
+import { MenuModule } from 'primeng/menu';
 
 @Component({
-  selector: 'portfolio-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
-  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     AvatarModule,
     ButtonModule,
@@ -24,15 +22,21 @@ import { SharedModule } from '@shared/shared.module';
     ChipModule,
     FormsModule,
     InputSwitchModule,
+    MenuModule,
     RippleModule,
     SharedModule,
     TooltipModule,
   ],
+  selector: 'portfolio-contact',
+  standalone: true,
+  styleUrls: ['./contact.component.scss'],
+  templateUrl: './contact.component.html',
 })
 export class ContactComponent implements OnDestroy {
   private _unsubscribe$ = new Subject();
   configService = inject(ConfigService);
   themeChecked: boolean | undefined;
+  items: any[];
 
   /**
    * Constructor
@@ -42,6 +46,38 @@ export class ContactComponent implements OnDestroy {
       this.themeChecked = theme === 'light';
       document.body.classList.toggle('dark', !this.themeChecked!);
     });
+    this.items = [
+      {
+        label: 'Menu',
+        items: [
+          {
+            label: 'Dark Mode',
+            icon: this.themeChecked ? 'pi pi-sun' : 'pi pi-moon',
+            title: 'Changer le mode',
+            disabled: true,
+            command: () => {
+              this.themeChecked = !this.themeChecked;
+              this.items[0].items[0].icon = this.themeChecked ? 'pi pi-sun' : 'pi pi-moon';
+            },
+          },
+          {
+            label: 'English',
+            icon: 'pi pi-globe',
+            title: 'Changer le language',
+            disabled: true,
+            command: () => {
+              console.log('Changer le language');
+            },
+          },
+          {
+            label: 'Télécharger',
+            icon: 'pi pi-download',
+            title: 'Télécharger le CV au format PDF',
+            command: () => this.downloadCurriculumVitae(),
+          },
+        ],
+      },
+    ];
   }
 
   /**

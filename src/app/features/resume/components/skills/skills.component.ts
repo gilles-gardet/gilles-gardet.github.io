@@ -1,19 +1,21 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input } from '@angular/core';
 import { Skill } from '@core/models/skill.model';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { PanelModule } from 'primeng/panel';
 import { SharedModule } from '@shared/shared.module';
 
 @Component({
-  selector: 'portfolio-skills',
-  templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.scss'],
-  standalone: true,
   imports: [PanelModule, ProgressBarModule, SharedModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'portfolio-skills',
+  standalone: true,
+  styleUrls: ['./skills.component.scss'],
+  templateUrl: './skills.component.html',
 })
 export class SkillsComponent implements AfterViewInit {
   @Input() skills: Skill[] = [];
   @Input() clones: Skill[] = [];
+  changeDetectorRef = inject(ChangeDetectorRef);
 
   /**
    * @inheritDoc
@@ -33,7 +35,10 @@ export class SkillsComponent implements AfterViewInit {
             this.skills.forEach(
               (tool: Skill) => (tool.rate = this.clones?.find((clone: Skill) => clone.name === tool.name)?.rate!)
             );
+          } else {
+            this.skills.forEach((tool: Skill) => (tool.rate = 0));
           }
+          this.changeDetectorRef.detectChanges();
         });
       },
       {

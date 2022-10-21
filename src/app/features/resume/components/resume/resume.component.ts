@@ -1,4 +1,12 @@
-import { Component, HostListener, inject, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  inject,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { forkJoin, Observable, of, Subject, zip } from 'rxjs';
 import { MarkdownService } from 'ngx-markdown';
 import { map, takeUntil } from 'rxjs/operators';
@@ -15,10 +23,7 @@ import missions from '@assets/resume/missions.json';
 import skills from '@assets/resume/skills.json';
 
 @Component({
-  selector: 'portfolio-resume',
-  templateUrl: './resume.component.html',
-  styleUrls: ['./resume.component.scss'],
-  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     DialogModule,
     HobbiesComponent,
@@ -28,10 +33,15 @@ import skills from '@assets/resume/skills.json';
     SkillsComponent,
     SummaryComponent,
   ],
+  selector: 'portfolio-resume',
+  standalone: true,
+  styleUrls: ['./resume.component.scss'],
+  templateUrl: './resume.component.html',
 })
 export class ResumeComponent implements OnInit, OnDestroy {
   private _unsubscribe$ = new Subject();
   markdownService = inject(MarkdownService);
+  changeDetectorRef = inject(ChangeDetectorRef);
   selectedMission: Mission = {} as Mission;
   missions: Mission[] = [];
   skills: Skill[] = [];
@@ -189,6 +199,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
         this.innerFullMission = this.markdownService.parse(value.fullMission);
         setTimeout(() => {
           this.loading = false;
+          this.changeDetectorRef.detectChanges();
           document
             .querySelector('p-dialog > .p-dialog-mask > .p-dialog > .p-dialog-content')
             ?.classList.add('p-dialog-content-scroll');

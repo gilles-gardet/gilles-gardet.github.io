@@ -1,32 +1,28 @@
 <p-card>
-  <div class="general">
+  <div class="general" #contact>
     <p-avatar size="xlarge" shape="circle" styleClass="p-mt-5" image="assets/pictures/me.jpg"></p-avatar>
     <span class="general__name">Gilles Gardet</span>
-    <span class="general__presentation"
-      >Développeur fullstack, curieux par nature et passionné par son métier.</span
-    >
-    <p-chip
-      label="gilles.gardet@gmail.com"
-      icon="pi pi-envelope"
-      styleClass="p-mr-2"
-      (click)="openEmailClient()"
-    ></p-chip>
+    <span class="general__presentation">Développeur fullstack, curieux par nature et passionné par son métier.</span>
+    <p-chip label="gilles.gardet@gmail.com" icon="pi pi-envelope" (click)="openEmailClient()"></p-chip>
+    <!--    <button-->
+    <!--      pButton-->
+    <!--      pRipple-->
+    <!--      type="submit"-->
+    <!--      icon="pi pi-cloud-download"-->
+    <!--      class="p-button-rounded p-button-text general__button-left"-->
+    <!--      pTooltip="Télécharger mon CV au format PDF"-->
+    <!--      (click)="downloadCurriculumVitae()"-->
+    <!--    ></button>-->
     <button
       pButton
       pRipple
       type="submit"
-      icon="pi pi-cloud-download"
+      icon="pi pi-bars"
       class="p-button-rounded p-button-text general__button-left"
-      pTooltip="Télécharger mon CV au format PDF"
-      (click)="downloadCurriculumVitae()"
+      pTooltip="Afficher le menu"
+      [appendTo]="contact"
+      (click)="menu.toggle($event)"
     ></button>
-<!--    <button-->
-<!--      pButton-->
-<!--      pRipple-->
-<!--      [icon]="themeChecked ? 'pi pi-sun' : 'pi pi-moon'"-->
-<!--      class="p-button-rounded p-button-text general__button-right"-->
-<!--      pTooltip="Changer le thème"-->
-<!--      (click)="switchTheme()"-->
-<!--    ></button>-->
+    <p-menu #menu [popup]="true" [model]="items"></p-menu>
   </div>
 </p-card>

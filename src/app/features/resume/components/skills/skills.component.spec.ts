@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SkillsComponent } from '@features/resume/components/skills/skills.component';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { ChangeDetectorRef } from '@angular/core';
 
 window.IntersectionObserver = jest.fn().mockImplementation(() => ({
   observe: () => null,
@@ -16,6 +17,7 @@ describe('SkillsComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [BrowserAnimationsModule, CommonModule, PanelModule, ProgressBarModule],
+      providers: [{ provide: ChangeDetectorRef, useValue: {} }],
     }).compileComponents();
     componentFixture = TestBed.createComponent(SkillsComponent);
     skillsComponent = componentFixture.componentInstance;
@@ -27,12 +29,10 @@ describe('SkillsComponent', () => {
   });
 
   it('should have an empty array of skills by default', async () => {
-    const component = new SkillsComponent();
-    expect(component.skills).toStrictEqual([]);
+    expect(componentFixture.componentInstance.skills).toStrictEqual([]);
   });
 
   it('should have an empty array of clones by default', async () => {
-    const component = new SkillsComponent();
-    expect(component.clones).toStrictEqual([]);
+    expect(componentFixture.componentInstance.clones).toStrictEqual([]);
   });
 });

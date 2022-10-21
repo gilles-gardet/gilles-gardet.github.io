@@ -19,33 +19,42 @@
     color: var(--dark);
   }
 
-  .mission__animation-left {
-    opacity: 0;
-    transform: translateX(-40px);
-    animation: fadeIn 3s forwards;
-    -webkit-animation: fadeIn 3s forwards;
-    -moz-animation: fadeIn 3s forwards;
-    -o-animation: fadeIn 3s forwards;
-    -ms-animation: fadeIn 3s forwards;
-  }
+  .mission {
+    box-shadow: none;
 
-  .mission__animation-right {
-    opacity: 0;
-    transform: translateX(40px);
-    animation: fadeIn 3s forwards;
-    -webkit-animation: fadeIn 3s forwards;
-    -moz-animation: fadeIn 3s forwards;
-    -o-animation: fadeIn 3s forwards;
-    -ms-animation: fadeIn 3s forwards;
-  }
+    &__animation-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      animation: fadeIn 3s forwards;
+      -webkit-animation: fadeIn 3s forwards;
+      -moz-animation: fadeIn 3s forwards;
+      -o-animation: fadeIn 3s forwards;
+      -ms-animation: fadeIn 3s forwards;
+    }
 
-  .mission__button {
-    display: flex;
-    justify-content: center;
+    &__animation-right {
+      opacity: 0;
+      transform: translateX(40px);
+      animation: fadeIn 3s forwards;
+      -webkit-animation: fadeIn 3s forwards;
+      -moz-animation: fadeIn 3s forwards;
+      -o-animation: fadeIn 3s forwards;
+      -ms-animation: fadeIn 3s forwards;
+    }
+
+    &__button {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   .p-timeline-event-content > p-card > .mission > .p-card-body > .p-card-content {
     text-align: left;
+  }
+
+  .p-card-content {
+    display: grid;
+    gap: 1rem;
   }
 
   @keyframes fadeIn {

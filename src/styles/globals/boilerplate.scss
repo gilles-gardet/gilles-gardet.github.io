@@ -1,23 +1,29 @@
-html {
-  font-size: 100%;
-  box-sizing: border-box;
-}
-
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: grid;
-  place-content: center;
-  text-align: center;
-  background: var(--dark-grey);
-  scroll-behavior: smooth;
-  scrollbar-gutter: stable;
-  overflow-y: auto;
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    background: var(--body-bg);
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+    overflow-y: auto;
+
+    p, li {
+      @apply mt-2;
+      @apply mb-2;
+      @apply leading-5;
+    }
+  }
 }

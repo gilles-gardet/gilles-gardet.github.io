@@ -34,20 +34,20 @@
         }
 
         &::before {
-          background: var(--bg-color);
+          background: var(--typewriter-bg);
           animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
         }
 
         &::after {
           width: 0.125em;
-          background: var(--typewriter-text);
+          background: var(--black);
           animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards,
             blink 750ms steps(var(--typewriterCharacters)) infinite;
         }
       }
 
       &__subtitle {
-        color: var(--typewriter-text);
+        color: var(--black);
         margin: 5rem 0;
         font-size: 2rem;
         font-weight: 400;

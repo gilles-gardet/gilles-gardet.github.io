@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'portfolio-slide-button',
-  templateUrl: './slide-button.component.html',
   styleUrls: ['./slide-button.component.scss'],
+  templateUrl: './slide-button.component.html',
 })
 export class SlideButtonComponent {}

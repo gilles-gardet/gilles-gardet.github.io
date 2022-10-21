@@ -37,6 +37,11 @@
     top: 2rem;
   }
 
+  p-menu .p-menu .p-submenu-header {
+    display: flex;
+    justify-content: flex-start;
+  }
+
   button.p-button {
     border: 1px solid var(--button);
     background: var(--button);
