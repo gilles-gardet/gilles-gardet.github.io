@@ -5,7 +5,7 @@
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
   font-size: 0.7rem;
   background-color: hsl(0deg, 0%, 11%);
-  color: var(--primary-clear);
+  color: var(--code-text);
   border-radius: 5px;
   padding: 0.2rem;
 }
@@ -57,27 +57,28 @@ html body {
   display: grid;
   place-content: center;
   text-align: center;
-  background: var(--dark-grey);
+  background: var(--body-bg);
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
   overflow-y: auto;
 }
 
-html body p {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+html body p, html body li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.25rem;
 }
 
 :root {
-  --dark: hsl(0, 0%, 20%);
-  --primary-clear: hsl(203, 19%, 90%);
-  --secondary-clear: hsl(203, 19%, 80%);
-  --white: hsl(110, 100%, 100%);
-  --chip-bg: hsl(216, 14%, 89%);
-  --dark-grey: hsl(199, 19%, 46%);
-  --bg-color: hsl(49 37% 94%);
   --button: hsl(210, 9%, 31%);
-  --typewriter-text: hsl(0 0% 0% / 0.7);
+  --code-text: hsl(203, 19%, 90%);
+  --chip-bg: hsl(216, 14%, 89%);
+  --body-bg: hsl(0deg 0% 92%);
+  --typewriter-bg: hsl(49 37% 94%);
+  --white: hsl(110, 100%, 100%);
+  --dark-grey: hsl(199, 19%, 46%);
+  --dark: hsl(0, 0%, 20%);
+  --black: hsl(0 0% 0% / 0.7);
 }
 
 * {
@@ -684,17 +685,6 @@ portfolio-hobbies > p-panel > div {
 ::ng-deep p-panel .p-panel-header {
   display: grid;
   justify-content: center;
-}
-
-:root body.dark {
-  --dark: hsl(0, 0%, 20%);
-  --primary-clear: hsl(203, 19%, 90%);
-  --secondary-clear: hsl(203, 19%, 80%);
-  --white: hsl(110, 100%, 100%);
-  --chip-bg: hsl(216, 14%, 89%);
-  --dark-grey: hsl(199, 19%, 46%);
-  --bg-color: hsl(0, 0%, 20%);
-  --typewriter-text: hsl(110, 100%, 100%);
 }
 
 /*
@@ -2051,6 +2041,15 @@ video {
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-slate-600 {
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[5].rules[0].oneOf[0].use[2]!./node_modules/primeng/resources/themes/saga-blue/theme.css ***!
