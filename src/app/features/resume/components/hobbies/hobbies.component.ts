@@ -6,7 +6,7 @@ import { SharedModule } from '@shared/shared.module';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [PanelModule, SharedModule, TagModule],
-  selector: 'portfolio-hobbies',
+  selector: 'cv-hobbies',
   standalone: true,
   styleUrls: ['./hobbies.component.scss'],
   templateUrl: './hobbies.component.html',

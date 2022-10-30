@@ -59,21 +59,21 @@ test.describe('Contact card structure', () => {
 
   test('should have a download cv button', async ({ page }) => {
     const button = page.locator('aside button');
-    await expect(button).toHaveAttribute('icon', 'pi pi-cloud-download');
+    await expect(button).toHaveAttribute('icon', 'pi pi-bars');
     await button.hover();
     const tooltip = page.locator('.p-tooltip-text');
-    await expect(tooltip).toHaveText('Télécharger mon CV au format PDF');
+    await expect(tooltip).toHaveText('Afficher le menu');
   });
 
   test('Should match the snapshot of the sidebar', async ({ page }) => {
-    const sidebar = page.locator('aside portfolio-contact');
+    const sidebar = page.locator('aside cv-contact');
     expect(await sidebar.screenshot()).toMatchSnapshot('sidebar.png');
   });
 });
 
 test.describe('Summary panel structure', () => {
   test('should have a description', async ({ page }) => {
-    const content = page.locator('portfolio-summary .p-panel-content');
+    const content = page.locator('cv-summary .p-panel-content');
     await expect(content).toBeVisible();
     await expect(content).toContainText(
       ` Je bénéficie d’une expérience de 9 ans en tant que concepteur développeur en matière de systèmes 
@@ -86,7 +86,7 @@ test.describe('Summary panel structure', () => {
   });
 
   test('should have important keyword in bold', async ({ page }) => {
-    const bolds = page.locator('portfolio-summary .p-panel-content b');
+    const bolds = page.locator('cv-summary .p-panel-content b');
     const texts = await bolds.allTextContents();
     await expect(texts).toHaveLength(4);
     expect(texts).toContain('9 ans');
@@ -98,7 +98,7 @@ test.describe('Summary panel structure', () => {
 
 test.describe('Skills panel structure', () => {
   test('should have a description', async ({ page }) => {
-    const skills = page.locator('portfolio-skills .p-panel-content .skills__languages');
+    const skills = page.locator('cv-skills .p-panel-content .skills__languages');
     const texts = await skills.allTextContents();
     await expect(texts).toHaveLength(17);
     expect(await skills.locator('span').count()).toBe(17);

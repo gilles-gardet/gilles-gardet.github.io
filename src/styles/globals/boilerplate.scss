@@ -2,11 +2,18 @@
 *::before,
 *::after {
   box-sizing: inherit;
+  transition: color 0.15s, background-color 0.5s;
 }
 
 html {
   font-size: 100%;
   box-sizing: border-box;
+
+  &.dark {
+    body {
+      background: var(--dark-body-bg);
+    }
+  }
 
   body {
     margin: 0;
@@ -20,10 +27,18 @@ html {
     scrollbar-gutter: stable;
     overflow-y: auto;
 
-    p, li {
+    p,
+    li {
       @apply mt-2;
       @apply mb-2;
       @apply leading-5;
+    }
+
+    ul {
+      @apply list-disc;
+      li {
+        @apply ml-8;
+      }
     }
   }
 }

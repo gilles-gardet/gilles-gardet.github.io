@@ -3,11 +3,11 @@
 }
 
 button {
+  @apply bg-slide-button-bg dark:bg-dark-slide-button-bg;
   position: relative;
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
-  background: #f8f9fa;
   padding: 0;
   font-size: 14px;
   outline: none;
@@ -19,13 +19,13 @@ button {
     height: auto;
 
     .circle {
+      @apply bg-slide-circle-button-bg dark:bg-dark-slide-circle-button-bg;
       @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
       position: relative;
       display: block;
       margin: 0;
       width: 2rem;
       height: 2rem;
-      background: var(--dark-grey);
       border-radius: 1.625rem;
 
       .icon {
@@ -34,7 +34,6 @@ button {
         top: 0;
         bottom: 0;
         margin: auto;
-        background: var(--white);
 
         &.arrow {
           @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
@@ -44,14 +43,17 @@ button {
           background: none;
 
           &::before {
+            @apply border-t-slide-button-icon dark:border-t-dark-slide-button-icon;
+            border-top-width: 0.125rem;
+            border-right-width: 0.125rem;
+            border-top-style: solid;
+            border-right-style: solid;
             position: absolute;
             content: '';
             top: -0.25rem;
             right: 0.0625rem;
             width: 0.625rem;
             height: 0.625rem;
-            border-top: 0.125rem solid var(--white);
-            border-right: 0.125rem solid var(--white);
             transform: rotate(45deg);
           }
         }
@@ -59,6 +61,7 @@ button {
     }
 
     .button-text {
+      @apply text-text-color dark:text-dark-text-color;
       @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
       position: absolute;
       top: 0;
@@ -67,7 +70,6 @@ button {
       bottom: 0;
       padding: 0.75rem 0;
       margin: 0 0 0 1.85rem;
-      color: var(--dark-grey);
       line-height: 0.6;
       text-align: center;
     }
@@ -79,14 +81,14 @@ button {
 
       .icon {
         &.arrow {
-          background: var(--white);
+          @apply bg-slide-button-icon dark:bg-dark-slide-button-icon;
           transform: translate(1rem, 0);
         }
       }
     }
 
     .button-text {
-      color: var(--white);
+      @apply text-slide-button-icon dark:text-dark-slide-button-icon;
     }
   }
 }

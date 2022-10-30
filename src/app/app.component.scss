@@ -1,7 +1,8 @@
-@use "src/styles/primeng/override";
-@use "src/styles/components/code";
+@use 'src/styles/override/primeng';
+@use 'src/styles/override/ngx-markdown';
 
 #container {
+  @apply bg-body-bg dark:bg-dark-body-bg;
   min-height: 100vh;
   display: grid;
   grid-template: 1fr / 18rem minmax(18rem, 65rem);

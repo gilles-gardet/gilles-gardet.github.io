@@ -1,55 +1,32 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  HostListener,
-  inject,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
-import { forkJoin, Observable, of, Subject, zip } from 'rxjs';
-import { MarkdownService } from 'ngx-markdown';
-import { map, takeUntil } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { of, Subject, zip } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Mission } from '@core/models/mission.model';
 import { Skill } from '@core/models/skill.model';
 import { SummaryComponent } from '@features/resume/components/summary/summary.component';
 import { SkillsComponent } from '@features/resume/components/skills/skills.component';
 import { MissionsComponent } from '@features/resume/components/missions/missions.component';
 import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
-import { DialogModule } from 'primeng/dialog';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { SharedModule } from '@shared/shared.module';
+import { DetailsComponent } from '@features/resume/components/details/details.component';
 import missions from '@assets/resume/missions.json';
 import skills from '@assets/resume/skills.json';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    DialogModule,
-    HobbiesComponent,
-    MissionsComponent,
-    ProgressSpinnerModule,
-    SharedModule,
-    SkillsComponent,
-    SummaryComponent,
-  ],
-  selector: 'portfolio-resume',
+  imports: [HobbiesComponent, MissionsComponent, SharedModule, SkillsComponent, SummaryComponent, DetailsComponent],
+  selector: 'cv-resume',
   standalone: true,
   styleUrls: ['./resume.component.scss'],
   templateUrl: './resume.component.html',
 })
 export class ResumeComponent implements OnInit, OnDestroy {
   private _unsubscribe$ = new Subject();
-  markdownService = inject(MarkdownService);
-  changeDetectorRef = inject(ChangeDetectorRef);
   selectedMission: Mission = {} as Mission;
   missions: Mission[] = [];
   skills: Skill[] = [];
   clones: Skill[] = [];
   displayDialog = false;
-  loading = true;
-  innerFullMission: string = '';
-  innerLightMission: string = '';
 
   /**
    * @inheritDoc
@@ -168,43 +145,18 @@ export class ResumeComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Change the close dialog flag when the details' dialog component was closed from itself.
+   */
+  onDetailsClose() {
+    this.displayDialog = false;
+  }
+
+  /**
    * Open the details dialog
    */
   openDialog(mission: Mission): void {
     this.displayDialog = true;
     this.selectedMission = mission;
-  }
-
-  /**
-   * Re-initialize the loader of the dialog content
-   */
-  onDialogHiding(): void {
-    this.loading = true;
-  }
-
-  /**
-   * Parse the markdown contained in the selected mission file
-   */
-  onMissionLoading(): void {
-    const fullMission: Observable<string> = this.markdownService.getSource(
-      this.missionFromDate(this.selectedMission?.startDate, 'full')
-    );
-    const lightMission: Observable<string> = this.markdownService.getSource(
-      this.missionFromDate(this.selectedMission?.startDate, 'light')
-    );
-    forkJoin({ lightMission, fullMission })
-      .pipe(takeUntil(this._unsubscribe$))
-      .subscribe((value) => {
-        this.innerLightMission = this.markdownService.parse(value.lightMission);
-        this.innerFullMission = this.markdownService.parse(value.fullMission);
-        setTimeout(() => {
-          this.loading = false;
-          this.changeDetectorRef.detectChanges();
-          document
-            .querySelector('p-dialog > .p-dialog-mask > .p-dialog > .p-dialog-content')
-            ?.classList.add('p-dialog-content-scroll');
-        }, 600);
-      });
   }
 
   /**

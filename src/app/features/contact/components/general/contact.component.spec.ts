@@ -40,40 +40,40 @@ describe('ContactComponent', () => {
   });
 
   it(`should have a light theme by default`, async () => {
-    expect(contactComponent.themeChecked).toBeTruthy();
-    expect(localStorage.getItem('theme')).toBeNull();
-    expect(document.body.classList).not.toContain('dark');
+    expect(contactComponent.isDarkTheme).toEqual(false);
+    expect(localStorage.getItem('theme')).toEqual('light');
+    expect(document.getElementsByTagName('html')[0].classList).not.toContain('dark');
   });
 
   it(`should switch the theme to dark`, async () => {
-    contactComponent.themeChecked = true;
-    contactComponent.switchTheme();
-    expect(localStorage.getItem('theme')).toBeDefined();
-    expect(localStorage.getItem('theme')).toEqual('dark');
-    expect(document.body.classList).toContain('dark');
-  });
-
-  it(`should switch the theme to light`, async () => {
-    contactComponent.themeChecked = false;
+    contactComponent.isDarkTheme = false;
     contactComponent.switchTheme();
     expect(localStorage.getItem('theme')).toBeDefined();
     expect(localStorage.getItem('theme')).toEqual('light');
-    expect(document.body.classList).not.toContain('dark');
+    expect(document.getElementsByTagName('html')[0].classList).not.toContain('dark');
+  });
+
+  it(`should switch the theme to light`, async () => {
+    contactComponent.isDarkTheme = true;
+    contactComponent.switchTheme();
+    expect(localStorage.getItem('theme')).toBeDefined();
+    expect(localStorage.getItem('theme')).toEqual('dark');
+    expect(document.getElementsByTagName('html')[0].classList).toContain('dark');
   });
 
   it(`should set the stored value`, async () => {
     const storeSpy = jest.spyOn(configService, 'setTheme$');
-    contactComponent.themeChecked = false;
+    contactComponent.isDarkTheme = false;
     contactComponent.switchTheme();
     expect(storeSpy).toHaveBeenCalledTimes(1);
     expect(storeSpy).toHaveBeenCalledWith('light');
-    expect(document.body.classList).not.toContain('dark');
+    expect(document.getElementsByTagName('html')[0].classList).not.toContain('dark');
     storeSpy.mockClear();
-    contactComponent.themeChecked = true;
+    contactComponent.isDarkTheme = true;
     contactComponent.switchTheme();
     expect(storeSpy).toHaveBeenCalledTimes(1);
     expect(storeSpy).toHaveBeenCalledWith('dark');
-    expect(document.body.classList).toContain('dark');
+    expect(document.getElementsByTagName('html')[0].classList).toContain('dark');
   });
 
   it(`should open the email adress`, async () => {
@@ -95,5 +95,10 @@ describe('ContactComponent', () => {
     expect(document.body.removeChild).toHaveBeenCalledWith(anchorMock);
     expect(anchorMock.href).toContain('/assets/pdf/CV_GARDET_Gilles.pdf');
     expect(anchorMock.download).toEqual('gardet_gilles.pdf');
+  });
+
+
+  afterEach(() => {
+    localStorage.clear();
   });
 });

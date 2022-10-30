@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-// const osColorMode = window.matchMedia('(prefers-color-scheme: dark)');
-const theme = localStorage.getItem('theme') ?? 'light';
+export const THEME_KEY = 'theme';
+export const DARK_THEME = 'dark';
+export const LIGHT_THEME = 'light';
+const theme = localStorage.getItem(THEME_KEY) ?? LIGHT_THEME;
 
 @Injectable()
 export class ConfigService {

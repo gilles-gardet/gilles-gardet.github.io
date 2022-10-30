@@ -1,0 +1,43 @@
+:not(pre) > pre {
+  @apply bg-pre-bg dark:bg-dark-pre-bg;
+}
+
+pre {
+  @apply text-pre-text dark:text-dark-pre-text;
+  padding: 0.3rem;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  hyphens: none;
+  text-shadow: none;
+}
+
+code[class*='language-'] {
+  font-size: 0.7rem;
+  max-width: calc(100vw - 4rem);
+  display: grid;
+  grid-auto-columns: auto;
+  text-shadow: none;
+}
+
+code {
+  @apply bg-pre-bg dark:bg-dark-pre-bg;
+  @apply text-pre-text dark:text-dark-pre-text;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  font-size: 0.7rem;
+  border-radius: 5px;
+  padding: 0.2rem;
+  text-shadow: none;
+}

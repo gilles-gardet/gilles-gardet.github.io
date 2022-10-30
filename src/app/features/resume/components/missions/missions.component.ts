@@ -18,7 +18,7 @@ import { MarkdownModule } from 'ngx-markdown';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CardModule, MarkdownModule, PanelModule, SharedModule, TimelineModule],
-  selector: 'portfolio-missions',
+  selector: 'cv-missions',
   standalone: true,
   styleUrls: ['./missions.component.scss'],
   templateUrl: './missions.component.html',

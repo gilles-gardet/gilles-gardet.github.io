@@ -1,40 +1,8 @@
 <div class="scroll-wrapper">
   <div id="scroll-tracker"></div>
 </div>
-<portfolio-summary></portfolio-summary>
-<portfolio-skills [skills]="skills" [clones]="clones"></portfolio-skills>
-<portfolio-missions [missions]="missions" (openDialog)="openDialog($event)"></portfolio-missions>
-<portfolio-hobbies></portfolio-hobbies>
-
-<p-dialog
-  *ngIf="selectedMission"
-  [(visible)]="displayDialog"
-  [header]="selectedMission.client"
-  [modal]="true"
-  [style]="{ maxWidth: '1280px' }"
-  [closeOnEscape]="true"
-  [dismissableMask]="true"
-  [blockScroll]="true"
-  (onHide)="onDialogHiding()"
-  (onShow)="onMissionLoading()"
->
-  <ng-template pTemplate="header">
-    <div class="mission__title">
-      <h2 class="prose prose-2xl font-bold text-slate-600">{{ selectedMission.client }}</h2>
-      <span class="mission__title__timelapse">{{ selectedMission.timelapse }}</span>
-    </div>
-  </ng-template>
-  <ng-template pTemplate="content">
-    <div [class.mission__content-transition]="!loading" class="mission__content">
-      <div *ngIf="loading; else missionContent">
-        <p-progressSpinner strokeWidth="6" styleClass="mission__content__spinner"></p-progressSpinner>
-      </div>
-      <ng-template #missionContent>
-        <div class="mission__content__text">
-          <div [innerHTML]="innerLightMission"></div>
-          <div [innerHTML]="innerFullMission"></div>
-        </div>
-      </ng-template>
-    </div>
-  </ng-template>
-</p-dialog>
+<cv-summary></cv-summary>
+<cv-skills [skills]="skills" [clones]="clones"></cv-skills>
+<cv-missions [missions]="missions" (openDialog)="openDialog($event)"></cv-missions>
+<cv-hobbies></cv-hobbies>
+<cv-details [selectedMission]="selectedMission" [displayDialog]="displayDialog" (close)="onDetailsClose()"></cv-details>

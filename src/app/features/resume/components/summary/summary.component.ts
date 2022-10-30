@@ -5,7 +5,7 @@ import { SharedModule } from '@shared/shared.module';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [PanelModule, SharedModule],
-  selector: 'portfolio-summary',
+  selector: 'cv-summary',
   standalone: true,
   styleUrls: ['./summary.component.scss'],
   templateUrl: './summary.component.html',

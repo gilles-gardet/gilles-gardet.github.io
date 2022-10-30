@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject, OnDestroy } from '@angular/core';
-import { ConfigService } from '@core/services/config.service';
+import { ChangeDetectionStrategy, Component, HostListener, inject, OnDestroy, ViewChild } from "@angular/core";
+import { ConfigService, DARK_THEME, LIGHT_THEME, THEME_KEY } from '@core/services/config.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { AvatarModule } from 'primeng/avatar';
@@ -11,7 +11,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { SharedModule } from '@shared/shared.module';
-import { MenuModule } from 'primeng/menu';
+import { Menu, MenuModule } from "primeng/menu";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,38 +27,49 @@ import { MenuModule } from 'primeng/menu';
     SharedModule,
     TooltipModule,
   ],
-  selector: 'portfolio-contact',
+  selector: 'cv-contact',
   standalone: true,
   styleUrls: ['./contact.component.scss'],
   templateUrl: './contact.component.html',
 })
 export class ContactComponent implements OnDestroy {
-  private _unsubscribe$ = new Subject();
+  @ViewChild('menu') menu: Menu | undefined;
   configService = inject(ConfigService);
-  themeChecked: boolean | undefined;
-  items: any[];
+  unsubscribe$ = new Subject();
+  isDarkTheme: boolean | undefined;
+  items: any[] = [];
 
   /**
-   * Constructor
+   * @constructor
    */
   constructor() {
-    this.configService.theme$.pipe(takeUntil(this._unsubscribe$)).subscribe((theme: string) => {
-      this.themeChecked = theme === 'light';
-      document.body.classList.toggle('dark', !this.themeChecked!);
-    });
+    this.initMenuItems();
+    this.configService.theme$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((theme: string) => this.onThemeChange(theme));
+  }
+
+  /**
+   * Listen for the scroll events to close the menu (workaround to avoid the menu to scroll with the content of the
+   * page).
+   */
+  @HostListener('window:scroll') onScroll(): void {
+    this.menu?.hide();
+  }
+
+  /**
+   * Initialize the contextual menu with the default items.
+   */
+  initMenuItems(): void {
     this.items = [
       {
         label: 'Menu',
         items: [
           {
-            label: 'Dark Mode',
-            icon: this.themeChecked ? 'pi pi-sun' : 'pi pi-moon',
+            label: this.isDarkTheme ? 'Dark Mode' : 'Light Mode',
+            icon: this.isDarkTheme ? 'pi pi-moon' : 'pi pi-sun',
             title: 'Changer le mode',
-            disabled: true,
-            command: () => {
-              this.themeChecked = !this.themeChecked;
-              this.items[0].items[0].icon = this.themeChecked ? 'pi pi-sun' : 'pi pi-moon';
-            },
+            command: () => this.configService.setTheme$(!this.isDarkTheme ? DARK_THEME : LIGHT_THEME),
           },
           {
             label: 'English',
@@ -81,12 +92,33 @@ export class ContactComponent implements OnDestroy {
   }
 
   /**
+   * Listen for the changes on the theme mode selection and apply the CSS theme according to it.
+   *
+   * @param theme the selected theme (light or dark)
+   */
+  onThemeChange(theme: string): void {
+    if (theme === DARK_THEME) {
+      this.isDarkTheme = true;
+      document.documentElement.classList.add(DARK_THEME);
+      localStorage.setItem(THEME_KEY, DARK_THEME);
+      this.items[0].items[0].label = 'Light Mode';
+      this.items[0].items[0].icon = 'pi pi-sun';
+      return;
+    }
+    this.isDarkTheme = false;
+    document.documentElement.classList.remove(DARK_THEME);
+    localStorage.setItem(THEME_KEY, LIGHT_THEME);
+    this.items[0].items[0].label = 'Dark Mode';
+    this.items[0].items[0].icon = 'pi pi-moon';
+  }
+
+  /**
    * Change theme from dark to light and vise-versa
    */
   switchTheme(): void {
-    this.themeChecked = !this.themeChecked!;
-    const theme = this.themeChecked! ? 'light' : 'dark';
-    localStorage.setItem('theme', theme);
+    this.isDarkTheme = !this.isDarkTheme!;
+    const theme = this.isDarkTheme! ? LIGHT_THEME : DARK_THEME;
+    localStorage.setItem(THEME_KEY, theme);
     this.configService.setTheme$(theme);
   }
 
@@ -113,7 +145,7 @@ export class ContactComponent implements OnDestroy {
    * @inheritDoc
    */
   ngOnDestroy(): void {
-    this._unsubscribe$.next();
-    this._unsubscribe$.unsubscribe();
+    this.unsubscribe$.next();
+    this.unsubscribe$.unsubscribe();
   }
 }

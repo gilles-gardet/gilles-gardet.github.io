@@ -12,7 +12,6 @@ import { TagModule } from 'primeng/tag';
 import { TimelineModule } from 'primeng/timeline';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { of } from 'rxjs';
 import { Mission } from '@core/models/mission.model';
 
 const tools = [
@@ -257,37 +256,6 @@ describe('ResumeComponent', () => {
     resumeComponent.openDialog(mission);
     expect(resumeComponent.displayDialog).toBeTruthy();
     expect(resumeComponent.selectedMission).toEqual(mission);
-  });
-
-  it(`should remove the loader on dialog hiding`, async () => {
-    resumeComponent.loading = false;
-    expect(resumeComponent.loading).toBeFalsy();
-    resumeComponent.onDialogHiding();
-    expect(resumeComponent.loading).toBeTruthy();
-  });
-
-  it(`should fetch the mission's content during the mission's loading`, async () => {
-    const mission = {
-      client: 'Test',
-      endDate: undefined,
-      startDate: '2022-01-01',
-    } as Mission;
-    resumeComponent.loading = true;
-    resumeComponent.selectedMission = mission;
-    jest.spyOn(markdownService, 'getSource').mockReturnValue(of('test'));
-    jest.spyOn(markdownService, 'parse');
-    expect(document.body.querySelector('.p-dialog-content-scroll')).toBeNull();
-    resumeComponent.onMissionLoading();
-    componentFixture.detectChanges();
-    expect(markdownService.getSource).toHaveBeenCalledTimes(2);
-    expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/202201/202201_full.md');
-    expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/202201/202201_light.md');
-    expect(resumeComponent.innerFullMission).toEqual('<p>test</p>&#10;');
-    expect(resumeComponent.innerLightMission).toEqual('<p>test</p>&#10;');
-    expect(markdownService.parse).toHaveBeenNthCalledWith(2, 'test');
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    expect(resumeComponent.loading).toBeFalsy();
-    expect(document.body.getElementsByClassName('p-dialog-content-scroll')[0]).not.toBeNull();
   });
 
   it(`should get the path of the full mardown file related to a mission's date`, async () => {

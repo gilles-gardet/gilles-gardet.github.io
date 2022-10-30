@@ -7,7 +7,7 @@ import { SharedModule } from '@shared/shared.module';
 @Component({
   imports: [PanelModule, ProgressBarModule, SharedModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'portfolio-skills',
+  selector: 'cv-skills',
   standalone: true,
   styleUrls: ['./skills.component.scss'],
   templateUrl: './skills.component.html',
