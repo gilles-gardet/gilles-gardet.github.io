@@ -1,15 +1,6 @@
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[6].rules[1].use[0]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[6].rules[1].use[1]!./src/styles/styles.scss ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-::ng-deep code {
-  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-  font-size: 0.7rem;
-  background-color: hsl(0deg, 0%, 11%);
-  color: var(--code-text);
-  border-radius: 5px;
-  padding: 0.2rem;
-}
-
 a.fancy,
 a.fancy:visited {
   font-size: 1.2rem;
@@ -809,58 +800,63 @@ p-card > div.p-card {
   top: 2rem;
 }
 
-p-menu .p-menu.p-menu-overlay {
+.p-menu.p-menu-overlay {
   --tw-bg-opacity: 1;
   background-color: hsl(0 0% 100% / var(--tw-bg-opacity));
 }
 
-.dark p-menu .p-menu.p-menu-overlay {
+.dark .p-menu.p-menu-overlay {
   --tw-bg-opacity: 1;
   background-color: hsl(217 17% 20% / var(--tw-bg-opacity));
 }
 
-p-menu .p-menu .p-submenu-header {
+.p-menu .p-submenu-header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   --tw-bg-opacity: 1;
   background-color: hsl(0 0% 100% / var(--tw-bg-opacity));
 }
 
-.dark p-menu .p-menu .p-submenu-header {
+.dark .p-menu .p-submenu-header {
   --tw-bg-opacity: 1;
   background-color: hsl(217 17% 20% / var(--tw-bg-opacity));
 }
 
-p-menu .p-menu .p-menuitem-link .p-menuitem-text,
-p-menu .p-menu .p-submenu-header {
+.p-menu .p-menuitem-link .p-menuitem-text,
+.p-menu .p-submenu-header {
   --tw-text-opacity: 1;
   color: hsl(210 9% 31% / var(--tw-text-opacity));
 }
 
-.dark p-menu .p-menu .p-menuitem-link .p-menuitem-text,.dark 
-p-menu .p-menu .p-submenu-header {
+.dark .p-menu .p-menuitem-link .p-menuitem-text,.dark 
+.p-menu .p-submenu-header {
   --tw-text-opacity: 1;
   color: hsl(240 4% 90% / var(--tw-text-opacity));
 }
 
-p-menu .p-menu .p-menuitem-link:not(.p-disabled):hover {
+.p-menu .p-menuitem-icon {
+  transition: color 0s, background-color 0s;
+}
+
+.p-menu .p-menuitem-link:not(.p-disabled):hover {
   --tw-bg-opacity: 1;
   background-color: hsl(214 16% 93% / var(--tw-bg-opacity));
 }
 
-.dark p-menu .p-menu .p-menuitem-link:not(.p-disabled):hover {
+.dark .p-menu .p-menuitem-link:not(.p-disabled):hover {
   --tw-bg-opacity: 1;
   background-color: hsl(215 15% 23% / var(--tw-bg-opacity));
 }
 
-p-menu .p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text,
-p-menu .p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+.p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text,
+.p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+  transition: color 0s, background-color 0s;
   --tw-text-opacity: 1;
   color: hsl(210 9% 31% / var(--tw-text-opacity));
 }
 
-.dark p-menu .p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text,.dark 
-p-menu .p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+.dark .p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text,.dark 
+.p-menu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
   --tw-text-opacity: 1;
   color: hsl(240 4% 90% / var(--tw-text-opacity));
 }
@@ -1148,7 +1144,23 @@ p-chip[label="gilles.gardet@gmail.com"] .p-chip:hover::before {
 }
 
 :not(pre) > pre {
-  background: #272822;
+  --tw-bg-opacity: 1;
+  background-color: hsl(74 7% 15% / var(--tw-bg-opacity));
+}
+
+.dark :not(pre) > pre {
+  --tw-bg-opacity: 1;
+  background-color: hsl(60 28% 96% / var(--tw-bg-opacity));
+}
+
+pre {
+  --tw-text-opacity: 1;
+  color: hsl(60 28% 96% / var(--tw-text-opacity));
+}
+
+.dark pre {
+  --tw-text-opacity: 1;
+  color: hsl(74 7% 15% / var(--tw-text-opacity));
 }
 
 pre {
@@ -1156,7 +1168,6 @@ pre {
   margin: 0.5em 0;
   overflow: auto;
   border-radius: 0.3em;
-  color: #f8f8f2;
   background: none;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -1179,6 +1190,33 @@ code[class*=language-] {
   grid-auto-columns: auto;
 }
 
+code {
+  --tw-bg-opacity: 1;
+  background-color: hsl(74 7% 15% / var(--tw-bg-opacity));
+}
+
+.dark code {
+  --tw-bg-opacity: 1;
+  background-color: hsl(60 28% 96% / var(--tw-bg-opacity));
+}
+
+code {
+  --tw-text-opacity: 1;
+  color: hsl(60 28% 96% / var(--tw-text-opacity));
+}
+
+.dark code {
+  --tw-text-opacity: 1;
+  color: hsl(74 7% 15% / var(--tw-text-opacity));
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  font-size: 0.7rem;
+  border-radius: 5px;
+  padding: 0.2rem;
+}
+
 /*
 ! tailwindcss v3.2.1 | MIT License | https://tailwindcss.com
 */
@@ -1194,7 +1232,7 @@ code[class*=language-] {
   box-sizing: border-box; /* 1 */
   border-width: 0; /* 2 */
   border-style: solid; /* 2 */
-  border-color: #e5e7eb; /* 2 */
+  border-color: currentColor; /* 2 */
 }
 
 ::before,
@@ -2537,16 +2575,6 @@ video {
 
 .font-bold {
   font-weight: 700;
-}
-
-.text-slate-600 {
-  --tw-text-opacity: 1;
-  color: rgb(71 85 105 / var(--tw-text-opacity));
-}
-
-.dark .dark\:text-slate-100 {
-  --tw-text-opacity: 1;
-  color: rgb(241 245 249 / var(--tw-text-opacity));
 }
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[5].rules[0].oneOf[0].use[2]!./node_modules/primeng/resources/themes/saga-blue/theme.css ***!
