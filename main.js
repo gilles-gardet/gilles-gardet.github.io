@@ -290,30 +290,27 @@ class ContactComponent {
     }
 }
 ContactComponent.ɵfac = function ContactComponent_Factory(t) { return new (t || ContactComponent)(); };
-ContactComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: ContactComponent, selectors: [["cv-contact"]], standalone: true, features: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵStandaloneFeature"]], decls: 12, vars: 3, consts: [[1, "general"], ["contact", ""], ["size", "xlarge", "shape", "circle", "styleClass", "p-mt-5", "image", "assets/pictures/me.jpg"], [1, "general__name"], [1, "general__presentation"], ["label", "gilles.gardet@gmail.com", "icon", "pi pi-envelope", 3, "click"], ["pButton", "", "pRipple", "", "type", "submit", "icon", "pi pi-bars", "pTooltip", "Afficher le menu", 1, "p-button-rounded", "p-button-text", "general__button-left", 3, "appendTo", "click"], [3, "popup", "model"], ["menu", ""]], template: function ContactComponent_Template(rf, ctx) { if (rf & 1) {
-        const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵgetCurrentView"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "p-card")(1, "div", 0, 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](3, "p-avatar", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](4, "span", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](5, "Gilles Gardet");
+ContactComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: ContactComponent, selectors: [["cv-contact"]], standalone: true, features: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵStandaloneFeature"]], decls: 11, vars: 3, consts: [[1, "general"], ["size", "xlarge", "shape", "circle", "styleClass", "p-mt-5", "image", "assets/pictures/me.jpg"], [1, "general__name"], [1, "general__presentation"], ["label", "gilles.gardet@gmail.com", "icon", "pi pi-envelope", 3, "click"], ["pButton", "", "pRipple", "", "type", "submit", "icon", "pi pi-bars", "pTooltip", "Afficher le menu", 1, "p-button-rounded", "p-button-text", "general__button-left", 3, "click"], ["appendTo", "body", 3, "popup", "model", "autoZIndex"], ["menu", ""]], template: function ContactComponent_Template(rf, ctx) { if (rf & 1) {
+        const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵgetCurrentView"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "p-card")(1, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](2, "p-avatar", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "span", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](4, "Gilles Gardet");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "span", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](7, "D\u00E9veloppeur fullstack, curieux par nature et passionn\u00E9 par son m\u00E9tier.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](5, "span", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](6, "D\u00E9veloppeur fullstack, curieux par nature et passionn\u00E9 par son m\u00E9tier.");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "p-chip", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function ContactComponent_Template_p_chip_click_8_listener() { return ctx.openEmailClient(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "p-chip", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function ContactComponent_Template_p_chip_click_7_listener() { return ctx.openEmailClient(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](9, "button", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function ContactComponent_Template_button_click_9_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r2); const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵreference"](11); return _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵresetView"](_r1.toggle($event)); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "button", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function ContactComponent_Template_button_click_8_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r1); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵreference"](10); return _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵresetView"](_r0.toggle($event)); });
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](10, "p-menu", 7, 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](9, "p-menu", 6, 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
     } if (rf & 2) {
-        const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵreference"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("appendTo", _r0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("popup", true)("model", ctx.items);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("popup", true)("model", ctx.items)("autoZIndex", true);
     } }, dependencies: [primeng_avatar__WEBPACK_IMPORTED_MODULE_5__.AvatarModule, primeng_avatar__WEBPACK_IMPORTED_MODULE_5__.Avatar, primeng_button__WEBPACK_IMPORTED_MODULE_6__.ButtonModule, primeng_button__WEBPACK_IMPORTED_MODULE_6__.ButtonDirective, primeng_card__WEBPACK_IMPORTED_MODULE_7__.CardModule, primeng_card__WEBPACK_IMPORTED_MODULE_7__.Card, primeng_chip__WEBPACK_IMPORTED_MODULE_8__.ChipModule, primeng_chip__WEBPACK_IMPORTED_MODULE_8__.Chip, _angular_forms__WEBPACK_IMPORTED_MODULE_9__.FormsModule,
         primeng_inputswitch__WEBPACK_IMPORTED_MODULE_10__.InputSwitchModule,
         primeng_menu__WEBPACK_IMPORTED_MODULE_11__.MenuModule, primeng_menu__WEBPACK_IMPORTED_MODULE_11__.Menu, primeng_tooltip__WEBPACK_IMPORTED_MODULE_12__.Tooltip, primeng_ripple__WEBPACK_IMPORTED_MODULE_13__.RippleModule, primeng_ripple__WEBPACK_IMPORTED_MODULE_13__.Ripple, _shared_shared_module__WEBPACK_IMPORTED_MODULE_1__.SharedModule,
