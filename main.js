@@ -408,7 +408,7 @@ function DetailsComponent_p_dialog_0_ng_template_2_Template(rf, ctx) { if (rf & 
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r2.loading)("ngIfElse", _r4);
 } }
-const _c0 = function () { return { maxWidth: "1280px" }; };
+const _c0 = function () { return { maxWidth: "960px" }; };
 function DetailsComponent_p_dialog_0_Template(rf, ctx) { if (rf & 1) {
     const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p-dialog", 1);
