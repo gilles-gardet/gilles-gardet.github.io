@@ -1169,7 +1169,6 @@ pre {
   overflow: auto;
   border-radius: 0.3em;
   background: none;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 1em;
   text-align: left;
@@ -1181,6 +1180,7 @@ pre {
   tab-size: 4;
   -webkit-hyphens: none;
   hyphens: none;
+  text-shadow: none;
 }
 
 code[class*=language-] {
@@ -1188,6 +1188,7 @@ code[class*=language-] {
   max-width: calc(100vw - 4rem);
   display: grid;
   grid-auto-columns: auto;
+  text-shadow: none;
 }
 
 code {
@@ -1215,6 +1216,7 @@ code {
   font-size: 0.7rem;
   border-radius: 5px;
   padding: 0.2rem;
+  text-shadow: none;
 }
 
 /*
