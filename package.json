@@ -7,7 +7,7 @@
     "lint": "ng lint",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test portfolio",
+    "test": "ng test cv",
     "test:ci": "ng test --ci=true --reporters=default --coverage=true",
     "e2e": "pnpm playwright test --config=e2e/playwright.config.ts",
     "prepare": "husky install"
@@ -22,6 +22,8 @@
     "@angular/platform-browser": "~14.2.5",
     "@angular/platform-browser-dynamic": "~14.2.5",
     "@angular/router": "~14.2.5",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
     "marked": "^4.1.1",
     "ngx-markdown": "^14.0.1",
     "primeicons": "^6.0.1",

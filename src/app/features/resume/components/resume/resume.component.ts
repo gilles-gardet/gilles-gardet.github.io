@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { of, Subject, zip } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Mission } from '@core/models/mission.model';
@@ -9,19 +9,22 @@ import { MissionsComponent } from '@features/resume/components/missions/missions
 import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
 import { SharedModule } from '@shared/shared.module';
 import { DetailsComponent } from '@features/resume/components/details/details.component';
+import { TranslateService } from '@ngx-translate/core';
+import { EMPTY_STRING } from '@core/utils/string.utils';
 import missions from '@assets/resume/missions.json';
 import skills from '@assets/resume/skills.json';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [HobbiesComponent, MissionsComponent, SharedModule, SkillsComponent, SummaryComponent, DetailsComponent],
+  imports: [HobbiesComponent, MissionsComponent, DetailsComponent, SkillsComponent, SummaryComponent, SharedModule],
   selector: 'cv-resume',
   standalone: true,
   styleUrls: ['./resume.component.scss'],
   templateUrl: './resume.component.html',
 })
 export class ResumeComponent implements OnInit, OnDestroy {
-  private _unsubscribe$ = new Subject();
+  translateService = inject(TranslateService);
+  unsubscribe$ = new Subject();
   selectedMission: Mission = {} as Mission;
   missions: Mission[] = [];
   skills: Skill[] = [];
@@ -51,17 +54,6 @@ export class ResumeComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Listen for the page scroll in order to display a reading indicator
-   */
-  @HostListener('window:scroll', ['$event'])
-  onPageScroll(): void {
-    const scrollTracker: any = document.getElementById('scroll-tracker');
-    let scrollDistance = document.documentElement.scrollTop || document.body.scrollTop;
-    let progressWidth = (scrollDistance / (document.body.scrollHeight - document.documentElement.clientHeight)) * 100;
-    scrollTracker!.style.width = progressWidth + '%';
-  }
-
-  /**
    * Retrieve the mission from the passed date
    *
    * @param startingDate the starting date of the mission
@@ -71,7 +63,8 @@ export class ResumeComponent implements OnInit, OnDestroy {
   missionFromDate(startingDate: string, type: string): string {
     const date = new Date(startingDate);
     const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
-    return `/assets/resume/missions/${date.getFullYear()}${month}/${date.getFullYear()}${month}_${type}.md`;
+    const language = this.translateService.currentLang;
+    return `/assets/resume/missions/${language}/${date.getFullYear()}${month}/${date.getFullYear()}${month}_${type}.md`;
   }
 
   /**
@@ -87,7 +80,8 @@ export class ResumeComponent implements OnInit, OnDestroy {
         start,
         end
       )})`;
-    return `${this.formatDate(new Date(start))} - en cours (${this.missionDuration(start, end)})`;
+    const onGoingLabel = this.translateService.currentLang === 'fr' ? 'en cours' : 'ongoing';
+    return `${this.formatDate(new Date(start))} - ${onGoingLabel} (${this.missionDuration(start, end)})`;
   }
 
   /**
@@ -111,6 +105,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
   missionDuration(start: string, end?: string): string {
     const startTimestamp = Date.parse(start);
     const startDate = new Date(startTimestamp);
+    const { yearLabel, monthLabel, andLabel } = this.getTranslatedLabels();
     let endDate = new Date(Date.now());
     if (end) {
       const endTimestamp = Date.parse(end);
@@ -120,13 +115,25 @@ export class ResumeComponent implements OnInit, OnDestroy {
     if (monthsBetweenDates > 12 && monthsBetweenDates % 12 > 0) {
       const years = Math.trunc(monthsBetweenDates / 12);
       const months = monthsBetweenDates % 12;
-      return `${years} an${years > 1 ? 's' : ''} et ${months} mois`;
+      return `${years} ${yearLabel}${years > 1 ? 's' : EMPTY_STRING} ${andLabel} ${months} ${monthLabel}`;
     }
     if (monthsBetweenDates % 12 === 0) {
       const years = Math.trunc(monthsBetweenDates / 12);
-      return `${years} an${years > 1 ? 's' : ''}`;
+      return `${years} ${yearLabel}${years > 1 ? 's' : EMPTY_STRING}`;
     }
-    return `${monthsBetweenDates} mois`;
+    return `${monthsBetweenDates} ${monthLabel}`;
+  }
+
+  /**
+   * Get the translated labels used on the mission's subheader to display the duration of this mission.
+   *
+   * @return the translated labels
+   */
+  private getTranslatedLabels(): { yearLabel: string; monthLabel: string; andLabel: string } {
+    if (this.translateService.currentLang === 'fr') {
+      return { yearLabel: 'an', monthLabel: 'mois', andLabel: 'et' };
+    }
+    return { yearLabel: 'year', monthLabel: 'months', andLabel: 'and' };
   }
 
   /**
@@ -163,7 +170,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
    * @inheritDoc
    */
   ngOnDestroy(): void {
-    this._unsubscribe$.next();
-    this._unsubscribe$.unsubscribe();
+    this.unsubscribe$.next();
+    this.unsubscribe$.unsubscribe();
   }
 }

@@ -1,4 +1,4 @@
-<p-panel header="Expérience">
+<p-panel id="experience" [header]="'cv.missions.panelTitle' | translate">
   <p-timeline [value]="missions" align="alternate" styleClass="customized-timeline">
     <ng-template pTemplate="marker">
       <span class="custom-marker" [style.backgroundColor]="'#495057'">
@@ -6,11 +6,7 @@
       </span>
     </ng-template>
     <ng-template pTemplate="content" let-mission>
-      <p-card
-        [header]="mission['client']"
-        [subheader]="mission['timelapse']"
-        styleClass="mission"
-      >
+      <p-card [header]="mission['client']" [subheader]="mission['timelapse']" styleClass="mission">
         <markdown [src]="mission.description"></markdown>
         <div class="mission__button">
           <cv-slide-button (click)="emitOpenMissionDialog(mission)"></cv-slide-button>

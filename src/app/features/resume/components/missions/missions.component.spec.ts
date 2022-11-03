@@ -13,6 +13,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MissionsComponent } from '@features/resume/components/missions/missions.component';
 import { Mission } from '@core/models/mission.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 window.IntersectionObserver = jest.fn().mockImplementation(() => ({
   observe: () => null,
@@ -37,6 +38,7 @@ describe('MissionsComponent', () => {
         SharedModule,
         TagModule,
         TimelineModule,
+        TranslateModule.forRoot(),
       ],
       providers: [MarkdownService],
     }).compileComponents();

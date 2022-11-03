@@ -14,12 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
 import { Mission } from '@core/models/mission.model';
 import { DetailsComponent } from '@features/resume/components/details/details.component';
-
-const missions = {
-  client: 'Air France KLM (Inetum) - Dev Portal',
-  endDate: null,
-  startDate: '2019-01-01',
-};
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
 
 describe('DetailsComponent', () => {
   let detailsComponent: DetailsComponent;
@@ -41,8 +36,9 @@ describe('DetailsComponent', () => {
         SharedModule,
         TagModule,
         TimelineModule,
+        TranslateModule.forRoot()
       ],
-      providers: [MarkdownService],
+      providers: [MarkdownService, { provide: TranslateService, useValue: { currentLang: 'en' } }],
     }).compileComponents();
     componentFixture = TestBed.createComponent(DetailsComponent);
     markdownService = TestBed.inject(MarkdownService);
@@ -75,8 +71,8 @@ describe('DetailsComponent', () => {
     detailsComponent.onMissionLoading();
     componentFixture.detectChanges();
     expect(markdownService.getSource).toHaveBeenCalledTimes(2);
-    expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/202201/202201_full.md');
-    expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/202201/202201_light.md');
+    expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/en/202201/202201_full.md');
+    expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/en/202201/202201_light.md');
     expect(detailsComponent.innerFullMission).toEqual('<p>test</p>&#10;');
     expect(detailsComponent.innerLightMission).toEqual('<p>test</p>&#10;');
     expect(markdownService.parse).toHaveBeenNthCalledWith(2, 'test');
@@ -87,12 +83,12 @@ describe('DetailsComponent', () => {
 
   it(`should get the path of the full mardown file related to a mission's date`, async () => {
     const path = detailsComponent.missionFromDate('2019-01-01', 'full');
-    expect(path).toEqual('/assets/resume/missions/201901/201901_full.md');
+    expect(path).toEqual('/assets/resume/missions/en/201901/201901_full.md');
   });
 
   it(`should get the path of the light mardown file related to a mission's date`, async () => {
     const path = detailsComponent.missionFromDate('2019-01-01', 'light');
-    expect(path).toEqual('/assets/resume/missions/201901/201901_light.md');
+    expect(path).toEqual('/assets/resume/missions/en/201901/201901_light.md');
   });
 
   afterEach(() => {

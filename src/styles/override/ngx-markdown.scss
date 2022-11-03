@@ -6,13 +6,11 @@ pre {
   @apply text-pre-text dark:text-dark-pre-text;
   padding: 0.3rem;
   margin: 0.5em 0;
-  overflow: auto;
   border-radius: 0.3em;
   background: none;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1em;
   text-align: left;
-  white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
@@ -30,6 +28,7 @@ code[class*='language-'] {
   display: grid;
   grid-auto-columns: auto;
   text-shadow: none;
+  white-space: normal;
 }
 
 code {

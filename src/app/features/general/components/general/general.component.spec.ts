@@ -8,11 +8,12 @@ import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { ConfigService } from '@core/services/config.service';
-import { ContactComponent } from '@features/contact/components/general/contact.component';
+import { GeneralComponent } from '@features/general/components/general/general.component';
+import { TranslateModule } from '@ngx-translate/core';
 
-describe('ContactComponent', () => {
-  let contactComponent: ContactComponent;
-  let componentFixture: ComponentFixture<ContactComponent>;
+describe('GeneralComponent', () => {
+  let contactComponent: GeneralComponent;
+  let componentFixture: ComponentFixture<GeneralComponent>;
   let configService: ConfigService;
 
   beforeEach(waitForAsync(() => {
@@ -26,10 +27,11 @@ describe('ContactComponent', () => {
         InputSwitchModule,
         RippleModule,
         TooltipModule,
+        TranslateModule.forRoot(),
       ],
       providers: [ConfigService],
     }).compileComponents();
-    componentFixture = TestBed.createComponent(ContactComponent);
+    componentFixture = TestBed.createComponent(GeneralComponent);
     configService = TestBed.inject(ConfigService);
     contactComponent = componentFixture.componentInstance;
     componentFixture.detectChanges();
@@ -39,41 +41,10 @@ describe('ContactComponent', () => {
     expect(contactComponent).toBeTruthy();
   });
 
-  it(`should have a light theme by default`, async () => {
-    expect(contactComponent.isDarkTheme).toEqual(false);
+  it(`should have no theme by default`, async () => {
+    expect(contactComponent.isDarkTheme).toBeFalsy();
     expect(localStorage.getItem('theme')).toEqual('light');
     expect(document.getElementsByTagName('html')[0].classList).not.toContain('dark');
-  });
-
-  it(`should switch the theme to dark`, async () => {
-    contactComponent.isDarkTheme = false;
-    contactComponent.switchTheme();
-    expect(localStorage.getItem('theme')).toBeDefined();
-    expect(localStorage.getItem('theme')).toEqual('light');
-    expect(document.getElementsByTagName('html')[0].classList).not.toContain('dark');
-  });
-
-  it(`should switch the theme to light`, async () => {
-    contactComponent.isDarkTheme = true;
-    contactComponent.switchTheme();
-    expect(localStorage.getItem('theme')).toBeDefined();
-    expect(localStorage.getItem('theme')).toEqual('dark');
-    expect(document.getElementsByTagName('html')[0].classList).toContain('dark');
-  });
-
-  it(`should set the stored value`, async () => {
-    const storeSpy = jest.spyOn(configService, 'setTheme$');
-    contactComponent.isDarkTheme = false;
-    contactComponent.switchTheme();
-    expect(storeSpy).toHaveBeenCalledTimes(1);
-    expect(storeSpy).toHaveBeenCalledWith('light');
-    expect(document.getElementsByTagName('html')[0].classList).not.toContain('dark');
-    storeSpy.mockClear();
-    contactComponent.isDarkTheme = true;
-    contactComponent.switchTheme();
-    expect(storeSpy).toHaveBeenCalledTimes(1);
-    expect(storeSpy).toHaveBeenCalledWith('dark');
-    expect(document.getElementsByTagName('html')[0].classList).toContain('dark');
   });
 
   it(`should open the email adress`, async () => {
@@ -88,7 +59,7 @@ describe('ContactComponent', () => {
     jest.spyOn(anchorMock, 'click');
     jest.spyOn(document.body, 'appendChild');
     jest.spyOn(document.body, 'removeChild');
-    contactComponent.downloadCurriculumVitae();
+    (contactComponent as any)._downloadCurriculumVitae();
     expect(document.createElement).toHaveBeenCalledWith('a');
     expect(anchorMock.click).toHaveBeenCalled();
     expect(document.body.appendChild).toHaveBeenCalledWith(anchorMock);
@@ -96,7 +67,6 @@ describe('ContactComponent', () => {
     expect(anchorMock.href).toContain('/assets/pdf/CV_GARDET_Gilles.pdf');
     expect(anchorMock.download).toEqual('gardet_gilles.pdf');
   });
-
 
   afterEach(() => {
     localStorage.clear();

@@ -1,7 +1,13 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, chromium } from '@playwright/test';
+
+test.beforeAll(async () => {
+  const browser = await chromium.launch();
+  await browser.newContext({ locale: 'fr-FR' });
+});
 
 test.beforeEach(async ({ page }) => {
   await page.goto('http://localhost:4200');
+  await page.waitForSelector('p-progressSpinner', { state: 'detached' });
 });
 
 test.describe('General page structure', () => {
@@ -16,38 +22,38 @@ test.describe('General page structure', () => {
   });
 
   test('Should have a panel "profil et généralités"', async ({ page }) => {
-    await expect(page.locator('.p-panel-title:has-text("Profil et généralités")')).toBeVisible();
+    await expect(page.locator('.p-panel-title:has-text("Profile and generalities")')).toBeVisible();
   });
 
   test('Should match the snapshot of the panel "profil et généralités"', async ({ page }) => {
-    const panel = page.locator('p-panel[header="Profil et généralités"]');
+    const panel = page.locator('p-panel#summary');
     expect(await panel.screenshot()).toMatchSnapshot('summary.png');
   });
 
   test('Should have a panel "langages et outils"', async ({ page }) => {
-    await expect(page.locator('.p-panel-title:has-text("Langages et outils")')).toBeVisible();
+    await expect(page.locator('p-panel#skills')).toBeVisible();
   });
 
   test('Should have a panel "expérience"', async ({ page }) => {
-    await expect(page.locator('.p-panel-title:has-text("Expérience")')).toBeVisible();
+    await expect(page.locator('.p-panel-title:has-text("Experience")')).toBeVisible();
   });
 
   test('Should have a panel "loisirs"', async ({ page }) => {
-    await expect(page.locator('.p-panel-title:has-text("Loisirs")')).toBeVisible();
+    await expect(page.locator('.p-panel-title:has-text("Hobbies")')).toBeVisible();
   });
 
   test('Should match the snapshot of the panel "loisirs"', async ({ page }) => {
-    const panel = page.locator('p-panel[header="Loisirs"]');
+    const panel = page.locator('p-panel#hobbies');
     expect(await panel.screenshot()).toMatchSnapshot('hobbies.png');
   });
 });
 
-test.describe('Contact card structure', () => {
+test.describe('General card structure', () => {
   test('should have a name and a short description with an avatar', async ({ page }) => {
     const aside = page.locator('aside');
     await expect(aside).toBeVisible();
     await expect(aside).toContainText('Gilles Gardet');
-    await expect(aside).toContainText('Développeur fullstack, curieux par nature et passionné par son métier.');
+    await expect(aside).toContainText('Fullstack developer, curious by nature and passionate about his profession.');
     const avatar = aside.locator('p-avatar');
     await expect(avatar).toBeVisible();
   });
@@ -62,11 +68,11 @@ test.describe('Contact card structure', () => {
     await expect(button).toHaveAttribute('icon', 'pi pi-bars');
     await button.hover();
     const tooltip = page.locator('.p-tooltip-text');
-    await expect(tooltip).toHaveText('Afficher le menu');
+    await expect(tooltip).toHaveText('Show menu');
   });
 
   test('Should match the snapshot of the sidebar', async ({ page }) => {
-    const sidebar = page.locator('aside cv-contact');
+    const sidebar = page.locator('aside cv-general');
     expect(await sidebar.screenshot()).toMatchSnapshot('sidebar.png');
   });
 });
@@ -75,13 +81,15 @@ test.describe('Summary panel structure', () => {
   test('should have a description', async ({ page }) => {
     const content = page.locator('cv-summary .p-panel-content');
     await expect(content).toBeVisible();
+    await expect(content).toContainText(`I have 9 years of experience as a designer developer in information systems.`);
     await expect(content).toContainText(
-      ` Je bénéficie d’une expérience de 9 ans en tant que concepteur développeur en matière de systèmes 
-      d’information.  Principalement spécialisé dans les technologies backend (Java, Spring...), que j'ai pu éprouver sur 
-      différentes missions elles-mêmes touchant à plusieurs domaines d'activités (domaine du spatial, des ressources 
-      humaines, des collectivités...).  J'ai néanmoins un profil fullstack de par les nombreux projets frontend que j'ai 
-      pu réaliser en parallèle.  J'ai l'habitude de travailler avec les méthodes Agiles que j'affectionne quand il s'agit 
-      de conduire un projet (Scrum, Kanban..). `
+      `Mainly specialized in backend technologies (Java, Spring...), which I was able to experience on different missions themselves touching on several fields of activity (space, human resources, communities...).`
+    );
+    await expect(content).toContainText(
+      `Nevertheless, I have a fullstack profile thanks to the many frontend projects that I have been able to carry out in parallel.`
+    );
+    await expect(content).toContainText(
+      `I am used to working with the Agile methods that I like when it comes to managing a project (Scrum, Kanban..).`
     );
   });
 
@@ -89,15 +97,16 @@ test.describe('Summary panel structure', () => {
     const bolds = page.locator('cv-summary .p-panel-content b');
     const texts = await bolds.allTextContents();
     await expect(texts).toHaveLength(4);
-    expect(texts).toContain('9 ans');
+    expect(texts).toContain('9 years');
     expect(texts).toContain('backend');
     expect(texts).toContain('fullstack');
-    expect(texts).toContain('Agiles');
+    expect(texts).toContain('Agile');
   });
 });
 
 test.describe('Skills panel structure', () => {
   test('should have a description', async ({ page }) => {
+    await page.waitForSelector('cv-skills');
     const skills = page.locator('cv-skills .p-panel-content .skills__languages');
     const texts = await skills.allTextContents();
     await expect(texts).toHaveLength(17);

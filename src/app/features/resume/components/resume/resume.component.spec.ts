@@ -13,6 +13,9 @@ import { TimelineModule } from 'primeng/timeline';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Mission } from '@core/models/mission.model';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 const tools = [
   {
@@ -221,6 +224,13 @@ describe('ResumeComponent', () => {
         SharedModule,
         TagModule,
         TimelineModule,
+        TranslateModule.forRoot({
+          defaultLanguage: 'fr',
+          // loader: {
+          //   provide: TranslateLoader,
+          //   useFactory: (httpClient: HttpClient) => new TranslateHttpLoader(httpClient, '/i18n/', '.json'),
+          // },
+        }),
       ],
       providers: [MarkdownService],
     }).compileComponents();
@@ -260,21 +270,21 @@ describe('ResumeComponent', () => {
 
   it(`should get the path of the full mardown file related to a mission's date`, async () => {
     const path = resumeComponent.missionFromDate('2019-01-01', 'full');
-    expect(path).toEqual('/assets/resume/missions/201901/201901_full.md');
+    expect(path).toContain('/201901/201901_full.md');
   });
 
   it(`should get the path of the light mardown file related to a mission's date`, async () => {
     const path = resumeComponent.missionFromDate('2019-01-01', 'light');
-    expect(path).toEqual('/assets/resume/missions/201901/201901_light.md');
+    expect(path).toContain('/201901/201901_light.md');
   });
 
   it(`should get the timelapse label of a mission`, async () => {
     const start: Date = new Date('2018-10-02');
     const end: Date = new Date('2022-04-16');
     const timelapseDone = resumeComponent.missionTimelapse(start.toDateString(), end.toDateString());
-    expect(timelapseDone).toEqual('02/10/2018 - 16/04/2022 (3 ans et 6 mois)');
+    expect(timelapseDone).toEqual('02/10/2018 - 16/04/2022 (3 years and 6 months)');
     const timelapseCurrent = resumeComponent.missionTimelapse(start.toDateString());
-    expect(timelapseCurrent).toMatch(/02\/10\/2018 - en cours/);
+    expect(timelapseCurrent).toMatch(/02\/10\/2018 - ongoing/);
   });
 
   it(`should format the given date to be human readable`, async () => {
@@ -290,9 +300,9 @@ describe('ResumeComponent', () => {
     const start: Date = new Date('2018-10-02');
     const end: Date = new Date('2022-04-16');
     const missionDuration = resumeComponent.missionDuration(start.toDateString());
-    expect(missionDuration).toMatch(/^[0-9] ans/);
+    expect(missionDuration).toMatch(/^[0-9] years/);
     const missionWithEndDuration = resumeComponent.missionDuration(start.toDateString(), end.toDateString());
-    expect(missionWithEndDuration).toEqual('3 ans et 6 mois');
+    expect(missionWithEndDuration).toEqual('3 years and 6 months');
   });
 
   it(`should provide the mission duration number in months`, async () => {

@@ -3,9 +3,10 @@ import { Skill } from '@core/models/skill.model';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { PanelModule } from 'primeng/panel';
 import { SharedModule } from '@shared/shared.module';
+import { TranslateModule } from "@ngx-translate/core";
 
 @Component({
-  imports: [PanelModule, ProgressBarModule, SharedModule],
+  imports: [PanelModule, ProgressBarModule, SharedModule, TranslateModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'cv-skills',
   standalone: true,
@@ -45,7 +46,7 @@ export class SkillsComponent implements AfterViewInit {
         threshold: 0,
       }
     );
-    const rateElement = document.querySelector('p-panel[header="Langages et outils"] .p-component');
+    const rateElement = document.querySelector('p-panel#skills .p-component');
     if (rateElement) rateIntersectionObserver.observe(rateElement);
   }
 }

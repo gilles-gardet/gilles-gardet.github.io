@@ -1,17 +1,23 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PanelModule } from 'primeng/panel';
 import { SharedModule } from '@shared/shared.module';
+import { TranslateModule } from "@ngx-translate/core";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PanelModule, SharedModule],
+  imports: [PanelModule, SharedModule, TranslateModule],
   selector: 'cv-summary',
   standalone: true,
   styleUrls: ['./summary.component.scss'],
   templateUrl: './summary.component.html',
 })
 export class SummaryComponent {
-  experience: Date = new Date(2013, 4);
+  yearsOfExperience = 0;
+
+  constructor() {
+    const startingDate = new Date(2013, 4);
+    this.yearsOfExperience = this.numberOfYearsFromDateToCurrentDate(startingDate);
+  }
 
   /**
    * Calculate the number of years between a given date and the current date

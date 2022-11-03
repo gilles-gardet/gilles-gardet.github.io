@@ -3,7 +3,7 @@
   [(visible)]="displayDialog"
   [header]="selectedMission.client"
   [modal]="true"
-  [style]="{ maxWidth: '1280px' }"
+  [style]="{ maxWidth: '960px' }"
   [closeOnEscape]="true"
   [dismissableMask]="true"
   [blockScroll]="true"
@@ -24,7 +24,7 @@
       <ng-template #missionContent>
         <div class="mission__content__text">
           <div [innerHTML]="innerLightMission"></div>
-          <div [innerHTML]="innerFullMission"></div>
+          <div [innerHTML]="innerFullMission" class="flex flex-col gap-3"></div>
         </div>
       </ng-template>
     </div>

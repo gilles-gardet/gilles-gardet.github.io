@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TagModule } from 'primeng/tag';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('HobbiesComponent', () => {
   let hobbiesComponent: HobbiesComponent;
@@ -11,7 +12,7 @@ describe('HobbiesComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, PanelModule, TagModule],
+      imports: [BrowserAnimationsModule, CommonModule, PanelModule, TagModule, TranslateModule.forRoot()],
     }).compileComponents();
     componentFixture = TestBed.createComponent(HobbiesComponent);
     hobbiesComponent = componentFixture.componentInstance;

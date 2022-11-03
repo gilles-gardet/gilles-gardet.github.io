@@ -14,10 +14,11 @@ import { TimelineModule } from 'primeng/timeline';
 import { CardModule } from 'primeng/card';
 import { SharedModule } from '@shared/shared.module';
 import { MarkdownModule } from 'ngx-markdown';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CardModule, MarkdownModule, PanelModule, SharedModule, TimelineModule],
+  imports: [CardModule, MarkdownModule, PanelModule, SharedModule, TimelineModule, TranslateModule],
   selector: 'cv-missions',
   standalone: true,
   styleUrls: ['./missions.component.scss'],
@@ -81,7 +82,7 @@ export class MissionsComponent implements OnInit, AfterViewInit {
       }
     );
     const experienceElements = document.querySelectorAll(
-      'p-panel[header="Expérience"] .p-component .p-timeline-alternate .p-timeline-event'
+      'p-panel#experience .p-component .p-timeline-alternate .p-timeline-event'
     );
     experienceElements.forEach((experienceElement) => {
       intersectionObserver.observe(experienceElement);

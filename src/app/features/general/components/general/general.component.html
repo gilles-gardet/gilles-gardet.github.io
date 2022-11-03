@@ -2,15 +2,15 @@
   <div class="general">
     <p-avatar size="xlarge" shape="circle" styleClass="p-mt-5" image="assets/pictures/me.jpg"></p-avatar>
     <span class="general__name">Gilles Gardet</span>
-    <span class="general__presentation">Développeur fullstack, curieux par nature et passionné par son métier.</span>
+    <span class="general__presentation">{{'cv.contact.presentation' | translate}}</span>
     <p-chip label="gilles.gardet@gmail.com" icon="pi pi-envelope" (click)="openEmailClient()"></p-chip>
     <button
       pButton
       pRipple
-      type="submit"
+      type="button"
       icon="pi pi-bars"
       class="p-button-rounded p-button-text general__button-left"
-      pTooltip="Afficher le menu"
+      [pTooltip]="'cv.contact.menu.tooltip' | translate"
       (click)="menu.toggle($event)"
     ></button>
     <p-menu #menu [popup]="true" [model]="items" appendTo="body" [autoZIndex]="true"></p-menu>

@@ -3,6 +3,7 @@ import { PanelModule } from 'primeng/panel';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SummaryComponent } from '@features/resume/components/summary/summary.component';
+import { TranslateModule } from "@ngx-translate/core";
 
 describe('SummaryComponent', () => {
   let summaryComponent: SummaryComponent;
@@ -10,7 +11,7 @@ describe('SummaryComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, PanelModule],
+      imports: [BrowserAnimationsModule, CommonModule, PanelModule, TranslateModule.forRoot()],
     }).compileComponents();
     componentFixture = TestBed.createComponent(SummaryComponent);
     summaryComponent = componentFixture.componentInstance;

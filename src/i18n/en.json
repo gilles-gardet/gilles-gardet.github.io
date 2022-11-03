@@ -1,0 +1,55 @@
+{
+  "cv": {
+    "mode": {
+      "label": {
+        "dark": "Dark",
+        "light": "Light"
+      }
+    },
+    "contact": {
+      "presentation": "Fullstack developer, curious by nature and passionate about his profession.",
+      "menu": {
+        "tooltip": "Show menu",
+        "items": {
+          "mode": {
+            "label": "{{value}} mode",
+            "title": "Change mode"
+          },
+          "download": {
+            "label": "Download",
+            "title": "Download CV in PDF format"
+          },
+          "language": {
+            "label": "Français",
+            "title": "Change the language"
+          }
+        }
+      }
+    },
+    "summary": {
+      "panelTitle": "Profile and generalities",
+      "content": "<p>I have <b>{{ value }} years</b> of experience as a designer developer in information systems.</p><p>Mainly specialized in <b>backend</b> technologies (Java, Spring...), which I was able to experience on different missions themselves touching on several fields of activity (space, human resources, communities...).</p><p>Nevertheless, I have a <b>fullstack</b> profile thanks to the many frontend projects that I have been able to carry out in parallel.</p><p>I am used to working with the <b>Agile</b> methods that I like when it comes to managing a project (Scrum, Kanban..).</p>"
+    },
+    "skills": {
+      "panelTitle": "Languages and tools"
+    },
+    "missions": {
+      "panelTitle": "Experience",
+      "content": {
+
+      }
+    },
+    "hobbies": {
+      "panelTitle": "Hobbies",
+      "content": {
+        "dev": "Development related to all types of languages and technologies",
+        "basket": "Competitive Basketball",
+        "running": "Running (participation in the Toulouse marathon as a team)",
+        "movie": "Horror films of the 80s-90s (Carpenter, Cronenberg, Romero...)"
+      }
+    },
+    "shared": {
+      "slideButton": "Learn more"
+    }
+  }
+}

@@ -120,6 +120,53 @@
     display: flex;
     padding: 2rem 1rem;
   }
+
+  .scroll-wrapper {
+    width: 100%;
+    height: 0.2rem;
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 98;
+
+    #scroll-tracker {
+      @apply bg-progress dark:bg-dark-progress;
+      position: fixed;
+      inset: 0 0 auto;
+      height: 0.2rem;
+      width: 0;
+      z-index: 99;
+    }
+  }
+}
+
+.spinner {
+  animation: progress-spinner-dash 1.5s ease-in-out infinite, progress-spinner-color 6s ease-in-out infinite;
+}
+
+@keyframes progress-spinner-color {
+  100%,
+  0%,
+  40%,
+  66%,
+  80%,
+  90% {
+    @apply stroke-text-color dark:stroke-dark-text-color;
+  }
+}
+
+@keyframes progress-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
 }
 
 @media print, screen and (max-width: 960px) {

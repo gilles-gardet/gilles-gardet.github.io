@@ -6,15 +6,17 @@ import {
   inject,
   Input,
   OnDestroy,
-  Output
-} from "@angular/core";
+  Output,
+} from '@angular/core';
 import { forkJoin, Observable, Subject } from 'rxjs';
 import { MarkdownService } from 'ngx-markdown';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, tap } from 'rxjs/operators';
 import { Mission } from '@core/models/mission.model';
 import { DialogModule } from 'primeng/dialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { CommonModule } from '@angular/common';
+import { EMPTY_STRING } from '@core/utils/string.utils';
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,12 +30,13 @@ export class DetailsComponent implements OnDestroy {
   @Input() selectedMission: Mission = {} as Mission;
   @Input() displayDialog = false;
   @Output() close: EventEmitter<boolean> = new EventEmitter();
-  private _unsubscribe$ = new Subject();
+  unsubscribe$ = new Subject();
   markdownService = inject(MarkdownService);
   changeDetectorRef = inject(ChangeDetectorRef);
+  translateService = inject(TranslateService);
   loading = true;
-  innerFullMission: string = '';
-  innerLightMission: string = '';
+  innerFullMission: string = EMPTY_STRING;
+  innerLightMission: string = EMPTY_STRING;
 
   /**
    * Retrieve the mission from the passed date
@@ -45,7 +48,8 @@ export class DetailsComponent implements OnDestroy {
   missionFromDate(startingDate: string, type: string): string {
     const date = new Date(startingDate);
     const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
-    return `/assets/resume/missions/${date.getFullYear()}${month}/${date.getFullYear()}${month}_${type}.md`;
+    const language = this.translateService.currentLang;
+    return `/assets/resume/missions/${language}/${date.getFullYear()}${month}/${date.getFullYear()}${month}_${type}.md`;
   }
 
   /**
@@ -67,10 +71,14 @@ export class DetailsComponent implements OnDestroy {
       this.missionFromDate(this.selectedMission?.startDate, 'light')
     );
     forkJoin({ lightMission, fullMission })
-      .pipe(takeUntil(this._unsubscribe$))
-      .subscribe((value) => {
-        this.innerLightMission = this.markdownService.parse(value.lightMission);
-        this.innerFullMission = this.markdownService.parse(value.fullMission);
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        tap((value: any) => {
+          this.innerLightMission = this.markdownService.parse(value.lightMission);
+          this.innerFullMission = this.markdownService.parse(value.fullMission);
+        })
+      )
+      .subscribe(() => {
         setTimeout(() => {
           this.loading = false;
           this.changeDetectorRef.detectChanges();
@@ -85,7 +93,7 @@ export class DetailsComponent implements OnDestroy {
    * @inheritDoc
    */
   ngOnDestroy(): void {
-    this._unsubscribe$.next();
-    this._unsubscribe$.unsubscribe();
+    this.unsubscribe$.next();
+    this.unsubscribe$.unsubscribe();
   }
 }

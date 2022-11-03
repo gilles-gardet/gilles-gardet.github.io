@@ -3,7 +3,7 @@
 }
 
 button {
-  @apply bg-slide-button-bg dark:bg-dark-slide-button-bg;
+  @apply bg-dark-slide-button-bg dark:bg-slide-button-bg;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -19,7 +19,7 @@ button {
     height: auto;
 
     .circle {
-      @apply bg-slide-circle-button-bg dark:bg-dark-slide-circle-button-bg;
+      @apply bg-dark-slide-circle-button-bg dark:bg-slide-circle-button-bg;
       @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
       position: relative;
       display: block;
@@ -43,7 +43,8 @@ button {
           background: none;
 
           &::before {
-            @apply border-t-slide-button-icon dark:border-t-dark-slide-button-icon;
+            @apply border-t-dark-slide-button-icon dark:border-t-slide-button-icon;
+            @apply border-r-dark-slide-button-icon dark:border-r-slide-button-icon;
             border-top-width: 0.125rem;
             border-right-width: 0.125rem;
             border-top-style: solid;
@@ -61,7 +62,7 @@ button {
     }
 
     .button-text {
-      @apply text-text-color dark:text-dark-text-color;
+      @apply text-dark-text-color dark:text-text-color;
       @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
       position: absolute;
       top: 0;
@@ -81,14 +82,14 @@ button {
 
       .icon {
         &.arrow {
-          @apply bg-slide-button-icon dark:bg-dark-slide-button-icon;
+          @apply bg-dark-slide-button-icon dark:bg-slide-button-icon;
           transform: translate(1rem, 0);
         }
       }
     }
 
     .button-text {
-      @apply text-slide-button-icon dark:text-dark-slide-button-icon;
+      @apply text-dark-slide-button-icon dark:text-slide-button-icon;
     }
   }
 }

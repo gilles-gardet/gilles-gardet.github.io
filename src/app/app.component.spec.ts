@@ -9,8 +9,9 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { SharedModule } from '@shared/shared.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { APP_BASE_HREF } from '@angular/common';
-import { ContactComponent } from '@features/contact/components/general/contact.component';
+import { GeneralComponent } from '@features/general/components/general/general.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { TranslateModule } from "@ngx-translate/core";
 
 window.IntersectionObserver = jest.fn().mockImplementation(() => ({
   observe: () => null,
@@ -26,12 +27,13 @@ describe('AppComponent', () => {
         AppRoutingModule,
         BrowserAnimationsModule,
         BrowserModule,
-        ContactComponent,
+        GeneralComponent,
         CoreModule,
         HttpClientTestingModule,
         MarkdownModule.forRoot(),
         ScrollTopModule,
         SharedModule,
+        TranslateModule.forRoot()
       ],
       providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
       schemas: [NO_ERRORS_SCHEMA],

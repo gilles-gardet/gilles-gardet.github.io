@@ -6,6 +6,7 @@ const config: PlaywrightTestConfig = {
   timeout: 120 * 1_000,
   expect: {
     timeout: 5_000,
+    toMatchSnapshot: { maxDiffPixels: 100 },
   },
   forbidOnly: !!process.env.CI,
   retries: 1,

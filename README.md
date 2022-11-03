@@ -67,5 +67,6 @@ Il est prévu de rajouter à l'application plusieurs fonctionnalités :
 - [x] Responsive et adapaté aux petits écrans
 - [x] Adapter le style lorsque l'on veut imprimer la page (sur chrome seulement)
 - [x] Mise en place de tests end-to-end avec [Playwright](https://playwright.dev/)
-- [ ] Ajout d'un **darkmode** qui s'appuirait sur les préférences utilisateur en premier lieu
-- [ ] Possibilité de changer la langue en français ou en anglais
+- [x] Ajout d'un **darkmode** qui s'appuirait sur les préférences utilisateur en premier lieu
+- [x] Possibilité de changer la langue entre le français et l'anglais
+- [ ] Déployer l'application sur le système de "pages" de GitLab
