@@ -1,0 +1,30 @@
+{
+  "cv": {
+    "mode":  {
+      "label": {
+        "dark": "Dark",
+        "light": "Light"
+      }
+    },
+    "contact": {
+      "presentation": "Fullstack developer, curious by nature and passionate about his profession.",
+      "menu": {
+        "tooltip": "Show menu",
+        "items": {
+          "mode": {
+            "label": "{{value}} mode",
+            "title": "Change mode"
+          },
+          "download": {
+            "label": "Download",
+            "title": "Download CV in PDF format"
+          },
+          "language": {
+            "label": "Français",
+            "title": "Change the language"
+          }
+        }
+      }
+    }
+  }
+}
