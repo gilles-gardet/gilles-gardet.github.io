@@ -4607,7 +4607,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵPRE_STYLE": () => (/* binding */ ɵPRE_STYLE)
 /* harmony export */ });
 /**
- * @license Angular v14.2.9
+ * @license Angular v14.2.10
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -5910,7 +5910,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ 1631);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
 /**
- * @license Angular v14.2.9
+ * @license Angular v14.2.10
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -10463,7 +10463,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
 /**
- * @license Angular v14.2.9
+ * @license Angular v14.2.10
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -16316,7 +16316,7 @@ function isPlatformWorkerUi(platformId) {
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('14.2.9');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('14.2.10');
 
 /**
  * @license
@@ -17687,7 +17687,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 9151);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 6942);
 /**
- * @license Angular v14.2.9
+ * @license Angular v14.2.10
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -20524,7 +20524,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 8623);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 4514);
 /**
- * @license Angular v14.2.9
+ * @license Angular v14.2.10
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -27597,7 +27597,7 @@ class Version {
 /**
  * @publicApi
  */
-const VERSION = new Version('14.2.9');
+const VERSION = new Version('14.2.10');
 
 /**
  * @license
@@ -34053,7 +34053,7 @@ class ComponentFactory extends ComponentFactory$1 {
     // Determine a tag name used for creating host elements when this component is created
     // dynamically. Default to 'div' if this component did not specify any tag name in its selector.
     const elementName = this.componentDef.selectors[0][0] || 'div';
-    const hostRNode = rootSelectorOrNode ? locateHostElement(hostRenderer, rootSelectorOrNode, this.componentDef.encapsulation) : createElementNode(rendererFactory.createRenderer(null, this.componentDef), elementName, getNamespace(elementName));
+    const hostRNode = rootSelectorOrNode ? locateHostElement(hostRenderer, rootSelectorOrNode, this.componentDef.encapsulation) : createElementNode(hostRenderer, elementName, getNamespace(elementName));
     const rootFlags = this.componentDef.onPush ? 32 /* LViewFlags.Dirty */ | 256 /* LViewFlags.IsRoot */ : 16 /* LViewFlags.CheckAlways */ | 256 /* LViewFlags.IsRoot */;
     // Create the root view. Uses empty TView and ContentTemplate.
     const rootTView = createTView(0 /* TViewType.Root */, null, null, 1, 0, null, null, null, null, null);
@@ -49817,7 +49817,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 4350);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 6942);
 /**
- * @license Angular v14.2.9
+ * @license Angular v14.2.10
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -57958,7 +57958,7 @@ UntypedFormBuilder.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODUL
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('14.2.9');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('14.2.10');
 
 /**
  * @license
@@ -58018,7 +58018,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/animations/browser */ 289);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 6362);
 /**
- * @license Angular v14.2.9
+ * @license Angular v14.2.10
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -58730,7 +58730,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ 6362);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
 /**
- * @license Angular v14.2.9
+ * @license Angular v14.2.10
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -61141,7 +61141,7 @@ DomSanitizerImpl.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('14.2.9');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('14.2.10');
 
 /**
  * @license
@@ -61285,7 +61285,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! rxjs/operators */ 6675);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/platform-browser */ 318);
 /**
- * @license Angular v14.2.9
+ * @license Angular v14.2.10
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -63981,7 +63981,7 @@ function validateNode(route, fullPath, requireStandaloneComponents) {
     if (Array.isArray(route)) {
       throw new _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵRuntimeError"](4014 /* RuntimeErrorCode.INVALID_ROUTE_CONFIG */, `Invalid configuration of route '${fullPath}': Array cannot be specified`);
     }
-    if (!route.component && !route.loadComponent && !route.children && !route.loadChildren && route.outlet && route.outlet !== PRIMARY_OUTLET) {
+    if (!route.redirectTo && !route.component && !route.loadComponent && !route.children && !route.loadChildren && route.outlet && route.outlet !== PRIMARY_OUTLET) {
       throw new _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵRuntimeError"](4014 /* RuntimeErrorCode.INVALID_ROUTE_CONFIG */, `Invalid configuration of route '${fullPath}': a componentless route without children or loadChildren cannot have a named outlet set`);
     }
     if (route.redirectTo && route.children) {
@@ -68665,7 +68665,7 @@ function provideRouterInitializer() {
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('14.2.9');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('14.2.10');
 
 /**
  * @license
@@ -73546,156 +73546,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _c0 = ["*"];
-class FilterMatchMode {}
-FilterMatchMode.STARTS_WITH = 'startsWith';
-FilterMatchMode.CONTAINS = 'contains';
-FilterMatchMode.NOT_CONTAINS = 'notContains';
-FilterMatchMode.ENDS_WITH = 'endsWith';
-FilterMatchMode.EQUALS = 'equals';
-FilterMatchMode.NOT_EQUALS = 'notEquals';
-FilterMatchMode.IN = 'in';
-FilterMatchMode.LESS_THAN = 'lt';
-FilterMatchMode.LESS_THAN_OR_EQUAL_TO = 'lte';
-FilterMatchMode.GREATER_THAN = 'gt';
-FilterMatchMode.GREATER_THAN_OR_EQUAL_TO = 'gte';
-FilterMatchMode.BETWEEN = 'between';
-FilterMatchMode.IS = 'is';
-FilterMatchMode.IS_NOT = 'isNot';
-FilterMatchMode.BEFORE = 'before';
-FilterMatchMode.AFTER = 'after';
-FilterMatchMode.DATE_IS = 'dateIs';
-FilterMatchMode.DATE_IS_NOT = 'dateIsNot';
-FilterMatchMode.DATE_BEFORE = 'dateBefore';
-FilterMatchMode.DATE_AFTER = 'dateAfter';
-class PrimeNGConfig {
-  constructor() {
-    this.ripple = false;
-    this.filterMatchModeOptions = {
-      text: [FilterMatchMode.STARTS_WITH, FilterMatchMode.CONTAINS, FilterMatchMode.NOT_CONTAINS, FilterMatchMode.ENDS_WITH, FilterMatchMode.EQUALS, FilterMatchMode.NOT_EQUALS],
-      numeric: [FilterMatchMode.EQUALS, FilterMatchMode.NOT_EQUALS, FilterMatchMode.LESS_THAN, FilterMatchMode.LESS_THAN_OR_EQUAL_TO, FilterMatchMode.GREATER_THAN, FilterMatchMode.GREATER_THAN_OR_EQUAL_TO],
-      date: [FilterMatchMode.DATE_IS, FilterMatchMode.DATE_IS_NOT, FilterMatchMode.DATE_BEFORE, FilterMatchMode.DATE_AFTER]
-    };
-    this.translation = {
-      startsWith: 'Starts with',
-      contains: 'Contains',
-      notContains: 'Not contains',
-      endsWith: 'Ends with',
-      equals: 'Equals',
-      notEquals: 'Not equals',
-      noFilter: 'No Filter',
-      lt: 'Less than',
-      lte: 'Less than or equal to',
-      gt: 'Greater than',
-      gte: 'Greater than or equal to',
-      is: 'Is',
-      isNot: 'Is not',
-      before: 'Before',
-      after: 'After',
-      dateIs: 'Date is',
-      dateIsNot: 'Date is not',
-      dateBefore: 'Date is before',
-      dateAfter: 'Date is after',
-      clear: 'Clear',
-      apply: 'Apply',
-      matchAll: 'Match All',
-      matchAny: 'Match Any',
-      addRule: 'Add Rule',
-      removeRule: 'Remove Rule',
-      accept: 'Yes',
-      reject: 'No',
-      choose: 'Choose',
-      upload: 'Upload',
-      cancel: 'Cancel',
-      dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      dayNamesMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-      monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-      monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-      dateFormat: 'mm/dd/yy',
-      firstDayOfWeek: 0,
-      today: 'Today',
-      weekHeader: 'Wk',
-      weak: 'Weak',
-      medium: 'Medium',
-      strong: 'Strong',
-      passwordPrompt: 'Enter a password',
-      emptyMessage: 'No results found',
-      emptyFilterMessage: 'No results found'
-    };
-    this.zIndex = {
-      modal: 1100,
-      overlay: 1000,
-      menu: 1000,
-      tooltip: 1100
-    };
-    this.translationSource = new rxjs__WEBPACK_IMPORTED_MODULE_0__.Subject();
-    this.translationObserver = this.translationSource.asObservable();
-  }
-  getTranslation(key) {
-    return this.translation[key];
-  }
-  setTranslation(value) {
-    this.translation = Object.assign(Object.assign({}, this.translation), value);
-    this.translationSource.next(this.translation);
-  }
-}
-PrimeNGConfig.ɵfac = function PrimeNGConfig_Factory(t) {
-  return new (t || PrimeNGConfig)();
-};
-PrimeNGConfig.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
-  token: PrimeNGConfig,
-  factory: PrimeNGConfig.ɵfac,
-  providedIn: 'root'
-});
-(function () {
-  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](PrimeNGConfig, [{
-    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Injectable,
-    args: [{
-      providedIn: 'root'
-    }]
-  }], null, null);
-})();
-class TranslationKeys {}
-TranslationKeys.STARTS_WITH = 'startsWith';
-TranslationKeys.CONTAINS = 'contains';
-TranslationKeys.NOT_CONTAINS = 'notContains';
-TranslationKeys.ENDS_WITH = 'endsWith';
-TranslationKeys.EQUALS = 'equals';
-TranslationKeys.NOT_EQUALS = 'notEquals';
-TranslationKeys.NO_FILTER = 'noFilter';
-TranslationKeys.LT = 'lt';
-TranslationKeys.LTE = 'lte';
-TranslationKeys.GT = 'gt';
-TranslationKeys.GTE = 'gte';
-TranslationKeys.IS = 'is';
-TranslationKeys.IS_NOT = 'isNot';
-TranslationKeys.BEFORE = 'before';
-TranslationKeys.AFTER = 'after';
-TranslationKeys.CLEAR = 'clear';
-TranslationKeys.APPLY = 'apply';
-TranslationKeys.MATCH_ALL = 'matchAll';
-TranslationKeys.MATCH_ANY = 'matchAny';
-TranslationKeys.ADD_RULE = 'addRule';
-TranslationKeys.REMOVE_RULE = 'removeRule';
-TranslationKeys.ACCEPT = 'accept';
-TranslationKeys.REJECT = 'reject';
-TranslationKeys.CHOOSE = 'choose';
-TranslationKeys.UPLOAD = 'upload';
-TranslationKeys.CANCEL = 'cancel';
-TranslationKeys.DAY_NAMES = 'dayNames';
-TranslationKeys.DAY_NAMES_SHORT = 'dayNamesShort';
-TranslationKeys.DAY_NAMES_MIN = 'dayNamesMin';
-TranslationKeys.MONTH_NAMES = 'monthNames';
-TranslationKeys.MONTH_NAMES_SHORT = 'monthNamesShort';
-TranslationKeys.FIRST_DAY_OF_WEEK = 'firstDayOfWeek';
-TranslationKeys.TODAY = 'today';
-TranslationKeys.WEEK_HEADER = 'weekHeader';
-TranslationKeys.WEAK = 'weak';
-TranslationKeys.MEDIUM = 'medium';
-TranslationKeys.STRONG = 'strong';
-TranslationKeys.PASSWORD_PROMPT = 'passwordPrompt';
-TranslationKeys.EMPTY_MESSAGE = 'emptyMessage';
-TranslationKeys.EMPTY_FILTER_MESSAGE = 'emptyFilterMessage';
 var ConfirmEventType;
 (function (ConfirmEventType) {
   ConfirmEventType[ConfirmEventType["ACCEPT"] = 0] = "ACCEPT";
@@ -73733,6 +73583,56 @@ ConfirmationService.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODU
     type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Injectable
   }], null, null);
 })();
+class ContextMenuService {
+  constructor() {
+    this.activeItemKeyChange = new rxjs__WEBPACK_IMPORTED_MODULE_0__.Subject();
+    this.activeItemKeyChange$ = this.activeItemKeyChange.asObservable();
+  }
+  changeKey(key) {
+    this.activeItemKey = key;
+    this.activeItemKeyChange.next(this.activeItemKey);
+  }
+  reset() {
+    this.activeItemKey = null;
+    this.activeItemKeyChange.next(this.activeItemKey);
+  }
+}
+ContextMenuService.ɵfac = function ContextMenuService_Factory(t) {
+  return new (t || ContextMenuService)();
+};
+ContextMenuService.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
+  token: ContextMenuService,
+  factory: ContextMenuService.ɵfac
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](ContextMenuService, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Injectable
+  }], null, null);
+})();
+class FilterMatchMode {}
+FilterMatchMode.STARTS_WITH = 'startsWith';
+FilterMatchMode.CONTAINS = 'contains';
+FilterMatchMode.NOT_CONTAINS = 'notContains';
+FilterMatchMode.ENDS_WITH = 'endsWith';
+FilterMatchMode.EQUALS = 'equals';
+FilterMatchMode.NOT_EQUALS = 'notEquals';
+FilterMatchMode.IN = 'in';
+FilterMatchMode.LESS_THAN = 'lt';
+FilterMatchMode.LESS_THAN_OR_EQUAL_TO = 'lte';
+FilterMatchMode.GREATER_THAN = 'gt';
+FilterMatchMode.GREATER_THAN_OR_EQUAL_TO = 'gte';
+FilterMatchMode.BETWEEN = 'between';
+FilterMatchMode.IS = 'is';
+FilterMatchMode.IS_NOT = 'isNot';
+FilterMatchMode.BEFORE = 'before';
+FilterMatchMode.AFTER = 'after';
+FilterMatchMode.DATE_IS = 'dateIs';
+FilterMatchMode.DATE_IS_NOT = 'dateIsNot';
+FilterMatchMode.DATE_BEFORE = 'dateBefore';
+FilterMatchMode.DATE_AFTER = 'dateAfter';
+class FilterOperator {}
+FilterOperator.AND = 'and';
+FilterOperator.OR = 'or';
 class FilterService {
   constructor() {
     this.filters = {
@@ -73939,32 +73839,6 @@ FilterService.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__
     }]
   }], null, null);
 })();
-class ContextMenuService {
-  constructor() {
-    this.activeItemKeyChange = new rxjs__WEBPACK_IMPORTED_MODULE_0__.Subject();
-    this.activeItemKeyChange$ = this.activeItemKeyChange.asObservable();
-  }
-  changeKey(key) {
-    this.activeItemKey = key;
-    this.activeItemKeyChange.next(this.activeItemKey);
-  }
-  reset() {
-    this.activeItemKey = null;
-    this.activeItemKeyChange.next(this.activeItemKey);
-  }
-}
-ContextMenuService.ɵfac = function ContextMenuService_Factory(t) {
-  return new (t || ContextMenuService)();
-};
-ContextMenuService.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
-  token: ContextMenuService,
-  factory: ContextMenuService.ɵfac
-});
-(function () {
-  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](ContextMenuService, [{
-    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Injectable
-  }], null, null);
-})();
 class MessageService {
   constructor() {
     this.messageSource = new rxjs__WEBPACK_IMPORTED_MODULE_0__.Subject();
@@ -74041,6 +73915,7 @@ PrimeIcons.ANGLE_LEFT = 'pi pi-angle-left';
 PrimeIcons.ANGLE_RIGHT = 'pi pi-angle-right';
 PrimeIcons.ANGLE_UP = 'pi pi-angle-up';
 PrimeIcons.APPLE = 'pi pi-apple';
+PrimeIcons.ARROWS_ALT = 'pi pi-arrows-alt';
 PrimeIcons.ARROW_CIRCLE_DOWN = 'pi pi-arrow-circle-down';
 PrimeIcons.ARROW_CIRCLE_LEFT = 'pi pi-arrow-circle-left';
 PrimeIcons.ARROW_CIRCLE_RIGHT = 'pi pi-arrow-circle-right';
@@ -74049,6 +73924,7 @@ PrimeIcons.ARROW_DOWN = 'pi pi-arrow-down';
 PrimeIcons.ARROW_DOWN_LEFT = 'pi pi-arrow-down-left';
 PrimeIcons.ARROW_DOWN_RIGHT = 'pi pi-arrow-down-right';
 PrimeIcons.ARROW_LEFT = 'pi pi-arrow-left';
+PrimeIcons.ARROW_RIGHT_ARROW_LEFT = 'pi pi-arrow-right-arrow-left';
 PrimeIcons.ARROW_RIGHT = 'pi pi-arrow-right';
 PrimeIcons.ARROW_UP = 'pi pi-arrow-up';
 PrimeIcons.ARROW_UP_LEFT = 'pi pi-arrow-up-left';
@@ -74060,6 +73936,7 @@ PrimeIcons.BACKWARD = 'pi pi-backward';
 PrimeIcons.BAN = 'pi pi-ban';
 PrimeIcons.BARS = 'pi pi-bars';
 PrimeIcons.BELL = 'pi pi-bell';
+PrimeIcons.BITCOIN = 'pi pi-bitcoin';
 PrimeIcons.BOLT = 'pi pi-bolt';
 PrimeIcons.BOOK = 'pi pi-book';
 PrimeIcons.BOOKMARK = 'pi pi-bookmark';
@@ -74067,6 +73944,7 @@ PrimeIcons.BOOKMARK_FILL = 'pi pi-bookmark-fill';
 PrimeIcons.BOX = 'pi pi-box';
 PrimeIcons.BRIEFCASE = 'pi pi-briefcase';
 PrimeIcons.BUILDING = 'pi pi-building';
+PrimeIcons.CALCULATOR = 'pi pi-calculator';
 PrimeIcons.CALENDAR = 'pi pi-calendar';
 PrimeIcons.CALENDAR_MINUS = 'pi pi-calendar-minus';
 PrimeIcons.CALENDAR_PLUS = 'pi pi-calendar-plus';
@@ -74077,6 +73955,7 @@ PrimeIcons.CARET_DOWN = 'pi pi-caret-down';
 PrimeIcons.CARET_LEFT = 'pi pi-caret-left';
 PrimeIcons.CARET_RIGHT = 'pi pi-caret-right';
 PrimeIcons.CARET_UP = 'pi pi-caret-up';
+PrimeIcons.CART_PLUS = 'pi pi-cart-plus';
 PrimeIcons.CHART_BAR = 'pi pi-chart-bar';
 PrimeIcons.CHART_LINE = 'pi pi-chart-line';
 PrimeIcons.CHART_PIE = 'pi pi-chart-pie';
@@ -74107,6 +73986,7 @@ PrimeIcons.COPY = 'pi pi-copy';
 PrimeIcons.CREDIT_CARD = 'pi pi-credit-card';
 PrimeIcons.DATABASE = 'pi pi-database';
 PrimeIcons.DESKTOP = 'pi pi-desktop';
+PrimeIcons.DELETE_LEFT = 'pi pi-delete-left';
 PrimeIcons.DIRECTIONS = 'pi pi-directions';
 PrimeIcons.DIRECTIONS_ALT = 'pi pi-directions-alt';
 PrimeIcons.DISCORD = 'pi pi-discord';
@@ -74116,6 +73996,7 @@ PrimeIcons.EJECT = 'pi pi-eject';
 PrimeIcons.ELLIPSIS_H = 'pi pi-ellipsis-h';
 PrimeIcons.ELLIPSIS_V = 'pi pi-ellipsis-v';
 PrimeIcons.ENVELOPE = 'pi pi-envelope';
+PrimeIcons.ERASER = 'pi pi-eraser';
 PrimeIcons.EURO = 'pi pi-euro';
 PrimeIcons.EXCLAMATION_CIRCLE = 'pi pi-exclamation-circle';
 PrimeIcons.EXCLAMATION_TRIANGLE = 'pi pi-exclamation-triangle';
@@ -74126,8 +74007,12 @@ PrimeIcons.FACEBOOK = 'pi pi-facebook';
 PrimeIcons.FAST_BACKWARD = 'pi pi-fast-backward';
 PrimeIcons.FAST_FORWARD = 'pi pi-fast-forward';
 PrimeIcons.FILE = 'pi pi-file';
-PrimeIcons.FILE_EXCEL = 'pi pi-file-excel';
+PrimeIcons.FILE_EDIT = 'pi pi-file-edit';
+PrimeIcons.FILE_IMPORT = 'pi pi-file-import';
 PrimeIcons.FILE_PDF = 'pi pi-file-pdf';
+PrimeIcons.FILE_EXCEL = 'pi pi-file-excel';
+PrimeIcons.FILE_EXPORT = 'pi pi-file-export';
+PrimeIcons.FILE_WORD = 'pi pi-file-word';
 PrimeIcons.FILTER = 'pi pi-filter';
 PrimeIcons.FILTER_FILL = 'pi pi-filter-fill';
 PrimeIcons.FILTER_SLASH = 'pi pi-filter-slash';
@@ -74136,6 +74021,7 @@ PrimeIcons.FLAG_FILL = 'pi pi-flag-fill';
 PrimeIcons.FOLDER = 'pi pi-folder';
 PrimeIcons.FOLDER_OPEN = 'pi pi-folder-open';
 PrimeIcons.FORWARD = 'pi pi-forward';
+PrimeIcons.GIFT = 'pi pi-gift';
 PrimeIcons.GITHUB = 'pi pi-github';
 PrimeIcons.GLOBE = 'pi pi-globe';
 PrimeIcons.GOOGLE = 'pi pi-google';
@@ -74144,6 +74030,7 @@ PrimeIcons.HEART = 'pi pi-heart';
 PrimeIcons.HEART_FILL = 'pi pi-heart-fill';
 PrimeIcons.HISTORY = 'pi pi-history';
 PrimeIcons.HOME = 'pi pi-home';
+PrimeIcons.HOURGLASS = 'pi pi-hourglass';
 PrimeIcons.ID_CARD = 'pi pi-id-card';
 PrimeIcons.IMAGE = 'pi pi-image';
 PrimeIcons.IMAGES = 'pi pi-images';
@@ -74152,6 +74039,7 @@ PrimeIcons.INFO = 'pi pi-info';
 PrimeIcons.INFO_CIRCLE = 'pi pi-info-circle';
 PrimeIcons.INSTAGRAM = 'pi pi-instagram';
 PrimeIcons.KEY = 'pi pi-key';
+PrimeIcons.LANGUAGE = 'pi pi-language';
 PrimeIcons.LINK = 'pi pi-link';
 PrimeIcons.LINKEDIN = 'pi pi-linkedin';
 PrimeIcons.LIST = 'pi pi-list';
@@ -74159,6 +74047,8 @@ PrimeIcons.LOCK = 'pi pi-lock';
 PrimeIcons.LOCK_OPEN = 'pi pi-lock-open';
 PrimeIcons.MAP = 'pi pi-map';
 PrimeIcons.MAP_MARKER = 'pi pi-map-marker';
+PrimeIcons.MEGAPHONE = 'pi pi-megaphone';
+PrimeIcons.MICROPHONE = 'pi pi-microphone';
 PrimeIcons.MICROSOFT = 'pi pi-microsoft';
 PrimeIcons.MINUS = 'pi pi-minus';
 PrimeIcons.MINUS_CIRCLE = 'pi pi-minus-circle';
@@ -74228,6 +74118,7 @@ PrimeIcons.STEP_FORWARD = 'pi pi-step-forward';
 PrimeIcons.STEP_FORWARD_ALT = 'pi pi-step-forward-alt';
 PrimeIcons.STOP = 'pi pi-stop';
 PrimeIcons.STOP_CIRCLE = 'pi pi-stop-circle';
+PrimeIcons.STOPWATCH = 'pi pi-stopwatch';
 PrimeIcons.SUN = 'pi pi-sun';
 PrimeIcons.SYNC = 'pi pi-sync';
 PrimeIcons.TABLE = 'pi pi-table';
@@ -74237,11 +74128,14 @@ PrimeIcons.TAGS = 'pi pi-tags';
 PrimeIcons.TELEGRAM = 'pi pi-telegram';
 PrimeIcons.TH_LARGE = 'pi pi-th-large';
 PrimeIcons.THUMBS_DOWN = 'pi pi-thumbs-down';
+PrimeIcons.THUMBS_DOWN_FILL = 'pi pi-thumbs-down-fill';
 PrimeIcons.THUMBS_UP = 'pi pi-thumbs-up';
+PrimeIcons.THUMBS_UP_FILL = 'pi pi-thumbs-up-fill';
 PrimeIcons.TICKET = 'pi pi-ticket';
 PrimeIcons.TIMES = 'pi pi-times';
 PrimeIcons.TIMES_CIRCLE = 'pi pi-times-circle';
 PrimeIcons.TRASH = 'pi pi-trash';
+PrimeIcons.TRUCK = 'pi pi-truck';
 PrimeIcons.TWITTER = 'pi pi-twitter';
 PrimeIcons.UNDO = 'pi pi-undo';
 PrimeIcons.UNLOCK = 'pi pi-unlock';
@@ -74251,6 +74145,7 @@ PrimeIcons.USER_EDIT = 'pi pi-user-edit';
 PrimeIcons.USER_MINUS = 'pi pi-user-minus';
 PrimeIcons.USER_PLUS = 'pi pi-user-plus';
 PrimeIcons.USERS = 'pi pi-users';
+PrimeIcons.VERIFIED = 'pi pi-verified';
 PrimeIcons.VIDEO = 'pi pi-video';
 PrimeIcons.VIMEO = 'pi pi-vimeo';
 PrimeIcons.VOLUME_DOWN = 'pi pi-volume-down';
@@ -74261,10 +74156,97 @@ PrimeIcons.WHATSAPP = 'pi pi-whatsapp';
 PrimeIcons.WIFI = 'pi pi-wifi';
 PrimeIcons.WINDOW_MAXIMIZE = 'pi pi-window-maximize';
 PrimeIcons.WINDOW_MINIMIZE = 'pi pi-window-minimize';
+PrimeIcons.WRENCH = 'pi pi-wrench';
 PrimeIcons.YOUTUBE = 'pi pi-youtube';
-class FilterOperator {}
-FilterOperator.AND = 'and';
-FilterOperator.OR = 'or';
+class PrimeNGConfig {
+  constructor() {
+    this.ripple = false;
+    this.overlayOptions = {};
+    this.filterMatchModeOptions = {
+      text: [FilterMatchMode.STARTS_WITH, FilterMatchMode.CONTAINS, FilterMatchMode.NOT_CONTAINS, FilterMatchMode.ENDS_WITH, FilterMatchMode.EQUALS, FilterMatchMode.NOT_EQUALS],
+      numeric: [FilterMatchMode.EQUALS, FilterMatchMode.NOT_EQUALS, FilterMatchMode.LESS_THAN, FilterMatchMode.LESS_THAN_OR_EQUAL_TO, FilterMatchMode.GREATER_THAN, FilterMatchMode.GREATER_THAN_OR_EQUAL_TO],
+      date: [FilterMatchMode.DATE_IS, FilterMatchMode.DATE_IS_NOT, FilterMatchMode.DATE_BEFORE, FilterMatchMode.DATE_AFTER]
+    };
+    this.translation = {
+      startsWith: 'Starts with',
+      contains: 'Contains',
+      notContains: 'Not contains',
+      endsWith: 'Ends with',
+      equals: 'Equals',
+      notEquals: 'Not equals',
+      noFilter: 'No Filter',
+      lt: 'Less than',
+      lte: 'Less than or equal to',
+      gt: 'Greater than',
+      gte: 'Greater than or equal to',
+      is: 'Is',
+      isNot: 'Is not',
+      before: 'Before',
+      after: 'After',
+      dateIs: 'Date is',
+      dateIsNot: 'Date is not',
+      dateBefore: 'Date is before',
+      dateAfter: 'Date is after',
+      clear: 'Clear',
+      apply: 'Apply',
+      matchAll: 'Match All',
+      matchAny: 'Match Any',
+      addRule: 'Add Rule',
+      removeRule: 'Remove Rule',
+      accept: 'Yes',
+      reject: 'No',
+      choose: 'Choose',
+      upload: 'Upload',
+      cancel: 'Cancel',
+      dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+      monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      dateFormat: 'mm/dd/yy',
+      firstDayOfWeek: 0,
+      today: 'Today',
+      weekHeader: 'Wk',
+      weak: 'Weak',
+      medium: 'Medium',
+      strong: 'Strong',
+      passwordPrompt: 'Enter a password',
+      emptyMessage: 'No results found',
+      emptyFilterMessage: 'No results found'
+    };
+    this.zIndex = {
+      modal: 1100,
+      overlay: 1000,
+      menu: 1000,
+      tooltip: 1100
+    };
+    this.translationSource = new rxjs__WEBPACK_IMPORTED_MODULE_0__.Subject();
+    this.translationObserver = this.translationSource.asObservable();
+  }
+  getTranslation(key) {
+    return this.translation[key];
+  }
+  setTranslation(value) {
+    this.translation = Object.assign(Object.assign({}, this.translation), value);
+    this.translationSource.next(this.translation);
+  }
+}
+PrimeNGConfig.ɵfac = function PrimeNGConfig_Factory(t) {
+  return new (t || PrimeNGConfig)();
+};
+PrimeNGConfig.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
+  token: PrimeNGConfig,
+  factory: PrimeNGConfig.ɵfac,
+  providedIn: 'root'
+});
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](PrimeNGConfig, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Injectable,
+    args: [{
+      providedIn: 'root'
+    }]
+  }], null, null);
+})();
 class Header {}
 Header.ɵfac = function Header_Factory(t) {
   return new (t || Header)();
@@ -74379,6 +74361,47 @@ SharedModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["
     }]
   }], null, null);
 })();
+class TranslationKeys {}
+TranslationKeys.STARTS_WITH = 'startsWith';
+TranslationKeys.CONTAINS = 'contains';
+TranslationKeys.NOT_CONTAINS = 'notContains';
+TranslationKeys.ENDS_WITH = 'endsWith';
+TranslationKeys.EQUALS = 'equals';
+TranslationKeys.NOT_EQUALS = 'notEquals';
+TranslationKeys.NO_FILTER = 'noFilter';
+TranslationKeys.LT = 'lt';
+TranslationKeys.LTE = 'lte';
+TranslationKeys.GT = 'gt';
+TranslationKeys.GTE = 'gte';
+TranslationKeys.IS = 'is';
+TranslationKeys.IS_NOT = 'isNot';
+TranslationKeys.BEFORE = 'before';
+TranslationKeys.AFTER = 'after';
+TranslationKeys.CLEAR = 'clear';
+TranslationKeys.APPLY = 'apply';
+TranslationKeys.MATCH_ALL = 'matchAll';
+TranslationKeys.MATCH_ANY = 'matchAny';
+TranslationKeys.ADD_RULE = 'addRule';
+TranslationKeys.REMOVE_RULE = 'removeRule';
+TranslationKeys.ACCEPT = 'accept';
+TranslationKeys.REJECT = 'reject';
+TranslationKeys.CHOOSE = 'choose';
+TranslationKeys.UPLOAD = 'upload';
+TranslationKeys.CANCEL = 'cancel';
+TranslationKeys.DAY_NAMES = 'dayNames';
+TranslationKeys.DAY_NAMES_SHORT = 'dayNamesShort';
+TranslationKeys.DAY_NAMES_MIN = 'dayNamesMin';
+TranslationKeys.MONTH_NAMES = 'monthNames';
+TranslationKeys.MONTH_NAMES_SHORT = 'monthNamesShort';
+TranslationKeys.FIRST_DAY_OF_WEEK = 'firstDayOfWeek';
+TranslationKeys.TODAY = 'today';
+TranslationKeys.WEEK_HEADER = 'weekHeader';
+TranslationKeys.WEAK = 'weak';
+TranslationKeys.MEDIUM = 'medium';
+TranslationKeys.STRONG = 'strong';
+TranslationKeys.PASSWORD_PROMPT = 'passwordPrompt';
+TranslationKeys.EMPTY_MESSAGE = 'emptyMessage';
+TranslationKeys.EMPTY_FILTER_MESSAGE = 'emptyFilterMessage';
 class TreeDragDropService {
   constructor() {
     this.dragStartSource = new rxjs__WEBPACK_IMPORTED_MODULE_0__.Subject();
@@ -74491,8 +74514,8 @@ function Avatar_ng_template_5_Template(rf, ctx) {
 const _c0 = ["*"];
 class Avatar {
   constructor() {
-    this.size = "normal";
-    this.shape = "square";
+    this.size = 'normal';
+    this.shape = 'square';
     this.onImageError = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
   }
   containerClass() {
@@ -74562,15 +74585,15 @@ Avatar.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
       template: `
         <div [ngClass]="containerClass()" [class]="styleClass" [ngStyle]="style">
             <ng-content></ng-content>
-            <span class="p-avatar-text" *ngIf="label; else iconTemplate">{{label}}</span>
+            <span class="p-avatar-text" *ngIf="label; else iconTemplate">{{ label }}</span>
             <ng-template #iconTemplate><span [class]="icon" [ngClass]="'p-avatar-icon'" *ngIf="icon; else imageTemplate"></span></ng-template>
-            <ng-template #imageTemplate><img [src]="image" *ngIf="image" (error)="imageError($event)"></ng-template>
+            <ng-template #imageTemplate><img [src]="image" *ngIf="image" (error)="imageError($event)" /></ng-template>
         </div>
     `,
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
       styles: [".p-avatar{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;font-size:1rem}.p-avatar.p-avatar-image{background-color:transparent}.p-avatar.p-avatar-circle{border-radius:50%;overflow:hidden}.p-avatar .p-avatar-icon{font-size:1rem}.p-avatar img{width:100%;height:100%}\n"]
     }]
@@ -74805,7 +74828,7 @@ BlockUI.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
     args: [{
       selector: 'p-blockUI',
       template: `
-        <div #mask [class]="styleClass" [ngClass]="{'p-blockui-document':!target, 'p-blockui p-component-overlay p-component-overlay-enter': true}" [ngStyle]="{display: blocked ? 'flex' : 'none'}">
+        <div #mask [class]="styleClass" [ngClass]="{ 'p-blockui-document': !target, 'p-blockui p-component-overlay p-component-overlay-enter': true }" [ngStyle]="{ display: blocked ? 'flex' : 'none' }">
             <ng-content></ng-content>
             <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
         </div>
@@ -74813,7 +74836,7 @@ BlockUI.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
       styles: [".p-blockui{position:absolute;top:0;left:0;width:100%;height:100%;background-color:transparent;transition-property:background-color;display:flex;align-items:center;justify-content:center}.p-blockui.p-component-overlay{position:absolute}.p-blockui-document.p-component-overlay{position:fixed}.p-blockui-leave.p-component-overlay{background-color:transparent}\n"]
     }]
@@ -74892,11 +74915,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ButtonDirective": () => (/* binding */ ButtonDirective),
 /* harmony export */   "ButtonModule": () => (/* binding */ ButtonModule)
 /* harmony export */ });
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ 6362);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/api */ 1122);
 /* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ 5128);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 6362);
-/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/ripple */ 2875);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/api */ 1122);
+/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/ripple */ 2875);
+/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/utils */ 354);
+
 
 
 
@@ -74940,7 +74965,7 @@ function Button_span_4_Template(rf, ctx) {
     const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("aria-hidden", ctx_r2.icon && !ctx_r2.label);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r2.label || "\xA0");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r2.label);
   }
 }
 function Button_span_5_Template(rf, ctx) {
@@ -74972,7 +74997,7 @@ class ButtonDirective {
   constructor(el) {
     this.el = el;
     this.iconPos = 'left';
-    this.loadingIcon = "pi pi-spinner pi-spin";
+    this.loadingIcon = 'pi pi-spinner pi-spin';
     this._loading = false;
   }
   ngAfterViewInit() {
@@ -74981,18 +75006,20 @@ class ButtonDirective {
     if (this.icon || this.loading) {
       this.createIconEl();
     }
-    let labelElement = document.createElement("span");
-    if (this.icon && !this.label) {
-      labelElement.setAttribute('aria-hidden', 'true');
+    if (this.label) {
+      let labelElement = document.createElement('span');
+      if (this.icon && !this.label) {
+        labelElement.setAttribute('aria-hidden', 'true');
+      }
+      labelElement.className = 'p-button-label';
+      labelElement.appendChild(document.createTextNode(this.label));
+      this.el.nativeElement.appendChild(labelElement);
     }
-    labelElement.className = 'p-button-label';
-    if (this.label) labelElement.appendChild(document.createTextNode(this.label));else labelElement.innerHTML = '&nbsp;';
-    this.el.nativeElement.appendChild(labelElement);
     this.initialized = true;
   }
   getStyleClass() {
     let styleClass = 'p-button p-component';
-    if (this.icon && !this.label) {
+    if (this.icon && !this.label && primeng_utils__WEBPACK_IMPORTED_MODULE_2__.ObjectUtils.isEmpty(this.el.nativeElement.textContent)) {
       styleClass = styleClass + ' p-button-icon-only';
     }
     if (this.loading) {
@@ -75006,9 +75033,9 @@ class ButtonDirective {
     this.el.nativeElement.className = styleClass + ' ' + this._initialStyleClass;
   }
   createIconEl() {
-    let iconElement = document.createElement("span");
+    let iconElement = document.createElement('span');
     iconElement.className = 'p-button-icon';
-    iconElement.setAttribute("aria-hidden", "true");
+    iconElement.setAttribute('aria-hidden', 'true');
     let iconPosClass = this.label ? 'p-button-icon-' + this.iconPos : null;
     if (iconPosClass) {
       primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.addClass(iconElement, iconPosClass);
@@ -75017,8 +75044,7 @@ class ButtonDirective {
     if (iconClass) {
       primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.addMultipleClasses(iconElement, iconClass);
     }
-    let labelEl = primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.findSingle(this.el.nativeElement, '.p-button-label');
-    if (labelEl) this.el.nativeElement.insertBefore(iconElement, labelEl);else this.el.nativeElement.appendChild(iconElement);
+    this.el.nativeElement.insertBefore(iconElement, this.el.nativeElement.firstChild);
   }
   getIconClass() {
     return this.loading ? 'p-button-loading-icon ' + this.loadingIcon : this._icon;
@@ -75041,7 +75067,7 @@ class ButtonDirective {
   set label(val) {
     this._label = val;
     if (this.initialized) {
-      primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.findSingle(this.el.nativeElement, '.p-button-label').textContent = this._label || '&nbsp;';
+      primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.findSingle(this.el.nativeElement, '.p-button-label').textContent = this._label;
       if (this.loading || this.icon) {
         this.setIconClass();
       }
@@ -75093,7 +75119,7 @@ ButtonDirective.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0_
     args: [{
       selector: '[pButton]',
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       }
     }]
   }], function () {
@@ -75120,10 +75146,10 @@ ButtonDirective.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0_
 })();
 class Button {
   constructor() {
-    this.type = "button";
+    this.type = 'button';
     this.iconPos = 'left';
     this.loading = false;
-    this.loadingIcon = "pi pi-spinner pi-spin";
+    this.loadingIcon = 'pi pi-spinner pi-spin';
     this.onClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
     this.onFocus = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
     this.onBlur = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
@@ -75155,7 +75181,7 @@ Button.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
   selectors: [["p-button"]],
   contentQueries: function Button_ContentQueries(rf, ctx, dirIndex) {
     if (rf & 1) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵcontentQuery"](dirIndex, primeng_api__WEBPACK_IMPORTED_MODULE_2__.PrimeTemplate, 4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵcontentQuery"](dirIndex, primeng_api__WEBPACK_IMPORTED_MODULE_3__.PrimeTemplate, 4);
     }
     if (rf & 2) {
       let _t;
@@ -75213,12 +75239,12 @@ Button.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.contentTemplate && (ctx.icon || ctx.loading));
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.contentTemplate);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.contentTemplate && ctx.label);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.contentTemplate && ctx.badge);
     }
   },
-  dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgTemplateOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgStyle, primeng_ripple__WEBPACK_IMPORTED_MODULE_4__.Ripple],
+  dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgTemplateOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgStyle, primeng_ripple__WEBPACK_IMPORTED_MODULE_5__.Ripple],
   encapsulation: 2,
   changeDetection: 0
 });
@@ -75228,30 +75254,47 @@ Button.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
     args: [{
       selector: 'p-button',
       template: `
-        <button [attr.type]="type" [attr.aria-label]="ariaLabel" [class]="styleClass" [ngStyle]="style" [disabled]="disabled || loading"
-            [ngClass]="{'p-button p-component':true,
-                        'p-button-icon-only': (icon && !label),
-                        'p-button-vertical': (iconPos === 'top' || iconPos === 'bottom') && label,
-                        'p-disabled': this.disabled || this.loading,
-                        'p-button-loading': this.loading,
-                        'p-button-loading-label-only': this.loading && !this.icon && this.label}"
-                        (click)="onClick.emit($event)" (focus)="onFocus.emit($event)" (blur)="onBlur.emit($event)" pRipple>
+        <button
+            [attr.type]="type"
+            [attr.aria-label]="ariaLabel"
+            [class]="styleClass"
+            [ngStyle]="style"
+            [disabled]="disabled || loading"
+            [ngClass]="{
+                'p-button p-component': true,
+                'p-button-icon-only': icon && !label,
+                'p-button-vertical': (iconPos === 'top' || iconPos === 'bottom') && label,
+                'p-disabled': this.disabled || this.loading,
+                'p-button-loading': this.loading,
+                'p-button-loading-label-only': this.loading && !this.icon && this.label
+            }"
+            (click)="onClick.emit($event)"
+            (focus)="onFocus.emit($event)"
+            (blur)="onBlur.emit($event)"
+            pRipple
+        >
             <ng-content></ng-content>
             <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
-            <span [ngClass]="{'p-button-icon': true,
-                        'p-button-icon-left': iconPos === 'left' && label,
-                        'p-button-icon-right': iconPos === 'right' && label,
-                        'p-button-icon-top': iconPos === 'top' && label,
-                        'p-button-icon-bottom': iconPos === 'bottom' && label}"
-                        [class]="loading ? 'p-button-loading-icon ' + loadingIcon : icon" *ngIf="!contentTemplate && (icon||loading)" [attr.aria-hidden]="true"></span>
-            <span class="p-button-label" [attr.aria-hidden]="icon && !label" *ngIf="!contentTemplate">{{label||'&nbsp;'}}</span>
-            <span [ngClass]="badgeStyleClass()" [class]="badgeClass" *ngIf="!contentTemplate && badge">{{badge}}</span>
+            <span
+                [ngClass]="{
+                    'p-button-icon': true,
+                    'p-button-icon-left': iconPos === 'left' && label,
+                    'p-button-icon-right': iconPos === 'right' && label,
+                    'p-button-icon-top': iconPos === 'top' && label,
+                    'p-button-icon-bottom': iconPos === 'bottom' && label
+                }"
+                [class]="loading ? 'p-button-loading-icon ' + loadingIcon : icon"
+                *ngIf="!contentTemplate && (icon || loading)"
+                [attr.aria-hidden]="true"
+            ></span>
+            <span class="p-button-label" [attr.aria-hidden]="icon && !label" *ngIf="!contentTemplate && label">{{ label }}</span>
+            <span [ngClass]="badgeStyleClass()" [class]="badgeClass" *ngIf="!contentTemplate && badge">{{ badge }}</span>
         </button>
     `,
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       }
     }]
   }], null, {
@@ -75293,7 +75336,7 @@ Button.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
     }],
     templates: [{
       type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ContentChildren,
-      args: [primeng_api__WEBPACK_IMPORTED_MODULE_2__.PrimeTemplate]
+      args: [primeng_api__WEBPACK_IMPORTED_MODULE_3__.PrimeTemplate]
     }],
     onClick: [{
       type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Output
@@ -75314,13 +75357,13 @@ ButtonModule.ɵmod = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["
   type: ButtonModule
 });
 ButtonModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-  imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule, primeng_ripple__WEBPACK_IMPORTED_MODULE_4__.RippleModule]
+  imports: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.CommonModule, primeng_ripple__WEBPACK_IMPORTED_MODULE_5__.RippleModule]
 });
 (function () {
   (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ButtonModule, [{
     type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.NgModule,
     args: [{
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule, primeng_ripple__WEBPACK_IMPORTED_MODULE_4__.RippleModule],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.CommonModule, primeng_ripple__WEBPACK_IMPORTED_MODULE_5__.RippleModule],
       exports: [ButtonDirective, Button],
       declarations: [ButtonDirective, Button]
     }]
@@ -75547,11 +75590,11 @@ Card.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
             </div>
             <div class="p-card-body">
                 <div class="p-card-title" *ngIf="header || titleTemplate">
-                    {{header}}
+                    {{ header }}
                     <ng-container *ngTemplateOutlet="titleTemplate"></ng-container>
                 </div>
                 <div class="p-card-subtitle" *ngIf="subheader || subtitleTemplate">
-                    {{subheader}}
+                    {{ subheader }}
                     <ng-container *ngTemplateOutlet="subtitleTemplate"></ng-container>
                 </div>
                 <div class="p-card-content">
@@ -75568,7 +75611,7 @@ Card.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
       styles: [".p-card-header img{width:100%}\n"]
     }]
@@ -75743,7 +75786,7 @@ function Chip_div_0_Template(rf, ctx) {
 const _c0 = ["*"];
 class Chip {
   constructor() {
-    this.removeIcon = "pi pi-times-circle";
+    this.removeIcon = 'pi pi-times-circle';
     this.onRemove = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
     this.onImageError = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
     this.visible = true;
@@ -75808,16 +75851,16 @@ Chip.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
       template: `
         <div [ngClass]="containerClass()" [class]="styleClass" [ngStyle]="style" *ngIf="visible">
             <ng-content></ng-content>
-            <img [src]="image" *ngIf="image;else iconTemplate" (error)="imageError($event)">
+            <img [src]="image" *ngIf="image; else iconTemplate" (error)="imageError($event)" />
             <ng-template #iconTemplate><span *ngIf="icon" [class]="icon" [ngClass]="'p-chip-icon'"></span></ng-template>
-            <div class="p-chip-text" *ngIf="label">{{label}}</div>
+            <div class="p-chip-text" *ngIf="label">{{ label }}</div>
             <span *ngIf="removable" tabindex="0" [class]="removeIcon" [ngClass]="'pi-chip-remove-icon'" (click)="close($event)" (keydown.enter)="close($event)"></span>
         </div>
     `,
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
       styles: [".p-chip{display:inline-flex;align-items:center}.p-chip-text,.p-chip-icon.pi{line-height:1.5}.pi-chip-remove-icon{line-height:1.5;cursor:pointer}.p-chip img{border-radius:50%}\n"]
     }]
@@ -76189,7 +76232,7 @@ class Dialog {
     this.focusTrap = true;
     this.transitionOptions = '150ms cubic-bezier(0, 0, 0.2, 1)';
     this.closeIcon = 'pi pi-times';
-    this.closeTabindex = "-1";
+    this.closeTabindex = '-1';
     this.minimizeIcon = 'pi pi-window-minimize';
     this.maximizeIcon = 'pi pi-window-maximize';
     this.onShow = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
@@ -76201,32 +76244,32 @@ class Dialog {
     this.onMaximize = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
     this.id = (0,primeng_utils__WEBPACK_IMPORTED_MODULE_2__.UniqueComponentId)();
     this._style = {};
-    this._position = "center";
-    this.transformOptions = "scale(0.7)";
+    this._position = 'center';
+    this.transformOptions = 'scale(0.7)';
   }
   get positionLeft() {
     return 0;
   }
   set positionLeft(_positionLeft) {
-    console.log("positionLeft property is deprecated.");
+    console.log('positionLeft property is deprecated.');
   }
   get positionTop() {
     return 0;
   }
   set positionTop(_positionTop) {
-    console.log("positionTop property is deprecated.");
+    console.log('positionTop property is deprecated.');
   }
   get responsive() {
     return false;
   }
   set responsive(_responsive) {
-    console.log("Responsive property is deprecated.");
+    console.log('Responsive property is deprecated.');
   }
   get breakpoint() {
     return 649;
   }
   set breakpoint(_breakpoint) {
-    console.log("Breakpoint property is not utilized and deprecated, use breakpoints or CSS media queries instead.");
+    console.log('Breakpoint property is not utilized and deprecated, use breakpoints or CSS media queries instead.');
   }
   ngAfterContentInit() {
     this.templates.forEach(item => {
@@ -76278,21 +76321,21 @@ class Dialog {
       case 'topleft':
       case 'bottomleft':
       case 'left':
-        this.transformOptions = "translate3d(-100%, 0px, 0px)";
+        this.transformOptions = 'translate3d(-100%, 0px, 0px)';
         break;
       case 'topright':
       case 'bottomright':
       case 'right':
-        this.transformOptions = "translate3d(100%, 0px, 0px)";
+        this.transformOptions = 'translate3d(100%, 0px, 0px)';
         break;
       case 'bottom':
-        this.transformOptions = "translate3d(0px, 100%, 0px)";
+        this.transformOptions = 'translate3d(0px, 100%, 0px)';
         break;
       case 'top':
-        this.transformOptions = "translate3d(0px, -100%, 0px)";
+        this.transformOptions = 'translate3d(0px, -100%, 0px)';
         break;
       default:
-        this.transformOptions = "scale(0.7)";
+        this.transformOptions = 'scale(0.7)';
         break;
     }
   }
@@ -76339,7 +76382,7 @@ class Dialog {
       if (this.maximized) primeng_dom__WEBPACK_IMPORTED_MODULE_3__.DomHandler.addClass(document.body, 'p-overflow-hidden');else primeng_dom__WEBPACK_IMPORTED_MODULE_3__.DomHandler.removeClass(document.body, 'p-overflow-hidden');
     }
     this.onMaximize.emit({
-      'maximized': this.maximized
+      maximized: this.maximized
     });
   }
   unbindMaskClickListener() {
@@ -76750,7 +76793,7 @@ Dialog.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
     }
   },
   dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgTemplateOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgStyle, primeng_focustrap__WEBPACK_IMPORTED_MODULE_6__.FocusTrap, primeng_ripple__WEBPACK_IMPORTED_MODULE_7__.Ripple],
-  styles: [".p-dialog-mask{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;justify-content:center;align-items:center;pointer-events:none}.p-dialog-mask.p-component-overlay{pointer-events:auto}.p-dialog{display:flex;flex-direction:column;pointer-events:auto;max-height:90%;transform:scale(1);position:relative}.p-dialog-content{overflow-y:auto;flex-grow:1}.p-dialog-header{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}.p-dialog-draggable .p-dialog-header{cursor:move}.p-dialog-footer{flex-shrink:0}.p-dialog .p-dialog-header-icons{display:flex;align-items:center}.p-dialog .p-dialog-header-icon{display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}.p-fluid .p-dialog-footer .p-button{width:auto}.p-dialog-top .p-dialog,.p-dialog-bottom .p-dialog,.p-dialog-left .p-dialog,.p-dialog-right .p-dialog,.p-dialog-top-left .p-dialog,.p-dialog-top-right .p-dialog,.p-dialog-bottom-left .p-dialog,.p-dialog-bottom-right .p-dialog{margin:.75rem;transform:translate(0)}.p-dialog-maximized{transition:none;transform:none;width:100vw!important;height:100vh!important;top:0px!important;left:0px!important;max-height:100%;height:100%}.p-dialog-maximized .p-dialog-content{flex-grow:1}.p-dialog-left{justify-content:flex-start}.p-dialog-right{justify-content:flex-end}.p-dialog-top{align-items:flex-start}.p-dialog-top-left{justify-content:flex-start;align-items:flex-start}.p-dialog-top-right{justify-content:flex-end;align-items:flex-start}.p-dialog-bottom{align-items:flex-end}.p-dialog-bottom-left{justify-content:flex-start;align-items:flex-end}.p-dialog-bottom-right{justify-content:flex-end;align-items:flex-end}.p-dialog .p-resizable-handle{position:absolute;font-size:.1px;display:block;cursor:se-resize;width:12px;height:12px;right:1px;bottom:1px}.p-confirm-dialog .p-dialog-content{display:flex;align-items:center}\n"],
+  styles: [".p-dialog-mask{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;justify-content:center;align-items:center;pointer-events:none}.p-dialog-mask.p-component-overlay{pointer-events:auto}.p-dialog{display:flex;flex-direction:column;pointer-events:auto;max-height:90%;transform:scale(1);position:relative}.p-dialog-content{overflow-y:auto;flex-grow:1}.p-dialog-header{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}.p-dialog-draggable .p-dialog-header{cursor:move}.p-dialog-footer{flex-shrink:0}.p-dialog .p-dialog-header-icons{display:flex;align-items:center}.p-dialog .p-dialog-header-icon{display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}.p-fluid .p-dialog-footer .p-button{width:auto}.p-dialog-top .p-dialog,.p-dialog-bottom .p-dialog,.p-dialog-left .p-dialog,.p-dialog-right .p-dialog,.p-dialog-top-left .p-dialog,.p-dialog-top-right .p-dialog,.p-dialog-bottom-left .p-dialog,.p-dialog-bottom-right .p-dialog{margin:.75rem;transform:translateZ(0)}.p-dialog-maximized{transition:none;transform:none;width:100vw!important;height:100vh!important;top:0!important;left:0!important;max-height:100%;height:100%}.p-dialog-maximized .p-dialog-content{flex-grow:1}.p-dialog-left{justify-content:flex-start}.p-dialog-right{justify-content:flex-end}.p-dialog-top{align-items:flex-start}.p-dialog-top-left{justify-content:flex-start;align-items:flex-start}.p-dialog-top-right{justify-content:flex-end;align-items:flex-start}.p-dialog-bottom{align-items:flex-end}.p-dialog-bottom-left{justify-content:flex-start;align-items:flex-end}.p-dialog-bottom-right{justify-content:flex-end;align-items:flex-end}.p-dialog .p-resizable-handle{position:absolute;font-size:.1px;display:block;cursor:se-resize;width:12px;height:12px;right:1px;bottom:1px}.p-confirm-dialog .p-dialog-content{display:flex;align-items:center}\n"],
   encapsulation: 2,
   data: {
     animation: [(0,_angular_animations__WEBPACK_IMPORTED_MODULE_1__.trigger)('animation', [(0,_angular_animations__WEBPACK_IMPORTED_MODULE_1__.transition)('void => visible', [(0,_angular_animations__WEBPACK_IMPORTED_MODULE_1__.useAnimation)(showAnimation)]), (0,_angular_animations__WEBPACK_IMPORTED_MODULE_1__.transition)('visible => void', [(0,_angular_animations__WEBPACK_IMPORTED_MODULE_1__.useAnimation)(hideAnimation)])])]
@@ -76763,8 +76806,13 @@ Dialog.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
     args: [{
       selector: 'p-dialog',
       template: `
-        <div *ngIf="maskVisible" [class]="maskStyleClass"
-            [ngClass]="{'p-dialog-mask': true, 'p-component-overlay p-component-overlay-enter': this.modal, 'p-dialog-mask-scrollblocker': this.modal || this.blockScroll,
+        <div
+            *ngIf="maskVisible"
+            [class]="maskStyleClass"
+            [ngClass]="{
+                'p-dialog-mask': true,
+                'p-component-overlay p-component-overlay-enter': this.modal,
+                'p-dialog-mask-scrollblocker': this.modal || this.blockScroll,
                 'p-dialog-left': position === 'left',
                 'p-dialog-right': position === 'right',
                 'p-dialog-top': position === 'top',
@@ -76772,22 +76820,44 @@ Dialog.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
                 'p-dialog-top-right': position === 'topright' || position === 'top-right',
                 'p-dialog-bottom': position === 'bottom',
                 'p-dialog-bottom-left': position === 'bottomleft' || position === 'bottom-left',
-                'p-dialog-bottom-right': position === 'bottomright' || position === 'bottom-right'}">
-            <div #container [ngClass]="{'p-dialog p-component':true, 'p-dialog-rtl':rtl,'p-dialog-draggable':draggable,'p-dialog-resizable':resizable, 'p-dialog-maximized': maximized}"
-                [ngStyle]="style" [class]="styleClass" *ngIf="visible" pFocusTrap [pFocusTrapDisabled]="focusTrap === false"
-                [@animation]="{value: 'visible', params: {transform: transformOptions, transition: transitionOptions}}" (@animation.start)="onAnimationStart($event)" (@animation.done)="onAnimationEnd($event)" role="dialog" [attr.aria-labelledby]="id + '-label'">
+                'p-dialog-bottom-right': position === 'bottomright' || position === 'bottom-right'
+            }"
+        >
+            <div
+                #container
+                [ngClass]="{ 'p-dialog p-component': true, 'p-dialog-rtl': rtl, 'p-dialog-draggable': draggable, 'p-dialog-resizable': resizable, 'p-dialog-maximized': maximized }"
+                [ngStyle]="style"
+                [class]="styleClass"
+                *ngIf="visible"
+                pFocusTrap
+                [pFocusTrapDisabled]="focusTrap === false"
+                [@animation]="{ value: 'visible', params: { transform: transformOptions, transition: transitionOptions } }"
+                (@animation.start)="onAnimationStart($event)"
+                (@animation.done)="onAnimationEnd($event)"
+                role="dialog"
+                [attr.aria-labelledby]="id + '-label'"
+            >
                 <div *ngIf="resizable" class="p-resizable-handle" style="z-index: 90;" (mousedown)="initResize($event)"></div>
                 <div #titlebar class="p-dialog-header" (mousedown)="initDrag($event)" *ngIf="showHeader">
-                    <span [attr.id]="id + '-label'" class="p-dialog-title" *ngIf="!headerFacet && !headerTemplate">{{header}}</span>
+                    <span [attr.id]="id + '-label'" class="p-dialog-title" *ngIf="!headerFacet && !headerTemplate">{{ header }}</span>
                     <span [attr.id]="id + '-label'" class="p-dialog-title" *ngIf="headerFacet">
                         <ng-content select="p-header"></ng-content>
                     </span>
                     <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
                     <div class="p-dialog-header-icons">
-                        <button *ngIf="maximizable" type="button" [ngClass]="{'p-dialog-header-icon p-dialog-header-maximize p-link':true}" (click)="maximize()" (keydown.enter)="maximize()" tabindex="-1" pRipple>
+                        <button *ngIf="maximizable" type="button" [ngClass]="{ 'p-dialog-header-icon p-dialog-header-maximize p-link': true }" (click)="maximize()" (keydown.enter)="maximize()" tabindex="-1" pRipple>
                             <span class="p-dialog-header-maximize-icon" [ngClass]="maximized ? minimizeIcon : maximizeIcon"></span>
                         </button>
-                        <button *ngIf="closable" type="button" [ngClass]="{'p-dialog-header-icon p-dialog-header-close p-link':true}" [attr.aria-label]="closeAriaLabel" (click)="close($event)" (keydown.enter)="close($event)" [attr.tabindex]="closeTabindex" pRipple>
+                        <button
+                            *ngIf="closable"
+                            type="button"
+                            [ngClass]="{ 'p-dialog-header-icon p-dialog-header-close p-link': true }"
+                            [attr.aria-label]="closeAriaLabel"
+                            (click)="close($event)"
+                            (keydown.enter)="close($event)"
+                            [attr.tabindex]="closeTabindex"
+                            pRipple
+                        >
                             <span class="p-dialog-header-close-icon" [ngClass]="closeIcon"></span>
                         </button>
                     </div>
@@ -76807,9 +76877,9 @@ Dialog.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
-      styles: [".p-dialog-mask{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;justify-content:center;align-items:center;pointer-events:none}.p-dialog-mask.p-component-overlay{pointer-events:auto}.p-dialog{display:flex;flex-direction:column;pointer-events:auto;max-height:90%;transform:scale(1);position:relative}.p-dialog-content{overflow-y:auto;flex-grow:1}.p-dialog-header{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}.p-dialog-draggable .p-dialog-header{cursor:move}.p-dialog-footer{flex-shrink:0}.p-dialog .p-dialog-header-icons{display:flex;align-items:center}.p-dialog .p-dialog-header-icon{display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}.p-fluid .p-dialog-footer .p-button{width:auto}.p-dialog-top .p-dialog,.p-dialog-bottom .p-dialog,.p-dialog-left .p-dialog,.p-dialog-right .p-dialog,.p-dialog-top-left .p-dialog,.p-dialog-top-right .p-dialog,.p-dialog-bottom-left .p-dialog,.p-dialog-bottom-right .p-dialog{margin:.75rem;transform:translate(0)}.p-dialog-maximized{transition:none;transform:none;width:100vw!important;height:100vh!important;top:0px!important;left:0px!important;max-height:100%;height:100%}.p-dialog-maximized .p-dialog-content{flex-grow:1}.p-dialog-left{justify-content:flex-start}.p-dialog-right{justify-content:flex-end}.p-dialog-top{align-items:flex-start}.p-dialog-top-left{justify-content:flex-start;align-items:flex-start}.p-dialog-top-right{justify-content:flex-end;align-items:flex-start}.p-dialog-bottom{align-items:flex-end}.p-dialog-bottom-left{justify-content:flex-start;align-items:flex-end}.p-dialog-bottom-right{justify-content:flex-end;align-items:flex-end}.p-dialog .p-resizable-handle{position:absolute;font-size:.1px;display:block;cursor:se-resize;width:12px;height:12px;right:1px;bottom:1px}.p-confirm-dialog .p-dialog-content{display:flex;align-items:center}\n"]
+      styles: [".p-dialog-mask{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;justify-content:center;align-items:center;pointer-events:none}.p-dialog-mask.p-component-overlay{pointer-events:auto}.p-dialog{display:flex;flex-direction:column;pointer-events:auto;max-height:90%;transform:scale(1);position:relative}.p-dialog-content{overflow-y:auto;flex-grow:1}.p-dialog-header{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}.p-dialog-draggable .p-dialog-header{cursor:move}.p-dialog-footer{flex-shrink:0}.p-dialog .p-dialog-header-icons{display:flex;align-items:center}.p-dialog .p-dialog-header-icon{display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}.p-fluid .p-dialog-footer .p-button{width:auto}.p-dialog-top .p-dialog,.p-dialog-bottom .p-dialog,.p-dialog-left .p-dialog,.p-dialog-right .p-dialog,.p-dialog-top-left .p-dialog,.p-dialog-top-right .p-dialog,.p-dialog-bottom-left .p-dialog,.p-dialog-bottom-right .p-dialog{margin:.75rem;transform:translateZ(0)}.p-dialog-maximized{transition:none;transform:none;width:100vw!important;height:100vh!important;top:0!important;left:0!important;max-height:100%;height:100%}.p-dialog-maximized .p-dialog-content{flex-grow:1}.p-dialog-left{justify-content:flex-start}.p-dialog-right{justify-content:flex-end}.p-dialog-top{align-items:flex-start}.p-dialog-top-left{justify-content:flex-start;align-items:flex-start}.p-dialog-top-right{justify-content:flex-end;align-items:flex-start}.p-dialog-bottom{align-items:flex-end}.p-dialog-bottom-left{justify-content:flex-start;align-items:flex-end}.p-dialog-bottom-right{justify-content:flex-end;align-items:flex-end}.p-dialog .p-resizable-handle{position:absolute;font-size:.1px;display:block;cursor:se-resize;width:12px;height:12px;right:1px;bottom:1px}.p-confirm-dialog .p-dialog-content{display:flex;align-items:center}\n"]
     }]
   }], function () {
     return [{
@@ -77033,26 +77103,35 @@ __webpack_require__.r(__webpack_exports__);
 // @dynamic
 class DomHandler {
   static addClass(element, className) {
-    if (element.classList) element.classList.add(className);else element.className += ' ' + className;
+    if (element && className) {
+      if (element.classList) element.classList.add(className);else element.className += ' ' + className;
+    }
   }
   static addMultipleClasses(element, className) {
-    if (element.classList) {
-      let styles = className.trim().split(' ');
-      for (let i = 0; i < styles.length; i++) {
-        element.classList.add(styles[i]);
-      }
-    } else {
-      let styles = className.split(' ');
-      for (let i = 0; i < styles.length; i++) {
-        element.className += ' ' + styles[i];
+    if (element && className) {
+      if (element.classList) {
+        let styles = className.trim().split(' ');
+        for (let i = 0; i < styles.length; i++) {
+          element.classList.add(styles[i]);
+        }
+      } else {
+        let styles = className.split(' ');
+        for (let i = 0; i < styles.length; i++) {
+          element.className += ' ' + styles[i];
+        }
       }
     }
   }
   static removeClass(element, className) {
-    if (element.classList) element.classList.remove(className);else element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    if (element && className) {
+      if (element.classList) element.classList.remove(className);else element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    }
   }
   static hasClass(element, className) {
-    if (element.classList) return element.classList.contains(className);else return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
+    if (element && className) {
+      if (element.classList) return element.classList.contains(className);else return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
+    }
+    return false;
   }
   static siblings(element) {
     return Array.prototype.filter.call(element.parentNode.children, function (child) {
@@ -77086,51 +77165,77 @@ class DomHandler {
     }
     return -1;
   }
+  static appendOverlay(overlay, target, appendTo = 'self') {
+    if (appendTo !== 'self' && overlay && target) {
+      this.appendChild(overlay, target);
+    }
+  }
+  static alignOverlay(overlay, target, appendTo = 'self', calculateMinWidth = true) {
+    if (overlay && target) {
+      calculateMinWidth && (overlay.style.minWidth || (overlay.style.minWidth = DomHandler.getOuterWidth(target) + 'px'));
+      if (appendTo === 'self') {
+        this.relativePosition(overlay, target);
+      } else {
+        this.absolutePosition(overlay, target);
+      }
+    }
+  }
   static relativePosition(element, target) {
-    let elementDimensions = element.offsetParent ? {
+    const getClosestRelativeElement = el => {
+      if (!el) return;
+      return getComputedStyle(el).getPropertyValue('position') === 'relative' ? el : getClosestRelativeElement(el.parentElement);
+    };
+    const elementDimensions = element.offsetParent ? {
       width: element.offsetWidth,
       height: element.offsetHeight
     } : this.getHiddenElementDimensions(element);
     const targetHeight = target.offsetHeight;
     const targetOffset = target.getBoundingClientRect();
+    const windowScrollTop = this.getWindowScrollTop();
+    const windowScrollLeft = this.getWindowScrollLeft();
     const viewport = this.getViewport();
+    const relativeElement = getClosestRelativeElement(element);
+    const relativeElementOffset = (relativeElement === null || relativeElement === void 0 ? void 0 : relativeElement.getBoundingClientRect()) || {
+      top: -1 * windowScrollTop,
+      left: -1 * windowScrollLeft
+    };
     let top, left;
     if (targetOffset.top + targetHeight + elementDimensions.height > viewport.height) {
-      top = -1 * elementDimensions.height;
+      top = targetOffset.top - relativeElementOffset.top - elementDimensions.height;
       element.style.transformOrigin = 'bottom';
       if (targetOffset.top + top < 0) {
         top = -1 * targetOffset.top;
       }
     } else {
-      top = targetHeight;
+      top = targetHeight + targetOffset.top - relativeElementOffset.top;
       element.style.transformOrigin = 'top';
     }
     if (elementDimensions.width > viewport.width) {
       // element wider then viewport and cannot fit on screen (align at left side of viewport)
-      left = targetOffset.left * -1;
-    } else if (targetOffset.left + elementDimensions.width > viewport.width) {
+      left = (targetOffset.left - relativeElementOffset.left) * -1;
+    } else if (targetOffset.left - relativeElementOffset.left + elementDimensions.width > viewport.width) {
       // element wider then viewport but can be fit on screen (align at right side of viewport)
-      left = (targetOffset.left + elementDimensions.width - viewport.width) * -1;
+      left = (targetOffset.left - relativeElementOffset.left + elementDimensions.width - viewport.width) * -1;
     } else {
       // element fits on screen (align with target)
-      left = 0;
+      left = targetOffset.left - relativeElementOffset.left;
     }
     element.style.top = top + 'px';
     element.style.left = left + 'px';
   }
   static absolutePosition(element, target) {
-    let elementDimensions = element.offsetParent ? {
+    const elementDimensions = element.offsetParent ? {
       width: element.offsetWidth,
       height: element.offsetHeight
     } : this.getHiddenElementDimensions(element);
-    let elementOuterHeight = elementDimensions.height;
-    let elementOuterWidth = elementDimensions.width;
-    let targetOuterHeight = target.offsetHeight;
-    let targetOuterWidth = target.offsetWidth;
-    let targetOffset = target.getBoundingClientRect();
-    let windowScrollTop = this.getWindowScrollTop();
-    let windowScrollLeft = this.getWindowScrollLeft();
-    let viewport = this.getViewport();
+    const elementOuterHeight = elementDimensions.height;
+    const elementOuterWidth = elementDimensions.width;
+    const targetOuterHeight = target.offsetHeight;
+    const targetOuterWidth = target.offsetWidth;
+    const targetOffset = target.getBoundingClientRect();
+    const windowScrollTop = this.getWindowScrollTop();
+    const windowScrollLeft = this.getWindowScrollLeft();
+    const viewport = this.getViewport();
     let top, left;
     if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
       top = targetOffset.top + windowScrollTop - elementOuterHeight;
@@ -77224,7 +77329,7 @@ class DomHandler {
     let last = +new Date();
     let opacity = 0;
     let tick = function () {
-      opacity = +element.style.opacity.replace(",", ".") + (new Date().getTime() - last) / duration;
+      opacity = +element.style.opacity.replace(',', '.') + (new Date().getTime() - last) / duration;
       element.style.opacity = opacity;
       last = +new Date();
       if (+opacity < 1) {
@@ -77383,7 +77488,7 @@ class DomHandler {
     if (!('remove' in Element.prototype)) element.parentNode.removeChild(element);else element.remove();
   }
   static isElement(obj) {
-    return typeof HTMLElement === "object" ? obj instanceof HTMLElement : obj && typeof obj === "object" && obj !== null && obj.nodeType === 1 && typeof obj.nodeName === "string";
+    return typeof HTMLElement === 'object' ? obj instanceof HTMLElement : obj && typeof obj === 'object' && obj !== null && obj.nodeType === 1 && typeof obj.nodeName === 'string';
   }
   static calculateScrollbarWidth(el) {
     if (el) {
@@ -77391,8 +77496,8 @@ class DomHandler {
       return el.offsetWidth - el.clientWidth - parseFloat(style.borderLeftWidth) - parseFloat(style.borderRightWidth);
     } else {
       if (this.calculatedScrollbarWidth !== null) return this.calculatedScrollbarWidth;
-      let scrollDiv = document.createElement("div");
-      scrollDiv.className = "p-scrollbar-measure";
+      let scrollDiv = document.createElement('div');
+      scrollDiv.className = 'p-scrollbar-measure';
       document.body.appendChild(scrollDiv);
       let scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
       document.body.removeChild(scrollDiv);
@@ -77402,8 +77507,8 @@ class DomHandler {
   }
   static calculateScrollbarHeight() {
     if (this.calculatedScrollbarHeight !== null) return this.calculatedScrollbarHeight;
-    let scrollDiv = document.createElement("div");
-    scrollDiv.className = "p-scrollbar-measure";
+    let scrollDiv = document.createElement('div');
+    scrollDiv.className = 'p-scrollbar-measure';
     document.body.appendChild(scrollDiv);
     let scrollbarHeight = scrollDiv.offsetHeight - scrollDiv.clientHeight;
     document.body.removeChild(scrollDiv);
@@ -77446,21 +77551,30 @@ class DomHandler {
   }
   static resolveUserAgent() {
     let ua = navigator.userAgent.toLowerCase();
-    let match = /(chrome)[ \/]([\w.]+)/.exec(ua) || /(webkit)[ \/]([\w.]+)/.exec(ua) || /(opera)(?:.*version|)[ \/]([\w.]+)/.exec(ua) || /(msie) ([\w.]+)/.exec(ua) || ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(ua) || [];
+    let match = /(chrome)[ \/]([\w.]+)/.exec(ua) || /(webkit)[ \/]([\w.]+)/.exec(ua) || /(opera)(?:.*version|)[ \/]([\w.]+)/.exec(ua) || /(msie) ([\w.]+)/.exec(ua) || ua.indexOf('compatible') < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(ua) || [];
     return {
-      browser: match[1] || "",
-      version: match[2] || "0"
+      browser: match[1] || '',
+      version: match[2] || '0'
     };
   }
   static isInteger(value) {
     if (Number.isInteger) {
       return Number.isInteger(value);
     } else {
-      return typeof value === "number" && isFinite(value) && Math.floor(value) === value;
+      return typeof value === 'number' && isFinite(value) && Math.floor(value) === value;
     }
   }
   static isHidden(element) {
-    return element.offsetParent === null;
+    return !element || element.offsetParent === null;
+  }
+  static isVisible(element) {
+    return element && element.offsetParent != null;
+  }
+  static isExist(element) {
+    return element !== null && typeof element !== 'undefined' && element.nodeName && element.parentNode;
+  }
+  static focus(element, options) {
+    element && document.activeElement !== element && element.focus(options);
   }
   static getFocusableElements(element) {
     let focusableElements = DomHandler.find(element, `button:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden]),
@@ -77470,13 +77584,44 @@ class DomHandler {
                 [contenteditable]:not([tabIndex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden]):not(.p-disabled)`);
     let visibleFocusableElements = [];
     for (let focusableElement of focusableElements) {
-      if (getComputedStyle(focusableElement).display != "none" && getComputedStyle(focusableElement).visibility != "hidden") visibleFocusableElements.push(focusableElement);
+      if (getComputedStyle(focusableElement).display != 'none' && getComputedStyle(focusableElement).visibility != 'hidden') visibleFocusableElements.push(focusableElement);
     }
     return visibleFocusableElements;
   }
   static generateZIndex() {
     this.zindex = this.zindex || 999;
     return ++this.zindex;
+  }
+  static getSelection() {
+    if (window.getSelection) return window.getSelection().toString();else if (document.getSelection) return document.getSelection().toString();else if (document['selection']) return document['selection'].createRange().text;
+    return null;
+  }
+  static getTargetElement(target, el) {
+    if (!target) return null;
+    switch (target) {
+      case 'document':
+        return document;
+      case 'window':
+        return window;
+      case '@next':
+        return el === null || el === void 0 ? void 0 : el.nextElementSibling;
+      case '@prev':
+        return el === null || el === void 0 ? void 0 : el.previousElementSibling;
+      case '@parent':
+        return el === null || el === void 0 ? void 0 : el.parentElement;
+      case '@grandparent':
+        return el === null || el === void 0 ? void 0 : el.parentElement.parentElement;
+      default:
+        const type = typeof target;
+        if (type === 'string') {
+          return document.querySelector(target);
+        } else if (type === 'object' && target.hasOwnProperty('nativeElement')) {
+          return this.isExist(target.nativeElement) ? target.nativeElement : undefined;
+        }
+        const isFunction = obj => !!(obj && obj.constructor && obj.call && obj.apply);
+        const element = isFunction(target) ? target() : target;
+        return element && element.nodeType === 9 || this.isExist(element) ? element : null;
+    }
   }
 }
 DomHandler.zindex = 1000;
@@ -77583,7 +77728,7 @@ FocusTrap.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵ�
     args: [{
       selector: '[pFocusTrap]',
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       }
     }]
   }], function () {
@@ -77782,7 +77927,7 @@ InputSwitch.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["�
     }
   },
   dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_2__.NgStyle],
-  styles: [".p-inputswitch{position:relative;display:inline-block;-webkit-user-select:none;user-select:none}.p-inputswitch-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0}.p-inputswitch-slider:before{position:absolute;content:\"\";top:50%}\n"],
+  styles: [".p-inputswitch{position:relative;display:inline-block;-webkit-user-select:none;user-select:none}.p-inputswitch-slider{position:absolute;cursor:pointer;inset:0}.p-inputswitch-slider:before{position:absolute;content:\"\";top:50%}\n"],
   encapsulation: 2,
   changeDetection: 0
 });
@@ -77792,11 +77937,24 @@ InputSwitch.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["�
     args: [{
       selector: 'p-inputSwitch',
       template: `
-        <div [ngClass]="{'p-inputswitch p-component': true, 'p-inputswitch-checked': checked(), 'p-disabled': disabled, 'p-focus': focused}"
-            [ngStyle]="style" [class]="styleClass" (click)="onClick($event, cb)">
+        <div [ngClass]="{ 'p-inputswitch p-component': true, 'p-inputswitch-checked': checked(), 'p-disabled': disabled, 'p-focus': focused }" [ngStyle]="style" [class]="styleClass" (click)="onClick($event, cb)">
             <div class="p-hidden-accessible">
-                <input #cb type="checkbox" [attr.aria-label]="ariaLabel" [attr.id]="inputId" [attr.name]="name" [attr.tabindex]="tabindex" [checked]="checked()" (change)="onInputChange($event)"
-                    (focus)="onFocus($event)" (blur)="onBlur($event)" [disabled]="disabled" role="switch" [attr.aria-checked]="checked()" [attr.aria-labelledby]="ariaLabelledBy"/>
+                <input
+                    #cb
+                    type="checkbox"
+                    [attr.aria-label]="ariaLabel"
+                    [attr.id]="inputId"
+                    [attr.name]="name"
+                    [attr.tabindex]="tabindex"
+                    [checked]="checked()"
+                    (change)="onInputChange($event)"
+                    (focus)="onFocus($event)"
+                    (blur)="onBlur($event)"
+                    [disabled]="disabled"
+                    role="switch"
+                    [attr.aria-checked]="checked()"
+                    [attr.aria-labelledby]="ariaLabelledBy"
+                />
             </div>
             <span class="p-inputswitch-slider"></span>
         </div>
@@ -77805,9 +77963,9 @@ InputSwitch.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["�
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
-      styles: [".p-inputswitch{position:relative;display:inline-block;-webkit-user-select:none;user-select:none}.p-inputswitch-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0}.p-inputswitch-slider:before{position:absolute;content:\"\";top:50%}\n"]
+      styles: [".p-inputswitch{position:relative;display:inline-block;-webkit-user-select:none;user-select:none}.p-inputswitch-slider{position:absolute;cursor:pointer;inset:0}.p-inputswitch-slider:before{position:absolute;content:\"\";top:50%}\n"]
     }]
   }], function () {
     return [{
@@ -78117,7 +78275,7 @@ function Menu_div_0_3_ng_template_0_li_1_ng_template_2_Template(rf, ctx) {
 const _c5 = function (a0, a1) {
   return {
     "p-hidden": a0,
-    "flex": a1
+    flex: a1
   };
 };
 function Menu_div_0_3_ng_template_0_li_1_Template(rf, ctx) {
@@ -78358,26 +78516,59 @@ MenuItemContent.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0_
     args: [{
       selector: '[pMenuItemContent]',
       template: `
-        <a *ngIf="!item.routerLink"  (keydown)="onItemKeyDown($event)" [attr.href]="item.url||null" class="p-menuitem-link" [attr.tabindex]="item.disabled ? null : '0'" [attr.data-automationid]="item.automationId" [target]="item.target" [attr.title]="item.title" [attr.id]="item.id"
-            [ngClass]="{'p-disabled':item.disabled}" (click)="menu.itemClick($event, item)" role="menuitem" [target]="item.target">
+        <a
+            *ngIf="!item.routerLink"
+            (keydown)="onItemKeyDown($event)"
+            [attr.href]="item.url || null"
+            class="p-menuitem-link"
+            [attr.tabindex]="item.disabled ? null : '0'"
+            [attr.data-automationid]="item.automationId"
+            [target]="item.target"
+            [attr.title]="item.title"
+            [attr.id]="item.id"
+            [ngClass]="{ 'p-disabled': item.disabled }"
+            (click)="menu.itemClick($event, item)"
+            role="menuitem"
+            [target]="item.target"
+        >
             <span class="p-menuitem-icon" *ngIf="item.icon" [ngClass]="item.icon" [class]="item.iconClass" [ngStyle]="item.iconStyle"></span>
-            <span class="p-menuitem-text" *ngIf="item.escape !== false; else htmlLabel">{{item.label}}</span>
+            <span class="p-menuitem-text" *ngIf="item.escape !== false; else htmlLabel">{{ item.label }}</span>
             <ng-template #htmlLabel><span class="p-menuitem-text" [innerHTML]="item.label"></span></ng-template>
-            <span class="p-menuitem-badge" *ngIf="item.badge" [ngClass]="item.badgeStyleClass">{{item.badge}}</span>
+            <span class="p-menuitem-badge" *ngIf="item.badge" [ngClass]="item.badgeStyleClass">{{ item.badge }}</span>
         </a>
-        <a *ngIf="item.routerLink" (keydown)="onItemKeyDown($event)" [routerLink]="item.routerLink" [attr.data-automationid]="item.automationId" [queryParams]="item.queryParams" [routerLinkActive]="'p-menuitem-link-active'"
-            [routerLinkActiveOptions]="item.routerLinkActiveOptions||{exact:false}" class="p-menuitem-link" [target]="item.target" [attr.id]="item.id" [attr.tabindex]="item.disabled ? null : '0'"
-            [attr.title]="item.title" [ngClass]="{'p-disabled':item.disabled}" (click)="menu.itemClick($event, item)" role="menuitem" pRipple
-            [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [preserveFragment]="item.preserveFragment" [skipLocationChange]="item.skipLocationChange" [replaceUrl]="item.replaceUrl" [state]="item.state">
+        <a
+            *ngIf="item.routerLink"
+            (keydown)="onItemKeyDown($event)"
+            [routerLink]="item.routerLink"
+            [attr.data-automationid]="item.automationId"
+            [queryParams]="item.queryParams"
+            [routerLinkActive]="'p-menuitem-link-active'"
+            [routerLinkActiveOptions]="item.routerLinkActiveOptions || { exact: false }"
+            class="p-menuitem-link"
+            [target]="item.target"
+            [attr.id]="item.id"
+            [attr.tabindex]="item.disabled ? null : '0'"
+            [attr.title]="item.title"
+            [ngClass]="{ 'p-disabled': item.disabled }"
+            (click)="menu.itemClick($event, item)"
+            role="menuitem"
+            pRipple
+            [fragment]="item.fragment"
+            [queryParamsHandling]="item.queryParamsHandling"
+            [preserveFragment]="item.preserveFragment"
+            [skipLocationChange]="item.skipLocationChange"
+            [replaceUrl]="item.replaceUrl"
+            [state]="item.state"
+        >
             <span class="p-menuitem-icon" *ngIf="item.icon" [ngClass]="item.icon"></span>
-            <span class="p-menuitem-text" *ngIf="item.escape !== false; else htmlRouteLabel">{{item.label}}</span>
+            <span class="p-menuitem-text" *ngIf="item.escape !== false; else htmlRouteLabel">{{ item.label }}</span>
             <ng-template #htmlRouteLabel><span class="p-menuitem-text" [innerHTML]="item.label"></span></ng-template>
-            <span class="p-menuitem-badge" *ngIf="item.badge" [ngClass]="item.badgeStyleClass">{{item.badge}}</span>
+            <span class="p-menuitem-badge" *ngIf="item.badge" [ngClass]="item.badgeStyleClass">{{ item.badge }}</span>
         </a>
     `,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       }
     }]
   }], function () {
@@ -78391,7 +78582,7 @@ MenuItemContent.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0_
   }, {
     item: [{
       type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input,
-      args: ["pMenuItemContent"]
+      args: ['pMenuItemContent']
     }]
   });
 })();
@@ -78640,24 +78831,61 @@ Menu.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
     args: [{
       selector: 'p-menu',
       template: `
-        <div #container [ngClass]="{'p-menu p-component': true, 'p-menu-overlay': popup}"
-            [class]="styleClass" [ngStyle]="style" *ngIf="!popup || visible" (click)="onOverlayClick($event)"
-            [@overlayAnimation]="{value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" [@.disabled]="popup !== true" (@overlayAnimation.start)="onOverlayAnimationStart($event)" (@overlayAnimation.done)="onOverlayAnimationEnd($event)">
+        <div
+            #container
+            [ngClass]="{ 'p-menu p-component': true, 'p-menu-overlay': popup }"
+            [class]="styleClass"
+            [ngStyle]="style"
+            *ngIf="!popup || visible"
+            (click)="onOverlayClick($event)"
+            [@overlayAnimation]="{ value: 'visible', params: { showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions } }"
+            [@.disabled]="popup !== true"
+            (@overlayAnimation.start)="onOverlayAnimationStart($event)"
+            (@overlayAnimation.done)="onOverlayAnimationEnd($event)"
+        >
             <ul class="p-menu-list p-reset" role="menu">
                 <ng-template ngFor let-submenu [ngForOf]="model" *ngIf="hasSubMenu()">
-                    <li class="p-menu-separator" *ngIf="submenu.separator" [ngClass]="{'p-hidden': submenu.visible === false}" role="separator"></li>
-                    <li class="p-submenu-header" [attr.data-automationid]="submenu.automationId" *ngIf="!submenu.separator" [ngClass]="{'p-hidden': submenu.visible === false, 'flex': submenu.visible}" pTooltip [tooltipOptions]="submenu.tooltipOptions" role="none">
-                        <span *ngIf="submenu.escape !== false; else htmlSubmenuLabel">{{submenu.label}}</span>
+                    <li class="p-menu-separator" *ngIf="submenu.separator" [ngClass]="{ 'p-hidden': submenu.visible === false }" role="separator"></li>
+                    <li
+                        class="p-submenu-header"
+                        [attr.data-automationid]="submenu.automationId"
+                        *ngIf="!submenu.separator"
+                        [ngClass]="{ 'p-hidden': submenu.visible === false, flex: submenu.visible }"
+                        pTooltip
+                        [tooltipOptions]="submenu.tooltipOptions"
+                        role="none"
+                    >
+                        <span *ngIf="submenu.escape !== false; else htmlSubmenuLabel">{{ submenu.label }}</span>
                         <ng-template #htmlSubmenuLabel><span [innerHTML]="submenu.label"></span></ng-template>
                     </li>
                     <ng-template ngFor let-item [ngForOf]="submenu.items">
-                        <li class="p-menu-separator" *ngIf="item.separator" [ngClass]="{'p-hidden': (item.visible === false || submenu.visible === false)}"  role="separator"></li>
-                        <li class="p-menuitem" *ngIf="!item.separator" [pMenuItemContent]="item" [ngClass]="{'p-hidden': (item.visible === false || submenu.visible === false)}" [ngStyle]="item.style" [class]="item.styleClass" pTooltip [tooltipOptions]="item.tooltipOptions" role="none"></li>
+                        <li class="p-menu-separator" *ngIf="item.separator" [ngClass]="{ 'p-hidden': item.visible === false || submenu.visible === false }" role="separator"></li>
+                        <li
+                            class="p-menuitem"
+                            *ngIf="!item.separator"
+                            [pMenuItemContent]="item"
+                            [ngClass]="{ 'p-hidden': item.visible === false || submenu.visible === false }"
+                            [ngStyle]="item.style"
+                            [class]="item.styleClass"
+                            pTooltip
+                            [tooltipOptions]="item.tooltipOptions"
+                            role="none"
+                        ></li>
                     </ng-template>
                 </ng-template>
                 <ng-template ngFor let-item [ngForOf]="model" *ngIf="!hasSubMenu()">
-                    <li class="p-menu-separator" *ngIf="item.separator" [ngClass]="{'p-hidden': item.visible === false}" role="separator"></li>
-                    <li class="p-menuitem" *ngIf="!item.separator" [pMenuItemContent]="item" [ngClass]="{'p-hidden': item.visible === false}" [ngStyle]="item.style" [class]="item.styleClass" pTooltip [tooltipOptions]="item.tooltipOptions" role="none"></li>
+                    <li class="p-menu-separator" *ngIf="item.separator" [ngClass]="{ 'p-hidden': item.visible === false }" role="separator"></li>
+                    <li
+                        class="p-menuitem"
+                        *ngIf="!item.separator"
+                        [pMenuItemContent]="item"
+                        [ngClass]="{ 'p-hidden': item.visible === false }"
+                        [ngStyle]="item.style"
+                        [class]="item.styleClass"
+                        pTooltip
+                        [tooltipOptions]="item.tooltipOptions"
+                        role="none"
+                    ></li>
                 </ng-template>
             </ul>
         </div>
@@ -78671,7 +78899,7 @@ Menu.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
       styles: [".p-menu-overlay{position:absolute;top:0;left:0}.p-menu ul{margin:0;padding:0;list-style:none}.p-menu .p-submenu-header{align-items:center}.p-menu .p-menuitem-link{cursor:pointer;display:flex;align-items:center;text-decoration:none;overflow:hidden;position:relative}.p-menu .p-menuitem-text{line-height:1}\n"]
     }]
@@ -78929,11 +79157,11 @@ class Panel {
   constructor(el) {
     this.el = el;
     this.collapsed = false;
-    this.iconPos = "end";
+    this.iconPos = 'end';
     this.expandIcon = 'pi pi-plus';
     this.collapseIcon = 'pi pi-minus';
     this.showHeader = true;
-    this.toggler = "icon";
+    this.toggler = 'icon';
     this.collapsedChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
     this.onBeforeToggle = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
     this.onAfterToggle = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
@@ -79099,21 +79327,43 @@ Panel.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
     args: [{
       selector: 'p-panel',
       template: `
-        <div [attr.id]="id" [ngClass]="{'p-panel p-component': true, 'p-panel-toggleable': toggleable, 'p-panel-expanded': !collapsed && toggleable}" [ngStyle]="style" [class]="styleClass">
+        <div [attr.id]="id" [ngClass]="{ 'p-panel p-component': true, 'p-panel-toggleable': toggleable, 'p-panel-expanded': !collapsed && toggleable }" [ngStyle]="style" [class]="styleClass">
             <div class="p-panel-header" *ngIf="showHeader" (click)="onHeaderClick($event)" [attr.id]="id + '-titlebar'">
-                <span class="p-panel-title" *ngIf="header" [attr.id]="id + '_header'">{{header}}</span>
+                <span class="p-panel-title" *ngIf="header" [attr.id]="id + '_header'">{{ header }}</span>
                 <ng-content select="p-header"></ng-content>
                 <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
-                <div role="tablist" class="p-panel-icons" [ngClass]="{'p-panel-icons-start': iconPos === 'start', 'p-panel-icons-end': iconPos ==='end', 'p-panel-icons-center': iconPos === 'center'}">
+                <div role="tablist" class="p-panel-icons" [ngClass]="{ 'p-panel-icons-start': iconPos === 'start', 'p-panel-icons-end': iconPos === 'end', 'p-panel-icons-center': iconPos === 'center' }">
                     <ng-template *ngTemplateOutlet="iconTemplate"></ng-template>
-                    <button *ngIf="toggleable" type="button" [attr.aria-label]="'collapse button'" [attr.id]="id + '-label'" class="p-panel-header-icon p-panel-toggler p-link" pRipple
-                        (click)="onIconClick($event)" (keydown.enter)="onIconClick($event)" [attr.aria-controls]="id + '-content'" role="tab" [attr.aria-expanded]="!collapsed">
+                    <button
+                        *ngIf="toggleable"
+                        type="button"
+                        [attr.aria-label]="'collapse button'"
+                        [attr.id]="id + '-label'"
+                        class="p-panel-header-icon p-panel-toggler p-link"
+                        pRipple
+                        (click)="onIconClick($event)"
+                        (keydown.enter)="onIconClick($event)"
+                        [attr.aria-controls]="id + '-content'"
+                        role="tab"
+                        [attr.aria-expanded]="!collapsed"
+                    >
                         <span [class]="collapsed ? expandIcon : collapseIcon"></span>
                     </button>
                 </div>
             </div>
-            <div [attr.id]="id + '-content'" class="p-toggleable-content" [@panelContent]="collapsed ? {value: 'hidden', params: {transitionParams: animating ? transitionOptions : '0ms', height: '0', opacity:'0'}} : {value: 'visible', params: {transitionParams: animating ? transitionOptions : '0ms', height: '*', opacity: '1'}}" (@panelContent.done)="onToggleDone($event)"
-                role="region" [attr.aria-hidden]="collapsed" [attr.aria-labelledby]="id  + '-titlebar'">
+            <div
+                [attr.id]="id + '-content'"
+                class="p-toggleable-content"
+                [@panelContent]="
+                    collapsed
+                        ? { value: 'hidden', params: { transitionParams: animating ? transitionOptions : '0ms', height: '0', opacity: '0' } }
+                        : { value: 'visible', params: { transitionParams: animating ? transitionOptions : '0ms', height: '*', opacity: '1' } }
+                "
+                (@panelContent.done)="onToggleDone($event)"
+                role="region"
+                [attr.aria-hidden]="collapsed"
+                [attr.aria-labelledby]="id + '-titlebar'"
+            >
                 <div class="p-panel-content">
                     <ng-content></ng-content>
                     <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
@@ -79140,7 +79390,7 @@ Panel.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
       styles: [".p-panel-header{display:flex;align-items:center}.p-panel-title{line-height:1;order:1}.p-panel-header-icon{display:inline-flex;justify-content:center;align-items:center;cursor:pointer;text-decoration:none;overflow:hidden;position:relative}.p-panel-toggleable.p-panel-expanded .p-toggleable-content:not(.ng-animating){overflow:visible}.p-panel-toggleable .p-toggleable-content{overflow:hidden}\n"]
     }]
@@ -79340,10 +79590,17 @@ ProgressBar.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["�
     args: [{
       selector: 'p-progressBar',
       template: `
-        <div [class]="styleClass" [ngStyle]="style" role="progressbar" aria-valuemin="0" [attr.aria-valuenow]="value" aria-valuemax="100"
-            [ngClass]="{'p-progressbar p-component': true, 'p-progressbar-determinate': (mode === 'determinate'), 'p-progressbar-indeterminate': (mode === 'indeterminate')}">
+        <div
+            [class]="styleClass"
+            [ngStyle]="style"
+            role="progressbar"
+            aria-valuemin="0"
+            [attr.aria-valuenow]="value"
+            aria-valuemax="100"
+            [ngClass]="{ 'p-progressbar p-component': true, 'p-progressbar-determinate': mode === 'determinate', 'p-progressbar-indeterminate': mode === 'indeterminate' }"
+        >
             <div *ngIf="mode === 'determinate'" class="p-progressbar-value p-progressbar-value-animate" [style.width]="value + '%'" style="display:flex">
-                <div *ngIf="showValue" class="p-progressbar-label" [style.display]="value != null && value !== 0 ? 'flex' : 'none'">{{value}}{{unit}}</div>
+                <div *ngIf="showValue" class="p-progressbar-label" [style.display]="value != null && value !== 0 ? 'flex' : 'none'">{{ value }}{{ unit }}</div>
             </div>
             <div *ngIf="mode === 'indeterminate'" class="p-progressbar-indeterminate-container">
                 <div class="p-progressbar-value p-progressbar-value-animate"></div>
@@ -79353,7 +79610,7 @@ ProgressBar.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["�
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
       styles: [".p-progressbar{position:relative;overflow:hidden}.p-progressbar-determinate .p-progressbar-value{height:100%;width:0%;position:absolute;display:none;border:0 none;display:flex;align-items:center;justify-content:center;overflow:hidden}.p-progressbar-determinate .p-progressbar-label{display:inline-flex}.p-progressbar-determinate .p-progressbar-value-animate{transition:width 1s ease-in-out}.p-progressbar-indeterminate .p-progressbar-value:before{content:\"\";position:absolute;background-color:inherit;top:0;left:0;bottom:0;will-change:left,right;animation:p-progressbar-indeterminate-anim 2.1s cubic-bezier(.65,.815,.735,.395) infinite}.p-progressbar-indeterminate .p-progressbar-value:after{content:\"\";position:absolute;background-color:inherit;top:0;left:0;bottom:0;will-change:left,right;animation:p-progressbar-indeterminate-anim-short 2.1s cubic-bezier(.165,.84,.44,1) infinite;animation-delay:1.15s}@keyframes p-progressbar-indeterminate-anim{0%{left:-35%;right:100%}60%{left:100%;right:-90%}to{left:100%;right:-90%}}@keyframes p-progressbar-indeterminate-anim-short{0%{left:-200%;right:100%}60%{left:107%;right:-8%}to{left:107%;right:-8%}}\n"]
     }]
@@ -79426,9 +79683,9 @@ __webpack_require__.r(__webpack_exports__);
 
 class ProgressSpinner {
   constructor() {
-    this.strokeWidth = "2";
-    this.fill = "none";
-    this.animationDuration = "2s";
+    this.strokeWidth = '2';
+    this.fill = 'none';
+    this.animationDuration = '2s';
   }
 }
 ProgressSpinner.ɵfac = function ProgressSpinner_Factory(t) {
@@ -79465,7 +79722,7 @@ ProgressSpinner.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0_
     }
   },
   dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_1__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_1__.NgStyle],
-  styles: [".p-progress-spinner{position:relative;margin:0 auto;width:100px;height:100px;display:inline-block}.p-progress-spinner:before{content:\"\";display:block;padding-top:100%}.p-progress-spinner-svg{animation:p-progress-spinner-rotate 2s linear infinite;height:100%;transform-origin:center center;width:100%;position:absolute;top:0;bottom:0;left:0;right:0;margin:auto}.p-progress-spinner-circle{stroke-dasharray:89,200;stroke-dashoffset:0;stroke:#d62d20;animation:p-progress-spinner-dash 1.5s ease-in-out infinite,p-progress-spinner-color 6s ease-in-out infinite;stroke-linecap:round}@keyframes p-progress-spinner-rotate{to{transform:rotate(360deg)}}@keyframes p-progress-spinner-dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0}50%{stroke-dasharray:89,200;stroke-dashoffset:-35px}to{stroke-dasharray:89,200;stroke-dashoffset:-124px}}@keyframes p-progress-spinner-color{to,0%{stroke:#d62d20}40%{stroke:#0057e7}66%{stroke:#008744}80%,90%{stroke:#ffa700}}\n"],
+  styles: [".p-progress-spinner{position:relative;margin:0 auto;width:100px;height:100px;display:inline-block}.p-progress-spinner:before{content:\"\";display:block;padding-top:100%}.p-progress-spinner-svg{animation:p-progress-spinner-rotate 2s linear infinite;height:100%;transform-origin:center center;width:100%;position:absolute;inset:0;margin:auto}.p-progress-spinner-circle{stroke-dasharray:89,200;stroke-dashoffset:0;stroke:#d62d20;animation:p-progress-spinner-dash 1.5s ease-in-out infinite,p-progress-spinner-color 6s ease-in-out infinite;stroke-linecap:round}@keyframes p-progress-spinner-rotate{to{transform:rotate(360deg)}}@keyframes p-progress-spinner-dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0}50%{stroke-dasharray:89,200;stroke-dashoffset:-35px}to{stroke-dasharray:89,200;stroke-dashoffset:-124px}}@keyframes p-progress-spinner-color{to,0%{stroke:#d62d20}40%{stroke:#0057e7}66%{stroke:#008744}80%,90%{stroke:#ffa700}}\n"],
   encapsulation: 2,
   changeDetection: 0
 });
@@ -79475,18 +79732,18 @@ ProgressSpinner.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0_
     args: [{
       selector: 'p-progressSpinner',
       template: `
-        <div class="p-progress-spinner" [ngStyle]="style" [ngClass]="styleClass"  role="alert" aria-busy="true">
+        <div class="p-progress-spinner" [ngStyle]="style" [ngClass]="styleClass" role="alert" aria-busy="true">
             <svg class="p-progress-spinner-svg" viewBox="25 25 50 50" [style.animation-duration]="animationDuration">
-                <circle class="p-progress-spinner-circle" cx="50" cy="50" r="20" [attr.fill]="fill" [attr.stroke-width]="strokeWidth" stroke-miterlimit="10"/>
+                <circle class="p-progress-spinner-circle" cx="50" cy="50" r="20" [attr.fill]="fill" [attr.stroke-width]="strokeWidth" stroke-miterlimit="10" />
             </svg>
         </div>
     `,
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
-      styles: [".p-progress-spinner{position:relative;margin:0 auto;width:100px;height:100px;display:inline-block}.p-progress-spinner:before{content:\"\";display:block;padding-top:100%}.p-progress-spinner-svg{animation:p-progress-spinner-rotate 2s linear infinite;height:100%;transform-origin:center center;width:100%;position:absolute;top:0;bottom:0;left:0;right:0;margin:auto}.p-progress-spinner-circle{stroke-dasharray:89,200;stroke-dashoffset:0;stroke:#d62d20;animation:p-progress-spinner-dash 1.5s ease-in-out infinite,p-progress-spinner-color 6s ease-in-out infinite;stroke-linecap:round}@keyframes p-progress-spinner-rotate{to{transform:rotate(360deg)}}@keyframes p-progress-spinner-dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0}50%{stroke-dasharray:89,200;stroke-dashoffset:-35px}to{stroke-dasharray:89,200;stroke-dashoffset:-124px}}@keyframes p-progress-spinner-color{to,0%{stroke:#d62d20}40%{stroke:#0057e7}66%{stroke:#008744}80%,90%{stroke:#ffa700}}\n"]
+      styles: [".p-progress-spinner{position:relative;margin:0 auto;width:100px;height:100px;display:inline-block}.p-progress-spinner:before{content:\"\";display:block;padding-top:100%}.p-progress-spinner-svg{animation:p-progress-spinner-rotate 2s linear infinite;height:100%;transform-origin:center center;width:100%;position:absolute;inset:0;margin:auto}.p-progress-spinner-circle{stroke-dasharray:89,200;stroke-dashoffset:0;stroke:#d62d20;animation:p-progress-spinner-dash 1.5s ease-in-out infinite,p-progress-spinner-color 6s ease-in-out infinite;stroke-linecap:round}@keyframes p-progress-spinner-rotate{to{transform:rotate(360deg)}}@keyframes p-progress-spinner-dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0}50%{stroke-dasharray:89,200;stroke-dashoffset:-35px}to{stroke-dasharray:89,200;stroke-dashoffset:-124px}}@keyframes p-progress-spinner-color{to,0%{stroke:#d62d20}40%{stroke:#0057e7}66%{stroke:#008744}80%,90%{stroke:#ffa700}}\n"]
     }]
   }], null, {
     style: [{
@@ -79649,7 +79906,7 @@ Ripple.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵde
     args: [{
       selector: '[pRipple]',
       host: {
-        'class': 'p-ripple p-element'
+        class: 'p-ripple p-element'
       }
     }]
   }], function () {
@@ -79765,10 +80022,10 @@ class ScrollTop {
     this.el = el;
     this.cd = cd;
     this.config = config;
-    this.target = "window";
+    this.target = 'window';
     this.threshold = 400;
-    this.icon = "pi pi-chevron-up";
-    this.behavior = "smooth";
+    this.icon = 'pi pi-chevron-up';
+    this.behavior = 'smooth';
     this.showTransitionOptions = '.15s';
     this.hideTransitionOptions = '.15s';
     this.visible = false;
@@ -79889,8 +80146,17 @@ ScrollTop.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
     args: [{
       selector: 'p-scrollTop',
       template: `
-        <button  *ngIf="visible" [@animation]="{value: 'open', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" (@animation.start)="onEnter($event)" (@animation.done)="onLeave($event)"
-            [ngClass]="containerClass()" (click)="onClick()" [class]="styleClass" [ngStyle]="style" type="button">
+        <button
+            *ngIf="visible"
+            [@animation]="{ value: 'open', params: { showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions } }"
+            (@animation.start)="onEnter($event)"
+            (@animation.done)="onLeave($event)"
+            [ngClass]="containerClass()"
+            (click)="onClick()"
+            [class]="styleClass"
+            [ngStyle]="style"
+            type="button"
+        >
             <span [class]="icon" [ngClass]="'p-scrolltop-icon'"></span>
         </button>
     `,
@@ -79902,7 +80168,7 @@ ScrollTop.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
         opacity: 1
       })), (0,_angular_animations__WEBPACK_IMPORTED_MODULE_5__.transition)('void => open', (0,_angular_animations__WEBPACK_IMPORTED_MODULE_5__.animate)('{{showTransitionParams}}')), (0,_angular_animations__WEBPACK_IMPORTED_MODULE_5__.transition)('open => void', (0,_angular_animations__WEBPACK_IMPORTED_MODULE_5__.animate)('{{hideTransitionParams}}'))])],
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
       styles: [".p-scrolltop{position:fixed;bottom:20px;right:20px;display:flex;align-items:center;justify-content:center}.p-scrolltop-sticky{position:sticky}.p-scrolltop-sticky.p-link{margin-left:auto}\n"]
     }]
@@ -80061,13 +80327,13 @@ Tag.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
         <span [ngClass]="containerClass()" [class]="styleClass" [ngStyle]="style">
             <ng-content></ng-content>
             <span class="p-tag-icon" [ngClass]="icon" *ngIf="icon"></span>
-            <span class="p-tag-value">{{value}}</span>
+            <span class="p-tag-value">{{ value }}</span>
         </span>
     `,
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
       styles: [".p-tag{display:inline-flex;align-items:center;justify-content:center}.p-tag-icon,.p-tag-value,.p-tag-icon.pi{line-height:1.5}.p-tag.p-tag-rounded{border-radius:10rem}\n"]
     }]
@@ -80299,21 +80565,27 @@ Timeline.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
     args: [{
       selector: 'p-timeline',
       template: `
-        <div [class]="styleClass" [ngStyle]="style" [ngClass]="{'p-timeline p-component': true,
+        <div
+            [class]="styleClass"
+            [ngStyle]="style"
+            [ngClass]="{
+                'p-timeline p-component': true,
                 'p-timeline-left': align === 'left',
                 'p-timeline-right': align === 'right',
                 'p-timeline-top': align === 'top',
                 'p-timeline-bottom': align === 'bottom',
                 'p-timeline-alternate': align === 'alternate',
                 'p-timeline-vertical': layout === 'vertical',
-                'p-timeline-horizontal': layout === 'horizontal'}">
-            <div *ngFor="let event of value; let last=last" class="p-timeline-event">
+                'p-timeline-horizontal': layout === 'horizontal'
+            }"
+        >
+            <div *ngFor="let event of value; let last = last" class="p-timeline-event">
                 <div class="p-timeline-event-opposite">
-                    <ng-container *ngTemplateOutlet="oppositeTemplate; context: {$implicit: event}"></ng-container>
+                    <ng-container *ngTemplateOutlet="oppositeTemplate; context: { $implicit: event }"></ng-container>
                 </div>
                 <div class="p-timeline-event-separator">
                     <ng-container *ngIf="markerTemplate; else marker">
-                        <ng-container *ngTemplateOutlet="markerTemplate; context: {$implicit: event}"></ng-container>
+                        <ng-container *ngTemplateOutlet="markerTemplate; context: { $implicit: event }"></ng-container>
                     </ng-container>
                     <ng-template #marker>
                         <div class="p-timeline-event-marker"></div>
@@ -80321,7 +80593,7 @@ Timeline.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
                     <div *ngIf="!last" class="p-timeline-event-connector"></div>
                 </div>
                 <div class="p-timeline-event-content">
-                    <ng-container *ngTemplateOutlet="contentTemplate; context: {$implicit: event}"></ng-container>
+                    <ng-container *ngTemplateOutlet="contentTemplate; context: { $implicit: event }"></ng-container>
                 </div>
             </div>
         </div>
@@ -80329,7 +80601,7 @@ Timeline.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
       changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ChangeDetectionStrategy.OnPush,
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewEncapsulation.None,
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       },
       styles: [".p-timeline{display:flex;flex-grow:1;flex-direction:column}.p-timeline-left .p-timeline-event-opposite{text-align:right}.p-timeline-left .p-timeline-event-content{text-align:left}.p-timeline-right .p-timeline-event{flex-direction:row-reverse}.p-timeline-right .p-timeline-event-opposite{text-align:left}.p-timeline-right .p-timeline-event-content{text-align:right}.p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(even){flex-direction:row-reverse}.p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(odd) .p-timeline-event-opposite{text-align:right}.p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(odd) .p-timeline-event-content{text-align:left}.p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(even) .p-timeline-event-opposite{text-align:left}.p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(even) .p-timeline-event-content{text-align:right}.p-timeline-event{display:flex;position:relative;min-height:70px}.p-timeline-event:last-child{min-height:0}.p-timeline-event-opposite,.p-timeline-event-content{flex:1;padding:0 1rem}.p-timeline-event-separator{flex:0;display:flex;align-items:center;flex-direction:column}.p-timeline-event-marker{display:flex;align-self:baseline}.p-timeline-event-connector{flex-grow:1}.p-timeline-horizontal{flex-direction:row}.p-timeline-horizontal .p-timeline-event{flex-direction:column;flex:1}.p-timeline-horizontal .p-timeline-event:last-child{flex:0}.p-timeline-horizontal .p-timeline-event-separator{flex-direction:row}.p-timeline-horizontal .p-timeline-event-connector{width:100%}.p-timeline-bottom .p-timeline-event{flex-direction:column-reverse}.p-timeline-horizontal.p-timeline-alternate .p-timeline-event:nth-child(even){flex-direction:column-reverse}\n"]
     }]
@@ -80879,7 +81151,7 @@ Tooltip.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵd
     args: [{
       selector: '[pTooltip]',
       host: {
-        'class': 'p-element'
+        class: 'p-element'
       }
     }]
   }], function () {
@@ -80936,7 +81208,7 @@ Tooltip.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵd
     }],
     disabled: [{
       type: _angular_core__WEBPACK_IMPORTED_MODULE_2__.Input,
-      args: ["tooltipDisabled"]
+      args: ['tooltipDisabled']
     }],
     tooltipOptions: [{
       type: _angular_core__WEBPACK_IMPORTED_MODULE_2__.Input
@@ -81097,7 +81369,7 @@ class ObjectUtils {
   }
   static removeAccents(str) {
     if (str && str.search(/[\xC0-\xFF]/g) > -1) {
-      str = str.replace(/[\xC0-\xC5]/g, "A").replace(/[\xC6]/g, "AE").replace(/[\xC7]/g, "C").replace(/[\xC8-\xCB]/g, "E").replace(/[\xCC-\xCF]/g, "I").replace(/[\xD0]/g, "D").replace(/[\xD1]/g, "N").replace(/[\xD2-\xD6\xD8]/g, "O").replace(/[\xD9-\xDC]/g, "U").replace(/[\xDD]/g, "Y").replace(/[\xDE]/g, "P").replace(/[\xE0-\xE5]/g, "a").replace(/[\xE6]/g, "ae").replace(/[\xE7]/g, "c").replace(/[\xE8-\xEB]/g, "e").replace(/[\xEC-\xEF]/g, "i").replace(/[\xF1]/g, "n").replace(/[\xF2-\xF6\xF8]/g, "o").replace(/[\xF9-\xFC]/g, "u").replace(/[\xFE]/g, "p").replace(/[\xFD\xFF]/g, "y");
+      str = str.replace(/[\xC0-\xC5]/g, 'A').replace(/[\xC6]/g, 'AE').replace(/[\xC7]/g, 'C').replace(/[\xC8-\xCB]/g, 'E').replace(/[\xCC-\xCF]/g, 'I').replace(/[\xD0]/g, 'D').replace(/[\xD1]/g, 'N').replace(/[\xD2-\xD6\xD8]/g, 'O').replace(/[\xD9-\xDC]/g, 'U').replace(/[\xDD]/g, 'Y').replace(/[\xDE]/g, 'P').replace(/[\xE0-\xE5]/g, 'a').replace(/[\xE6]/g, 'ae').replace(/[\xE7]/g, 'c').replace(/[\xE8-\xEB]/g, 'e').replace(/[\xEC-\xEF]/g, 'i').replace(/[\xF1]/g, 'n').replace(/[\xF2-\xF6\xF8]/g, 'o').replace(/[\xF9-\xFC]/g, 'u').replace(/[\xFE]/g, 'p').replace(/[\xFD\xFF]/g, 'y');
     }
     return str;
   }
@@ -81106,6 +81378,29 @@ class ObjectUtils {
   }
   static isNotEmpty(value) {
     return !this.isEmpty(value);
+  }
+  static compare(value1, value2, locale, order = 1) {
+    let result = -1;
+    const emptyValue1 = this.isEmpty(value1);
+    const emptyValue2 = this.isEmpty(value2);
+    if (emptyValue1 && emptyValue2) result = 0;else if (emptyValue1) result = order;else if (emptyValue2) result = -order;else if (typeof value1 === 'string' && typeof value2 === 'string') result = value1.localeCompare(value2, locale, {
+      numeric: true
+    });else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
+    return result;
+  }
+  static sort(value1, value2, order = 1, locale, nullSortOrder = 1) {
+    const result = ObjectUtils.compare(value1, value2, locale, order);
+    // nullSortOrder == 1 means Excel like sort nulls at bottom
+    const finalSortOrder = nullSortOrder === 1 ? order : nullSortOrder;
+    return finalSortOrder * result;
+  }
+  static merge(obj1, obj2) {
+    if ((obj1 == undefined || typeof obj1 === 'object') && (obj2 == undefined || typeof obj2 === 'object')) {
+      return Object.assign(Object.assign({}, obj1 || {}), obj2 || {});
+    } else if ((obj1 == undefined || typeof obj1 === 'string') && (obj2 == undefined || typeof obj2 === 'string')) {
+      return [obj1 || '', obj2 || ''].join(' ');
+    }
+    return obj2 || obj1;
   }
 }
 var lastId = 0;
