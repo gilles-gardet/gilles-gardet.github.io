@@ -1,6 +1,6 @@
 {
   "cv": {
-    "mode":  {
+    "mode": {
       "label": {
         "dark": "sombre",
         "light": "clair"
@@ -25,6 +25,31 @@
           }
         }
       }
+    },
+    "summary": {
+      "panelTitle": "Profil et généralités",
+      "content": "<p>Je bénéficie d’une expérience de <b>{{ value }} ans</b> en tant que concepteur développeur en matièrede systèmes d’information.</p><p>Principalement spécialisé dans les technologies <b>backend</b> (Java, Spring...), que j'ai pu éprouver sur différentes missions elles-mêmes touchant à plusieurs domaines d'activités (domaine du spatial, des ressources humaines, des collectivités...).</p><p>J'ai néanmoins un profil <b>fullstack</b> de par les nombreux projets frontend que j'ai pu réaliser en parallèle.</p><p>J'ai l'habitude de travailler avec les méthodes <b>Agiles</b> que j'affectionne quand il s'agit de conduire un projet (Scrum, Kanban..).</p>"
+    },
+    "skills": {
+      "panelTitle": "Langages et outils"
+    },
+    "missions": {
+      "panelTitle": "Expérience",
+      "content": {
+
+      }
+    },
+    "hobbies": {
+      "panelTitle": "Loisirs",
+      "content": {
+        "dev": "Développement relatif à tout type de langages et technologies",
+        "basket": "Basketball en compétition (niveau excellence)",
+        "running": "Course à pied (participation au marathon de Toulouse en équipe)",
+        "movie": "Cinéma fantastique des années 80-90 (Carpenter, Cronenberg, Romero...)"
+      }
+    },
+    "shared": {
+      "slideButton": "En savoir plus"
     }
   }
 }
