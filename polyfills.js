@@ -8,7 +8,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var zone_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! zone.js */ 4924);
+/* harmony import */ var zone_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! zone.js */ 4946);
 /* harmony import */ var zone_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(zone_js__WEBPACK_IMPORTED_MODULE_0__);
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
@@ -59,10 +59,9 @@ __webpack_require__.r(__webpack_exports__);
  * APPLICATION IMPORTS
  */
 
-
 /***/ }),
 
-/***/ 4924:
+/***/ 4946:
 /*!***********************************************!*\
   !*** ./node_modules/zone.js/fesm2015/zone.js ***!
   \***********************************************/
@@ -71,7 +70,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
- * @license Angular v14.2.0-next.0
+ * @license Angular v15.1.0-next.0
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -310,6 +309,9 @@ __webpack_require__.r(__webpack_exports__);
     }
     cancelTask(task) {
       if (task.zone != this) throw new Error('A task can only be cancelled in the zone of creation! (Creation: ' + (task.zone || NO_ZONE).name + '; Execution: ' + this.name + ')');
+      if (task.state !== scheduled && task.state !== running) {
+        return;
+      }
       task._transitionTo(canceling, scheduled, running);
       try {
         this._zoneDelegate.cancelTask(this, task);
