@@ -81,16 +81,6 @@ describe('DetailsComponent', () => {
     expect(document.body.getElementsByClassName('p-dialog-content-scroll')[0]).not.toBeNull();
   });
 
-  it(`should get the path of the full mardown file related to a mission's date`, async () => {
-    const path = detailsComponent.missionFromDate('2019-01-01', 'full');
-    expect(path).toEqual('/assets/resume/missions/en/201901/201901_full.md');
-  });
-
-  it(`should get the path of the light mardown file related to a mission's date`, async () => {
-    const path = detailsComponent.missionFromDate('2019-01-01', 'light');
-    expect(path).toEqual('/assets/resume/missions/en/201901/201901_light.md');
-  });
-
   afterEach(() => {
     jest.useRealTimers();
   });

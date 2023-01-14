@@ -39,7 +39,7 @@ export class SkillsComponent implements AfterViewInit {
           } else {
             this.skills.forEach((tool: Skill) => (tool.rate = 0));
           }
-          this.changeDetectorRef.detectChanges();
+          this.changeDetectorRef.markForCheck();
         });
       },
       {

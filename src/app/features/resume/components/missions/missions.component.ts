@@ -28,7 +28,7 @@ export class MissionsComponent implements OnInit, AfterViewInit {
   @Input() missions: Mission[] = [];
   @Output() openDialog = new EventEmitter<Mission>();
 
-  screenWidth: any;
+  screenWidth: number | undefined;
 
   /**
    * @inheritDoc
@@ -61,6 +61,9 @@ export class MissionsComponent implements OnInit, AfterViewInit {
         // trigger the animation on the intersection according to the side of the timeline event
         entries.forEach((entry: IntersectionObserverEntry) => {
           if (!entry.isIntersecting) {
+            return;
+          }
+          if (!this.screenWidth) {
             return;
           }
           if (this.screenWidth > 960) {

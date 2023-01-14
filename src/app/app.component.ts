@@ -4,6 +4,7 @@ import {
   Component,
   HostListener,
   inject,
+  OnDestroy,
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
@@ -17,18 +18,18 @@ import { LANGUAGE_KEY } from '@core/services/config.service';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { BlockUIModule } from 'primeng/blockui';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
-import { Subject, timer } from 'rxjs';
+import { EMPTY, Subject, timer } from 'rxjs';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [GeneralComponent, NgClass, ProgressSpinnerModule, ResumeComponent, ScrollTopModule, NgIf, BlockUIModule],
+  imports: [BlockUIModule, GeneralComponent, NgClass, NgIf, ProgressSpinnerModule, ResumeComponent, ScrollTopModule],
   selector: 'cv-root',
   standalone: true,
   styleUrls: ['./app.component.scss'],
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   translateService = inject(TranslateService);
   changeDetectorRef = inject(ChangeDetectorRef);
   unsubscribe$ = new Subject();
@@ -48,12 +49,12 @@ export class AppComponent implements OnInit {
    */
   ngOnInit() {
     const language$ = this.translateService.onLangChange.pipe(
-      takeUntil(this.unsubscribe$),
       tap(() => (this.isLoading = true)),
       switchMap(() => timer(600)),
-      tap(() => (this.isLoading = false))
+      tap(() => (this.isLoading = false)),
+      takeUntil(this.unsubscribe$)
     );
-    language$.subscribe(() => this.changeDetectorRef.detectChanges());
+    language$.subscribe(() => this.changeDetectorRef.markForCheck());
   }
 
   /**
@@ -61,10 +62,12 @@ export class AppComponent implements OnInit {
    */
   @HostListener('window:scroll', ['$event'])
   onPageScroll(): void {
-    const scrollTracker: any = document.getElementById('scroll-tracker');
+    const scrollTracker: HTMLElement | null = document.getElementById('scroll-tracker');
     let scrollDistance = document.documentElement.scrollTop || document.body.scrollTop;
     let progressWidth = (scrollDistance / (document.body.scrollHeight - document.documentElement.clientHeight)) * 100;
-    scrollTracker!.style.width = progressWidth + '%';
+    if (scrollTracker!.style) {
+      scrollTracker!.style.width = progressWidth + '%';
+    }
   }
 
   /**
@@ -98,7 +101,7 @@ export class AppComponent implements OnInit {
    * @inheritDoc
    */
   ngOnDestroy(): void {
-    this.unsubscribe$.next();
+    this.unsubscribe$.next(EMPTY);
     this.unsubscribe$.unsubscribe();
   }
 }

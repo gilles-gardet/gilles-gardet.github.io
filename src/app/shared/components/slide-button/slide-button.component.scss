@@ -2,17 +2,19 @@
   transition: $property $duration $ease;
 }
 
+$radius: 1.625rem;
+
 button {
   @apply bg-dark-slide-button-bg dark:bg-slide-button-bg;
   position: relative;
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
-  padding: 0;
+  padding: 2px;
   font-size: 14px;
   outline: none;
   border: none;
-  border-radius: 1.625rem;
+  border-radius: $radius;
 
   &.learn-more {
     width: 10rem;
@@ -26,7 +28,7 @@ button {
       margin: 0;
       width: 2rem;
       height: 2rem;
-      border-radius: 1.625rem;
+      border-radius: $radius;
 
       .icon {
         @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
@@ -71,7 +73,7 @@ button {
       bottom: 0;
       padding: 0.75rem 0;
       margin: 0 0 0 1.85rem;
-      line-height: 0.6;
+      line-height: 0.8;
       text-align: center;
     }
   }

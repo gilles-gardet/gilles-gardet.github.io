@@ -8,7 +8,7 @@ import {
   OnDestroy,
   Output,
 } from '@angular/core';
-import { forkJoin, Observable, Subject } from 'rxjs';
+import { EMPTY, forkJoin, Observable, Subject } from 'rxjs';
 import { MarkdownService } from 'ngx-markdown';
 import { takeUntil, tap } from 'rxjs/operators';
 import { Mission } from '@core/models/mission.model';
@@ -16,7 +16,8 @@ import { DialogModule } from 'primeng/dialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { CommonModule } from '@angular/common';
 import { EMPTY_STRING } from '@core/utils/string.utils';
-import { TranslateService } from "@ngx-translate/core";
+import { TranslateService } from '@ngx-translate/core';
+import { MissionService } from '@core/services/mission.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -29,59 +30,46 @@ import { TranslateService } from "@ngx-translate/core";
 export class DetailsComponent implements OnDestroy {
   @Input() selectedMission: Mission = {} as Mission;
   @Input() displayDialog = false;
-  @Output() close: EventEmitter<boolean> = new EventEmitter();
+  @Output() detailsChange = new EventEmitter<boolean>();
   unsubscribe$ = new Subject();
   markdownService = inject(MarkdownService);
   changeDetectorRef = inject(ChangeDetectorRef);
   translateService = inject(TranslateService);
+  missionService = inject(MissionService);
   loading = true;
   innerFullMission: string = EMPTY_STRING;
   innerLightMission: string = EMPTY_STRING;
-
-  /**
-   * Retrieve the mission from the passed date
-   *
-   * @param startingDate the starting date of the mission
-   * @param type the type of mardown file to fetch
-   * @return description the mission description we want to display
-   */
-  missionFromDate(startingDate: string, type: string): string {
-    const date = new Date(startingDate);
-    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
-    const language = this.translateService.currentLang;
-    return `/assets/resume/missions/${language}/${date.getFullYear()}${month}/${date.getFullYear()}${month}_${type}.md`;
-  }
 
   /**
    * Re-initialize the loader of the dialog content
    */
   onDialogHiding(): void {
     this.loading = true;
-    this.close.next(true);
+    this.detailsChange.next(true);
   }
 
   /**
    * Parse the markdown contained in the selected mission file
    */
   onMissionLoading(): void {
-    const fullMission: Observable<string> = this.markdownService.getSource(
-      this.missionFromDate(this.selectedMission?.startDate, 'full')
+    const fullMission$: Observable<string> = this.markdownService.getSource(
+      this.missionService.missionFromDate(this.selectedMission?.startDate, 'full')
     );
-    const lightMission: Observable<string> = this.markdownService.getSource(
-      this.missionFromDate(this.selectedMission?.startDate, 'light')
+    const lightMission$: Observable<string> = this.markdownService.getSource(
+      this.missionService.missionFromDate(this.selectedMission?.startDate, 'light')
     );
-    forkJoin({ lightMission, fullMission })
+    forkJoin([lightMission$, fullMission$])
       .pipe(
-        takeUntil(this.unsubscribe$),
-        tap((value: any) => {
-          this.innerLightMission = this.markdownService.parse(value.lightMission);
-          this.innerFullMission = this.markdownService.parse(value.fullMission);
-        })
+        tap((values: string[]) => {
+          this.innerLightMission = this.markdownService.parse(values[0]);
+          this.innerFullMission = this.markdownService.parse(values[1]);
+        }),
+        takeUntil(this.unsubscribe$)
       )
       .subscribe(() => {
         setTimeout(() => {
           this.loading = false;
-          this.changeDetectorRef.detectChanges();
+          this.changeDetectorRef.markForCheck();
           document
             .querySelector('p-dialog > .p-dialog-mask > .p-dialog > .p-dialog-content')
             ?.classList.add('p-dialog-content-scroll');
@@ -93,7 +81,7 @@ export class DetailsComponent implements OnDestroy {
    * @inheritDoc
    */
   ngOnDestroy(): void {
-    this.unsubscribe$.next();
+    this.unsubscribe$.next(EMPTY);
     this.unsubscribe$.unsubscribe();
   }
 }

@@ -268,16 +268,6 @@ describe('ResumeComponent', () => {
     expect(resumeComponent.selectedMission).toEqual(mission);
   });
 
-  it(`should get the path of the full mardown file related to a mission's date`, async () => {
-    const path = resumeComponent.missionFromDate('2019-01-01', 'full');
-    expect(path).toContain('/201901/201901_full.md');
-  });
-
-  it(`should get the path of the light mardown file related to a mission's date`, async () => {
-    const path = resumeComponent.missionFromDate('2019-01-01', 'light');
-    expect(path).toContain('/201901/201901_light.md');
-  });
-
   it(`should get the timelapse label of a mission`, async () => {
     const start: Date = new Date('2018-10-02');
     const end: Date = new Date('2022-04-16');

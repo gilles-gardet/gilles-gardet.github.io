@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { of, Subject, zip } from 'rxjs';
+import { EMPTY, of, Subject, zip } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Mission } from '@core/models/mission.model';
 import { Skill } from '@core/models/skill.model';
@@ -13,10 +13,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { EMPTY_STRING } from '@core/utils/string.utils';
 import missions from '@assets/resume/missions.json';
 import skills from '@assets/resume/skills.json';
+import { MissionService } from "@core/services/mission.service";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [HobbiesComponent, MissionsComponent, DetailsComponent, SkillsComponent, SummaryComponent, SharedModule],
+  imports: [DetailsComponent, HobbiesComponent, MissionsComponent, SharedModule, SkillsComponent, SummaryComponent],
   selector: 'cv-resume',
   standalone: true,
   styleUrls: ['./resume.component.scss'],
@@ -24,6 +25,7 @@ import skills from '@assets/resume/skills.json';
 })
 export class ResumeComponent implements OnInit, OnDestroy {
   translateService = inject(TranslateService);
+  missionService = inject(MissionService);
   unsubscribe$ = new Subject();
   selectedMission: Mission = {} as Mission;
   missions: Mission[] = [];
@@ -44,27 +46,13 @@ export class ResumeComponent implements OnInit, OnDestroy {
           return {
             ...mission,
             timelapse: this.missionTimelapse(mission.startDate, mission.endDate),
-            description: this.missionFromDate(mission.startDate, 'light'),
+            description: this.missionService.missionFromDate(mission.startDate, 'light'),
           };
         });
         this.skills = result.skills;
         this.clones = result.skills;
         this.skills = result.skills.map((skill) => ({ name: skill.name, rate: 0 }));
       });
-  }
-
-  /**
-   * Retrieve the mission from the passed date
-   *
-   * @param startingDate the starting date of the mission
-   * @param type the type of mardown file to fetch
-   * @return description the mission description we want to display
-   */
-  missionFromDate(startingDate: string, type: string): string {
-    const date = new Date(startingDate);
-    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
-    const language = this.translateService.currentLang;
-    return `/assets/resume/missions/${language}/${date.getFullYear()}${month}/${date.getFullYear()}${month}_${type}.md`;
   }
 
   /**
@@ -170,7 +158,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
    * @inheritDoc
    */
   ngOnDestroy(): void {
-    this.unsubscribe$.next();
+    this.unsubscribe$.next(EMPTY);
     this.unsubscribe$.unsubscribe();
   }
 }

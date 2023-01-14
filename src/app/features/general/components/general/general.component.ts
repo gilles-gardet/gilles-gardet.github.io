@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { ConfigService, DARK_THEME, LANGUAGE_KEY, LIGHT_THEME, THEME_KEY } from '@core/services/config.service';
 import { takeUntil, tap } from 'rxjs/operators';
-import { forkJoin, Subject } from 'rxjs';
+import { EMPTY, forkJoin, Subject } from 'rxjs';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -66,12 +66,12 @@ export class GeneralComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this._initMenuItems();
     const language$ = this.translateService.onLangChange.pipe(
-      takeUntil(this.unsubscribe$),
-      tap(() => this._initMenuItems())
+      tap(() => this._initMenuItems()),
+      takeUntil(this.unsubscribe$)
     );
     const theme$ = this.configService.theme$.pipe(
-      takeUntil(this.unsubscribe$),
-      tap((theme: string) => this.onThemeChange(theme))
+      tap((theme: string) => this.onThemeChange(theme)),
+      takeUntil(this.unsubscribe$)
     );
     forkJoin([language$, theme$]).subscribe();
   }
@@ -183,7 +183,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
    * @inheritDoc
    */
   ngOnDestroy(): void {
-    this.unsubscribe$.next();
+    this.unsubscribe$.next(EMPTY);
     this.unsubscribe$.unsubscribe();
   }
 }
