@@ -885,6 +885,11 @@ p-chip[label="gilles.gardet@gmail.com"] .p-chip:hover::before {
   --tw-text-opacity: 1;
   color: hsl(240 4% 90% / var(--tw-text-opacity));
 }
+
+.p-dialog .p-dialog-header,
+.p-dialog .p-dialog-content {
+  overflow: hidden !important;
+}
 .p-dialog .p-dialog-header {
   display: grid;
 }
@@ -7773,6 +7778,19 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   background: #ffffff;
   border: 1px solid #dee2e6;
   border-width: 0 0 2px 0;
+}
+.p-tabmenu .p-tabmenu-nav .p-menuitem-badge {
+  background: #2196F3;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-radius: 3px;
+  margin-left: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
   margin-right: 0;

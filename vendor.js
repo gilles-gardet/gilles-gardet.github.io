@@ -3954,7 +3954,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵPRE_STYLE": () => (/* binding */ ɵPRE_STYLE)
 /* harmony export */ });
 /**
- * @license Angular v15.1.0-rc.0
+ * @license Angular v15.1.1
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -5210,7 +5210,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ 4851);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 2560);
 /**
- * @license Angular v15.1.0-rc.0
+ * @license Angular v15.1.1
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -9632,7 +9632,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 2560);
 /**
- * @license Angular v15.1.0
+ * @license Angular v15.1.1
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -10443,7 +10443,7 @@ function createLocation() {
   return new Location((0,_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(LocationStrategy));
 }
 function _stripBasePath(basePath, url) {
-  return basePath && url.startsWith(basePath) ? url.substring(basePath.length) : url;
+  return basePath && new RegExp(`^${basePath}([/;?#]|$)`).test(url) ? url.substring(basePath.length) : url;
 }
 function _stripIndexHtml(url) {
   return url.replace(/\/index.html$/, '');
@@ -12436,7 +12436,8 @@ function parseCookieValue(cookieStr, name) {
   }
   return null;
 }
-
+const WS_REGEXP = /\s+/;
+const EMPTY_ARRAY = [];
 /**
  * @ngModule CommonModule
  *
@@ -12466,102 +12467,105 @@ function parseCookieValue(cookieStr, name) {
  * @publicApi
  */
 class NgClass {
-  constructor(_iterableDiffers, _keyValueDiffers, _ngEl, _renderer) {
+  constructor(
+  // leaving references to differs in place since flex layout is extending NgClass...
+  _iterableDiffers, _keyValueDiffers, _ngEl, _renderer) {
     this._iterableDiffers = _iterableDiffers;
     this._keyValueDiffers = _keyValueDiffers;
     this._ngEl = _ngEl;
     this._renderer = _renderer;
-    this._iterableDiffer = null;
-    this._keyValueDiffer = null;
-    this._initialClasses = [];
-    this._rawClass = null;
+    this.initialClasses = EMPTY_ARRAY;
+    this.stateMap = new Map();
   }
   set klass(value) {
-    this._removeClasses(this._initialClasses);
-    this._initialClasses = typeof value === 'string' ? value.split(/\s+/) : [];
-    this._applyClasses(this._initialClasses);
-    this._applyClasses(this._rawClass);
+    this.initialClasses = value != null ? value.trim().split(WS_REGEXP) : EMPTY_ARRAY;
   }
   set ngClass(value) {
-    this._removeClasses(this._rawClass);
-    this._applyClasses(this._initialClasses);
-    this._iterableDiffer = null;
-    this._keyValueDiffer = null;
-    this._rawClass = typeof value === 'string' ? value.split(/\s+/) : value;
-    if (this._rawClass) {
-      if ((0,_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵisListLikeIterable"])(this._rawClass)) {
-        this._iterableDiffer = this._iterableDiffers.find(this._rawClass).create();
-      } else {
-        this._keyValueDiffer = this._keyValueDiffers.find(this._rawClass).create();
-      }
-    }
+    this.rawClass = typeof value === 'string' ? value.trim().split(WS_REGEXP) : value;
   }
+  /*
+  The NgClass directive uses the custom change detection algorithm for its inputs. The custom
+  algorithm is necessary since inputs are represented as complex object or arrays that need to be
+  deeply-compared.
+     This algorithm is perf-sensitive since NgClass is used very frequently and its poor performance
+  might negatively impact runtime performance of the entire change detection cycle. The design of
+  this algorithm is making sure that:
+  - there is no unnecessary DOM manipulation (CSS classes are added / removed from the DOM only when
+  needed), even if references to bound objects change;
+  - there is no memory allocation if nothing changes (even relatively modest memory allocation
+  during the change detection cycle can result in GC pauses for some of the CD cycles).
+     The algorithm works by iterating over the set of bound classes, staring with [class] binding and
+  then going over [ngClass] binding. For each CSS class name:
+  - check if it was seen before (this information is tracked in the state map) and if its value
+  changed;
+  - mark it as "touched" - names that are not marked are not present in the latest set of binding
+  and we can remove such class name from the internal data structures;
+     After iteration over all the CSS class names we've got data structure with all the information
+  necessary to synchronize changes to the DOM - it is enough to iterate over the state map, flush
+  changes to the DOM and reset internal data structures so those are ready for the next change
+  detection cycle.
+   */
   ngDoCheck() {
-    if (this._iterableDiffer) {
-      const iterableChanges = this._iterableDiffer.diff(this._rawClass);
-      if (iterableChanges) {
-        this._applyIterableChanges(iterableChanges);
+    // classes from the [class] binding
+    for (const klass of this.initialClasses) {
+      this._updateState(klass, true);
+    }
+    // classes from the [ngClass] binding
+    const rawClass = this.rawClass;
+    if (Array.isArray(rawClass) || rawClass instanceof Set) {
+      for (const klass of rawClass) {
+        this._updateState(klass, true);
       }
-    } else if (this._keyValueDiffer) {
-      const keyValueChanges = this._keyValueDiffer.diff(this._rawClass);
-      if (keyValueChanges) {
-        this._applyKeyValueChanges(keyValueChanges);
+    } else if (rawClass != null) {
+      for (const klass of Object.keys(rawClass)) {
+        this._updateState(klass, Boolean(rawClass[klass]));
       }
     }
+    this._applyStateDiff();
   }
-  _applyKeyValueChanges(changes) {
-    changes.forEachAddedItem(record => this._toggleClass(record.key, record.currentValue));
-    changes.forEachChangedItem(record => this._toggleClass(record.key, record.currentValue));
-    changes.forEachRemovedItem(record => {
-      if (record.previousValue) {
-        this._toggleClass(record.key, false);
+  _updateState(klass, nextEnabled) {
+    const state = this.stateMap.get(klass);
+    if (state !== undefined) {
+      if (state.enabled !== nextEnabled) {
+        state.changed = true;
+        state.enabled = nextEnabled;
       }
-    });
-  }
-  _applyIterableChanges(changes) {
-    changes.forEachAddedItem(record => {
-      if (typeof record.item === 'string') {
-        this._toggleClass(record.item, true);
-      } else {
-        throw new Error(`NgClass can only toggle CSS classes expressed as strings, got ${(0,_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵstringify"])(record.item)}`);
-      }
-    });
-    changes.forEachRemovedItem(record => this._toggleClass(record.item, false));
-  }
-  /**
-   * Applies a collection of CSS classes to the DOM element.
-   *
-   * For argument of type Set and Array CSS class names contained in those collections are always
-   * added.
-   * For argument of type Map CSS class name in the map's key is toggled based on the value (added
-   * for truthy and removed for falsy).
-   */
-  _applyClasses(rawClassVal) {
-    if (rawClassVal) {
-      if (Array.isArray(rawClassVal) || rawClassVal instanceof Set) {
-        rawClassVal.forEach(klass => this._toggleClass(klass, true));
-      } else {
-        Object.keys(rawClassVal).forEach(klass => this._toggleClass(klass, !!rawClassVal[klass]));
-      }
+      state.touched = true;
+    } else {
+      this.stateMap.set(klass, {
+        enabled: nextEnabled,
+        changed: true,
+        touched: true
+      });
     }
   }
-  /**
-   * Removes a collection of CSS classes from the DOM element. This is mostly useful for cleanup
-   * purposes.
-   */
-  _removeClasses(rawClassVal) {
-    if (rawClassVal) {
-      if (Array.isArray(rawClassVal) || rawClassVal instanceof Set) {
-        rawClassVal.forEach(klass => this._toggleClass(klass, false));
-      } else {
-        Object.keys(rawClassVal).forEach(klass => this._toggleClass(klass, false));
+  _applyStateDiff() {
+    for (const stateEntry of this.stateMap) {
+      const klass = stateEntry[0];
+      const state = stateEntry[1];
+      if (state.changed) {
+        this._toggleClass(klass, state.enabled);
+        state.changed = false;
+      } else if (!state.touched) {
+        // A class that was previously active got removed from the new collection of classes -
+        // remove from the DOM as well.
+        if (state.enabled) {
+          this._toggleClass(klass, false);
+        }
+        this.stateMap.delete(klass);
       }
+      state.touched = false;
     }
   }
   _toggleClass(klass, enabled) {
+    if (ngDevMode) {
+      if (typeof klass !== 'string') {
+        throw new Error(`NgClass can only toggle CSS classes expressed as strings, got ${(0,_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵstringify"])(klass)}`);
+      }
+    }
     klass = klass.trim();
-    if (klass) {
-      klass.split(/\s+/g).forEach(klass => {
+    if (klass.length > 0) {
+      klass.split(WS_REGEXP).forEach(klass => {
         if (enabled) {
           this._renderer.addClass(this._ngEl.nativeElement, klass);
         } else {
@@ -15259,7 +15263,7 @@ function isPlatformWorkerUi(platformId) {
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('15.1.0');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('15.1.1');
 
 /**
  * Defines a scroll position manager. Implemented by `BrowserViewportScroller`.
@@ -16833,7 +16837,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 116);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 635);
 /**
- * @license Angular v15.1.0
+ * @license Angular v15.1.1
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -19743,7 +19747,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 6646);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 1203);
 /**
- * @license Angular v15.1.0-rc.0
+ * @license Angular v15.1.1
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -27920,7 +27924,7 @@ class Version {
 /**
  * @publicApi
  */
-const VERSION = new Version('15.1.0');
+const VERSION = new Version('15.1.1');
 
 // This default value is when checking the hierarchy for a token.
 //
@@ -46851,7 +46855,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 1640);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 635);
 /**
- * @license Angular v15.1.0
+ * @license Angular v15.1.1
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -54731,7 +54735,7 @@ UntypedFormBuilder.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODUL
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('15.1.0');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('15.1.1');
 
 /**
  * Exports the required providers and directives for template-driven forms,
@@ -54891,7 +54895,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_animations_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/animations/browser */ 5787);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4666);
 /**
- * @license Angular v15.1.0
+ * @license Angular v15.1.1
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -55558,7 +55562,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ 4666);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 2560);
 /**
- * @license Angular v15.1.0
+ * @license Angular v15.1.1
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -57786,7 +57790,7 @@ DomSanitizerImpl.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('15.1.0');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('15.1.1');
 
 /**
  * @module
@@ -57915,7 +57919,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! rxjs/operators */ 1308);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/platform-browser */ 4497);
 /**
- * @license Angular v15.1.0
+ * @license Angular v15.1.1
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -62451,7 +62455,7 @@ class NavigationTransitions {
       }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_10__.filter)(t => {
         if (!t.guardsResult) {
           router.restoreHistory(t);
-          this.cancelNavigationTransition(t, '', 3 /* NavigationCancellationCode.GuardRejected */, router);
+          this.cancelNavigationTransition(t, '', 3 /* NavigationCancellationCode.GuardRejected */);
           return false;
         }
         return true;
@@ -62469,7 +62473,7 @@ class NavigationTransitions {
               complete: () => {
                 if (!dataResolved) {
                   router.restoreHistory(t);
-                  this.cancelNavigationTransition(t, NG_DEV_MODE$4 ? `At least one route resolver didn't emit any value.` : '', 2 /* NavigationCancellationCode.NoDataFromResolver */, router);
+                  this.cancelNavigationTransition(t, NG_DEV_MODE$4 ? `At least one route resolver didn't emit any value.` : '', 2 /* NavigationCancellationCode.NoDataFromResolver */);
                 }
               }
             }));
@@ -62539,7 +62543,7 @@ class NavigationTransitions {
          * navigation gets cancelled but not caught by other means. */
         if (!completed && !errored) {
           const cancelationReason = NG_DEV_MODE$4 ? `Navigation ID ${overallTransitionState.id} is not equal to the current navigation id ${this.navigationId}` : '';
-          this.cancelNavigationTransition(overallTransitionState, cancelationReason, 1 /* NavigationCancellationCode.SupersededByNewNavigation */, router);
+          this.cancelNavigationTransition(overallTransitionState, cancelationReason, 1 /* NavigationCancellationCode.SupersededByNewNavigation */);
         }
         // Only clear current navigation if it is still set to the one that
         // finalized.
@@ -62601,7 +62605,7 @@ class NavigationTransitions {
     }));
   }
 
-  cancelNavigationTransition(t, reason, code, router) {
+  cancelNavigationTransition(t, reason, code) {
     const navCancel = new NavigationCancel(t.id, this.urlSerializer.serialize(t.extractedUrl), reason, code);
     this.events.next(navCancel);
     t.resolve(false);
@@ -65156,7 +65160,7 @@ function provideRouterInitializer() {
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('15.1.0');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('15.1.1');
 
 /**
  * @module
@@ -69167,21 +69171,6 @@ class MarkdownService {
     this.http = http;
     this.clipboardOptions = clipboardOptions;
     this.sanitizer = sanitizer;
-    this.DEFAULT_PARSE_OPTIONS = {
-      decodeHtml: false,
-      inline: false,
-      emoji: false,
-      mermaid: false,
-      markedOptions: undefined
-    };
-    this.DEFAULT_RENDER_OPTIONS = {
-      clipboard: false,
-      clipboardOptions: undefined,
-      katex: false,
-      katexOptions: undefined,
-      mermaid: false,
-      mermaidOptions: undefined
-    };
     this.DEFAULT_MARKED_OPTIONS = {
       renderer: new marked__WEBPACK_IMPORTED_MODULE_0__.Renderer()
     };
@@ -69230,6 +69219,22 @@ class MarkdownService {
     this.DEFAULT_CLIPBOARD_OPTIONS = {
       buttonComponent: undefined
     };
+    this.DEFAULT_PARSE_OPTIONS = {
+      decodeHtml: false,
+      inline: false,
+      emoji: false,
+      mermaid: false,
+      markedOptions: this.DEFAULT_MARKED_OPTIONS,
+      disableSanitizer: false
+    };
+    this.DEFAULT_RENDER_OPTIONS = {
+      clipboard: false,
+      clipboardOptions: undefined,
+      katex: false,
+      katexOptions: undefined,
+      mermaid: false,
+      mermaidOptions: undefined
+    };
     this._reload$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__.Subject();
     this.reload$ = this._reload$.asObservable();
     this.options = options;
@@ -69249,14 +69254,18 @@ class MarkdownService {
   set renderer(value) {
     this.options.renderer = value;
   }
-  parse(markdown, options = this.DEFAULT_PARSE_OPTIONS) {
+  parse(markdown, parseOptions = this.DEFAULT_PARSE_OPTIONS) {
     const {
       decodeHtml,
       inline,
       emoji,
       mermaid,
-      markedOptions = this.options
-    } = options;
+      disableSanitizer
+    } = parseOptions;
+    const markedOptions = {
+      ...this.options,
+      ...parseOptions.markedOptions
+    };
     if (mermaid) {
       this.renderer = this.extendRenderer(markedOptions.renderer || new marked__WEBPACK_IMPORTED_MODULE_0__.Renderer());
     }
@@ -69264,7 +69273,8 @@ class MarkdownService {
     const decoded = decodeHtml ? this.decodeHtml(trimmed) : trimmed;
     const emojified = emoji ? this.parseEmoji(decoded) : decoded;
     const marked = this.parseMarked(emojified, markedOptions, inline);
-    return this.sanitizer.sanitize(this.securityContext, marked) || '';
+    const sanitized = disableSanitizer ? marked : this.sanitizer.sanitize(this.securityContext, marked);
+    return sanitized || '';
   }
   render(element, options = this.DEFAULT_RENDER_OPTIONS, viewContainerRef) {
     const {
@@ -69528,21 +69538,35 @@ class MarkdownComponent {
     this.error = new _angular_core__WEBPACK_IMPORTED_MODULE_11__.EventEmitter();
     this.load = new _angular_core__WEBPACK_IMPORTED_MODULE_11__.EventEmitter();
     this.ready = new _angular_core__WEBPACK_IMPORTED_MODULE_11__.EventEmitter();
-    this._commandLine = false;
     this._clipboard = false;
+    this._commandLine = false;
+    this._disableSanitizer = false;
     this._emoji = false;
     this._inline = false;
     this._katex = false;
     this._lineHighlight = false;
     this._lineNumbers = false;
     this._mermaid = false;
+    this._srcRelativeLink = false;
     this.destroyed$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__.Subject();
+  }
+  get disableSanitizer() {
+    return this._disableSanitizer;
+  }
+  set disableSanitizer(value) {
+    this._disableSanitizer = this.coerceBooleanProperty(value);
   }
   get inline() {
     return this._inline;
   }
   set inline(value) {
     this._inline = this.coerceBooleanProperty(value);
+  }
+  get srcRelativeLink() {
+    return this._srcRelativeLink;
+  }
+  set srcRelativeLink(value) {
+    this._srcRelativeLink = this.coerceBooleanProperty(value);
   }
   // Plugin - clipboard
   get clipboard() {
@@ -69617,11 +69641,20 @@ class MarkdownComponent {
     this.destroyed$.complete();
   }
   render(markdown, decodeHtml = false) {
+    let markedOptions;
+    if (this.src && this.srcRelativeLink) {
+      const baseUrl = new URL(this.src, location.origin).pathname;
+      markedOptions = {
+        baseUrl
+      };
+    }
     const parsedOptions = {
       decodeHtml,
       inline: this.inline,
       emoji: this.emoji,
-      mermaid: this.mermaid
+      mermaid: this.mermaid,
+      markedOptions,
+      disableSanitizer: this.disableSanitizer
     };
     const renderOptions = {
       clipboard: this.clipboard,
@@ -69725,7 +69758,9 @@ MarkdownComponent.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_
   inputs: {
     data: "data",
     src: "src",
+    disableSanitizer: "disableSanitizer",
     inline: "inline",
+    srcRelativeLink: "srcRelativeLink",
     clipboard: "clipboard",
     clipboardButtonComponent: "clipboardButtonComponent",
     clipboardButtonTemplate: "clipboardButtonTemplate",
@@ -69786,7 +69821,13 @@ MarkdownComponent.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_
     src: [{
       type: _angular_core__WEBPACK_IMPORTED_MODULE_11__.Input
     }],
+    disableSanitizer: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_11__.Input
+    }],
     inline: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_11__.Input
+    }],
+    srcRelativeLink: [{
       type: _angular_core__WEBPACK_IMPORTED_MODULE_11__.Input
     }],
     clipboard: [{
@@ -70008,7 +70049,6 @@ var MermaidAPI;
  */
 
 
-//# sourceMappingURL=ngx-markdown.mjs.map
 
 /***/ }),
 
@@ -70938,6 +70978,7 @@ TreeDragDropService.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODU
  */
 
 
+//# sourceMappingURL=primeng-api.mjs.map
 
 /***/ }),
 
@@ -71154,6 +71195,7 @@ AvatarModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["
  */
 
 
+//# sourceMappingURL=primeng-avatar.mjs.map
 
 /***/ }),
 
@@ -71408,6 +71450,7 @@ BlockUIModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__[
  */
 
 
+//# sourceMappingURL=primeng-blockui.mjs.map
 
 /***/ }),
 
@@ -71501,12 +71544,21 @@ const _c1 = function (a1, a2, a3, a4, a5) {
   };
 };
 const _c2 = ["*"];
+const INTERNAL_BUTTON_CLASSES = {
+  button: 'p-button',
+  component: 'p-component',
+  iconOnly: 'p-button-icon-only',
+  disabled: 'p-disabled',
+  loading: 'p-button-loading',
+  labelOnly: 'p-button-loading-label-only'
+};
 class ButtonDirective {
   constructor(el) {
     this.el = el;
     this.iconPos = 'left';
     this.loadingIcon = 'pi pi-spinner pi-spin';
     this._loading = false;
+    this._internalClasses = Object.values(INTERNAL_BUTTON_CLASSES);
   }
   get label() {
     return this._label;
@@ -71539,28 +71591,32 @@ class ButtonDirective {
       this.setStyleClass();
     }
   }
+  get htmlElement() {
+    return this.el.nativeElement;
+  }
   ngAfterViewInit() {
-    this._initialStyleClass = this.el.nativeElement.className;
-    primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.addMultipleClasses(this.el.nativeElement, this.getStyleClass());
+    primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.addMultipleClasses(this.htmlElement, this.getStyleClass().join(' '));
     this.createIcon();
     this.createLabel();
     this.initialized = true;
   }
   getStyleClass() {
-    let styleClass = 'p-button p-component';
-    if (this.icon && !this.label && primeng_utils__WEBPACK_IMPORTED_MODULE_2__.ObjectUtils.isEmpty(this.el.nativeElement.textContent)) {
-      styleClass = styleClass + ' p-button-icon-only';
+    const styleClass = [INTERNAL_BUTTON_CLASSES.button, INTERNAL_BUTTON_CLASSES.component];
+    if (this.icon && !this.label && primeng_utils__WEBPACK_IMPORTED_MODULE_2__.ObjectUtils.isEmpty(this.htmlElement.textContent)) {
+      styleClass.push(INTERNAL_BUTTON_CLASSES.iconOnly);
     }
     if (this.loading) {
-      styleClass = styleClass + ' p-disabled p-button-loading';
-      if (!this.icon && this.label) styleClass = styleClass + ' p-button-loading-label-only';
+      styleClass.push(INTERNAL_BUTTON_CLASSES.disabled, INTERNAL_BUTTON_CLASSES.loading);
+      if (!this.icon && this.label) {
+        styleClass.push(INTERNAL_BUTTON_CLASSES.labelOnly);
+      }
     }
     return styleClass;
   }
   setStyleClass() {
-    let styleClass = this.getStyleClass();
-    this._initialStyleClass = this.el.nativeElement.className;
-    this.el.nativeElement.className = styleClass + ' ' + this._initialStyleClass;
+    const styleClass = this.getStyleClass();
+    this.htmlElement.classList.remove(...this._internalClasses);
+    this.htmlElement.classList.add(...styleClass);
   }
   createLabel() {
     if (this.label) {
@@ -71570,7 +71626,7 @@ class ButtonDirective {
       }
       labelElement.className = 'p-button-label';
       labelElement.appendChild(document.createTextNode(this.label));
-      this.el.nativeElement.appendChild(labelElement);
+      this.htmlElement.appendChild(labelElement);
     }
   }
   createIcon() {
@@ -71586,21 +71642,21 @@ class ButtonDirective {
       if (iconClass) {
         primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.addMultipleClasses(iconElement, iconClass);
       }
-      this.el.nativeElement.insertBefore(iconElement, this.el.nativeElement.firstChild);
+      this.htmlElement.insertBefore(iconElement, this.htmlElement.firstChild);
     }
   }
   updateLabel() {
-    let labelElement = primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.findSingle(this.el.nativeElement, '.p-button-label');
+    let labelElement = primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.findSingle(this.htmlElement, '.p-button-label');
     if (!this.label) {
-      labelElement && this.el.nativeElement.removeChild(labelElement);
+      labelElement && this.htmlElement.removeChild(labelElement);
       return;
     }
     labelElement ? labelElement.textContent = this.label : this.createLabel();
   }
   updateIcon() {
-    let iconElement = primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.findSingle(this.el.nativeElement, '.p-button-icon');
+    let iconElement = primeng_dom__WEBPACK_IMPORTED_MODULE_1__.DomHandler.findSingle(this.htmlElement, '.p-button-icon');
     if (!this.icon && !this.loading) {
-      iconElement && this.el.nativeElement.removeChild(iconElement);
+      iconElement && this.htmlElement.removeChild(iconElement);
       return;
     }
     if (iconElement) {
@@ -71893,6 +71949,7 @@ ButtonModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["
  */
 
 
+//# sourceMappingURL=primeng-button.mjs.map
 
 /***/ }),
 
@@ -72190,6 +72247,7 @@ CardModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
  */
 
 
+//# sourceMappingURL=primeng-card.mjs.map
 
 /***/ }),
 
@@ -72438,6 +72496,7 @@ ChipModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
  */
 
 
+//# sourceMappingURL=primeng-chip.mjs.map
 
 /***/ }),
 
@@ -73177,6 +73236,7 @@ class Dialog {
       case 'void':
         this.onContainerDestroy();
         this.onHide.emit({});
+        this.cd.markForCheck();
         break;
       case 'visible':
         this.onShow.emit({});
@@ -73600,6 +73660,7 @@ DialogModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["
  */
 
 
+//# sourceMappingURL=primeng-dialog.mjs.map
 
 /***/ }),
 
@@ -74106,7 +74167,7 @@ class DomHandler {
                 [contenteditable]:not([tabIndex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden]):not(.p-disabled)`);
     let visibleFocusableElements = [];
     for (let focusableElement of focusableElements) {
-      if (getComputedStyle(focusableElement).display != 'none' && getComputedStyle(focusableElement).visibility != 'hidden') visibleFocusableElements.push(focusableElement);
+      if (!!(focusableElement.offsetWidth || focusableElement.offsetHeight || focusableElement.getClientRects().length)) visibleFocusableElements.push(focusableElement);
     }
     return visibleFocusableElements;
   }
@@ -74197,6 +74258,7 @@ class ConnectedOverlayScrollHandler {
  */
 
 
+//# sourceMappingURL=primeng-dom.mjs.map
 
 /***/ }),
 
@@ -74305,6 +74367,7 @@ FocusTrapModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1_
  */
 
 
+//# sourceMappingURL=primeng-focustrap.mjs.map
 
 /***/ }),
 
@@ -74567,6 +74630,7 @@ InputSwitchModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_
  */
 
 
+//# sourceMappingURL=primeng-inputswitch.mjs.map
 
 /***/ }),
 
@@ -75512,6 +75576,7 @@ MenuModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
  */
 
 
+//# sourceMappingURL=primeng-menu.mjs.map
 
 /***/ }),
 
@@ -76008,6 +76073,7 @@ PanelModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["�
  */
 
 
+//# sourceMappingURL=primeng-panel.mjs.map
 
 /***/ }),
 
@@ -76022,8 +76088,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ProgressBar": () => (/* binding */ ProgressBar),
 /* harmony export */   "ProgressBarModule": () => (/* binding */ ProgressBarModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 2560);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 4666);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 2560);
 
 
 
@@ -76049,7 +76115,7 @@ function ProgressBar_div_1_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("width", ctx_r0.value + "%");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("width", ctx_r0.value + "%")("background", ctx_r0.color);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.showValue);
   }
@@ -76059,6 +76125,11 @@ function ProgressBar_div_2_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 6);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "div", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("background", ctx_r1.color);
   }
 }
 const _c0 = function (a1, a2) {
@@ -76088,16 +76159,17 @@ ProgressBar.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["�
     style: "style",
     styleClass: "styleClass",
     unit: "unit",
-    mode: "mode"
+    mode: "mode",
+    color: "color"
   },
   decls: 3,
   vars: 10,
-  consts: [["role", "progressbar", "aria-valuemin", "0", "aria-valuemax", "100", 3, "ngStyle", "ngClass"], ["class", "p-progressbar-value p-progressbar-value-animate", "style", "display:flex", 3, "width", 4, "ngIf"], ["class", "p-progressbar-indeterminate-container", 4, "ngIf"], [1, "p-progressbar-value", "p-progressbar-value-animate", 2, "display", "flex"], ["class", "p-progressbar-label", 3, "display", 4, "ngIf"], [1, "p-progressbar-label"], [1, "p-progressbar-indeterminate-container"], [1, "p-progressbar-value", "p-progressbar-value-animate"]],
+  consts: [["role", "progressbar", "aria-valuemin", "0", "aria-valuemax", "100", 3, "ngStyle", "ngClass"], ["class", "p-progressbar-value p-progressbar-value-animate", "style", "display:flex", 3, "width", "background", 4, "ngIf"], ["class", "p-progressbar-indeterminate-container", 4, "ngIf"], [1, "p-progressbar-value", "p-progressbar-value-animate", 2, "display", "flex"], ["class", "p-progressbar-label", 3, "display", 4, "ngIf"], [1, "p-progressbar-label"], [1, "p-progressbar-indeterminate-container"], [1, "p-progressbar-value", "p-progressbar-value-animate"]],
   template: function ProgressBar_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProgressBar_div_1_Template, 2, 3, "div", 1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProgressBar_div_2_Template, 2, 0, "div", 2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProgressBar_div_1_Template, 2, 5, "div", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProgressBar_div_2_Template, 2, 2, "div", 2);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     }
     if (rf & 2) {
@@ -76130,11 +76202,11 @@ ProgressBar.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["�
             aria-valuemax="100"
             [ngClass]="{ 'p-progressbar p-component': true, 'p-progressbar-determinate': mode === 'determinate', 'p-progressbar-indeterminate': mode === 'indeterminate' }"
         >
-            <div *ngIf="mode === 'determinate'" class="p-progressbar-value p-progressbar-value-animate" [style.width]="value + '%'" style="display:flex">
+            <div *ngIf="mode === 'determinate'" class="p-progressbar-value p-progressbar-value-animate" [style.width]="value + '%'" style="display:flex" [style.background]="color">
                 <div *ngIf="showValue" class="p-progressbar-label" [style.display]="value != null && value !== 0 ? 'flex' : 'none'">{{ value }}{{ unit }}</div>
             </div>
             <div *ngIf="mode === 'indeterminate'" class="p-progressbar-indeterminate-container">
-                <div class="p-progressbar-value p-progressbar-value-animate"></div>
+                <div class="p-progressbar-value p-progressbar-value-animate" [style.background]="color"></div>
             </div>
         </div>
     `,
@@ -76162,6 +76234,9 @@ ProgressBar.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["�
       type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
     }],
     mode: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+    }],
+    color: [{
       type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
     }]
   });
@@ -76192,6 +76267,7 @@ ProgressBarModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_
  */
 
 
+//# sourceMappingURL=primeng-progressbar.mjs.map
 
 /***/ }),
 
@@ -76320,6 +76396,7 @@ ProgressSpinnerModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MOD
  */
 
 
+//# sourceMappingURL=primeng-progressspinner.mjs.map
 
 /***/ }),
 
@@ -76480,6 +76557,7 @@ RippleModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["
  */
 
 
+//# sourceMappingURL=primeng-ripple.mjs.map
 
 /***/ }),
 
@@ -76765,6 +76843,7 @@ ScrollTopModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0_
  */
 
 
+//# sourceMappingURL=primeng-scrolltop.mjs.map
 
 /***/ }),
 
@@ -76916,6 +76995,7 @@ TagModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
  */
 
 
+//# sourceMappingURL=primeng-tag.mjs.map
 
 /***/ }),
 
@@ -77189,6 +77269,7 @@ TimelineModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__
  */
 
 
+//# sourceMappingURL=primeng-timeline.mjs.map
 
 /***/ }),
 
@@ -77203,8 +77284,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Tooltip": () => (/* binding */ Tooltip),
 /* harmony export */   "TooltipModule": () => (/* binding */ TooltipModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 2560);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ 4666);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 2560);
 /* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/dom */ 1420);
 /* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/utils */ 8549);
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/api */ 4356);
@@ -77215,11 +77296,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Tooltip {
-  constructor(el, zone, config) {
+  constructor(el, zone, config, renderer, changeDetector) {
     this.el = el;
     this.zone = zone;
     this.config = config;
+    this.renderer = renderer;
+    this.changeDetector = changeDetector;
     this.escape = true;
+    this.autoHide = true;
     this.fitContent = true;
     this._tooltipOptions = {
       tooltipPosition: 'right',
@@ -77228,7 +77312,8 @@ class Tooltip {
       tooltipZIndex: 'auto',
       escape: true,
       positionTop: 0,
-      positionLeft: 0
+      positionLeft: 0,
+      autoHide: true
     };
   }
   get disabled() {
@@ -77243,10 +77328,10 @@ class Tooltip {
       if (this.getOption('tooltipEvent') === 'hover') {
         this.mouseEnterListener = this.onMouseEnter.bind(this);
         this.mouseLeaveListener = this.onMouseLeave.bind(this);
-        this.clickListener = this.onClick.bind(this);
+        this.clickListener = this.onInputClick.bind(this);
         this.el.nativeElement.addEventListener('mouseenter', this.mouseEnterListener);
-        this.el.nativeElement.addEventListener('mouseleave', this.mouseLeaveListener);
         this.el.nativeElement.addEventListener('click', this.clickListener);
+        this.el.nativeElement.addEventListener('mouseleave', this.mouseLeaveListener);
       } else if (this.getOption('tooltipEvent') === 'focus') {
         this.focusListener = this.onFocus.bind(this);
         this.blurListener = this.onBlur.bind(this);
@@ -77339,6 +77424,11 @@ class Tooltip {
         }
       }
     }
+    if (simpleChange.autoHide) {
+      this.setOption({
+        autoHide: simpleChange.autoHide.currentValue
+      });
+    }
     if (simpleChange.tooltipOptions) {
       this._tooltipOptions = {
         ...this._tooltipOptions,
@@ -77359,13 +77449,21 @@ class Tooltip {
       }
     }
   }
+  isAutoHide() {
+    return this.getOption('autoHide');
+  }
   onMouseEnter(e) {
     if (!this.container && !this.showTimeout) {
       this.activate();
     }
   }
   onMouseLeave(e) {
-    this.deactivate();
+    if (!this.isAutoHide()) {
+      const valid = primeng_dom__WEBPACK_IMPORTED_MODULE_0__.DomHandler.hasClass(e.toElement, 'p-tooltip') || primeng_dom__WEBPACK_IMPORTED_MODULE_0__.DomHandler.hasClass(e.toElement, 'p-tooltip-arrow') || primeng_dom__WEBPACK_IMPORTED_MODULE_0__.DomHandler.hasClass(e.toElement, 'p-tooltip-text') || primeng_dom__WEBPACK_IMPORTED_MODULE_0__.DomHandler.hasClass(e.relatedTarget, 'p-tooltip');
+      !valid && this.deactivate();
+    } else {
+      this.deactivate();
+    }
   }
   onFocus(e) {
     this.activate();
@@ -77373,7 +77471,7 @@ class Tooltip {
   onBlur(e) {
     this.deactivate();
   }
-  onClick(e) {
+  onInputClick(e) {
     this.deactivate();
   }
   activate() {
@@ -77421,6 +77519,23 @@ class Tooltip {
     this.container.style.display = 'inline-block';
     if (this.fitContent) {
       this.container.style.width = 'fit-content';
+    }
+    if (!this.isAutoHide()) {
+      this.bindContainerMouseleaveListener();
+    }
+  }
+  bindContainerMouseleaveListener() {
+    if (!this.containerMouseleaveListener) {
+      const targetEl = this.container ?? this.container.nativeElement;
+      this.containerMouseleaveListener = this.renderer.listen(targetEl, 'mouseleave', e => {
+        this.deactivate();
+      });
+    }
+  }
+  unbindContainerMouseleaveListener() {
+    if (this.containerMouseleaveListener) {
+      this.bindContainerMouseleaveListener();
+      this.containerMouseleaveListener = null;
     }
   }
   show() {
@@ -77624,6 +77739,7 @@ class Tooltip {
     }
     this.unbindDocumentResizeListener();
     this.unbindScrollListener();
+    this.unbindContainerMouseleaveListener();
     this.clearTimeouts();
     this.container = null;
     this.scrollHandler = null;
@@ -77657,7 +77773,7 @@ class Tooltip {
   }
 }
 Tooltip.ɵfac = function Tooltip_Factory(t) {
-  return new (t || Tooltip)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_2__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_2__.NgZone), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](primeng_api__WEBPACK_IMPORTED_MODULE_3__.PrimeNGConfig));
+  return new (t || Tooltip)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_2__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_2__.NgZone), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](primeng_api__WEBPACK_IMPORTED_MODULE_3__.PrimeNGConfig), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_2__.Renderer2), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_2__.ChangeDetectorRef));
 };
 Tooltip.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineDirective"]({
   type: Tooltip,
@@ -77676,6 +77792,7 @@ Tooltip.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵd
     life: "life",
     positionTop: "positionTop",
     positionLeft: "positionLeft",
+    autoHide: "autoHide",
     fitContent: "fitContent",
     text: ["pTooltip", "text"],
     disabled: ["tooltipDisabled", "disabled"],
@@ -77699,6 +77816,10 @@ Tooltip.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵd
       type: _angular_core__WEBPACK_IMPORTED_MODULE_2__.NgZone
     }, {
       type: primeng_api__WEBPACK_IMPORTED_MODULE_3__.PrimeNGConfig
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_2__.Renderer2
+    }, {
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_2__.ChangeDetectorRef
     }];
   }, {
     tooltipPosition: [{
@@ -77735,6 +77856,9 @@ Tooltip.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵd
       type: _angular_core__WEBPACK_IMPORTED_MODULE_2__.Input
     }],
     positionLeft: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_2__.Input
+    }],
+    autoHide: [{
       type: _angular_core__WEBPACK_IMPORTED_MODULE_2__.Input
     }],
     fitContent: [{
@@ -77779,6 +77903,7 @@ TooltipModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_2__[
  */
 
 
+//# sourceMappingURL=primeng-tooltip.mjs.map
 
 /***/ }),
 
@@ -77933,7 +78058,9 @@ class ObjectUtils {
     return finalSortOrder * result;
   }
   static merge(obj1, obj2) {
-    if ((obj1 == undefined || typeof obj1 === 'object') && (obj2 == undefined || typeof obj2 === 'object')) {
+    if (obj1 == undefined && obj2 == undefined) {
+      return undefined;
+    } else if ((obj1 == undefined || typeof obj1 === 'object') && (obj2 == undefined || typeof obj2 === 'object')) {
       return {
         ...(obj1 || {}),
         ...(obj2 || {})
