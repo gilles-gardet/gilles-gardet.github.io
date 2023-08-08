@@ -5,12 +5,11 @@ import {
   EventEmitter,
   inject,
   Input,
-  OnDestroy,
   Output,
 } from '@angular/core';
-import { EMPTY, forkJoin, Observable, Subject } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { MarkdownService } from 'ngx-markdown';
-import { takeUntil, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { Mission } from '@core/models/mission.model';
 import { DialogModule } from 'primeng/dialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
@@ -27,11 +26,10 @@ import { MissionService } from '@core/services/mission.service';
   styleUrls: ['./details.component.scss'],
   templateUrl: './details.component.html',
 })
-export class DetailsComponent implements OnDestroy {
+export class DetailsComponent {
   @Input() selectedMission: Mission = {} as Mission;
   @Input() displayDialog = false;
   @Output() detailsChange = new EventEmitter<boolean>();
-  unsubscribe$ = new Subject();
   markdownService = inject(MarkdownService);
   changeDetectorRef = inject(ChangeDetectorRef);
   translateService = inject(TranslateService);
@@ -63,8 +61,7 @@ export class DetailsComponent implements OnDestroy {
         tap((values: string[]) => {
           this.innerLightMission = this.markdownService.parse(values[0]);
           this.innerFullMission = this.markdownService.parse(values[1]);
-        }),
-        takeUntil(this.unsubscribe$)
+        })
       )
       .subscribe(() => {
         setTimeout(() => {
@@ -75,13 +72,5 @@ export class DetailsComponent implements OnDestroy {
             ?.classList.add('p-dialog-content-scroll');
         }, 600);
       });
-  }
-
-  /**
-   * @inheritDoc
-   */
-  ngOnDestroy(): void {
-    this.unsubscribe$.next(EMPTY);
-    this.unsubscribe$.unsubscribe();
   }
 }

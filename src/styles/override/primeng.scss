@@ -187,7 +187,8 @@ p-chip[label='gilles.gardet@gmail.com'] {
   .p-dialog-content {
     @apply bg-card-bg dark:bg-dark-card-bg;
     @apply text-text-color dark:text-dark-text-color;
-    overflow: hidden !important;
+    // TODO: fix overflow on animation
+    //overflow: hidden !important;
   }
 
   .p-dialog-header {
