@@ -54,6 +54,7 @@ Ces étapes comprennent :
 >
 > Lancer l'image via `docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.22.0-focal /bin/bash`  
 > Puis en executant directement dans l'image le workflow suivant :
+> - `apt install make g++`
 > - `npm i -g pnpm`
 > - `pnpm install`
 > - `npx playwright install`
