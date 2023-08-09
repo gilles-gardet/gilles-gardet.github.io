@@ -6,11 +6,6 @@ module.exports = {
   collectCoverageFrom: ['<rootDir>/src/app/**/*.{js,ts}'],
   coverageReporters: ['clover', 'html', 'cobertura', 'text-summary'],
   coverageDirectory: 'coverage',
-  globals: {
-    'ts-jest': {
-      isolatedModules: true,
-    },
-  },
   moduleFileExtensions: ['js', 'json', 'ts'],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
     prefix: '<rootDir>/',
@@ -20,4 +15,9 @@ module.exports = {
   roots: ['<rootDir>'],
   setupFilesAfterEnv: ['<rootDir>/src/test.ts'],
   testPathIgnorePatterns: ['<rootDir>/e2e', '<rootDir>/src/test.ts'],
+  transform: {
+    '^.+\\.tsx?$': ['ts-jest', {
+      isolatedModules: true,
+    }]
+  },
 };

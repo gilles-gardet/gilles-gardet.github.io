@@ -81,7 +81,7 @@ test.describe('Summary panel structure', () => {
   test('should have a description', async ({ page }) => {
     const content = page.locator('cv-summary .p-panel-content');
     await expect(content).toBeVisible();
-    await expect(content).toContainText(`I have 9 years of experience as a designer developer in information systems.`);
+    await expect(content).toContainText(`I have 10 years of experience as a designer developer in information systems.`);
     await expect(content).toContainText(
       `Mainly specialized in backend technologies (Java, Spring...), which I was able to experience on different missions themselves touching on several fields of activity (space, human resources, communities...).`
     );
@@ -97,7 +97,7 @@ test.describe('Summary panel structure', () => {
     const bolds = page.locator('cv-summary .p-panel-content b');
     const texts = await bolds.allTextContents();
     await expect(texts).toHaveLength(4);
-    expect(texts).toContain('9 years');
+    expect(texts).toContain('10 years');
     expect(texts).toContain('backend');
     expect(texts).toContain('fullstack');
     expect(texts).toContain('Agile');

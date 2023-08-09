@@ -48,6 +48,5 @@
         "{workspaceRoot}/.eslintrc.json"
       ]
     }
-  },
-  "defaultProject": "cv"
+  }
 }
