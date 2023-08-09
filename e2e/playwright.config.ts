@@ -25,7 +25,7 @@ const config: PlaywrightTestConfig = {
     },
   ],
   webServer: {
-    command: 'npx nx serve',
+    command: 'npm serve',
     port: 4_200,
   },
 };
