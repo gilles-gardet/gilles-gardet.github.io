@@ -3641,7 +3641,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵPRE_STYLE": () => (/* binding */ ɵPRE_STYLE)
 /* harmony export */ });
 /**
- * @license Angular v16.1.8
+ * @license Angular v16.2.0
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -4895,7 +4895,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 1699);
 var _class, _class2, _class3;
 /**
- * @license Angular v16.1.8
+ * @license Angular v16.2.0
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -8950,9 +8950,7 @@ class WebAnimationsPlayer {
   }
   /** @internal */
   _triggerWebAnimation(element, keyframes, options) {
-    // jscompiler doesn't seem to know animate is a native property because it's not fully
-    // supported yet across common browsers (we polyfill it for Edge/Safari) [CL #143630929]
-    return element['animate'](this._convertKeyframesToObject(keyframes), options);
+    return element.animate(this._convertKeyframesToObject(keyframes), options);
   }
   onStart(fn) {
     this._originalOnStartFns.push(fn);
@@ -9028,7 +9026,8 @@ class WebAnimationsPlayer {
     this.domPlayer.currentTime = p * this.time;
   }
   getPosition() {
-    return this.domPlayer.currentTime / this.time;
+    // tsc is complaining with TS2362 without the conversion to number
+    return +(this.domPlayer.currentTime ?? 0) / this.time;
   }
   get totalTime() {
     return this._delay + this._duration;
@@ -9245,7 +9244,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 1699);
 var _class, _class2, _class3, _class4, _class5, _class6, _class7, _class8, _class9, _class10, _class11, _class12, _class13, _class14, _class15, _class16, _class17, _class18, _class19, _class20, _class21, _class22, _class23, _class24, _class25, _class26, _class27, _class28, _class29, _class30, _class31, _class32, _class33, _class34, _class35, _class36, _class37, _class38;
 /**
- * @license Angular v16.1.8
+ * @license Angular v16.2.0
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -12232,6 +12231,9 @@ _class9.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
  *
  * You can control the component creation process by using the following optional attributes:
  *
+ * * `ngComponentOutletInputs`: Optional component inputs object, which will be bind to the
+ * component.
+ *
  * * `ngComponentOutletInjector`: Optional custom {@link Injector} that will be used as parent for
  * the Component. Defaults to the injector of the current view container.
  *
@@ -12250,6 +12252,13 @@ _class9.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
  * Simple
  * ```
  * <ng-container *ngComponentOutlet="componentTypeExpression"></ng-container>
+ * ```
+ *
+ * With inputs
+ * ```
+ * <ng-container *ngComponentOutlet="componentTypeExpression;
+ *                                   inputs: inputsExpression;">
+ * </ng-container>
  * ```
  *
  * Customized injector/content
@@ -12282,39 +12291,78 @@ class NgComponentOutlet {
   constructor(_viewContainerRef) {
     this._viewContainerRef = _viewContainerRef;
     this.ngComponentOutlet = null;
+    /**
+     * A helper data structure that allows us to track inputs that were part of the
+     * ngComponentOutletInputs expression. Tracking inputs is necessary for proper removal of ones
+     * that are no longer referenced.
+     */
+    this._inputsUsed = new Map();
+  }
+  _needToReCreateNgModuleInstance(changes) {
+    // Note: square brackets property accessor is safe for Closure compiler optimizations (the
+    // `changes` argument of the `ngOnChanges` lifecycle hook retains the names of the fields that
+    // were changed).
+    return changes['ngComponentOutletNgModule'] !== undefined || changes['ngComponentOutletNgModuleFactory'] !== undefined;
+  }
+  _needToReCreateComponentInstance(changes) {
+    // Note: square brackets property accessor is safe for Closure compiler optimizations (the
+    // `changes` argument of the `ngOnChanges` lifecycle hook retains the names of the fields that
+    // were changed).
+    return changes['ngComponentOutlet'] !== undefined || changes['ngComponentOutletContent'] !== undefined || changes['ngComponentOutletInjector'] !== undefined || this._needToReCreateNgModuleInstance(changes);
   }
   /** @nodoc */
   ngOnChanges(changes) {
-    const {
-      _viewContainerRef: viewContainerRef,
-      ngComponentOutletNgModule: ngModule,
-      ngComponentOutletNgModuleFactory: ngModuleFactory
-    } = this;
-    viewContainerRef.clear();
-    this._componentRef = undefined;
-    if (this.ngComponentOutlet) {
-      const injector = this.ngComponentOutletInjector || viewContainerRef.parentInjector;
-      if (changes['ngComponentOutletNgModule'] || changes['ngComponentOutletNgModuleFactory']) {
-        if (this._moduleRef) this._moduleRef.destroy();
-        if (ngModule) {
-          this._moduleRef = (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.createNgModule)(ngModule, getParentInjector(injector));
-        } else if (ngModuleFactory) {
-          this._moduleRef = ngModuleFactory.create(getParentInjector(injector));
-        } else {
-          this._moduleRef = undefined;
+    if (this._needToReCreateComponentInstance(changes)) {
+      this._viewContainerRef.clear();
+      this._inputsUsed.clear();
+      this._componentRef = undefined;
+      if (this.ngComponentOutlet) {
+        const injector = this.ngComponentOutletInjector || this._viewContainerRef.parentInjector;
+        if (this._needToReCreateNgModuleInstance(changes)) {
+          this._moduleRef?.destroy();
+          if (this.ngComponentOutletNgModule) {
+            this._moduleRef = (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.createNgModule)(this.ngComponentOutletNgModule, getParentInjector(injector));
+          } else if (this.ngComponentOutletNgModuleFactory) {
+            this._moduleRef = this.ngComponentOutletNgModuleFactory.create(getParentInjector(injector));
+          } else {
+            this._moduleRef = undefined;
+          }
+        }
+        this._componentRef = this._viewContainerRef.createComponent(this.ngComponentOutlet, {
+          injector,
+          ngModuleRef: this._moduleRef,
+          projectableNodes: this.ngComponentOutletContent
+        });
+      }
+    }
+  }
+  /** @nodoc */
+  ngDoCheck() {
+    if (this._componentRef) {
+      if (this.ngComponentOutletInputs) {
+        for (const inputName of Object.keys(this.ngComponentOutletInputs)) {
+          this._inputsUsed.set(inputName, true);
         }
       }
-      this._componentRef = viewContainerRef.createComponent(this.ngComponentOutlet, {
-        index: viewContainerRef.length,
-        injector,
-        ngModuleRef: this._moduleRef,
-        projectableNodes: this.ngComponentOutletContent
-      });
+      this._applyInputStateDiff(this._componentRef);
     }
   }
   /** @nodoc */
   ngOnDestroy() {
-    if (this._moduleRef) this._moduleRef.destroy();
+    this._moduleRef?.destroy();
+  }
+  _applyInputStateDiff(componentRef) {
+    for (const [inputName, touched] of this._inputsUsed) {
+      if (!touched) {
+        // The input that was previously active no longer exists and needs to be set to undefined.
+        componentRef.setInput(inputName, undefined);
+        this._inputsUsed.delete(inputName);
+      } else {
+        // Since touched is true, it can be asserted that the inputs object is not empty.
+        componentRef.setInput(inputName, this.ngComponentOutletInputs[inputName]);
+        this._inputsUsed.set(inputName, false);
+      }
+    }
   }
 }
 _class10 = NgComponentOutlet;
@@ -12326,6 +12374,7 @@ _class10.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
   selectors: [["", "ngComponentOutlet", ""]],
   inputs: {
     ngComponentOutlet: "ngComponentOutlet",
+    ngComponentOutletInputs: "ngComponentOutletInputs",
     ngComponentOutletInjector: "ngComponentOutletInjector",
     ngComponentOutletContent: "ngComponentOutletContent",
     ngComponentOutletNgModule: "ngComponentOutletNgModule",
@@ -12347,6 +12396,9 @@ _class10.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
     }];
   }, {
     ngComponentOutlet: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+    }],
+    ngComponentOutletInputs: [{
       type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
     }],
     ngComponentOutletInjector: [{
@@ -14883,7 +14935,7 @@ function isPlatformWorkerUi(platformId) {
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('16.1.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('16.2.0');
 
 /**
  * Defines a scroll position manager. Implemented by `BrowserViewportScroller`.
@@ -14973,11 +15025,8 @@ class BrowserViewportScroller {
    * Disables automatic scroll restoration provided by the browser.
    */
   setHistoryScrollRestoration(scrollRestoration) {
-    if (this.supportScrollRestoration()) {
-      const history = this.window.history;
-      if (history && history.scrollRestoration) {
-        history.scrollRestoration = scrollRestoration;
-      }
+    if (this.supportsScrolling()) {
+      this.window.history.scrollRestoration = scrollRestoration;
     }
   }
   /**
@@ -14993,28 +15042,6 @@ class BrowserViewportScroller {
     const offset = this.offset();
     this.window.scrollTo(left - offset[0], top - offset[1]);
   }
-  /**
-   * We only support scroll restoration when we can get a hold of window.
-   * This means that we do not support this behavior when running in a web worker.
-   *
-   * Lifting this restriction right now would require more changes in the dom adapter.
-   * Since webworkers aren't widely used, we will lift it once RouterScroller is
-   * battle-tested.
-   */
-  supportScrollRestoration() {
-    try {
-      if (!this.supportsScrolling()) {
-        return false;
-      }
-      // The `scrollRestoration` property could be on the `history` instance or its prototype.
-      const scrollRestorationDescriptor = getScrollRestorationProperty(this.window.history) || getScrollRestorationProperty(Object.getPrototypeOf(this.window.history));
-      // We can write to the `scrollRestoration` property if it is a writable data field or it has a
-      // setter function.
-      return !!scrollRestorationDescriptor && !!(scrollRestorationDescriptor.writable || scrollRestorationDescriptor.set);
-    } catch {
-      return false;
-    }
-  }
   supportsScrolling() {
     try {
       return !!this.window && !!this.window.scrollTo && 'pageXOffset' in this.window;
@@ -15022,9 +15049,6 @@ class BrowserViewportScroller {
       return false;
     }
   }
-}
-function getScrollRestorationProperty(obj) {
-  return Object.getOwnPropertyDescriptor(obj, 'scrollRestoration');
 }
 function findAnchorFromDocument(document, target) {
   const documentResult = document.getElementById(target) || document.getElementsByName(target)[0];
@@ -15353,8 +15377,6 @@ class LCPImageObserver {
   constructor() {
     // Map of full image URLs -> original `ngSrc` values.
     this.images = new Map();
-    // Keep track of images for which `console.warn` was produced.
-    this.alreadyWarned = new Set();
     this.window = null;
     this.observer = null;
     assertDevMode('LCP checker');
@@ -15382,10 +15404,15 @@ class LCPImageObserver {
       const imgSrc = lcpElement.element?.src ?? '';
       // Exclude `data:` and `blob:` URLs, since they are not supported by the directive.
       if (imgSrc.startsWith('data:') || imgSrc.startsWith('blob:')) return;
-      const imgNgSrc = this.images.get(imgSrc);
-      if (imgNgSrc && !this.alreadyWarned.has(imgSrc)) {
-        this.alreadyWarned.add(imgSrc);
+      const img = this.images.get(imgSrc);
+      if (!img) return;
+      if (!img.priority && !img.alreadyWarnedPriority) {
+        img.alreadyWarnedPriority = true;
         logMissingPriorityWarning(imgSrc);
+      }
+      if (img.modified && !img.alreadyWarnedModified) {
+        img.alreadyWarnedModified = true;
+        logModifiedWarning(imgSrc);
       }
     });
     observer.observe({
@@ -15394,19 +15421,33 @@ class LCPImageObserver {
     });
     return observer;
   }
-  registerImage(rewrittenSrc, originalNgSrc) {
+  registerImage(rewrittenSrc, originalNgSrc, isPriority) {
     if (!this.observer) return;
-    this.images.set(getUrl(rewrittenSrc, this.window).href, originalNgSrc);
+    const newObservedImageState = {
+      priority: isPriority,
+      modified: false,
+      alreadyWarnedModified: false,
+      alreadyWarnedPriority: false
+    };
+    this.images.set(getUrl(rewrittenSrc, this.window).href, newObservedImageState);
   }
   unregisterImage(rewrittenSrc) {
     if (!this.observer) return;
     this.images.delete(getUrl(rewrittenSrc, this.window).href);
   }
+  updateImage(originalSrc, newSrc) {
+    const originalUrl = getUrl(originalSrc, this.window).href;
+    const img = this.images.get(originalUrl);
+    if (img) {
+      img.modified = true;
+      this.images.set(getUrl(newSrc, this.window).href, img);
+      this.images.delete(originalUrl);
+    }
+  }
   ngOnDestroy() {
     if (!this.observer) return;
     this.observer.disconnect();
     this.images.clear();
-    this.alreadyWarned.clear();
   }
 }
 _class35 = LCPImageObserver;
@@ -15431,6 +15472,10 @@ _class35.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
 function logMissingPriorityWarning(ngSrc) {
   const directiveDetails = imgDirectiveDetails(ngSrc);
   console.warn((0,_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵformatRuntimeError"])(2955 /* RuntimeErrorCode.LCP_IMG_MISSING_PRIORITY */, `${directiveDetails} this image is the Largest Contentful Paint (LCP) ` + `element but was not marked "priority". This image should be marked ` + `"priority" in order to prioritize its loading. ` + `To fix this, add the "priority" attribute.`));
+}
+function logModifiedWarning(ngSrc) {
+  const directiveDetails = imgDirectiveDetails(ngSrc);
+  console.warn((0,_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵformatRuntimeError"])(2964 /* RuntimeErrorCode.LCP_IMG_NGSRC_MODIFIED */, `${directiveDetails} this image is the Largest Contentful Paint (LCP) ` + `element and has had its "ngSrc" attribute modified. This can cause ` + `slower loading performance. It is recommended not to modify the "ngSrc" ` + `property on any image which could be the LCP element.`));
 }
 
 // Set of origins that are always excluded from the preconnect checks.
@@ -15717,7 +15762,6 @@ const defaultConfig = {
  *
  * @see {@link NgOptimizedImage}
  * @publicApi
- * @developerPreview
  */
 const IMAGE_CONFIG = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('ImageConfig', {
   providedIn: 'root',
@@ -15850,8 +15894,6 @@ class NgOptimizedImage {
     /**
      * Sets the image to "fill mode", which eliminates the height/width requirement and adds
      * styles such that the image fills its containing element.
-     *
-     * @developerPreview
      */
     this.fill = false;
   }
@@ -15891,18 +15933,15 @@ class NgOptimizedImage {
       assertNotMissingBuiltInLoader(this.ngSrc, this.imageLoader);
       assertNoNgSrcsetWithoutLoader(this, this.imageLoader);
       assertNoLoaderParamsWithoutLoader(this, this.imageLoader);
+      if (this.lcpObserver !== null) {
+        const ngZone = this.injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_0__.NgZone);
+        ngZone.runOutsideAngular(() => {
+          this.lcpObserver.registerImage(this.getRewrittenSrc(), this.ngSrc, this.priority);
+        });
+      }
       if (this.priority) {
         const checker = this.injector.get(PreconnectLinkChecker);
         checker.assertPreconnect(this.getRewrittenSrc(), this.ngSrc);
-      } else {
-        // Monitor whether an image is an LCP element only in case
-        // the `priority` attribute is missing. Otherwise, an image
-        // has the necessary settings and no extra checks are required.
-        if (this.lcpObserver !== null) {
-          ngZone.runOutsideAngular(() => {
-            this.lcpObserver.registerImage(this.getRewrittenSrc(), this.ngSrc);
-          });
-        }
       }
     }
     this.setHostAttributes();
@@ -15925,28 +15964,29 @@ class NgOptimizedImage {
     this.setHostAttribute('ng-img', 'true');
     // The `src` and `srcset` attributes should be set last since other attributes
     // could affect the image's loading behavior.
-    const rewrittenSrc = this.getRewrittenSrc();
-    this.setHostAttribute('src', rewrittenSrc);
-    let rewrittenSrcset = undefined;
+    const rewrittenSrcset = this.updateSrcAndSrcset();
     if (this.sizes) {
       this.setHostAttribute('sizes', this.sizes);
     }
-    if (this.ngSrcset) {
-      rewrittenSrcset = this.getRewrittenSrcset();
-    } else if (this.shouldGenerateAutomaticSrcset()) {
-      rewrittenSrcset = this.getAutomaticSrcset();
-    }
-    if (rewrittenSrcset) {
-      this.setHostAttribute('srcset', rewrittenSrcset);
-    }
     if (this.isServer && this.priority) {
-      this.preloadLinkCreator.createPreloadLinkTag(this.renderer, rewrittenSrc, rewrittenSrcset, this.sizes);
+      this.preloadLinkCreator.createPreloadLinkTag(this.renderer, this.getRewrittenSrc(), rewrittenSrcset, this.sizes);
     }
   }
   /** @nodoc */
   ngOnChanges(changes) {
     if (ngDevMode) {
-      assertNoPostInitInputChange(this, changes, ['ngSrc', 'ngSrcset', 'width', 'height', 'priority', 'fill', 'loading', 'sizes', 'loaderParams', 'disableOptimizedSrcset']);
+      assertNoPostInitInputChange(this, changes, ['ngSrcset', 'width', 'height', 'priority', 'fill', 'loading', 'sizes', 'loaderParams', 'disableOptimizedSrcset']);
+    }
+    if (changes['ngSrc'] && !changes['ngSrc'].isFirstChange()) {
+      const oldSrc = this._renderedSrc;
+      this.updateSrcAndSrcset(true);
+      const newSrc = this._renderedSrc;
+      if (this.lcpObserver !== null && oldSrc && newSrc && oldSrc !== newSrc) {
+        const ngZone = this.injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_0__.NgZone);
+        ngZone.runOutsideAngular(() => {
+          this.lcpObserver?.updateImage(oldSrc, newSrc);
+        });
+      }
     }
   }
   callImageLoader(configWithoutCustomParams) {
@@ -16012,6 +16052,25 @@ class NgOptimizedImage {
       width: bp
     })} ${bp}w`);
     return finalSrcs.join(', ');
+  }
+  updateSrcAndSrcset(forceSrcRecalc = false) {
+    if (forceSrcRecalc) {
+      // Reset cached value, so that the followup `getRewrittenSrc()` call
+      // will recalculate it and update the cache.
+      this._renderedSrc = null;
+    }
+    const rewrittenSrc = this.getRewrittenSrc();
+    this.setHostAttribute('src', rewrittenSrc);
+    let rewrittenSrcset = undefined;
+    if (this.ngSrcset) {
+      rewrittenSrcset = this.getRewrittenSrcset();
+    } else if (this.shouldGenerateAutomaticSrcset()) {
+      rewrittenSrcset = this.getAutomaticSrcset();
+    }
+    if (rewrittenSrcset) {
+      this.setHostAttribute('srcset', rewrittenSrcset);
+    }
+    return rewrittenSrcset;
   }
   getFixedSrcset() {
     const finalSrcs = DENSITY_SRCSET_MULTIPLIERS.map(multiplier => `${this.callImageLoader({
@@ -16495,7 +16554,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _class, _class2, _class3, _class4, _class5, _class6, _class7, _class8, _class9, _class10, _class11;
 /**
- * @license Angular v16.1.8
+ * @license Angular v16.2.0
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -19533,6 +19592,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ViewContainerRef: () => (/* binding */ ViewContainerRef),
 /* harmony export */   ViewEncapsulation: () => (/* binding */ ViewEncapsulation$1),
 /* harmony export */   ViewRef: () => (/* binding */ ViewRef),
+/* harmony export */   afterNextRender: () => (/* binding */ afterNextRender),
+/* harmony export */   afterRender: () => (/* binding */ afterRender),
 /* harmony export */   asNativeElements: () => (/* binding */ asNativeElements),
 /* harmony export */   assertInInjectionContext: () => (/* binding */ assertInInjectionContext),
 /* harmony export */   assertPlatform: () => (/* binding */ assertPlatform),
@@ -19571,6 +19632,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   signal: () => (/* binding */ signal),
 /* harmony export */   untracked: () => (/* binding */ untracked),
 /* harmony export */   "ɵALLOW_MULTIPLE_PLATFORMS": () => (/* binding */ ALLOW_MULTIPLE_PLATFORMS),
+/* harmony export */   "ɵAfterRenderEventManager": () => (/* binding */ AfterRenderEventManager),
 /* harmony export */   "ɵComponentFactory": () => (/* binding */ ComponentFactory$1),
 /* harmony export */   "ɵConsole": () => (/* binding */ Console),
 /* harmony export */   "ɵDEFAULT_LOCALE_ID": () => (/* binding */ DEFAULT_LOCALE_ID),
@@ -19597,6 +19659,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵRender3ComponentRef": () => (/* binding */ ComponentRef),
 /* harmony export */   "ɵRender3NgModuleRef": () => (/* binding */ NgModuleRef),
 /* harmony export */   "ɵRuntimeError": () => (/* binding */ RuntimeError),
+/* harmony export */   "ɵSSR_CONTENT_INTEGRITY_MARKER": () => (/* binding */ SSR_CONTENT_INTEGRITY_MARKER),
 /* harmony export */   "ɵTESTABILITY": () => (/* binding */ TESTABILITY),
 /* harmony export */   "ɵTESTABILITY_GETTER": () => (/* binding */ TESTABILITY_GETTER),
 /* harmony export */   "ɵViewRef": () => (/* binding */ ViewRef$1),
@@ -19658,6 +19721,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵsetClassMetadata": () => (/* binding */ setClassMetadata),
 /* harmony export */   "ɵsetCurrentInjector": () => (/* binding */ setCurrentInjector),
 /* harmony export */   "ɵsetDocument": () => (/* binding */ setDocument),
+/* harmony export */   "ɵsetInjectorProfilerContext": () => (/* binding */ setInjectorProfilerContext),
 /* harmony export */   "ɵsetLocaleId": () => (/* binding */ setLocaleId),
 /* harmony export */   "ɵsetUnknownElementStrictMode": () => (/* binding */ ɵsetUnknownElementStrictMode),
 /* harmony export */   "ɵsetUnknownPropertyStrictMode": () => (/* binding */ ɵsetUnknownPropertyStrictMode),
@@ -19698,6 +19762,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵɵclassMapInterpolateV": () => (/* binding */ ɵɵclassMapInterpolateV),
 /* harmony export */   "ɵɵclassProp": () => (/* binding */ ɵɵclassProp),
 /* harmony export */   "ɵɵcontentQuery": () => (/* binding */ ɵɵcontentQuery),
+/* harmony export */   "ɵɵdefer": () => (/* binding */ ɵɵdefer),
 /* harmony export */   "ɵɵdefineComponent": () => (/* binding */ ɵɵdefineComponent),
 /* harmony export */   "ɵɵdefineDirective": () => (/* binding */ ɵɵdefineDirective),
 /* harmony export */   "ɵɵdefineInjectable": () => (/* binding */ ɵɵdefineInjectable),
@@ -19836,9 +19901,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ 1891);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ 3317);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/operators */ 5267);
-var _class, _class2, _class3, _class4, _class5, _class6, _class7, _class8, _class9, _class11, _class12, _class13, _class14, _class15, _class16, _class17, _class18, _class19, _class20, _class21, _class22, _class23, _class24, _class25;
+var _class, _class2, _class3, _class4, _class5, _class6, _class7, _class8, _class9, _class10, _class12, _class13, _class14, _class15, _class16, _class17, _class18, _class19, _class20, _class21, _class22, _class23, _class24, _class25, _class26;
 /**
- * @license Angular v16.1.8
+ * @license Angular v16.2.0
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -20356,13 +20421,7 @@ function injectRootLimpMode(token, notFoundValue, flags) {
 function assertInjectImplementationNotEqual(fn) {
   ngDevMode && assertNotEqual(_injectImplementation, fn, 'Calling ɵɵinject would cause infinite recursion');
 }
-
-// Always use __globalThis if available, which is the spec-defined global variable across all
-// environments, then fallback to __global first, because in Node tests both __global and
-// __window may be defined and _global should be __global in that case. Note: Typeof/Instanceof
-// checks are considered side-effects in Terser. We explicitly mark this as side-effect free:
-// https://github.com/terser/terser/issues/250.
-const _global = /* @__PURE__ */(() => typeof globalThis !== 'undefined' && globalThis || typeof global !== 'undefined' && global || typeof window !== 'undefined' && window || typeof self !== 'undefined' && typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope && self)();
+const _global = globalThis;
 function ngDevModeResetPerfCounters() {
   const locationString = typeof location !== 'undefined' ? location.toString() : '';
   const newCounters = {
@@ -20434,6 +20493,106 @@ function initNgDevMode() {
   }
   return false;
 }
+let _injectorProfilerContext;
+function getInjectorProfilerContext() {
+  !ngDevMode && throwError('getInjectorProfilerContext should never be called in production mode');
+  return _injectorProfilerContext;
+}
+function setInjectorProfilerContext(context) {
+  !ngDevMode && throwError('setInjectorProfilerContext should never be called in production mode');
+  const previous = _injectorProfilerContext;
+  _injectorProfilerContext = context;
+  return previous;
+}
+let injectorProfilerCallback = null;
+/**
+ * Sets the callback function which will be invoked during certain DI events within the
+ * runtime (for example: injecting services, creating injectable instances, configuring providers)
+ *
+ * Warning: this function is *INTERNAL* and should not be relied upon in application's code.
+ * The contract of the function might be changed in any release and/or the function can be removed
+ * completely.
+ *
+ * @param profiler function provided by the caller or null value to disable profiling.
+ */
+const setInjectorProfiler = injectorProfiler => {
+  !ngDevMode && throwError('setInjectorProfiler should never be called in production mode');
+  injectorProfilerCallback = injectorProfiler;
+};
+/**
+ * Injector profiler function which emits on DI events executed by the runtime.
+ *
+ * @param event InjectorProfilerEvent corresponding to the DI event being emitted
+ */
+function injectorProfiler(event) {
+  !ngDevMode && throwError('Injector profiler should never be called in production mode');
+  if (injectorProfilerCallback != null /* both `null` and `undefined` */) {
+    injectorProfilerCallback(event);
+  }
+}
+/**
+ * Emits an InjectorProfilerEventType.ProviderConfigured to the injector profiler. The data in the
+ * emitted event includes the raw provider, as well as the token that provider is providing.
+ *
+ * @param provider A provider object
+ */
+function emitProviderConfiguredEvent(provider, isViewProvider = false) {
+  !ngDevMode && throwError('Injector profiler should never be called in production mode');
+  injectorProfiler({
+    type: 2 /* InjectorProfilerEventType.ProviderConfigured */,
+    context: getInjectorProfilerContext(),
+    providerRecord: {
+      token: typeof provider === 'function' ? provider : resolveForwardRef(provider.provide),
+      provider,
+      isViewProvider
+    }
+  });
+}
+/**
+ * Emits an event to the injector profiler with the instance that was created. Note that
+ * the injector associated with this emission can be accessed by using getDebugInjectContext()
+ *
+ * @param instance an object created by an injector
+ */
+function emitInstanceCreatedByInjectorEvent(instance) {
+  !ngDevMode && throwError('Injector profiler should never be called in production mode');
+  injectorProfiler({
+    type: 1 /* InjectorProfilerEventType.InstanceCreatedByInjector */,
+    context: getInjectorProfilerContext(),
+    instance: {
+      value: instance
+    }
+  });
+}
+/**
+ * @param token DI token associated with injected service
+ * @param value the instance of the injected service (i.e the result of `inject(token)`)
+ * @param flags the flags that the token was injected with
+ */
+function emitInjectEvent(token, value, flags) {
+  !ngDevMode && throwError('Injector profiler should never be called in production mode');
+  injectorProfiler({
+    type: 0 /* InjectorProfilerEventType.Inject */,
+    context: getInjectorProfilerContext(),
+    service: {
+      token,
+      value,
+      flags
+    }
+  });
+}
+function runInInjectorProfilerContext(injector, token, callback) {
+  !ngDevMode && throwError('runInInjectorProfilerContext should never be called in production mode');
+  const prevInjectContext = setInjectorProfilerContext({
+    injector,
+    token
+  });
+  try {
+    callback();
+  } finally {
+    setInjectorProfilerContext(prevInjectContext);
+  }
+}
 const _THROW_IF_NOT_FOUND = {};
 const THROW_IF_NOT_FOUND = _THROW_IF_NOT_FOUND;
 /*
@@ -20468,7 +20627,9 @@ function injectInjectorOnly(token, flags = InjectFlags.Default) {
   } else if (_currentInjector === null) {
     return injectRootLimpMode(token, undefined, flags);
   } else {
-    return _currentInjector.get(token, flags & InjectFlags.Optional ? null : undefined, flags);
+    const value = _currentInjector.get(token, flags & InjectFlags.Optional ? null : undefined, flags);
+    ngDevMode && emitInjectEvent(token, value, flags);
+    return value;
   }
 }
 function ɵɵinject(token, flags = InjectFlags.Default) {
@@ -23485,14 +23646,14 @@ function registerPostOrderHooks(tView, tNode) {
  * This is done by storing and maintaining flags in the view: the {@link InitPhaseState},
  * and the index within that phase. They can be seen as a cursor in the following structure:
  * [[onInit1, onInit2], [afterContentInit1], [afterViewInit1, afterViewInit2, afterViewInit3]]
- * They are are stored as flags in LView[FLAGS].
+ * They are stored as flags in LView[FLAGS].
  *
  * 2. Pre-order hooks can be executed in batches, because of the select instruction.
  * To be able to pause and resume their execution, we also need some state about the hook's array
  * that is being processed:
  * - the index of the next hook to be executed
  * - the number of init hooks already found in the processed part of the  array
- * They are are stored as flags in LView[PREORDER_HOOK_FLAGS].
+ * They are stored as flags in LView[PREORDER_HOOK_FLAGS].
  */
 /**
  * Executes pre-order check hooks ( OnChanges, DoChanges) given a view where all the init hooks were
@@ -24233,7 +24394,17 @@ function lookupTokenUsingNodeInjector(tNode, lView, token, flags, notFoundValue)
       return flags & InjectFlags.Host ? notFoundValueOrThrow(notFoundValue, token, flags) : lookupTokenUsingModuleInjector(lView, token, flags, notFoundValue);
     }
     try {
-      const value = bloomHash(flags);
+      let value;
+      if (ngDevMode) {
+        runInInjectorProfilerContext(new NodeInjector(getCurrentTNode(), getLView()), token, () => {
+          value = bloomHash(flags);
+          if (value != null) {
+            emitInstanceCreatedByInjectorEvent(value);
+          }
+        });
+      } else {
+        value = bloomHash(flags);
+      }
       if (value == null && !(flags & InjectFlags.Optional)) {
         throwProviderNotFoundError(token);
       } else {
@@ -24377,11 +24548,25 @@ function getNodeInjectable(lView, tView, index, tNode) {
     }
     const previousIncludeViewProviders = setIncludeViewProviders(factory.canSeeViewProviders);
     factory.resolving = true;
+    let prevInjectContext;
+    if (ngDevMode) {
+      // tData indexes mirror the concrete instances in its corresponding LView.
+      // lView[index] here is either the injectable instace itself or a factory,
+      // therefore tData[index] is the constructor of that injectable or a
+      // definition object that contains the constructor in a `.type` field.
+      const token = tData[index].type || tData[index];
+      const injector = new NodeInjector(tNode, lView);
+      prevInjectContext = setInjectorProfilerContext({
+        injector,
+        token
+      });
+    }
     const previousInjectImplementation = factory.injectImpl ? setInjectImplementation(factory.injectImpl) : null;
     const success = enterDI(lView, tNode, InjectFlags.Default);
     ngDevMode && assertEqual(success, true, 'Because flags do not contain \`SkipSelf\' we expect this to always succeed.');
     try {
       value = lView[index] = factory.factory(undefined, tData, lView, tNode);
+      ngDevMode && emitInstanceCreatedByInjectorEvent(value);
       // This code path is hit for both directives and providers.
       // For perf reasons, we want to avoid searching for hooks on providers.
       // It does no harm to try (the hooks just won't exist), but the extra
@@ -24393,6 +24578,7 @@ function getNodeInjectable(lView, tView, index, tNode) {
         registerPreOrderHooks(index, tData[index], tView);
       }
     } finally {
+      ngDevMode && setInjectorProfilerContext(prevInjectContext);
       previousInjectImplementation !== null && setInjectImplementation(previousInjectImplementation);
       setIncludeViewProviders(previousIncludeViewProviders);
       factory.resolving = false;
@@ -24449,6 +24635,12 @@ function bloomHasToken(bloomHash, injectorIndex, injectorView) {
 /** Returns true if flags prevent parent injector from being searched for tokens */
 function shouldSearchParent(flags, isFirstHostTNode) {
   return !(flags & InjectFlags.Self) && !(flags & InjectFlags.Host && isFirstHostTNode);
+}
+function getNodeInjectorLView(nodeInjector) {
+  return nodeInjector._lView;
+}
+function getNodeInjectorTNode(nodeInjector) {
+  return nodeInjector._tNode;
 }
 class NodeInjector {
   constructor(_tNode, _lView) {
@@ -26462,7 +26654,7 @@ function createElementNode(renderer, name, namespace) {
  * @param tView The `TView' of the `LView` from which elements should be added or removed
  * @param lView The view from which elements should be added or removed
  */
-function removeViewFromContainer(tView, lView) {
+function removeViewFromDOM(tView, lView) {
   const renderer = lView[RENDERER];
   applyView(tView, lView, renderer, 2 /* WalkTNodeTreeAction.Detach */, null, null);
   lView[HOST] = null;
@@ -26482,7 +26674,7 @@ function removeViewFromContainer(tView, lView) {
  * @param parentNativeNode The parent `RElement` where it should be inserted into.
  * @param beforeNode The node before which elements should be added, if insert mode
  */
-function addViewToContainer(tView, parentTNode, renderer, lView, parentNativeNode, beforeNode) {
+function addViewToDOM(tView, parentTNode, renderer, lView, parentNativeNode, beforeNode) {
   lView[HOST] = parentNativeNode;
   lView[T_HOST] = parentTNode;
   applyView(tView, lView, renderer, 1 /* WalkTNodeTreeAction.Insert */, parentNativeNode, beforeNode);
@@ -26493,7 +26685,7 @@ function addViewToContainer(tView, parentTNode, renderer, lView, parentNativeNod
  * @param tView The `TView' of the `LView` to be detached
  * @param lView the `LView` to be detached.
  */
-function renderDetachView(tView, lView) {
+function detachViewFromDOM(tView, lView) {
   applyView(tView, lView, lView[RENDERER], 2 /* WalkTNodeTreeAction.Detach */, null, null);
 }
 /**
@@ -26648,7 +26840,7 @@ function detachView(lContainer, removeIndex) {
       lContainer[indexInContainer - 1][NEXT] = viewToDetach[NEXT];
     }
     const removedLView = removeFromArray(lContainer, CONTAINER_HEADER_OFFSET + removeIndex);
-    removeViewFromContainer(viewToDetach[TVIEW], viewToDetach);
+    removeViewFromDOM(viewToDetach[TVIEW], viewToDetach);
     // notify query that a view has been removed
     const lQueries = removedLView[QUERIES];
     if (lQueries !== null) {
@@ -28398,6 +28590,9 @@ function internalImportProvidersFrom(checkForStandaloneCmp, ...sources) {
   const providersOut = [];
   const dedup = new Set(); // already seen types
   let injectorTypesWithProviders;
+  const collectProviders = provider => {
+    providersOut.push(provider);
+  };
   deepForEach(sources, source => {
     if ((typeof ngDevMode === 'undefined' || ngDevMode) && checkForStandaloneCmp) {
       const cmpDef = getComponentDef(source);
@@ -28407,14 +28602,14 @@ function internalImportProvidersFrom(checkForStandaloneCmp, ...sources) {
     }
     // Narrow `source` to access the internal type analogue for `ModuleWithProviders`.
     const internalSource = source;
-    if (walkProviderTree(internalSource, providersOut, [], dedup)) {
+    if (walkProviderTree(internalSource, collectProviders, [], dedup)) {
       injectorTypesWithProviders ||= [];
       injectorTypesWithProviders.push(internalSource);
     }
   });
   // Collect all providers from `ModuleWithProviders` types.
   if (injectorTypesWithProviders !== undefined) {
-    processInjectorTypesWithProviders(injectorTypesWithProviders, providersOut);
+    processInjectorTypesWithProviders(injectorTypesWithProviders, collectProviders);
   }
   return providersOut;
 }
@@ -28422,7 +28617,7 @@ function internalImportProvidersFrom(checkForStandaloneCmp, ...sources) {
  * Collects all providers from the list of `ModuleWithProviders` and appends them to the provided
  * array.
  */
-function processInjectorTypesWithProviders(typesWithProviders, providersOut) {
+function processInjectorTypesWithProviders(typesWithProviders, visitor) {
   for (let i = 0; i < typesWithProviders.length; i++) {
     const {
       ngModule,
@@ -28430,7 +28625,7 @@ function processInjectorTypesWithProviders(typesWithProviders, providersOut) {
     } = typesWithProviders[i];
     deepForEachProvider(providers, provider => {
       ngDevMode && validateProvider(provider, providers || EMPTY_ARRAY, ngModule);
-      providersOut.push(provider);
+      visitor(provider, ngModule);
     });
   }
 }
@@ -28443,7 +28638,7 @@ function processInjectorTypesWithProviders(typesWithProviders, providersOut) {
  * to be processed. This allows us to process providers of injector types after all imports of
  * an injector definition are processed. (following View Engine semantics: see FW-1349)
  */
-function walkProviderTree(container, providersOut, parents, dedup) {
+function walkProviderTree(container, visitor, parents, dedup) {
   container = resolveForwardRef(container);
   if (!container) return false;
   // The actual type which had the definition. Usually `container`, but may be an unwrapped type
@@ -28487,7 +28682,7 @@ function walkProviderTree(container, providersOut, parents, dedup) {
     if (cmpDef.dependencies) {
       const deps = typeof cmpDef.dependencies === 'function' ? cmpDef.dependencies() : cmpDef.dependencies;
       for (const dep of deps) {
-        walkProviderTree(dep, providersOut, parents, dedup);
+        walkProviderTree(dep, visitor, parents, dedup);
       }
     }
   } else if (injDef) {
@@ -28501,7 +28696,7 @@ function walkProviderTree(container, providersOut, parents, dedup) {
       let importTypesWithProviders;
       try {
         deepForEach(injDef.imports, imported => {
-          if (walkProviderTree(imported, providersOut, parents, dedup)) {
+          if (walkProviderTree(imported, visitor, parents, dedup)) {
             importTypesWithProviders ||= [];
             // If the processed import is an injector type with providers, we store it in the
             // list of import types with providers, so that we can process those afterwards.
@@ -28516,7 +28711,7 @@ function walkProviderTree(container, providersOut, parents, dedup) {
       // after all imported modules are processed. This is similar to how View Engine
       // processes/merges module imports in the metadata resolver. See: FW-1349.
       if (importTypesWithProviders !== undefined) {
-        processInjectorTypesWithProviders(importTypesWithProviders, providersOut);
+        processInjectorTypesWithProviders(importTypesWithProviders, visitor);
       }
     }
     if (!isDuplicate) {
@@ -28526,26 +28721,24 @@ function walkProviderTree(container, providersOut, parents, dedup) {
       // Append extra providers to make more info available for consumers (to retrieve an injector
       // type), as well as internally (to calculate an injection scope correctly and eagerly
       // instantiate a `defType` when an injector is created).
-      providersOut.push(
       // Provider to create `defType` using its factory.
-      {
+      visitor({
         provide: defType,
         useFactory: factory,
         deps: EMPTY_ARRAY
-      },
+      }, defType);
       // Make this `defType` available to an internal logic that calculates injector scope.
-      {
+      visitor({
         provide: INJECTOR_DEF_TYPES,
         useValue: defType,
         multi: true
-      },
-      // Provider to eagerly instantiate `defType` via `ENVIRONMENT_INITIALIZER`.
-      {
+      }, defType);
+      // Provider to eagerly instantiate `defType` via `INJECTOR_INITIALIZER`.
+      visitor({
         provide: ENVIRONMENT_INITIALIZER,
         useValue: () => ɵɵinject(defType),
         multi: true
-      } //
-      );
+      }, defType);
     }
     // Next, include providers listed on the definition itself.
     const defProviders = injDef.providers;
@@ -28553,7 +28746,7 @@ function walkProviderTree(container, providersOut, parents, dedup) {
       const injectorType = container;
       deepForEachProvider(defProviders, provider => {
         ngDevMode && validateProvider(provider, defProviders, injectorType);
-        providersOut.push(provider);
+        visitor(provider, injectorType);
       });
     }
   } else {
@@ -28716,11 +28909,19 @@ class R3Injector extends EnvironmentInjector {
     this.assertNotDestroyed();
     const previousInjector = setCurrentInjector(this);
     const previousInjectImplementation = setInjectImplementation(undefined);
+    let prevInjectContext;
+    if (ngDevMode) {
+      prevInjectContext = setInjectorProfilerContext({
+        injector: this,
+        token: null
+      });
+    }
     try {
       return fn();
     } finally {
       setCurrentInjector(previousInjector);
       setInjectImplementation(previousInjectImplementation);
+      ngDevMode && setInjectorProfilerContext(prevInjectContext);
     }
   }
   get(token, notFoundValue = THROW_IF_NOT_FOUND, flags = InjectFlags.Default) {
@@ -28730,6 +28931,13 @@ class R3Injector extends EnvironmentInjector {
     }
     flags = convertToBitFlags(flags);
     // Set the injection context.
+    let prevInjectContext;
+    if (ngDevMode) {
+      prevInjectContext = setInjectorProfilerContext({
+        injector: this,
+        token: token
+      });
+    }
     const previousInjector = setCurrentInjector(this);
     const previousInjectImplementation = setInjectImplementation(undefined);
     try {
@@ -28780,12 +28988,20 @@ class R3Injector extends EnvironmentInjector {
       // Lastly, restore the previous injection context.
       setInjectImplementation(previousInjectImplementation);
       setCurrentInjector(previousInjector);
+      ngDevMode && setInjectorProfilerContext(prevInjectContext);
     }
   }
   /** @internal */
   resolveInjectorInitializers() {
     const previousInjector = setCurrentInjector(this);
     const previousInjectImplementation = setInjectImplementation(undefined);
+    let prevInjectContext;
+    if (ngDevMode) {
+      prevInjectContext = setInjectorProfilerContext({
+        injector: this,
+        token: null
+      });
+    }
     try {
       const initializers = this.get(ENVIRONMENT_INITIALIZER.multi, EMPTY_ARRAY, InjectFlags.Self);
       if (ngDevMode && !Array.isArray(initializers)) {
@@ -28797,6 +29013,7 @@ class R3Injector extends EnvironmentInjector {
     } finally {
       setCurrentInjector(previousInjector);
       setInjectImplementation(previousInjectImplementation);
+      ngDevMode && setInjectorProfilerContext(prevInjectContext);
     }
   }
   toString() {
@@ -28822,6 +29039,17 @@ class R3Injector extends EnvironmentInjector {
     let token = isTypeProvider(provider) ? provider : resolveForwardRef(provider && provider.provide);
     // Construct a `Record` for the provider.
     const record = providerToRecord(provider);
+    if (ngDevMode) {
+      runInInjectorProfilerContext(this, token, () => {
+        // Emit InjectorProfilerEventType.Create if provider is a value provider because
+        // these are the only providers that do not go through the value hydration logic
+        // where this event would normally be emitted from.
+        if (isValueProvider(provider)) {
+          emitInstanceCreatedByInjectorEvent(provider.useValue);
+        }
+        emitProviderConfiguredEvent(provider);
+      });
+    }
     if (!isTypeProvider(provider) && provider.multi === true) {
       // If the provider indicates that it's a multi-provider, process it specially.
       // First check whether it's been defined already.
@@ -28851,7 +29079,14 @@ class R3Injector extends EnvironmentInjector {
       throwCyclicDependencyError(stringify(token));
     } else if (record.value === NOT_YET) {
       record.value = CIRCULAR;
-      record.value = record.factory();
+      if (ngDevMode) {
+        runInInjectorProfilerContext(this, token, () => {
+          record.value = record.factory();
+          emitInstanceCreatedByInjectorEvent(record.value);
+        });
+      } else {
+        record.value = record.factory();
+      }
     }
     if (typeof record.value === 'object' && record.value && hasOnDestroy(record.value)) {
       this._ngOnDestroyHooks.add(record.value);
@@ -29037,6 +29272,7 @@ const PLATFORM_ID = new InjectionToken('Platform ID', {
  * A [DI token](guide/glossary#di-token "DI token definition") that indicates the root directory of
  * the application
  * @publicApi
+ * @deprecated
  */
 const PACKAGE_ROOT_URL = new InjectionToken('Application Packages Root URL');
 // We keep this token here, rather than the animations package, so that modules that only care
@@ -29257,17 +29493,38 @@ const NGH_DATA_KEY = makeStateKey(TRANSFER_STATE_TOKEN_ID);
  */
 const NGH_ATTR_NAME = 'ngh';
 /**
+ * Marker used in a comment node to ensure hydration content integrity
+ */
+const SSR_CONTENT_INTEGRITY_MARKER = 'nghm';
+/**
  * Reference to a function that reads `ngh` attribute value from a given RNode
  * and retrieves hydration information from the TransferState using that value
  * as an index. Returns `null` by default, when hydration is not enabled.
  *
  * @param rNode Component's host element.
  * @param injector Injector that this component has access to.
+ * @param isRootView Specifies whether we trying to read hydration info for the root view.
  */
-let _retrieveHydrationInfoImpl = (rNode, injector) => null;
-function retrieveHydrationInfoImpl(rNode, injector) {
-  const nghAttrValue = rNode.getAttribute(NGH_ATTR_NAME);
+let _retrieveHydrationInfoImpl = (rNode, injector, isRootView) => null;
+function retrieveHydrationInfoImpl(rNode, injector, isRootView = false) {
+  let nghAttrValue = rNode.getAttribute(NGH_ATTR_NAME);
   if (nghAttrValue == null) return null;
+  // For cases when a root component also acts as an anchor node for a ViewContainerRef
+  // (for example, when ViewContainerRef is injected in a root component), there is a need
+  // to serialize information about the component itself, as well as an LContainer that
+  // represents this ViewContainerRef. Effectively, we need to serialize 2 pieces of info:
+  // (1) hydration info for the root component itself and (2) hydration info for the
+  // ViewContainerRef instance (an LContainer). Each piece of information is included into
+  // the hydration data (in the TransferState object) separately, thus we end up with 2 ids.
+  // Since we only have 1 root element, we encode both bits of info into a single string:
+  // ids are separated by the `|` char (e.g. `10|25`, where `10` is the ngh for a component view
+  // and 25 is the `ngh` for a root view which holds LContainer).
+  const [componentViewNgh, rootViewNgh] = nghAttrValue.split('|');
+  nghAttrValue = isRootView ? rootViewNgh : componentViewNgh;
+  if (!nghAttrValue) return null;
+  // We've read one of the ngh ids, keep the remaining one, so that
+  // we can set it back on the DOM element.
+  const remainingNgh = isRootView ? componentViewNgh : rootViewNgh ? `|${rootViewNgh}` : '';
   let data = {};
   // An element might have an empty `ngh` attribute value (e.g. `<comp ngh="" />`),
   // which means that no special annotations are required. Do not attempt to read
@@ -29291,9 +29548,28 @@ function retrieveHydrationInfoImpl(rNode, injector) {
     data,
     firstChild: rNode.firstChild ?? null
   };
-  // The `ngh` attribute is cleared from the DOM node now
-  // that the data has been retrieved.
-  rNode.removeAttribute(NGH_ATTR_NAME);
+  if (isRootView) {
+    // If there is hydration info present for the root view, it means that there was
+    // a ViewContainerRef injected in the root component. The root component host element
+    // acted as an anchor node in this scenario. As a result, the DOM nodes that represent
+    // embedded views in this ViewContainerRef are located as siblings to the host node,
+    // i.e. `<app-root /><#VIEW1><#VIEW2>...<!--container-->`. In this case, the current
+    // node becomes the first child of this root view and the next sibling is the first
+    // element in the DOM segment.
+    dehydratedView.firstChild = rNode;
+    // We use `0` here, since this is the slot (right after the HEADER_OFFSET)
+    // where a component LView or an LContainer is located in a root LView.
+    setSegmentHead(dehydratedView, 0, rNode.nextSibling);
+  }
+  if (remainingNgh) {
+    // If we have only used one of the ngh ids, store the remaining one
+    // back on this RNode.
+    rNode.setAttribute(NGH_ATTR_NAME, remainingNgh);
+  } else {
+    // The `ngh` attribute is cleared from the DOM node now
+    // that the data has been retrieved for all indices.
+    rNode.removeAttribute(NGH_ATTR_NAME);
+  }
   // Note: don't check whether this node was claimed for hydration,
   // because this node might've been previously claimed while processing
   // template instructions.
@@ -29311,14 +29587,16 @@ function enableRetrieveHydrationInfoImpl() {
  * Retrieves hydration info by reading the value from the `ngh` attribute
  * and accessing a corresponding slot in TransferState storage.
  */
-function retrieveHydrationInfo(rNode, injector) {
-  return _retrieveHydrationInfoImpl(rNode, injector);
+function retrieveHydrationInfo(rNode, injector, isRootView = false) {
+  return _retrieveHydrationInfoImpl(rNode, injector, isRootView);
 }
 /**
- * Retrieves an instance of a component LView from a given ViewRef.
- * Returns an instance of a component LView or `null` in case of an embedded view.
+ * Retrieves the necessary object from a given ViewRef to serialize:
+ *  - an LView for component views
+ *  - an LContainer for cases when component acts as a ViewContainerRef anchor
+ *  - `null` in case of an embedded view
  */
-function getComponentLViewForHydration(viewRef) {
+function getLNodeForHydration(viewRef) {
   // Reading an internal field from `ViewRef` instance.
   let lView = viewRef._lView;
   const tView = lView[TVIEW];
@@ -29331,12 +29609,6 @@ function getComponentLViewForHydration(viewRef) {
   // LView from the first slot after the header.
   if (isRootView(lView)) {
     lView = lView[HEADER_OFFSET];
-  }
-  // If a `ViewContainerRef` was injected in a component class, this resulted
-  // in an LContainer creation at that location. In this case, the component
-  // LView is in the LContainer's `HOST` slot.
-  if (isLContainer(lView)) {
-    lView = lView[HOST];
   }
   return lView;
 }
@@ -29636,7 +29908,7 @@ class Version {
 /**
  * @publicApi
  */
-const VERSION = new Version('16.1.8');
+const VERSION = new Version('16.2.0');
 
 // This default value is when checking the hierarchy for a token.
 //
@@ -29658,6 +29930,552 @@ const VERSION = new Version('16.1.8');
 const NOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR = {};
 
 /**
+ * Runs the given function in the [context](guide/dependency-injection-context) of the given
+ * `Injector`.
+ *
+ * Within the function's stack frame, [`inject`](api/core/inject) can be used to inject dependencies
+ * from the given `Injector`. Note that `inject` is only usable synchronously, and cannot be used in
+ * any asynchronous callbacks or after any `await` points.
+ *
+ * @param injector the injector which will satisfy calls to [`inject`](api/core/inject) while `fn`
+ *     is executing
+ * @param fn the closure to be run in the context of `injector`
+ * @returns the return value of the function, if any
+ * @publicApi
+ */
+function runInInjectionContext(injector, fn) {
+  if (injector instanceof R3Injector) {
+    injector.assertNotDestroyed();
+  }
+  let prevInjectorProfilerContext;
+  if (ngDevMode) {
+    prevInjectorProfilerContext = setInjectorProfilerContext({
+      injector,
+      token: null
+    });
+  }
+  const prevInjector = setCurrentInjector(injector);
+  const previousInjectImplementation = setInjectImplementation(undefined);
+  try {
+    return fn();
+  } finally {
+    setCurrentInjector(prevInjector);
+    ngDevMode && setInjectorProfilerContext(prevInjectorProfilerContext);
+    setInjectImplementation(previousInjectImplementation);
+  }
+}
+/**
+ * Asserts that the current stack frame is within an [injection
+ * context](guide/dependency-injection-context) and has access to `inject`.
+ *
+ * @param debugFn a reference to the function making the assertion (used for the error message).
+ *
+ * @publicApi
+ */
+function assertInInjectionContext(debugFn) {
+  // Taking a `Function` instead of a string name here prevents the unminified name of the function
+  // from being retained in the bundle regardless of minification.
+  if (!getInjectImplementation() && !getCurrentInjector()) {
+    throw new RuntimeError(-203 /* RuntimeErrorCode.MISSING_INJECTION_CONTEXT */, ngDevMode && debugFn.name + '() can only be used within an injection context such as a constructor, a factory function, a field initializer, or a function used with `runInInjectionContext`');
+  }
+}
+
+/**
+ * A mapping of the @angular/core API surface used in generated expressions to the actual symbols.
+ *
+ * This should be kept up to date with the public exports of @angular/core.
+ */
+const angularCoreDiEnv = {
+  'ɵɵdefineInjectable': ɵɵdefineInjectable,
+  'ɵɵdefineInjector': ɵɵdefineInjector,
+  'ɵɵinject': ɵɵinject,
+  'ɵɵinvalidFactoryDep': ɵɵinvalidFactoryDep,
+  'resolveForwardRef': resolveForwardRef
+};
+
+/**
+ * Compile an Angular injectable according to its `Injectable` metadata, and patch the resulting
+ * injectable def (`ɵprov`) onto the injectable type.
+ */
+function compileInjectable(type, meta) {
+  let ngInjectableDef = null;
+  let ngFactoryDef = null;
+  // if NG_PROV_DEF is already defined on this class then don't overwrite it
+  if (!type.hasOwnProperty(NG_PROV_DEF)) {
+    Object.defineProperty(type, NG_PROV_DEF, {
+      get: () => {
+        if (ngInjectableDef === null) {
+          const compiler = getCompilerFacade({
+            usage: 0 /* JitCompilerUsage.Decorator */,
+            kind: 'injectable',
+            type
+          });
+          ngInjectableDef = compiler.compileInjectable(angularCoreDiEnv, `ng:///${type.name}/ɵprov.js`, getInjectableMetadata(type, meta));
+        }
+        return ngInjectableDef;
+      }
+    });
+  }
+  // if NG_FACTORY_DEF is already defined on this class then don't overwrite it
+  if (!type.hasOwnProperty(NG_FACTORY_DEF)) {
+    Object.defineProperty(type, NG_FACTORY_DEF, {
+      get: () => {
+        if (ngFactoryDef === null) {
+          const compiler = getCompilerFacade({
+            usage: 0 /* JitCompilerUsage.Decorator */,
+            kind: 'injectable',
+            type
+          });
+          ngFactoryDef = compiler.compileFactory(angularCoreDiEnv, `ng:///${type.name}/ɵfac.js`, {
+            name: type.name,
+            type,
+            typeArgumentCount: 0,
+            deps: reflectDependencies(type),
+            target: compiler.FactoryTarget.Injectable
+          });
+        }
+        return ngFactoryDef;
+      },
+      // Leave this configurable so that the factories from directives or pipes can take precedence.
+      configurable: true
+    });
+  }
+}
+const USE_VALUE = getClosureSafeProperty({
+  provide: String,
+  useValue: getClosureSafeProperty
+});
+function isUseClassProvider(meta) {
+  return meta.useClass !== undefined;
+}
+function isUseValueProvider(meta) {
+  return USE_VALUE in meta;
+}
+function isUseFactoryProvider(meta) {
+  return meta.useFactory !== undefined;
+}
+function isUseExistingProvider(meta) {
+  return meta.useExisting !== undefined;
+}
+function getInjectableMetadata(type, srcMeta) {
+  // Allow the compilation of a class with a `@Injectable()` decorator without parameters
+  const meta = srcMeta || {
+    providedIn: null
+  };
+  const compilerMeta = {
+    name: type.name,
+    type: type,
+    typeArgumentCount: 0,
+    providedIn: meta.providedIn
+  };
+  if ((isUseClassProvider(meta) || isUseFactoryProvider(meta)) && meta.deps !== undefined) {
+    compilerMeta.deps = convertDependencies(meta.deps);
+  }
+  // Check to see if the user explicitly provided a `useXxxx` property.
+  if (isUseClassProvider(meta)) {
+    compilerMeta.useClass = meta.useClass;
+  } else if (isUseValueProvider(meta)) {
+    compilerMeta.useValue = meta.useValue;
+  } else if (isUseFactoryProvider(meta)) {
+    compilerMeta.useFactory = meta.useFactory;
+  } else if (isUseExistingProvider(meta)) {
+    compilerMeta.useExisting = meta.useExisting;
+  }
+  return compilerMeta;
+}
+
+/**
+ * Injectable decorator and metadata.
+ *
+ * @Annotation
+ * @publicApi
+ */
+const Injectable = makeDecorator('Injectable', undefined, undefined, undefined, (type, meta) => compileInjectable(type, meta));
+
+/**
+ * Create a new `Injector` which is configured using a `defType` of `InjectorType<any>`s.
+ */
+function createInjector(defType, parent = null, additionalProviders = null, name) {
+  const injector = createInjectorWithoutInjectorInstances(defType, parent, additionalProviders, name);
+  injector.resolveInjectorInitializers();
+  return injector;
+}
+/**
+ * Creates a new injector without eagerly resolving its injector types. Can be used in places
+ * where resolving the injector types immediately can lead to an infinite loop. The injector types
+ * should be resolved at a later point by calling `_resolveInjectorDefTypes`.
+ */
+function createInjectorWithoutInjectorInstances(defType, parent = null, additionalProviders = null, name, scopes = new Set()) {
+  const providers = [additionalProviders || EMPTY_ARRAY, importProvidersFrom(defType)];
+  name = name || (typeof defType === 'object' ? undefined : stringify(defType));
+  return new R3Injector(providers, parent || getNullInjector(), name || null, scopes);
+}
+
+/**
+ * Concrete injectors implement this interface. Injectors are configured
+ * with [providers](guide/glossary#provider) that associate
+ * dependencies of various types with [injection tokens](guide/glossary#di-token).
+ *
+ * @see ["DI Providers"](guide/dependency-injection-providers).
+ * @see {@link StaticProvider}
+ *
+ * @usageNotes
+ *
+ *  The following example creates a service injector instance.
+ *
+ * {@example core/di/ts/provider_spec.ts region='ConstructorProvider'}
+ *
+ * ### Usage example
+ *
+ * {@example core/di/ts/injector_spec.ts region='Injector'}
+ *
+ * `Injector` returns itself when given `Injector` as a token:
+ *
+ * {@example core/di/ts/injector_spec.ts region='injectInjector'}
+ *
+ * @publicApi
+ */
+class Injector {
+  static create(options, parent) {
+    if (Array.isArray(options)) {
+      return createInjector({
+        name: ''
+      }, parent, options, '');
+    } else {
+      const name = options.name ?? '';
+      return createInjector({
+        name
+      }, options.parent, options.providers, name);
+    }
+  }
+  /** @nocollapse */
+}
+
+/**
+ * @module
+ * @description
+ * The `di` module provides dependency injection container services.
+ */
+
+/**
+ * This file should not be necessary because node resolution should just default to `./di/index`!
+ *
+ * However it does not seem to work and it breaks:
+ *  - //packages/animations/browser/test:test_web_chromium-local
+ *  - //packages/compiler-cli/test:extract_i18n
+ *  - //packages/compiler-cli/test:ngc
+ *  - //packages/compiler-cli/test:perform_watch
+ *  - //packages/compiler-cli/test/diagnostics:check_types
+ *  - //packages/compiler-cli/test/transformers:test
+ *  - //packages/compiler/test:test
+ *  - //tools/public_api_guard:core_api
+ *
+ * Remove this file once the above is solved or wait until `ngc` is deleted and then it should be
+ * safe to delete this file.
+ */
+
+/**
+ * `DestroyRef` lets you set callbacks to run for any cleanup or destruction behavior.
+ * The scope of this destruction depends on where `DestroyRef` is injected. If `DestroyRef`
+ * is injected in a component or directive, the callbacks run when that component or
+ * directive is destroyed. Otherwise the callbacks run when a corresponding injector is destroyed.
+ *
+ * @publicApi
+ */
+_class6 = Injector;
+_class6.THROW_IF_NOT_FOUND = THROW_IF_NOT_FOUND;
+_class6.NULL = /* @__PURE__ */new NullInjector();
+_class6.ɵprov = ɵɵdefineInjectable({
+  token: _class6,
+  providedIn: 'any',
+  factory: () => ɵɵinject(INJECTOR)
+});
+/**
+ * @internal
+ * @nocollapse
+ */
+_class6.__NG_ELEMENT_ID__ = -1 /* InjectorMarkers.Injector */;
+
+class DestroyRef {}
+_class7 = DestroyRef;
+/**
+ * @internal
+ * @nocollapse
+ */
+_class7.__NG_ELEMENT_ID__ = injectDestroyRef;
+/**
+ * @internal
+ * @nocollapse
+ */
+_class7.__NG_ENV_ID__ = injector => injector;
+class NodeInjectorDestroyRef extends DestroyRef {
+  constructor(_lView) {
+    super();
+    this._lView = _lView;
+  }
+  onDestroy(callback) {
+    storeLViewOnDestroy(this._lView, callback);
+    return () => removeLViewOnDestroy(this._lView, callback);
+  }
+}
+function injectDestroyRef() {
+  return new NodeInjectorDestroyRef(getLView());
+}
+
+/**
+ *
+ * @codeGenApi
+ */
+function ɵɵresolveWindow(element) {
+  return element.ownerDocument.defaultView;
+}
+/**
+ *
+ * @codeGenApi
+ */
+function ɵɵresolveDocument(element) {
+  return element.ownerDocument;
+}
+/**
+ *
+ * @codeGenApi
+ */
+function ɵɵresolveBody(element) {
+  return element.ownerDocument.body;
+}
+/**
+ * The special delimiter we use to separate property names, prefixes, and suffixes
+ * in property binding metadata. See storeBindingMetadata().
+ *
+ * We intentionally use the Unicode "REPLACEMENT CHARACTER" (U+FFFD) as a delimiter
+ * because it is a very uncommon character that is unlikely to be part of a user's
+ * property names or interpolation strings. If it is in fact used in a property
+ * binding, DebugElement.properties will not return the correct value for that
+ * binding. However, there should be no runtime effect for real applications.
+ *
+ * This character is typically rendered as a question mark inside of a diamond.
+ * See https://en.wikipedia.org/wiki/Specials_(Unicode_block)
+ *
+ */
+const INTERPOLATION_DELIMITER = `�`;
+/**
+ * Unwrap a value which might be behind a closure (for forward declaration reasons).
+ */
+function maybeUnwrapFn(value) {
+  if (value instanceof Function) {
+    return value();
+  } else {
+    return value;
+  }
+}
+/**
+ * Detects whether the code is invoked in a browser.
+ * Later on, this check should be replaced with a tree-shakable
+ * flag (e.g. `!isServer`).
+ */
+function isPlatformBrowser(injector) {
+  return (injector ?? inject(Injector)).get(PLATFORM_ID) === 'browser';
+}
+
+/**
+ * Register a callback to be invoked each time the application
+ * finishes rendering.
+ *
+ * Note that the callback will run
+ * - in the order it was registered
+ * - once per render
+ * - on browser platforms only
+ *
+ * <div class="alert is-important">
+ *
+ * Components are not guaranteed to be [hydrated](guide/hydration) before the callback runs.
+ * You must use caution when directly reading or writing the DOM and layout.
+ *
+ * </div>
+ *
+ * @param callback A callback function to register
+ *
+ * @usageNotes
+ *
+ * Use `afterRender` to read or write the DOM after each render.
+ *
+ * ### Example
+ * ```ts
+ * @Component({
+ *   selector: 'my-cmp',
+ *   template: `<span #content>{{ ... }}</span>`,
+ * })
+ * export class MyComponent {
+ *   @ViewChild('content') contentRef: ElementRef;
+ *
+ *   constructor() {
+ *     afterRender(() => {
+ *       console.log('content height: ' + this.contentRef.nativeElement.scrollHeight);
+ *     });
+ *   }
+ * }
+ * ```
+ *
+ * @developerPreview
+ */
+function afterRender(callback, options) {
+  !options && assertInInjectionContext(afterRender);
+  const injector = options?.injector ?? inject(Injector);
+  if (!isPlatformBrowser(injector)) {
+    return {
+      destroy() {}
+    };
+  }
+  let destroy;
+  const unregisterFn = injector.get(DestroyRef).onDestroy(() => destroy?.());
+  const manager = injector.get(AfterRenderEventManager);
+  const instance = new AfterRenderCallback(callback);
+  destroy = () => {
+    manager.unregister(instance);
+    unregisterFn();
+  };
+  manager.register(instance);
+  return {
+    destroy
+  };
+}
+/**
+ * Register a callback to be invoked the next time the application
+ * finishes rendering.
+ *
+ * Note that the callback will run
+ * - in the order it was registered
+ * - on browser platforms only
+ *
+ * <div class="alert is-important">
+ *
+ * Components are not guaranteed to be [hydrated](guide/hydration) before the callback runs.
+ * You must use caution when directly reading or writing the DOM and layout.
+ *
+ * </div>
+ *
+ * @param callback A callback function to register
+ *
+ * @usageNotes
+ *
+ * Use `afterNextRender` to read or write the DOM once,
+ * for example to initialize a non-Angular library.
+ *
+ * ### Example
+ * ```ts
+ * @Component({
+ *   selector: 'my-chart-cmp',
+ *   template: `<div #chart>{{ ... }}</div>`,
+ * })
+ * export class MyChartCmp {
+ *   @ViewChild('chart') chartRef: ElementRef;
+ *   chart: MyChart|null;
+ *
+ *   constructor() {
+ *     afterNextRender(() => {
+ *       this.chart = new MyChart(this.chartRef.nativeElement);
+ *     });
+ *   }
+ * }
+ * ```
+ *
+ * @developerPreview
+ */
+function afterNextRender(callback, options) {
+  !options && assertInInjectionContext(afterNextRender);
+  const injector = options?.injector ?? inject(Injector);
+  if (!isPlatformBrowser(injector)) {
+    return {
+      destroy() {}
+    };
+  }
+  let destroy;
+  const unregisterFn = injector.get(DestroyRef).onDestroy(() => destroy?.());
+  const manager = injector.get(AfterRenderEventManager);
+  const instance = new AfterRenderCallback(() => {
+    destroy?.();
+    callback();
+  });
+  destroy = () => {
+    manager.unregister(instance);
+    unregisterFn();
+  };
+  manager.register(instance);
+  return {
+    destroy
+  };
+}
+/**
+ * A wrapper around a function to be used as an after render callback.
+ * @private
+ */
+class AfterRenderCallback {
+  constructor(callback) {
+    this.callback = callback;
+  }
+  invoke() {
+    this.callback();
+  }
+}
+/**
+ * Implements `afterRender` and `afterNextRender` callback manager logic.
+ */
+class AfterRenderEventManager {
+  constructor() {
+    this.callbacks = new Set();
+    this.deferredCallbacks = new Set();
+    this.renderDepth = 0;
+    this.runningCallbacks = false;
+  }
+  /**
+   * Mark the beginning of a render operation (i.e. CD cycle).
+   * Throws if called from an `afterRender` callback.
+   */
+  begin() {
+    if (this.runningCallbacks) {
+      throw new RuntimeError(102 /* RuntimeErrorCode.RECURSIVE_APPLICATION_RENDER */, ngDevMode && 'A new render operation began before the previous operation ended. ' + 'Did you trigger change detection from afterRender or afterNextRender?');
+    }
+    this.renderDepth++;
+  }
+  /**
+   * Mark the end of a render operation. Registered callbacks
+   * are invoked if there are no more pending operations.
+   */
+  end() {
+    this.renderDepth--;
+    if (this.renderDepth === 0) {
+      try {
+        this.runningCallbacks = true;
+        for (const callback of this.callbacks) {
+          callback.invoke();
+        }
+      } finally {
+        this.runningCallbacks = false;
+        for (const callback of this.deferredCallbacks) {
+          this.callbacks.add(callback);
+        }
+        this.deferredCallbacks.clear();
+      }
+    }
+  }
+  register(callback) {
+    // If we're currently running callbacks, new callbacks should be deferred
+    // until the next render operation.
+    const target = this.runningCallbacks ? this.deferredCallbacks : this.callbacks;
+    target.add(callback);
+  }
+  unregister(callback) {
+    this.callbacks.delete(callback);
+    this.deferredCallbacks.delete(callback);
+  }
+  ngOnDestroy() {
+    this.callbacks.clear();
+    this.deferredCallbacks.clear();
+  }
+  /** @nocollapse */
+}
+
+/**
  * Marks current view and all ancestors dirty.
  *
  * Returns the root view because it is found as a byproduct of marking the view tree
@@ -29668,6 +30486,12 @@ const NOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR = {};
  * @param lView The starting LView to mark dirty
  * @returns the root LView
  */
+_class8 = AfterRenderEventManager;
+_class8.ɵprov = ɵɵdefineInjectable({
+  token: _class8,
+  providedIn: 'root',
+  factory: () => new _class8()
+});
 function markViewDirty(lView) {
   while (lView) {
     lView[FLAGS] |= 64 /* LViewFlags.Dirty */;
@@ -29772,53 +30596,6 @@ function normalizeDebugBindingValue(value) {
     return value != null ? value.toString().slice(0, 30) : value;
   } catch (e) {
     return '[ERROR] Exception while trying to serialize the value';
-  }
-}
-
-/**
- *
- * @codeGenApi
- */
-function ɵɵresolveWindow(element) {
-  return element.ownerDocument.defaultView;
-}
-/**
- *
- * @codeGenApi
- */
-function ɵɵresolveDocument(element) {
-  return element.ownerDocument;
-}
-/**
- *
- * @codeGenApi
- */
-function ɵɵresolveBody(element) {
-  return element.ownerDocument.body;
-}
-/**
- * The special delimiter we use to separate property names, prefixes, and suffixes
- * in property binding metadata. See storeBindingMetadata().
- *
- * We intentionally use the Unicode "REPLACEMENT CHARACTER" (U+FFFD) as a delimiter
- * because it is a very uncommon character that is unlikely to be part of a user's
- * property names or interpolation strings. If it is in fact used in a property
- * binding, DebugElement.properties will not return the correct value for that
- * binding. However, there should be no runtime effect for real applications.
- *
- * This character is typically rendered as a question mark inside of a diamond.
- * See https://en.wikipedia.org/wiki/Specials_(Unicode_block)
- *
- */
-const INTERPOLATION_DELIMITER = `�`;
-/**
- * Unwrap a value which might be behind a closure (for forward declaration reasons).
- */
-function maybeUnwrapFn(value) {
-  if (value instanceof Function) {
-    return value();
-  } else {
-    return value;
   }
 }
 
@@ -30052,257 +30829,6 @@ function selectIndexInternal(tView, lView, index, checkNoChangesMode) {
   // will be altered by the time we leave the `ɵɵadvance` instruction.
   setSelectedIndex(index);
 }
-
-/**
- * Runs the given function in the [context](guide/dependency-injection-context) of the given
- * `Injector`.
- *
- * Within the function's stack frame, [`inject`](api/core/inject) can be used to inject dependencies
- * from the given `Injector`. Note that `inject` is only usable synchronously, and cannot be used in
- * any asynchronous callbacks or after any `await` points.
- *
- * @param injector the injector which will satisfy calls to [`inject`](api/core/inject) while `fn`
- *     is executing
- * @param fn the closure to be run in the context of `injector`
- * @returns the return value of the function, if any
- * @publicApi
- */
-function runInInjectionContext(injector, fn) {
-  if (injector instanceof R3Injector) {
-    injector.assertNotDestroyed();
-  }
-  const prevInjector = setCurrentInjector(injector);
-  const previousInjectImplementation = setInjectImplementation(undefined);
-  try {
-    return fn();
-  } finally {
-    setCurrentInjector(prevInjector);
-    setInjectImplementation(previousInjectImplementation);
-  }
-}
-/**
- * Asserts that the current stack frame is within an [injection
- * context](guide/dependency-injection-context) and has access to `inject`.
- *
- * @param debugFn a reference to the function making the assertion (used for the error message).
- *
- * @publicApi
- */
-function assertInInjectionContext(debugFn) {
-  // Taking a `Function` instead of a string name here prevents the unminified name of the function
-  // from being retained in the bundle regardless of minification.
-  if (!getInjectImplementation() && !getCurrentInjector()) {
-    throw new RuntimeError(-203 /* RuntimeErrorCode.MISSING_INJECTION_CONTEXT */, ngDevMode && debugFn.name + '() can only be used within an injection context such as a constructor, a factory function, a field initializer, or a function used with `runInInjectionContext`');
-  }
-}
-
-/**
- * A mapping of the @angular/core API surface used in generated expressions to the actual symbols.
- *
- * This should be kept up to date with the public exports of @angular/core.
- */
-const angularCoreDiEnv = {
-  'ɵɵdefineInjectable': ɵɵdefineInjectable,
-  'ɵɵdefineInjector': ɵɵdefineInjector,
-  'ɵɵinject': ɵɵinject,
-  'ɵɵinvalidFactoryDep': ɵɵinvalidFactoryDep,
-  'resolveForwardRef': resolveForwardRef
-};
-
-/**
- * Compile an Angular injectable according to its `Injectable` metadata, and patch the resulting
- * injectable def (`ɵprov`) onto the injectable type.
- */
-function compileInjectable(type, meta) {
-  let ngInjectableDef = null;
-  let ngFactoryDef = null;
-  // if NG_PROV_DEF is already defined on this class then don't overwrite it
-  if (!type.hasOwnProperty(NG_PROV_DEF)) {
-    Object.defineProperty(type, NG_PROV_DEF, {
-      get: () => {
-        if (ngInjectableDef === null) {
-          const compiler = getCompilerFacade({
-            usage: 0 /* JitCompilerUsage.Decorator */,
-            kind: 'injectable',
-            type
-          });
-          ngInjectableDef = compiler.compileInjectable(angularCoreDiEnv, `ng:///${type.name}/ɵprov.js`, getInjectableMetadata(type, meta));
-        }
-        return ngInjectableDef;
-      }
-    });
-  }
-  // if NG_FACTORY_DEF is already defined on this class then don't overwrite it
-  if (!type.hasOwnProperty(NG_FACTORY_DEF)) {
-    Object.defineProperty(type, NG_FACTORY_DEF, {
-      get: () => {
-        if (ngFactoryDef === null) {
-          const compiler = getCompilerFacade({
-            usage: 0 /* JitCompilerUsage.Decorator */,
-            kind: 'injectable',
-            type
-          });
-          ngFactoryDef = compiler.compileFactory(angularCoreDiEnv, `ng:///${type.name}/ɵfac.js`, {
-            name: type.name,
-            type,
-            typeArgumentCount: 0,
-            deps: reflectDependencies(type),
-            target: compiler.FactoryTarget.Injectable
-          });
-        }
-        return ngFactoryDef;
-      },
-      // Leave this configurable so that the factories from directives or pipes can take precedence.
-      configurable: true
-    });
-  }
-}
-const USE_VALUE = getClosureSafeProperty({
-  provide: String,
-  useValue: getClosureSafeProperty
-});
-function isUseClassProvider(meta) {
-  return meta.useClass !== undefined;
-}
-function isUseValueProvider(meta) {
-  return USE_VALUE in meta;
-}
-function isUseFactoryProvider(meta) {
-  return meta.useFactory !== undefined;
-}
-function isUseExistingProvider(meta) {
-  return meta.useExisting !== undefined;
-}
-function getInjectableMetadata(type, srcMeta) {
-  // Allow the compilation of a class with a `@Injectable()` decorator without parameters
-  const meta = srcMeta || {
-    providedIn: null
-  };
-  const compilerMeta = {
-    name: type.name,
-    type: type,
-    typeArgumentCount: 0,
-    providedIn: meta.providedIn
-  };
-  if ((isUseClassProvider(meta) || isUseFactoryProvider(meta)) && meta.deps !== undefined) {
-    compilerMeta.deps = convertDependencies(meta.deps);
-  }
-  // Check to see if the user explicitly provided a `useXxxx` property.
-  if (isUseClassProvider(meta)) {
-    compilerMeta.useClass = meta.useClass;
-  } else if (isUseValueProvider(meta)) {
-    compilerMeta.useValue = meta.useValue;
-  } else if (isUseFactoryProvider(meta)) {
-    compilerMeta.useFactory = meta.useFactory;
-  } else if (isUseExistingProvider(meta)) {
-    compilerMeta.useExisting = meta.useExisting;
-  }
-  return compilerMeta;
-}
-
-/**
- * Injectable decorator and metadata.
- *
- * @Annotation
- * @publicApi
- */
-const Injectable = makeDecorator('Injectable', undefined, undefined, undefined, (type, meta) => compileInjectable(type, meta));
-
-/**
- * Create a new `Injector` which is configured using a `defType` of `InjectorType<any>`s.
- */
-function createInjector(defType, parent = null, additionalProviders = null, name) {
-  const injector = createInjectorWithoutInjectorInstances(defType, parent, additionalProviders, name);
-  injector.resolveInjectorInitializers();
-  return injector;
-}
-/**
- * Creates a new injector without eagerly resolving its injector types. Can be used in places
- * where resolving the injector types immediately can lead to an infinite loop. The injector types
- * should be resolved at a later point by calling `_resolveInjectorDefTypes`.
- */
-function createInjectorWithoutInjectorInstances(defType, parent = null, additionalProviders = null, name, scopes = new Set()) {
-  const providers = [additionalProviders || EMPTY_ARRAY, importProvidersFrom(defType)];
-  name = name || (typeof defType === 'object' ? undefined : stringify(defType));
-  return new R3Injector(providers, parent || getNullInjector(), name || null, scopes);
-}
-
-/**
- * Concrete injectors implement this interface. Injectors are configured
- * with [providers](guide/glossary#provider) that associate
- * dependencies of various types with [injection tokens](guide/glossary#di-token).
- *
- * @see ["DI Providers"](guide/dependency-injection-providers).
- * @see {@link StaticProvider}
- *
- * @usageNotes
- *
- *  The following example creates a service injector instance.
- *
- * {@example core/di/ts/provider_spec.ts region='ConstructorProvider'}
- *
- * ### Usage example
- *
- * {@example core/di/ts/injector_spec.ts region='Injector'}
- *
- * `Injector` returns itself when given `Injector` as a token:
- *
- * {@example core/di/ts/injector_spec.ts region='injectInjector'}
- *
- * @publicApi
- */
-class Injector {
-  static create(options, parent) {
-    if (Array.isArray(options)) {
-      return createInjector({
-        name: ''
-      }, parent, options, '');
-    } else {
-      const name = options.name ?? '';
-      return createInjector({
-        name
-      }, options.parent, options.providers, name);
-    }
-  }
-  /** @nocollapse */
-}
-
-/**
- * @module
- * @description
- * The `di` module provides dependency injection container services.
- */
-
-/**
- * This file should not be necessary because node resolution should just default to `./di/index`!
- *
- * However it does not seem to work and it breaks:
- *  - //packages/animations/browser/test:test_web_chromium-local
- *  - //packages/compiler-cli/test:extract_i18n
- *  - //packages/compiler-cli/test:ngc
- *  - //packages/compiler-cli/test:perform_watch
- *  - //packages/compiler-cli/test/diagnostics:check_types
- *  - //packages/compiler-cli/test/transformers:test
- *  - //packages/compiler/test:test
- *  - //tools/public_api_guard:core_api
- *
- * Remove this file once the above is solved or wait until `ngc` is deleted and then it should be
- * safe to delete this file.
- */
-_class6 = Injector;
-_class6.THROW_IF_NOT_FOUND = THROW_IF_NOT_FOUND;
-_class6.NULL = /* @__PURE__ */new NullInjector();
-_class6.ɵprov = ɵɵdefineInjectable({
-  token: _class6,
-  providedIn: 'any',
-  factory: () => ɵɵinject(INJECTOR)
-});
-/**
- * @internal
- * @nocollapse
- */
-_class6.__NG_ELEMENT_ID__ = -1 /* InjectorMarkers.Injector */;
-
 function ɵɵdirectiveInject(token, flags = InjectFlags.Default) {
   const lView = getLView();
   // Fall back to inject() if view hasn't been created. This situation can happen in tests
@@ -30313,7 +30839,9 @@ function ɵɵdirectiveInject(token, flags = InjectFlags.Default) {
     return ɵɵinject(token, flags);
   }
   const tNode = getCurrentTNode();
-  return getOrCreateInjectable(tNode, lView, resolveForwardRef(token), flags);
+  const value = getOrCreateInjectable(tNode, lView, resolveForwardRef(token), flags);
+  ngDevMode && emitInjectEvent(token, value, flags);
+  return value;
 }
 /**
  * Throws an error indicating that a factory function could not be generated by the compiler for a
@@ -31689,40 +32217,6 @@ function renderChildComponents(hostLView, components) {
 }
 
 /**
- * `DestroyRef` lets you set callbacks to run for any cleanup or destruction behavior.
- * The scope of this destruction depends on where `DestroyRef` is injected. If `DestroyRef`
- * is injected in a component or directive, the callbacks run when that component or
- * directive is destroyed. Otherwise the callbacks run when a corresponding injector is destroyed.
- *
- * @publicApi
- */
-class DestroyRef {}
-_class7 = DestroyRef;
-/**
- * @internal
- * @nocollapse
- */
-_class7.__NG_ELEMENT_ID__ = injectDestroyRef;
-/**
- * @internal
- * @nocollapse
- */
-_class7.__NG_ENV_ID__ = injector => injector;
-class NodeInjectorDestroyRef extends DestroyRef {
-  constructor(_lView) {
-    super();
-    this._lView = _lView;
-  }
-  onDestroy(callback) {
-    storeLViewOnDestroy(this._lView, callback);
-    return () => removeLViewOnDestroy(this._lView, callback);
-  }
-}
-function injectDestroyRef() {
-  return new NodeInjectorDestroyRef(getLView());
-}
-
-/**
  * Tracks all effects registered within a given application and runs them via `flush`.
  */
 class EffectManager {
@@ -31776,11 +32270,11 @@ class EffectManager {
  *
  * @developerPreview
  */
-_class8 = EffectManager;
-_class8.ɵprov = ɵɵdefineInjectable({
-  token: _class8,
+_class9 = EffectManager;
+_class9.ɵprov = ɵɵdefineInjectable({
+  token: _class9,
   providedIn: 'root',
-  factory: () => new _class8()
+  factory: () => new _class9()
 });
 function effect(effectFn, options) {
   !options?.injector && assertInInjectionContext(effect);
@@ -31881,12 +32375,17 @@ function collectNativeNodes(tView, lView, tNode, result, isProjection = false) {
   return result;
 }
 function detectChangesInternal(tView, lView, context, notifyErrorHandler = true) {
-  const rendererFactory = lView[ENVIRONMENT].rendererFactory;
+  const environment = lView[ENVIRONMENT];
+  const rendererFactory = environment.rendererFactory;
+  const afterRenderEventManager = environment.afterRenderEventManager;
   // Check no changes mode is a dev only mode used to verify that bindings have not changed
   // since they were assigned. We do not want to invoke renderer factory functions in that mode
   // to avoid any possible side-effects.
   const checkNoChangesMode = !!ngDevMode && isInCheckNoChangesMode();
-  if (!checkNoChangesMode && rendererFactory.begin) rendererFactory.begin();
+  if (!checkNoChangesMode) {
+    rendererFactory.begin?.();
+    afterRenderEventManager?.begin();
+  }
   try {
     refreshView(tView, lView, tView.template, context);
   } catch (error) {
@@ -31895,10 +32394,14 @@ function detectChangesInternal(tView, lView, context, notifyErrorHandler = true)
     }
     throw error;
   } finally {
-    if (!checkNoChangesMode && rendererFactory.end) rendererFactory.end();
-    // One final flush of the effects queue to catch any effects created in `ngAfterViewInit` or
-    // other post-order hooks.
-    !checkNoChangesMode && lView[ENVIRONMENT].effectManager?.flush();
+    if (!checkNoChangesMode) {
+      rendererFactory.end?.();
+      // One final flush of the effects queue to catch any effects created in `ngAfterViewInit` or
+      // other post-order hooks.
+      environment.effectManager?.flush();
+      // Invoke all callbacks registered via `after*Render`, if needed.
+      afterRenderEventManager?.end();
+    }
   }
 }
 function checkNoChangesInternal(tView, lView, context, notifyErrorHandler = true) {
@@ -32372,7 +32875,7 @@ class ViewRef$1 {
   }
   detachFromAppRef() {
     this._appRef = null;
-    renderDetachView(this._lView[TVIEW], this._lView);
+    detachViewFromDOM(this._lView[TVIEW], this._lView);
   }
   attachToAppRef(appRef) {
     if (this._attachedToViewContainer) {
@@ -32505,10 +33008,12 @@ class ComponentFactory extends ComponentFactory$1 {
     }
     const sanitizer = rootViewInjector.get(Sanitizer, null);
     const effectManager = rootViewInjector.get(EffectManager, null);
+    const afterRenderEventManager = rootViewInjector.get(AfterRenderEventManager, null);
     const environment = {
       rendererFactory,
       sanitizer,
-      effectManager
+      effectManager,
+      afterRenderEventManager
     };
     const hostRenderer = rendererFactory.createRenderer(null, this.componentDef);
     // Determine a tag name used for creating host elements when this component is created
@@ -32520,9 +33025,13 @@ class ComponentFactory extends ComponentFactory$1 {
     // Non-signal components use the traditional "CheckAlways or OnPush/Dirty" change detection
     const nonSignalFlags = this.componentDef.onPush ? 64 /* LViewFlags.Dirty */ | 512 /* LViewFlags.IsRoot */ : 16 /* LViewFlags.CheckAlways */ | 512 /* LViewFlags.IsRoot */;
     const rootFlags = this.componentDef.signals ? signalFlags : nonSignalFlags;
+    let hydrationInfo = null;
+    if (hostRNode !== null) {
+      hydrationInfo = retrieveHydrationInfo(hostRNode, rootViewInjector, true /* isRootView */);
+    }
     // Create the root view. Uses empty TView and ContentTemplate.
     const rootTView = createTView(0 /* TViewType.Root */, null, null, 1, 0, null, null, null, null, null, null);
-    const rootLView = createLView(null, rootTView, null, rootFlags, null, null, environment, hostRenderer, rootViewInjector, null, null);
+    const rootLView = createLView(null, rootTView, null, rootFlags, null, null, environment, hostRenderer, rootViewInjector, null, hydrationInfo);
     // rootView is the parent when bootstrapping
     // TODO(misko): it looks like we are entering view here but we don't really need to as
     // `renderView` does that. However as the code is written it is needed because
@@ -32645,7 +33154,7 @@ function createRootComponentTNode(lView, rNode) {
 function createRootComponentView(tNode, hostRNode, rootComponentDef, rootDirectives, rootView, environment, hostRenderer) {
   const tView = rootView[TVIEW];
   applyRootComponentStyling(rootDirectives, tNode, hostRNode, hostRenderer);
-  // Hydration info is on the host element and needs to be retreived
+  // Hydration info is on the host element and needs to be retrieved
   // and passed to the component LView.
   let hydrationInfo = null;
   if (hostRNode !== null) {
@@ -40508,6 +41017,18 @@ function ɵɵi18nPostprocess(message, replacements = {}) {
   return i18nPostprocess(message, replacements);
 }
 
+/**
+ * Creates runtime data structures for `{#defer}` blocks.
+ *
+ * @param index The index of the defer block in the data array
+ * @param deferredDepsFn Function that contains dependencies for this defer block
+ *
+ * @codeGenApi
+ */
+function ɵɵdefer(index, deferredDepsFn) {
+  // TODO: implement runtime logic.
+}
+
 /*
  * This file re-exports all symbols contained in this directory.
  *
@@ -40571,9 +41092,15 @@ function resolveProvider(provider, tInjectables, lInjectablesBlueprint, isCompon
   } else {
     const tView = getTView();
     const lView = getLView();
-    let token = isTypeProvider(provider) ? provider : resolveForwardRef(provider.provide);
-    let providerFactory = providerToFactory(provider);
     const tNode = getCurrentTNode();
+    let token = isTypeProvider(provider) ? provider : resolveForwardRef(provider.provide);
+    const providerFactory = providerToFactory(provider);
+    if (ngDevMode) {
+      const injector = new NodeInjector(tNode, lView);
+      runInInjectorProfilerContext(injector, token, () => {
+        emitProviderConfiguredEvent(provider, isViewProvider);
+      });
+    }
     const beginIndex = tNode.providerIndexes & 1048575 /* TNodeProviderIndexes.ProvidersStartIndexMask */;
     const endIndex = tNode.directiveStart;
     const cptViewProvidersCount = tNode.providerIndexes >> 20 /* TNodeProviderIndexes.CptViewProvidersCountShift */;
@@ -40987,11 +41514,11 @@ class StandaloneService {
  *
  * @codeGenApi
  */
-_class9 = StandaloneService;
-_class9.ɵprov = ɵɵdefineInjectable({
-  token: _class9,
+_class10 = StandaloneService;
+_class10.ɵprov = ɵɵdefineInjectable({
+  token: _class10,
   providedIn: 'environment',
-  factory: () => new _class9(ɵɵinject(EnvironmentInjector))
+  factory: () => new _class10(ɵɵinject(EnvironmentInjector))
 });
 function ɵɵStandaloneFeature(definition) {
   definition.getStandaloneInjector = parentInjector => {
@@ -41764,6 +42291,13 @@ function ɵɵpipe(index, pipeName) {
     pipeDef = tView.data[adjustedIndex];
   }
   const pipeFactory = pipeDef.factory || (pipeDef.factory = getFactoryDef(pipeDef.type, true));
+  let previousInjectorProfilerContext;
+  if (ngDevMode) {
+    previousInjectorProfilerContext = setInjectorProfilerContext({
+      injector: new NodeInjector(getCurrentTNode(), getLView()),
+      token: pipeDef.type
+    });
+  }
   const previousInjectImplementation = setInjectImplementation(ɵɵdirectiveInject);
   try {
     // DI for pipes is supposed to behave like directives when placed on a component
@@ -41777,6 +42311,7 @@ function ɵɵpipe(index, pipeName) {
     // we have to restore the injector implementation in finally, just in case the creation of the
     // pipe throws an error.
     setInjectImplementation(previousInjectImplementation);
+    ngDevMode && setInjectorProfilerContext(previousInjectorProfilerContext);
   }
 }
 /**
@@ -42139,6 +42674,57 @@ class QueryList {
     this.changes.unsubscribe();
   }
 }
+Symbol.iterator;
+function createAndRenderEmbeddedLView(declarationLView, templateTNode, context, options) {
+  const embeddedTView = templateTNode.tView;
+  ngDevMode && assertDefined(embeddedTView, 'TView must be defined for a template node.');
+  ngDevMode && assertTNodeForLView(templateTNode, declarationLView);
+  // Embedded views follow the change detection strategy of the view they're declared in.
+  const isSignalView = declarationLView[FLAGS] & 4096 /* LViewFlags.SignalView */;
+  const viewFlags = isSignalView ? 4096 /* LViewFlags.SignalView */ : 16 /* LViewFlags.CheckAlways */;
+  const embeddedLView = createLView(declarationLView, embeddedTView, context, viewFlags, null, templateTNode, null, null, null, options?.injector ?? null, options?.hydrationInfo ?? null);
+  const declarationLContainer = declarationLView[templateTNode.index];
+  ngDevMode && assertLContainer(declarationLContainer);
+  embeddedLView[DECLARATION_LCONTAINER] = declarationLContainer;
+  const declarationViewLQueries = declarationLView[QUERIES];
+  if (declarationViewLQueries !== null) {
+    embeddedLView[QUERIES] = declarationViewLQueries.createEmbeddedView(embeddedTView);
+  }
+  // execute creation mode of a view
+  renderView(embeddedTView, embeddedLView, context);
+  return embeddedLView;
+}
+function getLViewFromLContainer(lContainer, index) {
+  const adjustedIndex = CONTAINER_HEADER_OFFSET + index;
+  // avoid reading past the array boundaries
+  if (adjustedIndex < lContainer.length) {
+    const lView = lContainer[adjustedIndex];
+    ngDevMode && assertLView(lView);
+    return lView;
+  }
+  return undefined;
+}
+function addLViewToLContainer(lContainer, lView, index, addToDOM = true) {
+  const tView = lView[TVIEW];
+  // insert to the view tree so the new view can be change-detected
+  insertView(tView, lView, lContainer, index);
+  // insert to the view to the DOM tree
+  if (addToDOM) {
+    const beforeNode = getBeforeNodeForView(index, lContainer);
+    const renderer = lView[RENDERER];
+    const parentRNode = nativeParentNode(renderer, lContainer[NATIVE]);
+    if (parentRNode !== null) {
+      addViewToDOM(tView, lContainer[T_HOST], renderer, lView, parentRNode, beforeNode);
+    }
+  }
+}
+function removeLViewFromLContainer(lContainer, index) {
+  const lView = detachView(lContainer, index);
+  if (lView !== undefined) {
+    destroyLView(lView[TVIEW], lView);
+  }
+  return lView;
+}
 
 /**
  * Represents an embedded template that can be used to instantiate embedded views.
@@ -42158,14 +42744,13 @@ class QueryList {
  *
  * @publicApi
  */
-Symbol.iterator;
 class TemplateRef {}
-_class11 = TemplateRef;
+_class12 = TemplateRef;
 /**
  * @internal
  * @nocollapse
  */
-_class11.__NG_ELEMENT_ID__ = injectTemplateRef;
+_class12.__NG_ELEMENT_ID__ = injectTemplateRef;
 const ViewEngineTemplateRef = TemplateRef;
 // TODO(alxhub): combine interface and implementation. Currently this is challenging since something
 // in g3 depends on them being separate.
@@ -42186,25 +42771,16 @@ const R3TemplateRef = class TemplateRef extends ViewEngineTemplateRef {
     return this._declarationTContainer.tView?.ssrId || null;
   }
   createEmbeddedView(context, injector) {
-    return this.createEmbeddedViewImpl(context, injector, null);
+    return this.createEmbeddedViewImpl(context, injector);
   }
   /**
    * @internal
    */
   createEmbeddedViewImpl(context, injector, hydrationInfo) {
-    // Embedded views follow the change detection strategy of the view they're declared in.
-    const isSignalView = this._declarationLView[FLAGS] & 4096 /* LViewFlags.SignalView */;
-    const viewFlags = isSignalView ? 4096 /* LViewFlags.SignalView */ : 16 /* LViewFlags.CheckAlways */;
-    const embeddedTView = this._declarationTContainer.tView;
-    const embeddedLView = createLView(this._declarationLView, embeddedTView, context, viewFlags, null, embeddedTView.declTNode, null, null, null, injector || null, hydrationInfo || null);
-    const declarationLContainer = this._declarationLView[this._declarationTContainer.index];
-    ngDevMode && assertLContainer(declarationLContainer);
-    embeddedLView[DECLARATION_LCONTAINER] = declarationLContainer;
-    const declarationViewLQueries = this._declarationLView[QUERIES];
-    if (declarationViewLQueries !== null) {
-      embeddedLView[QUERIES] = declarationViewLQueries.createEmbeddedView(embeddedTView);
-    }
-    renderView(embeddedTView, embeddedLView, context);
+    const embeddedLView = createAndRenderEmbeddedLView(this._declarationLView, this._declarationTContainer, context, {
+      injector,
+      hydrationInfo
+    });
     return new ViewRef$1(embeddedLView);
   }
 };
@@ -42300,11 +42876,19 @@ function cleanupLView(lView) {
 function cleanupDehydratedViews(appRef) {
   const viewRefs = appRef._views;
   for (const viewRef of viewRefs) {
-    const lView = getComponentLViewForHydration(viewRef);
+    const lNode = getLNodeForHydration(viewRef);
     // An `lView` might be `null` if a `ViewRef` represents
     // an embedded view (not a component view).
-    if (lView !== null && lView[HOST] !== null) {
-      cleanupLView(lView);
+    if (lNode !== null && lNode[HOST] !== null) {
+      if (isLView(lNode)) {
+        cleanupLView(lNode);
+      } else {
+        // Cleanup in the root component view
+        const componentLView = lNode[HOST];
+        cleanupLView(componentLView);
+        // Cleanup in all views within this view container
+        cleanupLContainer(lNode);
+      }
       ngDevMode && ngDevMode.dehydratedViewsCleanupRuns++;
     }
   }
@@ -42404,12 +42988,12 @@ class ViewContainerRef {}
  *
  * @returns The ViewContainerRef instance to use
  */
-_class12 = ViewContainerRef;
+_class13 = ViewContainerRef;
 /**
  * @internal
  * @nocollapse
  */
-_class12.__NG_ELEMENT_ID__ = injectViewContainerRef;
+_class13.__NG_ELEMENT_ID__ = injectViewContainerRef;
 function injectViewContainerRef() {
   const previousTNode = getCurrentTNode();
   return createContainerRef(previousTNode, getLView());
@@ -42478,7 +43062,7 @@ const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
     let index;
     // This function supports 2 signatures and we need to handle options correctly for both:
     //   1. When first argument is a Component type. This signature also requires extra
-    //      options to be provided as as object (more ergonomic option).
+    //      options to be provided as object (more ergonomic option).
     //   2. First argument is a Component factory. In this case extra options are represented as
     //      positional arguments. This signature is less ergonomic and will be deprecated.
     if (isComponentFactory) {
@@ -42570,16 +43154,7 @@ const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
     // Logical operation of adding `LView` to `LContainer`
     const adjustedIdx = this._adjustIndex(index);
     const lContainer = this._lContainer;
-    insertView(tView, lView, lContainer, adjustedIdx);
-    // Physical operation of adding the DOM nodes.
-    if (!skipDomInsertion) {
-      const beforeNode = getBeforeNodeForView(adjustedIdx, lContainer);
-      const renderer = lView[RENDERER];
-      const parentRNode = nativeParentNode(renderer, lContainer[NATIVE]);
-      if (parentRNode !== null) {
-        addViewToContainer(tView, lContainer[T_HOST], renderer, lView, parentRNode, beforeNode);
-      }
-    }
+    addLViewToLContainer(lContainer, lView, adjustedIdx, !skipDomInsertion);
     viewRef.attachToViewContainerRef();
     addToArray(getOrCreateViewRefs(lContainer), adjustedIdx, viewRef);
     return viewRef;
@@ -43294,6 +43869,7 @@ const angularCoreEnv = (() => ({
   'ɵɵclassProp': ɵɵclassProp,
   'ɵɵadvance': ɵɵadvance,
   'ɵɵtemplate': ɵɵtemplate,
+  'ɵɵdefer': ɵɵdefer,
   'ɵɵtext': ɵɵtext,
   'ɵɵtextInterpolate': ɵɵtextInterpolate,
   'ɵɵtextInterpolate1': ɵɵtextInterpolate1,
@@ -43358,6 +43934,15 @@ function isModuleWithProviders(value) {
 }
 function isNgModule(value) {
   return !!getNgModuleDef(value);
+}
+function isPipe(value) {
+  return !!getPipeDef$1(value);
+}
+function isDirective(value) {
+  return !!getDirectiveDef(value);
+}
+function isComponent(value) {
+  return !!getComponentDef(value);
 }
 const moduleQueue = [];
 /**
@@ -44645,13 +45230,13 @@ class ApplicationInitStatus {
     this.initialized = true;
   }
 }
-_class13 = ApplicationInitStatus;
-_class13.ɵfac = function ApplicationInitStatus_Factory(t) {
-  return new (t || _class13)();
+_class14 = ApplicationInitStatus;
+_class14.ɵfac = function ApplicationInitStatus_Factory(t) {
+  return new (t || _class14)();
 };
-_class13.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
-  token: _class13,
-  factory: _class13.ɵfac,
+_class14.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
+  token: _class14,
+  factory: _class14.ɵfac,
   providedIn: 'root'
 });
 (function () {
@@ -44675,13 +45260,13 @@ class Console {
     console.warn(message);
   }
 }
-_class14 = Console;
-_class14.ɵfac = function Console_Factory(t) {
-  return new (t || _class14)();
+_class15 = Console;
+_class15.ɵfac = function Console_Factory(t) {
+  return new (t || _class15)();
 };
-_class14.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
-  token: _class14,
-  factory: _class14.ɵfac,
+_class15.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
+  token: _class15,
+  factory: _class15.ɵfac,
   providedIn: 'platform'
 });
 (function () {
@@ -44895,13 +45480,13 @@ class InitialRenderPendingTasks {
     this.hasPendingTasks.next(false);
   }
 }
-_class15 = InitialRenderPendingTasks;
-_class15.ɵfac = function InitialRenderPendingTasks_Factory(t) {
-  return new (t || _class15)();
+_class16 = InitialRenderPendingTasks;
+_class16.ɵfac = function InitialRenderPendingTasks_Factory(t) {
+  return new (t || _class16)();
 };
-_class15.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
-  token: _class15,
-  factory: _class15.ɵfac,
+_class16.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
+  token: _class16,
+  factory: _class16.ɵfac,
   providedIn: 'root'
 });
 (function () {
@@ -44993,13 +45578,13 @@ class Compiler {
     return undefined;
   }
 }
-_class16 = Compiler;
-_class16.ɵfac = function Compiler_Factory(t) {
-  return new (t || _class16)();
+_class17 = Compiler;
+_class17.ɵfac = function Compiler_Factory(t) {
+  return new (t || _class17)();
 };
-_class16.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
-  token: _class16,
-  factory: _class16.ɵfac,
+_class17.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
+  token: _class17,
+  factory: _class17.ɵfac,
   providedIn: 'root'
 });
 (function () {
@@ -45029,6 +45614,221 @@ const COMPILER_OPTIONS = new InjectionToken('compilerOptions');
 class CompilerFactory {}
 
 /**
+ * These are the data structures that our framework injector profiler will fill with data in order
+ * to support DI debugging APIs.
+ *
+ * resolverToTokenToDependencies: Maps an injector to a Map of tokens to an Array of
+ * dependencies. Injector -> Token -> Dependencies This is used to support the
+ * getDependenciesFromInjectable API, which takes in an injector and a token and returns it's
+ * dependencies.
+ *
+ * resolverToProviders: Maps a DI resolver (an Injector or an LView) to the providers configured
+ * within it This is used to support the getInjectorProviders API, which takes in an injector and
+ * returns the providers that it was configured with.
+ *
+ * standaloneInjectorToComponent: Maps the injector of a standalone component to the standalone
+ * component that it is associated with. Used in the getInjectorProviders API, specificially in the
+ * discovery of import paths for each provider. This is necessary because the imports array of a
+ * standalone component is processed and configured in its standalone injector, but exists within
+ * the component's definition. Because getInjectorProviders takes in an injector, if that injector
+ * is the injector of a standalone component, we need to be able to discover the place where the
+ * imports array is located (the component) in order to flatten the imports array within it to
+ * discover all of it's providers.
+ *
+ *
+ * All of these data structures are instantiated with WeakMaps. This will ensure that the presence
+ * of any object in the keys of these maps does not prevent the garbage collector from collecting
+ * those objects. Because of this property of WeakMaps, these data structures will never be the
+ * source of a memory leak.
+ *
+ * An example of this advantage: When components are destroyed, we don't need to do
+ * any additional work to remove that component from our mappings.
+ *
+ */
+class DIDebugData {
+  constructor() {
+    this.resolverToTokenToDependencies = new WeakMap();
+    this.resolverToProviders = new WeakMap();
+    this.standaloneInjectorToComponent = new WeakMap();
+  }
+  reset() {
+    this.resolverToTokenToDependencies = new WeakMap();
+    this.resolverToProviders = new WeakMap();
+    this.standaloneInjectorToComponent = new WeakMap();
+  }
+}
+let frameworkDIDebugData = new DIDebugData();
+function getFrameworkDIDebugData() {
+  return frameworkDIDebugData;
+}
+/**
+ * Initalize default handling of injector events. This handling parses events
+ * as they are emitted and constructs the data structures necessary to support
+ * some of debug APIs.
+ *
+ * See handleInjectEvent, handleCreateEvent and handleProviderConfiguredEvent
+ * for descriptions of each handler
+ *
+ * Supported APIs:
+ *               - getDependenciesFromInjectable
+ *               - getInjectorProviders
+ */
+function setupFrameworkInjectorProfiler() {
+  frameworkDIDebugData.reset();
+  setInjectorProfiler(injectorProfilerEvent => handleInjectorProfilerEvent(injectorProfilerEvent));
+}
+function handleInjectorProfilerEvent(injectorProfilerEvent) {
+  const {
+    context,
+    type
+  } = injectorProfilerEvent;
+  if (type === 0 /* InjectorProfilerEventType.Inject */) {
+    handleInjectEvent(context, injectorProfilerEvent.service);
+  } else if (type === 1 /* InjectorProfilerEventType.InstanceCreatedByInjector */) {
+    handleInstanceCreatedByInjectorEvent(context, injectorProfilerEvent.instance);
+  } else if (type === 2 /* InjectorProfilerEventType.ProviderConfigured */) {
+    handleProviderConfiguredEvent(context, injectorProfilerEvent.providerRecord);
+  }
+}
+/**
+ *
+ * Stores the injected service in frameworkDIDebugData.resolverToTokenToDependencies
+ * based on it's injector and token.
+ *
+ * @param context InjectorProfilerContext the injection context that this event occurred in.
+ * @param data InjectedService the service associated with this inject event.
+ *
+ */
+function handleInjectEvent(context, data) {
+  const diResolver = getDIResolver(context.injector);
+  if (diResolver === null) {
+    throwError('An Inject event must be run within an injection context.');
+  }
+  const diResolverToInstantiatedToken = frameworkDIDebugData.resolverToTokenToDependencies;
+  if (!diResolverToInstantiatedToken.has(diResolver)) {
+    diResolverToInstantiatedToken.set(diResolver, new WeakMap());
+  }
+  // if token is a primitive type, ignore this event. We do this because we cannot keep track of
+  // non-primitive tokens in WeakMaps since they are not garbage collectable.
+  if (!canBeHeldWeakly(context.token)) {
+    return;
+  }
+  const instantiatedTokenToDependencies = diResolverToInstantiatedToken.get(diResolver);
+  if (!instantiatedTokenToDependencies.has(context.token)) {
+    instantiatedTokenToDependencies.set(context.token, []);
+  }
+  const {
+    token,
+    value,
+    flags
+  } = data;
+  instantiatedTokenToDependencies.get(context.token).push({
+    token,
+    value,
+    flags
+  });
+}
+/**
+ *
+ * If the created instance is an instance of a standalone component, maps the injector to that
+ * standalone component in frameworkDIDebugData.standaloneInjectorToComponent
+ *
+ * @param context InjectorProfilerContext the injection context that this event occurred in.
+ * @param data InjectorCreatedInstance an object containing the instance that was just created
+ *
+ */
+function handleInstanceCreatedByInjectorEvent(context, data) {
+  const {
+    value
+  } = data;
+  if (getDIResolver(context.injector) === null) {
+    throwError('An InjectorCreatedInstance event must be run within an injection context.');
+  }
+  // if our value is an instance of a standalone component, map the injector of that standalone
+  // component to the component class. Otherwise, this event is a noop.
+  let standaloneComponent = undefined;
+  if (typeof value === 'object') {
+    standaloneComponent = value?.constructor;
+  }
+  if (standaloneComponent === undefined || !isStandaloneComponent(standaloneComponent)) {
+    return;
+  }
+  const environmentInjector = context.injector.get(EnvironmentInjector, null, {
+    optional: true
+  });
+  // Standalone components should have an environment injector. If one cannot be
+  // found we may be in a test case for low level functionality that did not explictly
+  // setup this injector. In those cases, we simply ignore this event.
+  if (environmentInjector === null) {
+    return;
+  }
+  const {
+    standaloneInjectorToComponent
+  } = frameworkDIDebugData;
+  // If our injector has already been mapped, as is the case
+  // when a standalone component imports another standalone component,
+  // we consider the original component (the component doing the importing)
+  // as the component connected to our injector.
+  if (standaloneInjectorToComponent.has(environmentInjector)) {
+    return;
+  }
+  // If our injector hasn't been mapped, then we map it to the standalone component
+  standaloneInjectorToComponent.set(environmentInjector, standaloneComponent);
+}
+function isStandaloneComponent(value) {
+  const def = getComponentDef(value);
+  return !!def?.standalone;
+}
+/**
+ *
+ * Stores the emitted ProviderRecords from the InjectorProfilerEventType.ProviderConfigured
+ * event in frameworkDIDebugData.resolverToProviders
+ *
+ * @param context InjectorProfilerContext the injection context that this event occurred in.
+ * @param data ProviderRecord an object containing the instance that was just created
+ *
+ */
+function handleProviderConfiguredEvent(context, data) {
+  const {
+    resolverToProviders
+  } = frameworkDIDebugData;
+  const diResolver = getDIResolver(context?.injector);
+  if (diResolver === null) {
+    throwError('A ProviderConfigured event must be run within an injection context.');
+  }
+  if (!resolverToProviders.has(diResolver)) {
+    resolverToProviders.set(diResolver, []);
+  }
+  resolverToProviders.get(diResolver).push(data);
+}
+function getDIResolver(injector) {
+  let diResolver = null;
+  if (injector === undefined) {
+    return diResolver;
+  }
+  // We use the LView as the diResolver for NodeInjectors because they
+  // do not persist anywhere in the framework. They are simply wrappers around an LView and a TNode
+  // that do persist. Because of this, we rely on the LView of the NodeInjector in order to use
+  // as a concrete key to represent this injector. If we get the same LView back later, we know
+  // we're looking at the same injector.
+  if (injector instanceof NodeInjector) {
+    diResolver = getNodeInjectorLView(injector);
+  }
+  // Other injectors can be used a keys for a map because their instances
+  // persist
+  else {
+    diResolver = injector;
+  }
+  return diResolver;
+}
+// inspired by
+// https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-canbeheldweakly
+function canBeHeldWeakly(value) {
+  // we check for value !== null here because typeof null === 'object
+  return value !== null && (typeof value === 'object' || typeof value === 'function' || typeof value === 'symbol');
+}
+
+/**
  * Marks a component for check (in case of OnPush components) and synchronously
  * performs change detection on the application this component belongs to.
  *
@@ -45041,6 +45841,465 @@ function applyChanges(component) {
   ngDevMode && assertDefined(component, 'component');
   markViewDirty(getComponentViewByInstance(component));
   getRootComponents(component).forEach(rootComponent => detectChanges(rootComponent));
+}
+
+/**
+ * Discovers the dependencies of an injectable instance. Provides DI information about each
+ * dependency that the injectable was instantiated with, including where they were provided from.
+ *
+ * @param injector An injector instance
+ * @param token a DI token that was constructed by the given injector instance
+ * @returns an object that contains the created instance of token as well as all of the dependencies
+ * that it was instantiated with OR undefined if the token was not created within the given
+ * injector.
+ */
+function getDependenciesFromInjectable(injector, token) {
+  // First we check to see if the token given maps to an actual instance in the injector given.
+  // We use `self: true` because we only want to look at the injector we were given.
+  // We use `optional: true` because it's possible that the token we were given was never
+  // constructed by the injector we were given.
+  const instance = injector.get(token, null, {
+    self: true,
+    optional: true
+  });
+  if (instance === null) {
+    throw new Error(`Unable to determine instance of ${token} in given injector`);
+  }
+  let diResolver = injector;
+  if (injector instanceof NodeInjector) {
+    diResolver = getNodeInjectorLView(injector);
+  }
+  const {
+    resolverToTokenToDependencies
+  } = getFrameworkDIDebugData();
+  let dependencies = resolverToTokenToDependencies.get(diResolver)?.get?.(token) ?? [];
+  const resolutionPath = getInjectorResolutionPath(injector);
+  dependencies = dependencies.map(dep => {
+    const flags = dep.flags;
+    dep.flags = {
+      optional: (8 /* InternalInjectFlags.Optional */ & flags) === 8 /* InternalInjectFlags.Optional */,
+      host: (1 /* InternalInjectFlags.Host */ & flags) === 1 /* InternalInjectFlags.Host */,
+      self: (2 /* InternalInjectFlags.Self */ & flags) === 2 /* InternalInjectFlags.Self */,
+      skipSelf: (4 /* InternalInjectFlags.SkipSelf */ & flags) === 4 /* InternalInjectFlags.SkipSelf */
+    };
+
+    for (let i = 0; i < resolutionPath.length; i++) {
+      const injectorToCheck = resolutionPath[i];
+      // if skipSelf is true we skip the first injector
+      if (i === 0 && dep.flags.skipSelf) {
+        continue;
+      }
+      // host only applies to NodeInjectors
+      if (dep.flags.host && injectorToCheck instanceof EnvironmentInjector) {
+        break;
+      }
+      const instance = injectorToCheck.get(dep.token, null, {
+        self: true,
+        optional: true
+      });
+      if (instance !== null) {
+        // if host flag is true we double check that we can get the service from the first element
+        // in the resolution path by using the host flag. This is done to make sure that we've found
+        // the correct providing injector, and not a node injector that is connected to our path via
+        // a router outlet.
+        if (dep.flags.host) {
+          const firstInjector = resolutionPath[0];
+          const lookupFromFirstInjector = firstInjector.get(dep.token, null, {
+            ...dep.flags,
+            optional: true
+          });
+          if (lookupFromFirstInjector !== null) {
+            dep.providedIn = injectorToCheck;
+          }
+          break;
+        }
+        dep.providedIn = injectorToCheck;
+        break;
+      }
+      // if self is true we stop after the first injector
+      if (i === 0 && dep.flags.self) {
+        break;
+      }
+    }
+    return dep;
+  });
+  return {
+    instance,
+    dependencies
+  };
+}
+/**
+ * Gets the class associated with an injector that contains a provider `imports` array in it's
+ * definition
+ *
+ * For Module Injectors this returns the NgModule constructor.
+ *
+ * For Standalone injectors this returns the standalone component constructor.
+ *
+ * @param injector Injector an injector instance
+ * @returns the constructor where the `imports` array that configures this injector is located
+ */
+function getProviderImportsContainer(injector) {
+  const {
+    standaloneInjectorToComponent
+  } = getFrameworkDIDebugData();
+  // standalone components configure providers through a component def, so we have to
+  // use the standalone component associated with this injector if Injector represents
+  // a standalone components EnvironmentInjector
+  if (standaloneInjectorToComponent.has(injector)) {
+    return standaloneInjectorToComponent.get(injector);
+  }
+  // Module injectors configure providers through their NgModule def, so we use the
+  // injector to lookup its NgModuleRef and through that grab its instance
+  const defTypeRef = injector.get(NgModuleRef$1, null, {
+    self: true,
+    optional: true
+  });
+  // If we can't find an associated imports container, return null.
+  // This could be the case if this function is called with an R3Injector that does not represent
+  // a standalone component or NgModule.
+  if (defTypeRef === null) {
+    return null;
+  }
+  return defTypeRef.instance.constructor;
+}
+/**
+ * Gets the providers configured on a NodeInjector
+ *
+ * @param injector A NodeInjector instance
+ * @returns ProviderRecord[] an array of objects representing the providers configured on this
+ *     injector
+ */
+function getNodeInjectorProviders(injector) {
+  const diResolver = getNodeInjectorLView(injector);
+  const {
+    resolverToProviders
+  } = getFrameworkDIDebugData();
+  return resolverToProviders.get(diResolver) ?? [];
+}
+/**
+ * Gets a mapping of providers configured on an injector to their import paths
+ *
+ * ModuleA -> imports ModuleB
+ * ModuleB -> imports ModuleC
+ * ModuleB -> provides MyServiceA
+ * ModuleC -> provides MyServiceB
+ *
+ * getProviderImportPaths(ModuleA)
+ * > Map(2) {
+ *   MyServiceA => [ModuleA, ModuleB]
+ *   MyServiceB => [ModuleA, ModuleB, ModuleC]
+ *  }
+ *
+ * @param providerImportsContainer constructor of class that contains an `imports` array in it's
+ *     definition
+ * @returns A Map object that maps providers to an array of constructors representing it's import
+ *     path
+ *
+ */
+function getProviderImportPaths(providerImportsContainer) {
+  const providerToPath = new Map();
+  const visitedContainers = new Set();
+  const visitor = walkProviderTreeToDiscoverImportPaths(providerToPath, visitedContainers);
+  walkProviderTree(providerImportsContainer, visitor, [], new Set());
+  return providerToPath;
+}
+/**
+ *
+ * Higher order function that returns a visitor for WalkProviderTree
+ *
+ * Takes in a Map and Set to keep track of the providers and containers
+ * visited, so that we can discover the import paths of these providers
+ * during the traversal.
+ *
+ * This visitor takes advantage of the fact that walkProviderTree performs a
+ * postorder traversal of the provider tree for the passed in container. Because postorder
+ * traversal recursively processes subtrees from leaf nodes until the traversal reaches the root,
+ * we write a visitor that constructs provider import paths in reverse.
+ *
+ *
+ * We use the visitedContainers set defined outside this visitor
+ * because we want to run some logic only once for
+ * each container in the tree. That logic can be described as:
+ *
+ *
+ * 1. for each discovered_provider and discovered_path in the incomplete provider paths we've
+ * already discovered
+ * 2. get the first container in discovered_path
+ * 3. if that first container is in the imports array of the container we're visiting
+ *    Then the container we're visiting is also in the import path of discovered_provider, so we
+ *    unshift discovered_path with the container we're currently visiting
+ *
+ *
+ * Example Run:
+ * ```
+ *                 ┌──────────┐
+ *                 │containerA│
+ *      ┌─imports-─┤          ├──imports─┐
+ *      │          │  provA   │          │
+ *      │          │  provB   │          │
+ *      │          └──────────┘          │
+ *      │                                │
+ *     ┌▼─────────┐             ┌────────▼─┐
+ *     │containerB│             │containerC│
+ *     │          │             │          │
+ *     │  provD   │             │  provF   │
+ *     │  provE   │             │  provG   │
+ *     └──────────┘             └──────────┘
+ * ```
+ *
+ * Each step of the traversal,
+ *
+ * ```
+ * visitor(provD, containerB)
+ * providerToPath === Map { provD => [containerB] }
+ * visitedContainers === Set { containerB }
+ *
+ * visitor(provE, containerB)
+ * providerToPath === Map { provD => [containerB], provE => [containerB] }
+ * visitedContainers === Set { containerB }
+ *
+ * visitor(provF, containerC)
+ * providerToPath === Map { provD => [containerB], provE => [containerB], provF => [containerC] }
+ * visitedContainers === Set { containerB, containerC }
+ *
+ * visitor(provG, containerC)
+ * providerToPath === Map {
+ *   provD => [containerB], provE => [containerB], provF => [containerC], provG => [containerC]
+ * }
+ * visitedContainers === Set { containerB, containerC }
+ *
+ * visitor(provA, containerA)
+ * providerToPath === Map {
+ *   provD => [containerA, containerB],
+ *   provE => [containerA, containerB],
+ *   provF => [containerA, containerC],
+ *   provG => [containerA, containerC],
+ *   provA => [containerA]
+ * }
+ * visitedContainers === Set { containerB, containerC, containerA }
+ *
+ * visitor(provB, containerA)
+ * providerToPath === Map {
+ *   provD => [containerA, containerB],
+ *   provE => [containerA, containerB],
+ *   provF => [containerA, containerC],
+ *   provG => [containerA, containerC],
+ *   provA => [containerA]
+ *   provB => [containerA]
+ * }
+ * visitedContainers === Set { containerB, containerC, containerA }
+ * ```
+ *
+ * @param providerToPath Map map of providers to paths that this function fills
+ * @param visitedContainers Set a set to keep track of the containers we've already visited
+ * @return function(provider SingleProvider, container: Type<unknown> | InjectorType<unknown>) =>
+ *     void
+ */
+function walkProviderTreeToDiscoverImportPaths(providerToPath, visitedContainers) {
+  return (provider, container) => {
+    // If the provider is not already in the providerToPath map,
+    // add an entry with the provider as the key and an array containing the current container as
+    // the value
+    if (!providerToPath.has(provider)) {
+      providerToPath.set(provider, [container]);
+    }
+    // This block will run exactly once for each container in the import tree.
+    // This is where we run the logic to check the imports array of the current
+    // container to see if it's the next container in the path for our currently
+    // discovered providers.
+    if (!visitedContainers.has(container)) {
+      // Iterate through the providers we've already seen
+      for (const prov of providerToPath.keys()) {
+        const existingImportPath = providerToPath.get(prov);
+        let containerDef = getInjectorDef(container);
+        if (!containerDef) {
+          const ngModule = container.ngModule;
+          containerDef = getInjectorDef(ngModule);
+        }
+        if (!containerDef) {
+          return;
+        }
+        const lastContainerAddedToPath = existingImportPath[0];
+        let isNextStepInPath = false;
+        deepForEach(containerDef.imports, moduleImport => {
+          if (isNextStepInPath) {
+            return;
+          }
+          isNextStepInPath = moduleImport.ngModule === lastContainerAddedToPath || moduleImport === lastContainerAddedToPath;
+          if (isNextStepInPath) {
+            providerToPath.get(prov)?.unshift(container);
+          }
+        });
+      }
+    }
+    visitedContainers.add(container);
+  };
+}
+/**
+ * Gets the providers configured on an EnvironmentInjector
+ *
+ * @param injector EnvironmentInjector
+ * @returns an array of objects representing the providers of the given injector
+ */
+function getEnvironmentInjectorProviders(injector) {
+  const providerImportsContainer = getProviderImportsContainer(injector);
+  if (providerImportsContainer === null) {
+    throwError('Could not determine where injector providers were configured.');
+  }
+  const providerToPath = getProviderImportPaths(providerImportsContainer);
+  const providerRecords = getFrameworkDIDebugData().resolverToProviders.get(injector) ?? [];
+  return providerRecords.map(providerRecord => {
+    let importPath = providerToPath.get(providerRecord.provider) ?? [providerImportsContainer];
+    const def = getComponentDef(providerImportsContainer);
+    const isStandaloneComponent = !!def?.standalone;
+    // We prepend the component constructor in the standalone case
+    // because walkProviderTree does not visit this constructor during it's traversal
+    if (isStandaloneComponent) {
+      importPath = [providerImportsContainer, ...(providerToPath.get(providerRecord.provider) ?? [])];
+    }
+    return {
+      ...providerRecord,
+      importPath
+    };
+  });
+}
+/**
+ * Gets the providers configured on an injector.
+ *
+ * @param injector the injector to lookup the providers of
+ * @returns ProviderRecord[] an array of objects representing the providers of the given injector
+ */
+function getInjectorProviders(injector) {
+  if (injector instanceof NodeInjector) {
+    return getNodeInjectorProviders(injector);
+  } else if (injector instanceof EnvironmentInjector) {
+    return getEnvironmentInjectorProviders(injector);
+  }
+  throwError('getInjectorProviders only supports NodeInjector and EnvironmentInjector');
+}
+function getInjectorResolutionPath(injector) {
+  const resolutionPath = [injector];
+  getInjectorResolutionPathHelper(injector, resolutionPath);
+  return resolutionPath;
+}
+function getInjectorResolutionPathHelper(injector, resolutionPath) {
+  const parent = getInjectorParent(injector);
+  // if getInjectorParent can't find a parent, then we've either reached the end
+  // of the path, or we need to move from the Element Injector tree to the
+  // module injector tree using the first injector in our path as the connection point.
+  if (parent === null) {
+    if (injector instanceof NodeInjector) {
+      const firstInjector = resolutionPath[0];
+      if (firstInjector instanceof NodeInjector) {
+        const moduleInjector = getModuleInjectorOfNodeInjector(firstInjector);
+        if (moduleInjector === null) {
+          throwError('NodeInjector must have some connection to the module injector tree');
+        }
+        resolutionPath.push(moduleInjector);
+        getInjectorResolutionPathHelper(moduleInjector, resolutionPath);
+      }
+      return resolutionPath;
+    }
+  } else {
+    resolutionPath.push(parent);
+    getInjectorResolutionPathHelper(parent, resolutionPath);
+  }
+  return resolutionPath;
+}
+/**
+ * Gets the parent of an injector.
+ *
+ * This function is not able to make the jump from the Element Injector Tree to the Module
+ * injector tree. This is because the "parent" (the next step in the reoslution path)
+ * of a root NodeInjector is dependent on which NodeInjector ancestor initiated
+ * the DI lookup. See getInjectorResolutionPath for a function that can make this jump.
+ *
+ * In the below diagram:
+ * ```ts
+ * getInjectorParent(NodeInjectorB)
+ *  > NodeInjectorA
+ * getInjectorParent(NodeInjectorA) // or getInjectorParent(getInjectorParent(NodeInjectorB))
+ *  > null // cannot jump to ModuleInjector tree
+ * ```
+ *
+ * ```
+ *                ┌───────┐                ┌───────────────────┐
+ *    ┌───────────┤ModuleA├───Injector────►│EnvironmentInjector│
+ *    │           └───┬───┘                └───────────────────┘
+ *    │               │
+ *    │           bootstraps
+ *    │               │
+ *    │               │
+ *    │          ┌────▼─────┐                 ┌─────────────┐
+ * declares      │ComponentA├────Injector────►│NodeInjectorA│
+ *    │          └────┬─────┘                 └─────▲───────┘
+ *    │               │                             │
+ *    │            renders                        parent
+ *    │               │                             │
+ *    │          ┌────▼─────┐                 ┌─────┴───────┐
+ *    └─────────►│ComponentB├────Injector────►│NodeInjectorB│
+ *               └──────────┘                 └─────────────┘
+ *```
+ *
+ * @param injector an Injector to get the parent of
+ * @returns Injector the parent of the given injector
+ */
+function getInjectorParent(injector) {
+  if (injector instanceof R3Injector) {
+    return injector.parent;
+  }
+  let tNode;
+  let lView;
+  if (injector instanceof NodeInjector) {
+    tNode = getNodeInjectorTNode(injector);
+    lView = getNodeInjectorLView(injector);
+  } else if (injector instanceof NullInjector) {
+    return null;
+  } else {
+    throwError('getInjectorParent only support injectors of type R3Injector, NodeInjector, NullInjector');
+  }
+  const parentLocation = getParentInjectorLocation(tNode, lView);
+  if (hasParentInjector(parentLocation)) {
+    const parentInjectorIndex = getParentInjectorIndex(parentLocation);
+    const parentLView = getParentInjectorView(parentLocation, lView);
+    const parentTView = parentLView[TVIEW];
+    const parentTNode = parentTView.data[parentInjectorIndex + 8 /* NodeInjectorOffset.TNODE */];
+    return new NodeInjector(parentTNode, parentLView);
+  } else {
+    const chainedInjector = lView[INJECTOR$1];
+    // Case where chainedInjector.injector is an OutletInjector and chainedInjector.injector.parent
+    // is a NodeInjector.
+    // todo(aleksanderbodurri): ideally nothing in packages/core should deal
+    // directly with router concerns. Refactor this so that we can make the jump from
+    // NodeInjector -> OutletInjector -> NodeInjector
+    // without explictly relying on types contracts from packages/router
+    const injectorParent = chainedInjector.injector?.parent;
+    if (injectorParent instanceof NodeInjector) {
+      return injectorParent;
+    }
+  }
+  return null;
+}
+/**
+ * Gets the module injector of a NodeInjector.
+ *
+ * @param injector NodeInjector to get module injector of
+ * @returns Injector representing module injector of the given NodeInjector
+ */
+function getModuleInjectorOfNodeInjector(injector) {
+  let lView;
+  if (injector instanceof NodeInjector) {
+    lView = getNodeInjectorLView(injector);
+  } else {
+    throwError('getModuleInjectorOfNodeInjector must be called with a NodeInjector');
+  }
+  const chainedInjector = lView[INJECTOR$1];
+  const moduleInjector = chainedInjector.parentInjector;
+  if (!moduleInjector) {
+    throwError('NodeInjector must have some connection to the module injector tree');
+  }
+  return moduleInjector;
 }
 
 /**
@@ -45068,6 +46327,10 @@ let _published = false;
 function publishDefaultGlobalUtils$1() {
   if (!_published) {
     _published = true;
+    setupFrameworkInjectorProfiler();
+    publishGlobalUtil('ɵgetDependenciesFromInjectable', getDependenciesFromInjectable);
+    publishGlobalUtil('ɵgetInjectorProviders', getInjectorProviders);
+    publishGlobalUtil('ɵgetInjectorResolutionPath', getInjectorResolutionPath);
     /**
      * Warning: this function is *INTERNAL* and should not be relied upon in application's code.
      * The contract of the function might be changed in any release and/or the function can be
@@ -45826,13 +47089,13 @@ class Testability {
     return [];
   }
 }
-_class17 = Testability;
-_class17.ɵfac = function Testability_Factory(t) {
-  return new (t || _class17)(ɵɵinject(NgZone), ɵɵinject(TestabilityRegistry), ɵɵinject(TESTABILITY_GETTER));
+_class18 = Testability;
+_class18.ɵfac = function Testability_Factory(t) {
+  return new (t || _class18)(ɵɵinject(NgZone), ɵɵinject(TestabilityRegistry), ɵɵinject(TESTABILITY_GETTER));
 };
-_class17.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
-  token: _class17,
-  factory: _class17.ɵfac
+_class18.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
+  token: _class18,
+  factory: _class18.ɵfac
 });
 (function () {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Testability, [{
@@ -45910,13 +47173,13 @@ class TestabilityRegistry {
     return _testabilityGetter?.findTestabilityInTree(this, elem, findInAncestors) ?? null;
   }
 }
-_class18 = TestabilityRegistry;
-_class18.ɵfac = function TestabilityRegistry_Factory(t) {
-  return new (t || _class18)();
+_class19 = TestabilityRegistry;
+_class19.ɵfac = function TestabilityRegistry_Factory(t) {
+  return new (t || _class19)();
 };
-_class18.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
-  token: _class18,
-  factory: _class18.ɵfac,
+_class19.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
+  token: _class19,
+  factory: _class19.ɵfac,
   providedIn: 'platform'
 });
 (function () {
@@ -46352,13 +47615,13 @@ class PlatformRef {
     return this._destroyed;
   }
 }
-_class19 = PlatformRef;
-_class19.ɵfac = function PlatformRef_Factory(t) {
-  return new (t || _class19)(ɵɵinject(Injector));
+_class20 = PlatformRef;
+_class20.ɵfac = function PlatformRef_Factory(t) {
+  return new (t || _class20)(ɵɵinject(Injector));
 };
-_class19.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
-  token: _class19,
-  factory: _class19.ɵfac,
+_class20.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
+  token: _class20,
+  factory: _class20.ɵfac,
   providedIn: 'platform'
 });
 (function () {
@@ -46742,13 +48005,13 @@ class ApplicationRef {
     }
   }
 }
-_class20 = ApplicationRef;
-_class20.ɵfac = function ApplicationRef_Factory(t) {
-  return new (t || _class20)();
+_class21 = ApplicationRef;
+_class21.ɵfac = function ApplicationRef_Factory(t) {
+  return new (t || _class21)();
 };
-_class20.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
-  token: _class20,
-  factory: _class20.ɵfac,
+_class21.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
+  token: _class21,
+  factory: _class21.ɵfac,
   providedIn: 'root'
 });
 (function () {
@@ -46812,13 +48075,13 @@ class NgZoneChangeDetectionScheduler {
     this._onMicrotaskEmptySubscription?.unsubscribe();
   }
 }
-_class21 = NgZoneChangeDetectionScheduler;
-_class21.ɵfac = function NgZoneChangeDetectionScheduler_Factory(t) {
-  return new (t || _class21)();
+_class22 = NgZoneChangeDetectionScheduler;
+_class22.ɵfac = function NgZoneChangeDetectionScheduler_Factory(t) {
+  return new (t || _class22)();
 };
-_class21.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
-  token: _class21,
-  factory: _class21.ɵfac,
+_class22.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
+  token: _class22,
+  factory: _class22.ɵfac,
   providedIn: 'root'
 });
 (function () {
@@ -46998,12 +48261,12 @@ function noModuleError(id) {
  */
 class ChangeDetectorRef {}
 /** Returns a ChangeDetectorRef (a.k.a. a ViewRef) */
-_class22 = ChangeDetectorRef;
+_class23 = ChangeDetectorRef;
 /**
  * @internal
  * @nocollapse
  */
-_class22.__NG_ELEMENT_ID__ = injectChangeDetectorRef;
+_class23.__NG_ELEMENT_ID__ = injectChangeDetectorRef;
 function injectChangeDetectorRef(flags) {
   return createViewRef(getCurrentTNode(), getLView(), (flags & 16 /* InternalInjectFlags.ForPipe */) === 16 /* InternalInjectFlags.ForPipe */);
 }
@@ -48552,10 +49815,10 @@ class IterableDiffers {
     }
   }
 }
-_class23 = IterableDiffers;
+_class24 = IterableDiffers;
 /** @nocollapse */
-_class23.ɵprov = ɵɵdefineInjectable({
-  token: _class23,
+_class24.ɵprov = ɵɵdefineInjectable({
+  token: _class24,
   providedIn: 'root',
   factory: defaultIterableDiffersFactory
 });
@@ -48626,10 +49889,10 @@ class KeyValueDiffers {
 /**
  * Structural diffing for `Object`s and `Map`s.
  */
-_class24 = KeyValueDiffers;
+_class25 = KeyValueDiffers;
 /** @nocollapse */
-_class24.ɵprov = ɵɵdefineInjectable({
-  token: _class24,
+_class25.ɵprov = ɵɵdefineInjectable({
+  token: _class25,
   providedIn: 'root',
   factory: defaultKeyValueDiffersFactory
 });
@@ -48665,14 +49928,14 @@ class ApplicationModule {
   // Inject ApplicationRef to make it eager...
   constructor(appRef) {}
 }
-_class25 = ApplicationModule;
-_class25.ɵfac = function ApplicationModule_Factory(t) {
-  return new (t || _class25)(ɵɵinject(ApplicationRef));
+_class26 = ApplicationModule;
+_class26.ɵfac = function ApplicationModule_Factory(t) {
+  return new (t || _class26)(ɵɵinject(ApplicationRef));
 };
-_class25.ɵmod = /*@__PURE__*/ɵɵdefineNgModule({
-  type: _class25
+_class26.ɵmod = /*@__PURE__*/ɵɵdefineNgModule({
+  type: _class26
 });
-_class25.ɵinj = /*@__PURE__*/ɵɵdefineInjector({});
+_class26.ɵinj = /*@__PURE__*/ɵɵdefineInjector({});
 (function () {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ApplicationModule, [{
     type: NgModule
@@ -48737,6 +50000,47 @@ function calcNumRootNodes(tView, lView, tNode) {
   return rootNodes.length;
 }
 /**
+ * Annotates root level component's LView for hydration,
+ * see `annotateHostElementForHydration` for additional information.
+ */
+function annotateComponentLViewForHydration(lView, context) {
+  const hostElement = lView[HOST];
+  // Root elements might also be annotated with the `ngSkipHydration` attribute,
+  // check if it's present before starting the serialization process.
+  if (hostElement && !hostElement.hasAttribute(SKIP_HYDRATION_ATTR_NAME)) {
+    return annotateHostElementForHydration(hostElement, lView, context);
+  }
+  return null;
+}
+/**
+ * Annotates root level LContainer for hydration. This happens when a root component
+ * injects ViewContainerRef, thus making the component an anchor for a view container.
+ * This function serializes the component itself as well as all views from the view
+ * container.
+ */
+function annotateLContainerForHydration(lContainer, context) {
+  const componentLView = lContainer[HOST];
+  // Serialize the root component itself.
+  const componentLViewNghIndex = annotateComponentLViewForHydration(componentLView, context);
+  const hostElement = unwrapRNode(componentLView[HOST]);
+  // Serialize all views within this view container.
+  const rootLView = lContainer[PARENT];
+  const rootLViewNghIndex = annotateHostElementForHydration(hostElement, rootLView, context);
+  const renderer = componentLView[RENDERER];
+  // For cases when a root component also acts as an anchor node for a ViewContainerRef
+  // (for example, when ViewContainerRef is injected in a root component), there is a need
+  // to serialize information about the component itself, as well as an LContainer that
+  // represents this ViewContainerRef. Effectively, we need to serialize 2 pieces of info:
+  // (1) hydration info for the root component itself and (2) hydration info for the
+  // ViewContainerRef instance (an LContainer). Each piece of information is included into
+  // the hydration data (in the TransferState object) separately, thus we end up with 2 ids.
+  // Since we only have 1 root element, we encode both bits of info into a single string:
+  // ids are separated by the `|` char (e.g. `10|25`, where `10` is the ngh for a component view
+  // and 25 is the `ngh` for a root view which holds LContainer).
+  const finalIndex = `${componentLViewNghIndex}|${rootLViewNghIndex}`;
+  renderer.setAttribute(hostElement, NGH_ATTR_NAME, finalIndex);
+}
+/**
  * Annotates all components bootstrapped in a given ApplicationRef
  * with info needed for hydration.
  *
@@ -48748,21 +50052,20 @@ function annotateForHydration(appRef, doc) {
   const corruptedTextNodes = new Map();
   const viewRefs = appRef._views;
   for (const viewRef of viewRefs) {
-    const lView = getComponentLViewForHydration(viewRef);
+    const lNode = getLNodeForHydration(viewRef);
     // An `lView` might be `null` if a `ViewRef` represents
     // an embedded view (not a component view).
-    if (lView !== null) {
-      const hostElement = lView[HOST];
-      // Root elements might also be annotated with the `ngSkipHydration` attribute,
-      // check if it's present before starting the serialization process.
-      if (hostElement && !hostElement.hasAttribute(SKIP_HYDRATION_ATTR_NAME)) {
-        const context = {
-          serializedViewCollection,
-          corruptedTextNodes
-        };
-        annotateHostElementForHydration(hostElement, lView, context);
-        insertCorruptedTextNodeMarkers(corruptedTextNodes, doc);
+    if (lNode !== null) {
+      const context = {
+        serializedViewCollection,
+        corruptedTextNodes
+      };
+      if (isLContainer(lNode)) {
+        annotateLContainerForHydration(lNode, context);
+      } else {
+        annotateComponentLViewForHydration(lNode, context);
       }
+      insertCorruptedTextNodeMarkers(corruptedTextNodes, doc);
     }
   }
   // Note: we *always* include hydration info key and a corresponding value
@@ -49030,6 +50333,8 @@ function componentUsesShadowDomEncapsulation(lView) {
  * @param element The Host element to be annotated
  * @param lView The associated LView
  * @param context The hydration context
+ * @returns An index of serialized view from the transfer state object
+ *          or `null` when a given component can not be serialized.
  */
 function annotateHostElementForHydration(element, lView, context) {
   const renderer = lView[RENDERER];
@@ -49040,10 +50345,12 @@ function annotateHostElementForHydration(element, lView, context) {
     //   shadow DOM, so we can not guarantee that client and server representations
     //   would exactly match
     renderer.setAttribute(element, SKIP_HYDRATION_ATTR_NAME, '');
+    return null;
   } else {
     const ngh = serializeLView(lView, context);
     const index = context.serializedViewCollection.add(ngh);
     renderer.setAttribute(element, NGH_ATTR_NAME, index.toString());
+    return index;
   }
 }
 /**
@@ -49122,14 +50429,6 @@ function enableHydrationRuntimeSupport() {
   }
 }
 /**
- * Detects whether the code is invoked in a browser.
- * Later on, this check should be replaced with a tree-shakable
- * flag (e.g. `!isServer`).
- */
-function isBrowser() {
-  return inject(PLATFORM_ID) === 'browser';
-}
-/**
  * Outputs a message with hydration stats into a console.
  */
 function printHydrationStats(injector) {
@@ -49172,7 +50471,7 @@ function withDomHydration() {
     provide: IS_HYDRATION_DOM_REUSE_ENABLED,
     useFactory: () => {
       let isEnabled = true;
-      if (isBrowser()) {
+      if (isPlatformBrowser()) {
         // On the client, verify that the server response contains
         // hydration annotations. Otherwise, keep hydration disabled.
         const transferState = inject(TransferState, {
@@ -49196,10 +50495,11 @@ function withDomHydration() {
     useValue: () => {
       // Since this function is used across both server and client,
       // make sure that the runtime code is only added when invoked
-      // on the client. Moving forward, the `isBrowser` check should
+      // on the client. Moving forward, the `isPlatformBrowser` check should
       // be replaced with a tree-shakable alternative (e.g. `isServer`
       // flag).
-      if (isBrowser() && inject(IS_HYDRATION_DOM_REUSE_ENABLED)) {
+      if (isPlatformBrowser() && inject(IS_HYDRATION_DOM_REUSE_ENABLED)) {
+        verifySsrContentsIntegrity();
         enableHydrationRuntimeSupport();
       }
     },
@@ -49211,12 +50511,12 @@ function withDomHydration() {
       // environment and when hydration is configured properly.
       // On a server, an application is rendered from scratch,
       // so the host content needs to be empty.
-      return isBrowser() && inject(IS_HYDRATION_DOM_REUSE_ENABLED);
+      return isPlatformBrowser() && inject(IS_HYDRATION_DOM_REUSE_ENABLED);
     }
   }, {
     provide: APP_BOOTSTRAP_LISTENER,
     useFactory: () => {
-      if (isBrowser() && inject(IS_HYDRATION_DOM_REUSE_ENABLED)) {
+      if (isPlatformBrowser() && inject(IS_HYDRATION_DOM_REUSE_ENABLED)) {
         const appRef = inject(ApplicationRef);
         const injector = inject(Injector);
         return () => {
@@ -49245,6 +50545,29 @@ function withDomHydration() {
 function logWarningOnStableTimedout(time, console) {
   const message = `Angular hydration expected the ApplicationRef.isStable() to emit \`true\`, but it ` + `didn't happen within ${time}ms. Angular hydration logic depends on the application becoming stable ` + `as a signal to complete hydration process.`;
   console.warn(formatRuntimeError(-506 /* RuntimeErrorCode.HYDRATION_STABLE_TIMEDOUT */, message));
+}
+/**
+ * Verifies whether the DOM contains a special marker added during SSR time to make sure
+ * there is no SSR'ed contents transformations happen after SSR is completed. Typically that
+ * happens either by CDN or during the build process as an optimization to remove comment nodes.
+ * Hydration process requires comment nodes produced by Angular to locate correct DOM segments.
+ * When this special marker is *not* present - throw an error and do not proceed with hydration,
+ * since it will not be able to function correctly.
+ *
+ * Note: this function is invoked only on the client, so it's safe to use DOM APIs.
+ */
+function verifySsrContentsIntegrity() {
+  const doc = getDocument();
+  let hydrationMarker;
+  for (const node of doc.body.childNodes) {
+    if (node.nodeType === Node.COMMENT_NODE && node.textContent?.trim() === SSR_CONTENT_INTEGRITY_MARKER) {
+      hydrationMarker = node;
+      break;
+    }
+  }
+  if (!hydrationMarker) {
+    throw new RuntimeError(507 /* RuntimeErrorCode.MISSING_SSR_CONTENT_INTEGRITY_MARKER */, typeof ngDevMode !== 'undefined' && ngDevMode && 'Angular hydration logic detected that HTML content of this page was modified after it ' + 'was produced during server side rendering. Make sure that there are no optimizations ' + 'that remove comment nodes from HTML are enabled on your CDN. Angular hydration ' + 'relies on HTML produced by the server, including whitespaces and comment nodes.');
+  }
 }
 
 /**
@@ -49664,7 +50987,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 9736);
 var _class, _class2, _class3, _class4, _class5, _class6, _class7, _class8, _class9, _class10, _class11, _class12, _class13, _class14, _class15, _class16, _class17, _class18, _class19, _class20, _class21, _class22, _class23, _class24, _class25, _class26, _class27, _class28, _class29, _class30, _class31, _class32, _class33, _class34, _class35, _class36, _class37, _class38, _class39, _class40;
 /**
- * @license Angular v16.1.8
+ * @license Angular v16.2.0
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -50731,7 +52054,7 @@ class AbstractControlDirective {
   }
   /**
    * @description
-   * Reports whether a control is pending, meaning that that async validation is occurring and
+   * Reports whether a control is pending, meaning that async validation is occurring and
    * errors are not yet available for the input value. If the control is not present, null is
    * returned.
    */
@@ -51323,7 +52646,7 @@ const VALID = 'VALID';
  */
 const INVALID = 'INVALID';
 /**
- * Reports that a control is pending, meaning that that async validation is occurring and
+ * Reports that a control is pending, meaning that async validation is occurring and
  * errors are not yet available for the input value.
  *
  * @see {@link markAsPending}
@@ -57651,7 +58974,7 @@ _class38.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('16.1.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('16.2.0');
 
 /**
  * Exports the required providers and directives for template-driven forms,
@@ -57813,7 +59136,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 6575);
 var _class, _class2, _class3, _class4, _class5;
 /**
- * @license Angular v16.1.8
+ * @license Angular v16.2.0
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -58489,7 +59812,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ 4860);
 var _class, _class2, _class3, _class4, _class5, _class6, _class7, _class8, _class9, _class10, _class11, _class12, _class13, _class14;
 /**
- * @license Angular v16.1.8
+ * @license Angular v16.2.0
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -60787,7 +62110,7 @@ function provideClientHydration(...features) {
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('16.1.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('16.2.0');
 
 // Re-export TransferState to the public API of the `platform-browser` for backwards-compatibility.
 /**
@@ -60943,7 +62266,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/platform-browser */ 6480);
 var _class, _class2, _class3, _class4, _class5, _class6, _class7, _class8, _class9, _class10, _class11, _class12, _class13, _class14, _class15, _class16, _class17, _class18, _class19, _class20, _class21;
 /**
- * @license Angular v16.1.8
+ * @license Angular v16.2.0
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -68174,7 +69497,7 @@ function mapToResolve(provider) {
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('16.1.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('16.2.0');
 
 /**
  * @module
