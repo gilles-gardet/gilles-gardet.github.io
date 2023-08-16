@@ -11,22 +11,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.1.1
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
       - name: Audit dependencies
         run: |
-          yarn audit --groups dependencies
-          yarn audit --groups devDependencies
+          pnpm audit --prod
   security:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.1.1
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+          cache: 'pnpm'
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install --frozen-lockfile
       - name: Check for vulnerabilities
         uses: snyk/actions/node@master
         env:
@@ -38,13 +44,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.1.1
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+          cache: 'pnpm'
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install --frozen-lockfile
       - name: Run unit tests
-        run: yarn run test:ci
+        run: pnpm run test:ci
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
         with:
@@ -59,15 +69,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.1.1
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+          cache: 'pnpm'
       - name: Install dependencies
         run: |
-          yarn install
-          npx playwright install --with-deps
+          pnpm install --frozen-lockfile
+          pnpm exec playwright install --with-deps
       - name: Run e2e tests
-        run: npx playwright test --config=e2e/playwright.config.ts
+        run: pnpm exec playwright test --config=e2e/playwright.config.ts
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         if: always()
@@ -83,13 +97,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.1.1
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+          cache: 'pnpm'
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install --frozen-lockfile
       - name: Build application
-        run: yarn run build
+        run: pnpm run build
       - name: Deploy application
         uses: JamesIves/github-pages-deploy-action@v4
         with:

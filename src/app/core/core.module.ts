@@ -1,9 +1,9 @@
-import { Injectable, NgModule, Optional, SkipSelf } from "@angular/core";
+import { Injectable, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConfigService } from '@core/services/config.service';
-import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { HttpBackend, HttpClient } from "@angular/common/http";
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpBackend, HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @Injectable({ providedIn: 'root' })
 export class HttpClientProxy extends HttpClient {

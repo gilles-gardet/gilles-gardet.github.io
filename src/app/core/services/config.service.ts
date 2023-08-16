@@ -14,7 +14,7 @@ const theme: string = ((): string => {
   const isOperatingSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const isThemeStored = THEME_KEY in localStorage;
   if (!isThemeStored && isOperatingSystemDark) {
-    return DARK_THEME
+    return DARK_THEME;
   }
   return localStorage.getItem(THEME_KEY) ?? LIGHT_THEME;
 })();

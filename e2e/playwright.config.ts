@@ -25,7 +25,7 @@ const config: PlaywrightTestConfig = {
     },
   ],
   webServer: {
-    command: 'yarn run start',
+    command: 'pnpm start',
     port: 4_200,
   },
 };

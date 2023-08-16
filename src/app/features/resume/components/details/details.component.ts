@@ -51,17 +51,17 @@ export class DetailsComponent {
    */
   onMissionLoading(): void {
     const fullMission$: Observable<string> = this.markdownService.getSource(
-      this.missionService.missionFromDate(this.selectedMission?.startDate, 'full')
+      this.missionService.missionFromDate(this.selectedMission?.startDate, 'full'),
     );
     const lightMission$: Observable<string> = this.markdownService.getSource(
-      this.missionService.missionFromDate(this.selectedMission?.startDate, 'light')
+      this.missionService.missionFromDate(this.selectedMission?.startDate, 'light'),
     );
     forkJoin([lightMission$, fullMission$])
       .pipe(
         tap((values: string[]) => {
           this.innerLightMission = this.markdownService.parse(values[0]);
           this.innerFullMission = this.markdownService.parse(values[1]);
-        })
+        }),
       )
       .subscribe(() => {
         setTimeout(() => {

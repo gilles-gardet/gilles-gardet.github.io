@@ -1,19 +1,19 @@
 import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { EMPTY, of, Subject, zip } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { EMPTY_STRING } from '@core/utils/string.utils';
 import { Mission } from '@core/models/mission.model';
 import { Skill } from '@core/models/skill.model';
-import { SummaryComponent } from '@features/resume/components/summary/summary.component';
-import { SkillsComponent } from '@features/resume/components/skills/skills.component';
-import { MissionsComponent } from '@features/resume/components/missions/missions.component';
 import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
+import { MissionsComponent } from '@features/resume/components/missions/missions.component';
 import { SharedModule } from '@shared/shared.module';
+import { SkillsComponent } from '@features/resume/components/skills/skills.component';
+import { SummaryComponent } from '@features/resume/components/summary/summary.component';
 import { DetailsComponent } from '@features/resume/components/details/details.component';
 import { TranslateService } from '@ngx-translate/core';
-import { EMPTY_STRING } from '@core/utils/string.utils';
+import { MissionService } from '@core/services/mission.service';
 import missions from '@assets/resume/missions.json';
 import skills from '@assets/resume/skills.json';
-import { MissionService } from "@core/services/mission.service";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -66,7 +66,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
     if (end)
       return `${this.formatDate(new Date(start))} - ${this.formatDate(new Date(end))} (${this.missionDuration(
         start,
-        end
+        end,
       )})`;
     const onGoingLabel = this.translateService.currentLang === 'fr' ? 'en cours' : 'ongoing';
     return `${this.formatDate(new Date(start))} - ${onGoingLabel} (${this.missionDuration(start, end)})`;
