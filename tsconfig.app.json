@@ -2,19 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": [
-      "node",
-      "jest"
-    ]
+    "types": []
   },
-  "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
-  ],
-  "include": [
-    "src/**/*.d.ts"
-  ],
-  "exclude": [
-    "src/assets/pictures/demo.gif"
-  ]
+  "files": ["src/main.ts"],
+  "include": ["src/**/*.d.ts"],
+  "exclude": ["jest.config.ts", "src/**/*.test.ts", "src/**/*.spec.ts", "src/assets/pictures/demo.gif"]
 }

@@ -81,7 +81,7 @@ jobs:
           pnpm install --frozen-lockfile
           pnpm exec playwright install --with-deps
       - name: Run e2e tests
-        run: pnpm exec playwright test --config=e2e/playwright.config.ts
+        run: pnpm run e2e
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         if: always()

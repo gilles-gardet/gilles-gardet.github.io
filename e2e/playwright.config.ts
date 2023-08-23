@@ -1,8 +1,9 @@
-import type { PlaywrightTestConfig } from '@playwright/test';
-import { devices } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
+import { nxE2EPreset } from '@nx/playwright/preset';
+import { workspaceRoot } from '@nx/devkit';
 
-const config: PlaywrightTestConfig = {
-  testDir: './integration',
+export default defineConfig({
+  ...nxE2EPreset(__filename, { testDir: './src' }),
   timeout: 120 * 1_000,
   expect: {
     timeout: 5_000,
@@ -25,8 +26,8 @@ const config: PlaywrightTestConfig = {
     },
   ],
   webServer: {
-    command: 'pnpm start',
+    command: 'pnpm exec nx serve cv',
     port: 4_200,
+    cwd: workspaceRoot,
   },
-};
-export default config;
+});

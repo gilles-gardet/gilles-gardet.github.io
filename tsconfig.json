@@ -1,39 +1,58 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "ES2022",
-    "module": "es2020",
-    "lib": ["es2018", "dom"],
-    "types": ["node", "jest"],
-    "paths": {
-      "@environments/*": ["./src/environments/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@core/*": ["./src/app/core/*"],
-      "@pages/*": ["./src/app/pages/*"],
-      "@shared/*": ["./src/app/shared/*"],
-      "@features/*": ["./src/app/features/*"]
-    },
-    "typeRoots": ["node_modules/@types"],
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "useDefineForClassFields": false
-  },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "lib": ["es2020", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "paths": {
+      "@assets/*": ["./src/assets/*"],
+      "@core/*": ["./src/app/core/*"],
+      "@environments/*": ["./src/environments/*"],
+      "@features/*": ["./src/app/features/*"],
+      "@pages/*": ["./src/app/pages/*"],
+      "@shared/*": ["./src/app/shared/*"]
+    },
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2022",
+    "types": ["node", "jest"],
+    "typeRoots": ["node_modules/@types"],
+    "useDefineForClassFields": false
+  },
+  "exclude": ["node_modules", "tmp", "src/assets/pictures/demo.gif"],
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.editor.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
 }

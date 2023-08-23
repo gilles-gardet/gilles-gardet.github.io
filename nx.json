@@ -1,52 +1,55 @@
 {
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx-cloud",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint"
-        ],
-        "accessToken": "NzhhMmY1ODYtNGJmMS00Nzg4LWJhOTItOTVkN2JhOTU0NzVifHJlYWQtd3JpdGU="
-      }
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultProject": "cv",
+  "generators": {
+    "@nx/angular:application": {
+      "e2eTestRunner": "playwright",
+      "linter": "eslint",
+      "style": "scss",
+      "unitTestRunner": "jest"
+    },
+    "@nx/angular:component": {
+      "style": "scss"
+    },
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
     }
   },
-  "affected": {
-    "defaultBase": "master"
-  },
   "namedInputs": {
-    "sharedGlobals": [],
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
+    "default": ["sharedGlobals", "{projectRoot}/**/*"],
     "production": [
-      "default",
-      "!{projectRoot}/.eslintrc.json"
-    ]
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/jest.config.[jt]s",
+      "!{projectRoot}/src/test-setup.[jt]s",
+      "!{projectRoot}/test-setup.[jt]s",
+      "!{projectRoot}/tsconfig.spec.json",
+      "default"
+    ],
+    "sharedGlobals": []
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "inputs": [
-        "production",
-        "^production"
-      ]
+      "dependsOn": ["^build"],
+      "inputs": ["^production", "production"]
     },
-    "test": {
-      "inputs": [
-        "default",
-        "^production"
-      ]
+    "e2e": {
+      "inputs": ["^production", "default"]
     },
     "lint": {
-      "inputs": [
-        "default",
-        "{workspaceRoot}/.eslintrc.json"
-      ]
+      "inputs": ["default", "{workspaceRoot}/.eslintignore", "{workspaceRoot}/.eslintrc.json"]
+    },
+    "test": {
+      "inputs": ["^production", "default", "{workspaceRoot}/jest.preset.js"]
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "options": {
+        "cacheableOperations": ["build", "e2e", "lint", "test"]
+      },
+      "runner": "nx/tasks-runners/default"
     }
   }
 }

@@ -3,11 +3,11 @@
 Application réalisée à l'aide d'[Angular](https://angular.io/) et de la librairie de composant [PrimeNG](https://www.primefaces.org/primeng/).  
 Le but étant de faire un Curriculum Vitae "intéractif", facilement maintenable et hébergé via [Github pages](https://pages.github.com/).
 
-C'est aussi l'occasion de tester au moins partiellement [GitHub Actions](https://fr.github.com/features/actions).
+La gestion CI/CD est directement assurée via [GitHub Actions](https://fr.github.com/features/actions).
 
 ![demo](./src/assets/pictures/demo.gif)
 
-Le CV est directement accessible à l'adresse [gilles-gardet.gihub.io](https://gilles-gardet.github.io/).
+Le CV est directement accessible à l'adresse [cv.gilles-gardet.com](https://cv.gilles-gardet.com).
 
 > **Note**  
 > L'application est toujours en cours de développement et ne réflète donc pas toujours mon actualité.
@@ -32,9 +32,9 @@ Ce dernier s'occupe de :
 3. valider les tests unitaires [jest](https://jestjs.io/) (avant de pousser le commit sur la branche distante)
 
 Les scripts principaux gérant notamment les cycles de vie de l'application sont les suivants :
-- La commande `pnpm start` démarre l'application à l'adresse suivante par défaut `http://localhost:4200/`. L'application se recharge automatiquement en cas de changement des fichiers sources du projet.
-- La commande `pnpm test` lance les tests unitaires en s'appuyant sur la bibliothèque [Jest](https://jestjs.io/).
-- La commande `pnpm e2e` lance les tests *end-to-end* en s'appuyant sur la bibliothèque [Playwright](https://playwright.dev/).
+- La commande `nx serve` démarre l'application à l'adresse suivante par défaut `http://localhost:4200/`. L'application se recharge automatiquement en cas de changement des fichiers sources du projet.
+- La commande `nx test` lance les tests unitaires en s'appuyant sur la bibliothèque [Jest](https://jestjs.io/).
+- La commande `nx e2e` lance les tests *end-to-end* en s'appuyant sur la bibliothèque [Playwright](https://playwright.dev/).
 
 ## ⚙️ Intégration continue
 
@@ -42,7 +42,7 @@ L'application est déployée sur [Github pages](https://pages.github.com/) via l
 
 L'ensemble des étapes de la *pipeline* sont centralisées dans le fichier [main.yml](./.github/workflows/main.yml).  
 Ces étapes comprennent :
-- **audit** des dépendances (en passant par yarn)
+- **audit** des dépendances (en passant par pnpm)
 - **tests unitaires** sur les composants (avec récupération de la couverture de test et affichage sous forme de badge) 
 - tests **end-to-end** sur l'ensemble de la *[SPA](https://developer.mozilla.org/fr/docs/Glossary/SPA)*
 - **déploiement** sur l'environnement github pages (grace au [plugin](https://github.com/marketplace/actions/deploy-to-github-pages) précédemment évoqué)
