@@ -1,49 +1,61 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
-import { CoreModule } from '@core/core.module';
-import { MarkdownModule } from 'ngx-markdown';
-import { ScrollTopModule } from 'primeng/scrolltop';
-import { SharedModule } from '@shared/shared.module';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { APP_BASE_HREF } from '@angular/common';
 import { GeneralComponent } from '@features/general/components/general/general.component';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { TranslateModule } from "@ngx-translate/core";
+import { ChangeDetectorRef, Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { of } from 'rxjs';
+import { ResumeComponent } from '@features/resume/components/resume/resume.component';
 
-window.IntersectionObserver = jest.fn().mockImplementation(() => ({
-  observe: () => null,
-}));
+const translateServiceMock = {
+  addLangs: jest.fn(),
+  use: jest.fn(),
+  getBrowserLang: jest.fn().mockReturnValue('fr'),
+};
+Object.defineProperty(translateServiceMock, 'onLangChange', { get: jest.fn(() => of({ lang: 'en' })) });
 
-describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
+@Component({
+  selector: 'cv-general',
+  standalone: true,
+  template: ``,
+})
+class FakeGeneralComponent {}
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        BrowserModule,
-        GeneralComponent,
-        CoreModule,
-        HttpClientTestingModule,
-        MarkdownModule.forRoot(),
-        ScrollTopModule,
-        SharedModule,
-        TranslateModule.forRoot()
-      ],
-      providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
-      schemas: [NO_ERRORS_SCHEMA],
-    }).compileComponents();
-    fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+@Component({
+  selector: 'cv-resume',
+  standalone: true,
+  template: ``,
+})
+class FakeResumeComponent {}
+
+describe(AppComponent.name, () => {
+  let component: ComponentFixture<AppComponent>;
+
+  beforeEach(() => {
+    TestBed.overrideComponent(AppComponent, {
+      add: {
+        providers: [
+          { provide: ChangeDetectorRef, useValue: { markForCheck: jest.fn() } },
+          { provide: TranslateService, useValue: translateServiceMock },
+        ],
+        imports: [FakeGeneralComponent, FakeResumeComponent],
+        schemas: [NO_ERRORS_SCHEMA],
+      },
+      remove: {
+        imports: [GeneralComponent, ResumeComponent],
+      },
+    });
+    component = TestBed.createComponent(AppComponent);
+    component.autoDetectChanges();
+  });
 
   it('should create', async () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should process on language selection', async () => {
+    const changeDetectorRef = component.componentInstance.changeDetectorRef;
+    const spyInstance = jest.spyOn(changeDetectorRef, 'markForCheck');
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    expect(spyInstance).toHaveBeenCalled();
   });
 });

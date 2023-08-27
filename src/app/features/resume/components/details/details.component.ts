@@ -15,7 +15,6 @@ import { DialogModule } from 'primeng/dialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { CommonModule } from '@angular/common';
 import { EMPTY_STRING } from '@core/utils/string.utils';
-import { TranslateService } from '@ngx-translate/core';
 import { MissionService } from '@core/services/mission.service';
 
 @Component({
@@ -32,7 +31,6 @@ export class DetailsComponent {
   @Output() detailsChange = new EventEmitter<boolean>();
   markdownService = inject(MarkdownService);
   changeDetectorRef = inject(ChangeDetectorRef);
-  translateService = inject(TranslateService);
   missionService = inject(MissionService);
   loading = true;
   innerFullMission: string = EMPTY_STRING;

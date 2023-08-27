@@ -18,7 +18,7 @@ import { LANGUAGE_KEY } from '@core/services/config.service';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { BlockUIModule } from 'primeng/blockui';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
-import { EMPTY, Subject, timer } from 'rxjs';
+import { EMPTY, Observable, Subject, timer } from "rxjs";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,10 +30,10 @@ import { EMPTY, Subject, timer } from 'rxjs';
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit, OnDestroy {
-  translateService = inject(TranslateService);
-  changeDetectorRef = inject(ChangeDetectorRef);
-  unsubscribe$ = new Subject();
-  language = EMPTY_STRING;
+  translateService: TranslateService = inject(TranslateService);
+  changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  unsubscribe$: Subject<unknown> = new Subject();
+  language: string = EMPTY_STRING;
   isLoading = false;
 
   /**
@@ -48,11 +48,11 @@ export class AppComponent implements OnInit, OnDestroy {
    * @inheritDoc
    */
   ngOnInit() {
-    const language$ = this.translateService.onLangChange.pipe(
-      tap(() => (this.isLoading = true)),
+    const language$:Observable<unknown> = this.translateService.onLangChange.pipe(
+      tap((): boolean => (this.isLoading = true)),
       switchMap(() => timer(600)),
-      tap(() => (this.isLoading = false)),
-      takeUntil(this.unsubscribe$)
+      tap((): boolean => (this.isLoading = false)),
+      takeUntil(this.unsubscribe$),
     );
     language$.subscribe(() => this.changeDetectorRef.markForCheck());
   }
@@ -63,10 +63,10 @@ export class AppComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll', ['$event'])
   onPageScroll(): void {
     const scrollTracker: HTMLElement | null = document.getElementById('scroll-tracker');
-    let scrollDistance = document.documentElement.scrollTop || document.body.scrollTop;
-    let progressWidth = (scrollDistance / (document.body.scrollHeight - document.documentElement.clientHeight)) * 100;
-    if (scrollTracker!.style) {
-      scrollTracker!.style.width = progressWidth + '%';
+    const scrollDistance: number = document.documentElement.scrollTop || document.body.scrollTop;
+    const progressWidth: number = (scrollDistance / (document.body.scrollHeight - document.documentElement.clientHeight)) * 100;
+    if (scrollTracker?.style) {
+      scrollTracker.style.width = progressWidth + '%';
     }
   }
 
@@ -74,12 +74,13 @@ export class AppComponent implements OnInit, OnDestroy {
    * Define the navigation session language.
    */
   private _initLanguagePreference(): void {
+    const languageKey: string = localStorage.getItem(LANGUAGE_KEY) ?? 'en';
     let sessionLanguage: string;
-    if (isBlank(localStorage.getItem(LANGUAGE_KEY)!) || !localStorage.getItem(LANGUAGE_KEY)!.match(/en|fr/)) {
-      const browserLang: string = this.translateService.getBrowserLang()!;
-      sessionLanguage = browserLang.match(/en|fr/) ? browserLang : 'fr';
+    if (isBlank(languageKey) || !languageKey.match(/en|fr/)) {
+      const browserLang: string = this.translateService.getBrowserLang() ?? 'en';
+      sessionLanguage = browserLang.match(/en|fr/) ? browserLang : 'en';
     } else {
-      sessionLanguage = localStorage.getItem(LANGUAGE_KEY)!;
+      sessionLanguage = languageKey;
     }
     this._changeLanguage(sessionLanguage);
   }

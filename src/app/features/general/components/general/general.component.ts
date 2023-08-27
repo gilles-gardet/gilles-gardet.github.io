@@ -1,16 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  HostListener,
-  inject,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ConfigService, DARK_THEME, LANGUAGE_KEY, LIGHT_THEME, THEME_KEY } from '@core/services/config.service';
 import { takeUntil, tap } from 'rxjs/operators';
-import { EMPTY, forkJoin, Subject } from 'rxjs';
+import { EMPTY, forkJoin, Observable, Subject } from "rxjs";
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -21,7 +12,7 @@ import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { SharedModule } from '@shared/shared.module';
 import { Menu, MenuModule } from 'primeng/menu';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateModule, TranslateService } from "@ngx-translate/core";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,10 +36,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class GeneralComponent implements OnInit, OnDestroy {
   @ViewChild('menu') menu: Menu | undefined;
-  configService = inject(ConfigService);
-  translateService = inject(TranslateService);
-  changeDetectorRef = inject(ChangeDetectorRef);
-  unsubscribe$ = new Subject();
+  configService: ConfigService = inject(ConfigService);
+  translateService: TranslateService = inject(TranslateService);
+  unsubscribe$: Subject<unknown> = new Subject();
   isDarkTheme: boolean | undefined;
   items: any[] = [];
 
@@ -65,13 +55,13 @@ export class GeneralComponent implements OnInit, OnDestroy {
    */
   ngOnInit() {
     this._initMenuItems();
-    const language$ = this.translateService.onLangChange.pipe(
+    const language$: Observable<LangChangeEvent> = this.translateService.onLangChange.pipe(
       tap(() => this._initMenuItems()),
-      takeUntil(this.unsubscribe$)
+      takeUntil(this.unsubscribe$),
     );
-    const theme$ = this.configService.theme$.pipe(
+    const theme$: Observable<string> = this.configService.theme$.pipe(
       tap((theme: string) => this.onThemeChange(theme)),
-      takeUntil(this.unsubscribe$)
+      takeUntil(this.unsubscribe$),
     );
     forkJoin([language$, theme$]).subscribe();
   }
@@ -171,7 +161,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
    * Download the curriculum vitae
    */
   private _downloadCurriculumVitae(): void {
-    const anchor = document.createElement('a');
+    const anchor: HTMLAnchorElement = document.createElement('a');
     anchor.href = 'assets/pdf/CV_GARDET_Gilles.pdf';
     anchor.download = 'gardet_gilles.pdf';
     document.body.appendChild(anchor);

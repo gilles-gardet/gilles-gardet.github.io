@@ -99,7 +99,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
       const endTimestamp = Date.parse(end);
       endDate = new Date(endTimestamp);
     }
-    let monthsBetweenDates: number = this.monthBetweenDates(startDate, endDate);
+    const monthsBetweenDates: number = this.monthBetweenDates(startDate, endDate);
     if (monthsBetweenDates > 12 && monthsBetweenDates % 12 > 0) {
       const years = Math.trunc(monthsBetweenDates / 12);
       const months = monthsBetweenDates % 12;

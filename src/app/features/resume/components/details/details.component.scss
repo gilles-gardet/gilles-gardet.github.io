@@ -16,10 +16,6 @@
       max-width: 100px;
       transition: max-height 800ms ease-in-out, max-width 800ms ease-in-out;
 
-      //&__spinner {
-      //  animation: progress-spinner-dash 1.5s ease-in-out infinite, progress-spinner-color 6s ease-in-out infinite;
-      //}
-
       &__text {
         display: flex;
         flex-direction: column;
@@ -41,13 +37,6 @@
           opacity: 1;
         }
       }
-    }
-  }
-
-  @keyframes hideScroll {
-    from,
-    to {
-      overflow-y: hidden;
     }
   }
 }

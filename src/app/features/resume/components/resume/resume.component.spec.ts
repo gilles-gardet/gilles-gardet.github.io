@@ -204,7 +204,6 @@ window.IntersectionObserver = jest.fn().mockImplementation(() => ({
 
 describe('ResumeComponent', () => {
   let resumeComponent: ResumeComponent;
-  let markdownService: MarkdownService;
   let componentFixture: ComponentFixture<ResumeComponent>;
 
   beforeEach(waitForAsync(() => {
@@ -233,7 +232,6 @@ describe('ResumeComponent', () => {
       providers: [MarkdownService],
     }).compileComponents();
     componentFixture = TestBed.createComponent(ResumeComponent);
-    markdownService = TestBed.inject(MarkdownService);
     resumeComponent = componentFixture.componentInstance;
     componentFixture.detectChanges();
   }));

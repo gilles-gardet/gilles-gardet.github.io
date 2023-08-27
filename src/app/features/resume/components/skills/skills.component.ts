@@ -16,7 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
 export class SkillsComponent implements AfterViewInit {
   @Input() skills: Skill[] = [];
   @Input() clones: Skill[] = [];
-  changeDetectorRef = inject(ChangeDetectorRef);
+  changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
 
   /**
    * @inheritDoc
@@ -29,24 +29,29 @@ export class SkillsComponent implements AfterViewInit {
    * Animate the skills bar when visible on screen
    */
   private _animateSkillsOnView(): void {
-    const rateIntersectionObserver = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry: IntersectionObserverEntry) => {
-          if (entry.isIntersecting && this.clones.length > 0) {
-            this.skills.forEach(
-              (tool: Skill) => (tool.rate = this.clones?.find((clone: Skill) => clone.name === tool.name)?.rate!),
-            );
-          } else {
-            this.skills.forEach((tool: Skill) => (tool.rate = 0));
-          }
-          this.changeDetectorRef.markForCheck();
-        });
+    const rateIntersectionObserver: IntersectionObserver = new IntersectionObserver(
+      (entries: IntersectionObserverEntry[]): void => {
+        entries.forEach((entry: IntersectionObserverEntry) => this._checkSkillIntersection(entry));
       },
       {
         threshold: 0,
       },
     );
-    const rateElement = document.querySelector('p-panel#skills .p-component');
-    if (rateElement) rateIntersectionObserver.observe(rateElement);
+    const rateElement: Element | null = document.querySelector('p-panel#skills .p-component');
+    if (rateElement) {
+      rateIntersectionObserver.observe(rateElement);
+    }
+  }
+
+  private _checkSkillIntersection(entry: IntersectionObserverEntry): void {
+    if (entry.isIntersecting && this.clones.length > 0) {
+      this.skills.forEach(
+        (tool: Skill) =>
+          (tool.rate = this.clones?.find((clone: Skill): boolean => clone.name === tool.name)?.rate || 0),
+      );
+    } else {
+      this.skills.forEach((tool: Skill): number => (tool.rate = 0));
+    }
+    this.changeDetectorRef.markForCheck();
   }
 }

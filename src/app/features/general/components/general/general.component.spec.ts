@@ -14,7 +14,6 @@ import { TranslateModule } from '@ngx-translate/core';
 describe('GeneralComponent', () => {
   let contactComponent: GeneralComponent;
   let componentFixture: ComponentFixture<GeneralComponent>;
-  let configService: ConfigService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -32,7 +31,6 @@ describe('GeneralComponent', () => {
       providers: [ConfigService],
     }).compileComponents();
     componentFixture = TestBed.createComponent(GeneralComponent);
-    configService = TestBed.inject(ConfigService);
     contactComponent = componentFixture.componentInstance;
     componentFixture.detectChanges();
   }));

@@ -2,10 +2,7 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MissionService } from './mission.service';
 import { CommonModule } from '@angular/common';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import { HttpClient } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClientProxy } from '@core/core.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('MissionService', () => {
   let service: MissionService;
