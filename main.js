@@ -139,11 +139,11 @@ class AppComponent {
    * Define the navigation session language.
    */
   _initLanguagePreference() {
-    const languageKey = localStorage.getItem(_core_services_config_service__WEBPACK_IMPORTED_MODULE_3__.LANGUAGE_KEY) ?? 'fr';
+    const languageKey = localStorage.getItem(_core_services_config_service__WEBPACK_IMPORTED_MODULE_3__.LANGUAGE_KEY) ?? 'en';
     let sessionLanguage;
     if ((0,_core_utils_string_utils__WEBPACK_IMPORTED_MODULE_2__.isBlank)(languageKey) || !languageKey.match(/en|fr/)) {
-      const browserLang = this.translateService.getBrowserLang() ?? 'fr';
-      sessionLanguage = browserLang.match(/en|fr/) ? browserLang : 'fr';
+      const browserLang = this.translateService.getBrowserLang() ?? 'en';
+      sessionLanguage = browserLang.match(/en|fr/) ? browserLang : 'en';
     } else {
       sessionLanguage = languageKey;
     }
