@@ -139,12 +139,13 @@ class AppComponent {
    * Define the navigation session language.
    */
   _initLanguagePreference() {
+    const languageKey = localStorage.getItem(_core_services_config_service__WEBPACK_IMPORTED_MODULE_3__.LANGUAGE_KEY) ?? 'fr';
     let sessionLanguage;
-    if ((0,_core_utils_string_utils__WEBPACK_IMPORTED_MODULE_2__.isBlank)(localStorage.getItem(_core_services_config_service__WEBPACK_IMPORTED_MODULE_3__.LANGUAGE_KEY)) || !localStorage.getItem(_core_services_config_service__WEBPACK_IMPORTED_MODULE_3__.LANGUAGE_KEY).match(/en|fr/)) {
-      const browserLang = this.translateService.getBrowserLang();
+    if ((0,_core_utils_string_utils__WEBPACK_IMPORTED_MODULE_2__.isBlank)(languageKey) || !languageKey.match(/en|fr/)) {
+      const browserLang = this.translateService.getBrowserLang() ?? 'fr';
       sessionLanguage = browserLang.match(/en|fr/) ? browserLang : 'fr';
     } else {
-      sessionLanguage = localStorage.getItem(_core_services_config_service__WEBPACK_IMPORTED_MODULE_3__.LANGUAGE_KEY);
+      sessionLanguage = languageKey;
     }
     this._changeLanguage(sessionLanguage);
   }
@@ -482,7 +483,6 @@ class GeneralComponent {
   constructor() {
     this.configService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_core_services_config_service__WEBPACK_IMPORTED_MODULE_0__.ConfigService);
     this.translateService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateService);
-    this.changeDetectorRef = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_2__.ChangeDetectorRef);
     this.unsubscribe$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__.Subject();
     this.items = [];
   }
@@ -1419,19 +1419,22 @@ class SkillsComponent {
    */
   _animateSkillsOnView() {
     const rateIntersectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && this.clones.length > 0) {
-          this.skills.forEach(tool => tool.rate = this.clones?.find(clone => clone.name === tool.name)?.rate);
-        } else {
-          this.skills.forEach(tool => tool.rate = 0);
-        }
-        this.changeDetectorRef.markForCheck();
-      });
+      entries.forEach(entry => this._checkSkillIntersection(entry));
     }, {
       threshold: 0
     });
     const rateElement = document.querySelector('p-panel#skills .p-component');
-    if (rateElement) rateIntersectionObserver.observe(rateElement);
+    if (rateElement) {
+      rateIntersectionObserver.observe(rateElement);
+    }
+  }
+  _checkSkillIntersection(entry) {
+    if (entry.isIntersecting && this.clones.length > 0) {
+      this.skills.forEach(tool => tool.rate = this.clones?.find(clone => clone.name === tool.name)?.rate || 0);
+    } else {
+      this.skills.forEach(tool => tool.rate = 0);
+    }
+    this.changeDetectorRef.markForCheck();
   }
 }
 _class = SkillsComponent;
