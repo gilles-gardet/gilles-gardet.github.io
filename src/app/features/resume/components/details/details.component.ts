@@ -26,15 +26,31 @@ import { MissionService } from '@core/services/mission.service';
   templateUrl: './details.component.html',
 })
 export class DetailsComponent {
-  @Input() selectedMission: Mission = {} as Mission;
-  @Input() displayDialog = false;
+  private readonly markdownService: MarkdownService = inject(MarkdownService);
+  private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  private readonly missionService: MissionService = inject(MissionService);
+  protected _displayDialog = false;
+  protected _selectedMission: Mission = {} as Mission;
+  protected loading = true;
+  protected innerFullMission: string = EMPTY_STRING;
+  protected innerLightMission: string = EMPTY_STRING;
+
+  @Input()
+  public get selectedMission(): Mission {
+    return this._selectedMission;
+  }
+  public set selectedMission(value: Mission) {
+    this._selectedMission = value;
+  }
+  @Input()
+  public get displayDialog(): boolean {
+    return this._displayDialog;
+  }
+  public set displayDialog(value: boolean) {
+    this._displayDialog = value;
+  }
+
   @Output() detailsChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-  markdownService: MarkdownService = inject(MarkdownService);
-  changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
-  missionService: MissionService = inject(MissionService);
-  loading = true;
-  innerFullMission: string = EMPTY_STRING;
-  innerLightMission: string = EMPTY_STRING;
 
   /**
    * Re-initialize the loader of the dialog content
@@ -49,10 +65,10 @@ export class DetailsComponent {
    */
   onMissionLoading(): void {
     const fullMission$: Observable<string> = this.markdownService.getSource(
-      this.missionService.missionFromDate(this.selectedMission?.startDate, 'full'),
+      this.missionService.missionFromDate(this._selectedMission?.startDate, 'full'),
     );
     const lightMission$: Observable<string> = this.markdownService.getSource(
-      this.missionService.missionFromDate(this.selectedMission?.startDate, 'light'),
+      this.missionService.missionFromDate(this._selectedMission?.startDate, 'light'),
     );
     forkJoin([lightMission$, fullMission$])
       .pipe(

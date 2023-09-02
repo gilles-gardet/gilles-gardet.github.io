@@ -1,7 +1,7 @@
 <p-dialog
-  *ngIf="selectedMission"
-  [(visible)]="displayDialog"
-  [header]="selectedMission.client"
+  *ngIf="_selectedMission"
+  [(visible)]="_displayDialog"
+  [header]="_selectedMission.client"
   [modal]="true"
   [style]="{ maxWidth: '960px' }"
   [closeOnEscape]="true"
@@ -12,8 +12,8 @@
 >
   <ng-template pTemplate="header">
     <div class="mission__title">
-      <h2 class="prose prose-2xl font-bold text-slate-600 dark:text-slate-100">{{ selectedMission.client }}</h2>
-      <span class="mission__title__timelapse">{{ selectedMission.timelapse }}</span>
+      <h2 class="prose prose-2xl font-bold text-slate-600 dark:text-slate-100">{{ _selectedMission.client }}</h2>
+      <span class="mission__title__timelapse">{{ _selectedMission.timelapse }}</span>
     </div>
   </ng-template>
   <ng-template pTemplate="content">

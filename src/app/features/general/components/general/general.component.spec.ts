@@ -40,7 +40,7 @@ describe('GeneralComponent', (): void => {
   });
 
   it(`should have no theme by default`, async (): Promise<void> => {
-    expect(contactComponent.isDarkTheme).toBeFalsy();
+    expect((contactComponent as any).isDarkTheme).toBeFalsy();
     expect(localStorage.getItem('theme')).toEqual('light');
     expect(document.getElementsByTagName('html')[0].classList).not.toContain('dark');
   });

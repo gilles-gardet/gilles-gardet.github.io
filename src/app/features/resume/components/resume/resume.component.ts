@@ -24,14 +24,14 @@ import skills from '@assets/resume/skills.json';
   templateUrl: './resume.component.html',
 })
 export class ResumeComponent implements OnInit, OnDestroy {
-  translateService: TranslateService = inject(TranslateService);
-  missionService: MissionService = inject(MissionService);
-  unsubscribe$: Subject<unknown> = new Subject();
-  selectedMission: Mission = {} as Mission;
-  missions: Mission[] = [];
-  skills: Skill[] = [];
-  clones: Skill[] = [];
-  displayDialog = false;
+  private readonly translateService: TranslateService = inject(TranslateService);
+  private readonly missionService: MissionService = inject(MissionService);
+  protected unsubscribe$: Subject<unknown> = new Subject();
+  protected selectedMission: Mission = {} as Mission;
+  protected missions: Mission[] = [];
+  protected skills: Skill[] = [];
+  protected clones: Skill[] = [];
+  protected displayDialog = false;
 
   /**
    * @inheritDoc
@@ -41,7 +41,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
     const skills$: Observable<Skill[]> = of(skills as Skill[]);
     zip(missions$, skills$)
       .pipe(map(([missions, skills]: [Mission[], Skill[]]) => ({ missions, skills })))
-      .subscribe((result: { missions: Mission[]; skills: Skill[] }) => {
+      .subscribe((result: { missions: Mission[]; skills: Skill[] }): void => {
         this.missions = result.missions.map((mission: Mission): Mission => {
           return {
             ...mission,

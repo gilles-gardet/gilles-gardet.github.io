@@ -30,11 +30,11 @@ import { EMPTY, Observable, Subject, timer } from "rxjs";
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit, OnDestroy {
-  translateService: TranslateService = inject(TranslateService);
-  changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
-  unsubscribe$: Subject<unknown> = new Subject();
-  language: string = EMPTY_STRING;
-  isLoading = false;
+  private readonly translateService: TranslateService = inject(TranslateService);
+  private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  protected unsubscribe$: Subject<unknown> = new Subject();
+  protected language: string = EMPTY_STRING;
+  protected isLoading = false;
 
   /**
    * @constructor

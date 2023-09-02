@@ -14,9 +14,25 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './skills.component.html',
 })
 export class SkillsComponent implements AfterViewInit {
-  @Input() skills: Skill[] = [];
-  @Input() clones: Skill[] = [];
-  changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  protected _skills: Skill[] = [];
+  protected _clones: Skill[] = [];
+
+  @Input()
+  public get skills(): Skill[] {
+    return this._skills;
+  }
+  public set skills(value: Skill[]) {
+    this._skills = value;
+  }
+
+  @Input()
+  public get clones(): Skill[] {
+    return this._clones;
+  }
+  public set clones(value: Skill[]) {
+    this._clones = value;
+  }
 
   /**
    * @inheritDoc
@@ -44,13 +60,13 @@ export class SkillsComponent implements AfterViewInit {
   }
 
   private _checkSkillIntersection(entry: IntersectionObserverEntry): void {
-    if (entry.isIntersecting && this.clones.length > 0) {
-      this.skills.forEach(
+    if (entry.isIntersecting && this._clones.length > 0) {
+      this._skills.forEach(
         (tool: Skill) =>
-          (tool.rate = this.clones?.find((clone: Skill): boolean => clone.name === tool.name)?.rate || 0),
+          (tool.rate = this._clones?.find((clone: Skill): boolean => clone.name === tool.name)?.rate || 0),
       );
     } else {
-      this.skills.forEach((tool: Skill): number => (tool.rate = 0));
+      this._skills.forEach((tool: Skill): number => (tool.rate = 0));
     }
     this.changeDetectorRef.markForCheck();
   }

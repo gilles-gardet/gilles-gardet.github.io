@@ -25,10 +25,18 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './missions.component.html',
 })
 export class MissionsComponent implements OnInit, AfterViewInit {
-  @Input() missions: Mission[] = [];
-  @Output() openDialog: EventEmitter<Mission> = new EventEmitter<Mission>();
+  protected screenWidth: number | undefined;
+  protected _missions: Mission[] = [];
 
-  screenWidth: number | undefined;
+  @Input()
+  public get missions(): Mission[] {
+    return this._missions;
+  }
+  public set missions(value: Mission[]) {
+    this._missions = value;
+  }
+
+  @Output() openDialog: EventEmitter<Mission> = new EventEmitter<Mission>();
 
   /**
    * @inheritDoc

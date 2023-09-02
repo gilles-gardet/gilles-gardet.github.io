@@ -12,8 +12,11 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './summary.component.html',
 })
 export class SummaryComponent {
-  yearsOfExperience = 0;
+  protected yearsOfExperience = 0;
 
+  /**
+   * @constructor
+   */
   constructor() {
     const startingDate: Date = new Date(2013, 4);
     this.yearsOfExperience = this.numberOfYearsFromDateToCurrentDate(startingDate);

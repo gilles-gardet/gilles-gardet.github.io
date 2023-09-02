@@ -36,12 +36,13 @@ import { MenuItem } from 'primeng/api';
   templateUrl: './general.component.html',
 })
 export class GeneralComponent implements OnInit, OnDestroy {
+  private readonly configService: ConfigService = inject(ConfigService);
+  private readonly translateService: TranslateService = inject(TranslateService);
+  protected unsubscribe$: Subject<unknown> = new Subject();
+  protected isDarkTheme: boolean | undefined;
+  protected menuItems: MenuItem[] = [];
+
   @ViewChild('menu') menu: Menu | undefined;
-  configService: ConfigService = inject(ConfigService);
-  translateService: TranslateService = inject(TranslateService);
-  unsubscribe$: Subject<unknown> = new Subject();
-  isDarkTheme: boolean | undefined;
-  menuItems: MenuItem[] = [];
 
   /**
    * Listen for the scroll events to close the menu (workaround to avoid the menu to scroll with the content of the

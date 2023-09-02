@@ -52,14 +52,14 @@ describe('MissionsComponent', () => {
   });
 
   it('should set screen size on init', async (): Promise<void> => {
-    expect(missionsComponent.screenWidth).toBe(1024);
+    expect((missionsComponent as any).screenWidth).toBe(1024);
   });
 
   it('should change the variable used to store the width when resizing the screen', async (): Promise<void> => {
     (window as any).innerWidth = 2048;
     window.dispatchEvent(new Event('resize'));
     componentFixture.detectChanges();
-    expect(missionsComponent.screenWidth).toBe(2048);
+    expect((missionsComponent as any).screenWidth).toBe(2048);
   });
 
   it('should emit the selected mission', async (): Promise<void> => {

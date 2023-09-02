@@ -51,10 +51,10 @@ describe('DetailsComponent', (): void => {
   });
 
   it(`should remove the loader on dialog hiding`, async (): Promise<void> => {
-    detailsComponent.loading = false;
-    expect(detailsComponent.loading).toBeFalsy();
+    (detailsComponent as any).loading = false;
+    expect((detailsComponent as any).loading).toBeFalsy();
     detailsComponent.onDialogHiding();
-    expect(detailsComponent.loading).toBeTruthy();
+    expect((detailsComponent as any).loading).toBeTruthy();
   });
 
   it(`should fetch the mission's content during the mission's loading`, async (): Promise<void> => {
@@ -63,8 +63,8 @@ describe('DetailsComponent', (): void => {
       endDate: undefined,
       startDate: '2022-01-01',
     } as Mission;
-    detailsComponent.loading = true;
-    detailsComponent.selectedMission = mission;
+    (detailsComponent as any).loading = true;
+    (detailsComponent as any)._selectedMission = mission;
     jest.spyOn(markdownService, 'getSource').mockReturnValue(of('test'));
     jest.spyOn(markdownService, 'parse');
     expect(document.body.querySelector('.p-dialog-content-scroll')).toBeNull();
@@ -73,11 +73,11 @@ describe('DetailsComponent', (): void => {
     expect(markdownService.getSource).toHaveBeenCalledTimes(2);
     expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/en/202201/202201_full.md');
     expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/en/202201/202201_light.md');
-    expect(detailsComponent.innerFullMission).toEqual('<p>test</p>&#10;');
-    expect(detailsComponent.innerLightMission).toEqual('<p>test</p>&#10;');
+    expect((detailsComponent as any).innerFullMission).toEqual('<p>test</p>&#10;');
+    expect((detailsComponent as any).innerLightMission).toEqual('<p>test</p>&#10;');
     expect(markdownService.parse).toHaveBeenNthCalledWith(2, 'test');
     await new Promise((resolve) => setTimeout(resolve, 600));
-    expect(detailsComponent.loading).toBeFalsy();
+    expect((detailsComponent as any).loading).toBeFalsy();
     expect(document.body.getElementsByClassName('p-dialog-content-scroll')[0]).not.toBeNull();
   });
 

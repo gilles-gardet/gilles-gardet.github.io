@@ -237,12 +237,12 @@ describe('ResumeComponent', (): void => {
   });
 
   it('should set missions values on init', async (): Promise<void> => {
-    expect(resumeComponent.missions).toMatchObject(missions);
+    expect((resumeComponent as any).missions).toMatchObject(missions);
   });
 
   it('should set tools values on init', async (): Promise<void> => {
-    expect(resumeComponent.skills).toStrictEqual(emptyTools);
-    expect(resumeComponent.clones).toStrictEqual(tools);
+    expect((resumeComponent as any).skills).toStrictEqual(emptyTools);
+    expect((resumeComponent as any).clones).toStrictEqual(tools);
   });
 
   it(`should open the dialog with the selected mission`, async (): Promise<void> => {
@@ -251,13 +251,13 @@ describe('ResumeComponent', (): void => {
       endDate: undefined,
       startDate: '2022-01-01',
     } as Mission;
-    resumeComponent.displayDialog = false;
-    resumeComponent.selectedMission = {} as Mission;
-    expect(resumeComponent.displayDialog).toBeFalsy();
-    expect(resumeComponent.selectedMission).toEqual({});
+    (resumeComponent as any).displayDialog = false;
+    (resumeComponent as any).selectedMission = {} as Mission;
+    expect((resumeComponent as any).displayDialog).toBeFalsy();
+    expect((resumeComponent as any).selectedMission).toEqual({});
     resumeComponent.openDialog(mission);
-    expect(resumeComponent.displayDialog).toBeTruthy();
-    expect(resumeComponent.selectedMission).toEqual(mission);
+    expect((resumeComponent as any).displayDialog).toBeTruthy();
+    expect((resumeComponent as any).selectedMission).toEqual(mission);
   });
 
   it(`should get the timelapse label of a mission`, async (): Promise<void> => {

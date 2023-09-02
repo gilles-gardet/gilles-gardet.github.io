@@ -53,7 +53,7 @@ describe(AppComponent.name, (): void => {
   });
 
   it('should process on language selection', async (): Promise<void> => {
-    const changeDetectorRef: ChangeDetectorRef = component.componentInstance.changeDetectorRef;
+    const changeDetectorRef: ChangeDetectorRef = (component.componentInstance as any).changeDetectorRef;
     const spyInstance: unknown = jest.spyOn(changeDetectorRef, 'markForCheck');
     await new Promise((resolve) => setTimeout(resolve, 1000));
     expect(spyInstance).toHaveBeenCalled();
