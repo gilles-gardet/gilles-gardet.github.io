@@ -11,11 +11,11 @@ import { ConfigService } from '@core/services/config.service';
 import { GeneralComponent } from '@features/general/components/general/general.component';
 import { TranslateModule } from '@ngx-translate/core';
 
-describe('GeneralComponent', () => {
+describe('GeneralComponent', (): void => {
   let contactComponent: GeneralComponent;
   let componentFixture: ComponentFixture<GeneralComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
       imports: [
         AvatarModule,
@@ -35,24 +35,24 @@ describe('GeneralComponent', () => {
     componentFixture.detectChanges();
   }));
 
-  it('should create', async () => {
+  it('should create', async (): Promise<void> => {
     expect(contactComponent).toBeTruthy();
   });
 
-  it(`should have no theme by default`, async () => {
+  it(`should have no theme by default`, async (): Promise<void> => {
     expect(contactComponent.isDarkTheme).toBeFalsy();
     expect(localStorage.getItem('theme')).toEqual('light');
     expect(document.getElementsByTagName('html')[0].classList).not.toContain('dark');
   });
 
-  it(`should open the email adress`, async () => {
+  it(`should open the email adress`, async (): Promise<void> => {
     window.open = jest.fn();
     contactComponent.openEmailClient();
     expect(window.open).toHaveBeenNthCalledWith(1, 'mailto:gilles.gardet@gmail.com');
   });
 
-  it(`should download a pdf`, async () => {
-    const anchorMock = document.createElement('a');
+  it(`should download a pdf`, async (): Promise<void> => {
+    const anchorMock: HTMLAnchorElement = document.createElement('a');
     jest.spyOn(document, 'createElement').mockReturnValue(anchorMock);
     jest.spyOn(anchorMock, 'click');
     jest.spyOn(document.body, 'appendChild');
@@ -66,7 +66,7 @@ describe('GeneralComponent', () => {
     expect(anchorMock.download).toEqual('gardet_gilles.pdf');
   });
 
-  afterEach(() => {
+  afterEach((): void => {
     localStorage.clear();
   });
 });

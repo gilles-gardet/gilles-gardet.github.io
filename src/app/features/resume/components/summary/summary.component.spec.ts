@@ -5,11 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SummaryComponent } from '@features/resume/components/summary/summary.component';
 import { TranslateModule } from "@ngx-translate/core";
 
-describe('SummaryComponent', () => {
+describe('SummaryComponent', (): void => {
   let summaryComponent: SummaryComponent;
   let componentFixture: ComponentFixture<SummaryComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
       imports: [BrowserAnimationsModule, CommonModule, PanelModule, TranslateModule.forRoot()],
     }).compileComponents();
@@ -18,15 +18,15 @@ describe('SummaryComponent', () => {
     componentFixture.detectChanges();
   }));
 
-  it('should create', async () => {
+  it('should create', async (): Promise<void> => {
     expect(summaryComponent).toBeTruthy();
   });
 
-  it(`should get the number of years between a given date and the current date`, async () => {
+  it(`should get the number of years between a given date and the current date`, async (): Promise<void> => {
     jest.useFakeTimers();
     jest.setSystemTime(new Date('2022-04-16'));
     const date: Date = new Date('2018-10-02');
-    const years = summaryComponent.numberOfYearsFromDateToCurrentDate(date);
+    const years: number = summaryComponent.numberOfYearsFromDateToCurrentDate(date);
     expect(years).toBe(4);
   });
 });

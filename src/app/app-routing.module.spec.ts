@@ -17,15 +17,15 @@ import { TagModule } from "primeng/tag";
 import { TimelineModule } from "primeng/timeline";
 import { TranslateModule } from "@ngx-translate/core";
 
-window.IntersectionObserver = jest.fn().mockImplementation(() => ({
-  observe: () => null,
+window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
+  observe: (): unknown => null,
 }));
 
-describe('AppRoutingModule', () => {
+describe('AppRoutingModule', (): void => {
   let router: Router;
   let fixture: ComponentFixture<ResumeComponent>;
 
-  beforeEach(() => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [BrowserAnimationsModule,
         CardModule,
@@ -49,13 +49,13 @@ describe('AppRoutingModule', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    const module = TestBed.inject(AppRoutingModule);
+  it('should create', (): void => {
+    const module: AppRoutingModule = TestBed.inject(AppRoutingModule);
     expect(module).toBeTruthy();
   });
 
-  it('should navigate to resume component on empty route', () => {
-    router.navigate(['/']).then(() => {
+  it('should navigate to resume component on empty route', (): void => {
+    router.navigate(['/']).then((): void => {
       expect(router.url).toEqual('/');
       const compiled = fixture.nativeElement;
       const resumeComponent = compiled.querySelector('cv-resume');
@@ -63,8 +63,8 @@ describe('AppRoutingModule', () => {
     });
   });
 
-  it('should navigate to resume component on every route', () => {
-    router.navigate(['/test']).then(() => {
+  it('should navigate to resume component on every route', (): void => {
+    router.navigate(['/test']).then((): void => {
       expect(router.url).toEqual('/');
       const compiled = fixture.nativeElement;
       const resumeComponent = compiled.querySelector('cv-resume');

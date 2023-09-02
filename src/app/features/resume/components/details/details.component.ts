@@ -28,10 +28,10 @@ import { MissionService } from '@core/services/mission.service';
 export class DetailsComponent {
   @Input() selectedMission: Mission = {} as Mission;
   @Input() displayDialog = false;
-  @Output() detailsChange = new EventEmitter<boolean>();
-  markdownService = inject(MarkdownService);
-  changeDetectorRef = inject(ChangeDetectorRef);
-  missionService = inject(MissionService);
+  @Output() detailsChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+  markdownService: MarkdownService = inject(MarkdownService);
+  changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  missionService: MissionService = inject(MissionService);
   loading = true;
   innerFullMission: string = EMPTY_STRING;
   innerLightMission: string = EMPTY_STRING;
@@ -56,13 +56,13 @@ export class DetailsComponent {
     );
     forkJoin([lightMission$, fullMission$])
       .pipe(
-        tap((values: string[]) => {
+        tap((values: string[]): void => {
           this.innerLightMission = this.markdownService.parse(values[0]);
           this.innerFullMission = this.markdownService.parse(values[1]);
         }),
       )
-      .subscribe(() => {
-        setTimeout(() => {
+      .subscribe((): void => {
+        setTimeout((): void => {
           this.loading = false;
           this.changeDetectorRef.markForCheck();
           document

@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs';
 import { ResumeComponent } from '@features/resume/components/resume/resume.component';
 
-const translateServiceMock = {
+const translateServiceMock: unknown = {
   addLangs: jest.fn(),
   use: jest.fn(),
   getBrowserLang: jest.fn().mockReturnValue('fr'),
@@ -27,10 +27,10 @@ class FakeGeneralComponent {}
 })
 class FakeResumeComponent {}
 
-describe(AppComponent.name, () => {
+describe(AppComponent.name, (): void => {
   let component: ComponentFixture<AppComponent>;
 
-  beforeEach(() => {
+  beforeEach((): void => {
     TestBed.overrideComponent(AppComponent, {
       add: {
         providers: [
@@ -48,13 +48,13 @@ describe(AppComponent.name, () => {
     component.autoDetectChanges();
   });
 
-  it('should create', async () => {
+  it('should create', async (): Promise<void> => {
     expect(component).toBeTruthy();
   });
 
-  it('should process on language selection', async () => {
-    const changeDetectorRef = component.componentInstance.changeDetectorRef;
-    const spyInstance = jest.spyOn(changeDetectorRef, 'markForCheck');
+  it('should process on language selection', async (): Promise<void> => {
+    const changeDetectorRef: ChangeDetectorRef = component.componentInstance.changeDetectorRef;
+    const spyInstance: unknown = jest.spyOn(changeDetectorRef, 'markForCheck');
     await new Promise((resolve) => setTimeout(resolve, 1000));
     expect(spyInstance).toHaveBeenCalled();
   });

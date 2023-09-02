@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { EMPTY, of, Subject, zip } from 'rxjs';
+import { EMPTY, Observable, of, Subject, zip } from "rxjs";
 import { map } from 'rxjs/operators';
 import { EMPTY_STRING } from '@core/utils/string.utils';
 import { Mission } from '@core/models/mission.model';
@@ -24,9 +24,9 @@ import skills from '@assets/resume/skills.json';
   templateUrl: './resume.component.html',
 })
 export class ResumeComponent implements OnInit, OnDestroy {
-  translateService = inject(TranslateService);
-  missionService = inject(MissionService);
-  unsubscribe$ = new Subject();
+  translateService: TranslateService = inject(TranslateService);
+  missionService: MissionService = inject(MissionService);
+  unsubscribe$: Subject<unknown> = new Subject();
   selectedMission: Mission = {} as Mission;
   missions: Mission[] = [];
   skills: Skill[] = [];
@@ -37,12 +37,12 @@ export class ResumeComponent implements OnInit, OnDestroy {
    * @inheritDoc
    */
   ngOnInit(): void {
-    const missions$ = of(missions as Mission[]);
-    const skills$ = of(skills as Skill[]);
+    const missions$: Observable<Mission[]> = of(missions as Mission[]);
+    const skills$: Observable<Skill[]> = of(skills as Skill[]);
     zip(missions$, skills$)
       .pipe(map(([missions, skills]: [Mission[], Skill[]]) => ({ missions, skills })))
       .subscribe((result: { missions: Mission[]; skills: Skill[] }) => {
-        this.missions = result.missions.map((mission) => {
+        this.missions = result.missions.map((mission: Mission): Mission => {
           return {
             ...mission,
             timelapse: this.missionTimelapse(mission.startDate, mission.endDate),
@@ -51,7 +51,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
         });
         this.skills = result.skills;
         this.clones = result.skills;
-        this.skills = result.skills.map((skill) => ({ name: skill.name, rate: 0 }));
+        this.skills = result.skills.map((skill: Skill): Skill => ({ name: skill.name, rate: 0 }));
       });
   }
 
@@ -68,7 +68,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
         start,
         end,
       )})`;
-    const onGoingLabel = this.translateService.currentLang === 'fr' ? 'en cours' : 'ongoing';
+    const onGoingLabel: string = this.translateService.currentLang === 'fr' ? 'en cours' : 'ongoing';
     return `${this.formatDate(new Date(start))} - ${onGoingLabel} (${this.missionDuration(start, end)})`;
   }
 
@@ -91,22 +91,22 @@ export class ResumeComponent implements OnInit, OnDestroy {
    * @return label representing the mission duration
    */
   missionDuration(start: string, end?: string): string {
-    const startTimestamp = Date.parse(start);
-    const startDate = new Date(startTimestamp);
+    const startTimestamp: number = Date.parse(start);
+    const startDate: Date = new Date(startTimestamp);
     const { yearLabel, monthLabel, andLabel } = this.getTranslatedLabels();
-    let endDate = new Date(Date.now());
+    let endDate: Date = new Date(Date.now());
     if (end) {
-      const endTimestamp = Date.parse(end);
+      const endTimestamp: number = Date.parse(end);
       endDate = new Date(endTimestamp);
     }
     const monthsBetweenDates: number = this.monthBetweenDates(startDate, endDate);
     if (monthsBetweenDates > 12 && monthsBetweenDates % 12 > 0) {
-      const years = Math.trunc(monthsBetweenDates / 12);
-      const months = monthsBetweenDates % 12;
+      const years: number = Math.trunc(monthsBetweenDates / 12);
+      const months: number = monthsBetweenDates % 12;
       return `${years} ${yearLabel}${years > 1 ? 's' : EMPTY_STRING} ${andLabel} ${months} ${monthLabel}`;
     }
     if (monthsBetweenDates % 12 === 0) {
-      const years = Math.trunc(monthsBetweenDates / 12);
+      const years: number = Math.trunc(monthsBetweenDates / 12);
       return `${years} ${yearLabel}${years > 1 ? 's' : EMPTY_STRING}`;
     }
     return `${monthsBetweenDates} ${monthLabel}`;
@@ -142,7 +142,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
   /**
    * Change the close dialog flag when the details' dialog component was closed from itself.
    */
-  onDetailsClose() {
+  onDetailsClose(): void {
     this.displayDialog = false;
   }
 

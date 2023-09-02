@@ -3,16 +3,16 @@ import { APP_BASE_HREF } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
 import { TranslateModule } from "@ngx-translate/core";
 
-describe('SharedModule', () => {
-  beforeEach(() => {
+describe('SharedModule', (): void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [SharedModule, TranslateModule],
       providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
     });
   });
 
-  it('should create', () => {
-    const module = TestBed.inject(SharedModule);
+  it('should create', (): void => {
+    const module: SharedModule = TestBed.inject(SharedModule);
     expect(module).toBeTruthy();
   });
 });

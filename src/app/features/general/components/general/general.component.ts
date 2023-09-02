@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostListener, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ConfigService, DARK_THEME, LANGUAGE_KEY, LIGHT_THEME, THEME_KEY } from '@core/services/config.service';
 import { takeUntil, tap } from 'rxjs/operators';
-import { EMPTY, forkJoin, Observable, Subject } from "rxjs";
+import { EMPTY, forkJoin, Observable, Subject } from 'rxjs';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -12,7 +12,8 @@ import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { SharedModule } from '@shared/shared.module';
 import { Menu, MenuModule } from 'primeng/menu';
-import { LangChangeEvent, TranslateModule, TranslateService } from "@ngx-translate/core";
+import { LangChangeEvent, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -40,7 +41,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
   translateService: TranslateService = inject(TranslateService);
   unsubscribe$: Subject<unknown> = new Subject();
   isDarkTheme: boolean | undefined;
-  items: any[] = [];
+  menuItems: MenuItem[] = [];
 
   /**
    * Listen for the scroll events to close the menu (workaround to avoid the menu to scroll with the content of the
@@ -70,7 +71,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
    * Initialize the contextual menu with the default items.
    */
   private _initMenuItems(): void {
-    this.items = [
+    this.menuItems = [
       {
         label: 'Menu',
         items: [
@@ -131,10 +132,31 @@ export class GeneralComponent implements OnInit, OnDestroy {
     this.isDarkTheme = false;
     document.documentElement.classList.remove(DARK_THEME);
     localStorage.setItem(THEME_KEY, LIGHT_THEME);
-    this.items[0].items[0].label = this.translateService.instant('cv.contact.menu.items.mode.label', {
+    const childMenuItem: MenuItem = this._extractChildMenuItem();
+    childMenuItem.label = this.translateService.instant('cv.contact.menu.items.mode.label', {
       value: this.translateService.instant('cv.mode.label.dark'),
     });
-    this.items[0].items[0].icon = 'pi pi-moon';
+    childMenuItem.icon = 'pi pi-moon';
+  }
+
+  /**
+   * Extract the child menu item from the menu items.
+   *
+   * @return the child menu item as a {@link MenuItem}
+   */
+  private _extractChildMenuItem(): MenuItem {
+    if (!this.menuItems || this.menuItems.length === 0) {
+      throw new Error('The menu items are not initialized');
+    }
+    const firstMenuItem: MenuItem = this.menuItems[0];
+    if (!firstMenuItem || !firstMenuItem.items || firstMenuItem.items.length === 0) {
+      throw new Error('The menu items are not properly initialized');
+    }
+    const childMenuItem: MenuItem = firstMenuItem.items[0];
+    if (!childMenuItem) {
+      throw new Error('Child menu item is not initialized');
+    }
+    return childMenuItem;
   }
 
   /**
@@ -144,10 +166,11 @@ export class GeneralComponent implements OnInit, OnDestroy {
     this.isDarkTheme = true;
     document.documentElement.classList.add(DARK_THEME);
     localStorage.setItem(THEME_KEY, DARK_THEME);
-    this.items[0].items[0].label = this.translateService.instant('cv.contact.menu.items.mode.label', {
+    const childMenuItem: MenuItem = this._extractChildMenuItem();
+    childMenuItem.label = this.translateService.instant('cv.contact.menu.items.mode.label', {
       value: this.translateService.instant('cv.mode.label.light'),
     });
-    this.items[0].items[0].icon = 'pi pi-sun';
+    childMenuItem.icon = 'pi pi-sun';
   }
 
   /**

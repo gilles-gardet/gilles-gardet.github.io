@@ -6,11 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
 import { TranslateModule } from '@ngx-translate/core';
 
-describe('HobbiesComponent', () => {
+describe('HobbiesComponent', (): void => {
   let hobbiesComponent: HobbiesComponent;
   let componentFixture: ComponentFixture<HobbiesComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
       imports: [BrowserAnimationsModule, CommonModule, PanelModule, TagModule, TranslateModule.forRoot()],
     }).compileComponents();
@@ -19,7 +19,7 @@ describe('HobbiesComponent', () => {
     componentFixture.detectChanges();
   }));
 
-  it('should create', async () => {
+  it('should create', async (): Promise<void> => {
     expect(hobbiesComponent).toBeTruthy();
   });
 });

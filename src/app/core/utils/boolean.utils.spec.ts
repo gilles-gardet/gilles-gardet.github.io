@@ -1,7 +1,7 @@
 import { BooleanUtils } from '@core/utils/boolean.utils';
 
-describe('BooleanUtils', () => {
-  it('should return a boolean from a string', () => {
+describe('BooleanUtils', (): void => {
+  it('should return a boolean from a string', (): void => {
     const result1 = BooleanUtils.stringToBoolean('test');
     expect(result1).toBeTruthy();
     const result2 = BooleanUtils.stringToBoolean('true');

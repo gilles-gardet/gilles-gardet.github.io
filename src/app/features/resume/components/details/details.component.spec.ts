@@ -14,14 +14,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
 import { Mission } from '@core/models/mission.model';
 import { DetailsComponent } from '@features/resume/components/details/details.component';
-import { TranslateModule, TranslateService } from "@ngx-translate/core";
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-describe('DetailsComponent', () => {
+describe('DetailsComponent', (): void => {
   let detailsComponent: DetailsComponent;
   let markdownService: MarkdownService;
   let componentFixture: ComponentFixture<DetailsComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
@@ -36,7 +36,7 @@ describe('DetailsComponent', () => {
         SharedModule,
         TagModule,
         TimelineModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
       ],
       providers: [MarkdownService, { provide: TranslateService, useValue: { currentLang: 'en' } }],
     }).compileComponents();
@@ -46,19 +46,19 @@ describe('DetailsComponent', () => {
     componentFixture.detectChanges();
   }));
 
-  it('should create', async () => {
+  it('should create', async (): Promise<void> => {
     expect(detailsComponent).toBeTruthy();
   });
 
-  it(`should remove the loader on dialog hiding`, async () => {
+  it(`should remove the loader on dialog hiding`, async (): Promise<void> => {
     detailsComponent.loading = false;
     expect(detailsComponent.loading).toBeFalsy();
     detailsComponent.onDialogHiding();
     expect(detailsComponent.loading).toBeTruthy();
   });
 
-  it(`should fetch the mission's content during the mission's loading`, async () => {
-    const mission = {
+  it(`should fetch the mission's content during the mission's loading`, async (): Promise<void> => {
+    const mission: Mission = {
       client: 'Test',
       endDate: undefined,
       startDate: '2022-01-01',
@@ -81,7 +81,7 @@ describe('DetailsComponent', () => {
     expect(document.body.getElementsByClassName('p-dialog-content-scroll')[0]).not.toBeNull();
   });
 
-  afterEach(() => {
+  afterEach((): void => {
     jest.useRealTimers();
   });
 });

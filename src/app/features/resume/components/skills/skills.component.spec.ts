@@ -7,15 +7,15 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { ChangeDetectorRef } from '@angular/core';
 import { TranslateModule } from "@ngx-translate/core";
 
-window.IntersectionObserver = jest.fn().mockImplementation(() => ({
-  observe: () => null,
+window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
+  observe: (): unknown => null,
 }));
 
-describe('SkillsComponent', () => {
+describe('SkillsComponent', (): void => {
   let skillsComponent: SkillsComponent;
   let componentFixture: ComponentFixture<SkillsComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
       imports: [BrowserAnimationsModule, CommonModule, PanelModule, ProgressBarModule, TranslateModule.forRoot()],
       providers: [{ provide: ChangeDetectorRef, useValue: {} }],
@@ -25,15 +25,15 @@ describe('SkillsComponent', () => {
     componentFixture.detectChanges();
   }));
 
-  it('should create', async () => {
+  it('should create', async (): Promise<void> => {
     expect(skillsComponent).toBeTruthy();
   });
 
-  it('should have an empty array of skills by default', async () => {
+  it('should have an empty array of skills by default', async (): Promise<void> => {
     expect(componentFixture.componentInstance.skills).toStrictEqual([]);
   });
 
-  it('should have an empty array of clones by default', async () => {
+  it('should have an empty array of clones by default', async (): Promise<void> => {
     expect(componentFixture.componentInstance.clones).toStrictEqual([]);
   });
 });

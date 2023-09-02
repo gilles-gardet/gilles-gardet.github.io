@@ -47,7 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
   /**
    * @inheritDoc
    */
-  ngOnInit() {
+  ngOnInit(): void {
     const language$:Observable<unknown> = this.translateService.onLangChange.pipe(
       tap((): boolean => (this.isLoading = true)),
       switchMap(() => timer(600)),

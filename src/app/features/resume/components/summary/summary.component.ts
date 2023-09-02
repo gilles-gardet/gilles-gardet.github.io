@@ -15,7 +15,7 @@ export class SummaryComponent {
   yearsOfExperience = 0;
 
   constructor() {
-    const startingDate = new Date(2013, 4);
+    const startingDate: Date = new Date(2013, 4);
     this.yearsOfExperience = this.numberOfYearsFromDateToCurrentDate(startingDate);
   }
 

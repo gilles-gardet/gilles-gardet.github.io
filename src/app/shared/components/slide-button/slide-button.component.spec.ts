@@ -4,12 +4,12 @@ import { ButtonModule } from 'primeng/button';
 import { SlideButtonComponent } from '@shared/components/slide-button/slide-button.component';
 import { TranslateModule } from "@ngx-translate/core";
 
-describe('SlideButtonComponent', () => {
+describe('SlideButtonComponent', (): void => {
   let component: SlideButtonComponent;
   let fixture: ComponentFixture<SlideButtonComponent>;
 
   beforeEach(
-    waitForAsync(() => {
+    waitForAsync((): void => {
       TestBed.configureTestingModule({
         declarations: [SlideButtonComponent],
         imports: [ButtonModule, CommonModule, TranslateModule.forRoot()],
@@ -20,7 +20,7 @@ describe('SlideButtonComponent', () => {
     })
   );
 
-  it('should create', async () => {
+  it('should create', async (): Promise<void> => {
     expect(component).toBeTruthy();
   });
 });

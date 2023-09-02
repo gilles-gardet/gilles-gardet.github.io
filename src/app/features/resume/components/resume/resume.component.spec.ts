@@ -15,7 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Mission } from '@core/models/mission.model';
 import { TranslateModule } from '@ngx-translate/core';
 
-const tools = [
+const tools: unknown = [
   {
     name: 'HTML',
     rate: 80,
@@ -85,7 +85,7 @@ const tools = [
     rate: 70,
   },
 ];
-const emptyTools = [
+const emptyTools: unknown = [
   {
     name: 'HTML',
     rate: 0,
@@ -155,7 +155,7 @@ const emptyTools = [
     rate: 0,
   },
 ];
-export const missions = [
+export const missions: {} = [
   {
     client: 'Air France KLM (Inetum) - Dev Portal',
     endDate: null,
@@ -198,15 +198,15 @@ export const missions = [
   },
 ];
 
-window.IntersectionObserver = jest.fn().mockImplementation(() => ({
-  observe: () => null,
+window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
+  observe: (): unknown => null,
 }));
 
-describe('ResumeComponent', () => {
+describe('ResumeComponent', (): void => {
   let resumeComponent: ResumeComponent;
   let componentFixture: ComponentFixture<ResumeComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
@@ -223,10 +223,6 @@ describe('ResumeComponent', () => {
         TimelineModule,
         TranslateModule.forRoot({
           defaultLanguage: 'fr',
-          // loader: {
-          //   provide: TranslateLoader,
-          //   useFactory: (httpClient: HttpClient) => new TranslateHttpLoader(httpClient, '/i18n/', '.json'),
-          // },
         }),
       ],
       providers: [MarkdownService],
@@ -236,21 +232,21 @@ describe('ResumeComponent', () => {
     componentFixture.detectChanges();
   }));
 
-  it('should create', async () => {
+  it('should create', async (): Promise<void> => {
     expect(resumeComponent).toBeTruthy();
   });
 
-  it('should set missions values on init', async () => {
+  it('should set missions values on init', async (): Promise<void> => {
     expect(resumeComponent.missions).toMatchObject(missions);
   });
 
-  it('should set tools values on init', async () => {
+  it('should set tools values on init', async (): Promise<void> => {
     expect(resumeComponent.skills).toStrictEqual(emptyTools);
     expect(resumeComponent.clones).toStrictEqual(tools);
   });
 
-  it(`should open the dialog with the selected mission`, async () => {
-    const mission = {
+  it(`should open the dialog with the selected mission`, async (): Promise<void> => {
+    const mission: Mission = {
       client: 'Test',
       endDate: undefined,
       startDate: '2022-01-01',
@@ -264,41 +260,41 @@ describe('ResumeComponent', () => {
     expect(resumeComponent.selectedMission).toEqual(mission);
   });
 
-  it(`should get the timelapse label of a mission`, async () => {
+  it(`should get the timelapse label of a mission`, async (): Promise<void> => {
     const start: Date = new Date('2018-10-02');
     const end: Date = new Date('2022-04-16');
-    const timelapseDone = resumeComponent.missionTimelapse(start.toDateString(), end.toDateString());
+    const timelapseDone: string = resumeComponent.missionTimelapse(start.toDateString(), end.toDateString());
     expect(timelapseDone).toEqual('02/10/2018 - 16/04/2022 (3 years and 6 months)');
-    const timelapseCurrent = resumeComponent.missionTimelapse(start.toDateString());
+    const timelapseCurrent: string = resumeComponent.missionTimelapse(start.toDateString());
     expect(timelapseCurrent).toMatch(/02\/10\/2018 - ongoing/);
   });
 
-  it(`should format the given date to be human readable`, async () => {
+  it(`should format the given date to be human readable`, async (): Promise<void> => {
     const firstDate: Date = new Date('2018-10-02');
-    const firstFormatedDate = resumeComponent.formatDate(firstDate);
+    const firstFormatedDate: string = resumeComponent.formatDate(firstDate);
     expect(firstFormatedDate).toEqual('02/10/2018');
     const secondDate: Date = new Date('2022-04-16');
-    const secondFormatedDate = resumeComponent.formatDate(secondDate);
+    const secondFormatedDate: string = resumeComponent.formatDate(secondDate);
     expect(secondFormatedDate).toEqual('16/04/2022');
   });
 
-  it(`should provide the mission duration label in months`, async () => {
+  it(`should provide the mission duration label in months`, async (): Promise<void> => {
     const start: Date = new Date('2018-10-02');
     const end: Date = new Date('2022-04-16');
-    const missionDuration = resumeComponent.missionDuration(start.toDateString());
+    const missionDuration: string = resumeComponent.missionDuration(start.toDateString());
     expect(missionDuration).toMatch(/^[0-9] years/);
-    const missionWithEndDuration = resumeComponent.missionDuration(start.toDateString(), end.toDateString());
+    const missionWithEndDuration: string = resumeComponent.missionDuration(start.toDateString(), end.toDateString());
     expect(missionWithEndDuration).toEqual('3 years and 6 months');
   });
 
-  it(`should provide the mission duration number in months`, async () => {
+  it(`should provide the mission duration number in months`, async (): Promise<void> => {
     const start: Date = new Date('2018-10-02');
     const end: Date = new Date('2022-04-16');
-    const missionDuration = resumeComponent.monthBetweenDates(start, end);
+    const missionDuration: number = resumeComponent.monthBetweenDates(start, end);
     expect(missionDuration).toBe(42);
   });
 
-  afterEach(() => {
+  afterEach((): void => {
     jest.useRealTimers();
   });
 });

@@ -15,8 +15,8 @@ import { MissionsComponent } from '@features/resume/components/missions/missions
 import { Mission } from '@core/models/mission.model';
 import { TranslateModule } from '@ngx-translate/core';
 
-window.IntersectionObserver = jest.fn().mockImplementation(() => ({
-  observe: () => null,
+window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
+  observe: (): unknown => null,
 }));
 
 describe('MissionsComponent', () => {
@@ -47,28 +47,28 @@ describe('MissionsComponent', () => {
     componentFixture.detectChanges();
   }));
 
-  it('should create', async () => {
+  it('should create', async (): Promise<void> => {
     expect(missionsComponent).toBeTruthy();
   });
 
-  it('should set screen size on init', async () => {
+  it('should set screen size on init', async (): Promise<void> => {
     expect(missionsComponent.screenWidth).toBe(1024);
   });
 
-  it('should change the variable used to store the width when resizing the screen', async () => {
+  it('should change the variable used to store the width when resizing the screen', async (): Promise<void> => {
     (window as any).innerWidth = 2048;
     window.dispatchEvent(new Event('resize'));
     componentFixture.detectChanges();
     expect(missionsComponent.screenWidth).toBe(2048);
   });
 
-  it('should emit the selected mission', async () => {
-    const mission = {
+  it('should emit the selected mission', async (): Promise<void> => {
+    const mission: Mission = {
       client: 'Test',
       endDate: undefined,
       startDate: '2022-01-01',
     } as Mission;
-    const emitSpy = jest.spyOn(missionsComponent.openDialog, 'emit');
+    const emitSpy: unknown = jest.spyOn(missionsComponent.openDialog, 'emit');
     missionsComponent.emitOpenMissionDialog(mission);
     expect(emitSpy).toHaveBeenNthCalledWith(1, mission);
   });

@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root',
 })
 export class MissionService {
-  private readonly translateService = inject(TranslateService);
+  private readonly translateService: TranslateService = inject(TranslateService);
 
   /**
    * Retrieve the mission from the passed date
@@ -15,9 +15,9 @@ export class MissionService {
    * @return description the mission description we want to display
    */
   missionFromDate(startingDate: string, type: string): string {
-    const date = new Date(startingDate);
-    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
-    const language = this.translateService.currentLang;
+    const date: Date = new Date(startingDate);
+    const month: string = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
+    const language: string = this.translateService.currentLang;
     return `/assets/resume/missions/${language}/${date.getFullYear()}${month}/${date.getFullYear()}${month}_${type}.md`;
   }
 }

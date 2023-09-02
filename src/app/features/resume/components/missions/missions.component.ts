@@ -26,7 +26,7 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class MissionsComponent implements OnInit, AfterViewInit {
   @Input() missions: Mission[] = [];
-  @Output() openDialog = new EventEmitter<Mission>();
+  @Output() openDialog: EventEmitter<Mission> = new EventEmitter<Mission>();
 
   screenWidth: number | undefined;
 
@@ -56,10 +56,10 @@ export class MissionsComponent implements OnInit, AfterViewInit {
    * Animate the missions cards when visible on screen
    */
   private _animateMissionsOnView(): void {
-    const intersectionObserver = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[]) => {
+    const intersectionObserver: IntersectionObserver = new IntersectionObserver(
+      (entries: IntersectionObserverEntry[]): void => {
         // trigger the animation on the intersection according to the side of the timeline event
-        entries.forEach((entry: IntersectionObserverEntry) => {
+        entries.forEach((entry: IntersectionObserverEntry): void => {
           if (!entry.isIntersecting) {
             return;
           }
@@ -84,10 +84,10 @@ export class MissionsComponent implements OnInit, AfterViewInit {
         threshold: 0,
       }
     );
-    const experienceElements = document.querySelectorAll(
+    const experienceElements: NodeListOf<Element> = document.querySelectorAll(
       'p-panel#experience .p-component .p-timeline-alternate .p-timeline-event'
     );
-    experienceElements.forEach((experienceElement) => {
+    experienceElements.forEach((experienceElement: Element): void => {
       intersectionObserver.observe(experienceElement);
     });
   }
