@@ -740,9 +740,9 @@ function DetailsComponent_p_dialog_0_ng_template_1_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](ctx_r1.selectedMission.client);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](ctx_r1._selectedMission.client);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](ctx_r1.selectedMission.timelapse);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](ctx_r1._selectedMission.timelapse);
   }
 }
 function DetailsComponent_p_dialog_0_ng_template_2_div_1_Template(rf, ctx) {
@@ -793,7 +793,7 @@ function DetailsComponent_p_dialog_0_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("visibleChange", function DetailsComponent_p_dialog_0_Template_p_dialog_visibleChange_0_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r7);
       const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresetView"](ctx_r6.displayDialog = $event);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresetView"](ctx_r6._displayDialog = $event);
     })("onHide", function DetailsComponent_p_dialog_0_Template_p_dialog_onHide_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r7);
       const ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
@@ -810,20 +810,32 @@ function DetailsComponent_p_dialog_0_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵstyleMap"](_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction0"](8, _c0));
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("visible", ctx_r0.displayDialog)("header", ctx_r0.selectedMission.client)("modal", true)("closeOnEscape", true)("dismissableMask", true)("blockScroll", true);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("visible", ctx_r0._displayDialog)("header", ctx_r0._selectedMission.client)("modal", true)("closeOnEscape", true)("dismissableMask", true)("blockScroll", true);
   }
 }
 class DetailsComponent {
   constructor() {
-    this.selectedMission = {};
-    this.displayDialog = false;
-    this.detailsChange = new _angular_core__WEBPACK_IMPORTED_MODULE_2__.EventEmitter();
     this.markdownService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(ngx_markdown__WEBPACK_IMPORTED_MODULE_3__.MarkdownService);
     this.changeDetectorRef = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_2__.ChangeDetectorRef);
     this.missionService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_core_services_mission_service__WEBPACK_IMPORTED_MODULE_1__.MissionService);
+    this._displayDialog = false;
+    this._selectedMission = {};
     this.loading = true;
     this.innerFullMission = _core_utils_string_utils__WEBPACK_IMPORTED_MODULE_0__.EMPTY_STRING;
     this.innerLightMission = _core_utils_string_utils__WEBPACK_IMPORTED_MODULE_0__.EMPTY_STRING;
+    this.detailsChange = new _angular_core__WEBPACK_IMPORTED_MODULE_2__.EventEmitter();
+  }
+  get selectedMission() {
+    return this._selectedMission;
+  }
+  set selectedMission(value) {
+    this._selectedMission = value;
+  }
+  get displayDialog() {
+    return this._displayDialog;
+  }
+  set displayDialog(value) {
+    this._displayDialog = value;
   }
   /**
    * Re-initialize the loader of the dialog content
@@ -836,8 +848,8 @@ class DetailsComponent {
    * Parse the markdown contained in the selected mission file
    */
   onMissionLoading() {
-    const fullMission$ = this.markdownService.getSource(this.missionService.missionFromDate(this.selectedMission?.startDate, 'full'));
-    const lightMission$ = this.markdownService.getSource(this.missionService.missionFromDate(this.selectedMission?.startDate, 'light'));
+    const fullMission$ = this.markdownService.getSource(this.missionService.missionFromDate(this._selectedMission?.startDate, 'full'));
+    const lightMission$ = this.markdownService.getSource(this.missionService.missionFromDate(this._selectedMission?.startDate, 'light'));
     (0,rxjs__WEBPACK_IMPORTED_MODULE_4__.forkJoin)([lightMission$, fullMission$]).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.tap)(values => {
       this.innerLightMission = this.markdownService.parse(values[0]);
       this.innerFullMission = this.markdownService.parse(values[1]);
@@ -874,7 +886,7 @@ _class.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefi
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](0, DetailsComponent_p_dialog_0_Template, 3, 9, "p-dialog", 0);
     }
     if (rf & 2) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx.selectedMission);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx._selectedMission);
     }
   },
   dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule, _angular_common__WEBPACK_IMPORTED_MODULE_6__.NgIf, primeng_dialog__WEBPACK_IMPORTED_MODULE_7__.DialogModule, primeng_dialog__WEBPACK_IMPORTED_MODULE_7__.Dialog, primeng_api__WEBPACK_IMPORTED_MODULE_8__.PrimeTemplate, primeng_progressspinner__WEBPACK_IMPORTED_MODULE_9__.ProgressSpinnerModule, primeng_progressspinner__WEBPACK_IMPORTED_MODULE_9__.ProgressSpinner],
@@ -1042,8 +1054,14 @@ function MissionsComponent_ng_template_4_Template(rf, ctx) {
 }
 class MissionsComponent {
   constructor() {
-    this.missions = [];
+    this._missions = [];
     this.openDialog = new _angular_core__WEBPACK_IMPORTED_MODULE_2__.EventEmitter();
+  }
+  get missions() {
+    return this._missions;
+  }
+  set missions(value) {
+    this._missions = value;
   }
   /**
    * @inheritDoc
@@ -1425,9 +1443,21 @@ function SkillsComponent_ng_container_3_Template(rf, ctx) {
 }
 class SkillsComponent {
   constructor() {
-    this.skills = [];
-    this.clones = [];
     this.changeDetectorRef = (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectorRef);
+    this._skills = [];
+    this._clones = [];
+  }
+  get skills() {
+    return this._skills;
+  }
+  set skills(value) {
+    this._skills = value;
+  }
+  get clones() {
+    return this._clones;
+  }
+  set clones(value) {
+    this._clones = value;
   }
   /**
    * @inheritDoc
@@ -1450,10 +1480,10 @@ class SkillsComponent {
     }
   }
   _checkSkillIntersection(entry) {
-    if (entry.isIntersecting && this.clones.length > 0) {
-      this.skills.forEach(tool => tool.rate = this.clones?.find(clone => clone.name === tool.name)?.rate || 0);
+    if (entry.isIntersecting && this._clones.length > 0) {
+      this._skills.forEach(tool => tool.rate = this._clones?.find(clone => clone.name === tool.name)?.rate || 0);
     } else {
-      this.skills.forEach(tool => tool.rate = 0);
+      this._skills.forEach(tool => tool.rate = 0);
     }
     this.changeDetectorRef.markForCheck();
   }
@@ -1485,7 +1515,7 @@ _class.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefi
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("header", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipeBind1"](1, 2, "cv.skills.panelTitle"));
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.skills);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx._skills);
     }
   },
   dependencies: [primeng_panel__WEBPACK_IMPORTED_MODULE_2__.PanelModule, primeng_panel__WEBPACK_IMPORTED_MODULE_2__.Panel, primeng_progressbar__WEBPACK_IMPORTED_MODULE_3__.ProgressBarModule, primeng_progressbar__WEBPACK_IMPORTED_MODULE_3__.ProgressBar, _shared_shared_module__WEBPACK_IMPORTED_MODULE_0__.SharedModule, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgForOf, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__.TranslateModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__.TranslatePipe],
@@ -1522,6 +1552,9 @@ const _c0 = function (a0) {
   };
 };
 class SummaryComponent {
+  /**
+   * @constructor
+   */
   constructor() {
     this.yearsOfExperience = 0;
     const startingDate = new Date(2013, 4);
