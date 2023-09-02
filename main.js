@@ -484,7 +484,7 @@ class GeneralComponent {
     this.configService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_core_services_config_service__WEBPACK_IMPORTED_MODULE_0__.ConfigService);
     this.translateService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateService);
     this.unsubscribe$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__.Subject();
-    this.items = [];
+    this.menuItems = [];
   }
   /**
    * Listen for the scroll events to close the menu (workaround to avoid the menu to scroll with the content of the
@@ -506,7 +506,7 @@ class GeneralComponent {
    * Initialize the contextual menu with the default items.
    */
   _initMenuItems() {
-    this.items = [{
+    this.menuItems = [{
       label: 'Menu',
       items: [{
         label: this.translateService.instant('cv.contact.menu.items.mode.label', {
@@ -558,10 +558,30 @@ class GeneralComponent {
     this.isDarkTheme = false;
     document.documentElement.classList.remove(_core_services_config_service__WEBPACK_IMPORTED_MODULE_0__.DARK_THEME);
     localStorage.setItem(_core_services_config_service__WEBPACK_IMPORTED_MODULE_0__.THEME_KEY, _core_services_config_service__WEBPACK_IMPORTED_MODULE_0__.LIGHT_THEME);
-    this.items[0].items[0].label = this.translateService.instant('cv.contact.menu.items.mode.label', {
+    const childMenuItem = this._extractChildMenuItem();
+    childMenuItem.label = this.translateService.instant('cv.contact.menu.items.mode.label', {
       value: this.translateService.instant('cv.mode.label.dark')
     });
-    this.items[0].items[0].icon = 'pi pi-moon';
+    childMenuItem.icon = 'pi pi-moon';
+  }
+  /**
+   * Extract the child menu item from the menu items.
+   *
+   * @return the child menu item as a {@link MenuItem}
+   */
+  _extractChildMenuItem() {
+    if (!this.menuItems || this.menuItems.length === 0) {
+      throw new Error('The menu items are not initialized');
+    }
+    const firstMenuItem = this.menuItems[0];
+    if (!firstMenuItem || !firstMenuItem.items || firstMenuItem.items.length === 0) {
+      throw new Error('The menu items are not properly initialized');
+    }
+    const childMenuItem = firstMenuItem.items[0];
+    if (!childMenuItem) {
+      throw new Error('Child menu item is not initialized');
+    }
+    return childMenuItem;
   }
   /**
    * Set the dark theme, chnage its corresponding menu item and store it as a local browser value.
@@ -570,10 +590,11 @@ class GeneralComponent {
     this.isDarkTheme = true;
     document.documentElement.classList.add(_core_services_config_service__WEBPACK_IMPORTED_MODULE_0__.DARK_THEME);
     localStorage.setItem(_core_services_config_service__WEBPACK_IMPORTED_MODULE_0__.THEME_KEY, _core_services_config_service__WEBPACK_IMPORTED_MODULE_0__.DARK_THEME);
-    this.items[0].items[0].label = this.translateService.instant('cv.contact.menu.items.mode.label', {
+    const childMenuItem = this._extractChildMenuItem();
+    childMenuItem.label = this.translateService.instant('cv.contact.menu.items.mode.label', {
       value: this.translateService.instant('cv.mode.label.light')
     });
-    this.items[0].items[0].icon = 'pi pi-sun';
+    childMenuItem.icon = 'pi pi-sun';
   }
   /**
    * Open the default email client with default values
@@ -662,7 +683,7 @@ _class.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefi
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("pTooltip", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](10, 7, "cv.contact.menu.tooltip"));
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("popup", true)("model", ctx.items)("autoZIndex", true);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("popup", true)("model", ctx.menuItems)("autoZIndex", true);
     }
   },
   dependencies: [primeng_avatar__WEBPACK_IMPORTED_MODULE_9__.AvatarModule, primeng_avatar__WEBPACK_IMPORTED_MODULE_9__.Avatar, primeng_button__WEBPACK_IMPORTED_MODULE_10__.ButtonModule, primeng_button__WEBPACK_IMPORTED_MODULE_10__.ButtonDirective, primeng_card__WEBPACK_IMPORTED_MODULE_11__.CardModule, primeng_card__WEBPACK_IMPORTED_MODULE_11__.Card, primeng_chip__WEBPACK_IMPORTED_MODULE_12__.ChipModule, primeng_chip__WEBPACK_IMPORTED_MODULE_12__.Chip, _angular_forms__WEBPACK_IMPORTED_MODULE_13__.FormsModule, primeng_inputswitch__WEBPACK_IMPORTED_MODULE_14__.InputSwitchModule, primeng_menu__WEBPACK_IMPORTED_MODULE_15__.MenuModule, primeng_menu__WEBPACK_IMPORTED_MODULE_15__.Menu, primeng_tooltip__WEBPACK_IMPORTED_MODULE_16__.Tooltip, primeng_ripple__WEBPACK_IMPORTED_MODULE_17__.RippleModule, primeng_ripple__WEBPACK_IMPORTED_MODULE_17__.Ripple, _shared_shared_module__WEBPACK_IMPORTED_MODULE_1__.SharedModule, primeng_tooltip__WEBPACK_IMPORTED_MODULE_16__.TooltipModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe],
