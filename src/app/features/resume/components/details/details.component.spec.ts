@@ -15,6 +15,7 @@ import { of } from 'rxjs';
 import { Mission } from '@core/models/mission.model';
 import { DetailsComponent } from '@features/resume/components/details/details.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { MissionService } from '@core/services/mission.service';
 
 describe('DetailsComponent', (): void => {
   let detailsComponent: DetailsComponent;
@@ -38,7 +39,20 @@ describe('DetailsComponent', (): void => {
         TimelineModule,
         TranslateModule.forRoot(),
       ],
-      providers: [MarkdownService, { provide: TranslateService, useValue: { currentLang: 'en' } }],
+      providers: [
+        MarkdownService,
+        { provide: TranslateService, useValue: { currentLang: 'en' } },
+        {
+          provide: MissionService,
+          useValue: {
+            missionFromDate: jest
+              .fn()
+              .mockReturnValueOnce('/assets/resume/missions/en/202201/202201_full.md')
+              .mockReturnValueOnce('/assets/resume/missions/en/202201/202201_light.md')
+              .mockReturnValue(''),
+          },
+        },
+      ],
     }).compileComponents();
     componentFixture = TestBed.createComponent(DetailsComponent);
     markdownService = TestBed.inject(MarkdownService);

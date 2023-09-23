@@ -14,6 +14,11 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Mission } from '@core/models/mission.model';
 import { TranslateModule } from '@ngx-translate/core';
+import { MissionService } from '@core/services/mission.service';
+import { of } from "rxjs";
+import { Skill } from "@core/models/skill.model";
+import mockMissions from '@assets/resume/missions.json';
+import mockSkills from '@assets/resume/skills.json';
 
 const tools: unknown = [
   {
@@ -225,7 +230,17 @@ describe('ResumeComponent', (): void => {
           defaultLanguage: 'fr',
         }),
       ],
-      providers: [MarkdownService],
+      providers: [
+        MarkdownService,
+        {
+          provide: MissionService,
+          useValue: {
+            fetchMissions$: jest.fn().mockReturnValue(of(mockMissions as Mission[])),
+            fetchSkills$: jest.fn().mockReturnValue(of(mockSkills as Skill[])),
+            missionFromDate: jest.fn().mockReturnValue(''),
+          },
+        },
+      ],
     }).compileComponents();
     componentFixture = TestBed.createComponent(ResumeComponent);
     resumeComponent = componentFixture.componentInstance;

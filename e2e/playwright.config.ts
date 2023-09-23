@@ -9,10 +9,10 @@ export default defineConfig({
     timeout: 5_000,
     toMatchSnapshot: { maxDiffPixels: 100 },
   },
-  forbidOnly: !!process.env.CI,
+  forbidOnly: !!process.env?.['CI'],
   retries: 1,
-  workers: process.env.CI ? 1 : undefined,
-  reporter: process.env.CI ? [['html', { outputFolder: 'report' }], ['github']] : 'list',
+  workers: process.env?.['CI'] ? 1 : undefined,
+  reporter: process.env?.['CI'] ? [['html', { outputFolder: 'report' }], ['github']] : 'list',
   use: {
     actionTimeout: 0,
     trace: 'on-first-retry',

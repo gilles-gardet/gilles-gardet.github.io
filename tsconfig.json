@@ -41,7 +41,7 @@
     "typeRoots": ["node_modules/@types"],
     "useDefineForClassFields": false
   },
-  "exclude": ["node_modules", "tmp", "src/assets/pictures/demo.gif"],
+  "exclude": ["node_modules", "tmp", "src/assets/pictures/demo.gif", "src/assets/resume/missions"],
   "files": [],
   "include": [],
   "references": [

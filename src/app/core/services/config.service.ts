@@ -11,8 +11,8 @@ export const LIGHT_THEME = 'light';
  * Function Expression).
  */
 const theme: string = ((): string => {
-  const isOperatingSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const isThemeStored = THEME_KEY in localStorage;
+  const isOperatingSystemDark: boolean = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isThemeStored: boolean = THEME_KEY in localStorage;
   if (!isThemeStored && isOperatingSystemDark) {
     return DARK_THEME;
   }
@@ -21,13 +21,13 @@ const theme: string = ((): string => {
 
 @Injectable()
 export class ConfigService {
-  private _theme$ = new BehaviorSubject<string>(theme);
+  private _theme$: BehaviorSubject<string> = new BehaviorSubject<string>(theme);
 
   /**
    *
    * @param theme the theme to be set
    */
-  setTheme$(theme: string) {
+  setTheme$(theme: string): void {
     this._theme$.next(theme);
   }
 

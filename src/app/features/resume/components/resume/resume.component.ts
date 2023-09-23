@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { EMPTY, Observable, of, Subject, zip } from "rxjs";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { EMPTY, Observable, Subject, zip } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { EMPTY_STRING } from '@core/utils/string.utils';
 import { Mission } from '@core/models/mission.model';
@@ -12,8 +12,8 @@ import { SummaryComponent } from '@features/resume/components/summary/summary.co
 import { DetailsComponent } from '@features/resume/components/details/details.component';
 import { TranslateService } from '@ngx-translate/core';
 import { MissionService } from '@core/services/mission.service';
-import missions from '@assets/resume/missions.json';
-import skills from '@assets/resume/skills.json';
+
+type SkillAndMissions = { missions: Mission[]; skills: Skill[] };
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,6 +26,7 @@ import skills from '@assets/resume/skills.json';
 export class ResumeComponent implements OnInit, OnDestroy {
   private readonly translateService: TranslateService = inject(TranslateService);
   private readonly missionService: MissionService = inject(MissionService);
+  private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   protected unsubscribe$: Subject<unknown> = new Subject();
   protected selectedMission: Mission = {} as Mission;
   protected missions: Mission[] = [];
@@ -37,11 +38,16 @@ export class ResumeComponent implements OnInit, OnDestroy {
    * @inheritDoc
    */
   ngOnInit(): void {
-    const missions$: Observable<Mission[]> = of(missions as Mission[]);
-    const skills$: Observable<Skill[]> = of(skills as Skill[]);
+    const missions$: Observable<Mission[]> = this.missionService.fetchMissions$();
+    const skills$: Observable<Skill[]> = this.missionService.fetchSkills$();
     zip(missions$, skills$)
-      .pipe(map(([missions, skills]: [Mission[], Skill[]]) => ({ missions, skills })))
-      .subscribe((result: { missions: Mission[]; skills: Skill[] }): void => {
+      .pipe(
+        map(([missions, skills]: [Mission[], Skill[]]): SkillAndMissions => ({
+          missions,
+          skills,
+        })),
+      )
+      .subscribe((result: SkillAndMissions): void => {
         this.missions = result.missions.map((mission: Mission): Mission => {
           return {
             ...mission,
@@ -52,6 +58,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
         this.skills = result.skills;
         this.clones = result.skills;
         this.skills = result.skills.map((skill: Skill): Skill => ({ name: skill.name, rate: 0 }));
+        this.changeDetectorRef.markForCheck();
       });
   }
 

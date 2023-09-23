@@ -20,7 +20,7 @@
       "defaultConfiguration": "production",
       "executor": "@angular-devkit/build-angular:browser",
       "options": {
-        "assets": ["./src/assets", "./src/favicon.ico", "./src/i18n"],
+        "assets": ["./src/assets/icons", "./src/assets/pictures/me.jpg", "./src/favicon.ico", "./src/i18n"],
         "index": "./src/index.html",
         "inlineStyleLanguage": "scss",
         "main": "./src/main.ts",

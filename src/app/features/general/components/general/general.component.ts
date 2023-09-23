@@ -14,6 +14,7 @@ import { SharedModule } from '@shared/shared.module';
 import { Menu, MenuModule } from 'primeng/menu';
 import { LangChangeEvent, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MenuItem } from 'primeng/api';
+import { environment } from "@environments/environment";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -186,7 +187,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
    */
   private _downloadCurriculumVitae(): void {
     const anchor: HTMLAnchorElement = document.createElement('a');
-    anchor.href = 'assets/pdf/CV_GARDET_Gilles.pdf';
+    anchor.href = `${environment.cdnUrl}/src/assets/pdf/CV_GARDET_Gilles.pdf`;
     anchor.download = 'gardet_gilles.pdf';
     document.body.appendChild(anchor);
     anchor.click();

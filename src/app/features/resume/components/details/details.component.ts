@@ -78,13 +78,13 @@ export class DetailsComponent {
         }),
       )
       .subscribe((): void => {
-        setTimeout((): void => {
+        // setTimeout((): void => {
           this.loading = false;
           this.changeDetectorRef.markForCheck();
           document
             .querySelector('p-dialog > .p-dialog-mask > .p-dialog > .p-dialog-content')
             ?.classList.add('p-dialog-content-scroll');
-        }, 600);
+        // }, 600);
       });
   }
 }

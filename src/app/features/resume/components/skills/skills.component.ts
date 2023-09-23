@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input } from "@angular/core";
 import { Skill } from '@core/models/skill.model';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { PanelModule } from 'primeng/panel';
@@ -24,6 +24,7 @@ export class SkillsComponent implements AfterViewInit {
   }
   public set skills(value: Skill[]) {
     this._skills = value;
+    this.changeDetectorRef.markForCheck();
   }
 
   @Input()
@@ -32,6 +33,7 @@ export class SkillsComponent implements AfterViewInit {
   }
   public set clones(value: Skill[]) {
     this._clones = value;
+    this.changeDetectorRef.markForCheck();
   }
 
   /**

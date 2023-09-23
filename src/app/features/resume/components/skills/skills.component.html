@@ -1,10 +1,12 @@
 <p-panel id="skills" [header]="'cv.skills.panelTitle' | translate">
   <div class="skills">
-    <ng-container *ngFor="let skill of _skills">
-      <div class="skills__languages">
-        <span>{{ skill.name }}</span>
-        <p-progressBar [value]="skill.rate" [showValue]="false"></p-progressBar>
-      </div>
+    <ng-container *ngIf="!!_skills && !!_clones">
+      <ng-container *ngFor="let skill of _skills">
+        <div class="skills__languages">
+          <span>{{ skill.name }}</span>
+          <p-progressBar [value]="skill.rate" [showValue]="false"></p-progressBar>
+        </div>
+      </ng-container>
     </ng-container>
   </div>
 </p-panel>
