@@ -361,9 +361,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 6123);
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ 9562);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 7731);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ 6862);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @environments/environment */ 9845);
 var _class;
+
 
 
 
@@ -388,11 +390,27 @@ class MissionService {
     const language = this.translateService.currentLang;
     return `${this.baseUrl}/missions/${language}/${date.getFullYear()}${month}/${date.getFullYear()}${month}_${type}.md`;
   }
-  fetchMissions() {
-    return this.httpClient.get(`${this.baseUrl}/missions.json`);
+  /**
+   * Retrieve the missions from the json file stored in the repository assets folder
+   *
+   * @return missions the list of missions wrapped in an observable
+   */
+  fetchMissions$() {
+    if (!this.missions$) {
+      this.missions$ = this.httpClient.get(`${this.baseUrl}/missions.json`).pipe((0,rxjs__WEBPACK_IMPORTED_MODULE_4__.shareReplay)(1));
+    }
+    return this.missions$;
   }
-  fetchSkills() {
-    return this.httpClient.get(`${this.baseUrl}/skills.json`);
+  /**
+   * Retrieve the skills from the json file stored in the repository assets folder
+   *
+   * @return skills the list of skills wrapped in an observable
+   */
+  fetchSkills$() {
+    if (!this.skills$) {
+      this.skills$ = this.httpClient.get(`${this.baseUrl}/skills.json`).pipe((0,rxjs__WEBPACK_IMPORTED_MODULE_4__.shareReplay)(1));
+    }
+    return this.skills$;
   }
 }
 _class = MissionService;
@@ -1231,8 +1249,8 @@ class ResumeComponent {
    * @inheritDoc
    */
   ngOnInit() {
-    const missions$ = this.missionService.fetchMissions();
-    const skills$ = this.missionService.fetchSkills();
+    const missions$ = this.missionService.fetchMissions$();
+    const skills$ = this.missionService.fetchSkills$();
     (0,rxjs__WEBPACK_IMPORTED_MODULE_11__.zip)(missions$, skills$).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_12__.map)(([missions, skills]) => ({
       missions,
       skills
@@ -1475,19 +1493,20 @@ class SkillsComponent {
   }
   set skills(value) {
     this._skills = value;
-    this._animateSkillsOnView();
+    this.changeDetectorRef.markForCheck();
   }
   get clones() {
     return this._clones;
   }
   set clones(value) {
     this._clones = value;
+    this.changeDetectorRef.markForCheck();
   }
   /**
    * @inheritDoc
    */
   ngAfterViewInit() {
-    // this._animateSkillsOnView();
+    this._animateSkillsOnView();
   }
   /**
    * Animate the skills bar when visible on screen
