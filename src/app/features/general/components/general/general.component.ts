@@ -14,7 +14,8 @@ import { SharedModule } from '@shared/shared.module';
 import { Menu, MenuModule } from 'primeng/menu';
 import { LangChangeEvent, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MenuItem } from 'primeng/api';
-import { environment } from "@environments/environment";
+import { environment } from '@environments/environment';
+import { MissionService } from '@core/services/mission.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -39,6 +40,7 @@ import { environment } from "@environments/environment";
 export class GeneralComponent implements OnInit, OnDestroy {
   private readonly configService: ConfigService = inject(ConfigService);
   private readonly translateService: TranslateService = inject(TranslateService);
+  private readonly missionService: MissionService = inject(MissionService);
   protected unsubscribe$: Subject<unknown> = new Subject();
   protected isDarkTheme: boolean | undefined;
   protected menuItems: MenuItem[] = [];
@@ -112,6 +114,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
     if (localStorage.getItem(LANGUAGE_KEY) !== language) {
       localStorage.setItem(LANGUAGE_KEY, language);
     }
+    this.missionService.clearCache();
   }
 
   /**

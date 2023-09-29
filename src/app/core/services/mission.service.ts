@@ -170,4 +170,9 @@ export class MissionService {
     months += end.getMonth();
     return months <= 0 ? 0 : months;
   }
+
+  public clearCache(): void {
+    this.missions$ = undefined;
+    this.skills$ = undefined;
+  }
 }
