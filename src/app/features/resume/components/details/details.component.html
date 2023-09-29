@@ -23,8 +23,8 @@
       </div>
       <ng-template #missionContent>
         <div class="mission__content__text">
-          <div [innerHTML]="innerLightMission"></div>
-          <div [innerHTML]="innerFullMission" class="flex flex-col gap-3"></div>
+          <markdown [data]="innerLightMission"></markdown>
+          <markdown [data]="innerFullMission" class="flex flex-col gap-3"></markdown>
         </div>
       </ng-template>
     </div>

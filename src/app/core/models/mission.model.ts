@@ -5,3 +5,5 @@ export interface Mission {
   timelapse?: string;
   description?: string;
 }
+
+export type MissionDescriptionType = 'light' | 'full';

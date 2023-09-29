@@ -7,7 +7,7 @@
     </ng-template>
     <ng-template pTemplate="content" let-mission>
       <p-card [header]="mission['client']" [subheader]="mission['timelapse']" styleClass="mission">
-        <markdown [src]="mission.description"></markdown>
+        <markdown [innerHTML]="mission.description"></markdown>
         <div class="mission__button">
           <cv-slide-button (click)="emitOpenMissionDialog(mission)"></cv-slide-button>
         </div>

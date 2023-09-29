@@ -7,8 +7,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs';
-import { MarkdownService } from 'ngx-markdown';
+import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { tap } from 'rxjs/operators';
 import { Mission } from '@core/models/mission.model';
 import { DialogModule } from 'primeng/dialog';
@@ -19,7 +18,7 @@ import { MissionService } from '@core/services/mission.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, DialogModule, ProgressSpinnerModule],
+  imports: [CommonModule, DialogModule, ProgressSpinnerModule, MarkdownModule],
   selector: 'cv-details',
   standalone: true,
   styleUrls: ['./details.component.scss'],
@@ -64,27 +63,20 @@ export class DetailsComponent {
    * Parse the markdown contained in the selected mission file
    */
   onMissionLoading(): void {
-    const fullMission$: Observable<string> = this.markdownService.getSource(
-      this.missionService.missionFromDate(this._selectedMission?.startDate, 'full'),
+    const fullMissionDescriptionUrl: string = this.missionService.missionFromDate(
+      this._selectedMission?.startDate,
+      'full',
     );
-    const lightMission$: Observable<string> = this.markdownService.getSource(
-      this.missionService.missionFromDate(this._selectedMission?.startDate, 'light'),
-    );
-    forkJoin([lightMission$, fullMission$])
-      .pipe(
-        tap((values: string[]): void => {
-          this.innerLightMission = this.markdownService.parse(values[0]);
-          this.innerFullMission = this.markdownService.parse(values[1]);
-        }),
-      )
-      .subscribe((): void => {
-        // setTimeout((): void => {
-          this.loading = false;
-          this.changeDetectorRef.markForCheck();
-          document
-            .querySelector('p-dialog > .p-dialog-mask > .p-dialog > .p-dialog-content')
-            ?.classList.add('p-dialog-content-scroll');
-        // }, 600);
+    this.markdownService
+      .getSource(fullMissionDescriptionUrl)
+      .pipe(tap(() => (this.innerLightMission = this._selectedMission.description ?? EMPTY_STRING)))
+      .subscribe((fullMission: string): void => {
+        this.innerFullMission = fullMission;
+        this.loading = false;
+        this.changeDetectorRef.markForCheck();
+        document
+          .querySelector('p-dialog > .p-dialog-mask > .p-dialog > .p-dialog-content')
+          ?.classList.add('p-dialog-content-scroll');
       });
   }
 }
