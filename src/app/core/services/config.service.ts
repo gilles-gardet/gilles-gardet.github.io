@@ -22,8 +22,10 @@ const theme: string = ((): string => {
 @Injectable()
 export class ConfigService {
   private _theme$: BehaviorSubject<string> = new BehaviorSubject<string>(theme);
+  private _loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
   /**
+   * Set the theme
    *
    * @param theme the theme to be set
    */
@@ -36,5 +38,21 @@ export class ConfigService {
    */
   get theme$(): BehaviorSubject<string> {
     return this._theme$;
+  }
+
+  /**
+   * Set the loading flag
+   *
+   * @param loading the flag to be set
+   */
+  setLoading$(loading: boolean): void {
+    this._loading$.next(loading);
+  }
+
+  /**
+   * Return the current loading flag
+   */
+  get loading$(): BehaviorSubject<boolean> {
+    return this._loading$;
   }
 }

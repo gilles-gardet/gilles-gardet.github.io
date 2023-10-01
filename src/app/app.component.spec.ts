@@ -5,6 +5,7 @@ import { ChangeDetectorRef, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs';
 import { ResumeComponent } from '@features/resume/components/resume/resume.component';
+import { ConfigService } from "@core/services/config.service";
 
 const translateServiceMock: unknown = {
   addLangs: jest.fn(),
@@ -34,6 +35,7 @@ describe(AppComponent.name, (): void => {
     TestBed.overrideComponent(AppComponent, {
       add: {
         providers: [
+          ConfigService,
           { provide: ChangeDetectorRef, useValue: { markForCheck: jest.fn() } },
           { provide: TranslateService, useValue: translateServiceMock },
         ],

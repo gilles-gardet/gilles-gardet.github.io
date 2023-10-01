@@ -10,6 +10,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { ConfigService } from '@core/services/config.service';
 import { GeneralComponent } from '@features/general/components/general/general.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { MissionService } from '@core/services/mission.service';
 
 describe('GeneralComponent', (): void => {
   let contactComponent: GeneralComponent;
@@ -28,7 +29,15 @@ describe('GeneralComponent', (): void => {
         TooltipModule,
         TranslateModule.forRoot(),
       ],
-      providers: [ConfigService],
+      providers: [
+        ConfigService,
+        {
+          provide: MissionService,
+          useValue: {
+            clearCache: jest.fn().mockImplementation(),
+          },
+        },
+      ],
     }).compileComponents();
     componentFixture = TestBed.createComponent(GeneralComponent);
     contactComponent = componentFixture.componentInstance;

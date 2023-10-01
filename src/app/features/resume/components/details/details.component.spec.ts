@@ -71,7 +71,7 @@ describe('DetailsComponent', (): void => {
     expect((detailsComponent as any).loading).toBeTruthy();
   });
 
-  it(`should fetch the mission's content during the mission's loading`, async (): Promise<void> => {
+  it(`should fetch the mission's content during the mission's loading`, (): void => {
     const mission: Mission = {
       client: 'Test',
       endDate: undefined,
@@ -84,13 +84,9 @@ describe('DetailsComponent', (): void => {
     expect(document.body.querySelector('.p-dialog-content-scroll')).toBeNull();
     detailsComponent.onMissionLoading();
     componentFixture.detectChanges();
-    expect(markdownService.getSource).toHaveBeenCalledTimes(2);
+    expect(markdownService.getSource).toHaveBeenCalledTimes(1);
     expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/en/202201/202201_full.md');
-    expect(markdownService.getSource).toHaveBeenCalledWith('/assets/resume/missions/en/202201/202201_light.md');
-    expect((detailsComponent as any).innerFullMission).toEqual('<p>test</p>&#10;');
-    expect((detailsComponent as any).innerLightMission).toEqual('<p>test</p>&#10;');
-    expect(markdownService.parse).toHaveBeenNthCalledWith(2, 'test');
-    await new Promise((resolve) => setTimeout(resolve, 600));
+    expect((detailsComponent as any).innerFullMission).toEqual('test');
     expect((detailsComponent as any).loading).toBeFalsy();
     expect(document.body.getElementsByClassName('p-dialog-content-scroll')[0]).not.toBeNull();
   });

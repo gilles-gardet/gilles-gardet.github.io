@@ -15,10 +15,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Mission } from '@core/models/mission.model';
 import { TranslateModule } from '@ngx-translate/core';
 import { MissionService } from '@core/services/mission.service';
-import { of } from "rxjs";
-import { Skill } from "@core/models/skill.model";
+import { of } from 'rxjs';
+import { Skill } from '@core/models/skill.model';
 import mockMissions from '@assets/resume/missions.json';
 import mockSkills from '@assets/resume/skills.json';
+import { ConfigService } from "@core/services/config.service";
 
 const tools: unknown = [
   {
@@ -231,6 +232,7 @@ describe('ResumeComponent', (): void => {
         }),
       ],
       providers: [
+        ConfigService,
         MarkdownService,
         {
           provide: MissionService,
@@ -273,40 +275,6 @@ describe('ResumeComponent', (): void => {
     resumeComponent.openDialog(mission);
     expect((resumeComponent as any).displayDialog).toBeTruthy();
     expect((resumeComponent as any).selectedMission).toEqual(mission);
-  });
-
-  it(`should get the timelapse label of a mission`, async (): Promise<void> => {
-    const start: Date = new Date('2018-10-02');
-    const end: Date = new Date('2022-04-16');
-    const timelapseDone: string = resumeComponent.missionTimelapse(start.toDateString(), end.toDateString());
-    expect(timelapseDone).toEqual('02/10/2018 - 16/04/2022 (3 years and 6 months)');
-    const timelapseCurrent: string = resumeComponent.missionTimelapse(start.toDateString());
-    expect(timelapseCurrent).toMatch(/02\/10\/2018 - ongoing/);
-  });
-
-  it(`should format the given date to be human readable`, async (): Promise<void> => {
-    const firstDate: Date = new Date('2018-10-02');
-    const firstFormatedDate: string = resumeComponent.formatDate(firstDate);
-    expect(firstFormatedDate).toEqual('02/10/2018');
-    const secondDate: Date = new Date('2022-04-16');
-    const secondFormatedDate: string = resumeComponent.formatDate(secondDate);
-    expect(secondFormatedDate).toEqual('16/04/2022');
-  });
-
-  it(`should provide the mission duration label in months`, async (): Promise<void> => {
-    const start: Date = new Date('2018-10-02');
-    const end: Date = new Date('2022-04-16');
-    const missionDuration: string = resumeComponent.missionDuration(start.toDateString());
-    expect(missionDuration).toMatch(/^[0-9] years/);
-    const missionWithEndDuration: string = resumeComponent.missionDuration(start.toDateString(), end.toDateString());
-    expect(missionWithEndDuration).toEqual('3 years and 6 months');
-  });
-
-  it(`should provide the mission duration number in months`, async (): Promise<void> => {
-    const start: Date = new Date('2018-10-02');
-    const end: Date = new Date('2022-04-16');
-    const missionDuration: number = resumeComponent.monthBetweenDates(start, end);
-    expect(missionDuration).toBe(42);
   });
 
   afterEach((): void => {

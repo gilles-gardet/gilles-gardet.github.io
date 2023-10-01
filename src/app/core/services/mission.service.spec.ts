@@ -6,11 +6,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
 import { Skill } from '@core/models/skill.model';
 import { Mission } from '@core/models/mission.model';
-import { HttpClient } from '@angular/common/http';
 
 describe('MissionService', (): void => {
   let service: MissionService;
-  let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
 
   beforeEach(waitForAsync((): void => {
@@ -25,7 +23,6 @@ describe('MissionService', (): void => {
       providers: [MissionService],
     });
     service = TestBed.inject(MissionService);
-    httpClient = TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
   }));
 
@@ -77,14 +74,56 @@ describe('MissionService', (): void => {
         client: 'MAIF (Inetum) - IRSA',
         startDate: '2020-07-01',
         endDate: '2020-12-01',
+        description: 'test',
+        timelapse: '01/07/2020 - 01/12/2020 (5 months)',
       },
     ];
+    const description = 'test';
     service.fetchMissions$().subscribe((response: Mission[]) => expect(response).toEqual(missions));
-    const testRequest: TestRequest = httpTestingController.expectOne(
+    const missionsRequest: TestRequest = httpTestingController.expectOne(
       'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions.json',
     );
-    expect(testRequest.request.method).toEqual('GET');
-    testRequest.flush(missions);
+    missionsRequest.flush(missions);
+    expect(missionsRequest.request.method).toEqual('GET');
+    const descriptionRequest: TestRequest = httpTestingController.expectOne(
+      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions/undefined/202007/202007_light.md',
+    );
+    descriptionRequest.flush(description);
+    expect(descriptionRequest.request.method).toEqual('GET');
     httpTestingController.verify();
+  });
+
+  it(`should get the timelapse label of a mission`, async (): Promise<void> => {
+    const start: Date = new Date('2018-10-02');
+    const end: Date = new Date('2022-04-16');
+    const timelapseDone: string = (service as any).missionTimelapse(start.toDateString(), end.toDateString());
+    expect(timelapseDone).toEqual('02/10/2018 - 16/04/2022 (3 years and 6 months)');
+    const timelapseCurrent: string = (service as any).missionTimelapse(start.toDateString());
+    expect(timelapseCurrent).toMatch(/02\/10\/2018 - ongoing/);
+  });
+
+  it(`should format the given date to be human readable`, async (): Promise<void> => {
+    const firstDate: Date = new Date('2018-10-02');
+    const firstFormatedDate: string = (service as any).formatDate(firstDate);
+    expect(firstFormatedDate).toEqual('02/10/2018');
+    const secondDate: Date = new Date('2022-04-16');
+    const secondFormatedDate: string = (service as any).formatDate(secondDate);
+    expect(secondFormatedDate).toEqual('16/04/2022');
+  });
+
+  it(`should provide the mission duration label in months`, async (): Promise<void> => {
+    const start: Date = new Date('2018-10-02');
+    const end: Date = new Date('2022-04-16');
+    const missionDuration: string = (service as any).missionDuration(start.toDateString());
+    expect(missionDuration).toMatch(/^[0-9] years/);
+    const missionWithEndDuration: string = (service as any).missionDuration(start.toDateString(), end.toDateString());
+    expect(missionWithEndDuration).toEqual('3 years and 6 months');
+  });
+
+  it(`should provide the mission duration number in months`, async (): Promise<void> => {
+    const start: Date = new Date('2018-10-02');
+    const end: Date = new Date('2022-04-16');
+    const missionDuration: number = (service as any).monthBetweenDates(start, end);
+    expect(missionDuration).toBe(42);
   });
 });

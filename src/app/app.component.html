@@ -1,4 +1,4 @@
-<p-progressSpinner *ngIf="isLoading; else content" strokeWidth="6" styleClass="spinner"></p-progressSpinner>
+<p-progressSpinner *ngIf="isLoading$ | async; else content" strokeWidth="6" styleClass="spinner"></p-progressSpinner>
 <ng-template #content>
   <div id="container">
     <aside>

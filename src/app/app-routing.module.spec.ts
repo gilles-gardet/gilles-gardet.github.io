@@ -1,21 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { APP_BASE_HREF, CommonModule } from "@angular/common";
+import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
 import { ResumeComponent } from '@features/resume/components/resume/resume.component';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { CardModule } from "primeng/card";
-import { DialogModule } from "primeng/dialog";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { MarkdownModule } from "ngx-markdown";
-import { PanelModule } from "primeng/panel";
-import { ProgressBarModule } from "primeng/progressbar";
-import { ProgressSpinnerModule } from "primeng/progressspinner";
-import { SharedModule } from "@shared/shared.module";
-import { TagModule } from "primeng/tag";
-import { TimelineModule } from "primeng/timeline";
-import { TranslateModule } from "@ngx-translate/core";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CardModule } from 'primeng/card';
+import { DialogModule } from 'primeng/dialog';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MarkdownModule } from 'ngx-markdown';
+import { PanelModule } from 'primeng/panel';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { SharedModule } from '@shared/shared.module';
+import { TagModule } from 'primeng/tag';
+import { TimelineModule } from 'primeng/timeline';
+import { TranslateModule } from '@ngx-translate/core';
+import { ConfigService } from '@core/services/config.service';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
   observe: (): unknown => null,
@@ -27,7 +28,8 @@ describe('AppRoutingModule', (): void => {
 
   beforeEach((): void => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule,
+      imports: [
+        BrowserAnimationsModule,
         CardModule,
         CommonModule,
         DialogModule,
@@ -41,8 +43,11 @@ describe('AppRoutingModule', (): void => {
         TimelineModule,
         TranslateModule.forRoot({
           defaultLanguage: 'fr',
-        }), AppRoutingModule, RouterTestingModule],
-      providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+        }),
+        AppRoutingModule,
+        RouterTestingModule,
+      ],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }, ConfigService],
     });
     router = TestBed.inject(Router);
     fixture = TestBed.createComponent(ResumeComponent);

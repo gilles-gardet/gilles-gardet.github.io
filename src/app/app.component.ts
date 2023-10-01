@@ -11,19 +11,28 @@ import {
 import { GeneralComponent } from '@features/general/components/general/general.component';
 import { ResumeComponent } from '@features/resume/components/resume/resume.component';
 import { ScrollTopModule } from 'primeng/scrolltop';
-import { NgClass, NgIf } from '@angular/common';
+import { CommonModule, NgClass, NgIf } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { EMPTY_STRING, isBlank } from '@core/utils/string.utils';
-import { LANGUAGE_KEY } from '@core/services/config.service';
+import { ConfigService, LANGUAGE_KEY } from '@core/services/config.service';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { BlockUIModule } from 'primeng/blockui';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
-import { EMPTY, Observable, Subject, timer } from "rxjs";
+import { async, EMPTY, Observable, Subject, timer } from 'rxjs';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [BlockUIModule, GeneralComponent, NgClass, NgIf, ProgressSpinnerModule, ResumeComponent, ScrollTopModule],
+  imports: [
+    BlockUIModule,
+    CommonModule,
+    GeneralComponent,
+    NgClass,
+    NgIf,
+    ProgressSpinnerModule,
+    ResumeComponent,
+    ScrollTopModule,
+  ],
   selector: 'cv-root',
   standalone: true,
   styleUrls: ['./app.component.scss'],
@@ -32,9 +41,10 @@ import { EMPTY, Observable, Subject, timer } from "rxjs";
 export class AppComponent implements OnInit, OnDestroy {
   private readonly translateService: TranslateService = inject(TranslateService);
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  private readonly configService: ConfigService = inject(ConfigService);
   protected unsubscribe$: Subject<unknown> = new Subject();
   protected language: string = EMPTY_STRING;
-  protected isLoading = false;
+  protected isLoading$ = this.configService.loading$;
 
   /**
    * @constructor
@@ -48,10 +58,10 @@ export class AppComponent implements OnInit, OnDestroy {
    * @inheritDoc
    */
   ngOnInit(): void {
-    const language$:Observable<unknown> = this.translateService.onLangChange.pipe(
-      tap((): boolean => (this.isLoading = true)),
+    const language$: Observable<unknown> = this.translateService.onLangChange.pipe(
+      tap((): void => this.configService.setLoading$(true)),
       switchMap(() => timer(600)),
-      tap((): boolean => (this.isLoading = false)),
+      tap((): void => this.configService.setLoading$(false)),
       takeUntil(this.unsubscribe$),
     );
     language$.subscribe(() => this.changeDetectorRef.markForCheck());
@@ -64,7 +74,8 @@ export class AppComponent implements OnInit, OnDestroy {
   onPageScroll(): void {
     const scrollTracker: HTMLElement | null = document.getElementById('scroll-tracker');
     const scrollDistance: number = document.documentElement.scrollTop || document.body.scrollTop;
-    const progressWidth: number = (scrollDistance / (document.body.scrollHeight - document.documentElement.clientHeight)) * 100;
+    const progressWidth: number =
+      (scrollDistance / (document.body.scrollHeight - document.documentElement.clientHeight)) * 100;
     if (scrollTracker?.style) {
       scrollTracker.style.width = progressWidth + '%';
     }
@@ -105,4 +116,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.unsubscribe$.next(EMPTY);
     this.unsubscribe$.unsubscribe();
   }
+
+  protected readonly async = async;
 }
