@@ -18,7 +18,7 @@ import { ConfigService, LANGUAGE_KEY } from '@core/services/config.service';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { BlockUIModule } from 'primeng/blockui';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
-import { async, EMPTY, Observable, Subject, timer } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, Subject, timer } from 'rxjs';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -43,8 +43,8 @@ export class AppComponent implements OnInit, OnDestroy {
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   private readonly configService: ConfigService = inject(ConfigService);
   protected unsubscribe$: Subject<unknown> = new Subject();
+  protected isLoading$: BehaviorSubject<boolean> = this.configService.loading$;
   protected language: string = EMPTY_STRING;
-  protected isLoading$ = this.configService.loading$;
 
   /**
    * @constructor
@@ -116,6 +116,4 @@ export class AppComponent implements OnInit, OnDestroy {
     this.unsubscribe$.next(EMPTY);
     this.unsubscribe$.unsubscribe();
   }
-
-  protected readonly async = async;
 }
