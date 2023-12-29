@@ -8298,6 +8298,14 @@ p-card > div.p-card {
   position: sticky;
   top: 2rem;
 }
+p-card.alt-card > div.p-card {
+  --tw-bg-opacity: 1 !important;
+  background-color: hsl(0 0% 100% / var(--tw-bg-opacity)) !important;
+}
+:is(:where(.dark) p-card.alt-card > div.p-card) {
+  --tw-bg-opacity: 1 !important;
+  background-color: hsl(214 18% 15% / var(--tw-bg-opacity)) !important;
+}
 
 .p-menu.p-menu-overlay {
   --tw-bg-opacity: 1 !important;
@@ -8470,7 +8478,7 @@ p-chip[label="gilles.gardet@gmail.com"] .p-chip:hover::before {
   justify-content: center;
 }
 
-.p-timeline-event-content > p-card > .mission > .p-card-body > .p-card-content {
+.p-timeline-event-content > p-card > .p-card > .p-card-body > .p-card-content {
   text-align: left;
 }
 
