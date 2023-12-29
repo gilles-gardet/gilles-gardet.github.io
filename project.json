@@ -41,7 +41,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "cv:build"
+        "buildTarget": "cv:build"
       }
     },
     "lint": {
@@ -54,7 +54,7 @@
     "serve": {
       "configurations": {
         "production": {
-          "browserTarget": "cv:build:production"
+          "buildTarget": "cv:build:production"
         }
       },
       "defaultConfiguration": "production",

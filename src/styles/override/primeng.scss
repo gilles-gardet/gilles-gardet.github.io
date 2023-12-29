@@ -4,7 +4,7 @@
 }
 
 .p-progressbar {
-  @apply bg-progress-bar-bg dark:bg-dark-progress-bar-bg;
+  @apply bg-progress-bar-bg dark:bg-dark-progress-bar-bg #{!important};
   height: 0.5rem;
   border-radius: 5px;
 
@@ -14,8 +14,8 @@
 }
 
 .p-tag {
-  @apply bg-progress-bar dark:bg-dark-progress-bar;
-  @apply text-dark-text-color dark:text-text-color;
+  @apply bg-progress-bar dark:bg-dark-progress-bar #{!important};
+  @apply text-dark-text-color dark:text-text-color #{!important};
 }
 
 p-scrolltop > button.p-scrolltop {
@@ -30,33 +30,38 @@ p-panel {
 
   .p-panel-header,
   .p-panel-content {
-    @apply bg-panel-title-bg dark:bg-dark-panel-title-bg;
-    @apply text-text-color dark:text-dark-text-color;
-    @apply border-panel-border dark:border-dark-panel-border;
+    @apply bg-panel-title-bg dark:bg-dark-panel-title-bg #{!important};
+    @apply text-text-color dark:text-dark-text-color #{!important};
+    @apply border-panel-border dark:border-dark-panel-border #{!important};
   }
 }
 
-p-card > div.p-card {
-  @apply bg-card-bg dark:bg-dark-card-bg;
-  @apply text-text-color dark:text-dark-text-color;
-  position: sticky;
-  top: 2rem;
+p-card {
+  > div.p-card {
+    @apply bg-card-bg dark:bg-dark-card-bg #{!important};
+    @apply text-text-color dark:text-dark-text-color #{!important};
+    position: sticky;
+    top: 2rem;
+  }
+  &.alt-card > div.p-card {
+    @apply bg-card-bg dark:bg-dark-body-bg #{!important};
+  }
 }
 
 .p-menu {
   &.p-menu-overlay {
-    @apply bg-menu-bg dark:bg-dark-menu-bg;
+    @apply bg-menu-bg dark:bg-dark-menu-bg #{!important};
   }
 
   .p-submenu-header {
     display: flex;
     justify-content: center;
-    @apply bg-menu-bg dark:bg-dark-menu-bg;
+    @apply bg-menu-bg dark:bg-dark-menu-bg #{!important};
   }
 
   .p-menuitem-link .p-menuitem-text,
   .p-submenu-header {
-    @apply text-text-color dark:text-dark-text-color;
+    @apply text-text-color dark:text-dark-text-color #{!important};
   }
 
   .p-menuitem-icon {
@@ -64,23 +69,23 @@ p-card > div.p-card {
   }
 
   .p-menuitem-link:not(.p-disabled):hover {
-    @apply bg-menu-item-hover dark:bg-dark-menu-item-hover;
+    @apply bg-menu-item-hover dark:bg-dark-menu-item-hover #{!important};
     .p-menuitem-text,
     .p-menuitem-icon {
       transition: color 0s, background-color 0s;
-      @apply text-text-color dark:text-dark-text-color;
+      @apply text-text-color dark:text-dark-text-color #{!important};
     }
   }
 }
 
 button.p-button {
   border: 1px solid var(--button);
-  @apply text-menu-button dark:text-dark-menu-button;
+  @apply text-menu-button dark:text-dark-menu-button #{!important};
 
   &.p-button.p-button-text,
   &.p-button.p-button-text:enabled:hover,
   &.p-button.p-button-text:enabled:active {
-    @apply text-menu-button dark:text-dark-menu-button;
+    @apply text-menu-button dark:text-dark-menu-button #{!important};
   }
 
   &.p-button.p-button-text:enabled:hover,
@@ -102,8 +107,8 @@ p-chip[label='gilles.gardet@gmail.com'] {
     overflow: hidden;
     transition: color var(--params), background-color var(--params);
     z-index: 0;
-    @apply bg-chip-bg dark:bg-dark-chip-bg;
-    @apply text-dark-text-color dark:text-text-color;
+    @apply bg-chip-bg dark:bg-dark-chip-bg #{!important};
+    @apply text-dark-text-color dark:text-text-color #{!important};
 
     &::before {
       content: '';
@@ -113,14 +118,14 @@ p-chip[label='gilles.gardet@gmail.com'] {
       right: 0;
       bottom: 0;
       z-index: -1;
-      @apply bg-dark-chip-bg dark:bg-chip-bg;
+      @apply bg-dark-chip-bg dark:bg-chip-bg #{!important};
       transform: translateX(100%);
       transition: transform var(--params), opacity var(--params);
     }
 
     &:hover {
       cursor: pointer;
-      @apply text-text-color dark:text-dark-text-color;
+      @apply text-text-color dark:text-dark-text-color #{!important};
       background-color: transparent;
 
       &::before {
@@ -169,12 +174,12 @@ p-chip[label='gilles.gardet@gmail.com'] {
   }
 }
 
-.p-timeline-event-content > p-card > .mission > .p-card-body > .p-card-content {
+.p-timeline-event-content > p-card > .p-card > .p-card-body > .p-card-content {
   text-align: left;
 }
 
 .p-timeline .p-timeline-event-connector {
-  @apply bg-timeline-connector dark:bg-dark-timeline-connector;
+  @apply bg-timeline-connector dark:bg-dark-timeline-connector #{!important};
 }
 
 .p-card-content {
@@ -185,10 +190,10 @@ p-chip[label='gilles.gardet@gmail.com'] {
 .p-dialog {
   .p-dialog-header,
   .p-dialog-content {
-    @apply bg-card-bg dark:bg-dark-card-bg;
-    @apply text-text-color dark:text-dark-text-color;
+    @apply bg-card-bg dark:bg-dark-card-bg #{!important};
+    @apply text-text-color dark:text-dark-text-color #{!important};
     // TODO: fix overflow on animation
-    //overflow: hidden !important;
+    //overflow: hidden #{!important};
   }
 
   .p-dialog-header {
@@ -219,7 +224,7 @@ p-chip[label='gilles.gardet@gmail.com'] {
       66%,
       80%,
       90% {
-        @apply stroke-text-color dark:stroke-dark-text-color;
+        @apply stroke-text-color dark:stroke-dark-text-color #{!important};
       }
     }
 
@@ -247,11 +252,11 @@ p-chip[label='gilles.gardet@gmail.com'] {
 
 .p-scrolltop {
   &.p-link {
-    @apply bg-scroll-bg dark:bg-dark-scroll-bg;
+    @apply bg-scroll-bg dark:bg-dark-scroll-bg #{!important};
   }
 
   .p-scrolltop-icon {
-    @apply text-dark-text-color dark:text-text-color;
+    @apply text-dark-text-color dark:text-text-color #{!important};
   }
 }
 

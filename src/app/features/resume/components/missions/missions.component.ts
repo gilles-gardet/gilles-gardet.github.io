@@ -90,10 +90,10 @@ export class MissionsComponent implements OnInit, AfterViewInit {
       },
       {
         threshold: 0,
-      }
+      },
     );
     const experienceElements: NodeListOf<Element> = document.querySelectorAll(
-      'p-panel#experience .p-component .p-timeline-alternate .p-timeline-event'
+      'p-panel#experience .p-component .p-timeline-alternate .p-timeline-event',
     );
     experienceElements.forEach((experienceElement: Element): void => {
       intersectionObserver.observe(experienceElement);
