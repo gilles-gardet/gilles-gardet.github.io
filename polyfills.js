@@ -1,9 +1,9 @@
 "use strict";
 (self["webpackChunkcv"] = self["webpackChunkcv"] || []).push([["polyfills"],{
 
-/***/ 5438:
+/***/ 5831:
 /*!*********************************************************************************!*\
-  !*** ./node_modules/.pnpm/zone.js@0.14.0/node_modules/zone.js/fesm2015/zone.js ***!
+  !*** ./node_modules/.pnpm/zone.js@0.14.2/node_modules/zone.js/fesm2015/zone.js ***!
   \*********************************************************************************/
 /***/ (() => {
 
@@ -14,7 +14,7 @@
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
-(function (global, _class) {
+(function (global) {
   const performance = global['performance'];
   function mark(name) {
     performance && performance['mark'] && performance['mark'](name);
@@ -48,6 +48,8 @@
     }
   }
   class Zone {
+    // tslint:disable-next-line:require-internal-with-underscore
+    static #_ = this.__symbol__ = __symbol__;
     static assertZonePatched() {
       if (global['Promise'] !== patches['ZoneAwarePromise']) {
         throw new Error('Zone.js has detected that ZoneAwarePromise `(window|global).Promise` ' + 'has been overwritten.\n' + 'Most likely cause is that a Promise polyfill has been loaded ' + 'after Zone.js (Polyfilling Promise api is not necessary when zone.js is loaded. ' + 'If you must load one, do so before loading zone.js.)');
@@ -269,9 +271,6 @@
       }
     }
   }
-  _class = Zone;
-  // tslint:disable-next-line:require-internal-with-underscore
-  _class.__symbol__ = __symbol__;
   const DELEGATE_ZS = {
     name: '',
     onHasTask: (delegate, _, target, hasTaskState) => delegate.hasTask(target, hasTaskState),
@@ -609,7 +608,7 @@
   function noop() {}
   performanceMeasure('Zone', 'Zone');
   return global['Zone'] = Zone;
-})(typeof window !== 'undefined' && window || typeof self !== 'undefined' && self || global);
+})(globalThis);
 
 /**
  * Suppress closure compiler errors about unknown 'Zone' variable
@@ -651,7 +650,7 @@ function scheduleMacroTaskWithCurrentZone(source, callback, data, customSchedule
 const zoneSymbol = Zone.__symbol__;
 const isWindowExists = typeof window !== 'undefined';
 const internalWindow = isWindowExists ? window : undefined;
-const _global = isWindowExists && internalWindow || typeof self === 'object' && self || global;
+const _global = isWindowExists && internalWindow || globalThis;
 const REMOVE_ATTRIBUTE = 'removeAttribute';
 function bindArguments(args, source) {
   for (let i = args.length - 1; i >= 0; i--) {
@@ -995,7 +994,7 @@ Zone.__load_patch('ZoneAwarePromise', (global, Zone, api) => {
   }
   const __symbol__ = api.symbol;
   const _uncaughtPromiseErrors = [];
-  const isDisableWrappingUncaughtPromiseRejection = global[__symbol__('DISABLE_WRAPPING_UNCAUGHT_PROMISE_REJECTION')] === true;
+  const isDisableWrappingUncaughtPromiseRejection = global[__symbol__('DISABLE_WRAPPING_UNCAUGHT_PROMISE_REJECTION')] !== false;
   const symbolPromise = __symbol__('Promise');
   const symbolThen = __symbol__('then');
   const creationTrace = '__creationTrace__';
@@ -2669,7 +2668,7 @@ Zone.__load_patch('queueMicrotask', (global, Zone, api) => {
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ var __webpack_exports__ = (__webpack_exec__(5438));
+/******/ var __webpack_exports__ = (__webpack_exec__(5831));
 /******/ }
 ]);
 //# sourceMappingURL=polyfills.js.map
