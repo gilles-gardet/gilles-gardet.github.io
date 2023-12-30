@@ -1,5 +1,6 @@
-<p-progressSpinner *ngIf="isLoading$ | async; else content" strokeWidth="6" styleClass="spinner"></p-progressSpinner>
-<ng-template #content>
+@if (isLoading$()) {
+  <p-progressSpinner strokeWidth="6" styleClass="spinner"></p-progressSpinner>
+} @else {
   <div id="container">
     <aside>
       <cv-general></cv-general>
@@ -9,4 +10,4 @@
       <p-scrollTop></p-scrollTop>
     </main>
   </div>
-</ng-template>
+}

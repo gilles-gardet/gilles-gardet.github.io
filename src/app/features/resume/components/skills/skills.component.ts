@@ -65,7 +65,7 @@ export class SkillsComponent implements AfterViewInit {
     if (entry.isIntersecting && this._clones.length > 0) {
       this._skills.forEach(
         (tool: Skill) =>
-          (tool.rate = this._clones?.find((clone: Skill): boolean => clone.name === tool.name)?.rate || 0),
+          (tool.rate = this._clones?.find((clone: Skill): boolean => clone.name === tool.name)?.rate ?? 0),
       );
     } else {
       this._skills.forEach((tool: Skill): number => (tool.rate = 0));

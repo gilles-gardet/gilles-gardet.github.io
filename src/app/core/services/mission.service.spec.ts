@@ -115,7 +115,7 @@ describe('MissionService', (): void => {
     const start: Date = new Date('2018-10-02');
     const end: Date = new Date('2022-04-16');
     const missionDuration: string = (service as any).missionDuration(start.toDateString());
-    expect(missionDuration).toMatch(/^[0-9] years/);
+    expect(missionDuration).toMatch(/^[\d] years/);
     const missionWithEndDuration: string = (service as any).missionDuration(start.toDateString(), end.toDateString());
     expect(missionWithEndDuration).toEqual('3 years and 6 months');
   });

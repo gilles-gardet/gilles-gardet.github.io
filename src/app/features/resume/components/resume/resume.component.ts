@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { EMPTY, Observable, Subject, zip } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { Observable, zip } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Mission } from '@core/models/mission.model';
 import { Skill } from '@core/models/skill.model';
@@ -22,11 +22,10 @@ type SkillAndMissions = { missions: Mission[]; skills: Skill[] };
   styleUrls: ['./resume.component.scss'],
   templateUrl: './resume.component.html',
 })
-export class ResumeComponent implements OnInit, OnDestroy {
+export class ResumeComponent implements OnInit {
   private readonly missionService: MissionService = inject(MissionService);
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   private readonly configService: ConfigService = inject(ConfigService);
-  protected unsubscribe$: Subject<unknown> = new Subject();
   protected selectedMission: Mission = {} as Mission;
   protected missions: Mission[] = [];
   protected skills: Skill[] = [];
@@ -38,7 +37,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
    */
   ngOnInit(): void {
     this.configService.setLoading$(true);
-    const missions$: Observable<Mission[]> = this.missionService.fetchMissions$()
+    const missions$: Observable<Mission[]> = this.missionService.fetchMissions$();
     const skills$: Observable<Skill[]> = this.missionService.fetchSkills$();
     zip(missions$, skills$)
       .pipe(
@@ -72,13 +71,5 @@ export class ResumeComponent implements OnInit, OnDestroy {
   openDialog(mission: Mission): void {
     this.displayDialog = true;
     this.selectedMission = mission;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  ngOnDestroy(): void {
-    this.unsubscribe$.next(EMPTY);
-    this.unsubscribe$.unsubscribe();
   }
 }

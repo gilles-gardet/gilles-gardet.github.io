@@ -2,10 +2,11 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  DestroyRef,
   HostListener,
   inject,
-  OnDestroy,
   OnInit,
+  Signal,
   ViewEncapsulation,
 } from '@angular/core';
 import { GeneralComponent } from '@features/general/components/general/general.component';
@@ -17,8 +18,9 @@ import { EMPTY_STRING, isBlank } from '@core/utils/string.utils';
 import { ConfigService, LANGUAGE_KEY } from '@core/services/config.service';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { BlockUIModule } from 'primeng/blockui';
-import { switchMap, takeUntil, tap } from 'rxjs/operators';
-import { BehaviorSubject, EMPTY, Observable, Subject, timer } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -38,13 +40,13 @@ import { BehaviorSubject, EMPTY, Observable, Subject, timer } from 'rxjs';
   styleUrls: ['./app.component.scss'],
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   private readonly translateService: TranslateService = inject(TranslateService);
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   private readonly configService: ConfigService = inject(ConfigService);
-  protected unsubscribe$: Subject<unknown> = new Subject();
-  protected isLoading$: BehaviorSubject<boolean> = this.configService.loading$;
+  private readonly destroyRef: DestroyRef = inject(DestroyRef);
   protected language: string = EMPTY_STRING;
+  protected isLoading$: Signal<boolean> = this.configService.loading$;
 
   /**
    * @constructor
@@ -62,7 +64,7 @@ export class AppComponent implements OnInit, OnDestroy {
       tap((): void => this.configService.setLoading$(true)),
       switchMap(() => timer(600)),
       tap((): void => this.configService.setLoading$(false)),
-      takeUntil(this.unsubscribe$),
+      takeUntilDestroyed(this.destroyRef),
     );
     language$.subscribe(() => this.changeDetectorRef.markForCheck());
   }
@@ -87,9 +89,9 @@ export class AppComponent implements OnInit, OnDestroy {
   private _initLanguagePreference(): void {
     const languageKey: string = localStorage.getItem(LANGUAGE_KEY) ?? 'en';
     let sessionLanguage: string;
-    if (isBlank(languageKey) || !languageKey.match(/en|fr/)) {
+    if (isBlank(languageKey) || !/en|fr/.exec(languageKey)) {
       const browserLang: string = this.translateService.getBrowserLang() ?? 'en';
-      sessionLanguage = browserLang.match(/en|fr/) ? browserLang : 'en';
+      sessionLanguage = /en|fr/.exec(browserLang) ? browserLang : 'en';
     } else {
       sessionLanguage = languageKey;
     }
@@ -107,13 +109,5 @@ export class AppComponent implements OnInit, OnDestroy {
     if (localStorage.getItem(LANGUAGE_KEY) !== language) {
       localStorage.setItem(LANGUAGE_KEY, this.language);
     }
-  }
-
-  /**
-   * @inheritDoc
-   */
-  ngOnDestroy(): void {
-    this.unsubscribe$.next(EMPTY);
-    this.unsubscribe$.unsubscribe();
   }
 }

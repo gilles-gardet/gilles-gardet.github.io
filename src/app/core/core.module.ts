@@ -6,13 +6,15 @@ import { HttpBackend, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @Injectable({ providedIn: 'root' })
-export class HttpClientProxy extends HttpClient {
+class HttpClientProxy extends HttpClient {
+
   /**
    * @constructor
    * @param {HttpBackend} httpBackend
    */
   constructor(httpBackend: HttpBackend) {
-    // override the HTTP client using HTTP backend in order to avoid the interceptor layer
+    // override the HTTP client using HTTP backend in order to avoid being delayed by interceptor, which creates errors
+    // while loading i18n files
     super(httpBackend);
   }
 }

@@ -1,7 +1,16 @@
-import { ChangeDetectionStrategy, Component, HostListener, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  effect,
+  HostListener,
+  inject,
+  Injector,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ConfigService, DARK_THEME, LANGUAGE_KEY, LIGHT_THEME, THEME_KEY } from '@core/services/config.service';
-import { takeUntil, tap } from 'rxjs/operators';
-import { EMPTY, forkJoin, Observable, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -12,10 +21,11 @@ import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { SharedModule } from '@shared/shared.module';
 import { Menu, MenuModule } from 'primeng/menu';
-import { LangChangeEvent, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MenuItem } from 'primeng/api';
 import { environment } from '@environments/environment';
 import { MissionService } from '@core/services/mission.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,11 +47,12 @@ import { MissionService } from '@core/services/mission.service';
   styleUrls: ['./general.component.scss'],
   templateUrl: './general.component.html',
 })
-export class GeneralComponent implements OnInit, OnDestroy {
+export class GeneralComponent implements OnInit {
   private readonly configService: ConfigService = inject(ConfigService);
   private readonly translateService: TranslateService = inject(TranslateService);
   private readonly missionService: MissionService = inject(MissionService);
-  protected unsubscribe$: Subject<unknown> = new Subject();
+  private readonly destroyRef: DestroyRef = inject(DestroyRef);
+  private readonly injector: Injector = inject(Injector);
   protected isDarkTheme: boolean | undefined;
   protected menuItems: MenuItem[] = [];
 
@@ -60,15 +71,13 @@ export class GeneralComponent implements OnInit, OnDestroy {
    */
   ngOnInit() {
     this._initMenuItems();
-    const language$: Observable<LangChangeEvent> = this.translateService.onLangChange.pipe(
-      tap(() => this._initMenuItems()),
-      takeUntil(this.unsubscribe$),
-    );
-    const theme$: Observable<string> = this.configService.theme$.pipe(
-      tap((theme: string) => this.onThemeChange(theme)),
-      takeUntil(this.unsubscribe$),
-    );
-    forkJoin([language$, theme$]).subscribe();
+    this.translateService.onLangChange
+      .pipe(
+        tap(() => this._initMenuItems()),
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe();
+    effect((): void => this.onThemeChange(this.configService.theme$()), { injector: this.injector });
   }
 
   /**
@@ -154,7 +163,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
       throw new Error('The menu items are not initialized');
     }
     const firstMenuItem: MenuItem = this.menuItems[0];
-    if (!firstMenuItem || !firstMenuItem.items || firstMenuItem.items.length === 0) {
+    if (!firstMenuItem?.items || firstMenuItem.items.length === 0) {
       throw new Error('The menu items are not properly initialized');
     }
     const childMenuItem: MenuItem = firstMenuItem.items[0];
@@ -195,13 +204,5 @@ export class GeneralComponent implements OnInit, OnDestroy {
     document.body.appendChild(anchor);
     anchor.click();
     document.body.removeChild(anchor);
-  }
-
-  /**
-   * @inheritDoc
-   */
-  ngOnDestroy(): void {
-    this.unsubscribe$.next(EMPTY);
-    this.unsubscribe$.unsubscribe();
   }
 }

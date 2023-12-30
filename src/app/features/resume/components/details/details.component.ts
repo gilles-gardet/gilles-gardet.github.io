@@ -28,11 +28,11 @@ export class DetailsComponent {
   private readonly markdownService: MarkdownService = inject(MarkdownService);
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   private readonly missionService: MissionService = inject(MissionService);
-  protected _displayDialog = false;
-  protected _selectedMission: Mission = {} as Mission;
-  protected loading = true;
-  protected innerFullMission: string = EMPTY_STRING;
-  protected innerLightMission: string = EMPTY_STRING;
+  private _isDialogDisplayed = false;
+  private _selectedMission: Mission = {} as Mission;
+  public isLoading = true;
+  public innerFullMission: string = EMPTY_STRING;
+  public innerLightMission: string = EMPTY_STRING;
 
   @Input()
   public get selectedMission(): Mission {
@@ -42,11 +42,11 @@ export class DetailsComponent {
     this._selectedMission = value;
   }
   @Input()
-  public get displayDialog(): boolean {
-    return this._displayDialog;
+  public get isDialogDisplayed(): boolean {
+    return this._isDialogDisplayed;
   }
-  public set displayDialog(value: boolean) {
-    this._displayDialog = value;
+  public set isDialogDisplayed(value: boolean) {
+    this._isDialogDisplayed = value;
   }
 
   @Output() detailsChange: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -55,7 +55,7 @@ export class DetailsComponent {
    * Re-initialize the loader of the dialog content
    */
   onDialogHiding(): void {
-    this.loading = true;
+    this.isLoading = true;
     this.detailsChange.next(true);
   }
 
@@ -72,7 +72,7 @@ export class DetailsComponent {
       .pipe(tap(() => (this.innerLightMission = this._selectedMission.description ?? EMPTY_STRING)))
       .subscribe((fullMission: string): void => {
         this.innerFullMission = fullMission;
-        this.loading = false;
+        this.isLoading = false;
         this.changeDetectorRef.markForCheck();
         document
           .querySelector('p-dialog > .p-dialog-mask > .p-dialog > .p-dialog-content')

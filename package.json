@@ -6,7 +6,7 @@
     "lint": "nx lint",
     "build": "nx build",
     "test": "nx test",
-    "test:ci": "nx test --ci=true --reporters=default --coverage=true --coverageReporters=clover,html,cobertura,text-summary",
+    "test:ci": "nx test --ci=true --reporters=default --coverage=true --coverageReporters=clover,html,cobertura,text-summary,lcov",
     "e2e": "nx e2e",
     "prepare": "husky install"
   },
