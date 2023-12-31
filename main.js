@@ -284,31 +284,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   LIGHT_THEME: () => (/* binding */ LIGHT_THEME),
 /* harmony export */   THEME_KEY: () => (/* binding */ THEME_KEY)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ 804);
-
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
 
 
 const THEME_KEY = 'theme';
 const LANGUAGE_KEY = 'lang';
 const DARK_THEME = 'dark';
 const LIGHT_THEME = 'light';
-/**
- * Define the color sheme to apply and store the result in a local variable through a IIFE (Immediately Invoked
- * Function Expression).
- */
-const theme = (() => {
-  const isOperatingSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const isThemeStored = (THEME_KEY in localStorage);
-  if (!isThemeStored && isOperatingSystemDark) {
-    return DARK_THEME;
-  }
-  return localStorage.getItem(THEME_KEY) ?? LIGHT_THEME;
-})();
 class ConfigService {
   constructor() {
-    this._theme$ = new rxjs__WEBPACK_IMPORTED_MODULE_0__.BehaviorSubject(theme);
-    this._loading$ = (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.signal)(true);
+    this._theme$ = (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.signal)(this.computeTheme());
+    this._loading$ = (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.signal)(true);
+  }
+  /**
+   * Define the color sheme to apply and store the result in a local variable.
+   */
+  computeTheme() {
+    const isOperatingSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isThemeStored = (THEME_KEY in localStorage);
+    if (!isThemeStored && isOperatingSystemDark) {
+      return DARK_THEME;
+    }
+    return localStorage.getItem(THEME_KEY) ?? LIGHT_THEME;
   }
   /**
    * Set the theme
@@ -316,7 +313,7 @@ class ConfigService {
    * @param theme the theme to be set
    */
   setTheme$(theme) {
-    this._theme$.next(theme);
+    this._theme$.set(theme);
   }
   /**
    * Return the current theme
@@ -341,7 +338,7 @@ class ConfigService {
   static #_ = this.ɵfac = function ConfigService_Factory(t) {
     return new (t || ConfigService)();
   };
-  static #_2 = this.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
+  static #_2 = this.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
     token: ConfigService,
     factory: ConfigService.ɵfac
   });
@@ -587,22 +584,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 8559);
 /* harmony import */ var _core_services_config_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @core/services/config.service */ 6792);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ 7420);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ 2058);
-/* harmony import */ var primeng_avatar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primeng/avatar */ 9499);
-/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/button */ 2209);
-/* harmony import */ var primeng_card__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/card */ 198);
-/* harmony import */ var primeng_chip__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/chip */ 8564);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/forms */ 9010);
-/* harmony import */ var primeng_inputswitch__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/inputswitch */ 7974);
-/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! primeng/ripple */ 9246);
-/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! primeng/tooltip */ 8465);
+/* harmony import */ var primeng_avatar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primeng/avatar */ 9499);
+/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primeng/button */ 2209);
+/* harmony import */ var primeng_card__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/card */ 198);
+/* harmony import */ var primeng_chip__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/chip */ 8564);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ 9010);
+/* harmony import */ var primeng_inputswitch__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeng/inputswitch */ 7974);
+/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! primeng/ripple */ 9246);
+/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! primeng/tooltip */ 8465);
 /* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/shared.module */ 4701);
-/* harmony import */ var primeng_menu__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! primeng/menu */ 5862);
+/* harmony import */ var primeng_menu__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/menu */ 5862);
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngx-translate/core */ 33);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @environments/environment */ 3503);
 /* harmony import */ var _core_services_mission_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @core/services/mission.service */ 5374);
 /* harmony import */ var _angular_core_rxjs_interop__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core/rxjs-interop */ 5357);
-
 
 
 
@@ -636,6 +631,7 @@ class GeneralComponent {
     this.translateService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.inject)(_ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__.TranslateService);
     this.missionService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.inject)(_core_services_mission_service__WEBPACK_IMPORTED_MODULE_3__.MissionService);
     this.destroyRef = (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_4__.DestroyRef);
+    this.injector = (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_4__.Injector);
     this.menuItems = [];
   }
   /**
@@ -650,9 +646,10 @@ class GeneralComponent {
    */
   ngOnInit() {
     this._initMenuItems();
-    const language$ = this.translateService.onLangChange.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.tap)(() => this._initMenuItems()), (0,_angular_core_rxjs_interop__WEBPACK_IMPORTED_MODULE_7__.takeUntilDestroyed)(this.destroyRef));
-    const theme$ = this.configService.theme$.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.tap)(theme => this.onThemeChange(theme)), (0,_angular_core_rxjs_interop__WEBPACK_IMPORTED_MODULE_7__.takeUntilDestroyed)(this.destroyRef));
-    (0,rxjs__WEBPACK_IMPORTED_MODULE_8__.forkJoin)([language$, theme$]).subscribe();
+    this.translateService.onLangChange.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.tap)(() => this._initMenuItems()), (0,_angular_core_rxjs_interop__WEBPACK_IMPORTED_MODULE_7__.takeUntilDestroyed)(this.destroyRef)).subscribe();
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.effect)(() => this.onThemeChange(this.configService.theme$()), {
+      injector: this.injector
+    });
   }
   /**
    * Initialize the contextual menu with the default items.
@@ -830,7 +827,7 @@ class GeneralComponent {
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("popup", true)("model", ctx.menuItems)("autoZIndex", true);
       }
     },
-    dependencies: [primeng_avatar__WEBPACK_IMPORTED_MODULE_9__.AvatarModule, primeng_avatar__WEBPACK_IMPORTED_MODULE_9__.Avatar, primeng_button__WEBPACK_IMPORTED_MODULE_10__.ButtonModule, primeng_button__WEBPACK_IMPORTED_MODULE_10__.ButtonDirective, primeng_card__WEBPACK_IMPORTED_MODULE_11__.CardModule, primeng_card__WEBPACK_IMPORTED_MODULE_11__.Card, primeng_chip__WEBPACK_IMPORTED_MODULE_12__.ChipModule, primeng_chip__WEBPACK_IMPORTED_MODULE_12__.Chip, _angular_forms__WEBPACK_IMPORTED_MODULE_13__.FormsModule, primeng_inputswitch__WEBPACK_IMPORTED_MODULE_14__.InputSwitchModule, primeng_menu__WEBPACK_IMPORTED_MODULE_15__.MenuModule, primeng_menu__WEBPACK_IMPORTED_MODULE_15__.Menu, primeng_tooltip__WEBPACK_IMPORTED_MODULE_16__.Tooltip, primeng_ripple__WEBPACK_IMPORTED_MODULE_17__.RippleModule, primeng_ripple__WEBPACK_IMPORTED_MODULE_17__.Ripple, _shared_shared_module__WEBPACK_IMPORTED_MODULE_1__.SharedModule, primeng_tooltip__WEBPACK_IMPORTED_MODULE_16__.TooltipModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__.TranslateModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__.TranslatePipe],
+    dependencies: [primeng_avatar__WEBPACK_IMPORTED_MODULE_8__.AvatarModule, primeng_avatar__WEBPACK_IMPORTED_MODULE_8__.Avatar, primeng_button__WEBPACK_IMPORTED_MODULE_9__.ButtonModule, primeng_button__WEBPACK_IMPORTED_MODULE_9__.ButtonDirective, primeng_card__WEBPACK_IMPORTED_MODULE_10__.CardModule, primeng_card__WEBPACK_IMPORTED_MODULE_10__.Card, primeng_chip__WEBPACK_IMPORTED_MODULE_11__.ChipModule, primeng_chip__WEBPACK_IMPORTED_MODULE_11__.Chip, _angular_forms__WEBPACK_IMPORTED_MODULE_12__.FormsModule, primeng_inputswitch__WEBPACK_IMPORTED_MODULE_13__.InputSwitchModule, primeng_menu__WEBPACK_IMPORTED_MODULE_14__.MenuModule, primeng_menu__WEBPACK_IMPORTED_MODULE_14__.Menu, primeng_tooltip__WEBPACK_IMPORTED_MODULE_15__.Tooltip, primeng_ripple__WEBPACK_IMPORTED_MODULE_16__.RippleModule, primeng_ripple__WEBPACK_IMPORTED_MODULE_16__.Ripple, _shared_shared_module__WEBPACK_IMPORTED_MODULE_1__.SharedModule, primeng_tooltip__WEBPACK_IMPORTED_MODULE_15__.TooltipModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__.TranslateModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__.TranslatePipe],
     styles: [".general[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.general[_ngcontent-%COMP%]   .general__name[_ngcontent-%COMP%] {\n  font-size: 1.2rem;\n  font-weight: bold;\n  margin: 1rem 0;\n}\n.general[_ngcontent-%COMP%]   .general__presentation[_ngcontent-%COMP%] {\n  text-align: left;\n  margin-bottom: 1rem;\n}\n.general[_ngcontent-%COMP%]   .general__button-left[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0.5rem;\n  left: 0.5rem;\n}\n.general[_ngcontent-%COMP%]   .general__button-right[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0.5rem;\n  left: 0.5rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdlbmVyYWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxtQkFBQTtBQUNGO0FBRUk7RUFDRSxpQkFBQTtFQUNBLGlCQUFBO0VBQ0EsY0FBQTtBQUFOO0FBR0k7RUFDRSxnQkFBQTtFQUNBLG1CQUFBO0FBRE47QUFLTTtFQUNFLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUFIUjtBQU1NO0VBQ0Usa0JBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQUpSIiwiZmlsZSI6ImdlbmVyYWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZ2VuZXJhbCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG5cbiAgLmdlbmVyYWwge1xuICAgICZfX25hbWUge1xuICAgICAgZm9udC1zaXplOiAxLjJyZW07XG4gICAgICBmb250LXdlaWdodDogYm9sZDtcbiAgICAgIG1hcmdpbjogMXJlbSAwO1xuICAgIH1cblxuICAgICZfX3ByZXNlbnRhdGlvbiB7XG4gICAgICB0ZXh0LWFsaWduOiBsZWZ0O1xuICAgICAgbWFyZ2luLWJvdHRvbTogMXJlbTtcbiAgICB9XG5cbiAgICAmX19idXR0b24ge1xuICAgICAgJi1sZWZ0IHtcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICB0b3A6IDAuNXJlbTtcbiAgICAgICAgbGVmdDogMC41cmVtO1xuICAgICAgfVxuXG4gICAgICAmLXJpZ2h0IHtcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICB0b3A6IDAuNXJlbTtcbiAgICAgICAgbGVmdDogMC41cmVtO1xuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvZmVhdHVyZXMvZ2VuZXJhbC9jb21wb25lbnRzL2dlbmVyYWwvZ2VuZXJhbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQUE7RUFDQSxzQkFBQTtFQUNBLG1CQUFBO0FBQ0Y7QUFFSTtFQUNFLGlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxjQUFBO0FBQU47QUFHSTtFQUNFLGdCQUFBO0VBQ0EsbUJBQUE7QUFETjtBQUtNO0VBQ0Usa0JBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQUhSO0FBTU07RUFDRSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0FBSlI7QUFDQSxvcENBQW9wQyIsInNvdXJjZXNDb250ZW50IjpbIi5nZW5lcmFsIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcblxuICAuZ2VuZXJhbCB7XG4gICAgJl9fbmFtZSB7XG4gICAgICBmb250LXNpemU6IDEuMnJlbTtcbiAgICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xuICAgICAgbWFyZ2luOiAxcmVtIDA7XG4gICAgfVxuXG4gICAgJl9fcHJlc2VudGF0aW9uIHtcbiAgICAgIHRleHQtYWxpZ246IGxlZnQ7XG4gICAgICBtYXJnaW4tYm90dG9tOiAxcmVtO1xuICAgIH1cblxuICAgICZfX2J1dHRvbiB7XG4gICAgICAmLWxlZnQge1xuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICAgIHRvcDogMC41cmVtO1xuICAgICAgICBsZWZ0OiAwLjVyZW07XG4gICAgICB9XG5cbiAgICAgICYtcmlnaHQge1xuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICAgIHRvcDogMC41cmVtO1xuICAgICAgICBsZWZ0OiAwLjVyZW07XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */"],
     changeDetection: 0
   });
@@ -882,9 +879,9 @@ function DetailsComponent_Conditional_0_ng_template_1_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](ctx_r1._selectedMission.client);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](ctx_r1.selectedMission.client);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](ctx_r1._selectedMission.timelapse);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](ctx_r1.selectedMission.timelapse);
   }
 }
 function DetailsComponent_Conditional_0_ng_template_2_Conditional_1_Template(rf, ctx) {
@@ -914,9 +911,9 @@ function DetailsComponent_Conditional_0_ng_template_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵclassProp"]("mission__content-transition", !ctx_r2.loading);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵclassProp"]("mission__content-transition", !ctx_r2.isLoading);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵconditional"](1, ctx_r2.loading ? 1 : 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵconditional"](1, ctx_r2.isLoading ? 1 : 2);
   }
 }
 const _c0 = () => ({
@@ -929,7 +926,7 @@ function DetailsComponent_Conditional_0_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("visibleChange", function DetailsComponent_Conditional_0_Template_p_dialog_visibleChange_0_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r6);
       const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresetView"](ctx_r5._displayDialog = $event);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresetView"](ctx_r5.isDialogDisplayed = $event);
     })("onHide", function DetailsComponent_Conditional_0_Template_p_dialog_onHide_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r6);
       const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
@@ -945,7 +942,7 @@ function DetailsComponent_Conditional_0_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵstyleMap"](_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction0"](8, _c0));
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("visible", ctx_r0._displayDialog)("header", ctx_r0._selectedMission.client)("modal", true)("closeOnEscape", true)("dismissableMask", true)("blockScroll", true);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("visible", ctx_r0.isDialogDisplayed)("header", ctx_r0.selectedMission.client)("modal", true)("closeOnEscape", true)("dismissableMask", true)("blockScroll", true);
   }
 }
 class DetailsComponent {
@@ -953,9 +950,9 @@ class DetailsComponent {
     this.markdownService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(ngx_markdown__WEBPACK_IMPORTED_MODULE_3__.MarkdownService);
     this.changeDetectorRef = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_2__.ChangeDetectorRef);
     this.missionService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.inject)(_core_services_mission_service__WEBPACK_IMPORTED_MODULE_1__.MissionService);
-    this._displayDialog = false;
+    this._isDialogDisplayed = false;
     this._selectedMission = {};
-    this.loading = true;
+    this.isLoading = true;
     this.innerFullMission = _core_utils_string_utils__WEBPACK_IMPORTED_MODULE_0__.EMPTY_STRING;
     this.innerLightMission = _core_utils_string_utils__WEBPACK_IMPORTED_MODULE_0__.EMPTY_STRING;
     this.detailsChange = new _angular_core__WEBPACK_IMPORTED_MODULE_2__.EventEmitter();
@@ -966,17 +963,17 @@ class DetailsComponent {
   set selectedMission(value) {
     this._selectedMission = value;
   }
-  get displayDialog() {
-    return this._displayDialog;
+  get isDialogDisplayed() {
+    return this._isDialogDisplayed;
   }
-  set displayDialog(value) {
-    this._displayDialog = value;
+  set isDialogDisplayed(value) {
+    this._isDialogDisplayed = value;
   }
   /**
    * Re-initialize the loader of the dialog content
    */
   onDialogHiding() {
-    this.loading = true;
+    this.isLoading = true;
     this.detailsChange.next(true);
   }
   /**
@@ -986,7 +983,7 @@ class DetailsComponent {
     const fullMissionDescriptionUrl = this.missionService.missionFromDate(this._selectedMission?.startDate, 'full');
     this.markdownService.getSource(fullMissionDescriptionUrl).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.tap)(() => this.innerLightMission = this._selectedMission.description ?? _core_utils_string_utils__WEBPACK_IMPORTED_MODULE_0__.EMPTY_STRING)).subscribe(fullMission => {
       this.innerFullMission = fullMission;
-      this.loading = false;
+      this.isLoading = false;
       this.changeDetectorRef.markForCheck();
       document.querySelector('p-dialog > .p-dialog-mask > .p-dialog > .p-dialog-content')?.classList.add('p-dialog-content-scroll');
     });
@@ -999,7 +996,7 @@ class DetailsComponent {
     selectors: [["cv-details"]],
     inputs: {
       selectedMission: "selectedMission",
-      displayDialog: "displayDialog"
+      isDialogDisplayed: "isDialogDisplayed"
     },
     outputs: {
       detailsChange: "detailsChange"
@@ -1014,7 +1011,7 @@ class DetailsComponent {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](0, DetailsComponent_Conditional_0_Template, 3, 9, "p-dialog", 0);
       }
       if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵconditional"](0, ctx._selectedMission ? 0 : -1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵconditional"](0, ctx.selectedMission ? 0 : -1);
       }
     },
     dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.CommonModule, primeng_dialog__WEBPACK_IMPORTED_MODULE_6__.DialogModule, primeng_dialog__WEBPACK_IMPORTED_MODULE_6__.Dialog, primeng_api__WEBPACK_IMPORTED_MODULE_7__.PrimeTemplate, primeng_progressspinner__WEBPACK_IMPORTED_MODULE_8__.ProgressSpinnerModule, primeng_progressspinner__WEBPACK_IMPORTED_MODULE_8__.ProgressSpinner, ngx_markdown__WEBPACK_IMPORTED_MODULE_3__.MarkdownModule, ngx_markdown__WEBPACK_IMPORTED_MODULE_3__.MarkdownComponent],
@@ -1377,7 +1374,7 @@ class ResumeComponent {
     features: [_angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵStandaloneFeature"]],
     decls: 7,
     vars: 5,
-    consts: [[1, "scroll-wrapper"], ["id", "scroll-tracker"], [3, "skills", "clones"], [3, "missions", "openDialog"], [3, "selectedMission", "displayDialog", "detailsChange"]],
+    consts: [[1, "scroll-wrapper"], ["id", "scroll-tracker"], [3, "skills", "clones"], [3, "missions", "openDialog"], [3, "selectedMission", "isDialogDisplayed", "detailsChange"]],
     template: function ResumeComponent_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 0);
@@ -1402,7 +1399,7 @@ class ResumeComponent {
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("missions", ctx.missions);
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("selectedMission", ctx.selectedMission)("displayDialog", ctx.displayDialog);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("selectedMission", ctx.selectedMission)("isDialogDisplayed", ctx.displayDialog);
       }
     },
     dependencies: [_features_resume_components_details_details_component__WEBPACK_IMPORTED_MODULE_5__.DetailsComponent, _features_resume_components_hobbies_hobbies_component__WEBPACK_IMPORTED_MODULE_0__.HobbiesComponent, _features_resume_components_missions_missions_component__WEBPACK_IMPORTED_MODULE_1__.MissionsComponent, _shared_shared_module__WEBPACK_IMPORTED_MODULE_2__.SharedModule, _features_resume_components_skills_skills_component__WEBPACK_IMPORTED_MODULE_3__.SkillsComponent, _features_resume_components_summary_summary_component__WEBPACK_IMPORTED_MODULE_4__.SummaryComponent],
