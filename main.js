@@ -139,9 +139,9 @@ class AppComponent {
   _initLanguagePreference() {
     const languageKey = localStorage.getItem(_core_services_config_service__WEBPACK_IMPORTED_MODULE_3__.LANGUAGE_KEY) ?? 'en';
     let sessionLanguage;
-    if ((0,_core_utils_string_utils__WEBPACK_IMPORTED_MODULE_2__.isBlank)(languageKey) || !languageKey.match(/en|fr/)) {
+    if ((0,_core_utils_string_utils__WEBPACK_IMPORTED_MODULE_2__.isBlank)(languageKey) || !/en|fr/.exec(languageKey)) {
       const browserLang = this.translateService.getBrowserLang() ?? 'en';
-      sessionLanguage = browserLang.match(/en|fr/) ? browserLang : 'en';
+      sessionLanguage = /en|fr/.exec(browserLang) ? browserLang : 'en';
     } else {
       sessionLanguage = languageKey;
     }
@@ -202,8 +202,7 @@ class AppComponent {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CoreModule: () => (/* binding */ CoreModule),
-/* harmony export */   HttpClientProxy: () => (/* binding */ HttpClientProxy)
+/* harmony export */   CoreModule: () => (/* binding */ CoreModule)
 /* harmony export */ });
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 912);
 /* harmony import */ var _core_services_config_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @core/services/config.service */ 6792);
@@ -225,7 +224,8 @@ class HttpClientProxy extends _angular_common_http__WEBPACK_IMPORTED_MODULE_1__.
    * @param {HttpBackend} httpBackend
    */
   constructor(httpBackend) {
-    // override the HTTP client using HTTP backend in order to avoid the interceptor layer
+    // override the HTTP client using HTTP backend in order to avoid being delayed by interceptor, which creates errors
+    // while loading i18n files
     super(httpBackend);
   }
   static #_ = this.ɵfac = function HttpClientProxy_Factory(t) {
@@ -724,7 +724,7 @@ class GeneralComponent {
       throw new Error('The menu items are not initialized');
     }
     const firstMenuItem = this.menuItems[0];
-    if (!firstMenuItem || !firstMenuItem.items || firstMenuItem.items.length === 0) {
+    if (!firstMenuItem?.items || firstMenuItem.items.length === 0) {
       throw new Error('The menu items are not properly initialized');
     }
     const childMenuItem = firstMenuItem.items[0];
@@ -1502,7 +1502,7 @@ class SkillsComponent {
   }
   _checkSkillIntersection(entry) {
     if (entry.isIntersecting && this._clones.length > 0) {
-      this._skills.forEach(tool => tool.rate = this._clones?.find(clone => clone.name === tool.name)?.rate || 0);
+      this._skills.forEach(tool => tool.rate = this._clones?.find(clone => clone.name === tool.name)?.rate ?? 0);
     } else {
       this._skills.forEach(tool => tool.rate = 0);
     }
@@ -1716,21 +1716,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   environment: () => (/* binding */ environment)
 /* harmony export */ });
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
 const environment = {
   production: false,
   cdnUrl: 'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master'
 };
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
 
 /***/ }),
 
