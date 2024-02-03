@@ -43,6 +43,7 @@
       "panelTitle": "Loisirs",
       "content": {
         "dev": "Développement relatif à tout type de langages et technologies",
+        "homelab": "Construction et maintient d'un homelab orienté dévelopement",
         "basket": "Basketball en compétition (niveau excellence)",
         "running": "Course à pied (participation au marathon de Toulouse en équipe)",
         "movie": "Cinéma fantastique des années 80-90 (Carpenter, Cronenberg, Romero...)"
