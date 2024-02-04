@@ -165,11 +165,11 @@ export const missions: {} = [
   {
     client: 'Air France KLM (Inetum) - Dev Portal',
     endDate: null,
-    startDate: '2019-01-01',
+    startDate: '2021-01-01',
   },
   {
     client: 'Orange (Inetum) - SPDP & O2H',
-    endDate: null,
+    endDate: '2021-12-01',
     startDate: '2020-12-01',
   },
   {

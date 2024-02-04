@@ -1,7 +1,6 @@
 @media print {
   body {
     overflow: visible;
-    //background: hsl(208, 23%, 98%);
     background: white;
   }
 
@@ -27,10 +26,9 @@
     page-break-before: always;
   }
 
-  .p-card {
-    box-shadow: none !important;
-    border: 1px solid #dee2e6;
-  }
+  //p-progressbar {
+  //  border: 1px solid red !important;
+  //}
 
   cv-missions > p-panel > div,
   cv-hobbies > p-panel > div {
@@ -38,19 +36,31 @@
     padding-top: 2rem;
   }
 
-  .customized-timeline {
-    &.p-timeline {
-      display: block;
+  cv-missions > p-panel {
+    .p-panel-header {
+      display: none;
     }
 
-    .p-timeline-event,
-    .p-card .p-card-body {
+    .p-panel .p-panel-content {
+      border: unset;
+    }
+
+    .mission__title {
+      color: hsl(214, 18%, 15%);
+    }
+  }
+
+  .customized-timeline {
+    &.p-timeline {
+      display: flex;
+      gap: 2rem;
+      align-content: space-evenly;
+    }
+
+    .p-timeline-event {
       page-break-inside: avoid;
       page-break-after: auto;
       page-break-before: auto;
-    }
-    .p-timeline-event:not(:first-child) {
-      padding-top: 2rem;
     }
 
     .p-timeline-event-separator {
@@ -60,10 +70,6 @@
     .p-timeline-event-opposite {
       flex: 0;
       padding: 0 !important;
-    }
-
-    .p-card {
-      margin-top: 1rem;
     }
 
     .p-timeline-event:nth-child(even) {

@@ -8,3 +8,9 @@
   border-radius: 50%;
   z-index: 1;
 }
+
+@media print {
+  :host {
+    page-break-before: always;
+  }
+}
