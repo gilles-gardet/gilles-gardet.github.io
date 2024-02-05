@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunkcv"] = self["webpackChunkcv"] || []).push([["vendor"],{
 
-/***/ 804:
+/***/ 1935:
 /*!**********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/BehaviorSubject.js ***!
   \**********************************************************************************************/
@@ -11,7 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   BehaviorSubject: () => (/* binding */ BehaviorSubject)
 /* harmony export */ });
-/* harmony import */ var _Subject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Subject */ 7714);
+/* harmony import */ var _Subject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Subject */ 9764);
 
 class BehaviorSubject extends _Subject__WEBPACK_IMPORTED_MODULE_0__.Subject {
   constructor(_value) {
@@ -45,7 +45,7 @@ class BehaviorSubject extends _Subject__WEBPACK_IMPORTED_MODULE_0__.Subject {
 
 /***/ }),
 
-/***/ 9527:
+/***/ 555:
 /*!****************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/NotificationFactories.js ***!
   \****************************************************************************************************/
@@ -75,7 +75,7 @@ function createNotification(kind, value, error) {
 
 /***/ }),
 
-/***/ 5195:
+/***/ 3782:
 /*!*****************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/Observable.js ***!
   \*****************************************************************************************/
@@ -85,13 +85,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Observable: () => (/* binding */ Observable)
 /* harmony export */ });
-/* harmony import */ var _Subscriber__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Subscriber */ 4668);
-/* harmony import */ var _Subscription__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Subscription */ 6496);
-/* harmony import */ var _symbol_observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./symbol/observable */ 2153);
-/* harmony import */ var _util_pipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./util/pipe */ 6392);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./config */ 6802);
-/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./util/isFunction */ 7164);
-/* harmony import */ var _util_errorContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util/errorContext */ 2639);
+/* harmony import */ var _Subscriber__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Subscriber */ 679);
+/* harmony import */ var _Subscription__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Subscription */ 4979);
+/* harmony import */ var _symbol_observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./symbol/observable */ 8073);
+/* harmony import */ var _util_pipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./util/pipe */ 6016);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./config */ 2231);
+/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./util/isFunction */ 3423);
+/* harmony import */ var _util_errorContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util/errorContext */ 9609);
 
 
 
@@ -181,7 +181,7 @@ function isSubscriber(value) {
 
 /***/ }),
 
-/***/ 1235:
+/***/ 2507:
 /*!********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/ReplaySubject.js ***!
   \********************************************************************************************/
@@ -191,8 +191,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ReplaySubject: () => (/* binding */ ReplaySubject)
 /* harmony export */ });
-/* harmony import */ var _Subject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Subject */ 7714);
-/* harmony import */ var _scheduler_dateTimestampProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scheduler/dateTimestampProvider */ 2381);
+/* harmony import */ var _Subject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Subject */ 9764);
+/* harmony import */ var _scheduler_dateTimestampProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scheduler/dateTimestampProvider */ 4580);
 
 
 class ReplaySubject extends _Subject__WEBPACK_IMPORTED_MODULE_0__.Subject {
@@ -259,7 +259,7 @@ class ReplaySubject extends _Subject__WEBPACK_IMPORTED_MODULE_0__.Subject {
 
 /***/ }),
 
-/***/ 5910:
+/***/ 2877:
 /*!****************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/Scheduler.js ***!
   \****************************************************************************************/
@@ -269,7 +269,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Scheduler: () => (/* binding */ Scheduler)
 /* harmony export */ });
-/* harmony import */ var _scheduler_dateTimestampProvider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scheduler/dateTimestampProvider */ 2381);
+/* harmony import */ var _scheduler_dateTimestampProvider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scheduler/dateTimestampProvider */ 4580);
 
 class Scheduler {
   constructor(schedulerActionCtor, now = Scheduler.now) {
@@ -284,7 +284,7 @@ Scheduler.now = _scheduler_dateTimestampProvider__WEBPACK_IMPORTED_MODULE_0__.da
 
 /***/ }),
 
-/***/ 7714:
+/***/ 9764:
 /*!**************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/Subject.js ***!
   \**************************************************************************************/
@@ -295,11 +295,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   AnonymousSubject: () => (/* binding */ AnonymousSubject),
 /* harmony export */   Subject: () => (/* binding */ Subject)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Observable */ 5195);
-/* harmony import */ var _Subscription__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Subscription */ 6496);
-/* harmony import */ var _util_ObjectUnsubscribedError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util/ObjectUnsubscribedError */ 1307);
-/* harmony import */ var _util_arrRemove__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/arrRemove */ 1368);
-/* harmony import */ var _util_errorContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util/errorContext */ 2639);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Observable */ 3782);
+/* harmony import */ var _Subscription__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Subscription */ 4979);
+/* harmony import */ var _util_ObjectUnsubscribedError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util/ObjectUnsubscribedError */ 8207);
+/* harmony import */ var _util_arrRemove__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/arrRemove */ 3602);
+/* harmony import */ var _util_errorContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util/errorContext */ 9609);
 
 
 
@@ -447,7 +447,7 @@ class AnonymousSubject extends Subject {
 
 /***/ }),
 
-/***/ 4668:
+/***/ 679:
 /*!*****************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/Subscriber.js ***!
   \*****************************************************************************************/
@@ -459,14 +459,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   SafeSubscriber: () => (/* binding */ SafeSubscriber),
 /* harmony export */   Subscriber: () => (/* binding */ Subscriber)
 /* harmony export */ });
-/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util/isFunction */ 7164);
-/* harmony import */ var _Subscription__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Subscription */ 6496);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./config */ 6802);
-/* harmony import */ var _util_reportUnhandledError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./util/reportUnhandledError */ 7121);
-/* harmony import */ var _util_noop__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./util/noop */ 4386);
-/* harmony import */ var _NotificationFactories__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotificationFactories */ 9527);
-/* harmony import */ var _scheduler_timeoutProvider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scheduler/timeoutProvider */ 1530);
-/* harmony import */ var _util_errorContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/errorContext */ 2639);
+/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util/isFunction */ 3423);
+/* harmony import */ var _Subscription__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Subscription */ 4979);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./config */ 2231);
+/* harmony import */ var _util_reportUnhandledError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./util/reportUnhandledError */ 7665);
+/* harmony import */ var _util_noop__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./util/noop */ 2229);
+/* harmony import */ var _NotificationFactories__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotificationFactories */ 555);
+/* harmony import */ var _scheduler_timeoutProvider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scheduler/timeoutProvider */ 2890);
+/* harmony import */ var _util_errorContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/errorContext */ 9609);
 
 
 
@@ -638,7 +638,7 @@ const EMPTY_OBSERVER = {
 
 /***/ }),
 
-/***/ 6496:
+/***/ 4979:
 /*!*******************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/Subscription.js ***!
   \*******************************************************************************************/
@@ -650,9 +650,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Subscription: () => (/* binding */ Subscription),
 /* harmony export */   isSubscription: () => (/* binding */ isSubscription)
 /* harmony export */ });
-/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util/isFunction */ 7164);
-/* harmony import */ var _util_UnsubscriptionError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util/UnsubscriptionError */ 3582);
-/* harmony import */ var _util_arrRemove__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util/arrRemove */ 1368);
+/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util/isFunction */ 3423);
+/* harmony import */ var _util_UnsubscriptionError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util/UnsubscriptionError */ 7524);
+/* harmony import */ var _util_arrRemove__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util/arrRemove */ 3602);
 
 
 
@@ -780,7 +780,7 @@ function execFinalizer(finalizer) {
 
 /***/ }),
 
-/***/ 6802:
+/***/ 2231:
 /*!*************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/config.js ***!
   \*************************************************************************************/
@@ -800,7 +800,7 @@ const config = {
 
 /***/ }),
 
-/***/ 9207:
+/***/ 4403:
 /*!***************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/ConnectableObservable.js ***!
   \***************************************************************************************************************/
@@ -810,11 +810,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ConnectableObservable: () => (/* binding */ ConnectableObservable)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 5195);
-/* harmony import */ var _Subscription__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Subscription */ 6496);
-/* harmony import */ var _operators_refCount__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../operators/refCount */ 3214);
-/* harmony import */ var _operators_OperatorSubscriber__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../operators/OperatorSubscriber */ 7855);
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 4062);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 3782);
+/* harmony import */ var _Subscription__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Subscription */ 4979);
+/* harmony import */ var _operators_refCount__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../operators/refCount */ 7938);
+/* harmony import */ var _operators_OperatorSubscriber__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../operators/OperatorSubscriber */ 1792);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 68);
 
 
 
@@ -876,7 +876,7 @@ class ConnectableObservable extends _Observable__WEBPACK_IMPORTED_MODULE_0__.Obs
 
 /***/ }),
 
-/***/ 9531:
+/***/ 9347:
 /*!*******************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/combineLatest.js ***!
   \*******************************************************************************************************/
@@ -887,15 +887,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   combineLatest: () => (/* binding */ combineLatest),
 /* harmony export */   combineLatestInit: () => (/* binding */ combineLatestInit)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Observable */ 5195);
-/* harmony import */ var _util_argsArgArrayOrObject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/argsArgArrayOrObject */ 7200);
-/* harmony import */ var _from__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./from */ 5505);
-/* harmony import */ var _util_identity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/identity */ 9322);
-/* harmony import */ var _util_mapOneOrManyArgs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/mapOneOrManyArgs */ 5958);
-/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/args */ 2755);
-/* harmony import */ var _util_createObject__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/createObject */ 2165);
-/* harmony import */ var _operators_OperatorSubscriber__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../operators/OperatorSubscriber */ 7855);
-/* harmony import */ var _util_executeSchedule__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../util/executeSchedule */ 5687);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Observable */ 3782);
+/* harmony import */ var _util_argsArgArrayOrObject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/argsArgArrayOrObject */ 8614);
+/* harmony import */ var _from__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./from */ 5082);
+/* harmony import */ var _util_identity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/identity */ 6618);
+/* harmony import */ var _util_mapOneOrManyArgs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/mapOneOrManyArgs */ 9091);
+/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/args */ 7621);
+/* harmony import */ var _util_createObject__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/createObject */ 2288);
+/* harmony import */ var _operators_OperatorSubscriber__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../operators/OperatorSubscriber */ 1792);
+/* harmony import */ var _util_executeSchedule__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../util/executeSchedule */ 3705);
 
 
 
@@ -960,7 +960,7 @@ function maybeSchedule(scheduler, execute, subscription) {
 
 /***/ }),
 
-/***/ 2024:
+/***/ 3302:
 /*!************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/concat.js ***!
   \************************************************************************************************/
@@ -970,9 +970,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   concat: () => (/* binding */ concat)
 /* harmony export */ });
-/* harmony import */ var _operators_concatAll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../operators/concatAll */ 9990);
-/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/args */ 2755);
-/* harmony import */ var _from__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./from */ 5505);
+/* harmony import */ var _operators_concatAll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../operators/concatAll */ 7475);
+/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/args */ 7621);
+/* harmony import */ var _from__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./from */ 5082);
 
 
 
@@ -982,7 +982,7 @@ function concat(...args) {
 
 /***/ }),
 
-/***/ 5325:
+/***/ 6957:
 /*!***********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/defer.js ***!
   \***********************************************************************************************/
@@ -992,8 +992,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   defer: () => (/* binding */ defer)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 5195);
-/* harmony import */ var _innerFrom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./innerFrom */ 1882);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 3782);
+/* harmony import */ var _innerFrom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./innerFrom */ 4472);
 
 
 function defer(observableFactory) {
@@ -1004,7 +1004,7 @@ function defer(observableFactory) {
 
 /***/ }),
 
-/***/ 191:
+/***/ 6140:
 /*!***********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/empty.js ***!
   \***********************************************************************************************/
@@ -1015,7 +1015,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   EMPTY: () => (/* binding */ EMPTY),
 /* harmony export */   empty: () => (/* binding */ empty)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 5195);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 3782);
 
 const EMPTY = new _Observable__WEBPACK_IMPORTED_MODULE_0__.Observable(subscriber => subscriber.complete());
 function empty(scheduler) {
@@ -1027,7 +1027,7 @@ function emptyScheduled(scheduler) {
 
 /***/ }),
 
-/***/ 2058:
+/***/ 2984:
 /*!**************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/forkJoin.js ***!
   \**************************************************************************************************/
@@ -1037,13 +1037,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   forkJoin: () => (/* binding */ forkJoin)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Observable */ 5195);
-/* harmony import */ var _util_argsArgArrayOrObject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/argsArgArrayOrObject */ 7200);
-/* harmony import */ var _innerFrom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./innerFrom */ 1882);
-/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/args */ 2755);
-/* harmony import */ var _operators_OperatorSubscriber__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../operators/OperatorSubscriber */ 7855);
-/* harmony import */ var _util_mapOneOrManyArgs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/mapOneOrManyArgs */ 5958);
-/* harmony import */ var _util_createObject__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/createObject */ 2165);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Observable */ 3782);
+/* harmony import */ var _util_argsArgArrayOrObject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/argsArgArrayOrObject */ 8614);
+/* harmony import */ var _innerFrom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./innerFrom */ 4472);
+/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/args */ 7621);
+/* harmony import */ var _operators_OperatorSubscriber__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../operators/OperatorSubscriber */ 1792);
+/* harmony import */ var _util_mapOneOrManyArgs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/mapOneOrManyArgs */ 9091);
+/* harmony import */ var _util_createObject__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/createObject */ 2288);
 
 
 
@@ -1091,7 +1091,7 @@ function forkJoin(...args) {
 
 /***/ }),
 
-/***/ 5505:
+/***/ 5082:
 /*!**********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/from.js ***!
   \**********************************************************************************************/
@@ -1101,8 +1101,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   from: () => (/* binding */ from)
 /* harmony export */ });
-/* harmony import */ var _scheduled_scheduled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scheduled/scheduled */ 5689);
-/* harmony import */ var _innerFrom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./innerFrom */ 1882);
+/* harmony import */ var _scheduled_scheduled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scheduled/scheduled */ 357);
+/* harmony import */ var _innerFrom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./innerFrom */ 4472);
 
 
 function from(input, scheduler) {
@@ -1111,7 +1111,7 @@ function from(input, scheduler) {
 
 /***/ }),
 
-/***/ 1882:
+/***/ 4472:
 /*!***************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/innerFrom.js ***!
   \***************************************************************************************************/
@@ -1127,18 +1127,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   fromReadableStreamLike: () => (/* binding */ fromReadableStreamLike),
 /* harmony export */   innerFrom: () => (/* binding */ innerFrom)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! tslib */ 106);
-/* harmony import */ var _util_isArrayLike__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/isArrayLike */ 95);
-/* harmony import */ var _util_isPromise__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/isPromise */ 9965);
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 5195);
-/* harmony import */ var _util_isInteropObservable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/isInteropObservable */ 4448);
-/* harmony import */ var _util_isAsyncIterable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/isAsyncIterable */ 2900);
-/* harmony import */ var _util_throwUnobservableError__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util/throwUnobservableError */ 340);
-/* harmony import */ var _util_isIterable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/isIterable */ 504);
-/* harmony import */ var _util_isReadableStreamLike__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/isReadableStreamLike */ 7364);
-/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/isFunction */ 7164);
-/* harmony import */ var _util_reportUnhandledError__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/reportUnhandledError */ 7121);
-/* harmony import */ var _symbol_observable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../symbol/observable */ 2153);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! tslib */ 1899);
+/* harmony import */ var _util_isArrayLike__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/isArrayLike */ 45);
+/* harmony import */ var _util_isPromise__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/isPromise */ 3634);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 3782);
+/* harmony import */ var _util_isInteropObservable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/isInteropObservable */ 8086);
+/* harmony import */ var _util_isAsyncIterable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/isAsyncIterable */ 5849);
+/* harmony import */ var _util_throwUnobservableError__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util/throwUnobservableError */ 9512);
+/* harmony import */ var _util_isIterable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/isIterable */ 9284);
+/* harmony import */ var _util_isReadableStreamLike__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/isReadableStreamLike */ 8465);
+/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/isFunction */ 3423);
+/* harmony import */ var _util_reportUnhandledError__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/reportUnhandledError */ 7665);
+/* harmony import */ var _symbol_observable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../symbol/observable */ 8073);
 
 
 
@@ -1252,7 +1252,7 @@ function process(asyncIterable, subscriber) {
 
 /***/ }),
 
-/***/ 2368:
+/***/ 9987:
 /*!***********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/merge.js ***!
   \***********************************************************************************************/
@@ -1262,11 +1262,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   merge: () => (/* binding */ merge)
 /* harmony export */ });
-/* harmony import */ var _operators_mergeAll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../operators/mergeAll */ 5297);
-/* harmony import */ var _innerFrom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./innerFrom */ 1882);
-/* harmony import */ var _empty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./empty */ 191);
-/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/args */ 2755);
-/* harmony import */ var _from__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./from */ 5505);
+/* harmony import */ var _operators_mergeAll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../operators/mergeAll */ 9744);
+/* harmony import */ var _innerFrom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./innerFrom */ 4472);
+/* harmony import */ var _empty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./empty */ 6140);
+/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/args */ 7621);
+/* harmony import */ var _from__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./from */ 5082);
 
 
 
@@ -1281,7 +1281,7 @@ function merge(...args) {
 
 /***/ }),
 
-/***/ 9288:
+/***/ 237:
 /*!********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/of.js ***!
   \********************************************************************************************/
@@ -1291,8 +1291,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   of: () => (/* binding */ of)
 /* harmony export */ });
-/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/args */ 2755);
-/* harmony import */ var _from__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./from */ 5505);
+/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/args */ 7621);
+/* harmony import */ var _from__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./from */ 5082);
 
 
 function of(...args) {
@@ -1302,7 +1302,7 @@ function of(...args) {
 
 /***/ }),
 
-/***/ 8065:
+/***/ 5583:
 /*!****************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/throwError.js ***!
   \****************************************************************************************************/
@@ -1312,8 +1312,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   throwError: () => (/* binding */ throwError)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Observable */ 5195);
-/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/isFunction */ 7164);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Observable */ 3782);
+/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/isFunction */ 3423);
 
 
 function throwError(errorOrErrorFactory, scheduler) {
@@ -1324,7 +1324,7 @@ function throwError(errorOrErrorFactory, scheduler) {
 
 /***/ }),
 
-/***/ 2890:
+/***/ 3882:
 /*!***********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/timer.js ***!
   \***********************************************************************************************/
@@ -1334,10 +1334,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   timer: () => (/* binding */ timer)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Observable */ 5195);
-/* harmony import */ var _scheduler_async__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scheduler/async */ 357);
-/* harmony import */ var _util_isScheduler__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/isScheduler */ 4760);
-/* harmony import */ var _util_isDate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/isDate */ 6906);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Observable */ 3782);
+/* harmony import */ var _scheduler_async__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scheduler/async */ 9599);
+/* harmony import */ var _util_isScheduler__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/isScheduler */ 7895);
+/* harmony import */ var _util_isDate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/isDate */ 6193);
 
 
 
@@ -1372,7 +1372,7 @@ function timer(dueTime = 0, intervalOrScheduler, scheduler = _scheduler_async__W
 
 /***/ }),
 
-/***/ 2073:
+/***/ 6628:
 /*!*********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/observable/zip.js ***!
   \*********************************************************************************************/
@@ -1382,12 +1382,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   zip: () => (/* binding */ zip)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Observable */ 5195);
-/* harmony import */ var _innerFrom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./innerFrom */ 1882);
-/* harmony import */ var _util_argsOrArgArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/argsOrArgArray */ 7847);
-/* harmony import */ var _empty__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./empty */ 191);
-/* harmony import */ var _operators_OperatorSubscriber__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../operators/OperatorSubscriber */ 7855);
-/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/args */ 2755);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Observable */ 3782);
+/* harmony import */ var _innerFrom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./innerFrom */ 4472);
+/* harmony import */ var _util_argsOrArgArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/argsOrArgArray */ 6228);
+/* harmony import */ var _empty__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./empty */ 6140);
+/* harmony import */ var _operators_OperatorSubscriber__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../operators/OperatorSubscriber */ 1792);
+/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/args */ 7621);
 
 
 
@@ -1426,7 +1426,7 @@ function zip(...args) {
 
 /***/ }),
 
-/***/ 7855:
+/***/ 1792:
 /*!***********************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/OperatorSubscriber.js ***!
   \***********************************************************************************************************/
@@ -1437,7 +1437,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   OperatorSubscriber: () => (/* binding */ OperatorSubscriber),
 /* harmony export */   createOperatorSubscriber: () => (/* binding */ createOperatorSubscriber)
 /* harmony export */ });
-/* harmony import */ var _Subscriber__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Subscriber */ 4668);
+/* harmony import */ var _Subscriber__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Subscriber */ 679);
 
 function createOperatorSubscriber(destination, onNext, onComplete, onError, onFinalize) {
   return new OperatorSubscriber(destination, onNext, onComplete, onError, onFinalize);
@@ -1487,7 +1487,7 @@ class OperatorSubscriber extends _Subscriber__WEBPACK_IMPORTED_MODULE_0__.Subscr
 
 /***/ }),
 
-/***/ 5273:
+/***/ 2182:
 /*!***************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/catchError.js ***!
   \***************************************************************************************************/
@@ -1497,9 +1497,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   catchError: () => (/* binding */ catchError)
 /* harmony export */ });
-/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../observable/innerFrom */ 1882);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 4062);
+/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../observable/innerFrom */ 4472);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 68);
 
 
 
@@ -1528,7 +1528,7 @@ function catchError(selector) {
 
 /***/ }),
 
-/***/ 9990:
+/***/ 7475:
 /*!**************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/concatAll.js ***!
   \**************************************************************************************************/
@@ -1538,7 +1538,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   concatAll: () => (/* binding */ concatAll)
 /* harmony export */ });
-/* harmony import */ var _mergeAll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mergeAll */ 5297);
+/* harmony import */ var _mergeAll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mergeAll */ 9744);
 
 function concatAll() {
   return (0,_mergeAll__WEBPACK_IMPORTED_MODULE_0__.mergeAll)(1);
@@ -1546,7 +1546,7 @@ function concatAll() {
 
 /***/ }),
 
-/***/ 1329:
+/***/ 7943:
 /*!**************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/concatMap.js ***!
   \**************************************************************************************************/
@@ -1556,8 +1556,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   concatMap: () => (/* binding */ concatMap)
 /* harmony export */ });
-/* harmony import */ var _mergeMap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mergeMap */ 1098);
-/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/isFunction */ 7164);
+/* harmony import */ var _mergeMap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mergeMap */ 8330);
+/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/isFunction */ 3423);
 
 
 function concatMap(project, resultSelector) {
@@ -1566,7 +1566,7 @@ function concatMap(project, resultSelector) {
 
 /***/ }),
 
-/***/ 1360:
+/***/ 7927:
 /*!*******************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/defaultIfEmpty.js ***!
   \*******************************************************************************************************/
@@ -1576,8 +1576,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   defaultIfEmpty: () => (/* binding */ defaultIfEmpty)
 /* harmony export */ });
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
 
 
 function defaultIfEmpty(defaultValue) {
@@ -1597,7 +1597,7 @@ function defaultIfEmpty(defaultValue) {
 
 /***/ }),
 
-/***/ 7898:
+/***/ 8044:
 /*!*************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/distinctUntilChanged.js ***!
   \*************************************************************************************************************/
@@ -1607,9 +1607,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   distinctUntilChanged: () => (/* binding */ distinctUntilChanged)
 /* harmony export */ });
-/* harmony import */ var _util_identity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/identity */ 9322);
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
+/* harmony import */ var _util_identity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/identity */ 6618);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
 
 
 
@@ -1634,7 +1634,7 @@ function defaultCompare(a, b) {
 
 /***/ }),
 
-/***/ 7447:
+/***/ 2219:
 /*!***********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/filter.js ***!
   \***********************************************************************************************/
@@ -1644,8 +1644,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   filter: () => (/* binding */ filter)
 /* harmony export */ });
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
 
 
 function filter(predicate, thisArg) {
@@ -1657,7 +1657,7 @@ function filter(predicate, thisArg) {
 
 /***/ }),
 
-/***/ 1138:
+/***/ 2651:
 /*!*************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/finalize.js ***!
   \*************************************************************************************************/
@@ -1667,7 +1667,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   finalize: () => (/* binding */ finalize)
 /* harmony export */ });
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 4062);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 68);
 
 function finalize(callback) {
   return (0,_util_lift__WEBPACK_IMPORTED_MODULE_0__.operate)((source, subscriber) => {
@@ -1681,7 +1681,7 @@ function finalize(callback) {
 
 /***/ }),
 
-/***/ 2952:
+/***/ 3775:
 /*!**********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/first.js ***!
   \**********************************************************************************************/
@@ -1691,12 +1691,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   first: () => (/* binding */ first)
 /* harmony export */ });
-/* harmony import */ var _util_EmptyError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/EmptyError */ 1673);
-/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./filter */ 7447);
-/* harmony import */ var _take__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./take */ 609);
-/* harmony import */ var _defaultIfEmpty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./defaultIfEmpty */ 1360);
-/* harmony import */ var _throwIfEmpty__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./throwIfEmpty */ 1653);
-/* harmony import */ var _util_identity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/identity */ 9322);
+/* harmony import */ var _util_EmptyError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/EmptyError */ 7090);
+/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./filter */ 2219);
+/* harmony import */ var _take__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./take */ 7500);
+/* harmony import */ var _defaultIfEmpty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./defaultIfEmpty */ 7927);
+/* harmony import */ var _throwIfEmpty__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./throwIfEmpty */ 6113);
+/* harmony import */ var _util_identity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/identity */ 6618);
 
 
 
@@ -1710,7 +1710,7 @@ function first(predicate, defaultValue) {
 
 /***/ }),
 
-/***/ 8137:
+/***/ 3538:
 /*!*********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/last.js ***!
   \*********************************************************************************************/
@@ -1720,12 +1720,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   last: () => (/* binding */ last)
 /* harmony export */ });
-/* harmony import */ var _util_EmptyError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/EmptyError */ 1673);
-/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./filter */ 7447);
-/* harmony import */ var _takeLast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./takeLast */ 3564);
-/* harmony import */ var _throwIfEmpty__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./throwIfEmpty */ 1653);
-/* harmony import */ var _defaultIfEmpty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./defaultIfEmpty */ 1360);
-/* harmony import */ var _util_identity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/identity */ 9322);
+/* harmony import */ var _util_EmptyError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/EmptyError */ 7090);
+/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./filter */ 2219);
+/* harmony import */ var _takeLast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./takeLast */ 4919);
+/* harmony import */ var _throwIfEmpty__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./throwIfEmpty */ 6113);
+/* harmony import */ var _defaultIfEmpty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./defaultIfEmpty */ 7927);
+/* harmony import */ var _util_identity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/identity */ 6618);
 
 
 
@@ -1739,7 +1739,7 @@ function last(predicate, defaultValue) {
 
 /***/ }),
 
-/***/ 4546:
+/***/ 1126:
 /*!********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/map.js ***!
   \********************************************************************************************/
@@ -1749,8 +1749,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   map: () => (/* binding */ map)
 /* harmony export */ });
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
 
 
 function map(project, thisArg) {
@@ -1764,7 +1764,7 @@ function map(project, thisArg) {
 
 /***/ }),
 
-/***/ 3270:
+/***/ 6974:
 /*!**********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/mapTo.js ***!
   \**********************************************************************************************/
@@ -1774,7 +1774,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   mapTo: () => (/* binding */ mapTo)
 /* harmony export */ });
-/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ 4546);
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ 1126);
 
 function mapTo(value) {
   return (0,_map__WEBPACK_IMPORTED_MODULE_0__.map)(() => value);
@@ -1782,7 +1782,7 @@ function mapTo(value) {
 
 /***/ }),
 
-/***/ 5297:
+/***/ 9744:
 /*!*************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/mergeAll.js ***!
   \*************************************************************************************************/
@@ -1792,8 +1792,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   mergeAll: () => (/* binding */ mergeAll)
 /* harmony export */ });
-/* harmony import */ var _mergeMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mergeMap */ 1098);
-/* harmony import */ var _util_identity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/identity */ 9322);
+/* harmony import */ var _mergeMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mergeMap */ 8330);
+/* harmony import */ var _util_identity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/identity */ 6618);
 
 
 function mergeAll(concurrent = Infinity) {
@@ -1802,7 +1802,7 @@ function mergeAll(concurrent = Infinity) {
 
 /***/ }),
 
-/***/ 6589:
+/***/ 7515:
 /*!*******************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/mergeInternals.js ***!
   \*******************************************************************************************************/
@@ -1812,9 +1812,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   mergeInternals: () => (/* binding */ mergeInternals)
 /* harmony export */ });
-/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/innerFrom */ 1882);
-/* harmony import */ var _util_executeSchedule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/executeSchedule */ 5687);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
+/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/innerFrom */ 4472);
+/* harmony import */ var _util_executeSchedule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/executeSchedule */ 3705);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
 
 
 
@@ -1872,7 +1872,7 @@ function mergeInternals(source, subscriber, project, concurrent, onBeforeNext, e
 
 /***/ }),
 
-/***/ 1098:
+/***/ 8330:
 /*!*************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/mergeMap.js ***!
   \*************************************************************************************************/
@@ -1882,11 +1882,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   mergeMap: () => (/* binding */ mergeMap)
 /* harmony export */ });
-/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./map */ 4546);
-/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../observable/innerFrom */ 1882);
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _mergeInternals__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mergeInternals */ 6589);
-/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/isFunction */ 7164);
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./map */ 1126);
+/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../observable/innerFrom */ 4472);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _mergeInternals__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mergeInternals */ 7515);
+/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/isFunction */ 3423);
 
 
 
@@ -1903,7 +1903,7 @@ function mergeMap(project, resultSelector, concurrent = Infinity) {
 
 /***/ }),
 
-/***/ 3841:
+/***/ 5752:
 /*!**************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/observeOn.js ***!
   \**************************************************************************************************/
@@ -1913,9 +1913,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   observeOn: () => (/* binding */ observeOn)
 /* harmony export */ });
-/* harmony import */ var _util_executeSchedule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/executeSchedule */ 5687);
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
+/* harmony import */ var _util_executeSchedule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/executeSchedule */ 3705);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
 
 
 
@@ -1927,7 +1927,7 @@ function observeOn(scheduler, delay = 0) {
 
 /***/ }),
 
-/***/ 3214:
+/***/ 7938:
 /*!*************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/refCount.js ***!
   \*************************************************************************************************/
@@ -1937,8 +1937,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   refCount: () => (/* binding */ refCount)
 /* harmony export */ });
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
 
 
 function refCount() {
@@ -1967,7 +1967,7 @@ function refCount() {
 
 /***/ }),
 
-/***/ 9317:
+/***/ 3844:
 /*!*********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/scan.js ***!
   \*********************************************************************************************/
@@ -1977,8 +1977,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scan: () => (/* binding */ scan)
 /* harmony export */ });
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _scanInternals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scanInternals */ 9922);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _scanInternals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scanInternals */ 3350);
 
 
 function scan(accumulator, seed) {
@@ -1987,7 +1987,7 @@ function scan(accumulator, seed) {
 
 /***/ }),
 
-/***/ 9922:
+/***/ 3350:
 /*!******************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/scanInternals.js ***!
   \******************************************************************************************************/
@@ -1997,7 +1997,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scanInternals: () => (/* binding */ scanInternals)
 /* harmony export */ });
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
 
 function scanInternals(accumulator, seed, hasSeed, emitOnNext, emitBeforeComplete) {
   return (source, subscriber) => {
@@ -2017,7 +2017,7 @@ function scanInternals(accumulator, seed, hasSeed, emitOnNext, emitBeforeComplet
 
 /***/ }),
 
-/***/ 8072:
+/***/ 5454:
 /*!**********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/share.js ***!
   \**********************************************************************************************/
@@ -2027,10 +2027,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   share: () => (/* binding */ share)
 /* harmony export */ });
-/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../observable/innerFrom */ 1882);
-/* harmony import */ var _Subject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Subject */ 7714);
-/* harmony import */ var _Subscriber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Subscriber */ 4668);
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 4062);
+/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../observable/innerFrom */ 4472);
+/* harmony import */ var _Subject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Subject */ 9764);
+/* harmony import */ var _Subscriber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Subscriber */ 679);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 68);
 
 
 
@@ -2116,7 +2116,7 @@ function handleReset(reset, on, ...args) {
 
 /***/ }),
 
-/***/ 895:
+/***/ 4287:
 /*!****************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/shareReplay.js ***!
   \****************************************************************************************************/
@@ -2126,8 +2126,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   shareReplay: () => (/* binding */ shareReplay)
 /* harmony export */ });
-/* harmony import */ var _ReplaySubject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ReplaySubject */ 1235);
-/* harmony import */ var _share__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./share */ 8072);
+/* harmony import */ var _ReplaySubject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ReplaySubject */ 2507);
+/* harmony import */ var _share__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./share */ 5454);
 
 
 function shareReplay(configOrBufferSize, windowTime, scheduler) {
@@ -2153,7 +2153,7 @@ function shareReplay(configOrBufferSize, windowTime, scheduler) {
 
 /***/ }),
 
-/***/ 5329:
+/***/ 4126:
 /*!**************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/startWith.js ***!
   \**************************************************************************************************/
@@ -2163,9 +2163,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   startWith: () => (/* binding */ startWith)
 /* harmony export */ });
-/* harmony import */ var _observable_concat__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../observable/concat */ 2024);
-/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/args */ 2755);
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 4062);
+/* harmony import */ var _observable_concat__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../observable/concat */ 3302);
+/* harmony import */ var _util_args__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/args */ 7621);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 68);
 
 
 
@@ -2178,7 +2178,7 @@ function startWith(...values) {
 
 /***/ }),
 
-/***/ 6704:
+/***/ 6325:
 /*!****************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/subscribeOn.js ***!
   \****************************************************************************************************/
@@ -2188,7 +2188,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   subscribeOn: () => (/* binding */ subscribeOn)
 /* harmony export */ });
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 4062);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 68);
 
 function subscribeOn(scheduler, delay = 0) {
   return (0,_util_lift__WEBPACK_IMPORTED_MODULE_0__.operate)((source, subscriber) => {
@@ -2198,7 +2198,7 @@ function subscribeOn(scheduler, delay = 0) {
 
 /***/ }),
 
-/***/ 1362:
+/***/ 4617:
 /*!**************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/switchMap.js ***!
   \**************************************************************************************************/
@@ -2208,9 +2208,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   switchMap: () => (/* binding */ switchMap)
 /* harmony export */ });
-/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../observable/innerFrom */ 1882);
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
+/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../observable/innerFrom */ 4472);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
 
 
 
@@ -2237,7 +2237,7 @@ function switchMap(project, resultSelector) {
 
 /***/ }),
 
-/***/ 609:
+/***/ 7500:
 /*!*********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/take.js ***!
   \*********************************************************************************************/
@@ -2247,9 +2247,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   take: () => (/* binding */ take)
 /* harmony export */ });
-/* harmony import */ var _observable_empty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/empty */ 191);
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
+/* harmony import */ var _observable_empty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/empty */ 6140);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
 
 
 
@@ -2269,7 +2269,7 @@ function take(count) {
 
 /***/ }),
 
-/***/ 3564:
+/***/ 4919:
 /*!*************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/takeLast.js ***!
   \*************************************************************************************************/
@@ -2279,9 +2279,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   takeLast: () => (/* binding */ takeLast)
 /* harmony export */ });
-/* harmony import */ var _observable_empty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/empty */ 191);
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
+/* harmony import */ var _observable_empty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/empty */ 6140);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
 
 
 
@@ -2304,7 +2304,7 @@ function takeLast(count) {
 
 /***/ }),
 
-/***/ 1480:
+/***/ 70:
 /*!**************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/takeUntil.js ***!
   \**************************************************************************************************/
@@ -2314,10 +2314,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   takeUntil: () => (/* binding */ takeUntil)
 /* harmony export */ });
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
-/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../observable/innerFrom */ 1882);
-/* harmony import */ var _util_noop__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/noop */ 4386);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
+/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../observable/innerFrom */ 4472);
+/* harmony import */ var _util_noop__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/noop */ 2229);
 
 
 
@@ -2331,7 +2331,7 @@ function takeUntil(notifier) {
 
 /***/ }),
 
-/***/ 7420:
+/***/ 471:
 /*!********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/tap.js ***!
   \********************************************************************************************/
@@ -2341,10 +2341,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   tap: () => (/* binding */ tap)
 /* harmony export */ });
-/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/isFunction */ 7164);
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
-/* harmony import */ var _util_identity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/identity */ 9322);
+/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/isFunction */ 3423);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
+/* harmony import */ var _util_identity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/identity */ 6618);
 
 
 
@@ -2385,7 +2385,7 @@ function tap(observerOrNext, error, complete) {
 
 /***/ }),
 
-/***/ 1653:
+/***/ 6113:
 /*!*****************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/operators/throwIfEmpty.js ***!
   \*****************************************************************************************************/
@@ -2395,9 +2395,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   throwIfEmpty: () => (/* binding */ throwIfEmpty)
 /* harmony export */ });
-/* harmony import */ var _util_EmptyError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/EmptyError */ 1673);
-/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 4062);
-/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 7855);
+/* harmony import */ var _util_EmptyError__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/EmptyError */ 7090);
+/* harmony import */ var _util_lift__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/lift */ 68);
+/* harmony import */ var _OperatorSubscriber__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OperatorSubscriber */ 1792);
 
 
 
@@ -2416,7 +2416,7 @@ function defaultErrorFactory() {
 
 /***/ }),
 
-/***/ 9174:
+/***/ 2686:
 /*!******************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduled/scheduleArray.js ***!
   \******************************************************************************************************/
@@ -2426,7 +2426,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scheduleArray: () => (/* binding */ scheduleArray)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 5195);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 3782);
 
 function scheduleArray(input, scheduler) {
   return new _Observable__WEBPACK_IMPORTED_MODULE_0__.Observable(subscriber => {
@@ -2446,7 +2446,7 @@ function scheduleArray(input, scheduler) {
 
 /***/ }),
 
-/***/ 4035:
+/***/ 9290:
 /*!**************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduled/scheduleAsyncIterable.js ***!
   \**************************************************************************************************************/
@@ -2456,8 +2456,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scheduleAsyncIterable: () => (/* binding */ scheduleAsyncIterable)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 5195);
-/* harmony import */ var _util_executeSchedule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/executeSchedule */ 5687);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 3782);
+/* harmony import */ var _util_executeSchedule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/executeSchedule */ 3705);
 
 
 function scheduleAsyncIterable(input, scheduler) {
@@ -2482,7 +2482,7 @@ function scheduleAsyncIterable(input, scheduler) {
 
 /***/ }),
 
-/***/ 1892:
+/***/ 5651:
 /*!*********************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduled/scheduleIterable.js ***!
   \*********************************************************************************************************/
@@ -2492,10 +2492,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scheduleIterable: () => (/* binding */ scheduleIterable)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 5195);
-/* harmony import */ var _symbol_iterator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../symbol/iterator */ 9221);
-/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/isFunction */ 7164);
-/* harmony import */ var _util_executeSchedule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/executeSchedule */ 5687);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 3782);
+/* harmony import */ var _symbol_iterator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../symbol/iterator */ 2600);
+/* harmony import */ var _util_isFunction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/isFunction */ 3423);
+/* harmony import */ var _util_executeSchedule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/executeSchedule */ 3705);
 
 
 
@@ -2530,7 +2530,7 @@ function scheduleIterable(input, scheduler) {
 
 /***/ }),
 
-/***/ 9238:
+/***/ 6288:
 /*!***********************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduled/scheduleObservable.js ***!
   \***********************************************************************************************************/
@@ -2540,9 +2540,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scheduleObservable: () => (/* binding */ scheduleObservable)
 /* harmony export */ });
-/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/innerFrom */ 1882);
-/* harmony import */ var _operators_observeOn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../operators/observeOn */ 3841);
-/* harmony import */ var _operators_subscribeOn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../operators/subscribeOn */ 6704);
+/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/innerFrom */ 4472);
+/* harmony import */ var _operators_observeOn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../operators/observeOn */ 5752);
+/* harmony import */ var _operators_subscribeOn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../operators/subscribeOn */ 6325);
 
 
 
@@ -2552,7 +2552,7 @@ function scheduleObservable(input, scheduler) {
 
 /***/ }),
 
-/***/ 28:
+/***/ 6692:
 /*!********************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduled/schedulePromise.js ***!
   \********************************************************************************************************/
@@ -2562,9 +2562,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   schedulePromise: () => (/* binding */ schedulePromise)
 /* harmony export */ });
-/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/innerFrom */ 1882);
-/* harmony import */ var _operators_observeOn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../operators/observeOn */ 3841);
-/* harmony import */ var _operators_subscribeOn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../operators/subscribeOn */ 6704);
+/* harmony import */ var _observable_innerFrom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/innerFrom */ 4472);
+/* harmony import */ var _operators_observeOn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../operators/observeOn */ 5752);
+/* harmony import */ var _operators_subscribeOn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../operators/subscribeOn */ 6325);
 
 
 
@@ -2574,7 +2574,7 @@ function schedulePromise(input, scheduler) {
 
 /***/ }),
 
-/***/ 9704:
+/***/ 7477:
 /*!*******************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduled/scheduleReadableStreamLike.js ***!
   \*******************************************************************************************************************/
@@ -2584,8 +2584,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scheduleReadableStreamLike: () => (/* binding */ scheduleReadableStreamLike)
 /* harmony export */ });
-/* harmony import */ var _scheduleAsyncIterable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scheduleAsyncIterable */ 4035);
-/* harmony import */ var _util_isReadableStreamLike__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/isReadableStreamLike */ 7364);
+/* harmony import */ var _scheduleAsyncIterable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scheduleAsyncIterable */ 9290);
+/* harmony import */ var _util_isReadableStreamLike__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/isReadableStreamLike */ 8465);
 
 
 function scheduleReadableStreamLike(input, scheduler) {
@@ -2594,7 +2594,7 @@ function scheduleReadableStreamLike(input, scheduler) {
 
 /***/ }),
 
-/***/ 5689:
+/***/ 357:
 /*!**************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduled/scheduled.js ***!
   \**************************************************************************************************/
@@ -2604,19 +2604,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scheduled: () => (/* binding */ scheduled)
 /* harmony export */ });
-/* harmony import */ var _scheduleObservable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scheduleObservable */ 9238);
-/* harmony import */ var _schedulePromise__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./schedulePromise */ 28);
-/* harmony import */ var _scheduleArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scheduleArray */ 9174);
-/* harmony import */ var _scheduleIterable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./scheduleIterable */ 1892);
-/* harmony import */ var _scheduleAsyncIterable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scheduleAsyncIterable */ 4035);
-/* harmony import */ var _util_isInteropObservable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/isInteropObservable */ 4448);
-/* harmony import */ var _util_isPromise__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/isPromise */ 9965);
-/* harmony import */ var _util_isArrayLike__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/isArrayLike */ 95);
-/* harmony import */ var _util_isIterable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../util/isIterable */ 504);
-/* harmony import */ var _util_isAsyncIterable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/isAsyncIterable */ 2900);
-/* harmony import */ var _util_throwUnobservableError__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../util/throwUnobservableError */ 340);
-/* harmony import */ var _util_isReadableStreamLike__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/isReadableStreamLike */ 7364);
-/* harmony import */ var _scheduleReadableStreamLike__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./scheduleReadableStreamLike */ 9704);
+/* harmony import */ var _scheduleObservable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scheduleObservable */ 6288);
+/* harmony import */ var _schedulePromise__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./schedulePromise */ 6692);
+/* harmony import */ var _scheduleArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scheduleArray */ 2686);
+/* harmony import */ var _scheduleIterable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./scheduleIterable */ 5651);
+/* harmony import */ var _scheduleAsyncIterable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scheduleAsyncIterable */ 9290);
+/* harmony import */ var _util_isInteropObservable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/isInteropObservable */ 8086);
+/* harmony import */ var _util_isPromise__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/isPromise */ 3634);
+/* harmony import */ var _util_isArrayLike__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/isArrayLike */ 45);
+/* harmony import */ var _util_isIterable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../util/isIterable */ 9284);
+/* harmony import */ var _util_isAsyncIterable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/isAsyncIterable */ 5849);
+/* harmony import */ var _util_throwUnobservableError__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../util/throwUnobservableError */ 9512);
+/* harmony import */ var _util_isReadableStreamLike__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/isReadableStreamLike */ 8465);
+/* harmony import */ var _scheduleReadableStreamLike__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./scheduleReadableStreamLike */ 7477);
 
 
 
@@ -2656,7 +2656,7 @@ function scheduled(input, scheduler) {
 
 /***/ }),
 
-/***/ 955:
+/***/ 5745:
 /*!***********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduler/Action.js ***!
   \***********************************************************************************************/
@@ -2666,7 +2666,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Action: () => (/* binding */ Action)
 /* harmony export */ });
-/* harmony import */ var _Subscription__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Subscription */ 6496);
+/* harmony import */ var _Subscription__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Subscription */ 4979);
 
 class Action extends _Subscription__WEBPACK_IMPORTED_MODULE_0__.Subscription {
   constructor(scheduler, work) {
@@ -2679,7 +2679,7 @@ class Action extends _Subscription__WEBPACK_IMPORTED_MODULE_0__.Subscription {
 
 /***/ }),
 
-/***/ 4071:
+/***/ 1674:
 /*!****************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduler/AsyncAction.js ***!
   \****************************************************************************************************/
@@ -2689,9 +2689,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AsyncAction: () => (/* binding */ AsyncAction)
 /* harmony export */ });
-/* harmony import */ var _Action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Action */ 955);
-/* harmony import */ var _intervalProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./intervalProvider */ 120);
-/* harmony import */ var _util_arrRemove__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/arrRemove */ 1368);
+/* harmony import */ var _Action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Action */ 5745);
+/* harmony import */ var _intervalProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./intervalProvider */ 4977);
+/* harmony import */ var _util_arrRemove__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/arrRemove */ 3602);
 
 
 
@@ -2779,7 +2779,7 @@ class AsyncAction extends _Action__WEBPACK_IMPORTED_MODULE_0__.Action {
 
 /***/ }),
 
-/***/ 8124:
+/***/ 2210:
 /*!*******************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduler/AsyncScheduler.js ***!
   \*******************************************************************************************************/
@@ -2789,7 +2789,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AsyncScheduler: () => (/* binding */ AsyncScheduler)
 /* harmony export */ });
-/* harmony import */ var _Scheduler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Scheduler */ 5910);
+/* harmony import */ var _Scheduler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Scheduler */ 2877);
 
 class AsyncScheduler extends _Scheduler__WEBPACK_IMPORTED_MODULE_0__.Scheduler {
   constructor(SchedulerAction, now = _Scheduler__WEBPACK_IMPORTED_MODULE_0__.Scheduler.now) {
@@ -2824,7 +2824,7 @@ class AsyncScheduler extends _Scheduler__WEBPACK_IMPORTED_MODULE_0__.Scheduler {
 
 /***/ }),
 
-/***/ 357:
+/***/ 9599:
 /*!**********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduler/async.js ***!
   \**********************************************************************************************/
@@ -2835,8 +2835,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   async: () => (/* binding */ async),
 /* harmony export */   asyncScheduler: () => (/* binding */ asyncScheduler)
 /* harmony export */ });
-/* harmony import */ var _AsyncAction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AsyncAction */ 4071);
-/* harmony import */ var _AsyncScheduler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AsyncScheduler */ 8124);
+/* harmony import */ var _AsyncAction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AsyncAction */ 1674);
+/* harmony import */ var _AsyncScheduler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AsyncScheduler */ 2210);
 
 
 const asyncScheduler = new _AsyncScheduler__WEBPACK_IMPORTED_MODULE_0__.AsyncScheduler(_AsyncAction__WEBPACK_IMPORTED_MODULE_1__.AsyncAction);
@@ -2844,7 +2844,7 @@ const async = asyncScheduler;
 
 /***/ }),
 
-/***/ 2381:
+/***/ 4580:
 /*!**************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduler/dateTimestampProvider.js ***!
   \**************************************************************************************************************/
@@ -2863,7 +2863,7 @@ const dateTimestampProvider = {
 
 /***/ }),
 
-/***/ 120:
+/***/ 4977:
 /*!*********************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduler/intervalProvider.js ***!
   \*********************************************************************************************************/
@@ -2894,7 +2894,7 @@ const intervalProvider = {
 
 /***/ }),
 
-/***/ 1530:
+/***/ 2890:
 /*!********************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/scheduler/timeoutProvider.js ***!
   \********************************************************************************************************/
@@ -2925,7 +2925,7 @@ const timeoutProvider = {
 
 /***/ }),
 
-/***/ 9221:
+/***/ 2600:
 /*!**********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/symbol/iterator.js ***!
   \**********************************************************************************************/
@@ -2946,7 +2946,7 @@ const iterator = getSymbolIterator();
 
 /***/ }),
 
-/***/ 2153:
+/***/ 8073:
 /*!************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/symbol/observable.js ***!
   \************************************************************************************************/
@@ -2960,7 +2960,7 @@ const observable = (() => typeof Symbol === 'function' && Symbol.observable || '
 
 /***/ }),
 
-/***/ 1673:
+/***/ 7090:
 /*!**********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/EmptyError.js ***!
   \**********************************************************************************************/
@@ -2970,7 +2970,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   EmptyError: () => (/* binding */ EmptyError)
 /* harmony export */ });
-/* harmony import */ var _createErrorClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createErrorClass */ 2429);
+/* harmony import */ var _createErrorClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createErrorClass */ 2764);
 
 const EmptyError = (0,_createErrorClass__WEBPACK_IMPORTED_MODULE_0__.createErrorClass)(_super => function EmptyErrorImpl() {
   _super(this);
@@ -2980,7 +2980,7 @@ const EmptyError = (0,_createErrorClass__WEBPACK_IMPORTED_MODULE_0__.createError
 
 /***/ }),
 
-/***/ 1307:
+/***/ 8207:
 /*!***********************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/ObjectUnsubscribedError.js ***!
   \***********************************************************************************************************/
@@ -2990,7 +2990,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ObjectUnsubscribedError: () => (/* binding */ ObjectUnsubscribedError)
 /* harmony export */ });
-/* harmony import */ var _createErrorClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createErrorClass */ 2429);
+/* harmony import */ var _createErrorClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createErrorClass */ 2764);
 
 const ObjectUnsubscribedError = (0,_createErrorClass__WEBPACK_IMPORTED_MODULE_0__.createErrorClass)(_super => function ObjectUnsubscribedErrorImpl() {
   _super(this);
@@ -3000,7 +3000,7 @@ const ObjectUnsubscribedError = (0,_createErrorClass__WEBPACK_IMPORTED_MODULE_0_
 
 /***/ }),
 
-/***/ 3582:
+/***/ 7524:
 /*!*******************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/UnsubscriptionError.js ***!
   \*******************************************************************************************************/
@@ -3010,7 +3010,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   UnsubscriptionError: () => (/* binding */ UnsubscriptionError)
 /* harmony export */ });
-/* harmony import */ var _createErrorClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createErrorClass */ 2429);
+/* harmony import */ var _createErrorClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createErrorClass */ 2764);
 
 const UnsubscriptionError = (0,_createErrorClass__WEBPACK_IMPORTED_MODULE_0__.createErrorClass)(_super => function UnsubscriptionErrorImpl(errors) {
   _super(this);
@@ -3022,7 +3022,7 @@ ${errors.map((err, i) => `${i + 1}) ${err.toString()}`).join('\n  ')}` : '';
 
 /***/ }),
 
-/***/ 2755:
+/***/ 7621:
 /*!****************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/args.js ***!
   \****************************************************************************************/
@@ -3034,8 +3034,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   popResultSelector: () => (/* binding */ popResultSelector),
 /* harmony export */   popScheduler: () => (/* binding */ popScheduler)
 /* harmony export */ });
-/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 7164);
-/* harmony import */ var _isScheduler__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isScheduler */ 4760);
+/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 3423);
+/* harmony import */ var _isScheduler__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isScheduler */ 7895);
 
 
 function last(arr) {
@@ -3053,7 +3053,7 @@ function popNumber(args, defaultValue) {
 
 /***/ }),
 
-/***/ 7200:
+/***/ 8614:
 /*!********************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/argsArgArrayOrObject.js ***!
   \********************************************************************************************************/
@@ -3099,7 +3099,7 @@ function isPOJO(obj) {
 
 /***/ }),
 
-/***/ 7847:
+/***/ 6228:
 /*!**************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/argsOrArgArray.js ***!
   \**************************************************************************************************/
@@ -3118,7 +3118,7 @@ function argsOrArgArray(args) {
 
 /***/ }),
 
-/***/ 1368:
+/***/ 3602:
 /*!*********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/arrRemove.js ***!
   \*********************************************************************************************/
@@ -3137,7 +3137,7 @@ function arrRemove(arr, item) {
 
 /***/ }),
 
-/***/ 2429:
+/***/ 2764:
 /*!****************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/createErrorClass.js ***!
   \****************************************************************************************************/
@@ -3160,7 +3160,7 @@ function createErrorClass(createImpl) {
 
 /***/ }),
 
-/***/ 2165:
+/***/ 2288:
 /*!************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/createObject.js ***!
   \************************************************************************************************/
@@ -3176,7 +3176,7 @@ function createObject(keys, values) {
 
 /***/ }),
 
-/***/ 2639:
+/***/ 9609:
 /*!************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/errorContext.js ***!
   \************************************************************************************************/
@@ -3187,7 +3187,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   captureError: () => (/* binding */ captureError),
 /* harmony export */   errorContext: () => (/* binding */ errorContext)
 /* harmony export */ });
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config */ 6802);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config */ 2231);
 
 let context = null;
 function errorContext(cb) {
@@ -3223,7 +3223,7 @@ function captureError(err) {
 
 /***/ }),
 
-/***/ 5687:
+/***/ 3705:
 /*!***************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/executeSchedule.js ***!
   \***************************************************************************************************/
@@ -3250,7 +3250,7 @@ function executeSchedule(parentSubscription, scheduler, work, delay = 0, repeat 
 
 /***/ }),
 
-/***/ 9322:
+/***/ 6618:
 /*!********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/identity.js ***!
   \********************************************************************************************/
@@ -3266,7 +3266,7 @@ function identity(x) {
 
 /***/ }),
 
-/***/ 95:
+/***/ 45:
 /*!***********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/isArrayLike.js ***!
   \***********************************************************************************************/
@@ -3280,7 +3280,7 @@ const isArrayLike = x => x && typeof x.length === 'number' && typeof x !== 'func
 
 /***/ }),
 
-/***/ 2900:
+/***/ 5849:
 /*!***************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/isAsyncIterable.js ***!
   \***************************************************************************************************/
@@ -3290,7 +3290,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isAsyncIterable: () => (/* binding */ isAsyncIterable)
 /* harmony export */ });
-/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 7164);
+/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 3423);
 
 function isAsyncIterable(obj) {
   return Symbol.asyncIterator && (0,_isFunction__WEBPACK_IMPORTED_MODULE_0__.isFunction)(obj === null || obj === void 0 ? void 0 : obj[Symbol.asyncIterator]);
@@ -3298,7 +3298,7 @@ function isAsyncIterable(obj) {
 
 /***/ }),
 
-/***/ 6906:
+/***/ 6193:
 /*!******************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/isDate.js ***!
   \******************************************************************************************/
@@ -3314,7 +3314,7 @@ function isValidDate(value) {
 
 /***/ }),
 
-/***/ 7164:
+/***/ 3423:
 /*!**********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/isFunction.js ***!
   \**********************************************************************************************/
@@ -3330,7 +3330,7 @@ function isFunction(value) {
 
 /***/ }),
 
-/***/ 4448:
+/***/ 8086:
 /*!*******************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/isInteropObservable.js ***!
   \*******************************************************************************************************/
@@ -3340,8 +3340,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isInteropObservable: () => (/* binding */ isInteropObservable)
 /* harmony export */ });
-/* harmony import */ var _symbol_observable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../symbol/observable */ 2153);
-/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 7164);
+/* harmony import */ var _symbol_observable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../symbol/observable */ 8073);
+/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 3423);
 
 
 function isInteropObservable(input) {
@@ -3350,7 +3350,7 @@ function isInteropObservable(input) {
 
 /***/ }),
 
-/***/ 504:
+/***/ 9284:
 /*!**********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/isIterable.js ***!
   \**********************************************************************************************/
@@ -3360,8 +3360,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isIterable: () => (/* binding */ isIterable)
 /* harmony export */ });
-/* harmony import */ var _symbol_iterator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../symbol/iterator */ 9221);
-/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 7164);
+/* harmony import */ var _symbol_iterator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../symbol/iterator */ 2600);
+/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 3423);
 
 
 function isIterable(input) {
@@ -3370,7 +3370,7 @@ function isIterable(input) {
 
 /***/ }),
 
-/***/ 59:
+/***/ 8099:
 /*!************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/isObservable.js ***!
   \************************************************************************************************/
@@ -3380,8 +3380,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isObservable: () => (/* binding */ isObservable)
 /* harmony export */ });
-/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 5195);
-/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isFunction */ 7164);
+/* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ 3782);
+/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isFunction */ 3423);
 
 
 function isObservable(obj) {
@@ -3390,7 +3390,7 @@ function isObservable(obj) {
 
 /***/ }),
 
-/***/ 9965:
+/***/ 3634:
 /*!*********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/isPromise.js ***!
   \*********************************************************************************************/
@@ -3400,7 +3400,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isPromise: () => (/* binding */ isPromise)
 /* harmony export */ });
-/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 7164);
+/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 3423);
 
 function isPromise(value) {
   return (0,_isFunction__WEBPACK_IMPORTED_MODULE_0__.isFunction)(value === null || value === void 0 ? void 0 : value.then);
@@ -3408,7 +3408,7 @@ function isPromise(value) {
 
 /***/ }),
 
-/***/ 7364:
+/***/ 8465:
 /*!********************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/isReadableStreamLike.js ***!
   \********************************************************************************************************/
@@ -3419,8 +3419,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   isReadableStreamLike: () => (/* binding */ isReadableStreamLike),
 /* harmony export */   readableStreamLikeToAsyncGenerator: () => (/* binding */ readableStreamLikeToAsyncGenerator)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ 106);
-/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isFunction */ 7164);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ 1899);
+/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isFunction */ 3423);
 
 
 function readableStreamLikeToAsyncGenerator(readableStream) {
@@ -3448,7 +3448,7 @@ function isReadableStreamLike(obj) {
 
 /***/ }),
 
-/***/ 4760:
+/***/ 7895:
 /*!***********************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/isScheduler.js ***!
   \***********************************************************************************************/
@@ -3458,7 +3458,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isScheduler: () => (/* binding */ isScheduler)
 /* harmony export */ });
-/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 7164);
+/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 3423);
 
 function isScheduler(value) {
   return value && (0,_isFunction__WEBPACK_IMPORTED_MODULE_0__.isFunction)(value.schedule);
@@ -3466,7 +3466,7 @@ function isScheduler(value) {
 
 /***/ }),
 
-/***/ 4062:
+/***/ 68:
 /*!****************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/lift.js ***!
   \****************************************************************************************/
@@ -3477,7 +3477,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   hasLift: () => (/* binding */ hasLift),
 /* harmony export */   operate: () => (/* binding */ operate)
 /* harmony export */ });
-/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 7164);
+/* harmony import */ var _isFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isFunction */ 3423);
 
 function hasLift(source) {
   return (0,_isFunction__WEBPACK_IMPORTED_MODULE_0__.isFunction)(source === null || source === void 0 ? void 0 : source.lift);
@@ -3499,7 +3499,7 @@ function operate(init) {
 
 /***/ }),
 
-/***/ 5958:
+/***/ 9091:
 /*!****************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/mapOneOrManyArgs.js ***!
   \****************************************************************************************************/
@@ -3509,7 +3509,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   mapOneOrManyArgs: () => (/* binding */ mapOneOrManyArgs)
 /* harmony export */ });
-/* harmony import */ var _operators_map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../operators/map */ 4546);
+/* harmony import */ var _operators_map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../operators/map */ 1126);
 
 const {
   isArray
@@ -3523,7 +3523,7 @@ function mapOneOrManyArgs(fn) {
 
 /***/ }),
 
-/***/ 4386:
+/***/ 2229:
 /*!****************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/noop.js ***!
   \****************************************************************************************/
@@ -3537,7 +3537,7 @@ function noop() {}
 
 /***/ }),
 
-/***/ 6392:
+/***/ 6016:
 /*!****************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/pipe.js ***!
   \****************************************************************************************/
@@ -3548,7 +3548,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   pipe: () => (/* binding */ pipe),
 /* harmony export */   pipeFromArray: () => (/* binding */ pipeFromArray)
 /* harmony export */ });
-/* harmony import */ var _identity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./identity */ 9322);
+/* harmony import */ var _identity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./identity */ 6618);
 
 function pipe(...fns) {
   return pipeFromArray(fns);
@@ -3567,7 +3567,7 @@ function pipeFromArray(fns) {
 
 /***/ }),
 
-/***/ 7121:
+/***/ 7665:
 /*!********************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/reportUnhandledError.js ***!
   \********************************************************************************************************/
@@ -3577,8 +3577,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   reportUnhandledError: () => (/* binding */ reportUnhandledError)
 /* harmony export */ });
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config */ 6802);
-/* harmony import */ var _scheduler_timeoutProvider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scheduler/timeoutProvider */ 1530);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config */ 2231);
+/* harmony import */ var _scheduler_timeoutProvider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scheduler/timeoutProvider */ 2890);
 
 
 function reportUnhandledError(err) {
@@ -3596,7 +3596,7 @@ function reportUnhandledError(err) {
 
 /***/ }),
 
-/***/ 340:
+/***/ 9512:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/.pnpm/rxjs@7.8.1/node_modules/rxjs/dist/esm/internal/util/throwUnobservableError.js ***!
   \**********************************************************************************************************/
@@ -3612,9 +3612,9 @@ function createInvalidObservableTypeError(input) {
 
 /***/ }),
 
-/***/ 9461:
+/***/ 5377:
 /*!*************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@angular+animations@17.0.8_@angular+core@17.0.8/node_modules/@angular/animations/fesm2022/animations.mjs ***!
+  !*** ./node_modules/.pnpm/@angular+animations@17.1.2_@angular+core@17.1.2/node_modules/@angular/animations/fesm2022/animations.mjs ***!
   \*************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -3623,6 +3623,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   AUTO_STYLE: () => (/* binding */ AUTO_STYLE),
 /* harmony export */   AnimationBuilder: () => (/* binding */ AnimationBuilder),
 /* harmony export */   AnimationFactory: () => (/* binding */ AnimationFactory),
+/* harmony export */   AnimationMetadataType: () => (/* binding */ AnimationMetadataType),
 /* harmony export */   NoopAnimationPlayer: () => (/* binding */ NoopAnimationPlayer),
 /* harmony export */   animate: () => (/* binding */ animate),
 /* harmony export */   animateChild: () => (/* binding */ animateChild),
@@ -3641,10 +3642,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵBrowserAnimationBuilder": () => (/* binding */ BrowserAnimationBuilder),
 /* harmony export */   "ɵPRE_STYLE": () => (/* binding */ ɵPRE_STYLE)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
 /**
- * @license Angular v17.0.8
+ * @license Angular v17.1.2
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -3653,6 +3654,82 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/**
+ * @description Constants for the categories of parameters that can be defined for animations.
+ *
+ * A corresponding function defines a set of parameters for each category, and
+ * collects them into a corresponding `AnimationMetadata` object.
+ *
+ * @publicApi
+ */
+var AnimationMetadataType;
+(function (AnimationMetadataType) {
+  /**
+   * Associates a named animation state with a set of CSS styles.
+   * See [`state()`](api/animations/state)
+   */
+  AnimationMetadataType[AnimationMetadataType["State"] = 0] = "State";
+  /**
+   * Data for a transition from one animation state to another.
+   * See `transition()`
+   */
+  AnimationMetadataType[AnimationMetadataType["Transition"] = 1] = "Transition";
+  /**
+   * Contains a set of animation steps.
+   * See `sequence()`
+   */
+  AnimationMetadataType[AnimationMetadataType["Sequence"] = 2] = "Sequence";
+  /**
+   * Contains a set of animation steps.
+   * See `{@link animations/group group()}`
+   */
+  AnimationMetadataType[AnimationMetadataType["Group"] = 3] = "Group";
+  /**
+   * Contains an animation step.
+   * See `animate()`
+   */
+  AnimationMetadataType[AnimationMetadataType["Animate"] = 4] = "Animate";
+  /**
+   * Contains a set of animation steps.
+   * See `keyframes()`
+   */
+  AnimationMetadataType[AnimationMetadataType["Keyframes"] = 5] = "Keyframes";
+  /**
+   * Contains a set of CSS property-value pairs into a named style.
+   * See `style()`
+   */
+  AnimationMetadataType[AnimationMetadataType["Style"] = 6] = "Style";
+  /**
+   * Associates an animation with an entry trigger that can be attached to an element.
+   * See `trigger()`
+   */
+  AnimationMetadataType[AnimationMetadataType["Trigger"] = 7] = "Trigger";
+  /**
+   * Contains a re-usable animation.
+   * See `animation()`
+   */
+  AnimationMetadataType[AnimationMetadataType["Reference"] = 8] = "Reference";
+  /**
+   * Contains data to use in executing child animations returned by a query.
+   * See `animateChild()`
+   */
+  AnimationMetadataType[AnimationMetadataType["AnimateChild"] = 9] = "AnimateChild";
+  /**
+   * Contains animation parameters for a re-usable animation.
+   * See `useAnimation()`
+   */
+  AnimationMetadataType[AnimationMetadataType["AnimateRef"] = 10] = "AnimateRef";
+  /**
+   * Contains child-animation query data.
+   * See `query()`
+   */
+  AnimationMetadataType[AnimationMetadataType["Query"] = 11] = "Query";
+  /**
+   * Contains data for staggering an animation sequence.
+   * See `stagger()`
+   */
+  AnimationMetadataType[AnimationMetadataType["Stagger"] = 12] = "Stagger";
+})(AnimationMetadataType || (AnimationMetadataType = {}));
 /**
  * Specifies automatic styling.
  *
@@ -3809,7 +3886,7 @@ const AUTO_STYLE = '*';
  */
 function trigger(name, definitions) {
   return {
-    type: 7 /* AnimationMetadataType.Trigger */,
+    type: AnimationMetadataType.Trigger,
     name,
     definitions,
     options: {}
@@ -3875,7 +3952,7 @@ function trigger(name, definitions) {
  */
 function animate(timings, styles = null) {
   return {
-    type: 4 /* AnimationMetadataType.Animate */,
+    type: AnimationMetadataType.Animate,
     styles,
     timings
   };
@@ -3915,7 +3992,7 @@ function animate(timings, styles = null) {
  */
 function group(steps, options = null) {
   return {
-    type: 3 /* AnimationMetadataType.Group */,
+    type: AnimationMetadataType.Group,
     steps,
     options
   };
@@ -3955,7 +4032,7 @@ function group(steps, options = null) {
  **/
 function sequence(steps, options = null) {
   return {
-    type: 2 /* AnimationMetadataType.Sequence */,
+    type: AnimationMetadataType.Sequence,
     steps,
     options
   };
@@ -4001,7 +4078,7 @@ function sequence(steps, options = null) {
  **/
 function style(tokens) {
   return {
-    type: 6 /* AnimationMetadataType.Style */,
+    type: AnimationMetadataType.Style,
     styles: tokens,
     offset: null
   };
@@ -4037,7 +4114,7 @@ function style(tokens) {
  **/
 function state(name, styles, options) {
   return {
-    type: 0 /* AnimationMetadataType.State */,
+    type: AnimationMetadataType.State,
     name,
     styles,
     options
@@ -4090,7 +4167,7 @@ function state(name, styles, options) {
  */
 function keyframes(steps) {
   return {
-    type: 5 /* AnimationMetadataType.Keyframes */,
+    type: AnimationMetadataType.Keyframes,
     steps
   };
 }
@@ -4242,7 +4319,7 @@ function keyframes(steps) {
  **/
 function transition(stateChangeExpr, steps, options = null) {
   return {
-    type: 1 /* AnimationMetadataType.Transition */,
+    type: AnimationMetadataType.Transition,
     expr: stateChangeExpr,
     animation: steps,
     options
@@ -4295,7 +4372,7 @@ function transition(stateChangeExpr, steps, options = null) {
  */
 function animation(steps, options = null) {
   return {
-    type: 8 /* AnimationMetadataType.Reference */,
+    type: AnimationMetadataType.Reference,
     animation: steps,
     options
   };
@@ -4321,7 +4398,7 @@ function animation(steps, options = null) {
  */
 function animateChild(options = null) {
   return {
-    type: 9 /* AnimationMetadataType.AnimateChild */,
+    type: AnimationMetadataType.AnimateChild,
     options
   };
 }
@@ -4337,7 +4414,7 @@ function animateChild(options = null) {
  */
 function useAnimation(animation, options = null) {
   return {
-    type: 10 /* AnimationMetadataType.AnimateRef */,
+    type: AnimationMetadataType.AnimateRef,
     animation,
     options
   };
@@ -4464,7 +4541,7 @@ function useAnimation(animation, options = null) {
  */
 function query(selector, animation, options = null) {
   return {
-    type: 11 /* AnimationMetadataType.Query */,
+    type: AnimationMetadataType.Query,
     selector,
     animation,
     options
@@ -4552,7 +4629,7 @@ function query(selector, animation, options = null) {
  */
 function stagger(timings, animation) {
   return {
-    type: 12 /* AnimationMetadataType.Stagger */,
+    type: AnimationMetadataType.Stagger,
     timings,
     animation
   };
@@ -5033,9 +5110,9 @@ const ɵPRE_STYLE = '!';
 
 /***/ }),
 
-/***/ 5077:
+/***/ 8018:
 /*!**********************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@angular+animations@17.0.8_@angular+core@17.0.8/node_modules/@angular/animations/fesm2022/browser.mjs ***!
+  !*** ./node_modules/.pnpm/@angular+animations@17.1.2_@angular+core@17.1.2/node_modules/@angular/animations/fesm2022/browser.mjs ***!
   \**********************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -5063,10 +5140,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵvalidateStyleProperty": () => (/* binding */ validateStyleProperty),
 /* harmony export */   "ɵvalidateWebAnimatableStyleProperty": () => (/* binding */ validateWebAnimatableStyleProperty)
 /* harmony export */ });
-/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ 9461);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ 5377);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
 /**
- * @license Angular v17.0.8
+ * @license Angular v17.1.2
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -5097,7 +5174,7 @@ function invalidCssUnitValue(userProvidedProperty, value) {
   return new _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵRuntimeError"](3005 /* RuntimeErrorCode.INVALID_CSS_UNIT_VALUE */, ngDevMode && `Please provide a CSS unit value for ${userProvidedProperty}:${value}`);
 }
 function invalidTrigger() {
-  return new _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵRuntimeError"](3006 /* RuntimeErrorCode.INVALID_TRIGGER */, ngDevMode && 'animation triggers cannot be prefixed with an `@` sign (e.g. trigger(\'@foo\', [...]))');
+  return new _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵRuntimeError"](3006 /* RuntimeErrorCode.INVALID_TRIGGER */, ngDevMode && "animation triggers cannot be prefixed with an `@` sign (e.g. trigger('@foo', [...]))");
 }
 function invalidDefinition() {
   return new _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵRuntimeError"](3007 /* RuntimeErrorCode.INVALID_DEFINITION */, ngDevMode && 'only state() and transition() definitions can sit inside of a trigger()');
@@ -5154,7 +5231,7 @@ function registerFailed(errors) {
   return new _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵRuntimeError"](3503 /* RuntimeErrorCode.REGISTRATION_FAILED */, ngDevMode && `Unable to build the animation due to the following errors: ${errors.map(err => err.message).join('\n')}`);
 }
 function missingOrDestroyedAnimation() {
-  return new _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵRuntimeError"](3300 /* RuntimeErrorCode.MISSING_OR_DESTROYED_ANIMATION */, ngDevMode && 'The requested animation doesn\'t exist or has already been destroyed');
+  return new _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵRuntimeError"](3300 /* RuntimeErrorCode.MISSING_OR_DESTROYED_ANIMATION */, ngDevMode && "The requested animation doesn't exist or has already been destroyed");
 }
 function createAnimationFailed(errors) {
   return new _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵRuntimeError"](3504 /* RuntimeErrorCode.CREATE_ANIMATION_FAILED */, ngDevMode && `Unable to create the animation due to the following errors:${errors.map(err => err.message).join('\n')}`);
@@ -5299,7 +5376,6 @@ function containsVendorPrefix(prop) {
   // cc: http://shouldiprefix.com/
   return prop.substring(1, 6) == 'ebkit'; // webkit or Webkit
 }
-
 let _CACHED_BODY = null;
 let _IS_WEBKIT = false;
 function validateStyleProperty(prop) {
@@ -5422,7 +5498,7 @@ class AnimationDriver {
   /**
    * @deprecated Use the NoopAnimationDriver class.
    */
-  static #_ = this.NOOP = /* @__PURE__ */new NoopAnimationDriver();
+  static #_ = this.NOOP = new NoopAnimationDriver();
 }
 class AnimationStyleNormalizer {}
 class NoopAnimationStyleNormalizer {
@@ -5508,20 +5584,6 @@ function parseTimeExpression(exp, errors, allowNegativeValues) {
     easing
   };
 }
-function copyObj(obj, destination = {}) {
-  Object.keys(obj).forEach(prop => {
-    destination[prop] = obj[prop];
-  });
-  return destination;
-}
-function convertToMap(obj) {
-  const styleMap = new Map();
-  Object.keys(obj).forEach(prop => {
-    const val = obj[prop];
-    styleMap.set(prop, val);
-  });
-  return styleMap;
-}
 function normalizeKeyframes(keyframes) {
   if (!keyframes.length) {
     return [];
@@ -5529,27 +5591,10 @@ function normalizeKeyframes(keyframes) {
   if (keyframes[0] instanceof Map) {
     return keyframes;
   }
-  return keyframes.map(kf => convertToMap(kf));
+  return keyframes.map(kf => new Map(Object.entries(kf)));
 }
 function normalizeStyles(styles) {
-  const normalizedStyles = new Map();
-  if (Array.isArray(styles)) {
-    styles.forEach(data => copyStyles(data, normalizedStyles));
-  } else {
-    copyStyles(styles, normalizedStyles);
-  }
-  return normalizedStyles;
-}
-function copyStyles(styles, destination = new Map(), backfill) {
-  if (backfill) {
-    for (let [prop, val] of backfill) {
-      destination.set(prop, val);
-    }
-  }
-  for (let [prop, val] of styles) {
-    destination.set(prop, val);
-  }
-  return destination;
+  return Array.isArray(styles) ? new Map(...styles) : new Map(styles);
 }
 function setStyles(element, styles, formerStyles) {
   styles.forEach((val, prop) => {
@@ -5597,7 +5642,7 @@ function extractStyleParams(value) {
   return params;
 }
 function interpolateParams(value, params, errors) {
-  const original = value.toString();
+  const original = `${value}`;
   const str = original.replace(PARAM_REGEX, (_, varName) => {
     let localVal = params[varName];
     // this means that the value was never overridden by the data passed in by the user
@@ -5609,15 +5654,6 @@ function interpolateParams(value, params, errors) {
   });
   // we do this to assert that numeric values stay as they are
   return str == original ? value : str;
-}
-function iteratorToArray(iterator) {
-  const arr = [];
-  let item = iterator.next();
-  while (!item.done) {
-    arr.push(item.value);
-    item = iterator.next();
-  }
-  return arr;
 }
 const DASH_CASE_REGEXP = /-+([a-z0-9])/g;
 function dashCaseToCamelCase(input) {
@@ -5650,31 +5686,31 @@ function balancePreviousStylesIntoKeyframes(element, keyframes, previousStyles) 
 }
 function visitDslNode(visitor, node, context) {
   switch (node.type) {
-    case 7 /* AnimationMetadataType.Trigger */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Trigger:
       return visitor.visitTrigger(node, context);
-    case 0 /* AnimationMetadataType.State */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.State:
       return visitor.visitState(node, context);
-    case 1 /* AnimationMetadataType.Transition */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Transition:
       return visitor.visitTransition(node, context);
-    case 2 /* AnimationMetadataType.Sequence */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Sequence:
       return visitor.visitSequence(node, context);
-    case 3 /* AnimationMetadataType.Group */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Group:
       return visitor.visitGroup(node, context);
-    case 4 /* AnimationMetadataType.Animate */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Animate:
       return visitor.visitAnimate(node, context);
-    case 5 /* AnimationMetadataType.Keyframes */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Keyframes:
       return visitor.visitKeyframes(node, context);
-    case 6 /* AnimationMetadataType.Style */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Style:
       return visitor.visitStyle(node, context);
-    case 8 /* AnimationMetadataType.Reference */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Reference:
       return visitor.visitReference(node, context);
-    case 9 /* AnimationMetadataType.AnimateChild */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.AnimateChild:
       return visitor.visitAnimateChild(node, context);
-    case 10 /* AnimationMetadataType.AnimateRef */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.AnimateRef:
       return visitor.visitAnimateRef(node, context);
-    case 11 /* AnimationMetadataType.Query */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Query:
       return visitor.visitQuery(node, context);
-    case 12 /* AnimationMetadataType.Stagger */:
+    case _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Stagger:
       return visitor.visitStagger(node, context);
     default:
       throw invalidNodeType(node.type);
@@ -5868,7 +5904,7 @@ class AnimationAstBuilderVisitor {
     }
     metadata.definitions.forEach(def => {
       this._resetContextStyleTimingState(context);
-      if (def.type == 0 /* AnimationMetadataType.State */) {
+      if (def.type == _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.State) {
         const stateDef = def;
         const name = stateDef.name;
         name.toString().split(/\s*,\s*/).forEach(n => {
@@ -5876,7 +5912,7 @@ class AnimationAstBuilderVisitor {
           states.push(this.visitState(stateDef, context));
         });
         stateDef.name = name;
-      } else if (def.type == 1 /* AnimationMetadataType.Transition */) {
+      } else if (def.type == _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Transition) {
         const transition = this.visitTransition(def, context);
         queryCount += transition.queryCount;
         depCount += transition.depCount;
@@ -5886,7 +5922,7 @@ class AnimationAstBuilderVisitor {
       }
     });
     return {
-      type: 7 /* AnimationMetadataType.Trigger */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Trigger,
       name: metadata.name,
       states,
       transitions,
@@ -5913,12 +5949,11 @@ class AnimationAstBuilderVisitor {
         }
       });
       if (missingSubs.size) {
-        const missingSubsArr = iteratorToArray(missingSubs.values());
-        context.errors.push(invalidState(metadata.name, missingSubsArr));
+        context.errors.push(invalidState(metadata.name, [...missingSubs.values()]));
       }
     }
     return {
-      type: 0 /* AnimationMetadataType.State */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.State,
       name: metadata.name,
       style: styleAst,
       options: astParams ? {
@@ -5932,7 +5967,7 @@ class AnimationAstBuilderVisitor {
     const animation = visitDslNode(this, normalizeAnimationEntry(metadata.animation), context);
     const matchers = parseTransitionExpr(metadata.expr, context.errors);
     return {
-      type: 1 /* AnimationMetadataType.Transition */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Transition,
       matchers,
       animation,
       queryCount: context.queryCount,
@@ -5942,7 +5977,7 @@ class AnimationAstBuilderVisitor {
   }
   visitSequence(metadata, context) {
     return {
-      type: 2 /* AnimationMetadataType.Sequence */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Sequence,
       steps: metadata.steps.map(s => visitDslNode(this, s, context)),
       options: normalizeAnimationOptions(metadata.options)
     };
@@ -5958,7 +5993,7 @@ class AnimationAstBuilderVisitor {
     });
     context.currentTime = furthestTime;
     return {
-      type: 3 /* AnimationMetadataType.Group */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Group,
       steps,
       options: normalizeAnimationOptions(metadata.options)
     };
@@ -5968,7 +6003,7 @@ class AnimationAstBuilderVisitor {
     context.currentAnimateTimings = timingAst;
     let styleAst;
     let styleMetadata = metadata.styles ? metadata.styles : (0,_angular_animations__WEBPACK_IMPORTED_MODULE_1__.style)({});
-    if (styleMetadata.type == 5 /* AnimationMetadataType.Keyframes */) {
+    if (styleMetadata.type == _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Keyframes) {
       styleAst = this.visitKeyframes(styleMetadata, context);
     } else {
       let styleMetadata = metadata.styles;
@@ -5988,7 +6023,7 @@ class AnimationAstBuilderVisitor {
     }
     context.currentAnimateTimings = null;
     return {
-      type: 4 /* AnimationMetadataType.Animate */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Animate,
       timings: timingAst,
       style: styleAst,
       options: null
@@ -6010,7 +6045,7 @@ class AnimationAstBuilderVisitor {
           context.errors.push(invalidStyleValue(styleTuple));
         }
       } else {
-        styles.push(convertToMap(styleTuple));
+        styles.push(new Map(Object.entries(styleTuple)));
       }
     }
     let containsDynamicStyles = false;
@@ -6032,7 +6067,7 @@ class AnimationAstBuilderVisitor {
       }
     });
     return {
-      type: 6 /* AnimationMetadataType.Style */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Style,
       styles,
       easing: collectedEasing,
       offset: metadata.offset,
@@ -6086,7 +6121,7 @@ class AnimationAstBuilderVisitor {
   }
   visitKeyframes(metadata, context) {
     const ast = {
-      type: 5 /* AnimationMetadataType.Keyframes */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Keyframes,
       styles: [],
       options: null
     };
@@ -6144,7 +6179,7 @@ class AnimationAstBuilderVisitor {
   }
   visitReference(metadata, context) {
     return {
-      type: 8 /* AnimationMetadataType.Reference */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Reference,
       animation: visitDslNode(this, normalizeAnimationEntry(metadata.animation), context),
       options: normalizeAnimationOptions(metadata.options)
     };
@@ -6152,13 +6187,13 @@ class AnimationAstBuilderVisitor {
   visitAnimateChild(metadata, context) {
     context.depCount++;
     return {
-      type: 9 /* AnimationMetadataType.AnimateChild */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.AnimateChild,
       options: normalizeAnimationOptions(metadata.options)
     };
   }
   visitAnimateRef(metadata, context) {
     return {
-      type: 10 /* AnimationMetadataType.AnimateRef */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.AnimateRef,
       animation: this.visitReference(metadata.animation, context),
       options: normalizeAnimationOptions(metadata.options)
     };
@@ -6175,7 +6210,7 @@ class AnimationAstBuilderVisitor {
     context.currentQuery = null;
     context.currentQuerySelector = parentSelector;
     return {
-      type: 11 /* AnimationMetadataType.Query */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Query,
       selector,
       limit: options.limit || 0,
       optional: !!options.optional,
@@ -6195,7 +6230,7 @@ class AnimationAstBuilderVisitor {
       easing: 'full'
     } : resolveTiming(metadata.timings, context.errors, true);
     return {
-      type: 12 /* AnimationMetadataType.Stagger */,
+      type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Stagger,
       animation: visitDslNode(this, normalizeAnimationEntry(metadata.animation), context),
       timings,
       options: null
@@ -6213,7 +6248,9 @@ function normalizeSelector(selector) {
   return [selector, hasAmpersand];
 }
 function normalizeParams(obj) {
-  return obj ? copyObj(obj) : null;
+  return obj ? {
+    ...obj
+  } : null;
 }
 class AnimationAstBuilderContext {
   constructor(errors) {
@@ -6269,7 +6306,9 @@ function constructTimingAst(value, errors) {
 }
 function normalizeAnimationOptions(options) {
   if (options) {
-    options = copyObj(options);
+    options = {
+      ...options
+    };
     if (options['params']) {
       options['params'] = normalizeParams(options['params']);
     }
@@ -6393,8 +6432,7 @@ const LEAVE_TOKEN_REGEX = new RegExp(LEAVE_TOKEN, 'g');
  * from all previous animation steps. Therefore when a keyframe is created it would also be missing
  * from all previous keyframes up until where it is first used. For the timeline keyframe generation
  * to properly fill in the style it will place the previous value (the value from the parent
- * timeline) or a default value of `*` into the backFill map. The `copyStyles` method in util.ts
- * handles propagating that backfill map to the styles object.
+ * timeline) or a default value of `*` into the backFill map.
  *
  * When a sub-timeline is created it will have its own backFill property. This is done so that
  * styles present within the sub-timeline do not accidentally seep into the previous/future timeline
@@ -6505,7 +6543,7 @@ class AnimationTimelineBuilderVisitor {
       ctx = context.createSubContext(options);
       ctx.transformIntoNewTimeline();
       if (options.delay != null) {
-        if (ctx.previousNode.type == 6 /* AnimationMetadataType.Style */) {
+        if (ctx.previousNode.type == _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Style) {
           ctx.currentTimeline.snapshotCurrentStyles();
           ctx.previousNode = DEFAULT_NOOP_PREVIOUS_NODE;
         }
@@ -6567,7 +6605,7 @@ class AnimationTimelineBuilderVisitor {
       timeline.snapshotCurrentStyles();
     }
     const style = ast.style;
-    if (style.type == 5 /* AnimationMetadataType.Keyframes */) {
+    if (style.type == _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Keyframes) {
       this.visitKeyframes(style, context);
     } else {
       context.incrementTime(timings.duration);
@@ -6620,7 +6658,7 @@ class AnimationTimelineBuilderVisitor {
     const startTime = context.currentTimeline.currentTime;
     const options = ast.options || {};
     const delay = options.delay ? resolveTimingValue(options.delay) : 0;
-    if (delay && (context.previousNode.type === 6 /* AnimationMetadataType.Style */ || startTime == 0 && context.currentTimeline.hasCurrentStyleProperties())) {
+    if (delay && (context.previousNode.type === _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Style || startTime == 0 && context.currentTimeline.hasCurrentStyleProperties())) {
       context.currentTimeline.snapshotCurrentStyles();
       context.previousNode = DEFAULT_NOOP_PREVIOUS_NODE;
     }
@@ -6970,7 +7008,7 @@ class TimelineBuilder {
     const isEmpty = this._keyframes.size === 1 && this.duration === 0;
     let finalKeyframes = [];
     this._keyframes.forEach((keyframe, time) => {
-      const finalKeyframe = copyStyles(keyframe, new Map(), this._backFill);
+      const finalKeyframe = new Map([...this._backFill, ...keyframe]);
       finalKeyframe.forEach((value, prop) => {
         if (value === _angular_animations__WEBPACK_IMPORTED_MODULE_1__["ɵPRE_STYLE"]) {
           preStyleProps.add(prop);
@@ -6983,8 +7021,8 @@ class TimelineBuilder {
       }
       finalKeyframes.push(finalKeyframe);
     });
-    const preProps = preStyleProps.size ? iteratorToArray(preStyleProps.values()) : [];
-    const postProps = postStyleProps.size ? iteratorToArray(postStyleProps.values()) : [];
+    const preProps = [...preStyleProps.values()];
+    const postProps = [...postStyleProps.values()];
     // special case for a 0-second animation (which is designed just to place styles onscreen)
     if (isEmpty) {
       const kf0 = finalKeyframes[0];
@@ -7024,10 +7062,10 @@ class SubTimelineBuilder extends TimelineBuilder {
       const totalTime = duration + delay;
       const startingGap = delay / totalTime;
       // the original starting keyframe now starts once the delay is done
-      const newFirstKeyframe = copyStyles(keyframes[0]);
+      const newFirstKeyframe = new Map(keyframes[0]);
       newFirstKeyframe.set('offset', 0);
       newKeyframes.push(newFirstKeyframe);
-      const oldFirstKeyframe = copyStyles(keyframes[0]);
+      const oldFirstKeyframe = new Map(keyframes[0]);
       oldFirstKeyframe.set('offset', roundOffset(startingGap));
       newKeyframes.push(oldFirstKeyframe);
       /*
@@ -7044,7 +7082,7 @@ class SubTimelineBuilder extends TimelineBuilder {
       // offsets between 1 ... n -1 are all warped by the keyframe stretch
       const limit = keyframes.length - 1;
       for (let i = 1; i <= limit; i++) {
-        let kf = copyStyles(keyframes[i]);
+        let kf = new Map(keyframes[i]);
         const oldOffset = kf.get('offset');
         const timeAtKeyframe = delay + oldOffset * duration;
         kf.set('offset', roundOffset(timeAtKeyframe / totalTime));
@@ -7068,12 +7106,14 @@ function flattenStyles(input, allStyles) {
   let allProperties;
   input.forEach(token => {
     if (token === '*') {
-      allProperties = allProperties || allStyles.keys();
+      allProperties ??= allStyles.keys();
       for (let prop of allProperties) {
         styles.set(prop, _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AUTO_STYLE);
       }
     } else {
-      copyStyles(token, styles);
+      for (let [prop, val] of token) {
+        styles.set(prop, val);
+      }
     }
   });
   return styles;
@@ -7149,8 +7189,7 @@ class AnimationTransitionFactory {
     if (typeof ngDevMode === 'undefined' || ngDevMode) {
       checkNonAnimatableInTimelines(timelines, this._triggerName, driver);
     }
-    const queriedElementsList = iteratorToArray(queriedElements.values());
-    return createTransitionInstruction(element, this._triggerName, currentState, nextState, isRemoval, currentStateStyles, nextStateStyles, timelines, queriedElementsList, preStyleMap, postStyleMap, totalTime);
+    return createTransitionInstruction(element, this._triggerName, currentState, nextState, isRemoval, currentStateStyles, nextStateStyles, timelines, [...queriedElements.values()], preStyleMap, postStyleMap, totalTime);
   }
 }
 /**
@@ -7206,12 +7245,14 @@ function oneOrMoreTransitionsMatch(matchFns, currentState, nextState, element, p
   return matchFns.some(fn => fn(currentState, nextState, element, params));
 }
 function applyParamDefaults(userParams, defaults) {
-  const result = copyObj(defaults);
-  for (const key in userParams) {
-    if (userParams.hasOwnProperty(key) && userParams[key] != null) {
-      result[key] = userParams[key];
+  const result = {
+    ...defaults
+  };
+  Object.entries(userParams).forEach(([key, value]) => {
+    if (value != null) {
+      result[key] = value;
     }
-  }
+  });
   return result;
 }
 class AnimationStateStyles {
@@ -7222,13 +7263,7 @@ class AnimationStateStyles {
   }
   buildStyles(params, errors) {
     const finalStyles = new Map();
-    const combinedParams = copyObj(this.defaultParams);
-    Object.keys(params).forEach(key => {
-      const value = params[key];
-      if (value !== null) {
-        combinedParams[key] = value;
-      }
-    });
+    const combinedParams = applyParamDefaults(params, this.defaultParams);
     this.styles.styles.forEach(value => {
       if (typeof value !== 'string') {
         value.forEach((val, prop) => {
@@ -7279,12 +7314,12 @@ class AnimationTrigger {
 function createFallbackTransition(triggerName, states, normalizer) {
   const matchers = [(fromState, toState) => true];
   const animation = {
-    type: 2 /* AnimationMetadataType.Sequence */,
+    type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Sequence,
     steps: [],
     options: null
   };
   const transition = {
-    type: 1 /* AnimationMetadataType.Transition */,
+    type: _angular_animations__WEBPACK_IMPORTED_MODULE_1__.AnimationMetadataType.Transition,
     animation,
     matchers,
     options: null,
@@ -7456,8 +7491,11 @@ class StateValue {
     const value = isObj ? input['value'] : input;
     this.value = normalizeTriggerValue(value);
     if (isObj) {
-      const options = copyObj(input);
-      delete options['value'];
+      // we drop the value property from options.
+      const {
+        value,
+        ...options
+      } = input;
       this.options = options;
     } else {
       this.options = {};
@@ -7833,10 +7871,11 @@ class TransitionAnimationEngine {
   _onRemovalComplete(element, context) {
     this.onRemovalComplete(element, context);
   }
-  constructor(bodyNode, driver, _normalizer) {
+  constructor(bodyNode, driver, _normalizer, scheduler) {
     this.bodyNode = bodyNode;
     this.driver = driver;
     this._normalizer = _normalizer;
+    this.scheduler = scheduler;
     this.players = [];
     this.newHostElements = new Map();
     this.playersByElement = new Map();
@@ -8026,6 +8065,7 @@ class TransitionAnimationEngine {
   }
   removeNode(namespaceId, element, context) {
     if (isElementNode(element)) {
+      this.scheduler?.notify();
       const ns = namespaceId ? this._fetchNamespace(namespaceId) : null;
       if (ns) {
         ns.removeNode(element, context);
@@ -8882,13 +8922,13 @@ function replacePostStylesAsPre(element, allPreStyleElements, allPostStyleElemen
   return true;
 }
 class AnimationEngine {
-  constructor(doc, _driver, _normalizer) {
+  constructor(doc, _driver, _normalizer, scheduler) {
     this._driver = _driver;
     this._normalizer = _normalizer;
     this._triggerCache = {};
     // this method is designed to be overridden by the code that uses this engine
     this.onRemovalComplete = (element, context) => {};
-    this._transitionEngine = new TransitionAnimationEngine(doc.body, _driver, _normalizer);
+    this._transitionEngine = new TransitionAnimationEngine(doc.body, _driver, _normalizer, scheduler);
     this._timelineEngine = new TimelineAnimationEngine(doc.body, _driver, _normalizer);
     this._transitionEngine.onRemovalComplete = (element, context) => this.onRemovalComplete(element, context);
   }
@@ -8989,7 +9029,7 @@ function packageNonAnimatableStyles(element, styles) {
  * `destroy()` is called then all styles will be removed.
  */
 class SpecialCasedStyles {
-  static #_ = this.initialStylesByElement = /* @__PURE__ */new WeakMap();
+  static #_ = this.initialStylesByElement = new WeakMap();
   constructor(_element, _startStyles, _endStyles) {
     this._element = _element;
     this._startStyles = _startStyles;
@@ -9009,7 +9049,6 @@ class SpecialCasedStyles {
       this._state = 1 /* SpecialCasedStylesState.Started */;
     }
   }
-
   finish() {
     this.start();
     if (this._state < 2 /* SpecialCasedStylesState.Finished */) {
@@ -9021,7 +9060,6 @@ class SpecialCasedStyles {
       this._state = 1 /* SpecialCasedStylesState.Started */;
     }
   }
-
   destroy() {
     this.finish();
     if (this._state < 3 /* SpecialCasedStylesState.Destroyed */) {
@@ -9039,7 +9077,6 @@ class SpecialCasedStyles {
     }
   }
 }
-
 function filterNonAnimatableStyles(styles) {
   let result = null;
   styles.forEach((val, prop) => {
@@ -9256,7 +9293,7 @@ class WebAnimationsDriver {
     return invokeQuery(element, selector, multi);
   }
   computeStyle(element, prop, defaultValue) {
-    return window.getComputedStyle(element)[prop];
+    return computeStyle(element, prop);
   }
   animate(element, keyframes, duration, delay, easing, previousPlayers = []) {
     const fill = delay == 0 ? 'both' : 'forwards';
@@ -9277,18 +9314,18 @@ class WebAnimationsDriver {
         player.currentSnapshot.forEach((val, prop) => previousStyles.set(prop, val));
       });
     }
-    let _keyframes = normalizeKeyframes(keyframes).map(styles => copyStyles(styles));
+    let _keyframes = normalizeKeyframes(keyframes).map(styles => new Map(styles));
     _keyframes = balancePreviousStylesIntoKeyframes(element, _keyframes, previousStyles);
     const specialStyles = packageNonAnimatableStyles(element, _keyframes);
     return new WebAnimationsPlayer(element, _keyframes, playerOptions, specialStyles);
   }
 }
-function createEngine(type, doc) {
+function createEngine(type, doc, scheduler) {
   // TODO: find a way to make this tree shakable.
   if (type === 'noop') {
-    return new AnimationEngine(doc, new NoopAnimationDriver(), new NoopAnimationStyleNormalizer());
+    return new AnimationEngine(doc, new NoopAnimationDriver(), new NoopAnimationStyleNormalizer(), scheduler);
   }
-  return new AnimationEngine(doc, new WebAnimationsDriver(), new WebAnimationsStyleNormalizer());
+  return new AnimationEngine(doc, new WebAnimationsDriver(), new WebAnimationsStyleNormalizer(), scheduler);
 }
 class Animation {
   constructor(_driver, input) {
@@ -9328,7 +9365,6 @@ class BaseAnimationRenderer {
     // See https://github.com/microsoft/rushstack/issues/4390
     this.ɵtype = 0 /* AnimationRendererType.Regular */;
   }
-
   get data() {
     return this.delegate.data;
   }
@@ -9591,9 +9627,9 @@ class AnimationRendererFactory {
 
 /***/ }),
 
-/***/ 912:
+/***/ 4290:
 /*!************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@angular+common@17.0.8_@angular+core@17.0.8_rxjs@7.8.1/node_modules/@angular/common/fesm2022/common.mjs ***!
+  !*** ./node_modules/.pnpm/@angular+common@17.1.2_@angular+core@17.1.2_rxjs@7.8.1/node_modules/@angular/common/fesm2022/common.mjs ***!
   \************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -9699,9 +9735,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵparseCookieValue": () => (/* binding */ parseCookieValue),
 /* harmony export */   "ɵsetRootDomAdapter": () => (/* binding */ setRootDomAdapter)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
 /**
- * @license Angular v17.0.8
+ * @license Angular v17.1.2
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -9714,9 +9750,7 @@ function getDOM() {
   return _DOM;
 }
 function setRootDomAdapter(adapter) {
-  if (!_DOM) {
-    _DOM = adapter;
-  }
+  _DOM ??= adapter;
 }
 /* tslint:disable:requireParameterType */
 /**
@@ -9734,7 +9768,7 @@ class DomAdapter {}
  *
  * @publicApi
  */
-const DOCUMENT = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('DocumentToken');
+const DOCUMENT = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken(ngDevMode ? 'DocumentToken' : '');
 
 /**
  * This class should not be used directly by an application developer. Instead, use
@@ -9760,7 +9794,7 @@ const DOCUMENT = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('
  */
 class PlatformLocation {
   historyGo(relativePosition) {
-    throw new Error('Not implemented');
+    throw new Error(ngDevMode ? 'Not implemented' : '');
   }
   static #_ = this.ɵfac = function PlatformLocation_Factory(t) {
     return new (t || PlatformLocation)();
@@ -9786,7 +9820,7 @@ class PlatformLocation {
  *
  * @publicApi
  */
-const LOCATION_INITIALIZED = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('Location Initialized');
+const LOCATION_INITIALIZED = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken(ngDevMode ? 'Location Initialized' : '');
 /**
  * `PlatformLocation` encapsulates all of the direct calls to platform APIs.
  * This class should not be used directly by an application developer. Instead, use
@@ -9951,7 +9985,7 @@ function normalizeQueryParams(params) {
  */
 class LocationStrategy {
   historyGo(relativePosition) {
-    throw new Error('Not implemented');
+    throw new Error(ngDevMode ? 'Not implemented' : '');
   }
   static #_ = this.ɵfac = function LocationStrategy_Factory(t) {
     return new (t || LocationStrategy)();
@@ -9994,7 +10028,7 @@ class LocationStrategy {
  *
  * @publicApi
  */
-const APP_BASE_HREF = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('appBaseHref');
+const APP_BASE_HREF = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken(ngDevMode ? 'appBaseHref' : '');
 /**
  * @description
  * A {@link LocationStrategy} used to configure the {@link Location} service to
@@ -10144,8 +10178,7 @@ class HashLocationStrategy extends LocationStrategy {
   path(includeHash = false) {
     // the hash value is always prefixed with a `#`
     // and if it is empty then it will stay empty
-    let path = this._platformLocation.hash;
-    if (path == null) path = '#';
+    const path = this._platformLocation.hash ?? '#';
     return path.length > 0 ? path.substring(1) : path;
   }
   prepareExternalUrl(internal) {
@@ -10380,11 +10413,9 @@ class Location {
    */
   onUrlChange(fn) {
     this._urlChangeListeners.push(fn);
-    if (!this._urlChangeSubscription) {
-      this._urlChangeSubscription = this.subscribe(v => {
-        this._notifyUrlChangeListeners(v.url, v.state);
-      });
-    }
+    this._urlChangeSubscription ??= this.subscribe(v => {
+      this._notifyUrlChangeListeners(v.url, v.state);
+    });
     return () => {
       const fnIndex = this._urlChangeListeners.indexOf(fn);
       this._urlChangeListeners.splice(fnIndex, 1);
@@ -11170,7 +11201,6 @@ function getLocaleExtraDayPeriods(locale, formStyle, width) {
   const data = (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵfindLocaleData"])(locale);
   checkFullData(data);
   const dayPeriodsData = [data[_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵLocaleDataIndex"].ExtraData][0 /* ɵExtraLocaleDataIndex.ExtraDayPeriodFormats */], data[_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵLocaleDataIndex"].ExtraData][1 /* ɵExtraLocaleDataIndex.ExtraDayPeriodStandalone */]];
-
   const dayPeriods = getLastDefinedValue(dayPeriodsData, formStyle) || [];
   return getLastDefinedValue(dayPeriods, width) || [];
 }
@@ -11257,7 +11287,6 @@ function getNumberOfCurrencyDigits(code) {
   if (currency) {
     digits = currency[2 /* ɵCurrencyIndex.NbOfDigits */];
   }
-
   return typeof digits === 'number' ? digits : DEFAULT_NB_OF_CURRENCY_DIGITS;
 }
 const ISO8601_DATE_REGEX = /^(\d{4,})-?(\d\d)-?(\d\d)(?:T(\d\d)(?::?(\d\d)(?::?(\d\d)(?:\.(\d+))?)?)?(Z|([+-])(\d\d):?(\d\d))?)?$/;
@@ -11338,7 +11367,7 @@ function formatDate(value, format, locale, timezone) {
   let text = '';
   parts.forEach(value => {
     const dateFormatter = getDateFormatter(value);
-    text += dateFormatter ? dateFormatter(date, locale, dateTimezoneOffset) : value === '\'\'' ? '\'' : value.replace(/(^'|'$)/g, '').replace(/''/g, '\'');
+    text += dateFormatter ? dateFormatter(date, locale, dateTimezoneOffset) : value === "''" ? "'" : value.replace(/(^'|'$)/g, '').replace(/''/g, "'");
   });
   return text;
 }
@@ -11372,7 +11401,7 @@ function createDate(year, month, date) {
 }
 function getNamedFormat(locale, format) {
   const localeId = getLocaleId(locale);
-  NAMED_FORMATS[localeId] = NAMED_FORMATS[localeId] || {};
+  NAMED_FORMATS[localeId] ??= {};
   if (NAMED_FORMATS[localeId][format]) {
     return NAMED_FORMATS[localeId][format];
   }
@@ -11606,8 +11635,15 @@ function getFirstThursdayOfYear(year) {
   const firstDayOfYear = createDate(year, JANUARY, 1).getDay();
   return createDate(year, 0, 1 + (firstDayOfYear <= THURSDAY ? THURSDAY : THURSDAY + 7) - firstDayOfYear);
 }
-function getThursdayThisWeek(datetime) {
-  return createDate(datetime.getFullYear(), datetime.getMonth(), datetime.getDate() + (THURSDAY - datetime.getDay()));
+/**
+ *  ISO Week starts on day 1 (Monday) and ends with day 0 (Sunday)
+ */
+function getThursdayThisIsoWeek(datetime) {
+  // getDay returns 0-6 range with sunday as 0.
+  const currentDay = datetime.getDay();
+  // On a Sunday, read the previous Thursday since ISO weeks start on Monday.
+  const deltaToThursday = currentDay === 0 ? -3 : THURSDAY - currentDay;
+  return createDate(datetime.getFullYear(), datetime.getMonth(), datetime.getDate() + deltaToThursday);
 }
 function weekGetter(size, monthBased = false) {
   return function (date, locale) {
@@ -11617,14 +11653,13 @@ function weekGetter(size, monthBased = false) {
       const today = date.getDate();
       result = 1 + Math.floor((today + nbDaysBefore1stDayOfMonth) / 7);
     } else {
-      const thisThurs = getThursdayThisWeek(date);
+      const thisThurs = getThursdayThisIsoWeek(date);
       // Some days of a year are part of next year according to ISO 8601.
       // Compute the firstThurs from the year of this week's Thursday
       const firstThurs = getFirstThursdayOfYear(thisThurs.getFullYear());
       const diff = thisThurs.getTime() - firstThurs.getTime();
       result = 1 + Math.round(diff / 6.048e8); // 6.048e8 ms per week
     }
-
     return padNumber(result, size, getLocaleNumberSymbol(locale, NumberSymbol.MinusSign));
   };
 }
@@ -11633,7 +11668,7 @@ function weekGetter(size, monthBased = false) {
  */
 function weekNumberingYearGetter(size, trim = false) {
   return function (date, locale) {
-    const thisThurs = getThursdayThisWeek(date);
+    const thisThurs = getThursdayThisIsoWeek(date);
     const weekNumberingYear = thisThurs.getFullYear();
     return padNumber(weekNumberingYear, size, getLocaleNumberSymbol(locale, NumberSymbol.MinusSign), trim);
   };
@@ -12246,7 +12281,8 @@ function parseNumber(num) {
     integerLen = numStr.length;
   }
   // Count the number of leading zeros.
-  for (i = 0; numStr.charAt(i) === ZERO_CHAR; i++) {/* empty */
+  for (i = 0; numStr.charAt(i) === ZERO_CHAR; i++) {
+    /* empty */
   }
   if (i === (zeros = numStr.length)) {
     // The digits are all zero.
@@ -12501,11 +12537,7 @@ const EMPTY_ARRAY = [];
  * @publicApi
  */
 class NgClass {
-  constructor(
-  // leaving references to differs in place since flex layout is extending NgClass...
-  _iterableDiffers, _keyValueDiffers, _ngEl, _renderer) {
-    this._iterableDiffers = _iterableDiffers;
-    this._keyValueDiffers = _keyValueDiffers;
+  constructor(_ngEl, _renderer) {
     this._ngEl = _ngEl;
     this._renderer = _renderer;
     this.initialClasses = EMPTY_ARRAY;
@@ -12609,13 +12641,13 @@ class NgClass {
     }
   }
   static #_ = this.ɵfac = function NgClass_Factory(t) {
-    return new (t || NgClass)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.IterableDiffers), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.KeyValueDiffers), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.Renderer2));
+    return new (t || NgClass)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.Renderer2));
   };
   static #_2 = this.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({
     type: NgClass,
     selectors: [["", "ngClass", ""]],
     inputs: {
-      klass: ["class", "klass"],
+      klass: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "class", "klass"],
       ngClass: "ngClass"
     },
     standalone: true
@@ -12629,10 +12661,6 @@ class NgClass {
       standalone: true
     }]
   }], () => [{
-    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.IterableDiffers
-  }, {
-    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.KeyValueDiffers
-  }, {
     type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ElementRef
   }, {
     type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Renderer2
@@ -13518,7 +13546,7 @@ class NgSwitch {
     if ((typeof ngDevMode === 'undefined' || ngDevMode) && matched !== (value == this._ngSwitch)) {
       console.warn((0,_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵformatRuntimeError"])(2001 /* RuntimeErrorCode.EQUALITY_NG_SWITCH_DIFFERENCE */, 'As of Angular v17 the NgSwitch directive uses strict equality comparison === instead of == to match different cases. ' + `Previously the case value "${stringifyValue(value)}" matched switch expression value "${stringifyValue(this._ngSwitch)}", but this is no longer the case with the stricter equality check. ` + 'Your comparison results return different results using === vs. == and you should adjust your ngSwitch expression and / or values to conform with the strict equality requirements.'));
     }
-    this._lastCasesMatched = this._lastCasesMatched || matched;
+    this._lastCasesMatched ||= matched;
     this._lastCaseCheckIndex++;
     if (this._lastCaseCheckIndex === this._caseCount) {
       this._updateDefaultCases(!this._lastCasesMatched);
@@ -13585,8 +13613,8 @@ class NgSwitch {
  * that defines the subtree to be selected if the value of the match expression
  * matches the value of the switch expression.
  *
- * Unlike JavaScript, which uses strict equality, Angular uses loose equality.
- * This means that the empty string, `""` matches 0.
+ * As of Angular v17 the NgSwitch directive uses strict equality comparison (`===`) instead of
+ * loose equality (`==`) to match different cases.
  *
  * @publicApi
  * @see {@link NgSwitch}
@@ -14374,7 +14402,7 @@ const DEFAULT_DATE_FORMAT = 'mediumDate';
  *
  * @deprecated use DATE_PIPE_DEFAULT_OPTIONS token to configure DatePipe
  */
-const DATE_PIPE_DEFAULT_TIMEZONE = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('DATE_PIPE_DEFAULT_TIMEZONE');
+const DATE_PIPE_DEFAULT_TIMEZONE = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken(ngDevMode ? 'DATE_PIPE_DEFAULT_TIMEZONE' : '');
 /**
  * DI token that allows to provide default configuration for the `DatePipe` instances in an
  * application. The value is an object which can include the following fields:
@@ -14406,7 +14434,7 @@ const DATE_PIPE_DEFAULT_TIMEZONE = new _angular_core__WEBPACK_IMPORTED_MODULE_0_
  * ]
  * ```
  */
-const DATE_PIPE_DEFAULT_OPTIONS = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('DATE_PIPE_DEFAULT_OPTIONS');
+const DATE_PIPE_DEFAULT_OPTIONS = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken(ngDevMode ? 'DATE_PIPE_DEFAULT_OPTIONS' : '');
 // clang-format off
 /**
  * @ngModule CommonModule
@@ -14464,70 +14492,70 @@ const DATE_PIPE_DEFAULT_OPTIONS = new _angular_core__WEBPACK_IMPORTED_MODULE_0__
  * Format details depend on the locale.
  * Fields marked with (*) are only available in the extra data set for the given locale.
  *
- *  | Field type          | Format      | Description                                                   | Example Value                                              |
- *  |-------------------- |-------------|---------------------------------------------------------------|------------------------------------------------------------|
- *  | Era                 | G, GG & GGG | Abbreviated                                                   | AD                                                         |
- *  |                     | GGGG        | Wide                                                          | Anno Domini                                                |
- *  |                     | GGGGG       | Narrow                                                        | A                                                          |
- *  | Year                | y           | Numeric: minimum digits                                       | 2, 20, 201, 2017, 20173                                    |
- *  |                     | yy          | Numeric: 2 digits + zero padded                               | 02, 20, 01, 17, 73                                         |
- *  |                     | yyy         | Numeric: 3 digits + zero padded                               | 002, 020, 201, 2017, 20173                                 |
- *  |                     | yyyy        | Numeric: 4 digits or more + zero padded                       | 0002, 0020, 0201, 2017, 20173                              |
- *  | Week-numbering year | Y           | Numeric: minimum digits                                       | 2, 20, 201, 2017, 20173                                    |
- *  |                     | YY          | Numeric: 2 digits + zero padded                               | 02, 20, 01, 17, 73                                         |
- *  |                     | YYY         | Numeric: 3 digits + zero padded                               | 002, 020, 201, 2017, 20173                                 |
- *  |                     | YYYY        | Numeric: 4 digits or more + zero padded                       | 0002, 0020, 0201, 2017, 20173                              |
- *  | Month               | M           | Numeric: 1 digit                                              | 9, 12                                                      |
- *  |                     | MM          | Numeric: 2 digits + zero padded                               | 09, 12                                                     |
- *  |                     | MMM         | Abbreviated                                                   | Sep                                                        |
- *  |                     | MMMM        | Wide                                                          | September                                                  |
- *  |                     | MMMMM       | Narrow                                                        | S                                                          |
- *  | Month standalone    | L           | Numeric: 1 digit                                              | 9, 12                                                      |
- *  |                     | LL          | Numeric: 2 digits + zero padded                               | 09, 12                                                     |
- *  |                     | LLL         | Abbreviated                                                   | Sep                                                        |
- *  |                     | LLLL        | Wide                                                          | September                                                  |
- *  |                     | LLLLL       | Narrow                                                        | S                                                          |
- *  | Week of year        | w           | Numeric: minimum digits                                       | 1... 53                                                    |
- *  |                     | ww          | Numeric: 2 digits + zero padded                               | 01... 53                                                   |
- *  | Week of month       | W           | Numeric: 1 digit                                              | 1... 5                                                     |
- *  | Day of month        | d           | Numeric: minimum digits                                       | 1                                                          |
- *  |                     | dd          | Numeric: 2 digits + zero padded                               | 01                                                         |
- *  | Week day            | E, EE & EEE | Abbreviated                                                   | Tue                                                        |
- *  |                     | EEEE        | Wide                                                          | Tuesday                                                    |
- *  |                     | EEEEE       | Narrow                                                        | T                                                          |
- *  |                     | EEEEEE      | Short                                                         | Tu                                                         |
- *  | Week day standalone | c, cc       | Numeric: 1 digit                                              | 2                                                          |
- *  |                     | ccc         | Abbreviated                                                   | Tue                                                        |
- *  |                     | cccc        | Wide                                                          | Tuesday                                                    |
- *  |                     | ccccc       | Narrow                                                        | T                                                          |
- *  |                     | cccccc      | Short                                                         | Tu                                                         |
- *  | Period              | a, aa & aaa | Abbreviated                                                   | am/pm or AM/PM                                             |
- *  |                     | aaaa        | Wide (fallback to `a` when missing)                           | ante meridiem/post meridiem                                |
- *  |                     | aaaaa       | Narrow                                                        | a/p                                                        |
- *  | Period*             | B, BB & BBB | Abbreviated                                                   | mid.                                                       |
- *  |                     | BBBB        | Wide                                                          | am, pm, midnight, noon, morning, afternoon, evening, night |
- *  |                     | BBBBB       | Narrow                                                        | md                                                         |
- *  | Period standalone*  | b, bb & bbb | Abbreviated                                                   | mid.                                                       |
- *  |                     | bbbb        | Wide                                                          | am, pm, midnight, noon, morning, afternoon, evening, night |
- *  |                     | bbbbb       | Narrow                                                        | md                                                         |
- *  | Hour 1-12           | h           | Numeric: minimum digits                                       | 1, 12                                                      |
- *  |                     | hh          | Numeric: 2 digits + zero padded                               | 01, 12                                                     |
- *  | Hour 0-23           | H           | Numeric: minimum digits                                       | 0, 23                                                      |
- *  |                     | HH          | Numeric: 2 digits + zero padded                               | 00, 23                                                     |
- *  | Minute              | m           | Numeric: minimum digits                                       | 8, 59                                                      |
- *  |                     | mm          | Numeric: 2 digits + zero padded                               | 08, 59                                                     |
- *  | Second              | s           | Numeric: minimum digits                                       | 0... 59                                                    |
- *  |                     | ss          | Numeric: 2 digits + zero padded                               | 00... 59                                                   |
- *  | Fractional seconds  | S           | Numeric: 1 digit                                              | 0... 9                                                     |
- *  |                     | SS          | Numeric: 2 digits + zero padded                               | 00... 99                                                   |
- *  |                     | SSS         | Numeric: 3 digits + zero padded (= milliseconds)              | 000... 999                                                 |
- *  | Zone                | z, zz & zzz | Short specific non location format (fallback to O)            | GMT-8                                                      |
- *  |                     | zzzz        | Long specific non location format (fallback to OOOO)          | GMT-08:00                                                  |
- *  |                     | Z, ZZ & ZZZ | ISO8601 basic format                                          | -0800                                                      |
- *  |                     | ZZZZ        | Long localized GMT format                                     | GMT-8:00                                                   |
- *  |                     | ZZZZZ       | ISO8601 extended format + Z indicator for offset 0 (= XXXXX)  | -08:00                                                     |
- *  |                     | O, OO & OOO | Short localized GMT format                                    | GMT-8                                                      |
- *  |                     | OOOO        | Long localized GMT format                                     | GMT-08:00                                                  |
+ *  | Field type              | Format      | Description                                                   | Example Value                                              |
+ *  |-------------------------|-------------|---------------------------------------------------------------|------------------------------------------------------------|
+ *  | Era                     | G, GG & GGG | Abbreviated                                                   | AD                                                         |
+ *  |                         | GGGG        | Wide                                                          | Anno Domini                                                |
+ *  |                         | GGGGG       | Narrow                                                        | A                                                          |
+ *  | Year                    | y           | Numeric: minimum digits                                       | 2, 20, 201, 2017, 20173                                    |
+ *  |                         | yy          | Numeric: 2 digits + zero padded                               | 02, 20, 01, 17, 73                                         |
+ *  |                         | yyy         | Numeric: 3 digits + zero padded                               | 002, 020, 201, 2017, 20173                                 |
+ *  |                         | yyyy        | Numeric: 4 digits or more + zero padded                       | 0002, 0020, 0201, 2017, 20173                              |
+ *  | ISO Week-numbering year | Y           | Numeric: minimum digits                                       | 2, 20, 201, 2017, 20173                                    |
+ *  |                         | YY          | Numeric: 2 digits + zero padded                               | 02, 20, 01, 17, 73                                         |
+ *  |                         | YYY         | Numeric: 3 digits + zero padded                               | 002, 020, 201, 2017, 20173                                 |
+ *  |                         | YYYY        | Numeric: 4 digits or more + zero padded                       | 0002, 0020, 0201, 2017, 20173                              |
+ *  | Month                   | M           | Numeric: 1 digit                                              | 9, 12                                                      |
+ *  |                         | MM          | Numeric: 2 digits + zero padded                               | 09, 12                                                     |
+ *  |                         | MMM         | Abbreviated                                                   | Sep                                                        |
+ *  |                         | MMMM        | Wide                                                          | September                                                  |
+ *  |                         | MMMMM       | Narrow                                                        | S                                                          |
+ *  | Month standalone        | L           | Numeric: 1 digit                                              | 9, 12                                                      |
+ *  |                         | LL          | Numeric: 2 digits + zero padded                               | 09, 12                                                     |
+ *  |                         | LLL         | Abbreviated                                                   | Sep                                                        |
+ *  |                         | LLLL        | Wide                                                          | September                                                  |
+ *  |                         | LLLLL       | Narrow                                                        | S                                                          |
+ *  | ISO Week of year        | w           | Numeric: minimum digits                                       | 1... 53                                                    |
+ *  |                         | ww          | Numeric: 2 digits + zero padded                               | 01... 53                                                   |
+ *  | Week of month           | W           | Numeric: 1 digit                                              | 1... 5                                                     |
+ *  | Day of month            | d           | Numeric: minimum digits                                       | 1                                                          |
+ *  |                         | dd          | Numeric: 2 digits + zero padded                               | 01                                                         |
+ *  | Week day                | E, EE & EEE | Abbreviated                                                   | Tue                                                        |
+ *  |                         | EEEE        | Wide                                                          | Tuesday                                                    |
+ *  |                         | EEEEE       | Narrow                                                        | T                                                          |
+ *  |                         | EEEEEE      | Short                                                         | Tu                                                         |
+ *  | Week day standalone     | c, cc       | Numeric: 1 digit                                              | 2                                                          |
+ *  |                         | ccc         | Abbreviated                                                   | Tue                                                        |
+ *  |                         | cccc        | Wide                                                          | Tuesday                                                    |
+ *  |                         | ccccc       | Narrow                                                        | T                                                          |
+ *  |                         | cccccc      | Short                                                         | Tu                                                         |
+ *  | Period                  | a, aa & aaa | Abbreviated                                                   | am/pm or AM/PM                                             |
+ *  |                         | aaaa        | Wide (fallback to `a` when missing)                           | ante meridiem/post meridiem                                |
+ *  |                         | aaaaa       | Narrow                                                        | a/p                                                        |
+ *  | Period*                 | B, BB & BBB | Abbreviated                                                   | mid.                                                       |
+ *  |                         | BBBB        | Wide                                                          | am, pm, midnight, noon, morning, afternoon, evening, night |
+ *  |                         | BBBBB       | Narrow                                                        | md                                                         |
+ *  | Period standalone*      | b, bb & bbb | Abbreviated                                                   | mid.                                                       |
+ *  |                         | bbbb        | Wide                                                          | am, pm, midnight, noon, morning, afternoon, evening, night |
+ *  |                         | bbbbb       | Narrow                                                        | md                                                         |
+ *  | Hour 1-12               | h           | Numeric: minimum digits                                       | 1, 12                                                      |
+ *  |                         | hh          | Numeric: 2 digits + zero padded                               | 01, 12                                                     |
+ *  | Hour 0-23               | H           | Numeric: minimum digits                                       | 0, 23                                                      |
+ *  |                         | HH          | Numeric: 2 digits + zero padded                               | 00, 23                                                     |
+ *  | Minute                  | m           | Numeric: minimum digits                                       | 8, 59                                                      |
+ *  |                         | mm          | Numeric: 2 digits + zero padded                               | 08, 59                                                     |
+ *  | Second                  | s           | Numeric: minimum digits                                       | 0... 59                                                    |
+ *  |                         | ss          | Numeric: 2 digits + zero padded                               | 00... 59                                                   |
+ *  | Fractional seconds      | S           | Numeric: 1 digit                                              | 0... 9                                                     |
+ *  |                         | SS          | Numeric: 2 digits + zero padded                               | 00... 99                                                   |
+ *  |                         | SSS         | Numeric: 3 digits + zero padded (= milliseconds)              | 000... 999                                                 |
+ *  | Zone                    | z, zz & zzz | Short specific non location format (fallback to O)            | GMT-8                                                      |
+ *  |                         | zzzz        | Long specific non location format (fallback to OOOO)          | GMT-08:00                                                  |
+ *  |                         | Z, ZZ & ZZZ | ISO8601 basic format                                          | -0800                                                      |
+ *  |                         | ZZZZ        | Long localized GMT format                                     | GMT-8:00                                                   |
+ *  |                         | ZZZZZ       | ISO8601 extended format + Z indicator for offset 0 (= XXXXX)  | -08:00                                                     |
+ *  |                         | O, OO & OOO | Short localized GMT format                                    | GMT-8                                                      |
+ *  |                         | OOOO        | Long localized GMT format                                     | GMT-08:00                                                  |
  *
  *
  * ### Format examples
@@ -14598,7 +14626,6 @@ class DatePipe {
     type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Pipe,
     args: [{
       name: 'date',
-      pure: true,
       standalone: true
     }]
   }], () => [{
@@ -14674,7 +14701,6 @@ class I18nPluralPipe {
     type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Pipe,
     args: [{
       name: 'i18nPlural',
-      pure: true,
       standalone: true
     }]
   }], () => [{
@@ -14733,7 +14759,6 @@ class I18nSelectPipe {
     type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Pipe,
     args: [{
       name: 'i18nSelect',
-      pure: true,
       standalone: true
     }]
   }], null, null);
@@ -14817,10 +14842,8 @@ class KeyValuePipe {
     if (!input || !(input instanceof Map) && typeof input !== 'object') {
       return null;
     }
-    if (!this.differ) {
-      // make a differ for whatever type we've been passed in
-      this.differ = this.differs.find(input).create();
-    }
+    // make a differ for whatever type we've been passed in
+    this.differ ??= this.differs.find(input).create();
     const differChanges = this.differ.diff(input);
     const compareFnChanged = compareFn !== this.compareFn;
     if (differChanges) {
@@ -14959,7 +14982,7 @@ class DecimalPipe {
    */
   transform(value, digitsInfo, locale) {
     if (!isValue(value)) return null;
-    locale = locale || this._locale;
+    locale ||= this._locale;
     try {
       const num = strToNumber(value);
       return formatNumber(num, locale, digitsInfo);
@@ -15034,7 +15057,7 @@ class PercentPipe {
    */
   transform(value, digitsInfo, locale) {
     if (!isValue(value)) return null;
-    locale = locale || this._locale;
+    locale ||= this._locale;
     try {
       const num = strToNumber(value);
       return formatPercent(num, locale, digitsInfo);
@@ -15128,7 +15151,7 @@ class CurrencyPipe {
    */
   transform(value, currencyCode = this._defaultCurrencyCode, display = 'symbol', digitsInfo, locale) {
     if (!isValue(value)) return null;
-    locale = locale || this._locale;
+    locale ||= this._locale;
     if (typeof display === 'boolean') {
       if ((typeof ngDevMode === 'undefined' || ngDevMode) && console && console.warn) {
         console.warn(`Warning: the currency pipe has been changed in Angular v5. The symbolDisplay option (third parameter) is now a string instead of a boolean. The accepted values are "code", "symbol" or "symbol-narrow".`);
@@ -15348,7 +15371,7 @@ function isPlatformWorkerUi(platformId) {
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('17.0.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('17.1.2');
 
 /**
  * Defines a scroll position manager. Implemented by `BrowserViewportScroller`.
@@ -15362,7 +15385,7 @@ class ViewportScroller {
   static #_ = this.ɵprov = (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({
     token: ViewportScroller,
     providedIn: 'root',
-    factory: () => new BrowserViewportScroller((0,_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(DOCUMENT), window)
+    factory: () => isPlatformBrowser((0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_0__.PLATFORM_ID)) ? new BrowserViewportScroller((0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.inject)(DOCUMENT), window) : new NullViewportScroller()
   });
 }
 /**
@@ -15392,20 +15415,14 @@ class BrowserViewportScroller {
    * @returns The position in screen coordinates.
    */
   getScrollPosition() {
-    if (this.supportsScrolling()) {
-      return [this.window.pageXOffset, this.window.pageYOffset];
-    } else {
-      return [0, 0];
-    }
+    return [this.window.scrollX, this.window.scrollY];
   }
   /**
    * Sets the scroll position.
    * @param position The new position in screen coordinates.
    */
   scrollToPosition(position) {
-    if (this.supportsScrolling()) {
-      this.window.scrollTo(position[0], position[1]);
-    }
+    this.window.scrollTo(position[0], position[1]);
   }
   /**
    * Scrolls to an element and attempts to focus the element.
@@ -15419,9 +15436,6 @@ class BrowserViewportScroller {
    * @see https://html.spec.whatwg.org/#scroll-to-fragid
    */
   scrollToAnchor(target) {
-    if (!this.supportsScrolling()) {
-      return;
-    }
     const elSelected = findAnchorFromDocument(this.document, target);
     if (elSelected) {
       this.scrollToElement(elSelected);
@@ -15438,9 +15452,7 @@ class BrowserViewportScroller {
    * Disables automatic scroll restoration provided by the browser.
    */
   setHistoryScrollRestoration(scrollRestoration) {
-    if (this.supportsScrolling()) {
-      this.window.history.scrollRestoration = scrollRestoration;
-    }
+    this.window.history.scrollRestoration = scrollRestoration;
   }
   /**
    * Scrolls to an element using the native offset and the specified offset set on this scroller.
@@ -15454,13 +15466,6 @@ class BrowserViewportScroller {
     const top = rect.top + this.window.pageYOffset;
     const offset = this.offset();
     this.window.scrollTo(left - offset[0], top - offset[1]);
-  }
-  supportsScrolling() {
-    try {
-      return !!this.window && !!this.window.scrollTo && 'pageXOffset' in this.window;
-    } catch {
-      return false;
-    }
   }
 }
 function findAnchorFromDocument(document, target) {
@@ -15572,7 +15577,7 @@ const noopImageLoader = config => config.src;
  * @see {@link NgOptimizedImage}
  * @publicApi
  */
-const IMAGE_LOADER = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('ImageLoader', {
+const IMAGE_LOADER = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken(ngDevMode ? 'ImageLoader' : '', {
   providedIn: 'root',
   factory: () => noopImageLoader
 });
@@ -15908,7 +15913,7 @@ const INTERNAL_PRECONNECT_CHECK_BLOCKLIST = new Set(['localhost', '127.0.0.1', '
  *
  * @publicApi
  */
-const PRECONNECT_CHECK_BLOCKLIST = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('PRECONNECT_CHECK_BLOCKLIST');
+const PRECONNECT_CHECK_BLOCKLIST = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken(ngDevMode ? 'PRECONNECT_CHECK_BLOCKLIST' : '');
 /**
  * Contains the logic to detect whether an image, marked with the "priority" attribute
  * has a corresponding `<link rel="preconnect">` tag in the `document.head`.
@@ -15964,13 +15969,11 @@ class PreconnectLinkChecker {
     if (this.blocklist.has(imgUrl.hostname) || this.alreadySeen.has(imgUrl.origin)) return;
     // Register this origin as seen, so we don't check it again later.
     this.alreadySeen.add(imgUrl.origin);
-    if (!this.preconnectLinks) {
-      // Note: we query for preconnect links only *once* and cache the results
-      // for the entire lifespan of an application, since it's unlikely that the
-      // list would change frequently. This allows to make sure there are no
-      // performance implications of making extra DOM lookups for each image.
-      this.preconnectLinks = this.queryPreconnectLinks();
-    }
+    // Note: we query for preconnect links only *once* and cache the results
+    // for the entire lifespan of an application, since it's unlikely that the
+    // list would change frequently. This allows to make sure there are no
+    // performance implications of making extra DOM lookups for each image.
+    this.preconnectLinks ??= this.queryPreconnectLinks();
     if (!this.preconnectLinks.has(imgUrl.origin)) {
       console.warn((0,_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵformatRuntimeError"])(2956 /* RuntimeErrorCode.PRIORITY_IMG_MISSING_PRECONNECT_TAG */, `${imgDirectiveDetails(originalNgSrc)} there is no preconnect tag present for this ` + `image. Preconnecting to the origin(s) that serve priority images ensures that these ` + `images are delivered as soon as possible. To fix this, please add the following ` + `element into the <head> of the document:\n` + `  <link rel="preconnect" href="${imgUrl.origin}">`));
     }
@@ -16145,7 +16148,7 @@ const VIEWPORT_BREAKPOINT_CUTOFF = 640;
 /**
  * Used to determine whether two aspect ratios are similar in value.
  */
-const ASPECT_RATIO_TOLERANCE = .1;
+const ASPECT_RATIO_TOLERANCE = 0.1;
 /**
  * Used to determine whether the image has been requested at an overly
  * large size compared to the actual rendered image size (after taking
@@ -16344,9 +16347,7 @@ class NgOptimizedImage {
     // Must set width/height explicitly in case they are bound (in which case they will
     // only be reflected and not found by the browser)
     if (this.fill) {
-      if (!this.sizes) {
-        this.sizes = '100vw';
-      }
+      this.sizes ||= '100vw';
     } else {
       this.setHostAttribute('width', this.width.toString());
       this.setHostAttribute('height', this.height.toString());
@@ -16504,16 +16505,16 @@ class NgOptimizedImage {
       }
     },
     inputs: {
-      ngSrc: ["ngSrc", "ngSrc", unwrapSafeUrl],
+      ngSrc: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].HasDecoratorInputTransform, "ngSrc", "ngSrc", unwrapSafeUrl],
       ngSrcset: "ngSrcset",
       sizes: "sizes",
-      width: ["width", "width", _angular_core__WEBPACK_IMPORTED_MODULE_0__.numberAttribute],
-      height: ["height", "height", _angular_core__WEBPACK_IMPORTED_MODULE_0__.numberAttribute],
+      width: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].HasDecoratorInputTransform, "width", "width", _angular_core__WEBPACK_IMPORTED_MODULE_0__.numberAttribute],
+      height: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].HasDecoratorInputTransform, "height", "height", _angular_core__WEBPACK_IMPORTED_MODULE_0__.numberAttribute],
       loading: "loading",
-      priority: ["priority", "priority", _angular_core__WEBPACK_IMPORTED_MODULE_0__.booleanAttribute],
+      priority: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].HasDecoratorInputTransform, "priority", "priority", _angular_core__WEBPACK_IMPORTED_MODULE_0__.booleanAttribute],
       loaderParams: "loaderParams",
-      disableOptimizedSrcset: ["disableOptimizedSrcset", "disableOptimizedSrcset", _angular_core__WEBPACK_IMPORTED_MODULE_0__.booleanAttribute],
-      fill: ["fill", "fill", _angular_core__WEBPACK_IMPORTED_MODULE_0__.booleanAttribute],
+      disableOptimizedSrcset: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].HasDecoratorInputTransform, "disableOptimizedSrcset", "disableOptimizedSrcset", _angular_core__WEBPACK_IMPORTED_MODULE_0__.booleanAttribute],
+      fill: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].HasDecoratorInputTransform, "fill", "fill", _angular_core__WEBPACK_IMPORTED_MODULE_0__.booleanAttribute],
       src: "src",
       srcset: "srcset"
     },
@@ -16913,9 +16914,9 @@ function unwrapSafeUrl(value) {
 
 /***/ }),
 
-/***/ 8139:
+/***/ 1338:
 /*!**********************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@angular+common@17.0.8_@angular+core@17.0.8_rxjs@7.8.1/node_modules/@angular/common/fesm2022/http.mjs ***!
+  !*** ./node_modules/.pnpm/@angular+common@17.1.2_@angular+core@17.1.2_rxjs@7.8.1/node_modules/@angular/common/fesm2022/http.mjs ***!
   \**********************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -16940,6 +16941,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   HttpRequest: () => (/* binding */ HttpRequest),
 /* harmony export */   HttpResponse: () => (/* binding */ HttpResponse),
 /* harmony export */   HttpResponseBase: () => (/* binding */ HttpResponseBase),
+/* harmony export */   HttpStatusCode: () => (/* binding */ HttpStatusCode),
 /* harmony export */   HttpUrlEncodingCodec: () => (/* binding */ HttpUrlEncodingCodec),
 /* harmony export */   HttpXhrBackend: () => (/* binding */ HttpXhrBackend),
 /* harmony export */   HttpXsrfTokenExtractor: () => (/* binding */ HttpXsrfTokenExtractor),
@@ -16959,21 +16961,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵPRIMARY_HTTP_BACKEND": () => (/* binding */ PRIMARY_HTTP_BACKEND),
 /* harmony export */   "ɵwithHttpTransferCache": () => (/* binding */ withHttpTransferCache)
 /* harmony export */ });
-/* harmony import */ var _home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_2_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 2542);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 9288);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ 5195);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ 5505);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 1329);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 7447);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 4546);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ 1138);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ 1362);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/operators */ 7420);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ 912);
+/* harmony import */ var _home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_7_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/.pnpm/@babel+runtime@7.23.7/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 6638);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 237);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ 3782);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ 5082);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 7943);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 2219);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 1126);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ 2651);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ 4617);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/operators */ 471);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ 4290);
 
 /**
- * @license Angular v17.0.8
+ * @license Angular v17.1.2
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -17760,13 +17762,9 @@ class HttpRequest {
       this.transferCache = options.transferCache;
     }
     // If no headers have been passed in, construct a new HttpHeaders instance.
-    if (!this.headers) {
-      this.headers = new HttpHeaders();
-    }
+    this.headers ??= new HttpHeaders();
     // If no context have been passed in, construct a new HttpContext instance.
-    if (!this.context) {
-      this.context = new HttpContext();
-    }
+    this.context ??= new HttpContext();
     // If no parameters have been passed in, construct a new HttpUrlEncodedParams instance.
     if (!this.params) {
       this.params = new HttpParams();
@@ -17946,7 +17944,7 @@ class HttpResponseBase {
    * The single parameter accepted is an initialization hash. Any properties
    * of the response passed there will override the default values.
    */
-  constructor(init, defaultStatus = 200 /* HttpStatusCode.Ok */, defaultStatusText = 'OK') {
+  constructor(init, defaultStatus = HttpStatusCode.Ok, defaultStatusText = 'OK') {
     // If the hash has values passed, use them to initialize the response.
     // Otherwise use the default values.
     this.headers = init.headers || new HttpHeaders();
@@ -18050,6 +18048,77 @@ class HttpErrorResponse extends HttpResponseBase {
     this.error = init.error || null;
   }
 }
+/**
+ * Http status codes.
+ * As per https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+ * @publicApi
+ */
+var HttpStatusCode;
+(function (HttpStatusCode) {
+  HttpStatusCode[HttpStatusCode["Continue"] = 100] = "Continue";
+  HttpStatusCode[HttpStatusCode["SwitchingProtocols"] = 101] = "SwitchingProtocols";
+  HttpStatusCode[HttpStatusCode["Processing"] = 102] = "Processing";
+  HttpStatusCode[HttpStatusCode["EarlyHints"] = 103] = "EarlyHints";
+  HttpStatusCode[HttpStatusCode["Ok"] = 200] = "Ok";
+  HttpStatusCode[HttpStatusCode["Created"] = 201] = "Created";
+  HttpStatusCode[HttpStatusCode["Accepted"] = 202] = "Accepted";
+  HttpStatusCode[HttpStatusCode["NonAuthoritativeInformation"] = 203] = "NonAuthoritativeInformation";
+  HttpStatusCode[HttpStatusCode["NoContent"] = 204] = "NoContent";
+  HttpStatusCode[HttpStatusCode["ResetContent"] = 205] = "ResetContent";
+  HttpStatusCode[HttpStatusCode["PartialContent"] = 206] = "PartialContent";
+  HttpStatusCode[HttpStatusCode["MultiStatus"] = 207] = "MultiStatus";
+  HttpStatusCode[HttpStatusCode["AlreadyReported"] = 208] = "AlreadyReported";
+  HttpStatusCode[HttpStatusCode["ImUsed"] = 226] = "ImUsed";
+  HttpStatusCode[HttpStatusCode["MultipleChoices"] = 300] = "MultipleChoices";
+  HttpStatusCode[HttpStatusCode["MovedPermanently"] = 301] = "MovedPermanently";
+  HttpStatusCode[HttpStatusCode["Found"] = 302] = "Found";
+  HttpStatusCode[HttpStatusCode["SeeOther"] = 303] = "SeeOther";
+  HttpStatusCode[HttpStatusCode["NotModified"] = 304] = "NotModified";
+  HttpStatusCode[HttpStatusCode["UseProxy"] = 305] = "UseProxy";
+  HttpStatusCode[HttpStatusCode["Unused"] = 306] = "Unused";
+  HttpStatusCode[HttpStatusCode["TemporaryRedirect"] = 307] = "TemporaryRedirect";
+  HttpStatusCode[HttpStatusCode["PermanentRedirect"] = 308] = "PermanentRedirect";
+  HttpStatusCode[HttpStatusCode["BadRequest"] = 400] = "BadRequest";
+  HttpStatusCode[HttpStatusCode["Unauthorized"] = 401] = "Unauthorized";
+  HttpStatusCode[HttpStatusCode["PaymentRequired"] = 402] = "PaymentRequired";
+  HttpStatusCode[HttpStatusCode["Forbidden"] = 403] = "Forbidden";
+  HttpStatusCode[HttpStatusCode["NotFound"] = 404] = "NotFound";
+  HttpStatusCode[HttpStatusCode["MethodNotAllowed"] = 405] = "MethodNotAllowed";
+  HttpStatusCode[HttpStatusCode["NotAcceptable"] = 406] = "NotAcceptable";
+  HttpStatusCode[HttpStatusCode["ProxyAuthenticationRequired"] = 407] = "ProxyAuthenticationRequired";
+  HttpStatusCode[HttpStatusCode["RequestTimeout"] = 408] = "RequestTimeout";
+  HttpStatusCode[HttpStatusCode["Conflict"] = 409] = "Conflict";
+  HttpStatusCode[HttpStatusCode["Gone"] = 410] = "Gone";
+  HttpStatusCode[HttpStatusCode["LengthRequired"] = 411] = "LengthRequired";
+  HttpStatusCode[HttpStatusCode["PreconditionFailed"] = 412] = "PreconditionFailed";
+  HttpStatusCode[HttpStatusCode["PayloadTooLarge"] = 413] = "PayloadTooLarge";
+  HttpStatusCode[HttpStatusCode["UriTooLong"] = 414] = "UriTooLong";
+  HttpStatusCode[HttpStatusCode["UnsupportedMediaType"] = 415] = "UnsupportedMediaType";
+  HttpStatusCode[HttpStatusCode["RangeNotSatisfiable"] = 416] = "RangeNotSatisfiable";
+  HttpStatusCode[HttpStatusCode["ExpectationFailed"] = 417] = "ExpectationFailed";
+  HttpStatusCode[HttpStatusCode["ImATeapot"] = 418] = "ImATeapot";
+  HttpStatusCode[HttpStatusCode["MisdirectedRequest"] = 421] = "MisdirectedRequest";
+  HttpStatusCode[HttpStatusCode["UnprocessableEntity"] = 422] = "UnprocessableEntity";
+  HttpStatusCode[HttpStatusCode["Locked"] = 423] = "Locked";
+  HttpStatusCode[HttpStatusCode["FailedDependency"] = 424] = "FailedDependency";
+  HttpStatusCode[HttpStatusCode["TooEarly"] = 425] = "TooEarly";
+  HttpStatusCode[HttpStatusCode["UpgradeRequired"] = 426] = "UpgradeRequired";
+  HttpStatusCode[HttpStatusCode["PreconditionRequired"] = 428] = "PreconditionRequired";
+  HttpStatusCode[HttpStatusCode["TooManyRequests"] = 429] = "TooManyRequests";
+  HttpStatusCode[HttpStatusCode["RequestHeaderFieldsTooLarge"] = 431] = "RequestHeaderFieldsTooLarge";
+  HttpStatusCode[HttpStatusCode["UnavailableForLegalReasons"] = 451] = "UnavailableForLegalReasons";
+  HttpStatusCode[HttpStatusCode["InternalServerError"] = 500] = "InternalServerError";
+  HttpStatusCode[HttpStatusCode["NotImplemented"] = 501] = "NotImplemented";
+  HttpStatusCode[HttpStatusCode["BadGateway"] = 502] = "BadGateway";
+  HttpStatusCode[HttpStatusCode["ServiceUnavailable"] = 503] = "ServiceUnavailable";
+  HttpStatusCode[HttpStatusCode["GatewayTimeout"] = 504] = "GatewayTimeout";
+  HttpStatusCode[HttpStatusCode["HttpVersionNotSupported"] = 505] = "HttpVersionNotSupported";
+  HttpStatusCode[HttpStatusCode["VariantAlsoNegotiates"] = 506] = "VariantAlsoNegotiates";
+  HttpStatusCode[HttpStatusCode["InsufficientStorage"] = 507] = "InsufficientStorage";
+  HttpStatusCode[HttpStatusCode["LoopDetected"] = 508] = "LoopDetected";
+  HttpStatusCode[HttpStatusCode["NotExtended"] = 510] = "NotExtended";
+  HttpStatusCode[HttpStatusCode["NetworkAuthenticationRequired"] = 511] = "NetworkAuthenticationRequired";
+})(HttpStatusCode || (HttpStatusCode = {}));
 
 /**
  * Constructs an instance of `HttpRequestOptions<T>` from a source `HttpMethodOptions` and
@@ -18411,7 +18480,7 @@ class FetchBackend {
   }
   doRequest(request, signal, observer) {
     var _this = this;
-    return (0,_home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_2_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_7_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const init = _this.createRequestInit(request);
       let response;
       try {
@@ -18465,7 +18534,7 @@ class FetchBackend {
         // Perform response processing outside of Angular zone to
         // ensure no excessive change detection runs are executed
         // Here calling the async ReadableStreamDefaultReader.read() is responsible for triggering CD
-        yield _this.ngZone.runOutsideAngular( /*#__PURE__*/(0,_home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_2_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+        yield _this.ngZone.runOutsideAngular( /*#__PURE__*/(0,_home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_7_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
           while (true) {
             const {
               done,
@@ -18509,7 +18578,7 @@ class FetchBackend {
       }
       // Same behavior as the XhrBackend
       if (status === 0) {
-        status = body ? 200 /* HttpStatusCode.Ok */ : 0;
+        status = body ? HttpStatusCode.Ok : 0;
       }
       // ok determines whether the response will be transmitted on the event or
       // error channel. Unsuccessful status codes (not 2xx) will always be errors,
@@ -18701,7 +18770,7 @@ class HttpInterceptorHandler extends HttpHandler {
       const isServer = (0,_angular_common__WEBPACK_IMPORTED_MODULE_8__.isPlatformServer)(injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_5__.PLATFORM_ID));
       if (isServer && !(this.backend instanceof FetchBackend)) {
         fetchBackendWarningDisplayed = true;
-        injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵConsole"]).warn((0,_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵformatRuntimeError"])(2801 /* RuntimeErrorCode.NOT_USING_FETCH_BACKEND_IN_SSR */, 'Angular detected that `HttpClient` is not configured ' + 'to use `fetch` APIs. It\'s strongly recommended to ' + 'enable `fetch` for applications that use Server-Side Rendering ' + 'for better performance and compatibility. ' + 'To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` ' + 'call at the root of the application.'));
+        injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵConsole"]).warn((0,_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵformatRuntimeError"])(2801 /* RuntimeErrorCode.NOT_USING_FETCH_BACKEND_IN_SSR */, 'Angular detected that `HttpClient` is not configured ' + "to use `fetch` APIs. It's strongly recommended to " + 'enable `fetch` for applications that use Server-Side Rendering ' + 'for better performance and compatibility. ' + 'To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` ' + 'call at the root of the application.'));
       }
     }
   }
@@ -18884,7 +18953,7 @@ class JsonpClientBackend {
           // returned.
           observer.next(new HttpResponse({
             body,
-            status: 200 /* HttpStatusCode.Ok */,
+            status: HttpStatusCode.Ok,
             statusText: 'OK',
             url
           }));
@@ -18928,9 +18997,7 @@ class JsonpClientBackend {
     // Issue #34818
     // Changing <script>'s ownerDocument will prevent it from execution.
     // https://html.spec.whatwg.org/multipage/scripting.html#execute-the-script-block
-    if (!foreignDocument) {
-      foreignDocument = this.document.implementation.createHTMLDocument();
-    }
+    foreignDocument ??= this.document.implementation.createHTMLDocument();
     foreignDocument.adoptNode(script);
   }
   static #_ = this.ɵfac = function JsonpClientBackend_Factory(t) {
@@ -19119,13 +19186,13 @@ class HttpXhrBackend {
           } = partialFromXhr();
           // The body will be read out if present.
           let body = null;
-          if (status !== 204 /* HttpStatusCode.NoContent */) {
+          if (status !== HttpStatusCode.NoContent) {
             // Use XMLHttpRequest.response if set, responseText otherwise.
             body = typeof xhr.response === 'undefined' ? xhr.responseText : xhr.response;
           }
           // Normalize another potential bug (this one comes from CORS).
           if (status === 0) {
-            status = !!body ? 200 /* HttpStatusCode.Ok */ : 0;
+            status = !!body ? HttpStatusCode.Ok : 0;
           }
           // ok determines whether the response will be transmitted on the event or
           // error channel. Unsuccessful status codes (not 2xx) will always be errors,
@@ -19304,14 +19371,14 @@ class HttpXhrBackend {
     type: _angular_common__WEBPACK_IMPORTED_MODULE_8__.XhrFactory
   }], null);
 })();
-const XSRF_ENABLED = new _angular_core__WEBPACK_IMPORTED_MODULE_5__.InjectionToken('XSRF_ENABLED');
+const XSRF_ENABLED = new _angular_core__WEBPACK_IMPORTED_MODULE_5__.InjectionToken(ngDevMode ? 'XSRF_ENABLED' : '');
 const XSRF_DEFAULT_COOKIE_NAME = 'XSRF-TOKEN';
-const XSRF_COOKIE_NAME = new _angular_core__WEBPACK_IMPORTED_MODULE_5__.InjectionToken('XSRF_COOKIE_NAME', {
+const XSRF_COOKIE_NAME = new _angular_core__WEBPACK_IMPORTED_MODULE_5__.InjectionToken(ngDevMode ? 'XSRF_COOKIE_NAME' : '', {
   providedIn: 'root',
   factory: () => XSRF_DEFAULT_COOKIE_NAME
 });
 const XSRF_DEFAULT_HEADER_NAME = 'X-XSRF-TOKEN';
-const XSRF_HEADER_NAME = new _angular_core__WEBPACK_IMPORTED_MODULE_5__.InjectionToken('XSRF_HEADER_NAME', {
+const XSRF_HEADER_NAME = new _angular_core__WEBPACK_IMPORTED_MODULE_5__.InjectionToken(ngDevMode ? 'XSRF_HEADER_NAME' : '', {
   providedIn: 'root',
   factory: () => XSRF_DEFAULT_HEADER_NAME
 });
@@ -19520,7 +19587,7 @@ function withInterceptors(interceptorFns) {
     };
   }));
 }
-const LEGACY_INTERCEPTOR_FN = new _angular_core__WEBPACK_IMPORTED_MODULE_5__.InjectionToken('LEGACY_INTERCEPTOR_FN');
+const LEGACY_INTERCEPTOR_FN = new _angular_core__WEBPACK_IMPORTED_MODULE_5__.InjectionToken(ngDevMode ? 'LEGACY_INTERCEPTOR_FN' : '');
 /**
  * Includes class-based interceptors configured using a multi-provider in the current injector into
  * the configured `HttpClient` instance.
@@ -20012,9 +20079,9 @@ function appendMissingHeadersDetection(url, headers, headersToInclude) {
 
 /***/ }),
 
-/***/ 8559:
+/***/ 3646:
 /*!************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@angular+core@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/@angular/core/fesm2022/core.mjs ***!
+  !*** ./node_modules/.pnpm/@angular+core@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/@angular/core/fesm2022/core.mjs ***!
   \************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -20132,6 +20199,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getPlatform: () => (/* binding */ getPlatform),
 /* harmony export */   importProvidersFrom: () => (/* binding */ importProvidersFrom),
 /* harmony export */   inject: () => (/* binding */ inject),
+/* harmony export */   input: () => (/* binding */ input),
 /* harmony export */   isDevMode: () => (/* binding */ isDevMode),
 /* harmony export */   isSignal: () => (/* binding */ isSignal),
 /* harmony export */   isStandalone: () => (/* binding */ isStandalone),
@@ -20162,6 +20230,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵIMAGE_CONFIG": () => (/* binding */ IMAGE_CONFIG),
 /* harmony export */   "ɵIMAGE_CONFIG_DEFAULTS": () => (/* binding */ IMAGE_CONFIG_DEFAULTS),
 /* harmony export */   "ɵINJECTOR_SCOPE": () => (/* binding */ INJECTOR_SCOPE),
+/* harmony export */   "ɵINPUT_SIGNAL_BRAND_WRITE_TYPE": () => (/* binding */ ɵINPUT_SIGNAL_BRAND_WRITE_TYPE),
 /* harmony export */   "ɵIS_HYDRATION_DOM_REUSE_ENABLED": () => (/* binding */ IS_HYDRATION_DOM_REUSE_ENABLED),
 /* harmony export */   "ɵLContext": () => (/* binding */ LContext),
 /* harmony export */   "ɵLifecycleHooksFeature": () => (/* binding */ LifecycleHooksFeature),
@@ -20189,7 +20258,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵUSE_RUNTIME_DEPS_TRACKER_FOR_JIT": () => (/* binding */ USE_RUNTIME_DEPS_TRACKER_FOR_JIT),
 /* harmony export */   "ɵViewRef": () => (/* binding */ ViewRef$1),
 /* harmony export */   "ɵXSS_SECURITY_URL": () => (/* binding */ XSS_SECURITY_URL),
-/* harmony export */   "ɵZoneAwareQueueingScheduler": () => (/* binding */ ZoneAwareQueueingScheduler),
 /* harmony export */   "ɵ_sanitizeHtml": () => (/* binding */ _sanitizeHtml),
 /* harmony export */   "ɵ_sanitizeUrl": () => (/* binding */ _sanitizeUrl),
 /* harmony export */   "ɵallowSanitizationBypassAndThrow": () => (/* binding */ allowSanitizationBypassAndThrow),
@@ -20243,8 +20311,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵnoSideEffects": () => (/* binding */ noSideEffects),
 /* harmony export */   "ɵpatchComponentDefWithScope": () => (/* binding */ patchComponentDefWithScope),
 /* harmony export */   "ɵperformanceMarkFeature": () => (/* binding */ performanceMarkFeature),
-/* harmony export */   "ɵpublishDefaultGlobalUtils": () => (/* binding */ publishDefaultGlobalUtils$1),
-/* harmony export */   "ɵpublishGlobalUtil": () => (/* binding */ publishGlobalUtil),
+/* harmony export */   "ɵprovideZonelessChangeDetection": () => (/* binding */ provideZonelessChangeDetection),
+/* harmony export */   "ɵreadHydrationInfo": () => (/* binding */ readHydrationInfo),
 /* harmony export */   "ɵregisterLocaleData": () => (/* binding */ registerLocaleData),
 /* harmony export */   "ɵrenderDeferBlockState": () => (/* binding */ renderDeferBlockState),
 /* harmony export */   "ɵresetCompiledComponents": () => (/* binding */ resetCompiledComponents),
@@ -20276,6 +20344,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵɵFactoryTarget": () => (/* binding */ FactoryTarget),
 /* harmony export */   "ɵɵHostDirectivesFeature": () => (/* binding */ ɵɵHostDirectivesFeature),
 /* harmony export */   "ɵɵInheritDefinitionFeature": () => (/* binding */ ɵɵInheritDefinitionFeature),
+/* harmony export */   "ɵɵInputFlags": () => (/* binding */ InputFlags),
 /* harmony export */   "ɵɵInputTransformsFeature": () => (/* binding */ ɵɵInputTransformsFeature),
 /* harmony export */   "ɵɵNgOnChangesFeature": () => (/* binding */ ɵɵNgOnChangesFeature),
 /* harmony export */   "ɵɵProvidersFeature": () => (/* binding */ ɵɵProvidersFeature),
@@ -20454,14 +20523,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵɵvalidateIframeAttribute": () => (/* binding */ ɵɵvalidateIframeAttribute),
 /* harmony export */   "ɵɵviewQuery": () => (/* binding */ ɵɵviewQuery)
 /* harmony export */ });
-/* harmony import */ var _angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core/primitives/signals */ 6393);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 7714);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ 6496);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 804);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 4546);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ 2952);
+/* harmony import */ var _home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_7_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/.pnpm/@babel+runtime@7.23.7/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 6638);
+/* harmony import */ var _angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core/primitives/signals */ 9944);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ 9764);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 4979);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 1935);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ 1126);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ 3775);
+
 /**
- * @license Angular v17.0.8
+ * @license Angular v17.1.2
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -20469,6 +20540,136 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+/**
+ * Base URL for the error details page.
+ *
+ * Keep this constant in sync across:
+ *  - packages/compiler-cli/src/ngtsc/diagnostics/src/error_details_base_url.ts
+ *  - packages/core/src/error_details_base_url.ts
+ */
+const ERROR_DETAILS_PAGE_BASE_URL = 'https://angular.io/errors';
+/**
+ * URL for the XSS security documentation.
+ */
+const XSS_SECURITY_URL = 'https://g.co/ng/security#xss';
+
+/**
+ * Class that represents a runtime error.
+ * Formats and outputs the error message in a consistent way.
+ *
+ * Example:
+ * ```
+ *  throw new RuntimeError(
+ *    RuntimeErrorCode.INJECTOR_ALREADY_DESTROYED,
+ *    ngDevMode && 'Injector has already been destroyed.');
+ * ```
+ *
+ * Note: the `message` argument contains a descriptive error message as a string in development
+ * mode (when the `ngDevMode` is defined). In production mode (after tree-shaking pass), the
+ * `message` argument becomes `false`, thus we account for it in the typings and the runtime
+ * logic.
+ */
+class RuntimeError extends Error {
+  constructor(code, message) {
+    super(formatRuntimeError(code, message));
+    this.code = code;
+  }
+}
+/**
+ * Called to format a runtime error.
+ * See additional info on the `message` argument type in the `RuntimeError` class description.
+ */
+function formatRuntimeError(code, message) {
+  // Error code might be a negative number, which is a special marker that instructs the logic to
+  // generate a link to the error details page on angular.io.
+  // We also prepend `0` to non-compile-time errors.
+  const fullCode = `NG0${Math.abs(code)}`;
+  let errorMessage = `${fullCode}${message ? ': ' + message : ''}`;
+  if (ngDevMode && code < 0) {
+    const addPeriodSeparator = !errorMessage.match(/[.,;!?\n]$/);
+    const separator = addPeriodSeparator ? '.' : '';
+    errorMessage = `${errorMessage}${separator} Find more at ${ERROR_DETAILS_PAGE_BASE_URL}/${fullCode}`;
+  }
+  return errorMessage;
+}
+const REQUIRED_UNSET_VALUE = /* @__PURE__ */Symbol('InputSignalNode#UNSET');
+// Note: Using an IIFE here to ensure that the spread assignment is not considered
+// a side-effect, ending up preserving `COMPUTED_NODE` and `REACTIVE_NODE`.
+// TODO: remove when https://github.com/evanw/esbuild/issues/3392 is resolved.
+const INPUT_SIGNAL_NODE = /* @__PURE__ */(() => {
+  return {
+    ..._angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.SIGNAL_NODE,
+    transformFn: undefined,
+    applyValueToInputSignal(node, value) {
+      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.signalSetFn)(node, value);
+    }
+  };
+})();
+const ɵINPUT_SIGNAL_BRAND_READ_TYPE = /* @__PURE__ */Symbol();
+const ɵINPUT_SIGNAL_BRAND_WRITE_TYPE = /* @__PURE__ */Symbol();
+/**
+ * Creates an input signal.
+ *
+ * @param initialValue The initial value.
+ *   Can be set to {@link REQUIRED_UNSET_VALUE} for required inputs.
+ * @param options Additional options for the input. e.g. a transform, or an alias.
+ */
+function createInputSignal(initialValue, options) {
+  const node = Object.create(INPUT_SIGNAL_NODE);
+  node.value = initialValue;
+  // Perf note: Always set `transformFn` here to ensure that `node` always
+  // has the same v8 class shape, allowing monomorphic reads on input signals.
+  node.transformFn = options?.transform;
+  function inputValueFn() {
+    // Record that someone looked at this signal.
+    (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.producerAccessed)(node);
+    if (node.value === REQUIRED_UNSET_VALUE) {
+      throw new RuntimeError(-950 /* RuntimeErrorCode.REQUIRED_INPUT_NO_VALUE */, ngDevMode && 'Input is required but no value is available yet.');
+    }
+    return node.value;
+  }
+  inputValueFn[_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.SIGNAL] = node;
+  return inputValueFn;
+}
+function inputFunction(initialValue, opts) {
+  return createInputSignal(initialValue, opts);
+}
+function inputRequiredFunction(opts) {
+  return createInputSignal(REQUIRED_UNSET_VALUE, opts);
+}
+/**
+ * The `input` function allows declaration of inputs in directives and
+ * components.
+ *
+ * Initializes an input with an initial value. If no explicit value
+ * is specified, Angular will use `undefined`.
+ *
+ * Consider using `input.required` for inputs that don't need an
+ * initial value.
+ *
+ * @usageNotes
+ * Initialize an input in your directive or component by declaring a
+ * class field and initializing it with the `input()` function.
+ *
+ * ```ts
+ * @Directive({..})
+ * export class MyDir {
+ *   firstName = input<string>();            // string|undefined
+ *   lastName = input.required<string>();    // string
+ *   age = input(0);                         // number
+ * }
+ * ```
+ *
+ * @developerPreview
+ */
+const input = (() => {
+  // Note: This may be considered a side-effect, but nothing will depend on
+  // this assignment, unless this `input` constant export is accessed. It's a
+  // self-contained side effect that is local to the user facing`input` export.
+  inputFunction.required = inputRequiredFunction;
+  return inputFunction;
+})();
 function getClosureSafeProperty(objWithPropertyToExtract) {
   for (let key in objWithPropertyToExtract) {
     if (objWithPropertyToExtract[key] === getClosureSafeProperty) {
@@ -20609,59 +20810,6 @@ function isForwardRef(fn) {
 function isEnvironmentProviders(value) {
   return value && !!value.ɵproviders;
 }
-
-/**
- * Base URL for the error details page.
- *
- * Keep this constant in sync across:
- *  - packages/compiler-cli/src/ngtsc/diagnostics/src/error_details_base_url.ts
- *  - packages/core/src/error_details_base_url.ts
- */
-const ERROR_DETAILS_PAGE_BASE_URL = 'https://angular.io/errors';
-/**
- * URL for the XSS security documentation.
- */
-const XSS_SECURITY_URL = 'https://g.co/ng/security#xss';
-
-/**
- * Class that represents a runtime error.
- * Formats and outputs the error message in a consistent way.
- *
- * Example:
- * ```
- *  throw new RuntimeError(
- *    RuntimeErrorCode.INJECTOR_ALREADY_DESTROYED,
- *    ngDevMode && 'Injector has already been destroyed.');
- * ```
- *
- * Note: the `message` argument contains a descriptive error message as a string in development
- * mode (when the `ngDevMode` is defined). In production mode (after tree-shaking pass), the
- * `message` argument becomes `false`, thus we account for it in the typings and the runtime
- * logic.
- */
-class RuntimeError extends Error {
-  constructor(code, message) {
-    super(formatRuntimeError(code, message));
-    this.code = code;
-  }
-}
-/**
- * Called to format a runtime error.
- * See additional info on the `message` argument type in the `RuntimeError` class description.
- */
-function formatRuntimeError(code, message) {
-  // Error code might be a negative number, which is a special marker that instructs the logic to
-  // generate a link to the error details page on angular.io.
-  // We also prepend `0` to non-compile-time errors.
-  const fullCode = `NG0${Math.abs(code)}`;
-  let errorMessage = `${fullCode}${message ? ': ' + message : ''}`;
-  if (ngDevMode && code < 0) {
-    const addPeriodSeparator = !errorMessage.match(/[.,;!?\n]$/);
-    const separator = addPeriodSeparator ? '.' : '';
-    errorMessage = `${errorMessage}${separator} Find more at ${ERROR_DETAILS_PAGE_BASE_URL}/${fullCode}`;
-  }
-  return errorMessage;
-}
 const NG_COMP_DEF = getClosureSafeProperty({
   ɵcmp: getClosureSafeProperty
 });
@@ -20773,8 +20921,8 @@ function throwInvalidProviderError(ngModuleType, providers, provider) {
 }
 /** Throws an error when a token is not found in DI. */
 function throwProviderNotFoundError(token, injectorName) {
-  const injectorDetails = injectorName ? ` in ${injectorName}` : '';
-  throw new RuntimeError(-201 /* RuntimeErrorCode.PROVIDER_NOT_FOUND */, ngDevMode && `No provider for ${stringifyForError(token)} found${injectorDetails}`);
+  const errorMessage = ngDevMode && `No provider for ${stringifyForError(token)} found${injectorName ? ` in ${injectorName}` : ''}`;
+  throw new RuntimeError(-201 /* RuntimeErrorCode.PROVIDER_NOT_FOUND */, errorMessage);
 }
 
 // The functions in this file verify that the assumptions we are making
@@ -21046,7 +21194,7 @@ function injectRootLimpMode(token, notFoundValue, flags) {
   }
   if (flags & InjectFlags.Optional) return null;
   if (notFoundValue !== undefined) return notFoundValue;
-  throwProviderNotFoundError(stringify(token), 'Injector');
+  throwProviderNotFoundError(token, 'Injector');
 }
 /**
  * Assert that `_injectImplementation` is not `fn`.
@@ -21093,7 +21241,14 @@ function ngDevModeResetPerfCounters() {
   };
   // Make sure to refer to ngDevMode as ['ngDevMode'] for closure.
   const allowNgDevModeTrue = locationString.indexOf('ngDevMode=false') === -1;
-  _global['ngDevMode'] = allowNgDevModeTrue && newCounters;
+  if (!allowNgDevModeTrue) {
+    _global['ngDevMode'] = false;
+  } else {
+    if (typeof _global['ngDevMode'] !== 'object') {
+      _global['ngDevMode'] = {};
+    }
+    Object.assign(_global['ngDevMode'], newCounters);
+  }
   return newCounters;
 }
 /**
@@ -21123,7 +21278,7 @@ function initNgDevMode() {
   // If the `ngDevMode` is not an object, then it means we have not created the perf counters
   // yet.
   if (typeof ngDevMode === 'undefined' || ngDevMode) {
-    if (typeof ngDevMode !== 'object') {
+    if (typeof ngDevMode !== 'object' || Object.keys(ngDevMode).length === 0) {
       ngDevModeResetPerfCounters();
     }
     return typeof ngDevMode !== 'undefined' && !!ngDevMode;
@@ -21473,7 +21628,6 @@ function convertToBitFlags(flags) {
   // comment to force a line break in the formatter
   flags.optional && 8 /* InternalInjectFlags.Optional */) | (flags.host && 1 /* InternalInjectFlags.Host */) | (flags.self && 2 /* InternalInjectFlags.Self */) | (flags.skipSelf && 4 /* InternalInjectFlags.SkipSelf */);
 }
-
 function injectArgs(types) {
   const args = [];
   for (let i = 0; i < types.length; i++) {
@@ -21653,6 +21807,14 @@ if ((typeof ngDevMode === 'undefined' || ngDevMode) && initNgDevMode()) {
   Object.freeze(EMPTY_ARRAY);
 }
 
+/** Flags describing an input for a directive. */
+var InputFlags;
+(function (InputFlags) {
+  InputFlags[InputFlags["None"] = 0] = "None";
+  InputFlags[InputFlags["SignalBased"] = 1] = "SignalBased";
+  InputFlags[InputFlags["HasDecoratorInputTransform"] = 2] = "HasDecoratorInputTransform";
+})(InputFlags || (InputFlags = {}));
+
 /**
  * Returns an index of `classToSearch` in `className` taking token boundaries into account.
  *
@@ -21757,7 +21919,6 @@ function setUpAttributes(renderer, native, attrs) {
 function isNameOnlyAttributeMarker(marker) {
   return marker === 3 /* AttributeMarker.Bindings */ || marker === 4 /* AttributeMarker.Template */ || marker === 6 /* AttributeMarker.I18n */;
 }
-
 function isAnimationProp(name) {
   // Perf note: accessing charCodeAt to check for the first character of a string is faster as
   // compared to accessing a character at index 0 (ex. name[0]). The main reason for this is that
@@ -22285,7 +22446,9 @@ function ɵɵdefineComponent(componentDefinition) {
       ngContentSelectors: componentDefinition.ngContentSelectors,
       onPush: componentDefinition.changeDetection === ChangeDetectionStrategy.OnPush,
       directiveDefs: null,
+      // assigned in noSideEffects
       pipeDefs: null,
+      // assigned in noSideEffects
       dependencies: baseDef.standalone && componentDefinition.dependencies || null,
       getStandaloneInjector: null,
       signals: componentDefinition.signals ?? false,
@@ -22329,75 +22492,30 @@ function ɵɵdefineNgModule(def) {
     return res;
   });
 }
-/**
- * Inverts an inputs or outputs lookup such that the keys, which were the
- * minified keys, are part of the values, and the values are parsed so that
- * the publicName of the property is the new key
- *
- * e.g. for
- *
- * ```
- * class Comp {
- *   @Input()
- *   propName1: string;
- *
- *   @Input('publicName2')
- *   declaredPropName2: number;
- * }
- * ```
- *
- * will be serialized as
- *
- * ```
- * {
- *   propName1: 'propName1',
- *   declaredPropName2: ['publicName2', 'declaredPropName2'],
- * }
- * ```
- *
- * which is than translated by the minifier as:
- *
- * ```
- * {
- *   minifiedPropName1: 'propName1',
- *   minifiedPropName2: ['publicName2', 'declaredPropName2'],
- * }
- * ```
- *
- * becomes: (public name => minifiedName)
- *
- * ```
- * {
- *  'propName1': 'minifiedPropName1',
- *  'publicName2': 'minifiedPropName2',
- * }
- * ```
- *
- * Optionally the function can take `secondary` which will result in: (public name => declared name)
- *
- * ```
- * {
- *  'propName1': 'propName1',
- *  'publicName2': 'declaredPropName2',
- * }
- * ```
- *
-
- */
-function invertObject(obj, secondary) {
+function parseAndConvertBindingsForDefinition(obj, declaredInputs) {
   if (obj == null) return EMPTY_OBJ;
   const newLookup = {};
   for (const minifiedKey in obj) {
     if (obj.hasOwnProperty(minifiedKey)) {
-      let publicName = obj[minifiedKey];
-      let declaredName = publicName;
-      if (Array.isArray(publicName)) {
-        declaredName = publicName[1];
-        publicName = publicName[0];
+      const value = obj[minifiedKey];
+      let publicName;
+      let declaredName;
+      let inputFlags = InputFlags.None;
+      if (Array.isArray(value)) {
+        inputFlags = value[0];
+        publicName = value[1];
+        declaredName = value[2] ?? publicName; // declared name might not be set to save bytes.
+      } else {
+        publicName = value;
+        declaredName = value;
       }
-      newLookup[publicName] = minifiedKey;
-      if (secondary) {
-        secondary[publicName] = declaredName;
+      // For inputs, capture the declared name, or if some flags are set.
+      if (declaredInputs) {
+        // Perf note: An array is only allocated for the input if there are flags.
+        newLookup[publicName] = inputFlags !== InputFlags.None ? [minifiedKey, inputFlags] : minifiedKey;
+        declaredInputs[publicName] = declaredName;
+      } else {
+        newLookup[publicName] = minifiedKey;
       }
     }
   }
@@ -22495,7 +22613,7 @@ function getNgDirectiveDef(directiveDefinition) {
     hostVars: directiveDefinition.hostVars || 0,
     hostAttrs: directiveDefinition.hostAttrs || null,
     contentQueries: directiveDefinition.contentQueries || null,
-    declaredInputs,
+    declaredInputs: declaredInputs,
     inputTransforms: null,
     inputConfig: directiveDefinition.inputs || EMPTY_OBJ,
     exportAs: directiveDefinition.exportAs || null,
@@ -22507,8 +22625,8 @@ function getNgDirectiveDef(directiveDefinition) {
     setInput: null,
     findHostDirectiveDefs: null,
     hostDirectives: null,
-    inputs: invertObject(directiveDefinition.inputs, declaredInputs),
-    outputs: invertObject(directiveDefinition.outputs),
+    inputs: parseAndConvertBindingsForDefinition(directiveDefinition.inputs, declaredInputs),
+    outputs: parseAndConvertBindingsForDefinition(directiveDefinition.outputs),
     debugInfo: null
   };
 }
@@ -22639,11 +22757,6 @@ var LContainerFlags;
    * This flag, once set, is never unset for the `LContainer`.
    */
   LContainerFlags[LContainerFlags["HasTransplantedViews"] = 2] = "HasTransplantedViews";
-  /**
-   * Indicates that this LContainer has a view underneath it that needs to be refreshed during
-   * change detection.
-   */
-  LContainerFlags[LContainerFlags["HasChildViewsToRefresh"] = 4] = "HasChildViewsToRefresh";
 })(LContainerFlags || (LContainerFlags = {}));
 
 /**
@@ -22669,7 +22782,6 @@ function isComponentHost(tNode) {
 function isDirectiveHost(tNode) {
   return (tNode.flags & 1 /* TNodeFlags.isDirectiveHost */) === 1 /* TNodeFlags.isDirectiveHost */;
 }
-
 function isComponentDef(def) {
   return !!def.template;
 }
@@ -22679,11 +22791,9 @@ function isRootView(target) {
 function isProjectionTNode(tNode) {
   return (tNode.type & 16 /* TNodeType.Projection */) === 16 /* TNodeType.Projection */;
 }
-
 function hasI18n(lView) {
   return (lView[FLAGS] & 32 /* LViewFlags.HasI18n */) === 32 /* LViewFlags.HasI18n */;
 }
-
 function isDestroyed(lView) {
   return (lView[FLAGS] & 256 /* LViewFlags.Destroyed */) === 256 /* LViewFlags.Destroyed */;
 }
@@ -22840,6 +22950,13 @@ class SimpleChange {
     return this.firstChange;
   }
 }
+function applyValueToInputField(instance, inputSignalNode, privateName, value) {
+  if (inputSignalNode !== null) {
+    inputSignalNode.applyValueToInputSignal(inputSignalNode, value);
+  } else {
+    instance[privateName] = value;
+  }
+}
 
 /**
  * The NgOnChangesFeature decorates a component with support for the ngOnChanges
@@ -22905,7 +23022,7 @@ function rememberChangeHistoryAndInvokeOnChangesHook() {
     this.ngOnChanges(current);
   }
 }
-function ngOnChangesSetInput(instance, value, publicName, privateName) {
+function ngOnChangesSetInput(instance, inputSignalNode, value, publicName, privateName) {
   const declaredName = this.declaredInputs[publicName];
   ngDevMode && assertString(declaredName, 'Name of input in ngOnChanges has to be a string');
   const simpleChangesStore = getSimpleChangesStore(instance) || setSimpleChangesStore(instance, {
@@ -22916,7 +23033,7 @@ function ngOnChangesSetInput(instance, value, publicName, privateName) {
   const previous = simpleChangesStore.previous;
   const previousChange = previous[declaredName];
   current[declaredName] = new SimpleChange(previousChange && previousChange.currentValue, value, previous === EMPTY_OBJ);
-  instance[privateName] = value;
+  applyValueToInputField(instance, inputSignalNode, privateName, value);
 }
 const SIMPLE_CHANGES_STORE = '__ngSimpleChanges__';
 function getSimpleChangesStore(instance) {
@@ -23150,22 +23267,18 @@ function updateAncestorTraversalFlagsOnAttach(lView) {
  */
 function markAncestorsForTraversal(lView) {
   lView[ENVIRONMENT].changeDetectionScheduler?.notify();
-  let parent = lView[PARENT];
+  let parent = getLViewParent(lView);
   while (parent !== null) {
     // We stop adding markers to the ancestors once we reach one that already has the marker. This
     // is to avoid needlessly traversing all the way to the root when the marker already exists.
-    if (isLContainer(parent) && parent[FLAGS] & LContainerFlags.HasChildViewsToRefresh || isLView(parent) && parent[FLAGS] & 8192 /* LViewFlags.HasChildViewsToRefresh */) {
+    if (parent[FLAGS] & 8192 /* LViewFlags.HasChildViewsToRefresh */) {
       break;
     }
-    if (isLContainer(parent)) {
-      parent[FLAGS] |= LContainerFlags.HasChildViewsToRefresh;
-    } else {
-      parent[FLAGS] |= 8192 /* LViewFlags.HasChildViewsToRefresh */;
-      if (!viewAttachedToChangeDetector(parent)) {
-        break;
-      }
+    parent[FLAGS] |= 8192 /* LViewFlags.HasChildViewsToRefresh */;
+    if (!viewAttachedToChangeDetector(parent)) {
+      break;
     }
-    parent = parent[PARENT];
+    parent = getLViewParent(parent);
   }
 }
 /**
@@ -23189,6 +23302,16 @@ function removeLViewOnDestroy(lView, onDestroyCallback) {
   if (destroyCBIdx !== -1) {
     lView[ON_DESTROY_HOOKS].splice(destroyCBIdx, 1);
   }
+}
+/**
+ * Gets the parent LView of the passed LView, if the PARENT is an LContainer, will get the parent of
+ * that LContainer, which is an LView
+ * @param lView the lView whose parent to get
+ */
+function getLViewParent(lView) {
+  ngDevMode && assertLView(lView);
+  const parent = lView[PARENT];
+  return isLContainer(parent) ? parent[PARENT] : parent;
 }
 const instructionState = {
   lFrame: createLFrame(null),
@@ -23901,7 +24024,6 @@ function callHooks(currentView, arr, initPhase, currentNodeIndex) {
       if (isInitHook) {
         currentView[PREORDER_HOOK_FLAGS] += 65536 /* PreOrderHookFlags.NumberOfInitHooksCalledIncrementer */;
       }
-
       if (lastNodeIndexFound < nodeIndexLimit || nodeIndexLimit == -1) {
         callHook(currentView, initPhase, arr, i);
         currentView[PREORDER_HOOK_FLAGS] = (currentView[PREORDER_HOOK_FLAGS] & 4294901760 /* PreOrderHookFlags.NumberOfInitHooksCalledMask */) + i + 2;
@@ -23917,11 +24039,11 @@ function callHooks(currentView, arr, initPhase, currentNodeIndex) {
  */
 function callHookInternal(directive, hook) {
   profiler(4 /* ProfilerEvent.LifecycleHookStart */, directive, hook);
-  const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(null);
+  const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(null);
   try {
     hook.call(directive);
   } finally {
-    (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(prevConsumer);
+    (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(prevConsumer);
     profiler(5 /* ProfilerEvent.LifecycleHookEnd */, directive, hook);
   }
 }
@@ -24174,13 +24296,14 @@ function hasParentInjector(parentLocation) {
   return parentLocation !== NO_PARENT_INJECTOR;
 }
 function getParentInjectorIndex(parentLocation) {
-  ngDevMode && assertNumber(parentLocation, 'Number expected');
-  ngDevMode && assertNotEqual(parentLocation, -1, 'Not a valid state.');
-  const parentInjectorIndex = parentLocation & 32767 /* RelativeInjectorLocationFlags.InjectorIndexMask */;
-  ngDevMode && assertGreaterThan(parentInjectorIndex, HEADER_OFFSET, 'Parent injector must be pointing past HEADER_OFFSET.');
+  if (ngDevMode) {
+    assertNumber(parentLocation, 'Number expected');
+    assertNotEqual(parentLocation, -1, 'Not a valid state.');
+    const parentInjectorIndex = parentLocation & 32767 /* RelativeInjectorLocationFlags.InjectorIndexMask */;
+    assertGreaterThan(parentInjectorIndex, HEADER_OFFSET, 'Parent injector must be pointing past HEADER_OFFSET.');
+  }
   return parentLocation & 32767 /* RelativeInjectorLocationFlags.InjectorIndexMask */;
 }
-
 function getParentInjectorViewOffset(parentLocation) {
   return parentLocation >> 16 /* RelativeInjectorLocationFlags.ViewOffsetShift */;
 }
@@ -24389,7 +24512,6 @@ function getParentInjectorLocation(tNode, lView) {
       return parentTNode.injectorIndex | declarationViewOffset << 16 /* RelativeInjectorLocationFlags.ViewOffsetShift */;
     }
   }
-
   return NO_PARENT_INJECTOR;
 }
 /**
@@ -25447,7 +25569,6 @@ function _arrayIndexOfSorted(array, value, shift) {
       start = middle + 1; // We already searched middle so make it non-inclusive by adding 1
     }
   }
-
   return ~(end << shift);
 }
 
@@ -25746,7 +25867,6 @@ const Host =
 // Disable tslint because `InternalInjectFlags` is a const enum which gets inlined.
 // tslint:disable-next-line: no-toplevel-property-access
 attachInjectFlag(makeParamDecorator('Host'), 1 /* InternalInjectFlags.Host */);
-
 let _reflect = null;
 function getReflect() {
   return _reflect = _reflect || new ReflectionCapabilities();
@@ -25923,7 +26043,7 @@ function componentDefResolved(type) {
  *
  * @publicApi
  */
-const ENVIRONMENT_INITIALIZER = new InjectionToken('ENVIRONMENT_INITIALIZER');
+const ENVIRONMENT_INITIALIZER = new InjectionToken(ngDevMode ? 'ENVIRONMENT_INITIALIZER' : '');
 
 /**
  * An InjectionToken that gets the current `Injector` for `createInjector()`-style injectors.
@@ -25933,12 +26053,11 @@ const ENVIRONMENT_INITIALIZER = new InjectionToken('ENVIRONMENT_INITIALIZER');
  *
  * @publicApi
  */
-const INJECTOR = new InjectionToken('INJECTOR',
+const INJECTOR = new InjectionToken(ngDevMode ? 'INJECTOR' : '',
 // Disable tslint because this is const enum which gets inlined not top level prop access.
 // tslint:disable-next-line: no-toplevel-property-access
 -1 /* InjectorMarkers.Injector */);
-
-const INJECTOR_DEF_TYPES = new InjectionToken('INJECTOR_DEF_TYPES');
+const INJECTOR_DEF_TYPES = new InjectionToken(ngDevMode ? 'INJECTOR_DEF_TYPES' : '');
 class NullInjector {
   get(token, notFoundValue = THROW_IF_NOT_FOUND) {
     if (notFoundValue === THROW_IF_NOT_FOUND) {
@@ -26221,7 +26340,7 @@ function isClassProvider(value) {
  * as a root scoped injector when processing requests for unknown tokens which may indicate
  * they are provided in the root scope.
  */
-const INJECTOR_SCOPE = new InjectionToken('Set Injector scope.');
+const INJECTOR_SCOPE = new InjectionToken(ngDevMode ? 'Set Injector scope.' : '');
 
 /**
  * Marker which indicates that a value has not yet been created from the factory function.
@@ -26491,9 +26610,11 @@ class R3Injector extends EnvironmentInjector {
       token = provider;
       multiRecord.multi.push(provider);
     } else {
-      const existing = this.records.get(token);
-      if (ngDevMode && existing && existing.multi !== undefined) {
-        throwMixedMultiProviderError();
+      if (ngDevMode) {
+        const existing = this.records.get(token);
+        if (existing && existing.multi !== undefined) {
+          throwMixedMultiProviderError();
+        }
       }
     }
     this.records.set(token, record);
@@ -26558,8 +26679,7 @@ function getUndecoratedInjectableFactory(token) {
   // If the token has parameters then it has dependencies that we cannot resolve implicitly.
   const paramLength = token.length;
   if (paramLength > 0) {
-    const args = newArray(paramLength, '?');
-    throw new RuntimeError(204 /* RuntimeErrorCode.INVALID_INJECTION_TOKEN */, ngDevMode && `Can't resolve all parameters for ${stringify(token)}: (${args.join(', ')}).`);
+    throw new RuntimeError(204 /* RuntimeErrorCode.INVALID_INJECTION_TOKEN */, ngDevMode && `Can't resolve all parameters for ${stringify(token)}: (${newArray(paramLength, '?').join(', ')}).`);
   }
   // The constructor function appears to have no parameters.
   // This might be because it inherits from a super-class. In which case, use an injectable
@@ -26744,6 +26864,7 @@ function compileInjectable(type, meta) {
             name: type.name,
             type,
             typeArgumentCount: 0,
+            // In JIT mode types are not available nor used.
             deps: reflectDependencies(type),
             target: compiler.FactoryTarget.Injectable
           });
@@ -26827,10 +26948,10 @@ function createInjectorWithoutInjectorInstances(defType, parent = null, addition
 
 /**
  * Concrete injectors implement this interface. Injectors are configured
- * with [providers](guide/glossary#provider) that associate
- * dependencies of various types with [injection tokens](guide/glossary#di-token).
+ * with [providers](guide/dependency-injection-providers) that associate
+ * dependencies of various types with [injection tokens](guide/dependency-injection-providers).
  *
- * @see ["DI Providers"](guide/dependency-injection-providers).
+ * @see [DI Providers](guide/dependency-injection-providers).
  * @see {@link StaticProvider}
  *
  * @usageNotes
@@ -27023,7 +27144,7 @@ function getDocument() {
  *
  * @publicApi
  */
-const APP_ID = new InjectionToken('AppId', {
+const APP_ID = new InjectionToken(ngDevMode ? 'AppId' : '', {
   providedIn: 'root',
   factory: () => DEFAULT_APP_ID
 });
@@ -27033,12 +27154,12 @@ const DEFAULT_APP_ID = 'ng';
  * A function that is executed when a platform is initialized.
  * @publicApi
  */
-const PLATFORM_INITIALIZER = new InjectionToken('Platform Initializer');
+const PLATFORM_INITIALIZER = new InjectionToken(ngDevMode ? 'Platform Initializer' : '');
 /**
  * A token that indicates an opaque platform ID.
  * @publicApi
  */
-const PLATFORM_ID = new InjectionToken('Platform ID', {
+const PLATFORM_ID = new InjectionToken(ngDevMode ? 'Platform ID' : '', {
   providedIn: 'platform',
   factory: () => 'unknown' // set a default platform name, when none set explicitly
 });
@@ -27048,16 +27169,16 @@ const PLATFORM_ID = new InjectionToken('Platform ID', {
  * @publicApi
  * @deprecated
  */
-const PACKAGE_ROOT_URL = new InjectionToken('Application Packages Root URL');
+const PACKAGE_ROOT_URL = new InjectionToken(ngDevMode ? 'Application Packages Root URL' : '');
 // We keep this token here, rather than the animations package, so that modules that only care
 // about which animations module is loaded (e.g. the CDK) can retrieve it without having to
 // include extra dependencies. See #44970 for more context.
 /**
- * A [DI token](guide/glossary#di-token "DI token definition") that indicates which animations
+ * A [DI token](api/core/InjectionToken) that indicates which animations
  * module has been loaded.
  * @publicApi
  */
-const ANIMATION_MODULE_TYPE = new InjectionToken('AnimationModuleType');
+const ANIMATION_MODULE_TYPE = new InjectionToken(ngDevMode ? 'AnimationModuleType' : '');
 // TODO(crisbeto): link to CSP guide here.
 /**
  * Token used to configure the [Content Security Policy](https://web.dev/strict-csp/) nonce that
@@ -27066,7 +27187,7 @@ const ANIMATION_MODULE_TYPE = new InjectionToken('AnimationModuleType');
  *
  * @publicApi
  */
-const CSP_NONCE = new InjectionToken('CSP nonce', {
+const CSP_NONCE = new InjectionToken(ngDevMode ? 'CSP nonce' : '', {
   providedIn: 'root',
   factory: () => {
     // Ideally we wouldn't have to use `querySelector` here since we know that the nonce will be on
@@ -27103,7 +27224,7 @@ const IMAGE_CONFIG_DEFAULTS = {
  * @see {@link ImageConfig}
  * @publicApi
  */
-const IMAGE_CONFIG = new InjectionToken('ImageConfig', {
+const IMAGE_CONFIG = new InjectionToken(ngDevMode ? 'ImageConfig' : '', {
   providedIn: 'root',
   factory: () => IMAGE_CONFIG_DEFAULTS
 });
@@ -28205,62 +28326,6 @@ function ensureIcuContainerVisitorLoaded(loader) {
 }
 
 /**
- * Gets the parent LView of the passed LView, if the PARENT is an LContainer, will get the parent of
- * that LContainer, which is an LView
- * @param lView the lView whose parent to get
- */
-function getLViewParent(lView) {
-  ngDevMode && assertLView(lView);
-  const parent = lView[PARENT];
-  return isLContainer(parent) ? parent[PARENT] : parent;
-}
-/**
- * Retrieve the root view from any component or `LView` by walking the parent `LView` until
- * reaching the root `LView`.
- *
- * @param componentOrLView any component or `LView`
- */
-function getRootView(componentOrLView) {
-  ngDevMode && assertDefined(componentOrLView, 'component');
-  let lView = isLView(componentOrLView) ? componentOrLView : readPatchedLView(componentOrLView);
-  while (lView && !(lView[FLAGS] & 512 /* LViewFlags.IsRoot */)) {
-    lView = getLViewParent(lView);
-  }
-  ngDevMode && assertLView(lView);
-  return lView;
-}
-/**
- * Returns the context information associated with the application where the target is situated. It
- * does this by walking the parent views until it gets to the root view, then getting the context
- * off of that.
- *
- * @param viewOrComponent the `LView` or component to get the root context for.
- */
-function getRootContext(viewOrComponent) {
-  const rootView = getRootView(viewOrComponent);
-  ngDevMode && assertDefined(rootView[CONTEXT], 'Root view has no context. Perhaps it is disconnected?');
-  return rootView[CONTEXT];
-}
-/**
- * Gets the first `LContainer` in the LView or `null` if none exists.
- */
-function getFirstLContainer(lView) {
-  return getNearestLContainer(lView[CHILD_HEAD]);
-}
-/**
- * Gets the next `LContainer` that is a sibling of the given container.
- */
-function getNextLContainer(container) {
-  return getNearestLContainer(container[NEXT]);
-}
-function getNearestLContainer(viewOrContainer) {
-  while (viewOrContainer !== null && !isLContainer(viewOrContainer)) {
-    viewOrContainer = viewOrContainer[NEXT];
-  }
-  return viewOrContainer;
-}
-
-/**
  * NOTE: for performance reasons, the possible actions are inlined within the function instead of
  * being passed as an argument.
  */
@@ -28337,8 +28402,7 @@ function createElementNode(renderer, name, namespace) {
  * @param lView The view from which elements should be added or removed
  */
 function removeViewFromDOM(tView, lView) {
-  const renderer = lView[RENDERER];
-  applyView(tView, lView, renderer, 2 /* WalkTNodeTreeAction.Detach */, null, null);
+  detachViewFromDOM(tView, lView);
   lView[HOST] = null;
   lView[T_HOST] = null;
 }
@@ -28493,8 +28557,7 @@ function detachMovedView(declarationContainer, lView) {
   ngDevMode && assertDefined(declarationContainer[MOVED_VIEWS], 'A projected view should belong to a non-empty projected views collection');
   const movedViews = declarationContainer[MOVED_VIEWS];
   const declarationViewIndex = movedViews.indexOf(lView);
-  const insertionLContainer = lView[PARENT];
-  ngDevMode && assertLContainer(insertionLContainer);
+  ngDevMode && assertLContainer(lView[PARENT]);
   movedViews.splice(declarationViewIndex, 1);
 }
 /**
@@ -28531,7 +28594,6 @@ function detachView(lContainer, removeIndex) {
     // Unsets the attached flag
     viewToDetach[FLAGS] &= ~128 /* LViewFlags.Attached */;
   }
-
   return viewToDetach;
 }
 /**
@@ -28569,7 +28631,7 @@ function cleanUpView(tView, lView) {
     // This also aligns with the ViewEngine behavior. It also means that the onDestroy hook is
     // really more of an "afterDestroy" hook if you think about it.
     lView[FLAGS] |= 256 /* LViewFlags.Destroyed */;
-    lView[REACTIVE_TEMPLATE_CONSUMER] && (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.consumerDestroy)(lView[REACTIVE_TEMPLATE_CONSUMER]);
+    lView[REACTIVE_TEMPLATE_CONSUMER] && (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.consumerDestroy)(lView[REACTIVE_TEMPLATE_CONSUMER]);
     executeOnDestroys(tView, lView);
     processCleanups(tView, lView);
     // For component views only, the local renderer is destroyed at clean up time.
@@ -28955,7 +29017,6 @@ function applyNodes(renderer, action, tNode, lView, parentRElement, beforeNode, 
         tNode.flags |= 2 /* TNodeFlags.isProjected */;
       }
     }
-
     if ((tNode.flags & 32 /* TNodeFlags.isDetached */) !== 32 /* TNodeFlags.isDetached */) {
       if (tNodeType & 8 /* TNodeType.ElementContainer */) {
         applyNodes(renderer, action, tNode.child, lView, parentRElement, beforeNode, false);
@@ -29034,7 +29095,6 @@ function applyProjectionRecursive(renderer, action, lView, tProjectionNode, pare
     if (hasInSkipHydrationBlockFlag(tProjectionNode)) {
       nodeToProject.flags |= 128 /* TNodeFlags.inSkipHydrationBlock */;
     }
-
     applyNodes(renderer, action, nodeToProject, projectedComponentLView, parentRElement, beforeNode, true);
   }
 }
@@ -29400,31 +29460,26 @@ class SafeHtmlImpl extends SafeValueImpl {
     return "HTML" /* BypassType.Html */;
   }
 }
-
 class SafeStyleImpl extends SafeValueImpl {
   getTypeName() {
     return "Style" /* BypassType.Style */;
   }
 }
-
 class SafeScriptImpl extends SafeValueImpl {
   getTypeName() {
     return "Script" /* BypassType.Script */;
   }
 }
-
 class SafeUrlImpl extends SafeValueImpl {
   getTypeName() {
     return "URL" /* BypassType.Url */;
   }
 }
-
 class SafeResourceUrlImpl extends SafeValueImpl {
   getTypeName() {
     return "ResourceURL" /* BypassType.ResourceUrl */;
   }
 }
-
 function unwrapSafeValue(value) {
   return value instanceof SafeValueImpl ? value.changingThisBreaksApplicationSecurity : value;
 }
@@ -30232,7 +30287,7 @@ const SSR_CONTENT_INTEGRITY_MARKER = 'nghm';
  * @param injector Injector that this component has access to.
  * @param isRootView Specifies whether we trying to read hydration info for the root view.
  */
-let _retrieveHydrationInfoImpl = (rNode, injector, isRootView) => null;
+let _retrieveHydrationInfoImpl = () => null;
 function retrieveHydrationInfoImpl(rNode, injector, isRootView = false) {
   let nghAttrValue = rNode.getAttribute(NGH_ATTR_NAME);
   if (nghAttrValue == null) return null;
@@ -30251,7 +30306,8 @@ function retrieveHydrationInfoImpl(rNode, injector, isRootView = false) {
   if (!nghAttrValue) return null;
   // We've read one of the ngh ids, keep the remaining one, so that
   // we can set it back on the DOM element.
-  const remainingNgh = isRootView ? componentViewNgh : rootViewNgh ? `|${rootViewNgh}` : '';
+  const rootNgh = rootViewNgh ? `|${rootViewNgh}` : '';
+  const remainingNgh = isRootView ? componentViewNgh : rootNgh;
   let data = {};
   // An element might have an empty `ngh` attribute value (e.g. `<comp ngh="" />`),
   // which means that no special annotations are required. Do not attempt to read
@@ -30379,6 +30435,24 @@ function processTextNodeMarkersBeforeHydration(node) {
   }
 }
 /**
+ * Internal type that represents a claimed node.
+ * Only used in dev mode.
+ */
+var HydrationStatus;
+(function (HydrationStatus) {
+  HydrationStatus["Hydrated"] = "hydrated";
+  HydrationStatus["Skipped"] = "skipped";
+  HydrationStatus["Mismatched"] = "mismatched";
+})(HydrationStatus || (HydrationStatus = {}));
+// clang-format on
+const HYDRATION_INFO_KEY = '__ngDebugHydrationInfo__';
+function patchHydrationInfo(node, info) {
+  node[HYDRATION_INFO_KEY] = info;
+}
+function readHydrationInfo(node) {
+  return node[HYDRATION_INFO_KEY] ?? null;
+}
+/**
  * Marks a node as "claimed" by hydration process.
  * This is needed to make assessments in tests whether
  * the hydration process handled all nodes.
@@ -30390,11 +30464,40 @@ function markRNodeAsClaimedByHydration(node, checkIfAlreadyClaimed = true) {
   if (checkIfAlreadyClaimed && isRNodeClaimedForHydration(node)) {
     throw new Error('Trying to claim a node, which was claimed already.');
   }
-  node.__claimed = true;
+  patchHydrationInfo(node, {
+    status: HydrationStatus.Hydrated
+  });
   ngDevMode.hydratedNodes++;
 }
+function markRNodeAsSkippedByHydration(node) {
+  if (!ngDevMode) {
+    throw new Error('Calling `markRNodeAsSkippedByHydration` in prod mode ' + 'is not supported and likely a mistake.');
+  }
+  patchHydrationInfo(node, {
+    status: HydrationStatus.Skipped
+  });
+  ngDevMode.componentsSkippedHydration++;
+}
+function markRNodeAsHavingHydrationMismatch(node, expectedNodeDetails = null, actualNodeDetails = null) {
+  if (!ngDevMode) {
+    throw new Error('Calling `markRNodeAsMismatchedByHydration` in prod mode ' + 'is not supported and likely a mistake.');
+  }
+  // The RNode can be a standard HTMLElement
+  // The devtools component tree only displays Angular components & directives
+  // Therefore we attach the debug info to the closest a claimed node.
+  while (node && readHydrationInfo(node)?.status !== HydrationStatus.Hydrated) {
+    node = node?.parentNode;
+  }
+  if (node) {
+    patchHydrationInfo(node, {
+      status: HydrationStatus.Mismatched,
+      expectedNodeDetails,
+      actualNodeDetails
+    });
+  }
+}
 function isRNodeClaimedForHydration(node) {
-  return !!node.__claimed;
+  return readHydrationInfo(node)?.status === HydrationStatus.Hydrated;
 }
 function setSegmentHead(hydrationInfo, index, node) {
   hydrationInfo.segmentHeads ??= {};
@@ -30638,16 +30741,16 @@ const NOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR = {};
  * Checks if the given `value` is a reactive `Signal`.
  */
 function isSignal(value) {
-  return typeof value === 'function' && value[_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.SIGNAL] !== undefined;
+  return typeof value === 'function' && value[_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.SIGNAL] !== undefined;
 }
 
 /**
  * Create a computed `Signal` which derives a reactive value from an expression.
  */
 function computed(computation, options) {
-  const getter = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.createComputed)(computation);
+  const getter = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.createComputed)(computation);
   if (options?.equal) {
-    getter[_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.SIGNAL].equal = options.equal;
+    getter[_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.SIGNAL].equal = options.equal;
   }
   return getter;
 }
@@ -30656,21 +30759,21 @@ function computed(computation, options) {
  * Create a `Signal` that can be set or updated directly.
  */
 function signal(initialValue, options) {
-  const signalFn = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.createSignal)(initialValue);
-  const node = signalFn[_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.SIGNAL];
+  const signalFn = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.createSignal)(initialValue);
+  const node = signalFn[_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.SIGNAL];
   if (options?.equal) {
     node.equal = options.equal;
   }
-  signalFn.set = newValue => (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.signalSetFn)(node, newValue);
-  signalFn.update = updateFn => (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.signalUpdateFn)(node, updateFn);
+  signalFn.set = newValue => (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.signalSetFn)(node, newValue);
+  signalFn.update = updateFn => (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.signalUpdateFn)(node, updateFn);
   signalFn.asReadonly = signalAsReadonlyFn.bind(signalFn);
   return signalFn;
 }
 function signalAsReadonlyFn() {
-  const node = this[_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.SIGNAL];
+  const node = this[_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.SIGNAL];
   if (node.readonlyFn === undefined) {
     const readonlyFn = () => this();
-    readonlyFn[_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.SIGNAL] = node;
+    readonlyFn[_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.SIGNAL] = node;
     node.readonlyFn = readonlyFn;
   }
   return node.readonlyFn;
@@ -30681,13 +30784,13 @@ function signalAsReadonlyFn() {
  * can, optionally, return a value.
  */
 function untracked(nonReactiveReadsFn) {
-  const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(null);
+  const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(null);
   // We are not trying to catch any particular errors here, just making sure that the consumers
   // stack is restored in case of errors.
   try {
     return nonReactiveReadsFn();
   } finally {
-    (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(prevConsumer);
+    (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(prevConsumer);
   }
 }
 function isIterable(obj) {
@@ -30699,7 +30802,6 @@ function isListLikeIterable(obj) {
   // JS Map are iterables but return entries as [k, v]
   Symbol.iterator in obj; // JS Iterable have a Symbol.iterator prop
 }
-
 function areIterablesEqual(a, b, comparator) {
   const iterator1 = a[Symbol.iterator]();
   const iterator2 = b[Symbol.iterator]();
@@ -31817,7 +31919,7 @@ function maybeReturnReactiveLViewConsumer(consumer) {
   freeConsumers.push(consumer);
 }
 const REACTIVE_LVIEW_CONSUMER_NODE = {
-  ..._angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.REACTIVE_NODE,
+  ..._angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.REACTIVE_NODE,
   consumerIsAlwaysLive: true,
   consumerMarkedDirty: node => {
     markAncestorsForTraversal(node.lView);
@@ -31826,6 +31928,52 @@ const REACTIVE_LVIEW_CONSUMER_NODE = {
     this.lView[REACTIVE_TEMPLATE_CONSUMER] = this;
   }
 };
+
+/**
+ * Retrieve the root view from any component or `LView` by walking the parent `LView` until
+ * reaching the root `LView`.
+ *
+ * @param componentOrLView any component or `LView`
+ */
+function getRootView(componentOrLView) {
+  ngDevMode && assertDefined(componentOrLView, 'component');
+  let lView = isLView(componentOrLView) ? componentOrLView : readPatchedLView(componentOrLView);
+  while (lView && !(lView[FLAGS] & 512 /* LViewFlags.IsRoot */)) {
+    lView = getLViewParent(lView);
+  }
+  ngDevMode && assertLView(lView);
+  return lView;
+}
+/**
+ * Returns the context information associated with the application where the target is situated. It
+ * does this by walking the parent views until it gets to the root view, then getting the context
+ * off of that.
+ *
+ * @param viewOrComponent the `LView` or component to get the root context for.
+ */
+function getRootContext(viewOrComponent) {
+  const rootView = getRootView(viewOrComponent);
+  ngDevMode && assertDefined(rootView[CONTEXT], 'Root view has no context. Perhaps it is disconnected?');
+  return rootView[CONTEXT];
+}
+/**
+ * Gets the first `LContainer` in the LView or `null` if none exists.
+ */
+function getFirstLContainer(lView) {
+  return getNearestLContainer(lView[CHILD_HEAD]);
+}
+/**
+ * Gets the next `LContainer` that is a sibling of the given container.
+ */
+function getNextLContainer(container) {
+  return getNearestLContainer(container[NEXT]);
+}
+function getNearestLContainer(viewOrContainer) {
+  while (viewOrContainer !== null && !isLContainer(viewOrContainer)) {
+    viewOrContainer = viewOrContainer[NEXT];
+  }
+  return viewOrContainer;
+}
 const ERROR_ORIGINAL_ERROR = 'ngOriginalError';
 function wrappedError(message, originalError) {
   const msg = `${message} caused by: ${originalError instanceof Error ? originalError.message : originalError}`;
@@ -32068,7 +32216,7 @@ const NO_CHANGE = typeof ngDevMode === 'undefined' || ngDevMode ? {
  *
  * @codeGenApi
  */
-function ɵɵadvance(delta) {
+function ɵɵadvance(delta = 1) {
   ngDevMode && assertGreaterThan(delta, 0, 'Can only advance forward');
   selectIndexInternal(getTView(), getLView(), getSelectedIndex() + delta, !!ngDevMode && isInCheckNoChangesMode());
 }
@@ -32126,6 +32274,36 @@ function ɵɵinvalidFactory() {
   const msg = ngDevMode ? `This constructor was not compatible with Dependency Injection.` : 'invalid';
   throw new Error(msg);
 }
+function writeToDirectiveInput(def, instance, publicName, privateName, flags, value) {
+  const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(null);
+  try {
+    // If we know we are dealing with a signal input, we cache its reference
+    // in a tree-shakable way. The input signal node can then be used for
+    // value transform execution or actual value updates without introducing
+    // additional megamorphic accesses for accessing the instance field.
+    let inputSignalNode = null;
+    if ((flags & InputFlags.SignalBased) !== 0) {
+      const field = instance[privateName];
+      inputSignalNode = field[_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.SIGNAL];
+    }
+    // If there is a signal node and a transform, run it before potentially
+    // delegating to features like `NgOnChanges`.
+    if (inputSignalNode !== null && inputSignalNode.transformFn !== undefined) {
+      value = inputSignalNode.transformFn(value);
+    }
+    // If there is a decorator input transform, run it.
+    if ((flags & InputFlags.HasDecoratorInputTransform) !== 0) {
+      value = def.inputTransforms[privateName].call(instance, value);
+    }
+    if (def.setInput !== null) {
+      def.setInput(instance, inputSignalNode, value, publicName, privateName);
+    } else {
+      applyValueToInputField(instance, inputSignalNode, privateName, value);
+    }
+  } finally {
+    (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(prevConsumer);
+  }
+}
 
 /**
  * Invoke `HostBindingsFunction`s for view.
@@ -32166,7 +32344,6 @@ function createLView(parentLView, tView, context, flags, host, tHostNode, enviro
   if (embeddedViewInjector !== null || parentLView && parentLView[FLAGS] & 2048 /* LViewFlags.HasEmbeddedViewInjector */) {
     lView[FLAGS] |= 2048 /* LViewFlags.HasEmbeddedViewInjector */;
   }
-
   resetPreOrderHookFlags(lView);
   ngDevMode && tView.declTNode && parentLView && assertTNodeForLView(tView.declTNode, parentLView);
   lView[PARENT] = lView[DECLARATION_VIEW] = parentLView;
@@ -32294,7 +32471,7 @@ function executeTemplate(tView, lView, templateFn, rf, context) {
 //////////////////////////
 function executeContentQueries(tView, tNode, lView) {
   if (isContentQueryHost(tNode)) {
-    const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(null);
+    const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(null);
     try {
       const start = tNode.directiveStart;
       const end = tNode.directiveEnd;
@@ -32305,7 +32482,7 @@ function executeContentQueries(tView, tNode, lView) {
         }
       }
     } finally {
-      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(prevConsumer);
+      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(prevConsumer);
     }
   }
 }
@@ -32462,7 +32639,7 @@ function applyRootElementTransform(rootElement) {
  *
  * @param rootElement the app root HTML Element
  */
-let _applyRootElementTransformImpl = rootElement => null;
+let _applyRootElementTransformImpl = () => null;
 /**
  * Processes text node markers before hydration begins. This replaces any special comment
  * nodes that were added prior to serialization are swapped out to restore proper text
@@ -32524,7 +32701,6 @@ function createTNode(tView, tParent, type, index, value, attrs) {
   if (isInSkipHydrationBlock$1()) {
     flags |= 128 /* TNodeFlags.inSkipHydrationBlock */;
   }
-
   const tNode = {
     type,
     index,
@@ -32568,40 +32744,58 @@ function createTNode(tView, tParent, type, index, value, attrs) {
   }
   return tNode;
 }
-/**
- * Generates the `PropertyAliases` data structure from the provided input/output mapping.
- * @param aliasMap Input/output mapping from the directive definition.
- * @param directiveIndex Index of the directive.
- * @param propertyAliases Object in which to store the results.
- * @param hostDirectiveAliasMap Object used to alias or filter out properties for host directives.
- * If the mapping is provided, it'll act as an allowlist, as well as a mapping of what public
- * name inputs/outputs should be exposed under.
- */
-function generatePropertyAliases(aliasMap, directiveIndex, propertyAliases, hostDirectiveAliasMap) {
+function captureNodeBindings(mode, aliasMap, directiveIndex, bindingsResult, hostDirectiveAliasMap) {
   for (let publicName in aliasMap) {
-    if (aliasMap.hasOwnProperty(publicName)) {
-      propertyAliases = propertyAliases === null ? {} : propertyAliases;
-      const internalName = aliasMap[publicName];
-      // If there are no host directive mappings, we want to remap using the alias map from the
-      // definition itself. If there is an alias map, it has two functions:
-      // 1. It serves as an allowlist of bindings that are exposed by the host directives. Only the
-      // ones inside the host directive map will be exposed on the host.
-      // 2. The public name of the property is aliased using the host directive alias map, rather
-      // than the alias map from the definition.
-      if (hostDirectiveAliasMap === null) {
-        addPropertyAlias(propertyAliases, directiveIndex, publicName, internalName);
-      } else if (hostDirectiveAliasMap.hasOwnProperty(publicName)) {
-        addPropertyAlias(propertyAliases, directiveIndex, hostDirectiveAliasMap[publicName], internalName);
+    if (!aliasMap.hasOwnProperty(publicName)) {
+      continue;
+    }
+    const value = aliasMap[publicName];
+    if (value === undefined) {
+      continue;
+    }
+    bindingsResult ??= {};
+    let internalName;
+    let inputFlags = InputFlags.None;
+    // For inputs, the value might be an array capturing additional
+    // input flags.
+    if (Array.isArray(value)) {
+      internalName = value[0];
+      inputFlags = value[1];
+    } else {
+      internalName = value;
+    }
+    // If there are no host directive mappings, we want to remap using the alias map from the
+    // definition itself. If there is an alias map, it has two functions:
+    // 1. It serves as an allowlist of bindings that are exposed by the host directives. Only the
+    // ones inside the host directive map will be exposed on the host.
+    // 2. The public name of the property is aliased using the host directive alias map, rather
+    // than the alias map from the definition.
+    let finalPublicName = publicName;
+    if (hostDirectiveAliasMap !== null) {
+      // If there is no mapping, it's not part of the allowlist and this input/output
+      // is not captured and should be ignored.
+      if (!hostDirectiveAliasMap.hasOwnProperty(publicName)) {
+        continue;
       }
+      finalPublicName = hostDirectiveAliasMap[publicName];
+    }
+    if (mode === 0 /* CaptureNodeBindingMode.Inputs */) {
+      addPropertyBinding(bindingsResult, directiveIndex, finalPublicName, internalName, inputFlags);
+    } else {
+      addPropertyBinding(bindingsResult, directiveIndex, finalPublicName, internalName);
     }
   }
-  return propertyAliases;
+  return bindingsResult;
 }
-function addPropertyAlias(propertyAliases, directiveIndex, publicName, internalName) {
-  if (propertyAliases.hasOwnProperty(publicName)) {
-    propertyAliases[publicName].push(directiveIndex, internalName);
+function addPropertyBinding(bindings, directiveIndex, publicName, internalName, inputFlags) {
+  let values;
+  if (bindings.hasOwnProperty(publicName)) {
+    (values = bindings[publicName]).push(directiveIndex, internalName);
   } else {
-    propertyAliases[publicName] = [directiveIndex, internalName];
+    values = bindings[publicName] = [directiveIndex, internalName];
+  }
+  if (inputFlags !== undefined) {
+    values.push(inputFlags);
   }
 }
 /**
@@ -32622,8 +32816,8 @@ function initializeInputAndOutputAliases(tView, tNode, hostDirectiveDefinitionMa
     const aliasData = hostDirectiveDefinitionMap ? hostDirectiveDefinitionMap.get(directiveDef) : null;
     const aliasedInputs = aliasData ? aliasData.inputs : null;
     const aliasedOutputs = aliasData ? aliasData.outputs : null;
-    inputsStore = generatePropertyAliases(directiveDef.inputs, directiveIndex, inputsStore, aliasedInputs);
-    outputsStore = generatePropertyAliases(directiveDef.outputs, directiveIndex, outputsStore, aliasedOutputs);
+    inputsStore = captureNodeBindings(0 /* CaptureNodeBindingMode.Inputs */, directiveDef.inputs, directiveIndex, inputsStore, aliasedInputs);
+    outputsStore = captureNodeBindings(1 /* CaptureNodeBindingMode.Outputs */, directiveDef.outputs, directiveIndex, outputsStore, aliasedOutputs);
     // Do not use unbound attributes as inputs to structural directives, since structural
     // directive inputs can only be set using microsyntax (e.g. `<div *dir="exp">`).
     // TODO(FW-1930): microsyntax expressions may also contain unbound/static attributes, which
@@ -32635,12 +32829,10 @@ function initializeInputAndOutputAliases(tView, tNode, hostDirectiveDefinitionMa
     if (inputsStore.hasOwnProperty('class')) {
       tNode.flags |= 8 /* TNodeFlags.hasClassInput */;
     }
-
     if (inputsStore.hasOwnProperty('style')) {
       tNode.flags |= 16 /* TNodeFlags.hasStyleInput */;
     }
   }
-
   tNode.initialInputs = inputsFromAttrs;
   tNode.inputs = inputsStore;
   tNode.outputs = outputsStore;
@@ -32704,7 +32896,6 @@ function markDirtyIfOnPush(lView, viewIndex) {
     childComponentLView[FLAGS] |= 64 /* LViewFlags.Dirty */;
   }
 }
-
 function setNgReflectProperty(lView, element, type, attrName, value) {
   const renderer = lView[RENDERER];
   attrName = normalizeDebugBindingName(attrName);
@@ -32732,7 +32923,7 @@ function setNgReflectProperties(lView, element, type, dataValue, value) {
      * e.g. [0, 'change', 'change-minified']
      * we want to set the reflected property with the privateName: dataValue[i+1]
      */
-    for (let i = 0; i < dataValue.length; i += 2) {
+    for (let i = 0; i < dataValue.length; i += 3) {
       setNgReflectProperty(lView, element, type, dataValue[i + 1], value);
     }
   }
@@ -33069,7 +33260,6 @@ function addComponentLogic(lView, hostTNode, def) {
   } else if (def.onPush) {
     lViewFlags = 64 /* LViewFlags.Dirty */;
   }
-
   const componentView = addToViewTree(lView, createLView(lView, tView, null, lViewFlags, native, hostTNode, null, rendererFactory.createRenderer(native, def), null, null, null));
   // Component view will always be created before any injected LContainers,
   // so this is a regular element, wrap it with the component view
@@ -33109,29 +33299,14 @@ function setInputsFromAttrs(lView, directiveIndex, instance, def, tNode, initial
     for (let i = 0; i < initialInputs.length;) {
       const publicName = initialInputs[i++];
       const privateName = initialInputs[i++];
+      const flags = initialInputs[i++];
       const value = initialInputs[i++];
-      writeToDirectiveInput(def, instance, publicName, privateName, value);
+      writeToDirectiveInput(def, instance, publicName, privateName, flags, value);
       if (ngDevMode) {
         const nativeElement = getNativeByTNode(tNode, lView);
         setNgReflectProperty(lView, nativeElement, tNode.type, privateName, value);
       }
     }
-  }
-}
-function writeToDirectiveInput(def, instance, publicName, privateName, value) {
-  const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(null);
-  try {
-    const inputTransforms = def.inputTransforms;
-    if (inputTransforms !== null && inputTransforms.hasOwnProperty(privateName)) {
-      value = inputTransforms[privateName].call(instance, value);
-    }
-    if (def.setInput !== null) {
-      def.setInput(instance, value, publicName, privateName);
-    } else {
-      instance[privateName] = value;
-    }
-  } finally {
-    (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(prevConsumer);
   }
 }
 /**
@@ -33171,9 +33346,9 @@ function generateInitialInputs(inputs, directiveIndex, attrs) {
       // through the directive def, but we want to do it using the inputs store so that it can
       // account for host directive aliases.
       const inputConfig = inputs[attrName];
-      for (let j = 0; j < inputConfig.length; j += 2) {
+      for (let j = 0; j < inputConfig.length; j += 3) {
         if (inputConfig[j] === directiveIndex) {
-          inputsToStore.push(attrName, inputConfig[j + 1], attrs[i + 1]);
+          inputsToStore.push(attrName, inputConfig[j + 1], inputConfig[j + 2], attrs[i + 1]);
           // A directive can't have multiple inputs with the same name so we can break here.
           break;
         }
@@ -33198,9 +33373,26 @@ function generateInitialInputs(inputs, directiveIndex, attrs) {
  */
 function createLContainer(hostNative, currentView, native, tNode) {
   ngDevMode && assertLView(currentView);
-  const lContainer = [hostNative, true, 0, currentView, null, tNode, null, native, null, null // moved views
+  const lContainer = [hostNative,
+  // host native
+  true,
+  // Boolean `true` in this position signifies that this is an `LContainer`
+  0,
+  // flags
+  currentView,
+  // parent
+  null,
+  // next
+  tNode,
+  // t_host
+  null,
+  // dehydrated views
+  native,
+  // native,
+  null,
+  // view refs
+  null // moved views
   ];
-
   ngDevMode && assertEqual(lContainer.length, CONTAINER_HEADER_OFFSET, 'Should allocate correct number of slots for LContainer header.');
   return lContainer;
 }
@@ -33208,7 +33400,7 @@ function createLContainer(hostNative, currentView, native, tNode) {
 function refreshContentQueries(tView, lView) {
   const contentQueries = tView.contentQueries;
   if (contentQueries !== null) {
-    const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(null);
+    const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(null);
     try {
       for (let i = 0; i < contentQueries.length; i += 2) {
         const queryStartIdx = contentQueries[i];
@@ -33222,7 +33414,7 @@ function refreshContentQueries(tView, lView) {
         }
       }
     } finally {
-      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(prevConsumer);
+      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(prevConsumer);
     }
   }
 }
@@ -33256,11 +33448,11 @@ function addToViewTree(lView, lViewOrLContainer) {
 function executeViewQueryFn(flags, viewQueryFn, component) {
   ngDevMode && assertDefined(viewQueryFn, 'View queries function to execute must be defined.');
   setCurrentQueryIndex(0);
-  const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(null);
+  const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(null);
   try {
     viewQueryFn(flags, component);
   } finally {
-    (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(prevConsumer);
+    (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(prevConsumer);
   }
 }
 ///////////////////////////////
@@ -33345,10 +33537,11 @@ function setInputsForProperty(tView, lView, inputs, publicName, value) {
   for (let i = 0; i < inputs.length;) {
     const index = inputs[i++];
     const privateName = inputs[i++];
+    const flags = inputs[i++];
     const instance = lView[index];
     ngDevMode && assertIndexInRange(lView, index);
     const def = tView.data[index];
-    writeToDirectiveInput(def, instance, publicName, privateName, value);
+    writeToDirectiveInput(def, instance, publicName, privateName, flags, value);
   }
 }
 /**
@@ -33370,14 +33563,12 @@ const MAXIMUM_REFRESH_RERUNS = 100;
 function detectChangesInternal(lView, notifyErrorHandler = true) {
   const environment = lView[ENVIRONMENT];
   const rendererFactory = environment.rendererFactory;
-  const afterRenderEventManager = environment.afterRenderEventManager;
   // Check no changes mode is a dev only mode used to verify that bindings have not changed
   // since they were assigned. We do not want to invoke renderer factory functions in that mode
   // to avoid any possible side-effects.
   const checkNoChangesMode = !!ngDevMode && isInCheckNoChangesMode();
   if (!checkNoChangesMode) {
     rendererFactory.begin?.();
-    afterRenderEventManager?.begin();
   }
   try {
     detectChangesInViewWhileDirty(lView);
@@ -33392,8 +33583,6 @@ function detectChangesInternal(lView, notifyErrorHandler = true) {
       // One final flush of the effects queue to catch any effects created in `ngAfterViewInit` or
       // other post-order hooks.
       environment.inlineEffectRunner?.flush();
-      // Invoke all callbacks registered via `after*Render`, if needed.
-      afterRenderEventManager?.end();
     }
   }
 }
@@ -33414,7 +33603,6 @@ function detectChangesInViewWhileDirty(lView) {
     detectChangesInView(lView, 1 /* ChangeDetectionMode.Targeted */);
   }
 }
-
 function checkNoChangesInternal(lView, notifyErrorHandler = true) {
   setIsInCheckNoChangesMode(true);
   try {
@@ -33447,7 +33635,7 @@ function refreshView(tView, lView, templateFn, context) {
   let currentConsumer = null;
   if (!isInCheckNoChangesPass && viewShouldHaveReactiveConsumer(tView)) {
     currentConsumer = getOrBorrowReactiveLViewConsumer(lView);
-    prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.consumerBeforeComputation)(currentConsumer);
+    prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.consumerBeforeComputation)(currentConsumer);
   }
   try {
     resetPreOrderHookFlags(lView);
@@ -33494,11 +33682,9 @@ function refreshView(tView, lView, templateFn, context) {
         if (contentHooks !== null) {
           executeInitAndCheckHooks(lView, contentHooks, 1 /* InitPhaseState.AfterContentInitHooksToBeRun */);
         }
-
         incrementInitPhaseFlags(lView, 1 /* InitPhaseState.AfterContentInitHooksToBeRun */);
       }
     }
-
     processHostBindingOpCodes(tView, lView);
     // Refresh child component views.
     const components = tView.components;
@@ -33525,11 +33711,9 @@ function refreshView(tView, lView, templateFn, context) {
         if (viewHooks !== null) {
           executeInitAndCheckHooks(lView, viewHooks, 2 /* InitPhaseState.AfterViewInitHooksToBeRun */);
         }
-
         incrementInitPhaseFlags(lView, 2 /* InitPhaseState.AfterViewInitHooksToBeRun */);
       }
     }
-
     if (tView.firstUpdatePass === true) {
       // We need to make sure that we only flip the flag on successful `refreshView` only
       // Don't do this in `finally` block.
@@ -33565,7 +33749,7 @@ function refreshView(tView, lView, templateFn, context) {
     throw e;
   } finally {
     if (currentConsumer !== null) {
-      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.consumerAfterComputation)(currentConsumer, prevConsumer);
+      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.consumerAfterComputation)(currentConsumer, prevConsumer);
       maybeReturnReactiveLViewConsumer(currentConsumer);
     }
     leaveView();
@@ -33594,7 +33778,6 @@ function viewShouldHaveReactiveConsumer(tView) {
  */
 function detectChangesInEmbeddedViews(lView, mode) {
   for (let lContainer = getFirstLContainer(lView); lContainer !== null; lContainer = getNextLContainer(lContainer)) {
-    lContainer[FLAGS] &= ~LContainerFlags.HasChildViewsToRefresh;
     for (let i = CONTAINER_HEADER_OFFSET; i < lContainer.length; i++) {
       const embeddedLView = lContainer[i];
       detectChangesInViewIfAttached(embeddedLView, mode);
@@ -33668,7 +33851,7 @@ function detectChangesInView(lView, mode) {
   // Always refresh views marked for refresh, regardless of mode.
   shouldRefreshView ||= !!(flags & 1024 /* LViewFlags.RefreshView */);
   // Refresh views when they have a dirty reactive consumer, regardless of mode.
-  shouldRefreshView ||= !!(consumer?.dirty && (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.consumerPollProducersForChange)(consumer));
+  shouldRefreshView ||= !!(consumer?.dirty && (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.consumerPollProducersForChange)(consumer));
   // Mark the Flags and `ReactiveNode` as not dirty before refreshing the component, so that they
   // can be re-dirtied during the refresh process.
   if (consumer) {
@@ -33768,7 +33951,6 @@ class ViewRef$1 {
   get destroyed() {
     return (this._lView[FLAGS] & 256 /* LViewFlags.Destroyed */) === 256 /* LViewFlags.Destroyed */;
   }
-
   destroy() {
     if (this._appRef) {
       this._appRef.detachView(this);
@@ -34141,7 +34323,7 @@ function injectDestroyRef() {
 function assertNotInReactiveContext(debugFn, extraContext) {
   // Taking a `Function` instead of a string name here prevents the un-minified name of the function
   // from being retained in the bundle regardless of minification.
-  if ((0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.getActiveConsumer)() !== null) {
+  if ((0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.getActiveConsumer)() !== null) {
     throw new RuntimeError(-602 /* RuntimeErrorCode.ASSERTION_NOT_INSIDE_REACTIVE_CONTEXT */, ngDevMode && `${debugFn.name}() cannot be called from within a reactive context.${extraContext ? ` ${extraContext}` : ''}`);
   }
 }
@@ -34162,19 +34344,29 @@ class EffectScheduler {
   static #_ = this.ɵprov = ɵɵdefineInjectable({
     token: EffectScheduler,
     providedIn: 'root',
-    factory: () => new ZoneAwareMicrotaskScheduler()
+    factory: () => new ZoneAwareEffectScheduler()
   });
 }
 /**
- * An `EffectScheduler` which is capable of queueing scheduled effects per-zone, and flushing them
- * as an explicit operation.
+ * A wrapper around `ZoneAwareQueueingScheduler` that schedules flushing via the microtask queue
+ * when.
  */
-class ZoneAwareQueueingScheduler {
+class ZoneAwareEffectScheduler {
   constructor() {
+    this.hasQueuedFlush = false;
     this.queuedEffectCount = 0;
     this.queues = new Map();
   }
   scheduleEffect(handle) {
+    this.enqueue(handle);
+    if (!this.hasQueuedFlush) {
+      queueMicrotask(() => this.flush());
+      // Leave `hasQueuedFlush` as `true` so we don't queue another microtask if more effects are
+      // scheduled during flushing. We are guaranteed to empty the whole queue during flush.
+      this.hasQueuedFlush = false;
+    }
+  }
+  enqueue(handle) {
     const zone = handle.creationZone;
     if (!this.queues.has(zone)) {
       this.queues.set(zone, new Set());
@@ -34212,39 +34404,6 @@ class ZoneAwareQueueingScheduler {
       handle.run();
     }
   }
-  /** @nocollapse */
-  static #_ = this.ɵprov = ɵɵdefineInjectable({
-    token: ZoneAwareQueueingScheduler,
-    providedIn: 'root',
-    factory: () => new ZoneAwareQueueingScheduler()
-  });
-}
-/**
- * A wrapper around `ZoneAwareQueueingScheduler` that schedules flushing via the microtask queue
- * when.
- */
-class ZoneAwareMicrotaskScheduler {
-  constructor() {
-    this.hasQueuedFlush = false;
-    this.delegate = new ZoneAwareQueueingScheduler();
-    this.flushTask = () => {
-      // Leave `hasQueuedFlush` as `true` so we don't queue another microtask if more effects are
-      // scheduled during flushing. The flush of the `ZoneAwareQueueingScheduler` delegate is
-      // guaranteed to empty the queue.
-      this.delegate.flush();
-      this.hasQueuedFlush = false;
-      // This is a variable initialization, not a method.
-      // tslint:disable-next-line:semicolon
-    };
-  }
-
-  scheduleEffect(handle) {
-    this.delegate.scheduleEffect(handle);
-    if (!this.hasQueuedFlush) {
-      queueMicrotask(this.flushTask);
-      this.hasQueuedFlush = true;
-    }
-  }
 }
 /**
  * Core reactive node for an Angular effect.
@@ -34254,19 +34413,24 @@ class ZoneAwareMicrotaskScheduler {
  * available/requested.
  */
 class EffectHandle {
-  constructor(scheduler, effectFn, creationZone, destroyRef, errorHandler, allowSignalWrites) {
+  constructor(scheduler, effectFn, creationZone, destroyRef, injector, allowSignalWrites) {
     this.scheduler = scheduler;
     this.effectFn = effectFn;
     this.creationZone = creationZone;
-    this.errorHandler = errorHandler;
-    this.watcher = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.createWatch)(onCleanup => this.runEffect(onCleanup), () => this.schedule(), allowSignalWrites);
+    this.injector = injector;
+    this.watcher = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.createWatch)(onCleanup => this.runEffect(onCleanup), () => this.schedule(), allowSignalWrites);
     this.unregisterOnDestroy = destroyRef?.onDestroy(() => this.destroy());
   }
   runEffect(onCleanup) {
     try {
       this.effectFn(onCleanup);
     } catch (err) {
-      this.errorHandler?.handleError(err);
+      // Inject the `ErrorHandler` here in order to avoid circular DI error
+      // if the effect is used inside of a custom `ErrorHandler`.
+      const errorHandler = this.injector.get(ErrorHandler, null, {
+        optional: true
+      });
+      errorHandler?.handleError(err);
     }
   }
   run() {
@@ -34291,11 +34455,8 @@ function effect(effectFn, options) {
   ngDevMode && assertNotInReactiveContext(effect, 'Call `effect` outside of a reactive context. For example, schedule the ' + 'effect inside the component constructor.');
   !options?.injector && assertInInjectionContext(effect);
   const injector = options?.injector ?? inject(Injector);
-  const errorHandler = injector.get(ErrorHandler, null, {
-    optional: true
-  });
   const destroyRef = options?.manualCleanup !== true ? injector.get(DestroyRef) : null;
-  const handle = new EffectHandle(injector.get(APP_EFFECT_SCHEDULER), effectFn, typeof Zone === 'undefined' ? null : Zone.current, destroyRef, errorHandler, options?.allowSignalWrites ?? false);
+  const handle = new EffectHandle(injector.get(APP_EFFECT_SCHEDULER), effectFn, typeof Zone === 'undefined' ? null : Zone.current, destroyRef, injector, options?.allowSignalWrites ?? false);
   // Effects need to be marked dirty manually to trigger their initial run. The timing of this
   // marking matters, because the effects may read signals that track component inputs, which are
   // only available after those components have had their first update pass.
@@ -34342,7 +34503,7 @@ function performanceMarkFeature(feature) {
     }
   });
 }
-class EventEmitter_ extends rxjs__WEBPACK_IMPORTED_MODULE_1__.Subject {
+class EventEmitter_ extends rxjs__WEBPACK_IMPORTED_MODULE_2__.Subject {
   constructor(isAsync = false) {
     super();
     this.__isAsync = isAsync;
@@ -34374,7 +34535,7 @@ class EventEmitter_ extends rxjs__WEBPACK_IMPORTED_MODULE_1__.Subject {
       error: errorFn,
       complete: completeFn
     });
-    if (observerOrNext instanceof rxjs__WEBPACK_IMPORTED_MODULE_2__.Subscription) {
+    if (observerOrNext instanceof rxjs__WEBPACK_IMPORTED_MODULE_3__.Subscription) {
       observerOrNext.add(sink);
     }
     return sink;
@@ -35130,11 +35291,6 @@ class AfterRenderCallbackHandlerImpl {
     };
     this.deferredCallbacks = new Set();
   }
-  validateBegin() {
-    if (this.executingCallbacks) {
-      throw new RuntimeError(102 /* RuntimeErrorCode.RECURSIVE_APPLICATION_RENDER */, ngDevMode && 'A new render operation began before the previous operation ended. ' + 'Did you trigger change detection from afterRender or afterNextRender?');
-    }
-  }
   register(callback) {
     // If we're currently running callbacks, new callbacks should be deferred
     // until the next render operation.
@@ -35146,9 +35302,11 @@ class AfterRenderCallbackHandlerImpl {
     this.deferredCallbacks.delete(callback);
   }
   execute() {
+    let callbacksExecuted = false;
     this.executingCallbacks = true;
     for (const bucket of Object.values(this.buckets)) {
       for (const callback of bucket) {
+        callbacksExecuted = true;
         callback.invoke();
       }
     }
@@ -35157,6 +35315,7 @@ class AfterRenderCallbackHandlerImpl {
       this.buckets[callback.phase].add(callback);
     }
     this.deferredCallbacks.clear();
+    return callbacksExecuted;
   }
   destroy() {
     for (const bucket of Object.values(this.buckets)) {
@@ -35171,37 +35330,25 @@ class AfterRenderCallbackHandlerImpl {
  */
 class AfterRenderEventManager {
   constructor() {
-    this.renderDepth = 0;
     /* @internal */
     this.handler = null;
     /* @internal */
     this.internalCallbacks = [];
   }
   /**
-   * Mark the beginning of a render operation (i.e. CD cycle).
-   * Throws if called while executing callbacks.
+   * Executes callbacks. Returns `true` if any callbacks executed.
    */
-  begin() {
-    this.handler?.validateBegin();
-    this.renderDepth++;
-  }
-  /**
-   * Mark the end of a render operation. Callbacks will be
-   * executed if there are no more pending operations.
-   */
-  end() {
-    ngDevMode && assertGreaterThan(this.renderDepth, 0, 'renderDepth must be greater than 0');
-    this.renderDepth--;
-    if (this.renderDepth === 0) {
-      // Note: internal callbacks power `internalAfterNextRender`. Since internal callbacks
-      // are fairly trivial, they are kept separate so that `AfterRenderCallbackHandlerImpl`
-      // can still be tree-shaken unless used by the application.
-      for (const callback of this.internalCallbacks) {
-        callback();
-      }
-      this.internalCallbacks.length = 0;
-      this.handler?.execute();
+  execute() {
+    // Note: internal callbacks power `internalAfterNextRender`. Since internal callbacks
+    // are fairly trivial, they are kept separate so that `AfterRenderCallbackHandlerImpl`
+    // can still be tree-shaken unless used by the application.
+    const callbacks = [...this.internalCallbacks];
+    this.internalCallbacks.length = 0;
+    for (const callback of callbacks) {
+      callback();
     }
+    const handlerCallbacksExecuted = this.handler?.execute();
+    return !!handlerCallbacksExecuted || callbacks.length > 0;
   }
   ngOnDestroy() {
     this.handler?.destroy();
@@ -35374,14 +35521,18 @@ class ComponentFactoryResolver extends ComponentFactoryResolver$1 {
 }
 function toRefArray(map) {
   const array = [];
-  for (let nonMinified in map) {
-    if (map.hasOwnProperty(nonMinified)) {
-      const minified = map[nonMinified];
-      array.push({
-        propName: minified,
-        templateName: nonMinified
-      });
+  for (const publicName in map) {
+    if (!map.hasOwnProperty(publicName)) {
+      continue;
     }
+    const value = map[publicName];
+    if (value === undefined) {
+      continue;
+    }
+    array.push({
+      propName: Array.isArray(value) ? value[0] : value,
+      templateName: publicName
+    });
   }
   return array;
 }
@@ -35484,7 +35635,6 @@ class ComponentFactory extends ComponentFactory$1 {
     } else if (!this.componentDef.onPush) {
       rootFlags |= 16 /* LViewFlags.CheckAlways */;
     }
-
     let hydrationInfo = null;
     if (hostRNode !== null) {
       hydrationInfo = retrieveHydrationInfo(hostRNode, rootViewInjector, true /* isRootView */);
@@ -35628,7 +35778,6 @@ function createRootComponentView(tNode, hostRNode, rootComponentDef, rootDirecti
   } else if (rootComponentDef.onPush) {
     lViewFlags = 64 /* LViewFlags.Dirty */;
   }
-
   const componentView = createLView(rootView, getOrCreateComponentTView(rootComponentDef), null, lViewFlags, rootView[tNode.index], tNode, environment, viewRenderer, null, null, hydrationInfo);
   if (tView.firstCreatePass) {
     markAsComponentHost(tView, tNode, rootDirectives.length - 1);
@@ -35687,7 +35836,7 @@ function createRootComponent(componentView, rootComponentDef, rootDirectives, ho
 function setRootNodeAttributes(hostRenderer, componentDef, hostRNode, rootSelectorOrNode) {
   if (rootSelectorOrNode) {
     // The placeholder will be replaced with the actual version at build time.
-    setUpAttributes(hostRenderer, hostRNode, ['ng-version', '17.0.8']);
+    setUpAttributes(hostRenderer, hostRNode, ['ng-version', '17.1.2']);
   } else {
     // If host element is created as a part of this function call (i.e. `rootSelectorOrNode`
     // is not defined), also apply attributes and classes extracted from component selector.
@@ -35779,15 +35928,8 @@ function ɵɵInheritDefinitionFeature(definition) {
         superViewQuery && inheritViewQuery(definition, superViewQuery);
         superContentQueries && inheritContentQueries(definition, superContentQueries);
         // Merge inputs and outputs
-        fillProperties(definition.inputs, superDef.inputs);
-        fillProperties(definition.declaredInputs, superDef.declaredInputs);
+        mergeInputsWithTransforms(definition, superDef);
         fillProperties(definition.outputs, superDef.outputs);
-        if (superDef.inputTransforms !== null) {
-          if (writeableDef.inputTransforms === null) {
-            writeableDef.inputTransforms = {};
-          }
-          fillProperties(writeableDef.inputTransforms, superDef.inputTransforms);
-        }
         // Merge animations metadata.
         // If `superDef` is a Component, the `data` field is present (defaults to an empty object).
         if (isComponentDef(superDef) && superDef.data.animation) {
@@ -35821,6 +35963,35 @@ function ɵɵInheritDefinitionFeature(definition) {
     superType = Object.getPrototypeOf(superType);
   }
   mergeHostAttrsAcrossInheritance(inheritanceChain);
+}
+function mergeInputsWithTransforms(target, source) {
+  for (const key in source.inputs) {
+    if (!source.inputs.hasOwnProperty(key)) {
+      continue;
+    }
+    if (target.inputs.hasOwnProperty(key)) {
+      continue;
+    }
+    const value = source.inputs[key];
+    if (value === undefined) {
+      continue;
+    }
+    target.inputs[key] = value;
+    target.declaredInputs[key] = source.declaredInputs[key];
+    // If the input is inherited, and we have a transform for it, we also inherit it.
+    // Note that transforms should not be inherited if the input has its own metadata
+    // in the `source` directive itself already (i.e. the input is re-declared/overridden).
+    if (source.inputTransforms !== null) {
+      // Note: transforms are stored with their minified names.
+      // Perf: only access the minified name when there are source transforms.
+      const minifiedName = Array.isArray(value) ? value[0] : value;
+      if (!source.inputTransforms.hasOwnProperty(minifiedName)) {
+        continue;
+      }
+      target.inputTransforms ??= {};
+      target.inputTransforms[minifiedName] = source.inputTransforms[minifiedName];
+    }
+  }
 }
 /**
  * Merge the `hostAttrs` and `hostVars` from the inherited parent to the base class.
@@ -36092,7 +36263,7 @@ function validateMappings(bindingType, def, hostDirectiveBindings) {
         throw new RuntimeError(311 /* RuntimeErrorCode.HOST_DIRECTIVE_UNDEFINED_BINDING */, `Directive ${className} does not have an ${bindingType} with a public name of ${publicName}.`);
       }
       const remappedPublicName = hostDirectiveBindings[publicName];
-      if (bindings.hasOwnProperty(remappedPublicName) && remappedPublicName !== publicName && bindings[remappedPublicName] !== publicName) {
+      if (bindings.hasOwnProperty(remappedPublicName) && remappedPublicName !== publicName) {
         throw new RuntimeError(312 /* RuntimeErrorCode.HOST_DIRECTIVE_CONFLICTING_ALIAS */, `Cannot alias ${bindingType} ${publicName} of host directive ${className} to ${remappedPublicName}, because it already has a different ${bindingType} with the same public name.`);
       }
     }
@@ -36115,12 +36286,1311 @@ function ɵɵInputTransformsFeature(definition) {
       // Note: the private names are used for the keys, rather than the public ones, because public
       // names can be re-aliased in host directives which would invalidate the lookup.
       const value = inputs[minifiedKey];
-      if (Array.isArray(value) && value[2]) {
-        inputTransforms[minifiedKey] = value[2];
+      if (Array.isArray(value) && value[3]) {
+        inputTransforms[minifiedKey] = value[3];
       }
     }
   }
   definition.inputTransforms = inputTransforms;
+}
+const AT_THIS_LOCATION = '<-- AT THIS LOCATION';
+/**
+ * Retrieves a user friendly string for a given TNodeType for use in
+ * friendly error messages
+ *
+ * @param tNodeType
+ * @returns
+ */
+function getFriendlyStringFromTNodeType(tNodeType) {
+  switch (tNodeType) {
+    case 4 /* TNodeType.Container */:
+      return 'view container';
+    case 2 /* TNodeType.Element */:
+      return 'element';
+    case 8 /* TNodeType.ElementContainer */:
+      return 'ng-container';
+    case 32 /* TNodeType.Icu */:
+      return 'icu';
+    case 64 /* TNodeType.Placeholder */:
+      return 'i18n';
+    case 16 /* TNodeType.Projection */:
+      return 'projection';
+    case 1 /* TNodeType.Text */:
+      return 'text';
+    default:
+      // This should not happen as we cover all possible TNode types above.
+      return '<unknown>';
+  }
+}
+/**
+ * Validates that provided nodes match during the hydration process.
+ */
+function validateMatchingNode(node, nodeType, tagName, lView, tNode, isViewContainerAnchor = false) {
+  if (!node || node.nodeType !== nodeType || node.nodeType === Node.ELEMENT_NODE && node.tagName.toLowerCase() !== tagName?.toLowerCase()) {
+    const expectedNode = shortRNodeDescription(nodeType, tagName, null);
+    let header = `During hydration Angular expected ${expectedNode} but `;
+    const hostComponentDef = getDeclarationComponentDef(lView);
+    const componentClassName = hostComponentDef?.type?.name;
+    const expectedDom = describeExpectedDom(lView, tNode, isViewContainerAnchor);
+    const expected = `Angular expected this DOM:\n\n${expectedDom}\n\n`;
+    let actual = '';
+    if (!node) {
+      // No node found during hydration.
+      header += `the node was not found.\n\n`;
+      // Since the node is missing, we use the closest node to attach the error to
+      markRNodeAsHavingHydrationMismatch(unwrapRNode(lView[HOST]), expectedDom);
+    } else {
+      const actualNode = shortRNodeDescription(node.nodeType, node.tagName ?? null, node.textContent ?? null);
+      header += `found ${actualNode}.\n\n`;
+      const actualDom = describeDomFromNode(node);
+      actual = `Actual DOM is:\n\n${actualDom}\n\n`;
+      markRNodeAsHavingHydrationMismatch(node, expectedDom, actualDom);
+    }
+    const footer = getHydrationErrorFooter(componentClassName);
+    const message = header + expected + actual + getHydrationAttributeNote() + footer;
+    throw new RuntimeError(-500 /* RuntimeErrorCode.HYDRATION_NODE_MISMATCH */, message);
+  }
+}
+/**
+ * Validates that a given node has sibling nodes
+ */
+function validateSiblingNodeExists(node) {
+  validateNodeExists(node);
+  if (!node.nextSibling) {
+    const header = 'During hydration Angular expected more sibling nodes to be present.\n\n';
+    const actual = `Actual DOM is:\n\n${describeDomFromNode(node)}\n\n`;
+    const footer = getHydrationErrorFooter();
+    const message = header + actual + footer;
+    markRNodeAsHavingHydrationMismatch(node, '', actual);
+    throw new RuntimeError(-501 /* RuntimeErrorCode.HYDRATION_MISSING_SIBLINGS */, message);
+  }
+}
+/**
+ * Validates that a node exists or throws
+ */
+function validateNodeExists(node, lView = null, tNode = null) {
+  if (!node) {
+    const header = 'During hydration, Angular expected an element to be present at this location.\n\n';
+    let expected = '';
+    let footer = '';
+    if (lView !== null && tNode !== null) {
+      expected = describeExpectedDom(lView, tNode, false);
+      footer = getHydrationErrorFooter();
+      // Since the node is missing, we use the closest node to attach the error to
+      markRNodeAsHavingHydrationMismatch(unwrapRNode(lView[HOST]), expected, '');
+    }
+    throw new RuntimeError(-502 /* RuntimeErrorCode.HYDRATION_MISSING_NODE */, `${header}${expected}\n\n${footer}`);
+  }
+}
+/**
+ * Builds the hydration error message when a node is not found
+ *
+ * @param lView the LView where the node exists
+ * @param tNode the TNode
+ */
+function nodeNotFoundError(lView, tNode) {
+  const header = 'During serialization, Angular was unable to find an element in the DOM:\n\n';
+  const expected = `${describeExpectedDom(lView, tNode, false)}\n\n`;
+  const footer = getHydrationErrorFooter();
+  throw new RuntimeError(-502 /* RuntimeErrorCode.HYDRATION_MISSING_NODE */, header + expected + footer);
+}
+/**
+ * Builds a hydration error message when a node is not found at a path location
+ *
+ * @param host the Host Node
+ * @param path the path to the node
+ */
+function nodeNotFoundAtPathError(host, path) {
+  const header = `During hydration Angular was unable to locate a node ` + `using the "${path}" path, starting from the ${describeRNode(host)} node.\n\n`;
+  const footer = getHydrationErrorFooter();
+  markRNodeAsHavingHydrationMismatch(host);
+  throw new RuntimeError(-502 /* RuntimeErrorCode.HYDRATION_MISSING_NODE */, header + footer);
+}
+/**
+ * Builds the hydration error message in the case that dom nodes are created outside of
+ * the Angular context and are being used as projected nodes
+ *
+ * @param lView the LView
+ * @param tNode the TNode
+ * @returns an error
+ */
+function unsupportedProjectionOfDomNodes(rNode) {
+  const header = 'During serialization, Angular detected DOM nodes ' + 'that were created outside of Angular context and provided as projectable nodes ' + '(likely via `ViewContainerRef.createComponent` or `createComponent` APIs). ' + 'Hydration is not supported for such cases, consider refactoring the code to avoid ' + 'this pattern or using `ngSkipHydration` on the host element of the component.\n\n';
+  const actual = `${describeDomFromNode(rNode)}\n\n`;
+  const message = header + actual + getHydrationAttributeNote();
+  return new RuntimeError(-503 /* RuntimeErrorCode.UNSUPPORTED_PROJECTION_DOM_NODES */, message);
+}
+/**
+ * Builds the hydration error message in the case that ngSkipHydration was used on a
+ * node that is not a component host element or host binding
+ *
+ * @param rNode the HTML Element
+ * @returns an error
+ */
+function invalidSkipHydrationHost(rNode) {
+  const header = 'The `ngSkipHydration` flag is applied on a node ' + 'that doesn\'t act as a component host. Hydration can be ' + 'skipped only on per-component basis.\n\n';
+  const actual = `${describeDomFromNode(rNode)}\n\n`;
+  const footer = 'Please move the `ngSkipHydration` attribute to the component host element.\n\n';
+  const message = header + actual + footer;
+  return new RuntimeError(-504 /* RuntimeErrorCode.INVALID_SKIP_HYDRATION_HOST */, message);
+}
+// Stringification methods
+/**
+ * Stringifies a given TNode's attributes
+ *
+ * @param tNode a provided TNode
+ * @returns string
+ */
+function stringifyTNodeAttrs(tNode) {
+  const results = [];
+  if (tNode.attrs) {
+    for (let i = 0; i < tNode.attrs.length;) {
+      const attrName = tNode.attrs[i++];
+      // Once we reach the first flag, we know that the list of
+      // attributes is over.
+      if (typeof attrName == 'number') {
+        break;
+      }
+      const attrValue = tNode.attrs[i++];
+      results.push(`${attrName}="${shorten(attrValue)}"`);
+    }
+  }
+  return results.join(' ');
+}
+/**
+ * The list of internal attributes that should be filtered out while
+ * producing an error message.
+ */
+const internalAttrs = new Set(['ngh', 'ng-version', 'ng-server-context']);
+/**
+ * Stringifies an HTML Element's attributes
+ *
+ * @param rNode an HTML Element
+ * @returns string
+ */
+function stringifyRNodeAttrs(rNode) {
+  const results = [];
+  for (let i = 0; i < rNode.attributes.length; i++) {
+    const attr = rNode.attributes[i];
+    if (internalAttrs.has(attr.name)) continue;
+    results.push(`${attr.name}="${shorten(attr.value)}"`);
+  }
+  return results.join(' ');
+}
+// Methods for Describing the DOM
+/**
+ * Converts a tNode to a helpful readable string value for use in error messages
+ *
+ * @param tNode a given TNode
+ * @param innerContent the content of the node
+ * @returns string
+ */
+function describeTNode(tNode, innerContent = '…') {
+  switch (tNode.type) {
+    case 1 /* TNodeType.Text */:
+      const content = tNode.value ? `(${tNode.value})` : '';
+      return `#text${content}`;
+    case 2 /* TNodeType.Element */:
+      const attrs = stringifyTNodeAttrs(tNode);
+      const tag = tNode.value.toLowerCase();
+      return `<${tag}${attrs ? ' ' + attrs : ''}>${innerContent}</${tag}>`;
+    case 8 /* TNodeType.ElementContainer */:
+      return '<!-- ng-container -->';
+    case 4 /* TNodeType.Container */:
+      return '<!-- container -->';
+    default:
+      const typeAsString = getFriendlyStringFromTNodeType(tNode.type);
+      return `#node(${typeAsString})`;
+  }
+}
+/**
+ * Converts an RNode to a helpful readable string value for use in error messages
+ *
+ * @param rNode a given RNode
+ * @param innerContent the content of the node
+ * @returns string
+ */
+function describeRNode(rNode, innerContent = '…') {
+  const node = rNode;
+  switch (node.nodeType) {
+    case Node.ELEMENT_NODE:
+      const tag = node.tagName.toLowerCase();
+      const attrs = stringifyRNodeAttrs(node);
+      return `<${tag}${attrs ? ' ' + attrs : ''}>${innerContent}</${tag}>`;
+    case Node.TEXT_NODE:
+      const content = node.textContent ? shorten(node.textContent) : '';
+      return `#text${content ? `(${content})` : ''}`;
+    case Node.COMMENT_NODE:
+      return `<!-- ${shorten(node.textContent ?? '')} -->`;
+    default:
+      return `#node(${node.nodeType})`;
+  }
+}
+/**
+ * Builds the string containing the expected DOM present given the LView and TNode
+ * values for a readable error message
+ *
+ * @param lView the lView containing the DOM
+ * @param tNode the tNode
+ * @param isViewContainerAnchor boolean
+ * @returns string
+ */
+function describeExpectedDom(lView, tNode, isViewContainerAnchor) {
+  const spacer = '  ';
+  let content = '';
+  if (tNode.prev) {
+    content += spacer + '…\n';
+    content += spacer + describeTNode(tNode.prev) + '\n';
+  } else if (tNode.type && tNode.type & 12 /* TNodeType.AnyContainer */) {
+    content += spacer + '…\n';
+  }
+  if (isViewContainerAnchor) {
+    content += spacer + describeTNode(tNode) + '\n';
+    content += spacer + `<!-- container -->  ${AT_THIS_LOCATION}\n`;
+  } else {
+    content += spacer + describeTNode(tNode) + `  ${AT_THIS_LOCATION}\n`;
+  }
+  content += spacer + '…\n';
+  const parentRNode = tNode.type ? getParentRElement(lView[TVIEW], tNode, lView) : null;
+  if (parentRNode) {
+    content = describeRNode(parentRNode, '\n' + content);
+  }
+  return content;
+}
+/**
+ * Builds the string containing the DOM present around a given RNode for a
+ * readable error message
+ *
+ * @param node the RNode
+ * @returns string
+ */
+function describeDomFromNode(node) {
+  const spacer = '  ';
+  let content = '';
+  const currentNode = node;
+  if (currentNode.previousSibling) {
+    content += spacer + '…\n';
+    content += spacer + describeRNode(currentNode.previousSibling) + '\n';
+  }
+  content += spacer + describeRNode(currentNode) + `  ${AT_THIS_LOCATION}\n`;
+  if (node.nextSibling) {
+    content += spacer + '…\n';
+  }
+  if (node.parentNode) {
+    content = describeRNode(currentNode.parentNode, '\n' + content);
+  }
+  return content;
+}
+/**
+ * Shortens the description of a given RNode by its type for readability
+ *
+ * @param nodeType the type of node
+ * @param tagName the node tag name
+ * @param textContent the text content in the node
+ * @returns string
+ */
+function shortRNodeDescription(nodeType, tagName, textContent) {
+  switch (nodeType) {
+    case Node.ELEMENT_NODE:
+      return `<${tagName.toLowerCase()}>`;
+    case Node.TEXT_NODE:
+      const content = textContent ? ` (with the "${shorten(textContent)}" content)` : '';
+      return `a text node${content}`;
+    case Node.COMMENT_NODE:
+      return 'a comment node';
+    default:
+      return `#node(nodeType=${nodeType})`;
+  }
+}
+/**
+ * Builds the footer hydration error message
+ *
+ * @param componentClassName the name of the component class
+ * @returns string
+ */
+function getHydrationErrorFooter(componentClassName) {
+  const componentInfo = componentClassName ? `the "${componentClassName}"` : 'corresponding';
+  return `To fix this problem:\n` + `  * check ${componentInfo} component for hydration-related issues\n` + `  * check to see if your template has valid HTML structure\n` + `  * or skip hydration by adding the \`ngSkipHydration\` attribute ` + `to its host node in a template\n\n`;
+}
+/**
+ * An attribute related note for hydration errors
+ */
+function getHydrationAttributeNote() {
+  return 'Note: attributes are only displayed to better represent the DOM' + ' but have no effect on hydration mismatches.\n\n';
+}
+// Node string utility functions
+/**
+ * Strips all newlines out of a given string
+ *
+ * @param input a string to be cleared of new line characters
+ * @returns
+ */
+function stripNewlines(input) {
+  return input.replace(/\s+/gm, '');
+}
+/**
+ * Reduces a string down to a maximum length of characters with ellipsis for readability
+ *
+ * @param input a string input
+ * @param maxLength a maximum length in characters
+ * @returns string
+ */
+function shorten(input, maxLength = 50) {
+  if (!input) {
+    return '';
+  }
+  input = stripNewlines(input);
+  return input.length > maxLength ? `${input.substring(0, maxLength - 1)}…` : input;
+}
+
+/**
+ * Removes all dehydrated views from a given LContainer:
+ * both in internal data structure, as well as removing
+ * corresponding DOM nodes that belong to that dehydrated view.
+ */
+function removeDehydratedViews(lContainer) {
+  const views = lContainer[DEHYDRATED_VIEWS] ?? [];
+  const parentLView = lContainer[PARENT];
+  const renderer = parentLView[RENDERER];
+  for (const view of views) {
+    removeDehydratedView(view, renderer);
+    ngDevMode && ngDevMode.dehydratedViewsRemoved++;
+  }
+  // Reset the value to an empty array to indicate that no
+  // further processing of dehydrated views is needed for
+  // this view container (i.e. do not trigger the lookup process
+  // once again in case a `ViewContainerRef` is created later).
+  lContainer[DEHYDRATED_VIEWS] = EMPTY_ARRAY;
+}
+/**
+ * Helper function to remove all nodes from a dehydrated view.
+ */
+function removeDehydratedView(dehydratedView, renderer) {
+  let nodesRemoved = 0;
+  let currentRNode = dehydratedView.firstChild;
+  if (currentRNode) {
+    const numNodes = dehydratedView.data[NUM_ROOT_NODES];
+    while (nodesRemoved < numNodes) {
+      ngDevMode && validateSiblingNodeExists(currentRNode);
+      const nextSibling = currentRNode.nextSibling;
+      nativeRemoveNode(renderer, currentRNode, false);
+      currentRNode = nextSibling;
+      nodesRemoved++;
+    }
+  }
+}
+/**
+ * Walks over all views within this LContainer invokes dehydrated views
+ * cleanup function for each one.
+ */
+function cleanupLContainer(lContainer) {
+  removeDehydratedViews(lContainer);
+  for (let i = CONTAINER_HEADER_OFFSET; i < lContainer.length; i++) {
+    cleanupLView(lContainer[i]);
+  }
+}
+/**
+ * Walks over `LContainer`s and components registered within
+ * this LView and invokes dehydrated views cleanup function for each one.
+ */
+function cleanupLView(lView) {
+  const tView = lView[TVIEW];
+  for (let i = HEADER_OFFSET; i < tView.bindingStartIndex; i++) {
+    if (isLContainer(lView[i])) {
+      const lContainer = lView[i];
+      cleanupLContainer(lContainer);
+    } else if (isLView(lView[i])) {
+      // This is a component, enter the `cleanupLView` recursively.
+      cleanupLView(lView[i]);
+    }
+  }
+}
+/**
+ * Walks over all views registered within the ApplicationRef and removes
+ * all dehydrated views from all `LContainer`s along the way.
+ */
+function cleanupDehydratedViews(appRef) {
+  const viewRefs = appRef._views;
+  for (const viewRef of viewRefs) {
+    const lNode = getLNodeForHydration(viewRef);
+    // An `lView` might be `null` if a `ViewRef` represents
+    // an embedded view (not a component view).
+    if (lNode !== null && lNode[HOST] !== null) {
+      if (isLView(lNode)) {
+        cleanupLView(lNode);
+      } else {
+        // Cleanup in the root component view
+        const componentLView = lNode[HOST];
+        cleanupLView(componentLView);
+        // Cleanup in all views within this view container
+        cleanupLContainer(lNode);
+      }
+      ngDevMode && ngDevMode.dehydratedViewsCleanupRuns++;
+    }
+  }
+}
+
+/**
+ * Regexp that extracts a reference node information from the compressed node location.
+ * The reference node is represented as either:
+ *  - a number which points to an LView slot
+ *  - the `b` char which indicates that the lookup should start from the `document.body`
+ *  - the `h` char to start lookup from the component host node (`lView[HOST]`)
+ */
+const REF_EXTRACTOR_REGEXP = new RegExp(`^(\\d+)*(${REFERENCE_NODE_BODY}|${REFERENCE_NODE_HOST})*(.*)`);
+/**
+ * Helper function that takes a reference node location and a set of navigation steps
+ * (from the reference node) to a target node and outputs a string that represents
+ * a location.
+ *
+ * For example, given: referenceNode = 'b' (body) and path = ['firstChild', 'firstChild',
+ * 'nextSibling'], the function returns: `bf2n`.
+ */
+function compressNodeLocation(referenceNode, path) {
+  const result = [referenceNode];
+  for (const segment of path) {
+    const lastIdx = result.length - 1;
+    if (lastIdx > 0 && result[lastIdx - 1] === segment) {
+      // An empty string in a count slot represents 1 occurrence of an instruction.
+      const value = result[lastIdx] || 1;
+      result[lastIdx] = value + 1;
+    } else {
+      // Adding a new segment to the path.
+      // Using an empty string in a counter field to avoid encoding `1`s
+      // into the path, since they are implicit (e.g. `f1n1` vs `fn`), so
+      // it's enough to have a single char in this case.
+      result.push(segment, '');
+    }
+  }
+  return result.join('');
+}
+/**
+ * Helper function that reverts the `compressNodeLocation` and transforms a given
+ * string into an array where at 0th position there is a reference node info and
+ * after that it contains information (in pairs) about a navigation step and the
+ * number of repetitions.
+ *
+ * For example, the path like 'bf2n' will be transformed to:
+ * ['b', 'firstChild', 2, 'nextSibling', 1].
+ *
+ * This information is later consumed by the code that navigates the DOM to find
+ * a given node by its location.
+ */
+function decompressNodeLocation(path) {
+  const matches = path.match(REF_EXTRACTOR_REGEXP);
+  const [_, refNodeId, refNodeName, rest] = matches;
+  // If a reference node is represented by an index, transform it to a number.
+  const ref = refNodeId ? parseInt(refNodeId, 10) : refNodeName;
+  const steps = [];
+  // Match all segments in a path.
+  for (const [_, step, count] of rest.matchAll(/(f|n)(\d*)/g)) {
+    const repeat = parseInt(count, 10) || 1;
+    steps.push(step, repeat);
+  }
+  return [ref, ...steps];
+}
+
+/** Whether current TNode is a first node in an <ng-container>. */
+function isFirstElementInNgContainer(tNode) {
+  return !tNode.prev && tNode.parent?.type === 8 /* TNodeType.ElementContainer */;
+}
+/** Returns an instruction index (subtracting HEADER_OFFSET). */
+function getNoOffsetIndex(tNode) {
+  return tNode.index - HEADER_OFFSET;
+}
+/**
+ * Check whether a given node exists, but is disconnected from the DOM.
+ *
+ * Note: we leverage the fact that we have this information available in the DOM emulation
+ * layer (in Domino) for now. Longer-term solution should not rely on the DOM emulation and
+ * only use internal data structures and state to compute this information.
+ */
+function isDisconnectedNode(tNode, lView) {
+  return !(tNode.type & 16 /* TNodeType.Projection */) && !!lView[tNode.index] && !unwrapRNode(lView[tNode.index])?.isConnected;
+}
+/**
+ * Locate a node in DOM tree that corresponds to a given TNode.
+ *
+ * @param hydrationInfo The hydration annotation data
+ * @param tView the current tView
+ * @param lView the current lView
+ * @param tNode the current tNode
+ * @returns an RNode that represents a given tNode
+ */
+function locateNextRNode(hydrationInfo, tView, lView, tNode) {
+  let native = null;
+  const noOffsetIndex = getNoOffsetIndex(tNode);
+  const nodes = hydrationInfo.data[NODES];
+  if (nodes?.[noOffsetIndex]) {
+    // We know the exact location of the node.
+    native = locateRNodeByPath(nodes[noOffsetIndex], lView);
+  } else if (tView.firstChild === tNode) {
+    // We create a first node in this view, so we use a reference
+    // to the first child in this DOM segment.
+    native = hydrationInfo.firstChild;
+  } else {
+    // Locate a node based on a previous sibling or a parent node.
+    const previousTNodeParent = tNode.prev === null;
+    const previousTNode = tNode.prev ?? tNode.parent;
+    ngDevMode && assertDefined(previousTNode, 'Unexpected state: current TNode does not have a connection ' + 'to the previous node or a parent node.');
+    if (isFirstElementInNgContainer(tNode)) {
+      const noOffsetParentIndex = getNoOffsetIndex(tNode.parent);
+      native = getSegmentHead(hydrationInfo, noOffsetParentIndex);
+    } else {
+      let previousRElement = getNativeByTNode(previousTNode, lView);
+      if (previousTNodeParent) {
+        native = previousRElement.firstChild;
+      } else {
+        // If the previous node is an element, but it also has container info,
+        // this means that we are processing a node like `<div #vcrTarget>`, which is
+        // represented in the DOM as `<div></div>...<!--container-->`.
+        // In this case, there are nodes *after* this element and we need to skip
+        // all of them to reach an element that we are looking for.
+        const noOffsetPrevSiblingIndex = getNoOffsetIndex(previousTNode);
+        const segmentHead = getSegmentHead(hydrationInfo, noOffsetPrevSiblingIndex);
+        if (previousTNode.type === 2 /* TNodeType.Element */ && segmentHead) {
+          const numRootNodesToSkip = calcSerializedContainerSize(hydrationInfo, noOffsetPrevSiblingIndex);
+          // `+1` stands for an anchor comment node after all the views in this container.
+          const nodesToSkip = numRootNodesToSkip + 1;
+          // First node after this segment.
+          native = siblingAfter(nodesToSkip, segmentHead);
+        } else {
+          native = previousRElement.nextSibling;
+        }
+      }
+    }
+  }
+  return native;
+}
+/**
+ * Skips over a specified number of nodes and returns the next sibling node after that.
+ */
+function siblingAfter(skip, from) {
+  let currentNode = from;
+  for (let i = 0; i < skip; i++) {
+    ngDevMode && validateSiblingNodeExists(currentNode);
+    currentNode = currentNode.nextSibling;
+  }
+  return currentNode;
+}
+/**
+ * Helper function to produce a string representation of the navigation steps
+ * (in terms of `nextSibling` and `firstChild` navigations). Used in error
+ * messages in dev mode.
+ */
+function stringifyNavigationInstructions(instructions) {
+  const container = [];
+  for (let i = 0; i < instructions.length; i += 2) {
+    const step = instructions[i];
+    const repeat = instructions[i + 1];
+    for (let r = 0; r < repeat; r++) {
+      container.push(step === NodeNavigationStep.FirstChild ? 'firstChild' : 'nextSibling');
+    }
+  }
+  return container.join('.');
+}
+/**
+ * Helper function that navigates from a starting point node (the `from` node)
+ * using provided set of navigation instructions (within `path` argument).
+ */
+function navigateToNode(from, instructions) {
+  let node = from;
+  for (let i = 0; i < instructions.length; i += 2) {
+    const step = instructions[i];
+    const repeat = instructions[i + 1];
+    for (let r = 0; r < repeat; r++) {
+      if (ngDevMode && !node) {
+        throw nodeNotFoundAtPathError(from, stringifyNavigationInstructions(instructions));
+      }
+      switch (step) {
+        case NodeNavigationStep.FirstChild:
+          node = node.firstChild;
+          break;
+        case NodeNavigationStep.NextSibling:
+          node = node.nextSibling;
+          break;
+      }
+    }
+  }
+  if (ngDevMode && !node) {
+    throw nodeNotFoundAtPathError(from, stringifyNavigationInstructions(instructions));
+  }
+  return node;
+}
+/**
+ * Locates an RNode given a set of navigation instructions (which also contains
+ * a starting point node info).
+ */
+function locateRNodeByPath(path, lView) {
+  const [referenceNode, ...navigationInstructions] = decompressNodeLocation(path);
+  let ref;
+  if (referenceNode === REFERENCE_NODE_HOST) {
+    ref = lView[DECLARATION_COMPONENT_VIEW][HOST];
+  } else if (referenceNode === REFERENCE_NODE_BODY) {
+    ref = ɵɵresolveBody(lView[DECLARATION_COMPONENT_VIEW][HOST]);
+  } else {
+    const parentElementId = Number(referenceNode);
+    ref = unwrapRNode(lView[parentElementId + HEADER_OFFSET]);
+  }
+  return navigateToNode(ref, navigationInstructions);
+}
+/**
+ * Generate a list of DOM navigation operations to get from node `start` to node `finish`.
+ *
+ * Note: assumes that node `start` occurs before node `finish` in an in-order traversal of the DOM
+ * tree. That is, we should be able to get from `start` to `finish` purely by using `.firstChild`
+ * and `.nextSibling` operations.
+ */
+function navigateBetween(start, finish) {
+  if (start === finish) {
+    return [];
+  } else if (start.parentElement == null || finish.parentElement == null) {
+    return null;
+  } else if (start.parentElement === finish.parentElement) {
+    return navigateBetweenSiblings(start, finish);
+  } else {
+    // `finish` is a child of its parent, so the parent will always have a child.
+    const parent = finish.parentElement;
+    const parentPath = navigateBetween(start, parent);
+    const childPath = navigateBetween(parent.firstChild, finish);
+    if (!parentPath || !childPath) return null;
+    return [
+    // First navigate to `finish`'s parent
+    ...parentPath,
+    // Then to its first child.
+    NodeNavigationStep.FirstChild,
+    // And finally from that node to `finish` (maybe a no-op if we're already there).
+    ...childPath];
+  }
+}
+/**
+ * Calculates a path between 2 sibling nodes (generates a number of `NextSibling` navigations).
+ * Returns `null` if no such path exists between the given nodes.
+ */
+function navigateBetweenSiblings(start, finish) {
+  const nav = [];
+  let node = null;
+  for (node = start; node != null && node !== finish; node = node.nextSibling) {
+    nav.push(NodeNavigationStep.NextSibling);
+  }
+  // If the `node` becomes `null` or `undefined` at the end, that means that we
+  // didn't find the `end` node, thus return `null` (which would trigger serialization
+  // error to be produced).
+  return node == null ? null : nav;
+}
+/**
+ * Calculates a path between 2 nodes in terms of `nextSibling` and `firstChild`
+ * navigations:
+ * - the `from` node is a known node, used as an starting point for the lookup
+ *   (the `fromNodeName` argument is a string representation of the node).
+ * - the `to` node is a node that the runtime logic would be looking up,
+ *   using the path generated by this function.
+ */
+function calcPathBetween(from, to, fromNodeName) {
+  const path = navigateBetween(from, to);
+  return path === null ? null : compressNodeLocation(fromNodeName, path);
+}
+/**
+ * Invoked at serialization time (on the server) when a set of navigation
+ * instructions needs to be generated for a TNode.
+ */
+function calcPathForNode(tNode, lView) {
+  let parentTNode = tNode.parent;
+  let parentIndex;
+  let parentRNode;
+  let referenceNodeName;
+  // Skip over all parent nodes that are disconnected from the DOM, such nodes
+  // can not be used as anchors.
+  //
+  // This might happen in certain content projection-based use-cases, where
+  // a content of an element is projected and used, when a parent element
+  // itself remains detached from DOM. In this scenario we try to find a parent
+  // element that is attached to DOM and can act as an anchor instead.
+  while (parentTNode !== null && isDisconnectedNode(parentTNode, lView)) {
+    parentTNode = parentTNode.parent;
+  }
+  if (parentTNode === null || !(parentTNode.type & 3 /* TNodeType.AnyRNode */)) {
+    // If there is no parent TNode or a parent TNode does not represent an RNode
+    // (i.e. not a DOM node), use component host element as a reference node.
+    parentIndex = referenceNodeName = REFERENCE_NODE_HOST;
+    parentRNode = lView[DECLARATION_COMPONENT_VIEW][HOST];
+  } else {
+    // Use parent TNode as a reference node.
+    parentIndex = parentTNode.index;
+    parentRNode = unwrapRNode(lView[parentIndex]);
+    referenceNodeName = renderStringify(parentIndex - HEADER_OFFSET);
+  }
+  let rNode = unwrapRNode(lView[tNode.index]);
+  if (tNode.type & 12 /* TNodeType.AnyContainer */) {
+    // For <ng-container> nodes, instead of serializing a reference
+    // to the anchor comment node, serialize a location of the first
+    // DOM element. Paired with the container size (serialized as a part
+    // of `ngh.containers`), it should give enough information for runtime
+    // to hydrate nodes in this container.
+    const firstRNode = getFirstNativeNode(lView, tNode);
+    // If container is not empty, use a reference to the first element,
+    // otherwise, rNode would point to an anchor comment node.
+    if (firstRNode) {
+      rNode = firstRNode;
+    }
+  }
+  let path = calcPathBetween(parentRNode, rNode, referenceNodeName);
+  if (path === null && parentRNode !== rNode) {
+    // Searching for a path between elements within a host node failed.
+    // Trying to find a path to an element starting from the `document.body` instead.
+    //
+    // Important note: this type of reference is relatively unstable, since Angular
+    // may not be able to control parts of the page that the runtime logic navigates
+    // through. This is mostly needed to cover "portals" use-case (like menus, dialog boxes,
+    // etc), where nodes are content-projected (including direct DOM manipulations) outside
+    // of the host node. The better solution is to provide APIs to work with "portals",
+    // at which point this code path would not be needed.
+    const body = parentRNode.ownerDocument.body;
+    path = calcPathBetween(body, rNode, REFERENCE_NODE_BODY);
+    if (path === null) {
+      // If the path is still empty, it's likely that this node is detached and
+      // won't be found during hydration.
+      throw nodeNotFoundError(lView, tNode);
+    }
+  }
+  return path;
+}
+
+/**
+ * Given a current DOM node and a serialized information about the views
+ * in a container, walks over the DOM structure, collecting the list of
+ * dehydrated views.
+ */
+function locateDehydratedViewsInContainer(currentRNode, serializedViews) {
+  const dehydratedViews = [];
+  for (const serializedView of serializedViews) {
+    // Repeats a view multiple times as needed, based on the serialized information
+    // (for example, for *ngFor-produced views).
+    for (let i = 0; i < (serializedView[MULTIPLIER] ?? 1); i++) {
+      const view = {
+        data: serializedView,
+        firstChild: null
+      };
+      if (serializedView[NUM_ROOT_NODES] > 0) {
+        // Keep reference to the first node in this view,
+        // so it can be accessed while invoking template instructions.
+        view.firstChild = currentRNode;
+        // Move over to the next node after this view, which can
+        // either be a first node of the next view or an anchor comment
+        // node after the last view in a container.
+        currentRNode = siblingAfter(serializedView[NUM_ROOT_NODES], currentRNode);
+      }
+      dehydratedViews.push(view);
+    }
+  }
+  return [currentRNode, dehydratedViews];
+}
+/**
+ * Reference to a function that searches for a matching dehydrated views
+ * stored on a given lContainer.
+ * Returns `null` by default, when hydration is not enabled.
+ */
+let _findMatchingDehydratedViewImpl = () => null;
+/**
+ * Retrieves the next dehydrated view from the LContainer and verifies that
+ * it matches a given template id (from the TView that was used to create this
+ * instance of a view). If the id doesn't match, that means that we are in an
+ * unexpected state and can not complete the reconciliation process. Thus,
+ * all dehydrated views from this LContainer are removed (including corresponding
+ * DOM nodes) and the rendering is performed as if there were no dehydrated views
+ * in this container.
+ */
+function findMatchingDehydratedViewImpl(lContainer, template) {
+  const views = lContainer[DEHYDRATED_VIEWS];
+  if (!template || views === null || views.length === 0) {
+    return null;
+  }
+  const view = views[0];
+  // Verify whether the first dehydrated view in the container matches
+  // the template id passed to this function (that originated from a TView
+  // that was used to create an instance of an embedded or component views.
+  if (view.data[TEMPLATE_ID] === template) {
+    // If the template id matches - extract the first view and return it.
+    return views.shift();
+  } else {
+    // Otherwise, we are at the state when reconciliation can not be completed,
+    // thus we remove all dehydrated views within this container (remove them
+    // from internal data structures as well as delete associated elements from
+    // the DOM tree).
+    removeDehydratedViews(lContainer);
+    return null;
+  }
+}
+function enableFindMatchingDehydratedViewImpl() {
+  _findMatchingDehydratedViewImpl = findMatchingDehydratedViewImpl;
+}
+function findMatchingDehydratedView(lContainer, template) {
+  return _findMatchingDehydratedViewImpl(lContainer, template);
+}
+function createAndRenderEmbeddedLView(declarationLView, templateTNode, context, options) {
+  const embeddedTView = templateTNode.tView;
+  ngDevMode && assertDefined(embeddedTView, 'TView must be defined for a template node.');
+  ngDevMode && assertTNodeForLView(templateTNode, declarationLView);
+  // Embedded views follow the change detection strategy of the view they're declared in.
+  const isSignalView = declarationLView[FLAGS] & 4096 /* LViewFlags.SignalView */;
+  const viewFlags = isSignalView ? 4096 /* LViewFlags.SignalView */ : 16 /* LViewFlags.CheckAlways */;
+  const embeddedLView = createLView(declarationLView, embeddedTView, context, viewFlags, null, templateTNode, null, null, null, options?.injector ?? null, options?.dehydratedView ?? null);
+  const declarationLContainer = declarationLView[templateTNode.index];
+  ngDevMode && assertLContainer(declarationLContainer);
+  embeddedLView[DECLARATION_LCONTAINER] = declarationLContainer;
+  const declarationViewLQueries = declarationLView[QUERIES];
+  if (declarationViewLQueries !== null) {
+    embeddedLView[QUERIES] = declarationViewLQueries.createEmbeddedView(embeddedTView);
+  }
+  // execute creation mode of a view
+  renderView(embeddedTView, embeddedLView, context);
+  return embeddedLView;
+}
+function getLViewFromLContainer(lContainer, index) {
+  const adjustedIndex = CONTAINER_HEADER_OFFSET + index;
+  // avoid reading past the array boundaries
+  if (adjustedIndex < lContainer.length) {
+    const lView = lContainer[adjustedIndex];
+    ngDevMode && assertLView(lView);
+    return lView;
+  }
+  return undefined;
+}
+/**
+ * Returns whether an elements that belong to a view should be
+ * inserted into the DOM. For client-only cases, DOM elements are
+ * always inserted. For hydration cases, we check whether serialized
+ * info is available for a view and the view is not in a "skip hydration"
+ * block (in which case view contents was re-created, thus needing insertion).
+ */
+function shouldAddViewToDom(tNode, dehydratedView) {
+  return !dehydratedView || dehydratedView.firstChild === null || hasInSkipHydrationBlockFlag(tNode);
+}
+function addLViewToLContainer(lContainer, lView, index, addToDOM = true) {
+  const tView = lView[TVIEW];
+  // Insert into the view tree so the new view can be change-detected
+  insertView(tView, lView, lContainer, index);
+  // Insert elements that belong to this view into the DOM tree
+  if (addToDOM) {
+    const beforeNode = getBeforeNodeForView(index, lContainer);
+    const renderer = lView[RENDERER];
+    const parentRNode = nativeParentNode(renderer, lContainer[NATIVE]);
+    if (parentRNode !== null) {
+      addViewToDOM(tView, lContainer[T_HOST], renderer, lView, parentRNode, beforeNode);
+    }
+  }
+  // When in hydration mode, reset the pointer to the first child in
+  // the dehydrated view. This indicates that the view was hydrated and
+  // further attaching/detaching should work with this view as normal.
+  const hydrationInfo = lView[HYDRATION];
+  if (hydrationInfo !== null && hydrationInfo.firstChild !== null) {
+    hydrationInfo.firstChild = null;
+  }
+}
+function removeLViewFromLContainer(lContainer, index) {
+  const lView = detachView(lContainer, index);
+  if (lView !== undefined) {
+    destroyLView(lView[TVIEW], lView);
+  }
+  return lView;
+}
+
+/**
+ * Represents a container where one or more views can be attached to a component.
+ *
+ * Can contain *host views* (created by instantiating a
+ * component with the `createComponent()` method), and *embedded views*
+ * (created by instantiating a `TemplateRef` with the `createEmbeddedView()` method).
+ *
+ * A view container instance can contain other view containers,
+ * creating a [view hierarchy](guide/glossary#view-hierarchy).
+ *
+ * @usageNotes
+ *
+ * The example below demonstrates how the `createComponent` function can be used
+ * to create an instance of a ComponentRef dynamically and attach it to an ApplicationRef,
+ * so that it gets included into change detection cycles.
+ *
+ * Note: the example uses standalone components, but the function can also be used for
+ * non-standalone components (declared in an NgModule) as well.
+ *
+ * ```typescript
+ * @Component({
+ *   standalone: true,
+ *   selector: 'dynamic',
+ *   template: `<span>This is a content of a dynamic component.</span>`,
+ * })
+ * class DynamicComponent {
+ *   vcr = inject(ViewContainerRef);
+ * }
+ *
+ * @Component({
+ *   standalone: true,
+ *   selector: 'app',
+ *   template: `<main>Hi! This is the main content.</main>`,
+ * })
+ * class AppComponent {
+ *   vcr = inject(ViewContainerRef);
+ *
+ *   ngAfterViewInit() {
+ *     const compRef = this.vcr.createComponent(DynamicComponent);
+ *     compRef.changeDetectorRef.detectChanges();
+ *   }
+ * }
+ * ```
+ *
+ * @see {@link ComponentRef}
+ * @see {@link EmbeddedViewRef}
+ *
+ * @publicApi
+ */
+class ViewContainerRef {
+  /**
+   * @internal
+   * @nocollapse
+   */
+  static #_ = this.__NG_ELEMENT_ID__ = injectViewContainerRef;
+}
+/**
+ * Creates a ViewContainerRef and stores it on the injector. Or, if the ViewContainerRef
+ * already exists, retrieves the existing ViewContainerRef.
+ *
+ * @returns The ViewContainerRef instance to use
+ */
+function injectViewContainerRef() {
+  const previousTNode = getCurrentTNode();
+  return createContainerRef(previousTNode, getLView());
+}
+const VE_ViewContainerRef = ViewContainerRef;
+// TODO(alxhub): cleaning up this indirection triggers a subtle bug in Closure in g3. Once the fix
+// for that lands, this can be cleaned up.
+const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
+  constructor(_lContainer, _hostTNode, _hostLView) {
+    super();
+    this._lContainer = _lContainer;
+    this._hostTNode = _hostTNode;
+    this._hostLView = _hostLView;
+  }
+  get element() {
+    return createElementRef(this._hostTNode, this._hostLView);
+  }
+  get injector() {
+    return new NodeInjector(this._hostTNode, this._hostLView);
+  }
+  /** @deprecated No replacement */
+  get parentInjector() {
+    const parentLocation = getParentInjectorLocation(this._hostTNode, this._hostLView);
+    if (hasParentInjector(parentLocation)) {
+      const parentView = getParentInjectorView(parentLocation, this._hostLView);
+      const injectorIndex = getParentInjectorIndex(parentLocation);
+      ngDevMode && assertNodeInjector(parentView, injectorIndex);
+      const parentTNode = parentView[TVIEW].data[injectorIndex + 8 /* NodeInjectorOffset.TNODE */];
+      return new NodeInjector(parentTNode, parentView);
+    } else {
+      return new NodeInjector(null, this._hostLView);
+    }
+  }
+  clear() {
+    while (this.length > 0) {
+      this.remove(this.length - 1);
+    }
+  }
+  get(index) {
+    const viewRefs = getViewRefs(this._lContainer);
+    return viewRefs !== null && viewRefs[index] || null;
+  }
+  get length() {
+    return this._lContainer.length - CONTAINER_HEADER_OFFSET;
+  }
+  createEmbeddedView(templateRef, context, indexOrOptions) {
+    let index;
+    let injector;
+    if (typeof indexOrOptions === 'number') {
+      index = indexOrOptions;
+    } else if (indexOrOptions != null) {
+      index = indexOrOptions.index;
+      injector = indexOrOptions.injector;
+    }
+    const dehydratedView = findMatchingDehydratedView(this._lContainer, templateRef.ssrId);
+    const viewRef = templateRef.createEmbeddedViewImpl(context || {}, injector, dehydratedView);
+    this.insertImpl(viewRef, index, shouldAddViewToDom(this._hostTNode, dehydratedView));
+    return viewRef;
+  }
+  createComponent(componentFactoryOrType, indexOrOptions, injector, projectableNodes, environmentInjector) {
+    const isComponentFactory = componentFactoryOrType && !isType(componentFactoryOrType);
+    let index;
+    // This function supports 2 signatures and we need to handle options correctly for both:
+    //   1. When first argument is a Component type. This signature also requires extra
+    //      options to be provided as object (more ergonomic option).
+    //   2. First argument is a Component factory. In this case extra options are represented as
+    //      positional arguments. This signature is less ergonomic and will be deprecated.
+    if (isComponentFactory) {
+      if (ngDevMode) {
+        assertEqual(typeof indexOrOptions !== 'object', true, 'It looks like Component factory was provided as the first argument ' + 'and an options object as the second argument. This combination of arguments ' + 'is incompatible. You can either change the first argument to provide Component ' + 'type or change the second argument to be a number (representing an index at ' + 'which to insert the new component\'s host view into this container)');
+      }
+      index = indexOrOptions;
+    } else {
+      if (ngDevMode) {
+        assertDefined(getComponentDef(componentFactoryOrType), `Provided Component class doesn't contain Component definition. ` + `Please check whether provided class has @Component decorator.`);
+        assertEqual(typeof indexOrOptions !== 'number', true, 'It looks like Component type was provided as the first argument ' + 'and a number (representing an index at which to insert the new component\'s ' + 'host view into this container as the second argument. This combination of arguments ' + 'is incompatible. Please use an object as the second argument instead.');
+      }
+      const options = indexOrOptions || {};
+      if (ngDevMode && options.environmentInjector && options.ngModuleRef) {
+        throwError(`Cannot pass both environmentInjector and ngModuleRef options to createComponent().`);
+      }
+      index = options.index;
+      injector = options.injector;
+      projectableNodes = options.projectableNodes;
+      environmentInjector = options.environmentInjector || options.ngModuleRef;
+    }
+    const componentFactory = isComponentFactory ? componentFactoryOrType : new ComponentFactory(getComponentDef(componentFactoryOrType));
+    const contextInjector = injector || this.parentInjector;
+    // If an `NgModuleRef` is not provided explicitly, try retrieving it from the DI tree.
+    if (!environmentInjector && componentFactory.ngModule == null) {
+      // For the `ComponentFactory` case, entering this logic is very unlikely, since we expect that
+      // an instance of a `ComponentFactory`, resolved via `ComponentFactoryResolver` would have an
+      // `ngModule` field. This is possible in some test scenarios and potentially in some JIT-based
+      // use-cases. For the `ComponentFactory` case we preserve backwards-compatibility and try
+      // using a provided injector first, then fall back to the parent injector of this
+      // `ViewContainerRef` instance.
+      //
+      // For the factory-less case, it's critical to establish a connection with the module
+      // injector tree (by retrieving an instance of an `NgModuleRef` and accessing its injector),
+      // so that a component can use DI tokens provided in MgModules. For this reason, we can not
+      // rely on the provided injector, since it might be detached from the DI tree (for example, if
+      // it was created via `Injector.create` without specifying a parent injector, or if an
+      // injector is retrieved from an `NgModuleRef` created via `createNgModule` using an
+      // NgModule outside of a module tree). Instead, we always use `ViewContainerRef`'s parent
+      // injector, which is normally connected to the DI tree, which includes module injector
+      // subtree.
+      const _injector = isComponentFactory ? contextInjector : this.parentInjector;
+      // DO NOT REFACTOR. The code here used to have a `injector.get(NgModuleRef, null) ||
+      // undefined` expression which seems to cause internal google apps to fail. This is documented
+      // in the following internal bug issue: go/b/142967802
+      const result = _injector.get(EnvironmentInjector, null);
+      if (result) {
+        environmentInjector = result;
+      }
+    }
+    const componentDef = getComponentDef(componentFactory.componentType ?? {});
+    const dehydratedView = findMatchingDehydratedView(this._lContainer, componentDef?.id ?? null);
+    const rNode = dehydratedView?.firstChild ?? null;
+    const componentRef = componentFactory.create(contextInjector, projectableNodes, rNode, environmentInjector);
+    this.insertImpl(componentRef.hostView, index, shouldAddViewToDom(this._hostTNode, dehydratedView));
+    return componentRef;
+  }
+  insert(viewRef, index) {
+    return this.insertImpl(viewRef, index, true);
+  }
+  insertImpl(viewRef, index, addToDOM) {
+    const lView = viewRef._lView;
+    if (ngDevMode && viewRef.destroyed) {
+      throw new Error('Cannot insert a destroyed View in a ViewContainer!');
+    }
+    if (viewAttachedToContainer(lView)) {
+      // If view is already attached, detach it first so we clean up references appropriately.
+      const prevIdx = this.indexOf(viewRef);
+      // A view might be attached either to this or a different container. The `prevIdx` for
+      // those cases will be:
+      // equal to -1 for views attached to this ViewContainerRef
+      // >= 0 for views attached to a different ViewContainerRef
+      if (prevIdx !== -1) {
+        this.detach(prevIdx);
+      } else {
+        const prevLContainer = lView[PARENT];
+        ngDevMode && assertEqual(isLContainer(prevLContainer), true, 'An attached view should have its PARENT point to a container.');
+        // We need to re-create a R3ViewContainerRef instance since those are not stored on
+        // LView (nor anywhere else).
+        const prevVCRef = new R3ViewContainerRef(prevLContainer, prevLContainer[T_HOST], prevLContainer[PARENT]);
+        prevVCRef.detach(prevVCRef.indexOf(viewRef));
+      }
+    }
+    // Logical operation of adding `LView` to `LContainer`
+    const adjustedIdx = this._adjustIndex(index);
+    const lContainer = this._lContainer;
+    addLViewToLContainer(lContainer, lView, adjustedIdx, addToDOM);
+    viewRef.attachToViewContainerRef();
+    addToArray(getOrCreateViewRefs(lContainer), adjustedIdx, viewRef);
+    return viewRef;
+  }
+  move(viewRef, newIndex) {
+    if (ngDevMode && viewRef.destroyed) {
+      throw new Error('Cannot move a destroyed View in a ViewContainer!');
+    }
+    return this.insert(viewRef, newIndex);
+  }
+  indexOf(viewRef) {
+    const viewRefsArr = getViewRefs(this._lContainer);
+    return viewRefsArr !== null ? viewRefsArr.indexOf(viewRef) : -1;
+  }
+  remove(index) {
+    const adjustedIdx = this._adjustIndex(index, -1);
+    const detachedView = detachView(this._lContainer, adjustedIdx);
+    if (detachedView) {
+      // Before destroying the view, remove it from the container's array of `ViewRef`s.
+      // This ensures the view container length is updated before calling
+      // `destroyLView`, which could recursively call view container methods that
+      // rely on an accurate container length.
+      // (e.g. a method on this view container being called by a child directive's OnDestroy
+      // lifecycle hook)
+      removeFromArray(getOrCreateViewRefs(this._lContainer), adjustedIdx);
+      destroyLView(detachedView[TVIEW], detachedView);
+    }
+  }
+  detach(index) {
+    const adjustedIdx = this._adjustIndex(index, -1);
+    const view = detachView(this._lContainer, adjustedIdx);
+    const wasDetached = view && removeFromArray(getOrCreateViewRefs(this._lContainer), adjustedIdx) != null;
+    return wasDetached ? new ViewRef$1(view) : null;
+  }
+  _adjustIndex(index, shift = 0) {
+    if (index == null) {
+      return this.length + shift;
+    }
+    if (ngDevMode) {
+      assertGreaterThan(index, -1, `ViewRef index must be positive, got ${index}`);
+      // +1 because it's legal to insert at the end.
+      assertLessThan(index, this.length + 1 + shift, 'index');
+    }
+    return index;
+  }
+};
+function getViewRefs(lContainer) {
+  return lContainer[VIEW_REFS];
+}
+function getOrCreateViewRefs(lContainer) {
+  return lContainer[VIEW_REFS] || (lContainer[VIEW_REFS] = []);
+}
+/**
+ * Creates a ViewContainerRef and stores it on the injector.
+ *
+ * @param hostTNode The node that is requesting a ViewContainerRef
+ * @param hostLView The view to which the node belongs
+ * @returns The ViewContainerRef instance to use
+ */
+function createContainerRef(hostTNode, hostLView) {
+  ngDevMode && assertTNodeType(hostTNode, 12 /* TNodeType.AnyContainer */ | 3 /* TNodeType.AnyRNode */);
+  let lContainer;
+  const slotValue = hostLView[hostTNode.index];
+  if (isLContainer(slotValue)) {
+    // If the host is a container, we don't need to create a new LContainer
+    lContainer = slotValue;
+  } else {
+    // An LContainer anchor can not be `null`, but we set it here temporarily
+    // and update to the actual value later in this function (see
+    // `_locateOrCreateAnchorNode`).
+    lContainer = createLContainer(slotValue, hostLView, null, hostTNode);
+    hostLView[hostTNode.index] = lContainer;
+    addToViewTree(hostLView, lContainer);
+  }
+  _locateOrCreateAnchorNode(lContainer, hostLView, hostTNode, slotValue);
+  return new R3ViewContainerRef(lContainer, hostTNode, hostLView);
+}
+/**
+ * Creates and inserts a comment node that acts as an anchor for a view container.
+ *
+ * If the host is a regular element, we have to insert a comment node manually which will
+ * be used as an anchor when inserting elements. In this specific case we use low-level DOM
+ * manipulation to insert it.
+ */
+function insertAnchorNode(hostLView, hostTNode) {
+  const renderer = hostLView[RENDERER];
+  ngDevMode && ngDevMode.rendererCreateComment++;
+  const commentNode = renderer.createComment(ngDevMode ? 'container' : '');
+  const hostNative = getNativeByTNode(hostTNode, hostLView);
+  const parentOfHostNative = nativeParentNode(renderer, hostNative);
+  nativeInsertBefore(renderer, parentOfHostNative, commentNode, nativeNextSibling(renderer, hostNative), false);
+  return commentNode;
+}
+let _locateOrCreateAnchorNode = createAnchorNode;
+let _populateDehydratedViewsInLContainer = () => false; // noop by default
+/**
+ * Looks up dehydrated views that belong to a given LContainer and populates
+ * this information into the `LContainer[DEHYDRATED_VIEWS]` slot. When running
+ * in client-only mode, this function is a noop.
+ *
+ * @param lContainer LContainer that should be populated.
+ * @param tNode Corresponding TNode.
+ * @param hostLView LView that hosts LContainer.
+ * @returns a boolean flag that indicates whether a populating operation
+ *   was successful. The operation might be unsuccessful in case is has completed
+ *   previously, we are rendering in client-only mode or this content is located
+ *   in a skip hydration section.
+ */
+function populateDehydratedViewsInLContainer(lContainer, tNode, hostLView) {
+  return _populateDehydratedViewsInLContainer(lContainer, tNode, hostLView);
+}
+/**
+ * Regular creation mode: an anchor is created and
+ * assigned to the `lContainer[NATIVE]` slot.
+ */
+function createAnchorNode(lContainer, hostLView, hostTNode, slotValue) {
+  // We already have a native element (anchor) set, return.
+  if (lContainer[NATIVE]) return;
+  let commentNode;
+  // If the host is an element container, the native host element is guaranteed to be a
+  // comment and we can reuse that comment as anchor element for the new LContainer.
+  // The comment node in question is already part of the DOM structure so we don't need to append
+  // it again.
+  if (hostTNode.type & 8 /* TNodeType.ElementContainer */) {
+    commentNode = unwrapRNode(slotValue);
+  } else {
+    commentNode = insertAnchorNode(hostLView, hostTNode);
+  }
+  lContainer[NATIVE] = commentNode;
+}
+/**
+ * Hydration logic that looks up all dehydrated views in this container
+ * and puts them into `lContainer[DEHYDRATED_VIEWS]` slot.
+ *
+ * @returns a boolean flag that indicates whether a populating operation
+ *   was successful. The operation might be unsuccessful in case is has completed
+ *   previously, we are rendering in client-only mode or this content is located
+ *   in a skip hydration section.
+ */
+function populateDehydratedViewsInLContainerImpl(lContainer, tNode, hostLView) {
+  // We already have a native element (anchor) set and the process
+  // of finding dehydrated views happened (so the `lContainer[DEHYDRATED_VIEWS]`
+  // is not null), exit early.
+  if (lContainer[NATIVE] && lContainer[DEHYDRATED_VIEWS]) {
+    return true;
+  }
+  const hydrationInfo = hostLView[HYDRATION];
+  const noOffsetIndex = tNode.index - HEADER_OFFSET;
+  const isNodeCreationMode = !hydrationInfo || isInSkipHydrationBlock(tNode) || isDisconnectedNode$1(hydrationInfo, noOffsetIndex);
+  // Regular creation mode.
+  if (isNodeCreationMode) {
+    return false;
+  }
+  // Hydration mode, looking up an anchor node and dehydrated views in DOM.
+  const currentRNode = getSegmentHead(hydrationInfo, noOffsetIndex);
+  const serializedViews = hydrationInfo.data[CONTAINERS]?.[noOffsetIndex];
+  ngDevMode && assertDefined(serializedViews, 'Unexpected state: no hydration info available for a given TNode, ' + 'which represents a view container.');
+  const [commentNode, dehydratedViews] = locateDehydratedViewsInContainer(currentRNode, serializedViews);
+  if (ngDevMode) {
+    validateMatchingNode(commentNode, Node.COMMENT_NODE, null, hostLView, tNode, true);
+    // Do not throw in case this node is already claimed (thus `false` as a second
+    // argument). If this container is created based on an `<ng-template>`, the comment
+    // node would be already claimed from the `template` instruction. If an element acts
+    // as an anchor (e.g. <div #vcRef>), a separate comment node would be created/located,
+    // so we need to claim it here.
+    markRNodeAsClaimedByHydration(commentNode, false);
+  }
+  lContainer[NATIVE] = commentNode;
+  lContainer[DEHYDRATED_VIEWS] = dehydratedViews;
+  return true;
+}
+function locateOrCreateAnchorNode(lContainer, hostLView, hostTNode, slotValue) {
+  if (!_populateDehydratedViewsInLContainer(lContainer, hostTNode, hostLView)) {
+    // Populating dehydrated views operation returned `false`, which indicates
+    // that the logic was running in client-only mode, this an anchor comment
+    // node should be created for this container.
+    createAnchorNode(lContainer, hostLView, hostTNode, slotValue);
+  }
+}
+function enableLocateOrCreateContainerRefImpl() {
+  _locateOrCreateAnchorNode = locateOrCreateAnchorNode;
+  _populateDehydratedViewsInLContainer = populateDehydratedViewsInLContainerImpl;
 }
 
 // TODO(misko): consider inlining
@@ -36186,6 +37656,1518 @@ function bindingUpdated3(lView, bindingIndex, exp1, exp2, exp3) {
 function bindingUpdated4(lView, bindingIndex, exp1, exp2, exp3, exp4) {
   const different = bindingUpdated2(lView, bindingIndex, exp1, exp2);
   return bindingUpdated2(lView, bindingIndex + 2, exp3, exp4) || different;
+}
+function templateFirstCreatePass(index, tView, lView, templateFn, decls, vars, tagName, attrsIndex, localRefsIndex) {
+  ngDevMode && assertFirstCreatePass(tView);
+  ngDevMode && ngDevMode.firstCreatePass++;
+  const tViewConsts = tView.consts;
+  // TODO(pk): refactor getOrCreateTNode to have the "create" only version
+  const tNode = getOrCreateTNode(tView, index, 4 /* TNodeType.Container */, tagName || null, getConstant(tViewConsts, attrsIndex));
+  resolveDirectives(tView, lView, tNode, getConstant(tViewConsts, localRefsIndex));
+  registerPostOrderHooks(tView, tNode);
+  const embeddedTView = tNode.tView = createTView(2 /* TViewType.Embedded */, tNode, templateFn, decls, vars, tView.directiveRegistry, tView.pipeRegistry, null, tView.schemas, tViewConsts, null /* ssrId */);
+  if (tView.queries !== null) {
+    tView.queries.template(tView, tNode);
+    embeddedTView.queries = tView.queries.embeddedTView(tNode);
+  }
+  return tNode;
+}
+/**
+ * Creates an LContainer for an ng-template (dynamically-inserted view), e.g.
+ *
+ * <ng-template #foo>
+ *    <div></div>
+ * </ng-template>
+ *
+ * @param index The index of the container in the data array
+ * @param templateFn Inline template
+ * @param decls The number of nodes, local refs, and pipes for this template
+ * @param vars The number of bindings for this template
+ * @param tagName The name of the container element, if applicable
+ * @param attrsIndex Index of template attributes in the `consts` array.
+ * @param localRefs Index of the local references in the `consts` array.
+ * @param localRefExtractor A function which extracts local-refs values from the template.
+ *        Defaults to the current element associated with the local-ref.
+ *
+ * @codeGenApi
+ */
+function ɵɵtemplate(index, templateFn, decls, vars, tagName, attrsIndex, localRefsIndex, localRefExtractor) {
+  const lView = getLView();
+  const tView = getTView();
+  const adjustedIndex = index + HEADER_OFFSET;
+  const tNode = tView.firstCreatePass ? templateFirstCreatePass(adjustedIndex, tView, lView, templateFn, decls, vars, tagName, attrsIndex, localRefsIndex) : tView.data[adjustedIndex];
+  setCurrentTNode(tNode, false);
+  const comment = _locateOrCreateContainerAnchor(tView, lView, tNode, index);
+  if (wasLastNodeCreated()) {
+    appendChild(tView, lView, comment, tNode);
+  }
+  attachPatchData(comment, lView);
+  const lContainer = createLContainer(comment, lView, comment, tNode);
+  lView[adjustedIndex] = lContainer;
+  addToViewTree(lView, lContainer);
+  // If hydration is enabled, looks up dehydrated views in the DOM
+  // using hydration annotation info and stores those views on LContainer.
+  // In client-only mode, this function is a noop.
+  populateDehydratedViewsInLContainer(lContainer, tNode, lView);
+  if (isDirectiveHost(tNode)) {
+    createDirectivesInstances(tView, lView, tNode);
+  }
+  if (localRefsIndex != null) {
+    saveResolvedLocalsInData(lView, tNode, localRefExtractor);
+  }
+  return ɵɵtemplate;
+}
+let _locateOrCreateContainerAnchor = createContainerAnchorImpl;
+/**
+ * Regular creation mode for LContainers and their anchor (comment) nodes.
+ */
+function createContainerAnchorImpl(tView, lView, tNode, index) {
+  lastNodeWasCreated(true);
+  return lView[RENDERER].createComment(ngDevMode ? 'container' : '');
+}
+/**
+ * Enables hydration code path (to lookup existing elements in DOM)
+ * in addition to the regular creation mode for LContainers and their
+ * anchor (comment) nodes.
+ */
+function locateOrCreateContainerAnchorImpl(tView, lView, tNode, index) {
+  const hydrationInfo = lView[HYDRATION];
+  const isNodeCreationMode = !hydrationInfo || isInSkipHydrationBlock$1() || isDisconnectedNode$1(hydrationInfo, index);
+  lastNodeWasCreated(isNodeCreationMode);
+  // Regular creation mode.
+  if (isNodeCreationMode) {
+    return createContainerAnchorImpl(tView, lView, tNode, index);
+  }
+  const ssrId = hydrationInfo.data[TEMPLATES]?.[index] ?? null;
+  // Apply `ssrId` value to the underlying TView if it was not previously set.
+  //
+  // There might be situations when the same component is present in a template
+  // multiple times and some instances are opted-out of using hydration via
+  // `ngSkipHydration` attribute. In this scenario, at the time a TView is created,
+  // the `ssrId` might be `null` (if the first component is opted-out of hydration).
+  // The code below makes sure that the `ssrId` is applied to the TView if it's still
+  // `null` and verifies we never try to override it with a different value.
+  if (ssrId !== null && tNode.tView !== null) {
+    if (tNode.tView.ssrId === null) {
+      tNode.tView.ssrId = ssrId;
+    } else {
+      ngDevMode && assertEqual(tNode.tView.ssrId, ssrId, 'Unexpected value of the `ssrId` for this TView');
+    }
+  }
+  // Hydration mode, looking up existing elements in DOM.
+  const currentRNode = locateNextRNode(hydrationInfo, tView, lView, tNode);
+  ngDevMode && validateNodeExists(currentRNode, lView, tNode);
+  setSegmentHead(hydrationInfo, index, currentRNode);
+  const viewContainerSize = calcSerializedContainerSize(hydrationInfo, index);
+  const comment = siblingAfter(viewContainerSize, currentRNode);
+  if (ngDevMode) {
+    validateMatchingNode(comment, Node.COMMENT_NODE, null, lView, tNode);
+    markRNodeAsClaimedByHydration(comment);
+  }
+  return comment;
+}
+function enableLocateOrCreateContainerAnchorImpl() {
+  _locateOrCreateContainerAnchor = locateOrCreateContainerAnchorImpl;
+}
+
+/**
+ * Describes the state of defer block dependency loading.
+ */
+var DeferDependenciesLoadingState;
+(function (DeferDependenciesLoadingState) {
+  /** Initial state, dependency loading is not yet triggered */
+  DeferDependenciesLoadingState[DeferDependenciesLoadingState["NOT_STARTED"] = 0] = "NOT_STARTED";
+  /** Dependency loading is in progress */
+  DeferDependenciesLoadingState[DeferDependenciesLoadingState["IN_PROGRESS"] = 1] = "IN_PROGRESS";
+  /** Dependency loading has completed successfully */
+  DeferDependenciesLoadingState[DeferDependenciesLoadingState["COMPLETE"] = 2] = "COMPLETE";
+  /** Dependency loading has failed */
+  DeferDependenciesLoadingState[DeferDependenciesLoadingState["FAILED"] = 3] = "FAILED";
+})(DeferDependenciesLoadingState || (DeferDependenciesLoadingState = {}));
+/** Slot index where `minimum` parameter value is stored. */
+const MINIMUM_SLOT = 0;
+/** Slot index where `after` parameter value is stored. */
+const LOADING_AFTER_SLOT = 1;
+/**
+ * Describes the current state of this defer block instance.
+ *
+ * @publicApi
+ * @developerPreview
+ */
+var DeferBlockState;
+(function (DeferBlockState) {
+  /** The placeholder block content is rendered */
+  DeferBlockState[DeferBlockState["Placeholder"] = 0] = "Placeholder";
+  /** The loading block content is rendered */
+  DeferBlockState[DeferBlockState["Loading"] = 1] = "Loading";
+  /** The main content block content is rendered */
+  DeferBlockState[DeferBlockState["Complete"] = 2] = "Complete";
+  /** The error block content is rendered */
+  DeferBlockState[DeferBlockState["Error"] = 3] = "Error";
+})(DeferBlockState || (DeferBlockState = {}));
+/**
+ * Describes the initial state of this defer block instance.
+ *
+ * Note: this state is internal only and *must* be represented
+ * with a number lower than any value in the `DeferBlockState` enum.
+ */
+var DeferBlockInternalState;
+(function (DeferBlockInternalState) {
+  /** Initial state. Nothing is rendered yet. */
+  DeferBlockInternalState[DeferBlockInternalState["Initial"] = -1] = "Initial";
+})(DeferBlockInternalState || (DeferBlockInternalState = {}));
+const NEXT_DEFER_BLOCK_STATE = 0;
+// Note: it's *important* to keep the state in this slot, because this slot
+// is used by runtime logic to differentiate between LViews, LContainers and
+// other types (see `isLView` and `isLContainer` functions). In case of defer
+// blocks, this slot would always be a number.
+const DEFER_BLOCK_STATE = 1;
+const STATE_IS_FROZEN_UNTIL = 2;
+const LOADING_AFTER_CLEANUP_FN = 3;
+const TRIGGER_CLEANUP_FNS = 4;
+const PREFETCH_TRIGGER_CLEANUP_FNS = 5;
+/**
+ * Options for configuring defer blocks behavior.
+ * @publicApi
+ * @developerPreview
+ */
+var DeferBlockBehavior;
+(function (DeferBlockBehavior) {
+  /**
+   * Manual triggering mode for defer blocks. Provides control over when defer blocks render
+   * and which state they render.
+   */
+  DeferBlockBehavior[DeferBlockBehavior["Manual"] = 0] = "Manual";
+  /**
+   * Playthrough mode for defer blocks. This mode behaves like defer blocks would in a browser.
+   * This is the default behavior in test environments.
+   */
+  DeferBlockBehavior[DeferBlockBehavior["Playthrough"] = 1] = "Playthrough";
+})(DeferBlockBehavior || (DeferBlockBehavior = {}));
+
+/*!
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Registers a cleanup function associated with a prefetching trigger
+ * or a regular trigger of a defer block.
+ */
+function storeTriggerCleanupFn(type, lDetails, cleanupFn) {
+  const key = type === 1 /* TriggerType.Prefetch */ ? PREFETCH_TRIGGER_CLEANUP_FNS : TRIGGER_CLEANUP_FNS;
+  if (lDetails[key] === null) {
+    lDetails[key] = [];
+  }
+  lDetails[key].push(cleanupFn);
+}
+/**
+ * Invokes registered cleanup functions either for prefetch or for regular triggers.
+ */
+function invokeTriggerCleanupFns(type, lDetails) {
+  const key = type === 1 /* TriggerType.Prefetch */ ? PREFETCH_TRIGGER_CLEANUP_FNS : TRIGGER_CLEANUP_FNS;
+  const cleanupFns = lDetails[key];
+  if (cleanupFns !== null) {
+    for (const cleanupFn of cleanupFns) {
+      cleanupFn();
+    }
+    lDetails[key] = null;
+  }
+}
+/**
+ * Invokes registered cleanup functions for both prefetch and regular triggers.
+ */
+function invokeAllTriggerCleanupFns(lDetails) {
+  invokeTriggerCleanupFns(1 /* TriggerType.Prefetch */, lDetails);
+  invokeTriggerCleanupFns(0 /* TriggerType.Regular */, lDetails);
+}
+
+// Public API for Zone
+
+/**
+ * Calculates a data slot index for defer block info (either static or
+ * instance-specific), given an index of a defer instruction.
+ */
+function getDeferBlockDataIndex(deferBlockIndex) {
+  // Instance state is located at the *next* position
+  // after the defer block slot in an LView or TView.data.
+  return deferBlockIndex + 1;
+}
+/** Retrieves a defer block state from an LView, given a TNode that represents a block. */
+function getLDeferBlockDetails(lView, tNode) {
+  const tView = lView[TVIEW];
+  const slotIndex = getDeferBlockDataIndex(tNode.index);
+  ngDevMode && assertIndexInDeclRange(tView, slotIndex);
+  return lView[slotIndex];
+}
+/** Stores a defer block instance state in LView. */
+function setLDeferBlockDetails(lView, deferBlockIndex, lDetails) {
+  const tView = lView[TVIEW];
+  const slotIndex = getDeferBlockDataIndex(deferBlockIndex);
+  ngDevMode && assertIndexInDeclRange(tView, slotIndex);
+  lView[slotIndex] = lDetails;
+}
+/** Retrieves static info about a defer block, given a TView and a TNode that represents a block. */
+function getTDeferBlockDetails(tView, tNode) {
+  const slotIndex = getDeferBlockDataIndex(tNode.index);
+  ngDevMode && assertIndexInDeclRange(tView, slotIndex);
+  return tView.data[slotIndex];
+}
+/** Stores a defer block static info in `TView.data`. */
+function setTDeferBlockDetails(tView, deferBlockIndex, deferBlockConfig) {
+  const slotIndex = getDeferBlockDataIndex(deferBlockIndex);
+  ngDevMode && assertIndexInDeclRange(tView, slotIndex);
+  tView.data[slotIndex] = deferBlockConfig;
+}
+function getTemplateIndexForState(newState, hostLView, tNode) {
+  const tView = hostLView[TVIEW];
+  const tDetails = getTDeferBlockDetails(tView, tNode);
+  switch (newState) {
+    case DeferBlockState.Complete:
+      return tDetails.primaryTmplIndex;
+    case DeferBlockState.Loading:
+      return tDetails.loadingTmplIndex;
+    case DeferBlockState.Error:
+      return tDetails.errorTmplIndex;
+    case DeferBlockState.Placeholder:
+      return tDetails.placeholderTmplIndex;
+    default:
+      ngDevMode && throwError(`Unexpected defer block state: ${newState}`);
+      return null;
+  }
+}
+/**
+ * Returns a minimum amount of time that a given state should be rendered for,
+ * taking into account `minimum` parameter value. If the `minimum` value is
+ * not specified - returns `null`.
+ */
+function getMinimumDurationForState(tDetails, currentState) {
+  if (currentState === DeferBlockState.Placeholder) {
+    return tDetails.placeholderBlockConfig?.[MINIMUM_SLOT] ?? null;
+  } else if (currentState === DeferBlockState.Loading) {
+    return tDetails.loadingBlockConfig?.[MINIMUM_SLOT] ?? null;
+  }
+  return null;
+}
+/** Retrieves the value of the `after` parameter on the @loading block. */
+function getLoadingBlockAfter(tDetails) {
+  return tDetails.loadingBlockConfig?.[LOADING_AFTER_SLOT] ?? null;
+}
+/**
+ * Adds downloaded dependencies into a directive or a pipe registry,
+ * making sure that a dependency doesn't yet exist in the registry.
+ */
+function addDepsToRegistry(currentDeps, newDeps) {
+  if (!currentDeps || currentDeps.length === 0) {
+    return newDeps;
+  }
+  const currentDepSet = new Set(currentDeps);
+  for (const dep of newDeps) {
+    currentDepSet.add(dep);
+  }
+  // If `currentDeps` is the same length, there were no new deps and can
+  // return the original array.
+  return currentDeps.length === currentDepSet.size ? currentDeps : Array.from(currentDepSet);
+}
+/** Retrieves a TNode that represents main content of a defer block. */
+function getPrimaryBlockTNode(tView, tDetails) {
+  const adjustedIndex = tDetails.primaryTmplIndex + HEADER_OFFSET;
+  return getTNode(tView, adjustedIndex);
+}
+/**
+ * Asserts whether all dependencies for a defer block are loaded.
+ * Always run this function (in dev mode) before rendering a defer
+ * block in completed state.
+ */
+function assertDeferredDependenciesLoaded(tDetails) {
+  assertEqual(tDetails.loadingState, DeferDependenciesLoadingState.COMPLETE, 'Expecting all deferred dependencies to be loaded.');
+}
+/**
+ * Determines if a given value matches the expected structure of a defer block
+ *
+ * We can safely rely on the primaryTmplIndex because every defer block requires
+ * that a primary template exists. All the other template options are optional.
+ */
+function isTDeferBlockDetails(value) {
+  return value !== null && typeof value === 'object' && typeof value.primaryTmplIndex === 'number';
+}
+
+/*!
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/** Configuration object used to register passive and capturing events. */
+const eventListenerOptions = {
+  passive: true,
+  capture: true
+};
+/** Keeps track of the currently-registered `on hover` triggers. */
+const hoverTriggers = new WeakMap();
+/** Keeps track of the currently-registered `on interaction` triggers. */
+const interactionTriggers = new WeakMap();
+/** Currently-registered `viewport` triggers. */
+const viewportTriggers = new WeakMap();
+/** Names of the events considered as interaction events. */
+const interactionEventNames = ['click', 'keydown'];
+/** Names of the events considered as hover events. */
+const hoverEventNames = ['mouseenter', 'focusin'];
+/** `IntersectionObserver` used to observe `viewport` triggers. */
+let intersectionObserver = null;
+/** Number of elements currently observed with `viewport` triggers. */
+let observedViewportElements = 0;
+/** Object keeping track of registered callbacks for a deferred block trigger. */
+class DeferEventEntry {
+  constructor() {
+    this.callbacks = new Set();
+    this.listener = () => {
+      for (const callback of this.callbacks) {
+        callback();
+      }
+    };
+  }
+}
+/**
+ * Registers an interaction trigger.
+ * @param trigger Element that is the trigger.
+ * @param callback Callback to be invoked when the trigger is interacted with.
+ */
+function onInteraction(trigger, callback) {
+  let entry = interactionTriggers.get(trigger);
+  // If this is the first entry for this element, add the listeners.
+  if (!entry) {
+    // Note that managing events centrally like this lends itself well to using global
+    // event delegation. It currently does delegation at the element level, rather than the
+    // document level, because:
+    // 1. Global delegation is the most effective when there are a lot of events being registered
+    // at the same time. Deferred blocks are unlikely to be used in such a way.
+    // 2. Matching events to their target isn't free. For each `click` and `keydown` event we
+    // would have look through all the triggers and check if the target either is the element
+    // itself or it's contained within the element. Given that `click` and `keydown` are some
+    // of the most common events, this may end up introducing a lot of runtime overhead.
+    // 3. We're still registering only two events per element, no matter how many deferred blocks
+    // are referencing it.
+    entry = new DeferEventEntry();
+    interactionTriggers.set(trigger, entry);
+    for (const name of interactionEventNames) {
+      trigger.addEventListener(name, entry.listener, eventListenerOptions);
+    }
+  }
+  entry.callbacks.add(callback);
+  return () => {
+    const {
+      callbacks,
+      listener
+    } = entry;
+    callbacks.delete(callback);
+    if (callbacks.size === 0) {
+      interactionTriggers.delete(trigger);
+      for (const name of interactionEventNames) {
+        trigger.removeEventListener(name, listener, eventListenerOptions);
+      }
+    }
+  };
+}
+/**
+ * Registers a hover trigger.
+ * @param trigger Element that is the trigger.
+ * @param callback Callback to be invoked when the trigger is hovered over.
+ */
+function onHover(trigger, callback) {
+  let entry = hoverTriggers.get(trigger);
+  // If this is the first entry for this element, add the listener.
+  if (!entry) {
+    entry = new DeferEventEntry();
+    hoverTriggers.set(trigger, entry);
+    for (const name of hoverEventNames) {
+      trigger.addEventListener(name, entry.listener, eventListenerOptions);
+    }
+  }
+  entry.callbacks.add(callback);
+  return () => {
+    const {
+      callbacks,
+      listener
+    } = entry;
+    callbacks.delete(callback);
+    if (callbacks.size === 0) {
+      for (const name of hoverEventNames) {
+        trigger.removeEventListener(name, listener, eventListenerOptions);
+      }
+      hoverTriggers.delete(trigger);
+    }
+  };
+}
+/**
+ * Registers a viewport trigger.
+ * @param trigger Element that is the trigger.
+ * @param callback Callback to be invoked when the trigger comes into the viewport.
+ * @param injector Injector that can be used by the trigger to resolve DI tokens.
+ */
+function onViewport(trigger, callback, injector) {
+  const ngZone = injector.get(NgZone);
+  let entry = viewportTriggers.get(trigger);
+  intersectionObserver = intersectionObserver || ngZone.runOutsideAngular(() => {
+    return new IntersectionObserver(entries => {
+      for (const current of entries) {
+        // Only invoke the callbacks if the specific element is intersecting.
+        if (current.isIntersecting && viewportTriggers.has(current.target)) {
+          ngZone.run(viewportTriggers.get(current.target).listener);
+        }
+      }
+    });
+  });
+  if (!entry) {
+    entry = new DeferEventEntry();
+    ngZone.runOutsideAngular(() => intersectionObserver.observe(trigger));
+    viewportTriggers.set(trigger, entry);
+    observedViewportElements++;
+  }
+  entry.callbacks.add(callback);
+  return () => {
+    // It's possible that a different cleanup callback fully removed this element already.
+    if (!viewportTriggers.has(trigger)) {
+      return;
+    }
+    entry.callbacks.delete(callback);
+    if (entry.callbacks.size === 0) {
+      intersectionObserver?.unobserve(trigger);
+      viewportTriggers.delete(trigger);
+      observedViewportElements--;
+    }
+    if (observedViewportElements === 0) {
+      intersectionObserver?.disconnect();
+      intersectionObserver = null;
+    }
+  };
+}
+/**
+ * Helper function to get the LView in which a deferred block's trigger is rendered.
+ * @param deferredHostLView LView in which the deferred block is defined.
+ * @param deferredTNode TNode defining the deferred block.
+ * @param walkUpTimes Number of times to go up in the view hierarchy to find the trigger's view.
+ *   A negative value means that the trigger is inside the block's placeholder, while an undefined
+ *   value means that the trigger is in the same LView as the deferred block.
+ */
+function getTriggerLView(deferredHostLView, deferredTNode, walkUpTimes) {
+  // The trigger is in the same view, we don't need to traverse.
+  if (walkUpTimes == null) {
+    return deferredHostLView;
+  }
+  // A positive value or zero means that the trigger is in a parent view.
+  if (walkUpTimes >= 0) {
+    return walkUpViews(walkUpTimes, deferredHostLView);
+  }
+  // If the value is negative, it means that the trigger is inside the placeholder.
+  const deferredContainer = deferredHostLView[deferredTNode.index];
+  ngDevMode && assertLContainer(deferredContainer);
+  const triggerLView = deferredContainer[CONTAINER_HEADER_OFFSET] ?? null;
+  // We need to null check, because the placeholder might not have been rendered yet.
+  if (ngDevMode && triggerLView !== null) {
+    const lDetails = getLDeferBlockDetails(deferredHostLView, deferredTNode);
+    const renderedState = lDetails[DEFER_BLOCK_STATE];
+    assertEqual(renderedState, DeferBlockState.Placeholder, 'Expected a placeholder to be rendered in this defer block.');
+    assertLView(triggerLView);
+  }
+  return triggerLView;
+}
+/**
+ * Gets the element that a deferred block's trigger is pointing to.
+ * @param triggerLView LView in which the trigger is defined.
+ * @param triggerIndex Index at which the trigger element should've been rendered.
+ */
+function getTriggerElement(triggerLView, triggerIndex) {
+  const element = getNativeByIndex(HEADER_OFFSET + triggerIndex, triggerLView);
+  ngDevMode && assertElement(element);
+  return element;
+}
+/**
+ * Registers a DOM-node based trigger.
+ * @param initialLView LView in which the defer block is rendered.
+ * @param tNode TNode representing the defer block.
+ * @param triggerIndex Index at which to find the trigger element.
+ * @param walkUpTimes Number of times to go up/down in the view hierarchy to find the trigger.
+ * @param registerFn Function that will register the DOM events.
+ * @param callback Callback to be invoked when the trigger receives the event that should render
+ *     the deferred block.
+ * @param type Trigger type to distinguish between regular and prefetch triggers.
+ */
+function registerDomTrigger(initialLView, tNode, triggerIndex, walkUpTimes, registerFn, callback, type) {
+  const injector = initialLView[INJECTOR$1];
+  function pollDomTrigger() {
+    // If the initial view was destroyed, we don't need to do anything.
+    if (isDestroyed(initialLView)) {
+      return;
+    }
+    const lDetails = getLDeferBlockDetails(initialLView, tNode);
+    const renderedState = lDetails[DEFER_BLOCK_STATE];
+    // If the block was loaded before the trigger was resolved, we don't need to do anything.
+    if (renderedState !== DeferBlockInternalState.Initial && renderedState !== DeferBlockState.Placeholder) {
+      return;
+    }
+    const triggerLView = getTriggerLView(initialLView, tNode, walkUpTimes);
+    // Keep polling until we resolve the trigger's LView.
+    if (!triggerLView) {
+      internalAfterNextRender(pollDomTrigger, {
+        injector
+      });
+      return;
+    }
+    // It's possible that the trigger's view was destroyed before we resolved the trigger element.
+    if (isDestroyed(triggerLView)) {
+      return;
+    }
+    const element = getTriggerElement(triggerLView, triggerIndex);
+    const cleanup = registerFn(element, () => {
+      if (initialLView !== triggerLView) {
+        removeLViewOnDestroy(triggerLView, cleanup);
+      }
+      callback();
+    }, injector);
+    // The trigger and deferred block might be in different LViews.
+    // For the main LView the cleanup would happen as a part of
+    // `storeTriggerCleanupFn` logic. For trigger LView we register
+    // a cleanup function there to remove event handlers in case an
+    // LView gets destroyed before a trigger is invoked.
+    if (initialLView !== triggerLView) {
+      storeLViewOnDestroy(triggerLView, cleanup);
+    }
+    storeTriggerCleanupFn(type, lDetails, cleanup);
+  }
+  // Begin polling for the trigger.
+  internalAfterNextRender(pollDomTrigger, {
+    injector
+  });
+}
+
+/**
+ * Helper function to schedule a callback to be invoked when a browser becomes idle.
+ *
+ * @param callback A function to be invoked when a browser becomes idle.
+ * @param lView LView that hosts an instance of a defer block.
+ */
+function onIdle(callback, lView) {
+  const injector = lView[INJECTOR$1];
+  const scheduler = injector.get(IdleScheduler);
+  const cleanupFn = () => scheduler.remove(callback);
+  scheduler.add(callback);
+  return cleanupFn;
+}
+/**
+ * Use shims for the `requestIdleCallback` and `cancelIdleCallback` functions for
+ * environments where those functions are not available (e.g. Node.js and Safari).
+ *
+ * Note: we wrap the `requestIdleCallback` call into a function, so that it can be
+ * overridden/mocked in test environment and picked up by the runtime code.
+ */
+const _requestIdleCallback = () => typeof requestIdleCallback !== 'undefined' ? requestIdleCallback : setTimeout;
+const _cancelIdleCallback = () => typeof requestIdleCallback !== 'undefined' ? cancelIdleCallback : clearTimeout;
+/**
+ * Helper service to schedule `requestIdleCallback`s for batches of defer blocks,
+ * to avoid calling `requestIdleCallback` for each defer block (e.g. if
+ * defer blocks are defined inside a for loop).
+ */
+class IdleScheduler {
+  constructor() {
+    // Indicates whether current callbacks are being invoked.
+    this.executingCallbacks = false;
+    // Currently scheduled idle callback id.
+    this.idleId = null;
+    // Set of callbacks to be invoked next.
+    this.current = new Set();
+    // Set of callbacks collected while invoking current set of callbacks.
+    // Those callbacks are scheduled for the next idle period.
+    this.deferred = new Set();
+    this.ngZone = inject(NgZone);
+    this.requestIdleCallbackFn = _requestIdleCallback().bind(globalThis);
+    this.cancelIdleCallbackFn = _cancelIdleCallback().bind(globalThis);
+  }
+  add(callback) {
+    const target = this.executingCallbacks ? this.deferred : this.current;
+    target.add(callback);
+    if (this.idleId === null) {
+      this.scheduleIdleCallback();
+    }
+  }
+  remove(callback) {
+    const {
+      current,
+      deferred
+    } = this;
+    current.delete(callback);
+    deferred.delete(callback);
+    // If the last callback was removed and there is a pending
+    // idle callback - cancel it.
+    if (current.size === 0 && deferred.size === 0) {
+      this.cancelIdleCallback();
+    }
+  }
+  scheduleIdleCallback() {
+    const callback = () => {
+      this.cancelIdleCallback();
+      this.executingCallbacks = true;
+      for (const callback of this.current) {
+        callback();
+      }
+      this.current.clear();
+      this.executingCallbacks = false;
+      // If there are any callbacks added during an invocation
+      // of the current ones - make them "current" and schedule
+      // a new idle callback.
+      if (this.deferred.size > 0) {
+        for (const callback of this.deferred) {
+          this.current.add(callback);
+        }
+        this.deferred.clear();
+        this.scheduleIdleCallback();
+      }
+    };
+    // Ensure that the callback runs in the NgZone since
+    // the `requestIdleCallback` is not currently patched by Zone.js.
+    this.idleId = this.requestIdleCallbackFn(() => this.ngZone.run(callback));
+  }
+  cancelIdleCallback() {
+    if (this.idleId !== null) {
+      this.cancelIdleCallbackFn(this.idleId);
+      this.idleId = null;
+    }
+  }
+  ngOnDestroy() {
+    this.cancelIdleCallback();
+    this.current.clear();
+    this.deferred.clear();
+  }
+  /** @nocollapse */
+  static #_ = this.ɵprov = ɵɵdefineInjectable({
+    token: IdleScheduler,
+    providedIn: 'root',
+    factory: () => new IdleScheduler()
+  });
+}
+
+/**
+ * Returns a function that captures a provided delay.
+ * Invoking the returned function schedules a trigger.
+ */
+function onTimer(delay) {
+  return (callback, lView) => scheduleTimerTrigger(delay, callback, lView);
+}
+/**
+ * Schedules a callback to be invoked after a given timeout.
+ *
+ * @param delay A number of ms to wait until firing a callback.
+ * @param callback A function to be invoked after a timeout.
+ * @param lView LView that hosts an instance of a defer block.
+ */
+function scheduleTimerTrigger(delay, callback, lView) {
+  const injector = lView[INJECTOR$1];
+  const scheduler = injector.get(TimerScheduler);
+  const cleanupFn = () => scheduler.remove(callback);
+  scheduler.add(delay, callback);
+  return cleanupFn;
+}
+/**
+ * Helper service to schedule `setTimeout`s for batches of defer blocks,
+ * to avoid calling `setTimeout` for each defer block (e.g. if defer blocks
+ * are created inside a for loop).
+ */
+class TimerScheduler {
+  constructor() {
+    // Indicates whether current callbacks are being invoked.
+    this.executingCallbacks = false;
+    // Currently scheduled `setTimeout` id.
+    this.timeoutId = null;
+    // When currently scheduled timer would fire.
+    this.invokeTimerAt = null;
+    // List of callbacks to be invoked.
+    // For each callback we also store a timestamp on when the callback
+    // should be invoked. We store timestamps and callback functions
+    // in a flat array to avoid creating new objects for each entry.
+    // [timestamp1, callback1, timestamp2, callback2, ...]
+    this.current = [];
+    // List of callbacks collected while invoking current set of callbacks.
+    // Those callbacks are added to the "current" queue at the end of
+    // the current callback invocation. The shape of this list is the same
+    // as the shape of the `current` list.
+    this.deferred = [];
+  }
+  add(delay, callback) {
+    const target = this.executingCallbacks ? this.deferred : this.current;
+    this.addToQueue(target, Date.now() + delay, callback);
+    this.scheduleTimer();
+  }
+  remove(callback) {
+    const {
+      current,
+      deferred
+    } = this;
+    const callbackIndex = this.removeFromQueue(current, callback);
+    if (callbackIndex === -1) {
+      // Try cleaning up deferred queue only in case
+      // we didn't find a callback in the "current" queue.
+      this.removeFromQueue(deferred, callback);
+    }
+    // If the last callback was removed and there is a pending timeout - cancel it.
+    if (current.length === 0 && deferred.length === 0) {
+      this.clearTimeout();
+    }
+  }
+  addToQueue(target, invokeAt, callback) {
+    let insertAtIndex = target.length;
+    for (let i = 0; i < target.length; i += 2) {
+      const invokeQueuedCallbackAt = target[i];
+      if (invokeQueuedCallbackAt > invokeAt) {
+        // We've reached a first timer that is scheduled
+        // for a later time than what we are trying to insert.
+        // This is the location at which we need to insert,
+        // no need to iterate further.
+        insertAtIndex = i;
+        break;
+      }
+    }
+    arrayInsert2(target, insertAtIndex, invokeAt, callback);
+  }
+  removeFromQueue(target, callback) {
+    let index = -1;
+    for (let i = 0; i < target.length; i += 2) {
+      const queuedCallback = target[i + 1];
+      if (queuedCallback === callback) {
+        index = i;
+        break;
+      }
+    }
+    if (index > -1) {
+      // Remove 2 elements: a timestamp slot and
+      // the following slot with a callback function.
+      arraySplice(target, index, 2);
+    }
+    return index;
+  }
+  scheduleTimer() {
+    const callback = () => {
+      this.clearTimeout();
+      this.executingCallbacks = true;
+      // Clone the current state of the queue, since it might be altered
+      // as we invoke callbacks.
+      const current = [...this.current];
+      // Invoke callbacks that were scheduled to run before the current time.
+      const now = Date.now();
+      for (let i = 0; i < current.length; i += 2) {
+        const invokeAt = current[i];
+        const callback = current[i + 1];
+        if (invokeAt <= now) {
+          callback();
+        } else {
+          // We've reached a timer that should not be invoked yet.
+          break;
+        }
+      }
+      // The state of the queue might've changed after callbacks invocation,
+      // run the cleanup logic based on the *current* state of the queue.
+      let lastCallbackIndex = -1;
+      for (let i = 0; i < this.current.length; i += 2) {
+        const invokeAt = this.current[i];
+        if (invokeAt <= now) {
+          // Add +1 to account for a callback function that
+          // goes after the timestamp in events array.
+          lastCallbackIndex = i + 1;
+        } else {
+          // We've reached a timer that should not be invoked yet.
+          break;
+        }
+      }
+      if (lastCallbackIndex >= 0) {
+        arraySplice(this.current, 0, lastCallbackIndex + 1);
+      }
+      this.executingCallbacks = false;
+      // If there are any callbacks added during an invocation
+      // of the current ones - move them over to the "current"
+      // queue.
+      if (this.deferred.length > 0) {
+        for (let i = 0; i < this.deferred.length; i += 2) {
+          const invokeAt = this.deferred[i];
+          const callback = this.deferred[i + 1];
+          this.addToQueue(this.current, invokeAt, callback);
+        }
+        this.deferred.length = 0;
+      }
+      this.scheduleTimer();
+    };
+    // Avoid running timer callbacks more than once per
+    // average frame duration. This is needed for better
+    // batching and to avoid kicking off excessive change
+    // detection cycles.
+    const FRAME_DURATION_MS = 16; // 1000ms / 60fps
+    if (this.current.length > 0) {
+      const now = Date.now();
+      // First element in the queue points at the timestamp
+      // of the first (earliest) event.
+      const invokeAt = this.current[0];
+      if (this.timeoutId === null ||
+      // Reschedule a timer in case a queue contains an item with
+      // an earlier timestamp and the delta is more than an average
+      // frame duration.
+      this.invokeTimerAt && this.invokeTimerAt - invokeAt > FRAME_DURATION_MS) {
+        // There was a timeout already, but an earlier event was added
+        // into the queue. In this case we drop an old timer and setup
+        // a new one with an updated (smaller) timeout.
+        this.clearTimeout();
+        const timeout = Math.max(invokeAt - now, FRAME_DURATION_MS);
+        this.invokeTimerAt = invokeAt;
+        this.timeoutId = setTimeout(callback, timeout);
+      }
+    }
+  }
+  clearTimeout() {
+    if (this.timeoutId !== null) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
+    }
+  }
+  ngOnDestroy() {
+    this.clearTimeout();
+    this.current.length = 0;
+    this.deferred.length = 0;
+  }
+  /** @nocollapse */
+  static #_ = this.ɵprov = ɵɵdefineInjectable({
+    token: TimerScheduler,
+    providedIn: 'root',
+    factory: () => new TimerScheduler()
+  });
+}
+
+/**
+ * **INTERNAL**, avoid referencing it in application code.
+ * *
+ * Injector token that allows to provide `DeferBlockDependencyInterceptor` class
+ * implementation.
+ *
+ * This token is only injected in devMode
+ */
+const DEFER_BLOCK_DEPENDENCY_INTERCEPTOR = new InjectionToken('DEFER_BLOCK_DEPENDENCY_INTERCEPTOR');
+/**
+ * **INTERNAL**, token used for configuring defer block behavior.
+ */
+const DEFER_BLOCK_CONFIG = new InjectionToken(ngDevMode ? 'DEFER_BLOCK_CONFIG' : '');
+/**
+ * Returns whether defer blocks should be triggered.
+ *
+ * Currently, defer blocks are not triggered on the server,
+ * only placeholder content is rendered (if provided).
+ */
+function shouldTriggerDeferBlock(injector) {
+  const config = injector.get(DEFER_BLOCK_CONFIG, null, {
+    optional: true
+  });
+  if (config?.behavior === DeferBlockBehavior.Manual) {
+    return false;
+  }
+  return isPlatformBrowser(injector);
+}
+/**
+ * Reference to the timer-based scheduler implementation of defer block state
+ * rendering method. It's used to make timer-based scheduling tree-shakable.
+ * If `minimum` or `after` parameters are used, compiler generates an extra
+ * argument for the `ɵɵdefer` instruction, which references a timer-based
+ * implementation.
+ */
+let applyDeferBlockStateWithSchedulingImpl = null;
+/**
+ * Enables timer-related scheduling if `after` or `minimum` parameters are setup
+ * on the `@loading` or `@placeholder` blocks.
+ */
+function ɵɵdeferEnableTimerScheduling(tView, tDetails, placeholderConfigIndex, loadingConfigIndex) {
+  const tViewConsts = tView.consts;
+  if (placeholderConfigIndex != null) {
+    tDetails.placeholderBlockConfig = getConstant(tViewConsts, placeholderConfigIndex);
+  }
+  if (loadingConfigIndex != null) {
+    tDetails.loadingBlockConfig = getConstant(tViewConsts, loadingConfigIndex);
+  }
+  // Enable implementation that supports timer-based scheduling.
+  if (applyDeferBlockStateWithSchedulingImpl === null) {
+    applyDeferBlockStateWithSchedulingImpl = applyDeferBlockStateWithScheduling;
+  }
+}
+/**
+ * Creates runtime data structures for defer blocks.
+ *
+ * @param index Index of the `defer` instruction.
+ * @param primaryTmplIndex Index of the template with the primary block content.
+ * @param dependencyResolverFn Function that contains dependencies for this defer block.
+ * @param loadingTmplIndex Index of the template with the loading block content.
+ * @param placeholderTmplIndex Index of the template with the placeholder block content.
+ * @param errorTmplIndex Index of the template with the error block content.
+ * @param loadingConfigIndex Index in the constants array of the configuration of the loading.
+ *     block.
+ * @param placeholderConfigIndex Index in the constants array of the configuration of the
+ *     placeholder block.
+ * @param enableTimerScheduling Function that enables timer-related scheduling if `after`
+ *     or `minimum` parameters are setup on the `@loading` or `@placeholder` blocks.
+ *
+ * @codeGenApi
+ */
+function ɵɵdefer(index, primaryTmplIndex, dependencyResolverFn, loadingTmplIndex, placeholderTmplIndex, errorTmplIndex, loadingConfigIndex, placeholderConfigIndex, enableTimerScheduling) {
+  const lView = getLView();
+  const tView = getTView();
+  const adjustedIndex = index + HEADER_OFFSET;
+  ɵɵtemplate(index, null, 0, 0);
+  if (tView.firstCreatePass) {
+    performanceMarkFeature('NgDefer');
+    const tDetails = {
+      primaryTmplIndex,
+      loadingTmplIndex: loadingTmplIndex ?? null,
+      placeholderTmplIndex: placeholderTmplIndex ?? null,
+      errorTmplIndex: errorTmplIndex ?? null,
+      placeholderBlockConfig: null,
+      loadingBlockConfig: null,
+      dependencyResolverFn: dependencyResolverFn ?? null,
+      loadingState: DeferDependenciesLoadingState.NOT_STARTED,
+      loadingPromise: null
+    };
+    enableTimerScheduling?.(tView, tDetails, placeholderConfigIndex, loadingConfigIndex);
+    setTDeferBlockDetails(tView, adjustedIndex, tDetails);
+  }
+  const tNode = getCurrentTNode();
+  const lContainer = lView[adjustedIndex];
+  // If hydration is enabled, looks up dehydrated views in the DOM
+  // using hydration annotation info and stores those views on LContainer.
+  // In client-only mode, this function is a noop.
+  populateDehydratedViewsInLContainer(lContainer, tNode, lView);
+  // Init instance-specific defer details and store it.
+  const lDetails = [null,
+  // NEXT_DEFER_BLOCK_STATE
+  DeferBlockInternalState.Initial,
+  // DEFER_BLOCK_STATE
+  null,
+  // STATE_IS_FROZEN_UNTIL
+  null,
+  // LOADING_AFTER_CLEANUP_FN
+  null,
+  // TRIGGER_CLEANUP_FNS
+  null // PREFETCH_TRIGGER_CLEANUP_FNS
+  ];
+  setLDeferBlockDetails(lView, adjustedIndex, lDetails);
+  const cleanupTriggersFn = () => invokeAllTriggerCleanupFns(lDetails);
+  // When defer block is triggered - unsubscribe from LView destroy cleanup.
+  storeTriggerCleanupFn(0 /* TriggerType.Regular */, lDetails, () => removeLViewOnDestroy(lView, cleanupTriggersFn));
+  storeLViewOnDestroy(lView, cleanupTriggersFn);
+}
+/**
+ * Loads defer block dependencies when a trigger value becomes truthy.
+ * @codeGenApi
+ */
+function ɵɵdeferWhen(rawValue) {
+  const lView = getLView();
+  const bindingIndex = nextBindingIndex();
+  if (bindingUpdated(lView, bindingIndex, rawValue)) {
+    const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(null);
+    try {
+      const value = Boolean(rawValue); // handle truthy or falsy values
+      const tNode = getSelectedTNode();
+      const lDetails = getLDeferBlockDetails(lView, tNode);
+      const renderedState = lDetails[DEFER_BLOCK_STATE];
+      if (value === false && renderedState === DeferBlockInternalState.Initial) {
+        // If nothing is rendered yet, render a placeholder (if defined).
+        renderPlaceholder(lView, tNode);
+      } else if (value === true && (renderedState === DeferBlockInternalState.Initial || renderedState === DeferBlockState.Placeholder)) {
+        // The `when` condition has changed to `true`, trigger defer block loading
+        // if the block is either in initial (nothing is rendered) or a placeholder
+        // state.
+        triggerDeferBlock(lView, tNode);
+      }
+    } finally {
+      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(prevConsumer);
+    }
+  }
+}
+/**
+ * Prefetches the deferred content when a value becomes truthy.
+ * @codeGenApi
+ */
+function ɵɵdeferPrefetchWhen(rawValue) {
+  const lView = getLView();
+  const bindingIndex = nextBindingIndex();
+  if (bindingUpdated(lView, bindingIndex, rawValue)) {
+    const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(null);
+    try {
+      const value = Boolean(rawValue); // handle truthy or falsy values
+      const tView = lView[TVIEW];
+      const tNode = getSelectedTNode();
+      const tDetails = getTDeferBlockDetails(tView, tNode);
+      if (value === true && tDetails.loadingState === DeferDependenciesLoadingState.NOT_STARTED) {
+        // If loading has not been started yet, trigger it now.
+        triggerPrefetching(tDetails, lView, tNode);
+      }
+    } finally {
+      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(prevConsumer);
+    }
+  }
+}
+/**
+ * Sets up logic to handle the `on idle` deferred trigger.
+ * @codeGenApi
+ */
+function ɵɵdeferOnIdle() {
+  scheduleDelayedTrigger(onIdle);
+}
+/**
+ * Sets up logic to handle the `prefetch on idle` deferred trigger.
+ * @codeGenApi
+ */
+function ɵɵdeferPrefetchOnIdle() {
+  scheduleDelayedPrefetching(onIdle);
+}
+/**
+ * Sets up logic to handle the `on immediate` deferred trigger.
+ * @codeGenApi
+ */
+function ɵɵdeferOnImmediate() {
+  const lView = getLView();
+  const tNode = getCurrentTNode();
+  const tView = lView[TVIEW];
+  const tDetails = getTDeferBlockDetails(tView, tNode);
+  // Render placeholder block only if loading template is not present
+  // to avoid content flickering, since it would be immediately replaced
+  // by the loading block.
+  if (tDetails.loadingTmplIndex === null) {
+    renderPlaceholder(lView, tNode);
+  }
+  triggerDeferBlock(lView, tNode);
+}
+/**
+ * Sets up logic to handle the `prefetch on immediate` deferred trigger.
+ * @codeGenApi
+ */
+function ɵɵdeferPrefetchOnImmediate() {
+  const lView = getLView();
+  const tNode = getCurrentTNode();
+  const tView = lView[TVIEW];
+  const tDetails = getTDeferBlockDetails(tView, tNode);
+  if (tDetails.loadingState === DeferDependenciesLoadingState.NOT_STARTED) {
+    triggerResourceLoading(tDetails, lView, tNode);
+  }
+}
+/**
+ * Creates runtime data structures for the `on timer` deferred trigger.
+ * @param delay Amount of time to wait before loading the content.
+ * @codeGenApi
+ */
+function ɵɵdeferOnTimer(delay) {
+  scheduleDelayedTrigger(onTimer(delay));
+}
+/**
+ * Creates runtime data structures for the `prefetch on timer` deferred trigger.
+ * @param delay Amount of time to wait before prefetching the content.
+ * @codeGenApi
+ */
+function ɵɵdeferPrefetchOnTimer(delay) {
+  scheduleDelayedPrefetching(onTimer(delay));
+}
+/**
+ * Creates runtime data structures for the `on hover` deferred trigger.
+ * @param triggerIndex Index at which to find the trigger element.
+ * @param walkUpTimes Number of times to walk up/down the tree hierarchy to find the trigger.
+ * @codeGenApi
+ */
+function ɵɵdeferOnHover(triggerIndex, walkUpTimes) {
+  const lView = getLView();
+  const tNode = getCurrentTNode();
+  renderPlaceholder(lView, tNode);
+  registerDomTrigger(lView, tNode, triggerIndex, walkUpTimes, onHover, () => triggerDeferBlock(lView, tNode), 0 /* TriggerType.Regular */);
+}
+/**
+ * Creates runtime data structures for the `prefetch on hover` deferred trigger.
+ * @param triggerIndex Index at which to find the trigger element.
+ * @param walkUpTimes Number of times to walk up/down the tree hierarchy to find the trigger.
+ * @codeGenApi
+ */
+function ɵɵdeferPrefetchOnHover(triggerIndex, walkUpTimes) {
+  const lView = getLView();
+  const tNode = getCurrentTNode();
+  const tView = lView[TVIEW];
+  const tDetails = getTDeferBlockDetails(tView, tNode);
+  if (tDetails.loadingState === DeferDependenciesLoadingState.NOT_STARTED) {
+    registerDomTrigger(lView, tNode, triggerIndex, walkUpTimes, onHover, () => triggerPrefetching(tDetails, lView, tNode), 1 /* TriggerType.Prefetch */);
+  }
+}
+/**
+ * Creates runtime data structures for the `on interaction` deferred trigger.
+ * @param triggerIndex Index at which to find the trigger element.
+ * @param walkUpTimes Number of times to walk up/down the tree hierarchy to find the trigger.
+ * @codeGenApi
+ */
+function ɵɵdeferOnInteraction(triggerIndex, walkUpTimes) {
+  const lView = getLView();
+  const tNode = getCurrentTNode();
+  renderPlaceholder(lView, tNode);
+  registerDomTrigger(lView, tNode, triggerIndex, walkUpTimes, onInteraction, () => triggerDeferBlock(lView, tNode), 0 /* TriggerType.Regular */);
+}
+/**
+ * Creates runtime data structures for the `prefetch on interaction` deferred trigger.
+ * @param triggerIndex Index at which to find the trigger element.
+ * @param walkUpTimes Number of times to walk up/down the tree hierarchy to find the trigger.
+ * @codeGenApi
+ */
+function ɵɵdeferPrefetchOnInteraction(triggerIndex, walkUpTimes) {
+  const lView = getLView();
+  const tNode = getCurrentTNode();
+  const tView = lView[TVIEW];
+  const tDetails = getTDeferBlockDetails(tView, tNode);
+  if (tDetails.loadingState === DeferDependenciesLoadingState.NOT_STARTED) {
+    registerDomTrigger(lView, tNode, triggerIndex, walkUpTimes, onInteraction, () => triggerPrefetching(tDetails, lView, tNode), 1 /* TriggerType.Prefetch */);
+  }
+}
+/**
+ * Creates runtime data structures for the `on viewport` deferred trigger.
+ * @param triggerIndex Index at which to find the trigger element.
+ * @param walkUpTimes Number of times to walk up/down the tree hierarchy to find the trigger.
+ * @codeGenApi
+ */
+function ɵɵdeferOnViewport(triggerIndex, walkUpTimes) {
+  const lView = getLView();
+  const tNode = getCurrentTNode();
+  renderPlaceholder(lView, tNode);
+  registerDomTrigger(lView, tNode, triggerIndex, walkUpTimes, onViewport, () => triggerDeferBlock(lView, tNode), 0 /* TriggerType.Regular */);
+}
+/**
+ * Creates runtime data structures for the `prefetch on viewport` deferred trigger.
+ * @param triggerIndex Index at which to find the trigger element.
+ * @param walkUpTimes Number of times to walk up/down the tree hierarchy to find the trigger.
+ * @codeGenApi
+ */
+function ɵɵdeferPrefetchOnViewport(triggerIndex, walkUpTimes) {
+  const lView = getLView();
+  const tNode = getCurrentTNode();
+  const tView = lView[TVIEW];
+  const tDetails = getTDeferBlockDetails(tView, tNode);
+  if (tDetails.loadingState === DeferDependenciesLoadingState.NOT_STARTED) {
+    registerDomTrigger(lView, tNode, triggerIndex, walkUpTimes, onViewport, () => triggerPrefetching(tDetails, lView, tNode), 1 /* TriggerType.Prefetch */);
+  }
+}
+/********** Helper functions **********/
+/**
+ * Schedules triggering of a defer block for `on idle` and `on timer` conditions.
+ */
+function scheduleDelayedTrigger(scheduleFn) {
+  const lView = getLView();
+  const tNode = getCurrentTNode();
+  renderPlaceholder(lView, tNode);
+  const cleanupFn = scheduleFn(() => triggerDeferBlock(lView, tNode), lView);
+  const lDetails = getLDeferBlockDetails(lView, tNode);
+  storeTriggerCleanupFn(0 /* TriggerType.Regular */, lDetails, cleanupFn);
+}
+/**
+ * Schedules prefetching for `on idle` and `on timer` triggers.
+ *
+ * @param scheduleFn A function that does the scheduling.
+ */
+function scheduleDelayedPrefetching(scheduleFn) {
+  const lView = getLView();
+  const tNode = getCurrentTNode();
+  const tView = lView[TVIEW];
+  const tDetails = getTDeferBlockDetails(tView, tNode);
+  if (tDetails.loadingState === DeferDependenciesLoadingState.NOT_STARTED) {
+    const lDetails = getLDeferBlockDetails(lView, tNode);
+    const prefetch = () => triggerPrefetching(tDetails, lView, tNode);
+    const cleanupFn = scheduleFn(prefetch, lView);
+    storeTriggerCleanupFn(1 /* TriggerType.Prefetch */, lDetails, cleanupFn);
+  }
+}
+/**
+ * Transitions a defer block to the new state. Updates the  necessary
+ * data structures and renders corresponding block.
+ *
+ * @param newState New state that should be applied to the defer block.
+ * @param tNode TNode that represents a defer block.
+ * @param lContainer Represents an instance of a defer block.
+ * @param skipTimerScheduling Indicates that `@loading` and `@placeholder` block
+ *   should be rendered immediately, even if they have `after` or `minimum` config
+ *   options setup. This flag to needed for testing APIs to transition defer block
+ *   between states via `DeferFixture.render` method.
+ */
+function renderDeferBlockState(newState, tNode, lContainer, skipTimerScheduling = false) {
+  const hostLView = lContainer[PARENT];
+  const hostTView = hostLView[TVIEW];
+  // Check if this view is not destroyed. Since the loading process was async,
+  // the view might end up being destroyed by the time rendering happens.
+  if (isDestroyed(hostLView)) return;
+  // Make sure this TNode belongs to TView that represents host LView.
+  ngDevMode && assertTNodeForLView(tNode, hostLView);
+  const lDetails = getLDeferBlockDetails(hostLView, tNode);
+  ngDevMode && assertDefined(lDetails, 'Expected a defer block state defined');
+  const currentState = lDetails[DEFER_BLOCK_STATE];
+  if (isValidStateChange(currentState, newState) && isValidStateChange(lDetails[NEXT_DEFER_BLOCK_STATE] ?? -1, newState)) {
+    const tDetails = getTDeferBlockDetails(hostTView, tNode);
+    const needsScheduling = !skipTimerScheduling && (getLoadingBlockAfter(tDetails) !== null || getMinimumDurationForState(tDetails, DeferBlockState.Loading) !== null || getMinimumDurationForState(tDetails, DeferBlockState.Placeholder));
+    if (ngDevMode && needsScheduling) {
+      assertDefined(applyDeferBlockStateWithSchedulingImpl, 'Expected scheduling function to be defined');
+    }
+    const applyStateFn = needsScheduling ? applyDeferBlockStateWithSchedulingImpl : applyDeferBlockState;
+    try {
+      applyStateFn(newState, lDetails, lContainer, tNode, hostLView);
+    } catch (error) {
+      handleError(hostLView, error);
+    }
+  }
+}
+/**
+ * Applies changes to the DOM to reflect a given state.
+ */
+function applyDeferBlockState(newState, lDetails, lContainer, tNode, hostLView) {
+  const stateTmplIndex = getTemplateIndexForState(newState, hostLView, tNode);
+  if (stateTmplIndex !== null) {
+    lDetails[DEFER_BLOCK_STATE] = newState;
+    const hostTView = hostLView[TVIEW];
+    const adjustedIndex = stateTmplIndex + HEADER_OFFSET;
+    const tNode = getTNode(hostTView, adjustedIndex);
+    // There is only 1 view that can be present in an LContainer that
+    // represents a defer block, so always refer to the first one.
+    const viewIndex = 0;
+    removeLViewFromLContainer(lContainer, viewIndex);
+    const dehydratedView = findMatchingDehydratedView(lContainer, tNode.tView.ssrId);
+    const embeddedLView = createAndRenderEmbeddedLView(hostLView, tNode, null, {
+      dehydratedView
+    });
+    addLViewToLContainer(lContainer, embeddedLView, viewIndex, shouldAddViewToDom(tNode, dehydratedView));
+    markViewDirty(embeddedLView);
+  }
+}
+/**
+ * Extends the `applyDeferBlockState` with timer-based scheduling.
+ * This function becomes available on a page if there are defer blocks
+ * that use `after` or `minimum` parameters in the `@loading` or
+ * `@placeholder` blocks.
+ */
+function applyDeferBlockStateWithScheduling(newState, lDetails, lContainer, tNode, hostLView) {
+  const now = Date.now();
+  const hostTView = hostLView[TVIEW];
+  const tDetails = getTDeferBlockDetails(hostTView, tNode);
+  if (lDetails[STATE_IS_FROZEN_UNTIL] === null || lDetails[STATE_IS_FROZEN_UNTIL] <= now) {
+    lDetails[STATE_IS_FROZEN_UNTIL] = null;
+    const loadingAfter = getLoadingBlockAfter(tDetails);
+    const inLoadingAfterPhase = lDetails[LOADING_AFTER_CLEANUP_FN] !== null;
+    if (newState === DeferBlockState.Loading && loadingAfter !== null && !inLoadingAfterPhase) {
+      // Trying to render loading, but it has an `after` config,
+      // so schedule an update action after a timeout.
+      lDetails[NEXT_DEFER_BLOCK_STATE] = newState;
+      const cleanupFn = scheduleDeferBlockUpdate(loadingAfter, lDetails, tNode, lContainer, hostLView);
+      lDetails[LOADING_AFTER_CLEANUP_FN] = cleanupFn;
+    } else {
+      // If we transition to a complete or an error state and there is a pending
+      // operation to render loading after a timeout - invoke a cleanup operation,
+      // which stops the timer.
+      if (newState > DeferBlockState.Loading && inLoadingAfterPhase) {
+        lDetails[LOADING_AFTER_CLEANUP_FN]();
+        lDetails[LOADING_AFTER_CLEANUP_FN] = null;
+        lDetails[NEXT_DEFER_BLOCK_STATE] = null;
+      }
+      applyDeferBlockState(newState, lDetails, lContainer, tNode, hostLView);
+      const duration = getMinimumDurationForState(tDetails, newState);
+      if (duration !== null) {
+        lDetails[STATE_IS_FROZEN_UNTIL] = now + duration;
+        scheduleDeferBlockUpdate(duration, lDetails, tNode, lContainer, hostLView);
+      }
+    }
+  } else {
+    // We are still rendering the previous state.
+    // Update the `NEXT_DEFER_BLOCK_STATE`, which would be
+    // picked up once it's time to transition to the next state.
+    lDetails[NEXT_DEFER_BLOCK_STATE] = newState;
+  }
+}
+/**
+ * Schedules an update operation after a specified timeout.
+ */
+function scheduleDeferBlockUpdate(timeout, lDetails, tNode, lContainer, hostLView) {
+  const callback = () => {
+    const nextState = lDetails[NEXT_DEFER_BLOCK_STATE];
+    lDetails[STATE_IS_FROZEN_UNTIL] = null;
+    lDetails[NEXT_DEFER_BLOCK_STATE] = null;
+    if (nextState !== null) {
+      renderDeferBlockState(nextState, tNode, lContainer);
+    }
+  };
+  return scheduleTimerTrigger(timeout, callback, hostLView);
+}
+/**
+ * Checks whether we can transition to the next state.
+ *
+ * We transition to the next state if the previous state was represented
+ * with a number that is less than the next state. For example, if the current
+ * state is "loading" (represented as `1`), we should not show a placeholder
+ * (represented as `0`), but we can show a completed state (represented as `2`)
+ * or an error state (represented as `3`).
+ */
+function isValidStateChange(currentState, newState) {
+  return currentState < newState;
+}
+/**
+ * Trigger prefetching of dependencies for a defer block.
+ *
+ * @param tDetails Static information about this defer block.
+ * @param lView LView of a host view.
+ */
+function triggerPrefetching(tDetails, lView, tNode) {
+  if (lView[INJECTOR$1] && shouldTriggerDeferBlock(lView[INJECTOR$1])) {
+    triggerResourceLoading(tDetails, lView, tNode);
+  }
+}
+/**
+ * Trigger loading of defer block dependencies if the process hasn't started yet.
+ *
+ * @param tDetails Static information about this defer block.
+ * @param lView LView of a host view.
+ */
+function triggerResourceLoading(tDetails, lView, tNode) {
+  const injector = lView[INJECTOR$1];
+  const tView = lView[TVIEW];
+  if (tDetails.loadingState !== DeferDependenciesLoadingState.NOT_STARTED) {
+    // If the loading status is different from initial one, it means that
+    // the loading of dependencies is in progress and there is nothing to do
+    // in this function. All details can be obtained from the `tDetails` object.
+    return;
+  }
+  const lDetails = getLDeferBlockDetails(lView, tNode);
+  const primaryBlockTNode = getPrimaryBlockTNode(tView, tDetails);
+  // Switch from NOT_STARTED -> IN_PROGRESS state.
+  tDetails.loadingState = DeferDependenciesLoadingState.IN_PROGRESS;
+  // Prefetching is triggered, cleanup all registered prefetch triggers.
+  invokeTriggerCleanupFns(1 /* TriggerType.Prefetch */, lDetails);
+  let dependenciesFn = tDetails.dependencyResolverFn;
+  if (ngDevMode) {
+    // Check if dependency function interceptor is configured.
+    const deferDependencyInterceptor = injector.get(DEFER_BLOCK_DEPENDENCY_INTERCEPTOR, null, {
+      optional: true
+    });
+    if (deferDependencyInterceptor) {
+      dependenciesFn = deferDependencyInterceptor.intercept(dependenciesFn);
+    }
+  }
+  // The `dependenciesFn` might be `null` when all dependencies within
+  // a given defer block were eagerly referenced elsewhere in a file,
+  // thus no dynamic `import()`s were produced.
+  if (!dependenciesFn) {
+    tDetails.loadingPromise = Promise.resolve().then(() => {
+      tDetails.loadingPromise = null;
+      tDetails.loadingState = DeferDependenciesLoadingState.COMPLETE;
+    });
+    return;
+  }
+  // Start downloading of defer block dependencies.
+  tDetails.loadingPromise = Promise.allSettled(dependenciesFn()).then(results => {
+    let failed = false;
+    const directiveDefs = [];
+    const pipeDefs = [];
+    for (const result of results) {
+      if (result.status === 'fulfilled') {
+        const dependency = result.value;
+        const directiveDef = getComponentDef(dependency) || getDirectiveDef(dependency);
+        if (directiveDef) {
+          directiveDefs.push(directiveDef);
+        } else {
+          const pipeDef = getPipeDef$1(dependency);
+          if (pipeDef) {
+            pipeDefs.push(pipeDef);
+          }
+        }
+      } else {
+        failed = true;
+        break;
+      }
+    }
+    // Loading is completed, we no longer need this Promise.
+    tDetails.loadingPromise = null;
+    if (failed) {
+      tDetails.loadingState = DeferDependenciesLoadingState.FAILED;
+      if (tDetails.errorTmplIndex === null) {
+        const templateLocation = getTemplateLocationDetails(lView);
+        const error = new RuntimeError(750 /* RuntimeErrorCode.DEFER_LOADING_FAILED */, ngDevMode && 'Loading dependencies for `@defer` block failed, ' + `but no \`@error\` block was configured${templateLocation}. ` + 'Consider using the `@error` block to render an error state.');
+        handleError(lView, error);
+      }
+    } else {
+      tDetails.loadingState = DeferDependenciesLoadingState.COMPLETE;
+      // Update directive and pipe registries to add newly downloaded dependencies.
+      const primaryBlockTView = primaryBlockTNode.tView;
+      if (directiveDefs.length > 0) {
+        primaryBlockTView.directiveRegistry = addDepsToRegistry(primaryBlockTView.directiveRegistry, directiveDefs);
+      }
+      if (pipeDefs.length > 0) {
+        primaryBlockTView.pipeRegistry = addDepsToRegistry(primaryBlockTView.pipeRegistry, pipeDefs);
+      }
+    }
+  });
+}
+/** Utility function to render placeholder content (if present) */
+function renderPlaceholder(lView, tNode) {
+  const lContainer = lView[tNode.index];
+  ngDevMode && assertLContainer(lContainer);
+  renderDeferBlockState(DeferBlockState.Placeholder, tNode, lContainer);
+}
+/**
+ * Subscribes to the "loading" Promise and renders corresponding defer sub-block,
+ * based on the loading results.
+ *
+ * @param lContainer Represents an instance of a defer block.
+ * @param tNode Represents defer block info shared across all instances.
+ */
+function renderDeferStateAfterResourceLoading(tDetails, tNode, lContainer) {
+  ngDevMode && assertDefined(tDetails.loadingPromise, 'Expected loading Promise to exist on this defer block');
+  tDetails.loadingPromise.then(() => {
+    if (tDetails.loadingState === DeferDependenciesLoadingState.COMPLETE) {
+      ngDevMode && assertDeferredDependenciesLoaded(tDetails);
+      // Everything is loaded, show the primary block content
+      renderDeferBlockState(DeferBlockState.Complete, tNode, lContainer);
+    } else if (tDetails.loadingState === DeferDependenciesLoadingState.FAILED) {
+      renderDeferBlockState(DeferBlockState.Error, tNode, lContainer);
+    }
+  });
+}
+/**
+ * Attempts to trigger loading of defer block dependencies.
+ * If the block is already in a loading, completed or an error state -
+ * no additional actions are taken.
+ */
+function triggerDeferBlock(lView, tNode) {
+  const tView = lView[TVIEW];
+  const lContainer = lView[tNode.index];
+  const injector = lView[INJECTOR$1];
+  ngDevMode && assertLContainer(lContainer);
+  if (!shouldTriggerDeferBlock(injector)) return;
+  const lDetails = getLDeferBlockDetails(lView, tNode);
+  const tDetails = getTDeferBlockDetails(tView, tNode);
+  // Defer block is triggered, cleanup all registered trigger functions.
+  invokeAllTriggerCleanupFns(lDetails);
+  switch (tDetails.loadingState) {
+    case DeferDependenciesLoadingState.NOT_STARTED:
+      renderDeferBlockState(DeferBlockState.Loading, tNode, lContainer);
+      triggerResourceLoading(tDetails, lView, tNode);
+      // The `loadingState` might have changed to "loading".
+      if (tDetails.loadingState === DeferDependenciesLoadingState.IN_PROGRESS) {
+        renderDeferStateAfterResourceLoading(tDetails, tNode, lContainer);
+      }
+      break;
+    case DeferDependenciesLoadingState.IN_PROGRESS:
+      renderDeferBlockState(DeferBlockState.Loading, tNode, lContainer);
+      renderDeferStateAfterResourceLoading(tDetails, tNode, lContainer);
+      break;
+    case DeferDependenciesLoadingState.COMPLETE:
+      ngDevMode && assertDeferredDependenciesLoaded(tDetails);
+      renderDeferBlockState(DeferBlockState.Complete, tNode, lContainer);
+      break;
+    case DeferDependenciesLoadingState.FAILED:
+      renderDeferBlockState(DeferBlockState.Error, tNode, lContainer);
+      break;
+    default:
+      if (ngDevMode) {
+        throwError('Unknown defer block state');
+      }
+  }
 }
 
 /**
@@ -36705,33 +39687,27 @@ function toTStylingRange(prev, next) {
   ngDevMode && assertNumberInRange(next, 0, 32767 /* StylingRange.UNSIGNED_MASK */);
   return prev << 17 /* StylingRange.PREV_SHIFT */ | next << 2 /* StylingRange.NEXT_SHIFT */;
 }
-
 function getTStylingRangePrev(tStylingRange) {
   ngDevMode && assertNumber(tStylingRange, 'expected number');
   return tStylingRange >> 17 /* StylingRange.PREV_SHIFT */ & 32767 /* StylingRange.UNSIGNED_MASK */;
 }
-
 function getTStylingRangePrevDuplicate(tStylingRange) {
   ngDevMode && assertNumber(tStylingRange, 'expected number');
   return (tStylingRange & 2 /* StylingRange.PREV_DUPLICATE */) == 2 /* StylingRange.PREV_DUPLICATE */;
 }
-
 function setTStylingRangePrev(tStylingRange, previous) {
   ngDevMode && assertNumber(tStylingRange, 'expected number');
   ngDevMode && assertNumberInRange(previous, 0, 32767 /* StylingRange.UNSIGNED_MASK */);
   return tStylingRange & ~4294836224 /* StylingRange.PREV_MASK */ | previous << 17 /* StylingRange.PREV_SHIFT */;
 }
-
 function setTStylingRangePrevDuplicate(tStylingRange) {
   ngDevMode && assertNumber(tStylingRange, 'expected number');
   return tStylingRange | 2 /* StylingRange.PREV_DUPLICATE */;
 }
-
 function getTStylingRangeNext(tStylingRange) {
   ngDevMode && assertNumber(tStylingRange, 'expected number');
   return (tStylingRange & 131068 /* StylingRange.NEXT_MASK */) >> 2 /* StylingRange.NEXT_SHIFT */;
 }
-
 function setTStylingRangeNext(tStylingRange, next) {
   ngDevMode && assertNumber(tStylingRange, 'expected number');
   ngDevMode && assertNumberInRange(next, 0, 32767 /* StylingRange.UNSIGNED_MASK */);
@@ -36739,17 +39715,14 @@ function setTStylingRangeNext(tStylingRange, next) {
   //
   next << 2 /* StylingRange.NEXT_SHIFT */;
 }
-
 function getTStylingRangeNextDuplicate(tStylingRange) {
   ngDevMode && assertNumber(tStylingRange, 'expected number');
   return (tStylingRange & 1 /* StylingRange.NEXT_DUPLICATE */) === 1 /* StylingRange.NEXT_DUPLICATE */;
 }
-
 function setTStylingRangeNextDuplicate(tStylingRange) {
   ngDevMode && assertNumber(tStylingRange, 'expected number');
   return tStylingRange | 1 /* StylingRange.NEXT_DUPLICATE */;
 }
-
 function getTStylingRangeTail(tStylingRange) {
   ngDevMode && assertNumber(tStylingRange, 'expected number');
   const next = getTStylingRangeNext(tStylingRange);
@@ -36997,8 +39970,8 @@ function insertTStylingBinding(tData, tNode, tStylingKeyWithStatic, index, isHos
   if (isKeyDuplicateOfStatic) {
     tData[index + 1] = setTStylingRangePrevDuplicate(tData[index + 1]);
   }
-  markDuplicates(tData, tStylingKey, index, true, isClassBinding);
-  markDuplicates(tData, tStylingKey, index, false, isClassBinding);
+  markDuplicates(tData, tStylingKey, index, true);
+  markDuplicates(tData, tStylingKey, index, false);
   markDuplicateOfResidualStyling(tNode, tStylingKey, tData, index, isClassBinding);
   tBindings = toTStylingRange(tmplHead, tmplTail);
   if (isClassBinding) {
@@ -37080,7 +40053,7 @@ function markDuplicateOfResidualStyling(tNode, tStylingKey, tData, index, isClas
  *        - `true` for previous (lower priority);
  *        - `false` for next (higher priority).
  */
-function markDuplicates(tData, tStylingKey, index, isPrevDir, isClassBinding) {
+function markDuplicates(tData, tStylingKey, index, isPrevDir) {
   const tStylingAtIndex = tData[index + 1];
   const isMap = tStylingKey === null;
   let cursor = isPrevDir ? getTStylingRangePrev(tStylingAtIndex) : getTStylingRangeNext(tStylingAtIndex);
@@ -37139,7 +40112,6 @@ function isStylingMatch(tStylingKeyCursor, tStylingKey) {
     // statics and we need to check those as well.
     return keyValueArrayIndexOf(tStylingKeyCursor, tStylingKey) >= 0; // see if we are matching the key
   }
-
   return false;
 }
 
@@ -37356,7 +40328,6 @@ function consumeStyleValue(text, startIndex, endIndex) {
     ch2 = ch1;
     ch1 = ch & -33 /* CharCode.UPPER_CASE */;
   }
-
   return lastChIndex;
 }
 /**
@@ -38518,831 +41489,6 @@ function ɵɵcomponentInstance() {
   ngDevMode && assertDefined(instance, 'Expected component instance to be defined');
   return instance;
 }
-const AT_THIS_LOCATION = '<-- AT THIS LOCATION';
-/**
- * Retrieves a user friendly string for a given TNodeType for use in
- * friendly error messages
- *
- * @param tNodeType
- * @returns
- */
-function getFriendlyStringFromTNodeType(tNodeType) {
-  switch (tNodeType) {
-    case 4 /* TNodeType.Container */:
-      return 'view container';
-    case 2 /* TNodeType.Element */:
-      return 'element';
-    case 8 /* TNodeType.ElementContainer */:
-      return 'ng-container';
-    case 32 /* TNodeType.Icu */:
-      return 'icu';
-    case 64 /* TNodeType.Placeholder */:
-      return 'i18n';
-    case 16 /* TNodeType.Projection */:
-      return 'projection';
-    case 1 /* TNodeType.Text */:
-      return 'text';
-    default:
-      // This should not happen as we cover all possible TNode types above.
-      return '<unknown>';
-  }
-}
-/**
- * Validates that provided nodes match during the hydration process.
- */
-function validateMatchingNode(node, nodeType, tagName, lView, tNode, isViewContainerAnchor = false) {
-  if (!node || node.nodeType !== nodeType || node.nodeType === Node.ELEMENT_NODE && node.tagName.toLowerCase() !== tagName?.toLowerCase()) {
-    const expectedNode = shortRNodeDescription(nodeType, tagName, null);
-    let header = `During hydration Angular expected ${expectedNode} but `;
-    const hostComponentDef = getDeclarationComponentDef(lView);
-    const componentClassName = hostComponentDef?.type?.name;
-    const expected = `Angular expected this DOM:\n\n${describeExpectedDom(lView, tNode, isViewContainerAnchor)}\n\n`;
-    let actual = '';
-    if (!node) {
-      // No node found during hydration.
-      header += `the node was not found.\n\n`;
-    } else {
-      const actualNode = shortRNodeDescription(node.nodeType, node.tagName ?? null, node.textContent ?? null);
-      header += `found ${actualNode}.\n\n`;
-      actual = `Actual DOM is:\n\n${describeDomFromNode(node)}\n\n`;
-    }
-    const footer = getHydrationErrorFooter(componentClassName);
-    const message = header + expected + actual + getHydrationAttributeNote() + footer;
-    throw new RuntimeError(-500 /* RuntimeErrorCode.HYDRATION_NODE_MISMATCH */, message);
-  }
-}
-/**
- * Validates that a given node has sibling nodes
- */
-function validateSiblingNodeExists(node) {
-  validateNodeExists(node);
-  if (!node.nextSibling) {
-    const header = 'During hydration Angular expected more sibling nodes to be present.\n\n';
-    const actual = `Actual DOM is:\n\n${describeDomFromNode(node)}\n\n`;
-    const footer = getHydrationErrorFooter();
-    const message = header + actual + footer;
-    throw new RuntimeError(-501 /* RuntimeErrorCode.HYDRATION_MISSING_SIBLINGS */, message);
-  }
-}
-/**
- * Validates that a node exists or throws
- */
-function validateNodeExists(node, lView = null, tNode = null) {
-  if (!node) {
-    const header = 'During hydration, Angular expected an element to be present at this location.\n\n';
-    let expected = '';
-    let footer = '';
-    if (lView !== null && tNode !== null) {
-      expected = `${describeExpectedDom(lView, tNode, false)}\n\n`;
-      footer = getHydrationErrorFooter();
-    }
-    throw new RuntimeError(-502 /* RuntimeErrorCode.HYDRATION_MISSING_NODE */, header + expected + footer);
-  }
-}
-/**
- * Builds the hydration error message when a node is not found
- *
- * @param lView the LView where the node exists
- * @param tNode the TNode
- */
-function nodeNotFoundError(lView, tNode) {
-  const header = 'During serialization, Angular was unable to find an element in the DOM:\n\n';
-  const expected = `${describeExpectedDom(lView, tNode, false)}\n\n`;
-  const footer = getHydrationErrorFooter();
-  throw new RuntimeError(-502 /* RuntimeErrorCode.HYDRATION_MISSING_NODE */, header + expected + footer);
-}
-/**
- * Builds a hydration error message when a node is not found at a path location
- *
- * @param host the Host Node
- * @param path the path to the node
- */
-function nodeNotFoundAtPathError(host, path) {
-  const header = `During hydration Angular was unable to locate a node ` + `using the "${path}" path, starting from the ${describeRNode(host)} node.\n\n`;
-  const footer = getHydrationErrorFooter();
-  throw new RuntimeError(-502 /* RuntimeErrorCode.HYDRATION_MISSING_NODE */, header + footer);
-}
-/**
- * Builds the hydration error message in the case that dom nodes are created outside of
- * the Angular context and are being used as projected nodes
- *
- * @param lView the LView
- * @param tNode the TNode
- * @returns an error
- */
-function unsupportedProjectionOfDomNodes(rNode) {
-  const header = 'During serialization, Angular detected DOM nodes ' + 'that were created outside of Angular context and provided as projectable nodes ' + '(likely via `ViewContainerRef.createComponent` or `createComponent` APIs). ' + 'Hydration is not supported for such cases, consider refactoring the code to avoid ' + 'this pattern or using `ngSkipHydration` on the host element of the component.\n\n';
-  const actual = `${describeDomFromNode(rNode)}\n\n`;
-  const message = header + actual + getHydrationAttributeNote();
-  return new RuntimeError(-503 /* RuntimeErrorCode.UNSUPPORTED_PROJECTION_DOM_NODES */, message);
-}
-/**
- * Builds the hydration error message in the case that ngSkipHydration was used on a
- * node that is not a component host element or host binding
- *
- * @param rNode the HTML Element
- * @returns an error
- */
-function invalidSkipHydrationHost(rNode) {
-  const header = 'The `ngSkipHydration` flag is applied on a node ' + 'that doesn\'t act as a component host. Hydration can be ' + 'skipped only on per-component basis.\n\n';
-  const actual = `${describeDomFromNode(rNode)}\n\n`;
-  const footer = 'Please move the `ngSkipHydration` attribute to the component host element.\n\n';
-  const message = header + actual + footer;
-  return new RuntimeError(-504 /* RuntimeErrorCode.INVALID_SKIP_HYDRATION_HOST */, message);
-}
-// Stringification methods
-/**
- * Stringifies a given TNode's attributes
- *
- * @param tNode a provided TNode
- * @returns string
- */
-function stringifyTNodeAttrs(tNode) {
-  const results = [];
-  if (tNode.attrs) {
-    for (let i = 0; i < tNode.attrs.length;) {
-      const attrName = tNode.attrs[i++];
-      // Once we reach the first flag, we know that the list of
-      // attributes is over.
-      if (typeof attrName == 'number') {
-        break;
-      }
-      const attrValue = tNode.attrs[i++];
-      results.push(`${attrName}="${shorten(attrValue)}"`);
-    }
-  }
-  return results.join(' ');
-}
-/**
- * The list of internal attributes that should be filtered out while
- * producing an error message.
- */
-const internalAttrs = new Set(['ngh', 'ng-version', 'ng-server-context']);
-/**
- * Stringifies an HTML Element's attributes
- *
- * @param rNode an HTML Element
- * @returns string
- */
-function stringifyRNodeAttrs(rNode) {
-  const results = [];
-  for (let i = 0; i < rNode.attributes.length; i++) {
-    const attr = rNode.attributes[i];
-    if (internalAttrs.has(attr.name)) continue;
-    results.push(`${attr.name}="${shorten(attr.value)}"`);
-  }
-  return results.join(' ');
-}
-// Methods for Describing the DOM
-/**
- * Converts a tNode to a helpful readable string value for use in error messages
- *
- * @param tNode a given TNode
- * @param innerContent the content of the node
- * @returns string
- */
-function describeTNode(tNode, innerContent = '…') {
-  switch (tNode.type) {
-    case 1 /* TNodeType.Text */:
-      const content = tNode.value ? `(${tNode.value})` : '';
-      return `#text${content}`;
-    case 2 /* TNodeType.Element */:
-      const attrs = stringifyTNodeAttrs(tNode);
-      const tag = tNode.value.toLowerCase();
-      return `<${tag}${attrs ? ' ' + attrs : ''}>${innerContent}</${tag}>`;
-    case 8 /* TNodeType.ElementContainer */:
-      return '<!-- ng-container -->';
-    case 4 /* TNodeType.Container */:
-      return '<!-- container -->';
-    default:
-      const typeAsString = getFriendlyStringFromTNodeType(tNode.type);
-      return `#node(${typeAsString})`;
-  }
-}
-/**
- * Converts an RNode to a helpful readable string value for use in error messages
- *
- * @param rNode a given RNode
- * @param innerContent the content of the node
- * @returns string
- */
-function describeRNode(rNode, innerContent = '…') {
-  const node = rNode;
-  switch (node.nodeType) {
-    case Node.ELEMENT_NODE:
-      const tag = node.tagName.toLowerCase();
-      const attrs = stringifyRNodeAttrs(node);
-      return `<${tag}${attrs ? ' ' + attrs : ''}>${innerContent}</${tag}>`;
-    case Node.TEXT_NODE:
-      const content = node.textContent ? shorten(node.textContent) : '';
-      return `#text${content ? `(${content})` : ''}`;
-    case Node.COMMENT_NODE:
-      return `<!-- ${shorten(node.textContent ?? '')} -->`;
-    default:
-      return `#node(${node.nodeType})`;
-  }
-}
-/**
- * Builds the string containing the expected DOM present given the LView and TNode
- * values for a readable error message
- *
- * @param lView the lView containing the DOM
- * @param tNode the tNode
- * @param isViewContainerAnchor boolean
- * @returns string
- */
-function describeExpectedDom(lView, tNode, isViewContainerAnchor) {
-  const spacer = '  ';
-  let content = '';
-  if (tNode.prev) {
-    content += spacer + '…\n';
-    content += spacer + describeTNode(tNode.prev) + '\n';
-  } else if (tNode.type && tNode.type & 12 /* TNodeType.AnyContainer */) {
-    content += spacer + '…\n';
-  }
-  if (isViewContainerAnchor) {
-    content += spacer + describeTNode(tNode) + '\n';
-    content += spacer + `<!-- container -->  ${AT_THIS_LOCATION}\n`;
-  } else {
-    content += spacer + describeTNode(tNode) + `  ${AT_THIS_LOCATION}\n`;
-  }
-  content += spacer + '…\n';
-  const parentRNode = tNode.type ? getParentRElement(lView[TVIEW], tNode, lView) : null;
-  if (parentRNode) {
-    content = describeRNode(parentRNode, '\n' + content);
-  }
-  return content;
-}
-/**
- * Builds the string containing the DOM present around a given RNode for a
- * readable error message
- *
- * @param node the RNode
- * @returns string
- */
-function describeDomFromNode(node) {
-  const spacer = '  ';
-  let content = '';
-  const currentNode = node;
-  if (currentNode.previousSibling) {
-    content += spacer + '…\n';
-    content += spacer + describeRNode(currentNode.previousSibling) + '\n';
-  }
-  content += spacer + describeRNode(currentNode) + `  ${AT_THIS_LOCATION}\n`;
-  if (node.nextSibling) {
-    content += spacer + '…\n';
-  }
-  if (node.parentNode) {
-    content = describeRNode(currentNode.parentNode, '\n' + content);
-  }
-  return content;
-}
-/**
- * Shortens the description of a given RNode by its type for readability
- *
- * @param nodeType the type of node
- * @param tagName the node tag name
- * @param textContent the text content in the node
- * @returns string
- */
-function shortRNodeDescription(nodeType, tagName, textContent) {
-  switch (nodeType) {
-    case Node.ELEMENT_NODE:
-      return `<${tagName.toLowerCase()}>`;
-    case Node.TEXT_NODE:
-      const content = textContent ? ` (with the "${shorten(textContent)}" content)` : '';
-      return `a text node${content}`;
-    case Node.COMMENT_NODE:
-      return 'a comment node';
-    default:
-      return `#node(nodeType=${nodeType})`;
-  }
-}
-/**
- * Builds the footer hydration error message
- *
- * @param componentClassName the name of the component class
- * @returns string
- */
-function getHydrationErrorFooter(componentClassName) {
-  const componentInfo = componentClassName ? `the "${componentClassName}"` : 'corresponding';
-  return `To fix this problem:\n` + `  * check ${componentInfo} component for hydration-related issues\n` + `  * check to see if your template has valid HTML structure\n` + `  * or skip hydration by adding the \`ngSkipHydration\` attribute ` + `to its host node in a template\n\n`;
-}
-/**
- * An attribute related note for hydration errors
- */
-function getHydrationAttributeNote() {
-  return 'Note: attributes are only displayed to better represent the DOM' + ' but have no effect on hydration mismatches.\n\n';
-}
-// Node string utility functions
-/**
- * Strips all newlines out of a given string
- *
- * @param input a string to be cleared of new line characters
- * @returns
- */
-function stripNewlines(input) {
-  return input.replace(/\s+/gm, '');
-}
-/**
- * Reduces a string down to a maximum length of characters with ellipsis for readability
- *
- * @param input a string input
- * @param maxLength a maximum length in characters
- * @returns string
- */
-function shorten(input, maxLength = 50) {
-  if (!input) {
-    return '';
-  }
-  input = stripNewlines(input);
-  return input.length > maxLength ? `${input.substring(0, maxLength - 1)}…` : input;
-}
-
-/**
- * Removes all dehydrated views from a given LContainer:
- * both in internal data structure, as well as removing
- * corresponding DOM nodes that belong to that dehydrated view.
- */
-function removeDehydratedViews(lContainer) {
-  const views = lContainer[DEHYDRATED_VIEWS] ?? [];
-  const parentLView = lContainer[PARENT];
-  const renderer = parentLView[RENDERER];
-  for (const view of views) {
-    removeDehydratedView(view, renderer);
-    ngDevMode && ngDevMode.dehydratedViewsRemoved++;
-  }
-  // Reset the value to an empty array to indicate that no
-  // further processing of dehydrated views is needed for
-  // this view container (i.e. do not trigger the lookup process
-  // once again in case a `ViewContainerRef` is created later).
-  lContainer[DEHYDRATED_VIEWS] = EMPTY_ARRAY;
-}
-/**
- * Helper function to remove all nodes from a dehydrated view.
- */
-function removeDehydratedView(dehydratedView, renderer) {
-  let nodesRemoved = 0;
-  let currentRNode = dehydratedView.firstChild;
-  if (currentRNode) {
-    const numNodes = dehydratedView.data[NUM_ROOT_NODES];
-    while (nodesRemoved < numNodes) {
-      ngDevMode && validateSiblingNodeExists(currentRNode);
-      const nextSibling = currentRNode.nextSibling;
-      nativeRemoveNode(renderer, currentRNode, false);
-      currentRNode = nextSibling;
-      nodesRemoved++;
-    }
-  }
-}
-/**
- * Walks over all views within this LContainer invokes dehydrated views
- * cleanup function for each one.
- */
-function cleanupLContainer(lContainer) {
-  removeDehydratedViews(lContainer);
-  for (let i = CONTAINER_HEADER_OFFSET; i < lContainer.length; i++) {
-    cleanupLView(lContainer[i]);
-  }
-}
-/**
- * Walks over `LContainer`s and components registered within
- * this LView and invokes dehydrated views cleanup function for each one.
- */
-function cleanupLView(lView) {
-  const tView = lView[TVIEW];
-  for (let i = HEADER_OFFSET; i < tView.bindingStartIndex; i++) {
-    if (isLContainer(lView[i])) {
-      const lContainer = lView[i];
-      cleanupLContainer(lContainer);
-    } else if (isLView(lView[i])) {
-      // This is a component, enter the `cleanupLView` recursively.
-      cleanupLView(lView[i]);
-    }
-  }
-}
-/**
- * Walks over all views registered within the ApplicationRef and removes
- * all dehydrated views from all `LContainer`s along the way.
- */
-function cleanupDehydratedViews(appRef) {
-  const viewRefs = appRef._views;
-  for (const viewRef of viewRefs) {
-    const lNode = getLNodeForHydration(viewRef);
-    // An `lView` might be `null` if a `ViewRef` represents
-    // an embedded view (not a component view).
-    if (lNode !== null && lNode[HOST] !== null) {
-      if (isLView(lNode)) {
-        cleanupLView(lNode);
-      } else {
-        // Cleanup in the root component view
-        const componentLView = lNode[HOST];
-        cleanupLView(componentLView);
-        // Cleanup in all views within this view container
-        cleanupLContainer(lNode);
-      }
-      ngDevMode && ngDevMode.dehydratedViewsCleanupRuns++;
-    }
-  }
-}
-
-/**
- * Regexp that extracts a reference node information from the compressed node location.
- * The reference node is represented as either:
- *  - a number which points to an LView slot
- *  - the `b` char which indicates that the lookup should start from the `document.body`
- *  - the `h` char to start lookup from the component host node (`lView[HOST]`)
- */
-const REF_EXTRACTOR_REGEXP = new RegExp(`^(\\d+)*(${REFERENCE_NODE_BODY}|${REFERENCE_NODE_HOST})*(.*)`);
-/**
- * Helper function that takes a reference node location and a set of navigation steps
- * (from the reference node) to a target node and outputs a string that represents
- * a location.
- *
- * For example, given: referenceNode = 'b' (body) and path = ['firstChild', 'firstChild',
- * 'nextSibling'], the function returns: `bf2n`.
- */
-function compressNodeLocation(referenceNode, path) {
-  const result = [referenceNode];
-  for (const segment of path) {
-    const lastIdx = result.length - 1;
-    if (lastIdx > 0 && result[lastIdx - 1] === segment) {
-      // An empty string in a count slot represents 1 occurrence of an instruction.
-      const value = result[lastIdx] || 1;
-      result[lastIdx] = value + 1;
-    } else {
-      // Adding a new segment to the path.
-      // Using an empty string in a counter field to avoid encoding `1`s
-      // into the path, since they are implicit (e.g. `f1n1` vs `fn`), so
-      // it's enough to have a single char in this case.
-      result.push(segment, '');
-    }
-  }
-  return result.join('');
-}
-/**
- * Helper function that reverts the `compressNodeLocation` and transforms a given
- * string into an array where at 0th position there is a reference node info and
- * after that it contains information (in pairs) about a navigation step and the
- * number of repetitions.
- *
- * For example, the path like 'bf2n' will be transformed to:
- * ['b', 'firstChild', 2, 'nextSibling', 1].
- *
- * This information is later consumed by the code that navigates the DOM to find
- * a given node by its location.
- */
-function decompressNodeLocation(path) {
-  const matches = path.match(REF_EXTRACTOR_REGEXP);
-  const [_, refNodeId, refNodeName, rest] = matches;
-  // If a reference node is represented by an index, transform it to a number.
-  const ref = refNodeId ? parseInt(refNodeId, 10) : refNodeName;
-  const steps = [];
-  // Match all segments in a path.
-  for (const [_, step, count] of rest.matchAll(/(f|n)(\d*)/g)) {
-    const repeat = parseInt(count, 10) || 1;
-    steps.push(step, repeat);
-  }
-  return [ref, ...steps];
-}
-
-/** Whether current TNode is a first node in an <ng-container>. */
-function isFirstElementInNgContainer(tNode) {
-  return !tNode.prev && tNode.parent?.type === 8 /* TNodeType.ElementContainer */;
-}
-/** Returns an instruction index (subtracting HEADER_OFFSET). */
-function getNoOffsetIndex(tNode) {
-  return tNode.index - HEADER_OFFSET;
-}
-/**
- * Check whether a given node exists, but is disconnected from the DOM.
- *
- * Note: we leverage the fact that we have this information available in the DOM emulation
- * layer (in Domino) for now. Longer-term solution should not rely on the DOM emulation and
- * only use internal data structures and state to compute this information.
- */
-function isDisconnectedNode(tNode, lView) {
-  return !(tNode.type & 16 /* TNodeType.Projection */) && !!lView[tNode.index] && !unwrapRNode(lView[tNode.index])?.isConnected;
-}
-/**
- * Locate a node in DOM tree that corresponds to a given TNode.
- *
- * @param hydrationInfo The hydration annotation data
- * @param tView the current tView
- * @param lView the current lView
- * @param tNode the current tNode
- * @returns an RNode that represents a given tNode
- */
-function locateNextRNode(hydrationInfo, tView, lView, tNode) {
-  let native = null;
-  const noOffsetIndex = getNoOffsetIndex(tNode);
-  const nodes = hydrationInfo.data[NODES];
-  if (nodes?.[noOffsetIndex]) {
-    // We know the exact location of the node.
-    native = locateRNodeByPath(nodes[noOffsetIndex], lView);
-  } else if (tView.firstChild === tNode) {
-    // We create a first node in this view, so we use a reference
-    // to the first child in this DOM segment.
-    native = hydrationInfo.firstChild;
-  } else {
-    // Locate a node based on a previous sibling or a parent node.
-    const previousTNodeParent = tNode.prev === null;
-    const previousTNode = tNode.prev ?? tNode.parent;
-    ngDevMode && assertDefined(previousTNode, 'Unexpected state: current TNode does not have a connection ' + 'to the previous node or a parent node.');
-    if (isFirstElementInNgContainer(tNode)) {
-      const noOffsetParentIndex = getNoOffsetIndex(tNode.parent);
-      native = getSegmentHead(hydrationInfo, noOffsetParentIndex);
-    } else {
-      let previousRElement = getNativeByTNode(previousTNode, lView);
-      if (previousTNodeParent) {
-        native = previousRElement.firstChild;
-      } else {
-        // If the previous node is an element, but it also has container info,
-        // this means that we are processing a node like `<div #vcrTarget>`, which is
-        // represented in the DOM as `<div></div>...<!--container-->`.
-        // In this case, there are nodes *after* this element and we need to skip
-        // all of them to reach an element that we are looking for.
-        const noOffsetPrevSiblingIndex = getNoOffsetIndex(previousTNode);
-        const segmentHead = getSegmentHead(hydrationInfo, noOffsetPrevSiblingIndex);
-        if (previousTNode.type === 2 /* TNodeType.Element */ && segmentHead) {
-          const numRootNodesToSkip = calcSerializedContainerSize(hydrationInfo, noOffsetPrevSiblingIndex);
-          // `+1` stands for an anchor comment node after all the views in this container.
-          const nodesToSkip = numRootNodesToSkip + 1;
-          // First node after this segment.
-          native = siblingAfter(nodesToSkip, segmentHead);
-        } else {
-          native = previousRElement.nextSibling;
-        }
-      }
-    }
-  }
-  return native;
-}
-/**
- * Skips over a specified number of nodes and returns the next sibling node after that.
- */
-function siblingAfter(skip, from) {
-  let currentNode = from;
-  for (let i = 0; i < skip; i++) {
-    ngDevMode && validateSiblingNodeExists(currentNode);
-    currentNode = currentNode.nextSibling;
-  }
-  return currentNode;
-}
-/**
- * Helper function to produce a string representation of the navigation steps
- * (in terms of `nextSibling` and `firstChild` navigations). Used in error
- * messages in dev mode.
- */
-function stringifyNavigationInstructions(instructions) {
-  const container = [];
-  for (let i = 0; i < instructions.length; i += 2) {
-    const step = instructions[i];
-    const repeat = instructions[i + 1];
-    for (let r = 0; r < repeat; r++) {
-      container.push(step === NodeNavigationStep.FirstChild ? 'firstChild' : 'nextSibling');
-    }
-  }
-  return container.join('.');
-}
-/**
- * Helper function that navigates from a starting point node (the `from` node)
- * using provided set of navigation instructions (within `path` argument).
- */
-function navigateToNode(from, instructions) {
-  let node = from;
-  for (let i = 0; i < instructions.length; i += 2) {
-    const step = instructions[i];
-    const repeat = instructions[i + 1];
-    for (let r = 0; r < repeat; r++) {
-      if (ngDevMode && !node) {
-        throw nodeNotFoundAtPathError(from, stringifyNavigationInstructions(instructions));
-      }
-      switch (step) {
-        case NodeNavigationStep.FirstChild:
-          node = node.firstChild;
-          break;
-        case NodeNavigationStep.NextSibling:
-          node = node.nextSibling;
-          break;
-      }
-    }
-  }
-  if (ngDevMode && !node) {
-    throw nodeNotFoundAtPathError(from, stringifyNavigationInstructions(instructions));
-  }
-  return node;
-}
-/**
- * Locates an RNode given a set of navigation instructions (which also contains
- * a starting point node info).
- */
-function locateRNodeByPath(path, lView) {
-  const [referenceNode, ...navigationInstructions] = decompressNodeLocation(path);
-  let ref;
-  if (referenceNode === REFERENCE_NODE_HOST) {
-    ref = lView[DECLARATION_COMPONENT_VIEW][HOST];
-  } else if (referenceNode === REFERENCE_NODE_BODY) {
-    ref = ɵɵresolveBody(lView[DECLARATION_COMPONENT_VIEW][HOST]);
-  } else {
-    const parentElementId = Number(referenceNode);
-    ref = unwrapRNode(lView[parentElementId + HEADER_OFFSET]);
-  }
-  return navigateToNode(ref, navigationInstructions);
-}
-/**
- * Generate a list of DOM navigation operations to get from node `start` to node `finish`.
- *
- * Note: assumes that node `start` occurs before node `finish` in an in-order traversal of the DOM
- * tree. That is, we should be able to get from `start` to `finish` purely by using `.firstChild`
- * and `.nextSibling` operations.
- */
-function navigateBetween(start, finish) {
-  if (start === finish) {
-    return [];
-  } else if (start.parentElement == null || finish.parentElement == null) {
-    return null;
-  } else if (start.parentElement === finish.parentElement) {
-    return navigateBetweenSiblings(start, finish);
-  } else {
-    // `finish` is a child of its parent, so the parent will always have a child.
-    const parent = finish.parentElement;
-    const parentPath = navigateBetween(start, parent);
-    const childPath = navigateBetween(parent.firstChild, finish);
-    if (!parentPath || !childPath) return null;
-    return [
-    // First navigate to `finish`'s parent
-    ...parentPath,
-    // Then to its first child.
-    NodeNavigationStep.FirstChild,
-    // And finally from that node to `finish` (maybe a no-op if we're already there).
-    ...childPath];
-  }
-}
-/**
- * Calculates a path between 2 sibling nodes (generates a number of `NextSibling` navigations).
- * Returns `null` if no such path exists between the given nodes.
- */
-function navigateBetweenSiblings(start, finish) {
-  const nav = [];
-  let node = null;
-  for (node = start; node != null && node !== finish; node = node.nextSibling) {
-    nav.push(NodeNavigationStep.NextSibling);
-  }
-  // If the `node` becomes `null` or `undefined` at the end, that means that we
-  // didn't find the `end` node, thus return `null` (which would trigger serialization
-  // error to be produced).
-  return node == null ? null : nav;
-}
-/**
- * Calculates a path between 2 nodes in terms of `nextSibling` and `firstChild`
- * navigations:
- * - the `from` node is a known node, used as an starting point for the lookup
- *   (the `fromNodeName` argument is a string representation of the node).
- * - the `to` node is a node that the runtime logic would be looking up,
- *   using the path generated by this function.
- */
-function calcPathBetween(from, to, fromNodeName) {
-  const path = navigateBetween(from, to);
-  return path === null ? null : compressNodeLocation(fromNodeName, path);
-}
-/**
- * Invoked at serialization time (on the server) when a set of navigation
- * instructions needs to be generated for a TNode.
- */
-function calcPathForNode(tNode, lView) {
-  let parentTNode = tNode.parent;
-  let parentIndex;
-  let parentRNode;
-  let referenceNodeName;
-  // Skip over all parent nodes that are disconnected from the DOM, such nodes
-  // can not be used as anchors.
-  //
-  // This might happen in certain content projection-based use-cases, where
-  // a content of an element is projected and used, when a parent element
-  // itself remains detached from DOM. In this scenario we try to find a parent
-  // element that is attached to DOM and can act as an anchor instead.
-  while (parentTNode !== null && isDisconnectedNode(parentTNode, lView)) {
-    parentTNode = parentTNode.parent;
-  }
-  if (parentTNode === null || !(parentTNode.type & 3 /* TNodeType.AnyRNode */)) {
-    // If there is no parent TNode or a parent TNode does not represent an RNode
-    // (i.e. not a DOM node), use component host element as a reference node.
-    parentIndex = referenceNodeName = REFERENCE_NODE_HOST;
-    parentRNode = lView[DECLARATION_COMPONENT_VIEW][HOST];
-  } else {
-    // Use parent TNode as a reference node.
-    parentIndex = parentTNode.index;
-    parentRNode = unwrapRNode(lView[parentIndex]);
-    referenceNodeName = renderStringify(parentIndex - HEADER_OFFSET);
-  }
-  let rNode = unwrapRNode(lView[tNode.index]);
-  if (tNode.type & 12 /* TNodeType.AnyContainer */) {
-    // For <ng-container> nodes, instead of serializing a reference
-    // to the anchor comment node, serialize a location of the first
-    // DOM element. Paired with the container size (serialized as a part
-    // of `ngh.containers`), it should give enough information for runtime
-    // to hydrate nodes in this container.
-    const firstRNode = getFirstNativeNode(lView, tNode);
-    // If container is not empty, use a reference to the first element,
-    // otherwise, rNode would point to an anchor comment node.
-    if (firstRNode) {
-      rNode = firstRNode;
-    }
-  }
-  let path = calcPathBetween(parentRNode, rNode, referenceNodeName);
-  if (path === null && parentRNode !== rNode) {
-    // Searching for a path between elements within a host node failed.
-    // Trying to find a path to an element starting from the `document.body` instead.
-    //
-    // Important note: this type of reference is relatively unstable, since Angular
-    // may not be able to control parts of the page that the runtime logic navigates
-    // through. This is mostly needed to cover "portals" use-case (like menus, dialog boxes,
-    // etc), where nodes are content-projected (including direct DOM manipulations) outside
-    // of the host node. The better solution is to provide APIs to work with "portals",
-    // at which point this code path would not be needed.
-    const body = parentRNode.ownerDocument.body;
-    path = calcPathBetween(body, rNode, REFERENCE_NODE_BODY);
-    if (path === null) {
-      // If the path is still empty, it's likely that this node is detached and
-      // won't be found during hydration.
-      throw nodeNotFoundError(lView, tNode);
-    }
-  }
-  return path;
-}
-
-/**
- * Given a current DOM node and a serialized information about the views
- * in a container, walks over the DOM structure, collecting the list of
- * dehydrated views.
- */
-function locateDehydratedViewsInContainer(currentRNode, serializedViews) {
-  const dehydratedViews = [];
-  for (const serializedView of serializedViews) {
-    // Repeats a view multiple times as needed, based on the serialized information
-    // (for example, for *ngFor-produced views).
-    for (let i = 0; i < (serializedView[MULTIPLIER] ?? 1); i++) {
-      const view = {
-        data: serializedView,
-        firstChild: null
-      };
-      if (serializedView[NUM_ROOT_NODES] > 0) {
-        // Keep reference to the first node in this view,
-        // so it can be accessed while invoking template instructions.
-        view.firstChild = currentRNode;
-        // Move over to the next node after this view, which can
-        // either be a first node of the next view or an anchor comment
-        // node after the last view in a container.
-        currentRNode = siblingAfter(serializedView[NUM_ROOT_NODES], currentRNode);
-      }
-      dehydratedViews.push(view);
-    }
-  }
-  return [currentRNode, dehydratedViews];
-}
-/**
- * Reference to a function that searches for a matching dehydrated views
- * stored on a given lContainer.
- * Returns `null` by default, when hydration is not enabled.
- */
-let _findMatchingDehydratedViewImpl = (lContainer, template) => null;
-/**
- * Retrieves the next dehydrated view from the LContainer and verifies that
- * it matches a given template id (from the TView that was used to create this
- * instance of a view). If the id doesn't match, that means that we are in an
- * unexpected state and can not complete the reconciliation process. Thus,
- * all dehydrated views from this LContainer are removed (including corresponding
- * DOM nodes) and the rendering is performed as if there were no dehydrated views
- * in this container.
- */
-function findMatchingDehydratedViewImpl(lContainer, template) {
-  const views = lContainer[DEHYDRATED_VIEWS];
-  if (!template || views === null || views.length === 0) {
-    return null;
-  }
-  const view = views[0];
-  // Verify whether the first dehydrated view in the container matches
-  // the template id passed to this function (that originated from a TView
-  // that was used to create an instance of an embedded or component views.
-  if (view.data[TEMPLATE_ID] === template) {
-    // If the template id matches - extract the first view and return it.
-    return views.shift();
-  } else {
-    // Otherwise, we are at the state when reconciliation can not be completed,
-    // thus we remove all dehydrated views within this container (remove them
-    // from internal data structures as well as delete associated elements from
-    // the DOM tree).
-    removeDehydratedViews(lContainer);
-    return null;
-  }
-}
-function enableFindMatchingDehydratedViewImpl() {
-  _findMatchingDehydratedViewImpl = findMatchingDehydratedViewImpl;
-}
-function findMatchingDehydratedView(lContainer, template) {
-  return _findMatchingDehydratedViewImpl(lContainer, template);
-}
 
 /**
  * A type representing the live collection to be reconciled with any new (incoming) collection. This
@@ -39635,583 +41781,6 @@ class UniqueValueMultiKeyMap {
     }
   }
 }
-function createAndRenderEmbeddedLView(declarationLView, templateTNode, context, options) {
-  const embeddedTView = templateTNode.tView;
-  ngDevMode && assertDefined(embeddedTView, 'TView must be defined for a template node.');
-  ngDevMode && assertTNodeForLView(templateTNode, declarationLView);
-  // Embedded views follow the change detection strategy of the view they're declared in.
-  const isSignalView = declarationLView[FLAGS] & 4096 /* LViewFlags.SignalView */;
-  const viewFlags = isSignalView ? 4096 /* LViewFlags.SignalView */ : 16 /* LViewFlags.CheckAlways */;
-  const embeddedLView = createLView(declarationLView, embeddedTView, context, viewFlags, null, templateTNode, null, null, null, options?.injector ?? null, options?.dehydratedView ?? null);
-  const declarationLContainer = declarationLView[templateTNode.index];
-  ngDevMode && assertLContainer(declarationLContainer);
-  embeddedLView[DECLARATION_LCONTAINER] = declarationLContainer;
-  const declarationViewLQueries = declarationLView[QUERIES];
-  if (declarationViewLQueries !== null) {
-    embeddedLView[QUERIES] = declarationViewLQueries.createEmbeddedView(embeddedTView);
-  }
-  // execute creation mode of a view
-  renderView(embeddedTView, embeddedLView, context);
-  return embeddedLView;
-}
-function getLViewFromLContainer(lContainer, index) {
-  const adjustedIndex = CONTAINER_HEADER_OFFSET + index;
-  // avoid reading past the array boundaries
-  if (adjustedIndex < lContainer.length) {
-    const lView = lContainer[adjustedIndex];
-    ngDevMode && assertLView(lView);
-    return lView;
-  }
-  return undefined;
-}
-/**
- * Returns whether an elements that belong to a view should be
- * inserted into the DOM. For client-only cases, DOM elements are
- * always inserted. For hydration cases, we check whether serialized
- * info is available for a view and the view is not in a "skip hydration"
- * block (in which case view contents was re-created, thus needing insertion).
- */
-function shouldAddViewToDom(tNode, dehydratedView) {
-  return !dehydratedView || dehydratedView.firstChild === null || hasInSkipHydrationBlockFlag(tNode);
-}
-function addLViewToLContainer(lContainer, lView, index, addToDOM = true) {
-  const tView = lView[TVIEW];
-  // Insert into the view tree so the new view can be change-detected
-  insertView(tView, lView, lContainer, index);
-  // Insert elements that belong to this view into the DOM tree
-  if (addToDOM) {
-    const beforeNode = getBeforeNodeForView(index, lContainer);
-    const renderer = lView[RENDERER];
-    const parentRNode = nativeParentNode(renderer, lContainer[NATIVE]);
-    if (parentRNode !== null) {
-      addViewToDOM(tView, lContainer[T_HOST], renderer, lView, parentRNode, beforeNode);
-    }
-  }
-  // When in hydration mode, reset the pointer to the first child in
-  // the dehydrated view. This indicates that the view was hydrated and
-  // further attaching/detaching should work with this view as normal.
-  const hydrationInfo = lView[HYDRATION];
-  if (hydrationInfo !== null && hydrationInfo.firstChild !== null) {
-    hydrationInfo.firstChild = null;
-  }
-}
-function removeLViewFromLContainer(lContainer, index) {
-  const lView = detachView(lContainer, index);
-  if (lView !== undefined) {
-    destroyLView(lView[TVIEW], lView);
-  }
-  return lView;
-}
-
-/**
- * Represents a container where one or more views can be attached to a component.
- *
- * Can contain *host views* (created by instantiating a
- * component with the `createComponent()` method), and *embedded views*
- * (created by instantiating a `TemplateRef` with the `createEmbeddedView()` method).
- *
- * A view container instance can contain other view containers,
- * creating a [view hierarchy](guide/glossary#view-hierarchy).
- *
- * @usageNotes
- *
- * The example below demonstrates how the `createComponent` function can be used
- * to create an instance of a ComponentRef dynamically and attach it to an ApplicationRef,
- * so that it gets included into change detection cycles.
- *
- * Note: the example uses standalone components, but the function can also be used for
- * non-standalone components (declared in an NgModule) as well.
- *
- * ```typescript
- * @Component({
- *   standalone: true,
- *   selector: 'dynamic',
- *   template: `<span>This is a content of a dynamic component.</span>`,
- * })
- * class DynamicComponent {
- *   vcr = inject(ViewContainerRef);
- * }
- *
- * @Component({
- *   standalone: true,
- *   selector: 'app',
- *   template: `<main>Hi! This is the main content.</main>`,
- * })
- * class AppComponent {
- *   vcr = inject(ViewContainerRef);
- *
- *   ngAfterViewInit() {
- *     const compRef = this.vcr.createComponent(DynamicComponent);
- *     compRef.changeDetectorRef.detectChanges();
- *   }
- * }
- * ```
- *
- * @see {@link ComponentRef}
- * @see {@link EmbeddedViewRef}
- *
- * @publicApi
- */
-class ViewContainerRef {
-  /**
-   * @internal
-   * @nocollapse
-   */
-  static #_ = this.__NG_ELEMENT_ID__ = injectViewContainerRef;
-}
-/**
- * Creates a ViewContainerRef and stores it on the injector. Or, if the ViewContainerRef
- * already exists, retrieves the existing ViewContainerRef.
- *
- * @returns The ViewContainerRef instance to use
- */
-function injectViewContainerRef() {
-  const previousTNode = getCurrentTNode();
-  return createContainerRef(previousTNode, getLView());
-}
-const VE_ViewContainerRef = ViewContainerRef;
-// TODO(alxhub): cleaning up this indirection triggers a subtle bug in Closure in g3. Once the fix
-// for that lands, this can be cleaned up.
-const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
-  constructor(_lContainer, _hostTNode, _hostLView) {
-    super();
-    this._lContainer = _lContainer;
-    this._hostTNode = _hostTNode;
-    this._hostLView = _hostLView;
-  }
-  get element() {
-    return createElementRef(this._hostTNode, this._hostLView);
-  }
-  get injector() {
-    return new NodeInjector(this._hostTNode, this._hostLView);
-  }
-  /** @deprecated No replacement */
-  get parentInjector() {
-    const parentLocation = getParentInjectorLocation(this._hostTNode, this._hostLView);
-    if (hasParentInjector(parentLocation)) {
-      const parentView = getParentInjectorView(parentLocation, this._hostLView);
-      const injectorIndex = getParentInjectorIndex(parentLocation);
-      ngDevMode && assertNodeInjector(parentView, injectorIndex);
-      const parentTNode = parentView[TVIEW].data[injectorIndex + 8 /* NodeInjectorOffset.TNODE */];
-      return new NodeInjector(parentTNode, parentView);
-    } else {
-      return new NodeInjector(null, this._hostLView);
-    }
-  }
-  clear() {
-    while (this.length > 0) {
-      this.remove(this.length - 1);
-    }
-  }
-  get(index) {
-    const viewRefs = getViewRefs(this._lContainer);
-    return viewRefs !== null && viewRefs[index] || null;
-  }
-  get length() {
-    return this._lContainer.length - CONTAINER_HEADER_OFFSET;
-  }
-  createEmbeddedView(templateRef, context, indexOrOptions) {
-    let index;
-    let injector;
-    if (typeof indexOrOptions === 'number') {
-      index = indexOrOptions;
-    } else if (indexOrOptions != null) {
-      index = indexOrOptions.index;
-      injector = indexOrOptions.injector;
-    }
-    const dehydratedView = findMatchingDehydratedView(this._lContainer, templateRef.ssrId);
-    const viewRef = templateRef.createEmbeddedViewImpl(context || {}, injector, dehydratedView);
-    this.insertImpl(viewRef, index, shouldAddViewToDom(this._hostTNode, dehydratedView));
-    return viewRef;
-  }
-  createComponent(componentFactoryOrType, indexOrOptions, injector, projectableNodes, environmentInjector) {
-    const isComponentFactory = componentFactoryOrType && !isType(componentFactoryOrType);
-    let index;
-    // This function supports 2 signatures and we need to handle options correctly for both:
-    //   1. When first argument is a Component type. This signature also requires extra
-    //      options to be provided as object (more ergonomic option).
-    //   2. First argument is a Component factory. In this case extra options are represented as
-    //      positional arguments. This signature is less ergonomic and will be deprecated.
-    if (isComponentFactory) {
-      if (ngDevMode) {
-        assertEqual(typeof indexOrOptions !== 'object', true, 'It looks like Component factory was provided as the first argument ' + 'and an options object as the second argument. This combination of arguments ' + 'is incompatible. You can either change the first argument to provide Component ' + 'type or change the second argument to be a number (representing an index at ' + 'which to insert the new component\'s host view into this container)');
-      }
-      index = indexOrOptions;
-    } else {
-      if (ngDevMode) {
-        assertDefined(getComponentDef(componentFactoryOrType), `Provided Component class doesn't contain Component definition. ` + `Please check whether provided class has @Component decorator.`);
-        assertEqual(typeof indexOrOptions !== 'number', true, 'It looks like Component type was provided as the first argument ' + 'and a number (representing an index at which to insert the new component\'s ' + 'host view into this container as the second argument. This combination of arguments ' + 'is incompatible. Please use an object as the second argument instead.');
-      }
-      const options = indexOrOptions || {};
-      if (ngDevMode && options.environmentInjector && options.ngModuleRef) {
-        throwError(`Cannot pass both environmentInjector and ngModuleRef options to createComponent().`);
-      }
-      index = options.index;
-      injector = options.injector;
-      projectableNodes = options.projectableNodes;
-      environmentInjector = options.environmentInjector || options.ngModuleRef;
-    }
-    const componentFactory = isComponentFactory ? componentFactoryOrType : new ComponentFactory(getComponentDef(componentFactoryOrType));
-    const contextInjector = injector || this.parentInjector;
-    // If an `NgModuleRef` is not provided explicitly, try retrieving it from the DI tree.
-    if (!environmentInjector && componentFactory.ngModule == null) {
-      // For the `ComponentFactory` case, entering this logic is very unlikely, since we expect that
-      // an instance of a `ComponentFactory`, resolved via `ComponentFactoryResolver` would have an
-      // `ngModule` field. This is possible in some test scenarios and potentially in some JIT-based
-      // use-cases. For the `ComponentFactory` case we preserve backwards-compatibility and try
-      // using a provided injector first, then fall back to the parent injector of this
-      // `ViewContainerRef` instance.
-      //
-      // For the factory-less case, it's critical to establish a connection with the module
-      // injector tree (by retrieving an instance of an `NgModuleRef` and accessing its injector),
-      // so that a component can use DI tokens provided in MgModules. For this reason, we can not
-      // rely on the provided injector, since it might be detached from the DI tree (for example, if
-      // it was created via `Injector.create` without specifying a parent injector, or if an
-      // injector is retrieved from an `NgModuleRef` created via `createNgModule` using an
-      // NgModule outside of a module tree). Instead, we always use `ViewContainerRef`'s parent
-      // injector, which is normally connected to the DI tree, which includes module injector
-      // subtree.
-      const _injector = isComponentFactory ? contextInjector : this.parentInjector;
-      // DO NOT REFACTOR. The code here used to have a `injector.get(NgModuleRef, null) ||
-      // undefined` expression which seems to cause internal google apps to fail. This is documented
-      // in the following internal bug issue: go/b/142967802
-      const result = _injector.get(EnvironmentInjector, null);
-      if (result) {
-        environmentInjector = result;
-      }
-    }
-    const componentDef = getComponentDef(componentFactory.componentType ?? {});
-    const dehydratedView = findMatchingDehydratedView(this._lContainer, componentDef?.id ?? null);
-    const rNode = dehydratedView?.firstChild ?? null;
-    const componentRef = componentFactory.create(contextInjector, projectableNodes, rNode, environmentInjector);
-    this.insertImpl(componentRef.hostView, index, shouldAddViewToDom(this._hostTNode, dehydratedView));
-    return componentRef;
-  }
-  insert(viewRef, index) {
-    return this.insertImpl(viewRef, index, true);
-  }
-  insertImpl(viewRef, index, addToDOM) {
-    const lView = viewRef._lView;
-    if (ngDevMode && viewRef.destroyed) {
-      throw new Error('Cannot insert a destroyed View in a ViewContainer!');
-    }
-    if (viewAttachedToContainer(lView)) {
-      // If view is already attached, detach it first so we clean up references appropriately.
-      const prevIdx = this.indexOf(viewRef);
-      // A view might be attached either to this or a different container. The `prevIdx` for
-      // those cases will be:
-      // equal to -1 for views attached to this ViewContainerRef
-      // >= 0 for views attached to a different ViewContainerRef
-      if (prevIdx !== -1) {
-        this.detach(prevIdx);
-      } else {
-        const prevLContainer = lView[PARENT];
-        ngDevMode && assertEqual(isLContainer(prevLContainer), true, 'An attached view should have its PARENT point to a container.');
-        // We need to re-create a R3ViewContainerRef instance since those are not stored on
-        // LView (nor anywhere else).
-        const prevVCRef = new R3ViewContainerRef(prevLContainer, prevLContainer[T_HOST], prevLContainer[PARENT]);
-        prevVCRef.detach(prevVCRef.indexOf(viewRef));
-      }
-    }
-    // Logical operation of adding `LView` to `LContainer`
-    const adjustedIdx = this._adjustIndex(index);
-    const lContainer = this._lContainer;
-    addLViewToLContainer(lContainer, lView, adjustedIdx, addToDOM);
-    viewRef.attachToViewContainerRef();
-    addToArray(getOrCreateViewRefs(lContainer), adjustedIdx, viewRef);
-    return viewRef;
-  }
-  move(viewRef, newIndex) {
-    if (ngDevMode && viewRef.destroyed) {
-      throw new Error('Cannot move a destroyed View in a ViewContainer!');
-    }
-    return this.insert(viewRef, newIndex);
-  }
-  indexOf(viewRef) {
-    const viewRefsArr = getViewRefs(this._lContainer);
-    return viewRefsArr !== null ? viewRefsArr.indexOf(viewRef) : -1;
-  }
-  remove(index) {
-    const adjustedIdx = this._adjustIndex(index, -1);
-    const detachedView = detachView(this._lContainer, adjustedIdx);
-    if (detachedView) {
-      // Before destroying the view, remove it from the container's array of `ViewRef`s.
-      // This ensures the view container length is updated before calling
-      // `destroyLView`, which could recursively call view container methods that
-      // rely on an accurate container length.
-      // (e.g. a method on this view container being called by a child directive's OnDestroy
-      // lifecycle hook)
-      removeFromArray(getOrCreateViewRefs(this._lContainer), adjustedIdx);
-      destroyLView(detachedView[TVIEW], detachedView);
-    }
-  }
-  detach(index) {
-    const adjustedIdx = this._adjustIndex(index, -1);
-    const view = detachView(this._lContainer, adjustedIdx);
-    const wasDetached = view && removeFromArray(getOrCreateViewRefs(this._lContainer), adjustedIdx) != null;
-    return wasDetached ? new ViewRef$1(view) : null;
-  }
-  _adjustIndex(index, shift = 0) {
-    if (index == null) {
-      return this.length + shift;
-    }
-    if (ngDevMode) {
-      assertGreaterThan(index, -1, `ViewRef index must be positive, got ${index}`);
-      // +1 because it's legal to insert at the end.
-      assertLessThan(index, this.length + 1 + shift, 'index');
-    }
-    return index;
-  }
-};
-function getViewRefs(lContainer) {
-  return lContainer[VIEW_REFS];
-}
-function getOrCreateViewRefs(lContainer) {
-  return lContainer[VIEW_REFS] || (lContainer[VIEW_REFS] = []);
-}
-/**
- * Creates a ViewContainerRef and stores it on the injector.
- *
- * @param hostTNode The node that is requesting a ViewContainerRef
- * @param hostLView The view to which the node belongs
- * @returns The ViewContainerRef instance to use
- */
-function createContainerRef(hostTNode, hostLView) {
-  ngDevMode && assertTNodeType(hostTNode, 12 /* TNodeType.AnyContainer */ | 3 /* TNodeType.AnyRNode */);
-  let lContainer;
-  const slotValue = hostLView[hostTNode.index];
-  if (isLContainer(slotValue)) {
-    // If the host is a container, we don't need to create a new LContainer
-    lContainer = slotValue;
-  } else {
-    // An LContainer anchor can not be `null`, but we set it here temporarily
-    // and update to the actual value later in this function (see
-    // `_locateOrCreateAnchorNode`).
-    lContainer = createLContainer(slotValue, hostLView, null, hostTNode);
-    hostLView[hostTNode.index] = lContainer;
-    addToViewTree(hostLView, lContainer);
-  }
-  _locateOrCreateAnchorNode(lContainer, hostLView, hostTNode, slotValue);
-  return new R3ViewContainerRef(lContainer, hostTNode, hostLView);
-}
-/**
- * Creates and inserts a comment node that acts as an anchor for a view container.
- *
- * If the host is a regular element, we have to insert a comment node manually which will
- * be used as an anchor when inserting elements. In this specific case we use low-level DOM
- * manipulation to insert it.
- */
-function insertAnchorNode(hostLView, hostTNode) {
-  const renderer = hostLView[RENDERER];
-  ngDevMode && ngDevMode.rendererCreateComment++;
-  const commentNode = renderer.createComment(ngDevMode ? 'container' : '');
-  const hostNative = getNativeByTNode(hostTNode, hostLView);
-  const parentOfHostNative = nativeParentNode(renderer, hostNative);
-  nativeInsertBefore(renderer, parentOfHostNative, commentNode, nativeNextSibling(renderer, hostNative), false);
-  return commentNode;
-}
-let _locateOrCreateAnchorNode = createAnchorNode;
-let _populateDehydratedViewsInLContainer = (lContainer, tNode, hostLView) => false; // noop by default
-/**
- * Looks up dehydrated views that belong to a given LContainer and populates
- * this information into the `LContainer[DEHYDRATED_VIEWS]` slot. When running
- * in client-only mode, this function is a noop.
- *
- * @param lContainer LContainer that should be populated.
- * @param tNode Corresponding TNode.
- * @param hostLView LView that hosts LContainer.
- * @returns a boolean flag that indicates whether a populating operation
- *   was successful. The operation might be unsuccessful in case is has completed
- *   previously, we are rendering in client-only mode or this content is located
- *   in a skip hydration section.
- */
-function populateDehydratedViewsInLContainer(lContainer, tNode, hostLView) {
-  return _populateDehydratedViewsInLContainer(lContainer, tNode, hostLView);
-}
-/**
- * Regular creation mode: an anchor is created and
- * assigned to the `lContainer[NATIVE]` slot.
- */
-function createAnchorNode(lContainer, hostLView, hostTNode, slotValue) {
-  // We already have a native element (anchor) set, return.
-  if (lContainer[NATIVE]) return;
-  let commentNode;
-  // If the host is an element container, the native host element is guaranteed to be a
-  // comment and we can reuse that comment as anchor element for the new LContainer.
-  // The comment node in question is already part of the DOM structure so we don't need to append
-  // it again.
-  if (hostTNode.type & 8 /* TNodeType.ElementContainer */) {
-    commentNode = unwrapRNode(slotValue);
-  } else {
-    commentNode = insertAnchorNode(hostLView, hostTNode);
-  }
-  lContainer[NATIVE] = commentNode;
-}
-/**
- * Hydration logic that looks up all dehydrated views in this container
- * and puts them into `lContainer[DEHYDRATED_VIEWS]` slot.
- *
- * @returns a boolean flag that indicates whether a populating operation
- *   was successful. The operation might be unsuccessful in case is has completed
- *   previously, we are rendering in client-only mode or this content is located
- *   in a skip hydration section.
- */
-function populateDehydratedViewsInLContainerImpl(lContainer, tNode, hostLView) {
-  // We already have a native element (anchor) set and the process
-  // of finding dehydrated views happened (so the `lContainer[DEHYDRATED_VIEWS]`
-  // is not null), exit early.
-  if (lContainer[NATIVE] && lContainer[DEHYDRATED_VIEWS]) {
-    return true;
-  }
-  const hydrationInfo = hostLView[HYDRATION];
-  const noOffsetIndex = tNode.index - HEADER_OFFSET;
-  const isNodeCreationMode = !hydrationInfo || isInSkipHydrationBlock(tNode) || isDisconnectedNode$1(hydrationInfo, noOffsetIndex);
-  // Regular creation mode.
-  if (isNodeCreationMode) {
-    return false;
-  }
-  // Hydration mode, looking up an anchor node and dehydrated views in DOM.
-  const currentRNode = getSegmentHead(hydrationInfo, noOffsetIndex);
-  const serializedViews = hydrationInfo.data[CONTAINERS]?.[noOffsetIndex];
-  ngDevMode && assertDefined(serializedViews, 'Unexpected state: no hydration info available for a given TNode, ' + 'which represents a view container.');
-  const [commentNode, dehydratedViews] = locateDehydratedViewsInContainer(currentRNode, serializedViews);
-  if (ngDevMode) {
-    validateMatchingNode(commentNode, Node.COMMENT_NODE, null, hostLView, tNode, true);
-    // Do not throw in case this node is already claimed (thus `false` as a second
-    // argument). If this container is created based on an `<ng-template>`, the comment
-    // node would be already claimed from the `template` instruction. If an element acts
-    // as an anchor (e.g. <div #vcRef>), a separate comment node would be created/located,
-    // so we need to claim it here.
-    markRNodeAsClaimedByHydration(commentNode, false);
-  }
-  lContainer[NATIVE] = commentNode;
-  lContainer[DEHYDRATED_VIEWS] = dehydratedViews;
-  return true;
-}
-function locateOrCreateAnchorNode(lContainer, hostLView, hostTNode, slotValue) {
-  if (!_populateDehydratedViewsInLContainer(lContainer, hostTNode, hostLView)) {
-    // Populating dehydrated views operation returned `false`, which indicates
-    // that the logic was running in client-only mode, this an anchor comment
-    // node should be created for this container.
-    createAnchorNode(lContainer, hostLView, hostTNode, slotValue);
-  }
-}
-function enableLocateOrCreateContainerRefImpl() {
-  _locateOrCreateAnchorNode = locateOrCreateAnchorNode;
-  _populateDehydratedViewsInLContainer = populateDehydratedViewsInLContainerImpl;
-}
-function templateFirstCreatePass(index, tView, lView, templateFn, decls, vars, tagName, attrsIndex, localRefsIndex) {
-  ngDevMode && assertFirstCreatePass(tView);
-  ngDevMode && ngDevMode.firstCreatePass++;
-  const tViewConsts = tView.consts;
-  // TODO(pk): refactor getOrCreateTNode to have the "create" only version
-  const tNode = getOrCreateTNode(tView, index, 4 /* TNodeType.Container */, tagName || null, getConstant(tViewConsts, attrsIndex));
-  resolveDirectives(tView, lView, tNode, getConstant(tViewConsts, localRefsIndex));
-  registerPostOrderHooks(tView, tNode);
-  const embeddedTView = tNode.tView = createTView(2 /* TViewType.Embedded */, tNode, templateFn, decls, vars, tView.directiveRegistry, tView.pipeRegistry, null, tView.schemas, tViewConsts, null /* ssrId */);
-  if (tView.queries !== null) {
-    tView.queries.template(tView, tNode);
-    embeddedTView.queries = tView.queries.embeddedTView(tNode);
-  }
-  return tNode;
-}
-/**
- * Creates an LContainer for an ng-template (dynamically-inserted view), e.g.
- *
- * <ng-template #foo>
- *    <div></div>
- * </ng-template>
- *
- * @param index The index of the container in the data array
- * @param templateFn Inline template
- * @param decls The number of nodes, local refs, and pipes for this template
- * @param vars The number of bindings for this template
- * @param tagName The name of the container element, if applicable
- * @param attrsIndex Index of template attributes in the `consts` array.
- * @param localRefs Index of the local references in the `consts` array.
- * @param localRefExtractor A function which extracts local-refs values from the template.
- *        Defaults to the current element associated with the local-ref.
- *
- * @codeGenApi
- */
-function ɵɵtemplate(index, templateFn, decls, vars, tagName, attrsIndex, localRefsIndex, localRefExtractor) {
-  const lView = getLView();
-  const tView = getTView();
-  const adjustedIndex = index + HEADER_OFFSET;
-  const tNode = tView.firstCreatePass ? templateFirstCreatePass(adjustedIndex, tView, lView, templateFn, decls, vars, tagName, attrsIndex, localRefsIndex) : tView.data[adjustedIndex];
-  setCurrentTNode(tNode, false);
-  const comment = _locateOrCreateContainerAnchor(tView, lView, tNode, index);
-  if (wasLastNodeCreated()) {
-    appendChild(tView, lView, comment, tNode);
-  }
-  attachPatchData(comment, lView);
-  const lContainer = createLContainer(comment, lView, comment, tNode);
-  lView[adjustedIndex] = lContainer;
-  addToViewTree(lView, lContainer);
-  // If hydration is enabled, looks up dehydrated views in the DOM
-  // using hydration annotation info and stores those views on LContainer.
-  // In client-only mode, this function is a noop.
-  populateDehydratedViewsInLContainer(lContainer, tNode, lView);
-  if (isDirectiveHost(tNode)) {
-    createDirectivesInstances(tView, lView, tNode);
-  }
-  if (localRefsIndex != null) {
-    saveResolvedLocalsInData(lView, tNode, localRefExtractor);
-  }
-  return ɵɵtemplate;
-}
-let _locateOrCreateContainerAnchor = createContainerAnchorImpl;
-/**
- * Regular creation mode for LContainers and their anchor (comment) nodes.
- */
-function createContainerAnchorImpl(tView, lView, tNode, index) {
-  lastNodeWasCreated(true);
-  return lView[RENDERER].createComment(ngDevMode ? 'container' : '');
-}
-/**
- * Enables hydration code path (to lookup existing elements in DOM)
- * in addition to the regular creation mode for LContainers and their
- * anchor (comment) nodes.
- */
-function locateOrCreateContainerAnchorImpl(tView, lView, tNode, index) {
-  const hydrationInfo = lView[HYDRATION];
-  const isNodeCreationMode = !hydrationInfo || isInSkipHydrationBlock$1() || isDisconnectedNode$1(hydrationInfo, index);
-  lastNodeWasCreated(isNodeCreationMode);
-  // Regular creation mode.
-  if (isNodeCreationMode) {
-    return createContainerAnchorImpl(tView, lView, tNode, index);
-  }
-  const ssrId = hydrationInfo.data[TEMPLATES]?.[index] ?? null;
-  // Apply `ssrId` value to the underlying TView if it was not previously set.
-  //
-  // There might be situations when the same component is present in a template
-  // multiple times and some instances are opted-out of using hydration via
-  // `ngSkipHydration` attribute. In this scenario, at the time a TView is created,
-  // the `ssrId` might be `null` (if the first component is opted-out of hydration).
-  // The code below makes sure that the `ssrId` is applied to the TView if it's still
-  // `null` and verifies we never try to override it with a different value.
-  if (ssrId !== null && tNode.tView !== null) {
-    if (tNode.tView.ssrId === null) {
-      tNode.tView.ssrId = ssrId;
-    } else {
-      ngDevMode && assertEqual(tNode.tView.ssrId, ssrId, 'Unexpected value of the `ssrId` for this TView');
-    }
-  }
-  // Hydration mode, looking up existing elements in DOM.
-  const currentRNode = locateNextRNode(hydrationInfo, tView, lView, tNode);
-  ngDevMode && validateNodeExists(currentRNode, lView, tNode);
-  setSegmentHead(hydrationInfo, index, currentRNode);
-  const viewContainerSize = calcSerializedContainerSize(hydrationInfo, index);
-  const comment = siblingAfter(viewContainerSize, currentRNode);
-  if (ngDevMode) {
-    validateMatchingNode(comment, Node.COMMENT_NODE, null, lView, tNode);
-    markRNodeAsClaimedByHydration(comment);
-  }
-  return comment;
-}
-function enableLocateOrCreateContainerAnchorImpl() {
-  _locateOrCreateContainerAnchor = locateOrCreateContainerAnchorImpl;
-}
 
 /**
  * The conditional instruction represents the basic building block on the runtime side to support
@@ -40231,7 +41800,7 @@ function ɵɵconditional(containerIndex, matchingTemplateIndex, value) {
   const lContainer = getLContainer(hostLView, HEADER_OFFSET + containerIndex);
   const viewInContainerIdx = 0;
   if (bindingUpdated(hostLView, bindingIndex, matchingTemplateIndex)) {
-    const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(null);
+    const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(null);
     try {
       // The index of the view to show changed - remove the previously displayed one
       // (it is a noop if there are no active views in a container).
@@ -40247,7 +41816,7 @@ function ɵɵconditional(containerIndex, matchingTemplateIndex, value) {
         addLViewToLContainer(lContainer, embeddedLView, viewInContainerIdx, shouldAddViewToDom(templateTNode, dehydratedView));
       }
     } finally {
-      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(prevConsumer);
+      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(prevConsumer);
     }
   } else {
     // We might keep displaying the same template but the actual value of the expression could have
@@ -40317,10 +41886,12 @@ class RepeaterMetadata {
  * @param emptyTemplateFn Reference to the template function of the empty block.
  * @param emptyDecls The number of nodes, local refs, and pipes for the empty block.
  * @param emptyVars The number of bindings for the empty block.
+ * @param emptyTagName The name of the empty block container element, if applicable
+ * @param emptyAttrsIndex Index of the empty block template attributes in the `consts` array.
  *
  * @codeGenApi
  */
-function ɵɵrepeaterCreate(index, templateFn, decls, vars, tagName, attrsIndex, trackByFn, trackByUsesComponentInstance, emptyTemplateFn, emptyDecls, emptyVars) {
+function ɵɵrepeaterCreate(index, templateFn, decls, vars, tagName, attrsIndex, trackByFn, trackByUsesComponentInstance, emptyTemplateFn, emptyDecls, emptyVars, emptyTagName, emptyAttrsIndex) {
   performanceMarkFeature('NgControlFlow');
   const hasEmptyBlock = emptyTemplateFn !== undefined;
   const hostLView = getLView();
@@ -40334,7 +41905,7 @@ function ɵɵrepeaterCreate(index, templateFn, decls, vars, tagName, attrsIndex,
   if (hasEmptyBlock) {
     ngDevMode && assertDefined(emptyDecls, 'Missing number of declarations for the empty repeater block.');
     ngDevMode && assertDefined(emptyVars, 'Missing number of bindings for the empty repeater block.');
-    ɵɵtemplate(index + 2, emptyTemplateFn, emptyDecls, emptyVars);
+    ɵɵtemplate(index + 2, emptyTemplateFn, emptyDecls, emptyVars, emptyTagName, emptyAttrsIndex);
   }
 }
 class LiveCollectionLContainerImpl extends LiveCollection {
@@ -40400,7 +41971,7 @@ class LiveCollectionLContainerImpl extends LiveCollection {
  * @codeGenApi
  */
 function ɵɵrepeater(collection) {
-  const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(null);
+  const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(null);
   const metadataSlotIdx = getSelectedIndex();
   try {
     const hostLView = getLView();
@@ -40438,7 +42009,7 @@ function ɵɵrepeater(collection) {
       }
     }
   } finally {
-    (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(prevConsumer);
+    (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setActiveConsumer)(prevConsumer);
   }
 }
 function getLContainer(lView, index) {
@@ -40460,1398 +42031,6 @@ function getExistingTNode(tView, index) {
   const tNode = getTNode(tView, index);
   ngDevMode && assertTNode(tNode);
   return tNode;
-}
-
-/**
- * Describes the state of defer block dependency loading.
- */
-var DeferDependenciesLoadingState;
-(function (DeferDependenciesLoadingState) {
-  /** Initial state, dependency loading is not yet triggered */
-  DeferDependenciesLoadingState[DeferDependenciesLoadingState["NOT_STARTED"] = 0] = "NOT_STARTED";
-  /** Dependency loading is in progress */
-  DeferDependenciesLoadingState[DeferDependenciesLoadingState["IN_PROGRESS"] = 1] = "IN_PROGRESS";
-  /** Dependency loading has completed successfully */
-  DeferDependenciesLoadingState[DeferDependenciesLoadingState["COMPLETE"] = 2] = "COMPLETE";
-  /** Dependency loading has failed */
-  DeferDependenciesLoadingState[DeferDependenciesLoadingState["FAILED"] = 3] = "FAILED";
-})(DeferDependenciesLoadingState || (DeferDependenciesLoadingState = {}));
-/** Slot index where `minimum` parameter value is stored. */
-const MINIMUM_SLOT = 0;
-/** Slot index where `after` parameter value is stored. */
-const LOADING_AFTER_SLOT = 1;
-/**
- * Describes the current state of this defer block instance.
- *
- * @publicApi
- * @developerPreview
- */
-var DeferBlockState;
-(function (DeferBlockState) {
-  /** The placeholder block content is rendered */
-  DeferBlockState[DeferBlockState["Placeholder"] = 0] = "Placeholder";
-  /** The loading block content is rendered */
-  DeferBlockState[DeferBlockState["Loading"] = 1] = "Loading";
-  /** The main content block content is rendered */
-  DeferBlockState[DeferBlockState["Complete"] = 2] = "Complete";
-  /** The error block content is rendered */
-  DeferBlockState[DeferBlockState["Error"] = 3] = "Error";
-})(DeferBlockState || (DeferBlockState = {}));
-/**
- * Describes the initial state of this defer block instance.
- *
- * Note: this state is internal only and *must* be represented
- * with a number lower than any value in the `DeferBlockState` enum.
- */
-var DeferBlockInternalState;
-(function (DeferBlockInternalState) {
-  /** Initial state. Nothing is rendered yet. */
-  DeferBlockInternalState[DeferBlockInternalState["Initial"] = -1] = "Initial";
-})(DeferBlockInternalState || (DeferBlockInternalState = {}));
-const NEXT_DEFER_BLOCK_STATE = 0;
-// Note: it's *important* to keep the state in this slot, because this slot
-// is used by runtime logic to differentiate between LViews, LContainers and
-// other types (see `isLView` and `isLContainer` functions). In case of defer
-// blocks, this slot would always be a number.
-const DEFER_BLOCK_STATE = 1;
-const STATE_IS_FROZEN_UNTIL = 2;
-const LOADING_AFTER_CLEANUP_FN = 3;
-const TRIGGER_CLEANUP_FNS = 4;
-const PREFETCH_TRIGGER_CLEANUP_FNS = 5;
-/**
- * Options for configuring defer blocks behavior.
- * @publicApi
- * @developerPreview
- */
-var DeferBlockBehavior;
-(function (DeferBlockBehavior) {
-  /**
-   * Manual triggering mode for defer blocks. Provides control over when defer blocks render
-   * and which state they render. This is the default behavior in test environments.
-   */
-  DeferBlockBehavior[DeferBlockBehavior["Manual"] = 0] = "Manual";
-  /**
-   * Playthrough mode for defer blocks. This mode behaves like defer blocks would in a browser.
-   */
-  DeferBlockBehavior[DeferBlockBehavior["Playthrough"] = 1] = "Playthrough";
-})(DeferBlockBehavior || (DeferBlockBehavior = {}));
-
-/*!
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
- * Registers a cleanup function associated with a prefetching trigger
- * or a regular trigger of a defer block.
- */
-function storeTriggerCleanupFn(type, lDetails, cleanupFn) {
-  const key = type === 1 /* TriggerType.Prefetch */ ? PREFETCH_TRIGGER_CLEANUP_FNS : TRIGGER_CLEANUP_FNS;
-  if (lDetails[key] === null) {
-    lDetails[key] = [];
-  }
-  lDetails[key].push(cleanupFn);
-}
-/**
- * Invokes registered cleanup functions either for prefetch or for regular triggers.
- */
-function invokeTriggerCleanupFns(type, lDetails) {
-  const key = type === 1 /* TriggerType.Prefetch */ ? PREFETCH_TRIGGER_CLEANUP_FNS : TRIGGER_CLEANUP_FNS;
-  const cleanupFns = lDetails[key];
-  if (cleanupFns !== null) {
-    for (const cleanupFn of cleanupFns) {
-      cleanupFn();
-    }
-    lDetails[key] = null;
-  }
-}
-/**
- * Invokes registered cleanup functions for both prefetch and regular triggers.
- */
-function invokeAllTriggerCleanupFns(lDetails) {
-  invokeTriggerCleanupFns(1 /* TriggerType.Prefetch */, lDetails);
-  invokeTriggerCleanupFns(0 /* TriggerType.Regular */, lDetails);
-}
-
-// Public API for Zone
-
-/**
- * Calculates a data slot index for defer block info (either static or
- * instance-specific), given an index of a defer instruction.
- */
-function getDeferBlockDataIndex(deferBlockIndex) {
-  // Instance state is located at the *next* position
-  // after the defer block slot in an LView or TView.data.
-  return deferBlockIndex + 1;
-}
-/** Retrieves a defer block state from an LView, given a TNode that represents a block. */
-function getLDeferBlockDetails(lView, tNode) {
-  const tView = lView[TVIEW];
-  const slotIndex = getDeferBlockDataIndex(tNode.index);
-  ngDevMode && assertIndexInDeclRange(tView, slotIndex);
-  return lView[slotIndex];
-}
-/** Stores a defer block instance state in LView. */
-function setLDeferBlockDetails(lView, deferBlockIndex, lDetails) {
-  const tView = lView[TVIEW];
-  const slotIndex = getDeferBlockDataIndex(deferBlockIndex);
-  ngDevMode && assertIndexInDeclRange(tView, slotIndex);
-  lView[slotIndex] = lDetails;
-}
-/** Retrieves static info about a defer block, given a TView and a TNode that represents a block. */
-function getTDeferBlockDetails(tView, tNode) {
-  const slotIndex = getDeferBlockDataIndex(tNode.index);
-  ngDevMode && assertIndexInDeclRange(tView, slotIndex);
-  return tView.data[slotIndex];
-}
-/** Stores a defer block static info in `TView.data`. */
-function setTDeferBlockDetails(tView, deferBlockIndex, deferBlockConfig) {
-  const slotIndex = getDeferBlockDataIndex(deferBlockIndex);
-  ngDevMode && assertIndexInDeclRange(tView, slotIndex);
-  tView.data[slotIndex] = deferBlockConfig;
-}
-function getTemplateIndexForState(newState, hostLView, tNode) {
-  const tView = hostLView[TVIEW];
-  const tDetails = getTDeferBlockDetails(tView, tNode);
-  switch (newState) {
-    case DeferBlockState.Complete:
-      return tDetails.primaryTmplIndex;
-    case DeferBlockState.Loading:
-      return tDetails.loadingTmplIndex;
-    case DeferBlockState.Error:
-      return tDetails.errorTmplIndex;
-    case DeferBlockState.Placeholder:
-      return tDetails.placeholderTmplIndex;
-    default:
-      ngDevMode && throwError(`Unexpected defer block state: ${newState}`);
-      return null;
-  }
-}
-/**
- * Returns a minimum amount of time that a given state should be rendered for,
- * taking into account `minimum` parameter value. If the `minimum` value is
- * not specified - returns `null`.
- */
-function getMinimumDurationForState(tDetails, currentState) {
-  if (currentState === DeferBlockState.Placeholder) {
-    return tDetails.placeholderBlockConfig?.[MINIMUM_SLOT] ?? null;
-  } else if (currentState === DeferBlockState.Loading) {
-    return tDetails.loadingBlockConfig?.[MINIMUM_SLOT] ?? null;
-  }
-  return null;
-}
-/** Retrieves the value of the `after` parameter on the @loading block. */
-function getLoadingBlockAfter(tDetails) {
-  return tDetails.loadingBlockConfig?.[LOADING_AFTER_SLOT] ?? null;
-}
-/**
- * Adds downloaded dependencies into a directive or a pipe registry,
- * making sure that a dependency doesn't yet exist in the registry.
- */
-function addDepsToRegistry(currentDeps, newDeps) {
-  if (!currentDeps || currentDeps.length === 0) {
-    return newDeps;
-  }
-  const currentDepSet = new Set(currentDeps);
-  for (const dep of newDeps) {
-    currentDepSet.add(dep);
-  }
-  // If `currentDeps` is the same length, there were no new deps and can
-  // return the original array.
-  return currentDeps.length === currentDepSet.size ? currentDeps : Array.from(currentDepSet);
-}
-/** Retrieves a TNode that represents main content of a defer block. */
-function getPrimaryBlockTNode(tView, tDetails) {
-  const adjustedIndex = tDetails.primaryTmplIndex + HEADER_OFFSET;
-  return getTNode(tView, adjustedIndex);
-}
-/**
- * Asserts whether all dependencies for a defer block are loaded.
- * Always run this function (in dev mode) before rendering a defer
- * block in completed state.
- */
-function assertDeferredDependenciesLoaded(tDetails) {
-  assertEqual(tDetails.loadingState, DeferDependenciesLoadingState.COMPLETE, 'Expecting all deferred dependencies to be loaded.');
-}
-/**
- * Determines if a given value matches the expected structure of a defer block
- *
- * We can safely rely on the primaryTmplIndex because every defer block requires
- * that a primary template exists. All the other template options are optional.
- */
-function isTDeferBlockDetails(value) {
-  return value !== null && typeof value === 'object' && typeof value.primaryTmplIndex === 'number';
-}
-
-/*!
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/** Configuration object used to register passive and capturing events. */
-const eventListenerOptions = {
-  passive: true,
-  capture: true
-};
-/** Keeps track of the currently-registered `on hover` triggers. */
-const hoverTriggers = new WeakMap();
-/** Keeps track of the currently-registered `on interaction` triggers. */
-const interactionTriggers = new WeakMap();
-/** Currently-registered `viewport` triggers. */
-const viewportTriggers = new WeakMap();
-/** Names of the events considered as interaction events. */
-const interactionEventNames = ['click', 'keydown'];
-/** Names of the events considered as hover events. */
-const hoverEventNames = ['mouseenter', 'focusin'];
-/** `IntersectionObserver` used to observe `viewport` triggers. */
-let intersectionObserver = null;
-/** Number of elements currently observed with `viewport` triggers. */
-let observedViewportElements = 0;
-/** Object keeping track of registered callbacks for a deferred block trigger. */
-class DeferEventEntry {
-  constructor() {
-    this.callbacks = new Set();
-    this.listener = () => {
-      for (const callback of this.callbacks) {
-        callback();
-      }
-    };
-  }
-}
-/**
- * Registers an interaction trigger.
- * @param trigger Element that is the trigger.
- * @param callback Callback to be invoked when the trigger is interacted with.
- */
-function onInteraction(trigger, callback) {
-  let entry = interactionTriggers.get(trigger);
-  // If this is the first entry for this element, add the listeners.
-  if (!entry) {
-    // Note that managing events centrally like this lends itself well to using global
-    // event delegation. It currently does delegation at the element level, rather than the
-    // document level, because:
-    // 1. Global delegation is the most effective when there are a lot of events being registered
-    // at the same time. Deferred blocks are unlikely to be used in such a way.
-    // 2. Matching events to their target isn't free. For each `click` and `keydown` event we
-    // would have look through all the triggers and check if the target either is the element
-    // itself or it's contained within the element. Given that `click` and `keydown` are some
-    // of the most common events, this may end up introducing a lot of runtime overhead.
-    // 3. We're still registering only two events per element, no matter how many deferred blocks
-    // are referencing it.
-    entry = new DeferEventEntry();
-    interactionTriggers.set(trigger, entry);
-    // Ensure that the handler runs in the NgZone
-    ngDevMode && NgZone.assertInAngularZone();
-    for (const name of interactionEventNames) {
-      trigger.addEventListener(name, entry.listener, eventListenerOptions);
-    }
-  }
-  entry.callbacks.add(callback);
-  return () => {
-    const {
-      callbacks,
-      listener
-    } = entry;
-    callbacks.delete(callback);
-    if (callbacks.size === 0) {
-      interactionTriggers.delete(trigger);
-      for (const name of interactionEventNames) {
-        trigger.removeEventListener(name, listener, eventListenerOptions);
-      }
-    }
-  };
-}
-/**
- * Registers a hover trigger.
- * @param trigger Element that is the trigger.
- * @param callback Callback to be invoked when the trigger is hovered over.
- */
-function onHover(trigger, callback) {
-  let entry = hoverTriggers.get(trigger);
-  // If this is the first entry for this element, add the listener.
-  if (!entry) {
-    entry = new DeferEventEntry();
-    hoverTriggers.set(trigger, entry);
-    // Ensure that the handler runs in the NgZone
-    ngDevMode && NgZone.assertInAngularZone();
-    for (const name of hoverEventNames) {
-      trigger.addEventListener(name, entry.listener, eventListenerOptions);
-    }
-  }
-  entry.callbacks.add(callback);
-  return () => {
-    const {
-      callbacks,
-      listener
-    } = entry;
-    callbacks.delete(callback);
-    if (callbacks.size === 0) {
-      for (const name of hoverEventNames) {
-        trigger.removeEventListener(name, listener, eventListenerOptions);
-      }
-      hoverTriggers.delete(trigger);
-    }
-  };
-}
-/**
- * Registers a viewport trigger.
- * @param trigger Element that is the trigger.
- * @param callback Callback to be invoked when the trigger comes into the viewport.
- * @param injector Injector that can be used by the trigger to resolve DI tokens.
- */
-function onViewport(trigger, callback, injector) {
-  const ngZone = injector.get(NgZone);
-  let entry = viewportTriggers.get(trigger);
-  intersectionObserver = intersectionObserver || ngZone.runOutsideAngular(() => {
-    return new IntersectionObserver(entries => {
-      for (const current of entries) {
-        // Only invoke the callbacks if the specific element is intersecting.
-        if (current.isIntersecting && viewportTriggers.has(current.target)) {
-          ngZone.run(viewportTriggers.get(current.target).listener);
-        }
-      }
-    });
-  });
-  if (!entry) {
-    entry = new DeferEventEntry();
-    ngZone.runOutsideAngular(() => intersectionObserver.observe(trigger));
-    viewportTriggers.set(trigger, entry);
-    observedViewportElements++;
-  }
-  entry.callbacks.add(callback);
-  return () => {
-    // It's possible that a different cleanup callback fully removed this element already.
-    if (!viewportTriggers.has(trigger)) {
-      return;
-    }
-    entry.callbacks.delete(callback);
-    if (entry.callbacks.size === 0) {
-      intersectionObserver?.unobserve(trigger);
-      viewportTriggers.delete(trigger);
-      observedViewportElements--;
-    }
-    if (observedViewportElements === 0) {
-      intersectionObserver?.disconnect();
-      intersectionObserver = null;
-    }
-  };
-}
-/**
- * Helper function to get the LView in which a deferred block's trigger is rendered.
- * @param deferredHostLView LView in which the deferred block is defined.
- * @param deferredTNode TNode defining the deferred block.
- * @param walkUpTimes Number of times to go up in the view hierarchy to find the trigger's view.
- *   A negative value means that the trigger is inside the block's placeholder, while an undefined
- *   value means that the trigger is in the same LView as the deferred block.
- */
-function getTriggerLView(deferredHostLView, deferredTNode, walkUpTimes) {
-  // The trigger is in the same view, we don't need to traverse.
-  if (walkUpTimes == null) {
-    return deferredHostLView;
-  }
-  // A positive value or zero means that the trigger is in a parent view.
-  if (walkUpTimes >= 0) {
-    return walkUpViews(walkUpTimes, deferredHostLView);
-  }
-  // If the value is negative, it means that the trigger is inside the placeholder.
-  const deferredContainer = deferredHostLView[deferredTNode.index];
-  ngDevMode && assertLContainer(deferredContainer);
-  const triggerLView = deferredContainer[CONTAINER_HEADER_OFFSET] ?? null;
-  // We need to null check, because the placeholder might not have been rendered yet.
-  if (ngDevMode && triggerLView !== null) {
-    const lDetails = getLDeferBlockDetails(deferredHostLView, deferredTNode);
-    const renderedState = lDetails[DEFER_BLOCK_STATE];
-    assertEqual(renderedState, DeferBlockState.Placeholder, 'Expected a placeholder to be rendered in this defer block.');
-    assertLView(triggerLView);
-  }
-  return triggerLView;
-}
-/**
- * Gets the element that a deferred block's trigger is pointing to.
- * @param triggerLView LView in which the trigger is defined.
- * @param triggerIndex Index at which the trigger element should've been rendered.
- */
-function getTriggerElement(triggerLView, triggerIndex) {
-  const element = getNativeByIndex(HEADER_OFFSET + triggerIndex, triggerLView);
-  ngDevMode && assertElement(element);
-  return element;
-}
-/**
- * Registers a DOM-node based trigger.
- * @param initialLView LView in which the defer block is rendered.
- * @param tNode TNode representing the defer block.
- * @param triggerIndex Index at which to find the trigger element.
- * @param walkUpTimes Number of times to go up/down in the view hierarchy to find the trigger.
- * @param registerFn Function that will register the DOM events.
- * @param callback Callback to be invoked when the trigger receives the event that should render
- *     the deferred block.
- * @param type Trigger type to distinguish between regular and prefetch triggers.
- */
-function registerDomTrigger(initialLView, tNode, triggerIndex, walkUpTimes, registerFn, callback, type) {
-  const injector = initialLView[INJECTOR$1];
-  function pollDomTrigger() {
-    // If the initial view was destroyed, we don't need to do anything.
-    if (isDestroyed(initialLView)) {
-      return;
-    }
-    const lDetails = getLDeferBlockDetails(initialLView, tNode);
-    const renderedState = lDetails[DEFER_BLOCK_STATE];
-    // If the block was loaded before the trigger was resolved, we don't need to do anything.
-    if (renderedState !== DeferBlockInternalState.Initial && renderedState !== DeferBlockState.Placeholder) {
-      return;
-    }
-    const triggerLView = getTriggerLView(initialLView, tNode, walkUpTimes);
-    // Keep polling until we resolve the trigger's LView.
-    if (!triggerLView) {
-      internalAfterNextRender(pollDomTrigger, {
-        injector
-      });
-      return;
-    }
-    // It's possible that the trigger's view was destroyed before we resolved the trigger element.
-    if (isDestroyed(triggerLView)) {
-      return;
-    }
-    const element = getTriggerElement(triggerLView, triggerIndex);
-    const cleanup = registerFn(element, () => {
-      if (initialLView !== triggerLView) {
-        removeLViewOnDestroy(triggerLView, cleanup);
-      }
-      callback();
-    }, injector);
-    // The trigger and deferred block might be in different LViews.
-    // For the main LView the cleanup would happen as a part of
-    // `storeTriggerCleanupFn` logic. For trigger LView we register
-    // a cleanup function there to remove event handlers in case an
-    // LView gets destroyed before a trigger is invoked.
-    if (initialLView !== triggerLView) {
-      storeLViewOnDestroy(triggerLView, cleanup);
-    }
-    storeTriggerCleanupFn(type, lDetails, cleanup);
-  }
-  // Begin polling for the trigger.
-  internalAfterNextRender(pollDomTrigger, {
-    injector
-  });
-}
-
-/**
- * Helper function to schedule a callback to be invoked when a browser becomes idle.
- *
- * @param callback A function to be invoked when a browser becomes idle.
- * @param lView LView that hosts an instance of a defer block.
- */
-function onIdle(callback, lView) {
-  const injector = lView[INJECTOR$1];
-  const scheduler = injector.get(IdleScheduler);
-  const cleanupFn = () => scheduler.remove(callback);
-  scheduler.add(callback);
-  return cleanupFn;
-}
-/**
- * Use shims for the `requestIdleCallback` and `cancelIdleCallback` functions for
- * environments where those functions are not available (e.g. Node.js and Safari).
- *
- * Note: we wrap the `requestIdleCallback` call into a function, so that it can be
- * overridden/mocked in test environment and picked up by the runtime code.
- */
-const _requestIdleCallback = () => typeof requestIdleCallback !== 'undefined' ? requestIdleCallback : setTimeout;
-const _cancelIdleCallback = () => typeof requestIdleCallback !== 'undefined' ? cancelIdleCallback : clearTimeout;
-/**
- * Helper service to schedule `requestIdleCallback`s for batches of defer blocks,
- * to avoid calling `requestIdleCallback` for each defer block (e.g. if
- * defer blocks are defined inside a for loop).
- */
-class IdleScheduler {
-  constructor() {
-    // Indicates whether current callbacks are being invoked.
-    this.executingCallbacks = false;
-    // Currently scheduled idle callback id.
-    this.idleId = null;
-    // Set of callbacks to be invoked next.
-    this.current = new Set();
-    // Set of callbacks collected while invoking current set of callbacks.
-    // Those callbacks are scheduled for the next idle period.
-    this.deferred = new Set();
-    this.ngZone = inject(NgZone);
-    this.requestIdleCallbackFn = _requestIdleCallback().bind(globalThis);
-    this.cancelIdleCallbackFn = _cancelIdleCallback().bind(globalThis);
-  }
-  add(callback) {
-    const target = this.executingCallbacks ? this.deferred : this.current;
-    target.add(callback);
-    if (this.idleId === null) {
-      this.scheduleIdleCallback();
-    }
-  }
-  remove(callback) {
-    const {
-      current,
-      deferred
-    } = this;
-    current.delete(callback);
-    deferred.delete(callback);
-    // If the last callback was removed and there is a pending
-    // idle callback - cancel it.
-    if (current.size === 0 && deferred.size === 0) {
-      this.cancelIdleCallback();
-    }
-  }
-  scheduleIdleCallback() {
-    const callback = () => {
-      this.cancelIdleCallback();
-      this.executingCallbacks = true;
-      for (const callback of this.current) {
-        callback();
-      }
-      this.current.clear();
-      this.executingCallbacks = false;
-      // If there are any callbacks added during an invocation
-      // of the current ones - make them "current" and schedule
-      // a new idle callback.
-      if (this.deferred.size > 0) {
-        for (const callback of this.deferred) {
-          this.current.add(callback);
-        }
-        this.deferred.clear();
-        this.scheduleIdleCallback();
-      }
-    };
-    // Ensure that the callback runs in the NgZone since
-    // the `requestIdleCallback` is not currently patched by Zone.js.
-    this.idleId = this.requestIdleCallbackFn(() => this.ngZone.run(callback));
-  }
-  cancelIdleCallback() {
-    if (this.idleId !== null) {
-      this.cancelIdleCallbackFn(this.idleId);
-      this.idleId = null;
-    }
-  }
-  ngOnDestroy() {
-    this.cancelIdleCallback();
-    this.current.clear();
-    this.deferred.clear();
-  }
-  /** @nocollapse */
-  static #_ = this.ɵprov = ɵɵdefineInjectable({
-    token: IdleScheduler,
-    providedIn: 'root',
-    factory: () => new IdleScheduler()
-  });
-}
-
-/**
- * Returns a function that captures a provided delay.
- * Invoking the returned function schedules a trigger.
- */
-function onTimer(delay) {
-  return (callback, lView) => scheduleTimerTrigger(delay, callback, lView);
-}
-/**
- * Schedules a callback to be invoked after a given timeout.
- *
- * @param delay A number of ms to wait until firing a callback.
- * @param callback A function to be invoked after a timeout.
- * @param lView LView that hosts an instance of a defer block.
- */
-function scheduleTimerTrigger(delay, callback, lView) {
-  const injector = lView[INJECTOR$1];
-  const scheduler = injector.get(TimerScheduler);
-  const cleanupFn = () => scheduler.remove(callback);
-  scheduler.add(delay, callback);
-  return cleanupFn;
-}
-/**
- * Helper service to schedule `setTimeout`s for batches of defer blocks,
- * to avoid calling `setTimeout` for each defer block (e.g. if defer blocks
- * are created inside a for loop).
- */
-class TimerScheduler {
-  constructor() {
-    // Indicates whether current callbacks are being invoked.
-    this.executingCallbacks = false;
-    // Currently scheduled `setTimeout` id.
-    this.timeoutId = null;
-    // When currently scheduled timer would fire.
-    this.invokeTimerAt = null;
-    // List of callbacks to be invoked.
-    // For each callback we also store a timestamp on when the callback
-    // should be invoked. We store timestamps and callback functions
-    // in a flat array to avoid creating new objects for each entry.
-    // [timestamp1, callback1, timestamp2, callback2, ...]
-    this.current = [];
-    // List of callbacks collected while invoking current set of callbacks.
-    // Those callbacks are added to the "current" queue at the end of
-    // the current callback invocation. The shape of this list is the same
-    // as the shape of the `current` list.
-    this.deferred = [];
-  }
-  add(delay, callback) {
-    const target = this.executingCallbacks ? this.deferred : this.current;
-    this.addToQueue(target, Date.now() + delay, callback);
-    this.scheduleTimer();
-  }
-  remove(callback) {
-    const {
-      current,
-      deferred
-    } = this;
-    const callbackIndex = this.removeFromQueue(current, callback);
-    if (callbackIndex === -1) {
-      // Try cleaning up deferred queue only in case
-      // we didn't find a callback in the "current" queue.
-      this.removeFromQueue(deferred, callback);
-    }
-    // If the last callback was removed and there is a pending timeout - cancel it.
-    if (current.length === 0 && deferred.length === 0) {
-      this.clearTimeout();
-    }
-  }
-  addToQueue(target, invokeAt, callback) {
-    let insertAtIndex = target.length;
-    for (let i = 0; i < target.length; i += 2) {
-      const invokeQueuedCallbackAt = target[i];
-      if (invokeQueuedCallbackAt > invokeAt) {
-        // We've reached a first timer that is scheduled
-        // for a later time than what we are trying to insert.
-        // This is the location at which we need to insert,
-        // no need to iterate further.
-        insertAtIndex = i;
-        break;
-      }
-    }
-    arrayInsert2(target, insertAtIndex, invokeAt, callback);
-  }
-  removeFromQueue(target, callback) {
-    let index = -1;
-    for (let i = 0; i < target.length; i += 2) {
-      const queuedCallback = target[i + 1];
-      if (queuedCallback === callback) {
-        index = i;
-        break;
-      }
-    }
-    if (index > -1) {
-      // Remove 2 elements: a timestamp slot and
-      // the following slot with a callback function.
-      arraySplice(target, index, 2);
-    }
-    return index;
-  }
-  scheduleTimer() {
-    const callback = () => {
-      this.clearTimeout();
-      this.executingCallbacks = true;
-      // Clone the current state of the queue, since it might be altered
-      // as we invoke callbacks.
-      const current = [...this.current];
-      // Invoke callbacks that were scheduled to run before the current time.
-      const now = Date.now();
-      for (let i = 0; i < current.length; i += 2) {
-        const invokeAt = current[i];
-        const callback = current[i + 1];
-        if (invokeAt <= now) {
-          callback();
-        } else {
-          // We've reached a timer that should not be invoked yet.
-          break;
-        }
-      }
-      // The state of the queue might've changed after callbacks invocation,
-      // run the cleanup logic based on the *current* state of the queue.
-      let lastCallbackIndex = -1;
-      for (let i = 0; i < this.current.length; i += 2) {
-        const invokeAt = this.current[i];
-        if (invokeAt <= now) {
-          // Add +1 to account for a callback function that
-          // goes after the timestamp in events array.
-          lastCallbackIndex = i + 1;
-        } else {
-          // We've reached a timer that should not be invoked yet.
-          break;
-        }
-      }
-      if (lastCallbackIndex >= 0) {
-        arraySplice(this.current, 0, lastCallbackIndex + 1);
-      }
-      this.executingCallbacks = false;
-      // If there are any callbacks added during an invocation
-      // of the current ones - move them over to the "current"
-      // queue.
-      if (this.deferred.length > 0) {
-        for (let i = 0; i < this.deferred.length; i += 2) {
-          const invokeAt = this.deferred[i];
-          const callback = this.deferred[i + 1];
-          this.addToQueue(this.current, invokeAt, callback);
-        }
-        this.deferred.length = 0;
-      }
-      this.scheduleTimer();
-    };
-    // Avoid running timer callbacks more than once per
-    // average frame duration. This is needed for better
-    // batching and to avoid kicking off excessive change
-    // detection cycles.
-    const FRAME_DURATION_MS = 16; // 1000ms / 60fps
-    if (this.current.length > 0) {
-      const now = Date.now();
-      // First element in the queue points at the timestamp
-      // of the first (earliest) event.
-      const invokeAt = this.current[0];
-      if (this.timeoutId === null ||
-      // Reschedule a timer in case a queue contains an item with
-      // an earlier timestamp and the delta is more than an average
-      // frame duration.
-      this.invokeTimerAt && this.invokeTimerAt - invokeAt > FRAME_DURATION_MS) {
-        // There was a timeout already, but an earlier event was added
-        // into the queue. In this case we drop an old timer and setup
-        // a new one with an updated (smaller) timeout.
-        this.clearTimeout();
-        const timeout = Math.max(invokeAt - now, FRAME_DURATION_MS);
-        this.invokeTimerAt = invokeAt;
-        this.timeoutId = setTimeout(callback, timeout);
-      }
-    }
-  }
-  clearTimeout() {
-    if (this.timeoutId !== null) {
-      clearTimeout(this.timeoutId);
-      this.timeoutId = null;
-    }
-  }
-  ngOnDestroy() {
-    this.clearTimeout();
-    this.current.length = 0;
-    this.deferred.length = 0;
-  }
-  /** @nocollapse */
-  static #_ = this.ɵprov = ɵɵdefineInjectable({
-    token: TimerScheduler,
-    providedIn: 'root',
-    factory: () => new TimerScheduler()
-  });
-}
-
-/**
- * **INTERNAL**, avoid referencing it in application code.
- *
- * Injector token that allows to provide `DeferBlockDependencyInterceptor` class
- * implementation.
- */
-const DEFER_BLOCK_DEPENDENCY_INTERCEPTOR = new InjectionToken('DEFER_BLOCK_DEPENDENCY_INTERCEPTOR');
-/**
- * **INTERNAL**, token used for configuring defer block behavior.
- */
-const DEFER_BLOCK_CONFIG = new InjectionToken(ngDevMode ? 'DEFER_BLOCK_CONFIG' : '');
-/**
- * Returns whether defer blocks should be triggered.
- *
- * Currently, defer blocks are not triggered on the server,
- * only placeholder content is rendered (if provided).
- */
-function shouldTriggerDeferBlock(injector) {
-  const config = injector.get(DEFER_BLOCK_CONFIG, null, {
-    optional: true
-  });
-  if (config?.behavior === DeferBlockBehavior.Manual) {
-    return false;
-  }
-  return isPlatformBrowser(injector);
-}
-/**
- * Reference to the timer-based scheduler implementation of defer block state
- * rendering method. It's used to make timer-based scheduling tree-shakable.
- * If `minimum` or `after` parameters are used, compiler generates an extra
- * argument for the `ɵɵdefer` instruction, which references a timer-based
- * implementation.
- */
-let applyDeferBlockStateWithSchedulingImpl = null;
-/**
- * Enables timer-related scheduling if `after` or `minimum` parameters are setup
- * on the `@loading` or `@placeholder` blocks.
- */
-function ɵɵdeferEnableTimerScheduling(tView, tDetails, placeholderConfigIndex, loadingConfigIndex) {
-  const tViewConsts = tView.consts;
-  if (placeholderConfigIndex != null) {
-    tDetails.placeholderBlockConfig = getConstant(tViewConsts, placeholderConfigIndex);
-  }
-  if (loadingConfigIndex != null) {
-    tDetails.loadingBlockConfig = getConstant(tViewConsts, loadingConfigIndex);
-  }
-  // Enable implementation that supports timer-based scheduling.
-  if (applyDeferBlockStateWithSchedulingImpl === null) {
-    applyDeferBlockStateWithSchedulingImpl = applyDeferBlockStateWithScheduling;
-  }
-}
-/**
- * Creates runtime data structures for defer blocks.
- *
- * @param index Index of the `defer` instruction.
- * @param primaryTmplIndex Index of the template with the primary block content.
- * @param dependencyResolverFn Function that contains dependencies for this defer block.
- * @param loadingTmplIndex Index of the template with the loading block content.
- * @param placeholderTmplIndex Index of the template with the placeholder block content.
- * @param errorTmplIndex Index of the template with the error block content.
- * @param loadingConfigIndex Index in the constants array of the configuration of the loading.
- *     block.
- * @param placeholderConfigIndex Index in the constants array of the configuration of the
- *     placeholder block.
- * @param enableTimerScheduling Function that enables timer-related scheduling if `after`
- *     or `minimum` parameters are setup on the `@loading` or `@placeholder` blocks.
- *
- * @codeGenApi
- */
-function ɵɵdefer(index, primaryTmplIndex, dependencyResolverFn, loadingTmplIndex, placeholderTmplIndex, errorTmplIndex, loadingConfigIndex, placeholderConfigIndex, enableTimerScheduling) {
-  const lView = getLView();
-  const tView = getTView();
-  const adjustedIndex = index + HEADER_OFFSET;
-  ɵɵtemplate(index, null, 0, 0);
-  if (tView.firstCreatePass) {
-    performanceMarkFeature('NgDefer');
-    const tDetails = {
-      primaryTmplIndex,
-      loadingTmplIndex: loadingTmplIndex ?? null,
-      placeholderTmplIndex: placeholderTmplIndex ?? null,
-      errorTmplIndex: errorTmplIndex ?? null,
-      placeholderBlockConfig: null,
-      loadingBlockConfig: null,
-      dependencyResolverFn: dependencyResolverFn ?? null,
-      loadingState: DeferDependenciesLoadingState.NOT_STARTED,
-      loadingPromise: null
-    };
-    enableTimerScheduling?.(tView, tDetails, placeholderConfigIndex, loadingConfigIndex);
-    setTDeferBlockDetails(tView, adjustedIndex, tDetails);
-  }
-  const tNode = getCurrentTNode();
-  const lContainer = lView[adjustedIndex];
-  // If hydration is enabled, looks up dehydrated views in the DOM
-  // using hydration annotation info and stores those views on LContainer.
-  // In client-only mode, this function is a noop.
-  populateDehydratedViewsInLContainer(lContainer, tNode, lView);
-  // Init instance-specific defer details and store it.
-  const lDetails = [null, DeferBlockInternalState.Initial, null, null, null, null // PREFETCH_TRIGGER_CLEANUP_FNS
-  ];
-
-  setLDeferBlockDetails(lView, adjustedIndex, lDetails);
-  const cleanupTriggersFn = () => invokeAllTriggerCleanupFns(lDetails);
-  // When defer block is triggered - unsubscribe from LView destroy cleanup.
-  storeTriggerCleanupFn(0 /* TriggerType.Regular */, lDetails, () => removeLViewOnDestroy(lView, cleanupTriggersFn));
-  storeLViewOnDestroy(lView, cleanupTriggersFn);
-}
-/**
- * Loads defer block dependencies when a trigger value becomes truthy.
- * @codeGenApi
- */
-function ɵɵdeferWhen(rawValue) {
-  const lView = getLView();
-  const bindingIndex = nextBindingIndex();
-  if (bindingUpdated(lView, bindingIndex, rawValue)) {
-    const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(null);
-    try {
-      const value = Boolean(rawValue); // handle truthy or falsy values
-      const tNode = getSelectedTNode();
-      const lDetails = getLDeferBlockDetails(lView, tNode);
-      const renderedState = lDetails[DEFER_BLOCK_STATE];
-      if (value === false && renderedState === DeferBlockInternalState.Initial) {
-        // If nothing is rendered yet, render a placeholder (if defined).
-        renderPlaceholder(lView, tNode);
-      } else if (value === true && (renderedState === DeferBlockInternalState.Initial || renderedState === DeferBlockState.Placeholder)) {
-        // The `when` condition has changed to `true`, trigger defer block loading
-        // if the block is either in initial (nothing is rendered) or a placeholder
-        // state.
-        triggerDeferBlock(lView, tNode);
-      }
-    } finally {
-      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(prevConsumer);
-    }
-  }
-}
-/**
- * Prefetches the deferred content when a value becomes truthy.
- * @codeGenApi
- */
-function ɵɵdeferPrefetchWhen(rawValue) {
-  const lView = getLView();
-  const bindingIndex = nextBindingIndex();
-  if (bindingUpdated(lView, bindingIndex, rawValue)) {
-    const prevConsumer = (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(null);
-    try {
-      const value = Boolean(rawValue); // handle truthy or falsy values
-      const tView = lView[TVIEW];
-      const tNode = getSelectedTNode();
-      const tDetails = getTDeferBlockDetails(tView, tNode);
-      if (value === true && tDetails.loadingState === DeferDependenciesLoadingState.NOT_STARTED) {
-        // If loading has not been started yet, trigger it now.
-        triggerPrefetching(tDetails, lView, tNode);
-      }
-    } finally {
-      (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setActiveConsumer)(prevConsumer);
-    }
-  }
-}
-/**
- * Sets up logic to handle the `on idle` deferred trigger.
- * @codeGenApi
- */
-function ɵɵdeferOnIdle() {
-  scheduleDelayedTrigger(onIdle);
-}
-/**
- * Sets up logic to handle the `prefetch on idle` deferred trigger.
- * @codeGenApi
- */
-function ɵɵdeferPrefetchOnIdle() {
-  scheduleDelayedPrefetching(onIdle);
-}
-/**
- * Sets up logic to handle the `on immediate` deferred trigger.
- * @codeGenApi
- */
-function ɵɵdeferOnImmediate() {
-  const lView = getLView();
-  const tNode = getCurrentTNode();
-  const tView = lView[TVIEW];
-  const tDetails = getTDeferBlockDetails(tView, tNode);
-  // Render placeholder block only if loading template is not present
-  // to avoid content flickering, since it would be immediately replaced
-  // by the loading block.
-  if (tDetails.loadingTmplIndex === null) {
-    renderPlaceholder(lView, tNode);
-  }
-  triggerDeferBlock(lView, tNode);
-}
-/**
- * Sets up logic to handle the `prefetch on immediate` deferred trigger.
- * @codeGenApi
- */
-function ɵɵdeferPrefetchOnImmediate() {
-  const lView = getLView();
-  const tNode = getCurrentTNode();
-  const tView = lView[TVIEW];
-  const tDetails = getTDeferBlockDetails(tView, tNode);
-  if (tDetails.loadingState === DeferDependenciesLoadingState.NOT_STARTED) {
-    triggerResourceLoading(tDetails, lView, tNode);
-  }
-}
-/**
- * Creates runtime data structures for the `on timer` deferred trigger.
- * @param delay Amount of time to wait before loading the content.
- * @codeGenApi
- */
-function ɵɵdeferOnTimer(delay) {
-  scheduleDelayedTrigger(onTimer(delay));
-}
-/**
- * Creates runtime data structures for the `prefetch on timer` deferred trigger.
- * @param delay Amount of time to wait before prefetching the content.
- * @codeGenApi
- */
-function ɵɵdeferPrefetchOnTimer(delay) {
-  scheduleDelayedPrefetching(onTimer(delay));
-}
-/**
- * Creates runtime data structures for the `on hover` deferred trigger.
- * @param triggerIndex Index at which to find the trigger element.
- * @param walkUpTimes Number of times to walk up/down the tree hierarchy to find the trigger.
- * @codeGenApi
- */
-function ɵɵdeferOnHover(triggerIndex, walkUpTimes) {
-  const lView = getLView();
-  const tNode = getCurrentTNode();
-  renderPlaceholder(lView, tNode);
-  registerDomTrigger(lView, tNode, triggerIndex, walkUpTimes, onHover, () => triggerDeferBlock(lView, tNode), 0 /* TriggerType.Regular */);
-}
-/**
- * Creates runtime data structures for the `prefetch on hover` deferred trigger.
- * @param triggerIndex Index at which to find the trigger element.
- * @param walkUpTimes Number of times to walk up/down the tree hierarchy to find the trigger.
- * @codeGenApi
- */
-function ɵɵdeferPrefetchOnHover(triggerIndex, walkUpTimes) {
-  const lView = getLView();
-  const tNode = getCurrentTNode();
-  const tView = lView[TVIEW];
-  const tDetails = getTDeferBlockDetails(tView, tNode);
-  if (tDetails.loadingState === DeferDependenciesLoadingState.NOT_STARTED) {
-    registerDomTrigger(lView, tNode, triggerIndex, walkUpTimes, onHover, () => triggerPrefetching(tDetails, lView, tNode), 1 /* TriggerType.Prefetch */);
-  }
-}
-/**
- * Creates runtime data structures for the `on interaction` deferred trigger.
- * @param triggerIndex Index at which to find the trigger element.
- * @param walkUpTimes Number of times to walk up/down the tree hierarchy to find the trigger.
- * @codeGenApi
- */
-function ɵɵdeferOnInteraction(triggerIndex, walkUpTimes) {
-  const lView = getLView();
-  const tNode = getCurrentTNode();
-  renderPlaceholder(lView, tNode);
-  registerDomTrigger(lView, tNode, triggerIndex, walkUpTimes, onInteraction, () => triggerDeferBlock(lView, tNode), 0 /* TriggerType.Regular */);
-}
-/**
- * Creates runtime data structures for the `prefetch on interaction` deferred trigger.
- * @param triggerIndex Index at which to find the trigger element.
- * @param walkUpTimes Number of times to walk up/down the tree hierarchy to find the trigger.
- * @codeGenApi
- */
-function ɵɵdeferPrefetchOnInteraction(triggerIndex, walkUpTimes) {
-  const lView = getLView();
-  const tNode = getCurrentTNode();
-  const tView = lView[TVIEW];
-  const tDetails = getTDeferBlockDetails(tView, tNode);
-  if (tDetails.loadingState === DeferDependenciesLoadingState.NOT_STARTED) {
-    registerDomTrigger(lView, tNode, triggerIndex, walkUpTimes, onInteraction, () => triggerPrefetching(tDetails, lView, tNode), 1 /* TriggerType.Prefetch */);
-  }
-}
-/**
- * Creates runtime data structures for the `on viewport` deferred trigger.
- * @param triggerIndex Index at which to find the trigger element.
- * @param walkUpTimes Number of times to walk up/down the tree hierarchy to find the trigger.
- * @codeGenApi
- */
-function ɵɵdeferOnViewport(triggerIndex, walkUpTimes) {
-  const lView = getLView();
-  const tNode = getCurrentTNode();
-  renderPlaceholder(lView, tNode);
-  registerDomTrigger(lView, tNode, triggerIndex, walkUpTimes, onViewport, () => triggerDeferBlock(lView, tNode), 0 /* TriggerType.Regular */);
-}
-/**
- * Creates runtime data structures for the `prefetch on viewport` deferred trigger.
- * @param triggerIndex Index at which to find the trigger element.
- * @param walkUpTimes Number of times to walk up/down the tree hierarchy to find the trigger.
- * @codeGenApi
- */
-function ɵɵdeferPrefetchOnViewport(triggerIndex, walkUpTimes) {
-  const lView = getLView();
-  const tNode = getCurrentTNode();
-  const tView = lView[TVIEW];
-  const tDetails = getTDeferBlockDetails(tView, tNode);
-  if (tDetails.loadingState === DeferDependenciesLoadingState.NOT_STARTED) {
-    registerDomTrigger(lView, tNode, triggerIndex, walkUpTimes, onViewport, () => triggerPrefetching(tDetails, lView, tNode), 1 /* TriggerType.Prefetch */);
-  }
-}
-/********** Helper functions **********/
-/**
- * Schedules triggering of a defer block for `on idle` and `on timer` conditions.
- */
-function scheduleDelayedTrigger(scheduleFn) {
-  const lView = getLView();
-  const tNode = getCurrentTNode();
-  renderPlaceholder(lView, tNode);
-  const cleanupFn = scheduleFn(() => triggerDeferBlock(lView, tNode), lView);
-  const lDetails = getLDeferBlockDetails(lView, tNode);
-  storeTriggerCleanupFn(0 /* TriggerType.Regular */, lDetails, cleanupFn);
-}
-/**
- * Schedules prefetching for `on idle` and `on timer` triggers.
- *
- * @param scheduleFn A function that does the scheduling.
- */
-function scheduleDelayedPrefetching(scheduleFn) {
-  const lView = getLView();
-  const tNode = getCurrentTNode();
-  const tView = lView[TVIEW];
-  const tDetails = getTDeferBlockDetails(tView, tNode);
-  if (tDetails.loadingState === DeferDependenciesLoadingState.NOT_STARTED) {
-    const lDetails = getLDeferBlockDetails(lView, tNode);
-    const prefetch = () => triggerPrefetching(tDetails, lView, tNode);
-    const cleanupFn = scheduleFn(prefetch, lView);
-    storeTriggerCleanupFn(1 /* TriggerType.Prefetch */, lDetails, cleanupFn);
-  }
-}
-/**
- * Transitions a defer block to the new state. Updates the  necessary
- * data structures and renders corresponding block.
- *
- * @param newState New state that should be applied to the defer block.
- * @param tNode TNode that represents a defer block.
- * @param lContainer Represents an instance of a defer block.
- * @param skipTimerScheduling Indicates that `@loading` and `@placeholder` block
- *   should be rendered immediately, even if they have `after` or `minimum` config
- *   options setup. This flag to needed for testing APIs to transition defer block
- *   between states via `DeferFixture.render` method.
- */
-function renderDeferBlockState(newState, tNode, lContainer, skipTimerScheduling = false) {
-  const hostLView = lContainer[PARENT];
-  const hostTView = hostLView[TVIEW];
-  // Check if this view is not destroyed. Since the loading process was async,
-  // the view might end up being destroyed by the time rendering happens.
-  if (isDestroyed(hostLView)) return;
-  // Make sure this TNode belongs to TView that represents host LView.
-  ngDevMode && assertTNodeForLView(tNode, hostLView);
-  const lDetails = getLDeferBlockDetails(hostLView, tNode);
-  ngDevMode && assertDefined(lDetails, 'Expected a defer block state defined');
-  const currentState = lDetails[DEFER_BLOCK_STATE];
-  if (isValidStateChange(currentState, newState) && isValidStateChange(lDetails[NEXT_DEFER_BLOCK_STATE] ?? -1, newState)) {
-    const tDetails = getTDeferBlockDetails(hostTView, tNode);
-    const needsScheduling = !skipTimerScheduling && (getLoadingBlockAfter(tDetails) !== null || getMinimumDurationForState(tDetails, DeferBlockState.Loading) !== null || getMinimumDurationForState(tDetails, DeferBlockState.Placeholder));
-    if (ngDevMode && needsScheduling) {
-      assertDefined(applyDeferBlockStateWithSchedulingImpl, 'Expected scheduling function to be defined');
-    }
-    const applyStateFn = needsScheduling ? applyDeferBlockStateWithSchedulingImpl : applyDeferBlockState;
-    try {
-      applyStateFn(newState, lDetails, lContainer, tNode, hostLView);
-    } catch (error) {
-      handleError(hostLView, error);
-    }
-  }
-}
-/**
- * Applies changes to the DOM to reflect a given state.
- */
-function applyDeferBlockState(newState, lDetails, lContainer, tNode, hostLView) {
-  const stateTmplIndex = getTemplateIndexForState(newState, hostLView, tNode);
-  if (stateTmplIndex !== null) {
-    lDetails[DEFER_BLOCK_STATE] = newState;
-    const hostTView = hostLView[TVIEW];
-    const adjustedIndex = stateTmplIndex + HEADER_OFFSET;
-    const tNode = getTNode(hostTView, adjustedIndex);
-    // There is only 1 view that can be present in an LContainer that
-    // represents a defer block, so always refer to the first one.
-    const viewIndex = 0;
-    removeLViewFromLContainer(lContainer, viewIndex);
-    const dehydratedView = findMatchingDehydratedView(lContainer, tNode.tView.ssrId);
-    const embeddedLView = createAndRenderEmbeddedLView(hostLView, tNode, null, {
-      dehydratedView
-    });
-    addLViewToLContainer(lContainer, embeddedLView, viewIndex, shouldAddViewToDom(tNode, dehydratedView));
-    markViewDirty(embeddedLView);
-  }
-}
-/**
- * Extends the `applyDeferBlockState` with timer-based scheduling.
- * This function becomes available on a page if there are defer blocks
- * that use `after` or `minimum` parameters in the `@loading` or
- * `@placeholder` blocks.
- */
-function applyDeferBlockStateWithScheduling(newState, lDetails, lContainer, tNode, hostLView) {
-  const now = Date.now();
-  const hostTView = hostLView[TVIEW];
-  const tDetails = getTDeferBlockDetails(hostTView, tNode);
-  if (lDetails[STATE_IS_FROZEN_UNTIL] === null || lDetails[STATE_IS_FROZEN_UNTIL] <= now) {
-    lDetails[STATE_IS_FROZEN_UNTIL] = null;
-    const loadingAfter = getLoadingBlockAfter(tDetails);
-    const inLoadingAfterPhase = lDetails[LOADING_AFTER_CLEANUP_FN] !== null;
-    if (newState === DeferBlockState.Loading && loadingAfter !== null && !inLoadingAfterPhase) {
-      // Trying to render loading, but it has an `after` config,
-      // so schedule an update action after a timeout.
-      lDetails[NEXT_DEFER_BLOCK_STATE] = newState;
-      const cleanupFn = scheduleDeferBlockUpdate(loadingAfter, lDetails, tNode, lContainer, hostLView);
-      lDetails[LOADING_AFTER_CLEANUP_FN] = cleanupFn;
-    } else {
-      // If we transition to a complete or an error state and there is a pending
-      // operation to render loading after a timeout - invoke a cleanup operation,
-      // which stops the timer.
-      if (newState > DeferBlockState.Loading && inLoadingAfterPhase) {
-        lDetails[LOADING_AFTER_CLEANUP_FN]();
-        lDetails[LOADING_AFTER_CLEANUP_FN] = null;
-        lDetails[NEXT_DEFER_BLOCK_STATE] = null;
-      }
-      applyDeferBlockState(newState, lDetails, lContainer, tNode, hostLView);
-      const duration = getMinimumDurationForState(tDetails, newState);
-      if (duration !== null) {
-        lDetails[STATE_IS_FROZEN_UNTIL] = now + duration;
-        scheduleDeferBlockUpdate(duration, lDetails, tNode, lContainer, hostLView);
-      }
-    }
-  } else {
-    // We are still rendering the previous state.
-    // Update the `NEXT_DEFER_BLOCK_STATE`, which would be
-    // picked up once it's time to transition to the next state.
-    lDetails[NEXT_DEFER_BLOCK_STATE] = newState;
-  }
-}
-/**
- * Schedules an update operation after a specified timeout.
- */
-function scheduleDeferBlockUpdate(timeout, lDetails, tNode, lContainer, hostLView) {
-  const callback = () => {
-    const nextState = lDetails[NEXT_DEFER_BLOCK_STATE];
-    lDetails[STATE_IS_FROZEN_UNTIL] = null;
-    lDetails[NEXT_DEFER_BLOCK_STATE] = null;
-    if (nextState !== null) {
-      renderDeferBlockState(nextState, tNode, lContainer);
-    }
-  };
-  return scheduleTimerTrigger(timeout, callback, hostLView);
-}
-/**
- * Checks whether we can transition to the next state.
- *
- * We transition to the next state if the previous state was represented
- * with a number that is less than the next state. For example, if the current
- * state is "loading" (represented as `1`), we should not show a placeholder
- * (represented as `0`), but we can show a completed state (represented as `2`)
- * or an error state (represented as `3`).
- */
-function isValidStateChange(currentState, newState) {
-  return currentState < newState;
-}
-/**
- * Trigger prefetching of dependencies for a defer block.
- *
- * @param tDetails Static information about this defer block.
- * @param lView LView of a host view.
- */
-function triggerPrefetching(tDetails, lView, tNode) {
-  if (lView[INJECTOR$1] && shouldTriggerDeferBlock(lView[INJECTOR$1])) {
-    triggerResourceLoading(tDetails, lView, tNode);
-  }
-}
-/**
- * Trigger loading of defer block dependencies if the process hasn't started yet.
- *
- * @param tDetails Static information about this defer block.
- * @param lView LView of a host view.
- */
-function triggerResourceLoading(tDetails, lView, tNode) {
-  const injector = lView[INJECTOR$1];
-  const tView = lView[TVIEW];
-  if (tDetails.loadingState !== DeferDependenciesLoadingState.NOT_STARTED) {
-    // If the loading status is different from initial one, it means that
-    // the loading of dependencies is in progress and there is nothing to do
-    // in this function. All details can be obtained from the `tDetails` object.
-    return;
-  }
-  const lDetails = getLDeferBlockDetails(lView, tNode);
-  const primaryBlockTNode = getPrimaryBlockTNode(tView, tDetails);
-  // Switch from NOT_STARTED -> IN_PROGRESS state.
-  tDetails.loadingState = DeferDependenciesLoadingState.IN_PROGRESS;
-  // Prefetching is triggered, cleanup all registered prefetch triggers.
-  invokeTriggerCleanupFns(1 /* TriggerType.Prefetch */, lDetails);
-  let dependenciesFn = tDetails.dependencyResolverFn;
-  if (ngDevMode) {
-    // Check if dependency function interceptor is configured.
-    const deferDependencyInterceptor = injector.get(DEFER_BLOCK_DEPENDENCY_INTERCEPTOR, null, {
-      optional: true
-    });
-    if (deferDependencyInterceptor) {
-      dependenciesFn = deferDependencyInterceptor.intercept(dependenciesFn);
-    }
-  }
-  // The `dependenciesFn` might be `null` when all dependencies within
-  // a given defer block were eagerly referenced elsewhere in a file,
-  // thus no dynamic `import()`s were produced.
-  if (!dependenciesFn) {
-    tDetails.loadingPromise = Promise.resolve().then(() => {
-      tDetails.loadingPromise = null;
-      tDetails.loadingState = DeferDependenciesLoadingState.COMPLETE;
-    });
-    return;
-  }
-  // Start downloading of defer block dependencies.
-  tDetails.loadingPromise = Promise.allSettled(dependenciesFn()).then(results => {
-    let failed = false;
-    const directiveDefs = [];
-    const pipeDefs = [];
-    for (const result of results) {
-      if (result.status === 'fulfilled') {
-        const dependency = result.value;
-        const directiveDef = getComponentDef(dependency) || getDirectiveDef(dependency);
-        if (directiveDef) {
-          directiveDefs.push(directiveDef);
-        } else {
-          const pipeDef = getPipeDef$1(dependency);
-          if (pipeDef) {
-            pipeDefs.push(pipeDef);
-          }
-        }
-      } else {
-        failed = true;
-        break;
-      }
-    }
-    // Loading is completed, we no longer need this Promise.
-    tDetails.loadingPromise = null;
-    if (failed) {
-      tDetails.loadingState = DeferDependenciesLoadingState.FAILED;
-      if (tDetails.errorTmplIndex === null) {
-        const templateLocation = getTemplateLocationDetails(lView);
-        const error = new RuntimeError(750 /* RuntimeErrorCode.DEFER_LOADING_FAILED */, ngDevMode && 'Loading dependencies for `@defer` block failed, ' + `but no \`@error\` block was configured${templateLocation}. ` + 'Consider using the `@error` block to render an error state.');
-        handleError(lView, error);
-      }
-    } else {
-      tDetails.loadingState = DeferDependenciesLoadingState.COMPLETE;
-      // Update directive and pipe registries to add newly downloaded dependencies.
-      const primaryBlockTView = primaryBlockTNode.tView;
-      if (directiveDefs.length > 0) {
-        primaryBlockTView.directiveRegistry = addDepsToRegistry(primaryBlockTView.directiveRegistry, directiveDefs);
-      }
-      if (pipeDefs.length > 0) {
-        primaryBlockTView.pipeRegistry = addDepsToRegistry(primaryBlockTView.pipeRegistry, pipeDefs);
-      }
-    }
-  });
-}
-/** Utility function to render placeholder content (if present) */
-function renderPlaceholder(lView, tNode) {
-  const lContainer = lView[tNode.index];
-  ngDevMode && assertLContainer(lContainer);
-  renderDeferBlockState(DeferBlockState.Placeholder, tNode, lContainer);
-}
-/**
- * Subscribes to the "loading" Promise and renders corresponding defer sub-block,
- * based on the loading results.
- *
- * @param lContainer Represents an instance of a defer block.
- * @param tNode Represents defer block info shared across all instances.
- */
-function renderDeferStateAfterResourceLoading(tDetails, tNode, lContainer) {
-  ngDevMode && assertDefined(tDetails.loadingPromise, 'Expected loading Promise to exist on this defer block');
-  tDetails.loadingPromise.then(() => {
-    if (tDetails.loadingState === DeferDependenciesLoadingState.COMPLETE) {
-      ngDevMode && assertDeferredDependenciesLoaded(tDetails);
-      // Everything is loaded, show the primary block content
-      renderDeferBlockState(DeferBlockState.Complete, tNode, lContainer);
-    } else if (tDetails.loadingState === DeferDependenciesLoadingState.FAILED) {
-      renderDeferBlockState(DeferBlockState.Error, tNode, lContainer);
-    }
-  });
-}
-/**
- * Attempts to trigger loading of defer block dependencies.
- * If the block is already in a loading, completed or an error state -
- * no additional actions are taken.
- */
-function triggerDeferBlock(lView, tNode) {
-  const tView = lView[TVIEW];
-  const lContainer = lView[tNode.index];
-  const injector = lView[INJECTOR$1];
-  ngDevMode && assertLContainer(lContainer);
-  if (!shouldTriggerDeferBlock(injector)) return;
-  const lDetails = getLDeferBlockDetails(lView, tNode);
-  const tDetails = getTDeferBlockDetails(tView, tNode);
-  // Defer block is triggered, cleanup all registered trigger functions.
-  invokeAllTriggerCleanupFns(lDetails);
-  switch (tDetails.loadingState) {
-    case DeferDependenciesLoadingState.NOT_STARTED:
-      renderDeferBlockState(DeferBlockState.Loading, tNode, lContainer);
-      triggerResourceLoading(tDetails, lView, tNode);
-      // The `loadingState` might have changed to "loading".
-      if (tDetails.loadingState === DeferDependenciesLoadingState.IN_PROGRESS) {
-        renderDeferStateAfterResourceLoading(tDetails, tNode, lContainer);
-      }
-      break;
-    case DeferDependenciesLoadingState.IN_PROGRESS:
-      renderDeferBlockState(DeferBlockState.Loading, tNode, lContainer);
-      renderDeferStateAfterResourceLoading(tDetails, tNode, lContainer);
-      break;
-    case DeferDependenciesLoadingState.COMPLETE:
-      ngDevMode && assertDeferredDependenciesLoaded(tDetails);
-      renderDeferBlockState(DeferBlockState.Complete, tNode, lContainer);
-      break;
-    case DeferDependenciesLoadingState.FAILED:
-      renderDeferBlockState(DeferBlockState.Error, tNode, lContainer);
-      break;
-    default:
-      if (ngDevMode) {
-        throwError('Unknown defer block state');
-      }
-  }
 }
 function elementStartFirstCreatePass(index, tView, lView, name, attrsIndex, localRefsIndex) {
   ngDevMode && assertFirstCreatePass(tView);
@@ -42017,7 +42196,7 @@ function locateOrCreateElementNodeImpl(tView, lView, tNode, renderer, name, inde
       // Since this isn't hydratable, we need to empty the node
       // so there's no duplicate content after render
       clearElementContents(native);
-      ngDevMode && ngDevMode.componentsSkippedHydration++;
+      ngDevMode && markRNodeAsSkippedByHydration(native);
     } else if (ngDevMode) {
       // If this is not a component host, throw an error.
       // Hydration can be skipped on per-component basis only.
@@ -42568,7 +42747,6 @@ function addTNodeAndUpdateInsertBeforeIndex(previousTNodes, newTNode) {
 function isI18nText(tNode) {
   return !(tNode.type & 64 /* TNodeType.Placeholder */);
 }
-
 function isNewTNodeCreatedBefore(existingTNode, newTNode) {
   return isI18nText(newTNode) || existingTNode.index > newTNode.index;
 }
@@ -42679,15 +42857,12 @@ function getCurrentICUCaseIndex(tIcu, lView) {
 function getParentFromIcuCreateOpCode(mergedCode) {
   return mergedCode >>> 17 /* IcuCreateOpCode.SHIFT_PARENT */;
 }
-
 function getRefFromIcuCreateOpCode(mergedCode) {
   return (mergedCode & 131070 /* IcuCreateOpCode.MASK_REF */) >>> 1 /* IcuCreateOpCode.SHIFT_REF */;
 }
-
 function getInstructionFromIcuCreateOpCode(mergedCode) {
   return mergedCode & 1 /* IcuCreateOpCode.MASK_INSTRUCTION */;
 }
-
 function icuCreateOpCode(opCode, parentIdx, refIdx) {
   ngDevMode && assertGreaterThanOrEqual(parentIdx, 0, 'Missing parent index');
   ngDevMode && assertGreaterThan(refIdx, 0, 'Missing ref index');
@@ -43743,7 +43918,6 @@ function parseICUBlock(pattern) {
     } else {
       icuType = 1 /* IcuType.plural */;
     }
-
     mainBinding = parseInt(binding.slice(1), 10);
     return '';
   });
@@ -43920,15 +44094,12 @@ function addRemoveNestedIcu(remove, index, depth) {
     remove.push(index); // remove ICU comment at `index`
   }
 }
-
 function addUpdateIcuSwitch(update, icuExpression, index) {
   update.push(toMaskBit(icuExpression.mainBinding), 2, -1 - icuExpression.mainBinding, index << 2 /* I18nUpdateOpCode.SHIFT_REF */ | 2 /* I18nUpdateOpCode.IcuSwitch */);
 }
-
 function addUpdateIcuUpdate(update, bindingMask, index) {
   update.push(bindingMask, 1, index << 2 /* I18nUpdateOpCode.SHIFT_REF */ | 3 /* I18nUpdateOpCode.IcuUpdate */);
 }
-
 function addCreateNodeAndAppend(create, marker, text, appendToParentIdx, createAtIdx) {
   if (marker !== null) {
     create.push(marker);
@@ -44098,7 +44269,6 @@ function ɵɵi18nStart(index, messageIndex, subTemplateIndex = -1) {
   } else {
     lView[FLAGS] |= 32 /* LViewFlags.HasI18n */;
   }
-
   const tI18n = tView.data[adjustedIndex];
   const sameViewParentTNode = parentTNode === lView[T_HOST] ? null : parentTNode;
   const parentRNode = getClosestRElement(tView, sameViewParentTNode, lView);
@@ -44486,7 +44656,6 @@ function matchingProjectionSlotIndex(tNode, projectionSlots) {
       return i; // first matching selector "captures" a given node
     }
   }
-
   return wildcardNgContentIndex;
 }
 /**
@@ -45017,6 +45186,668 @@ function ɵɵpropertyInterpolateV(propName, values, sanitizer) {
     }
   }
   return ɵɵpropertyInterpolateV;
+}
+function symbolIterator() {
+  // @ts-expect-error accessing a private member
+  return this._results[Symbol.iterator]();
+}
+/**
+ * An unmodifiable list of items that Angular keeps up to date when the state
+ * of the application changes.
+ *
+ * The type of object that {@link ViewChildren}, {@link ContentChildren}, and {@link QueryList}
+ * provide.
+ *
+ * Implements an iterable interface, therefore it can be used in both ES6
+ * javascript `for (var i of items)` loops as well as in Angular templates with
+ * `*ngFor="let i of myList"`.
+ *
+ * Changes can be observed by subscribing to the changes `Observable`.
+ *
+ * NOTE: In the future this class will implement an `Observable` interface.
+ *
+ * @usageNotes
+ * ### Example
+ * ```typescript
+ * @Component({...})
+ * class Container {
+ *   @ViewChildren(Item) items:QueryList<Item>;
+ * }
+ * ```
+ *
+ * @publicApi
+ */
+class QueryList {
+  static #_ = Symbol.iterator;
+  /**
+   * Returns `Observable` of `QueryList` notifying the subscriber of changes.
+   */
+  get changes() {
+    return this._changes ??= new EventEmitter();
+  }
+  /**
+   * @param emitDistinctChangesOnly Whether `QueryList.changes` should fire only when actual change
+   *     has occurred. Or if it should fire when query is recomputed. (recomputing could resolve in
+   *     the same result)
+   */
+  constructor(_emitDistinctChangesOnly = false) {
+    this._emitDistinctChangesOnly = _emitDistinctChangesOnly;
+    this.dirty = true;
+    this._results = [];
+    this._changesDetected = false;
+    this._changes = undefined;
+    this.length = 0;
+    this.first = undefined;
+    this.last = undefined;
+    // This function should be declared on the prototype, but doing so there will cause the class
+    // declaration to have side-effects and become not tree-shakable. For this reason we do it in
+    // the constructor.
+    // [Symbol.iterator](): Iterator<T> { ... }
+    const proto = QueryList.prototype;
+    if (!proto[Symbol.iterator]) proto[Symbol.iterator] = symbolIterator;
+  }
+  /**
+   * Returns the QueryList entry at `index`.
+   */
+  get(index) {
+    return this._results[index];
+  }
+  /**
+   * See
+   * [Array.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+   */
+  map(fn) {
+    return this._results.map(fn);
+  }
+  filter(fn) {
+    return this._results.filter(fn);
+  }
+  /**
+   * See
+   * [Array.find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+   */
+  find(fn) {
+    return this._results.find(fn);
+  }
+  /**
+   * See
+   * [Array.reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+   */
+  reduce(fn, init) {
+    return this._results.reduce(fn, init);
+  }
+  /**
+   * See
+   * [Array.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+   */
+  forEach(fn) {
+    this._results.forEach(fn);
+  }
+  /**
+   * See
+   * [Array.some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
+   */
+  some(fn) {
+    return this._results.some(fn);
+  }
+  /**
+   * Returns a copy of the internal results list as an Array.
+   */
+  toArray() {
+    return this._results.slice();
+  }
+  toString() {
+    return this._results.toString();
+  }
+  /**
+   * Updates the stored data of the query list, and resets the `dirty` flag to `false`, so that
+   * on change detection, it will not notify of changes to the queries, unless a new change
+   * occurs.
+   *
+   * @param resultsTree The query results to store
+   * @param identityAccessor Optional function for extracting stable object identity from a value
+   *    in the array. This function is executed for each element of the query result list while
+   *    comparing current query list with the new one (provided as a first argument of the `reset`
+   *    function) to detect if the lists are different. If the function is not provided, elements
+   *    are compared as is (without any pre-processing).
+   */
+  reset(resultsTree, identityAccessor) {
+    this.dirty = false;
+    const newResultFlat = flatten(resultsTree);
+    if (this._changesDetected = !arrayEquals(this._results, newResultFlat, identityAccessor)) {
+      this._results = newResultFlat;
+      this.length = newResultFlat.length;
+      this.last = newResultFlat[this.length - 1];
+      this.first = newResultFlat[0];
+    }
+  }
+  /**
+   * Triggers a change event by emitting on the `changes` {@link EventEmitter}.
+   */
+  notifyOnChanges() {
+    if (this._changes !== undefined && (this._changesDetected || !this._emitDistinctChangesOnly)) this._changes.emit(this);
+  }
+  /** internal */
+  setDirty() {
+    this.dirty = true;
+  }
+  /** internal */
+  destroy() {
+    if (this._changes !== undefined) {
+      this._changes.complete();
+      this._changes.unsubscribe();
+    }
+  }
+}
+
+/**
+ * Represents an embedded template that can be used to instantiate embedded views.
+ * To instantiate embedded views based on a template, use the `ViewContainerRef`
+ * method `createEmbeddedView()`.
+ *
+ * Access a `TemplateRef` instance by placing a directive on an `<ng-template>`
+ * element (or directive prefixed with `*`). The `TemplateRef` for the embedded view
+ * is injected into the constructor of the directive,
+ * using the `TemplateRef` token.
+ *
+ * You can also use a `Query` to find a `TemplateRef` associated with
+ * a component or a directive.
+ *
+ * @see {@link ViewContainerRef}
+ * @see [Navigate the Component Tree with DI](guide/dependency-injection-navtree)
+ *
+ * @publicApi
+ */
+class TemplateRef {
+  /**
+   * @internal
+   * @nocollapse
+   */
+  static #_ = this.__NG_ELEMENT_ID__ = injectTemplateRef;
+}
+const ViewEngineTemplateRef = TemplateRef;
+// TODO(alxhub): combine interface and implementation. Currently this is challenging since something
+// in g3 depends on them being separate.
+const R3TemplateRef = class TemplateRef extends ViewEngineTemplateRef {
+  constructor(_declarationLView, _declarationTContainer, elementRef) {
+    super();
+    this._declarationLView = _declarationLView;
+    this._declarationTContainer = _declarationTContainer;
+    this.elementRef = elementRef;
+  }
+  /**
+   * Returns an `ssrId` associated with a TView, which was used to
+   * create this instance of the `TemplateRef`.
+   *
+   * @internal
+   */
+  get ssrId() {
+    return this._declarationTContainer.tView?.ssrId || null;
+  }
+  createEmbeddedView(context, injector) {
+    return this.createEmbeddedViewImpl(context, injector);
+  }
+  /**
+   * @internal
+   */
+  createEmbeddedViewImpl(context, injector, dehydratedView) {
+    const embeddedLView = createAndRenderEmbeddedLView(this._declarationLView, this._declarationTContainer, context, {
+      injector,
+      dehydratedView
+    });
+    return new ViewRef$1(embeddedLView);
+  }
+};
+/**
+ * Creates a TemplateRef given a node.
+ *
+ * @returns The TemplateRef instance to use
+ */
+function injectTemplateRef() {
+  return createTemplateRef(getCurrentTNode(), getLView());
+}
+/**
+ * Creates a TemplateRef and stores it on the injector.
+ *
+ * @param hostTNode The node on which a TemplateRef is requested
+ * @param hostLView The `LView` to which the node belongs
+ * @returns The TemplateRef instance or null if we can't create a TemplateRef on a given node type
+ */
+function createTemplateRef(hostTNode, hostLView) {
+  if (hostTNode.type & 4 /* TNodeType.Container */) {
+    ngDevMode && assertDefined(hostTNode.tView, 'TView must be allocated');
+    return new R3TemplateRef(hostLView, hostTNode, createElementRef(hostTNode, hostLView));
+  }
+  return null;
+}
+class LQuery_ {
+  constructor(queryList) {
+    this.queryList = queryList;
+    this.matches = null;
+  }
+  clone() {
+    return new LQuery_(this.queryList);
+  }
+  setDirty() {
+    this.queryList.setDirty();
+  }
+}
+class LQueries_ {
+  constructor(queries = []) {
+    this.queries = queries;
+  }
+  createEmbeddedView(tView) {
+    const tQueries = tView.queries;
+    if (tQueries !== null) {
+      const noOfInheritedQueries = tView.contentQueries !== null ? tView.contentQueries[0] : tQueries.length;
+      const viewLQueries = [];
+      // An embedded view has queries propagated from a declaration view at the beginning of the
+      // TQueries collection and up until a first content query declared in the embedded view. Only
+      // propagated LQueries are created at this point (LQuery corresponding to declared content
+      // queries will be instantiated from the content query instructions for each directive).
+      for (let i = 0; i < noOfInheritedQueries; i++) {
+        const tQuery = tQueries.getByIndex(i);
+        const parentLQuery = this.queries[tQuery.indexInDeclarationView];
+        viewLQueries.push(parentLQuery.clone());
+      }
+      return new LQueries_(viewLQueries);
+    }
+    return null;
+  }
+  insertView(tView) {
+    this.dirtyQueriesWithMatches(tView);
+  }
+  detachView(tView) {
+    this.dirtyQueriesWithMatches(tView);
+  }
+  dirtyQueriesWithMatches(tView) {
+    for (let i = 0; i < this.queries.length; i++) {
+      if (getTQuery(tView, i).matches !== null) {
+        this.queries[i].setDirty();
+      }
+    }
+  }
+}
+class TQueryMetadata_ {
+  constructor(predicate, flags, read = null) {
+    this.predicate = predicate;
+    this.flags = flags;
+    this.read = read;
+  }
+}
+class TQueries_ {
+  constructor(queries = []) {
+    this.queries = queries;
+  }
+  elementStart(tView, tNode) {
+    ngDevMode && assertFirstCreatePass(tView, 'Queries should collect results on the first template pass only');
+    for (let i = 0; i < this.queries.length; i++) {
+      this.queries[i].elementStart(tView, tNode);
+    }
+  }
+  elementEnd(tNode) {
+    for (let i = 0; i < this.queries.length; i++) {
+      this.queries[i].elementEnd(tNode);
+    }
+  }
+  embeddedTView(tNode) {
+    let queriesForTemplateRef = null;
+    for (let i = 0; i < this.length; i++) {
+      const childQueryIndex = queriesForTemplateRef !== null ? queriesForTemplateRef.length : 0;
+      const tqueryClone = this.getByIndex(i).embeddedTView(tNode, childQueryIndex);
+      if (tqueryClone) {
+        tqueryClone.indexInDeclarationView = i;
+        if (queriesForTemplateRef !== null) {
+          queriesForTemplateRef.push(tqueryClone);
+        } else {
+          queriesForTemplateRef = [tqueryClone];
+        }
+      }
+    }
+    return queriesForTemplateRef !== null ? new TQueries_(queriesForTemplateRef) : null;
+  }
+  template(tView, tNode) {
+    ngDevMode && assertFirstCreatePass(tView, 'Queries should collect results on the first template pass only');
+    for (let i = 0; i < this.queries.length; i++) {
+      this.queries[i].template(tView, tNode);
+    }
+  }
+  getByIndex(index) {
+    ngDevMode && assertIndexInRange(this.queries, index);
+    return this.queries[index];
+  }
+  get length() {
+    return this.queries.length;
+  }
+  track(tquery) {
+    this.queries.push(tquery);
+  }
+}
+class TQuery_ {
+  constructor(metadata, nodeIndex = -1) {
+    this.metadata = metadata;
+    this.matches = null;
+    this.indexInDeclarationView = -1;
+    this.crossesNgTemplate = false;
+    /**
+     * A flag indicating if a given query still applies to nodes it is crossing. We use this flag
+     * (alongside with _declarationNodeIndex) to know when to stop applying content queries to
+     * elements in a template.
+     */
+    this._appliesToNextNode = true;
+    this._declarationNodeIndex = nodeIndex;
+  }
+  elementStart(tView, tNode) {
+    if (this.isApplyingToNode(tNode)) {
+      this.matchTNode(tView, tNode);
+    }
+  }
+  elementEnd(tNode) {
+    if (this._declarationNodeIndex === tNode.index) {
+      this._appliesToNextNode = false;
+    }
+  }
+  template(tView, tNode) {
+    this.elementStart(tView, tNode);
+  }
+  embeddedTView(tNode, childQueryIndex) {
+    if (this.isApplyingToNode(tNode)) {
+      this.crossesNgTemplate = true;
+      // A marker indicating a `<ng-template>` element (a placeholder for query results from
+      // embedded views created based on this `<ng-template>`).
+      this.addMatch(-tNode.index, childQueryIndex);
+      return new TQuery_(this.metadata);
+    }
+    return null;
+  }
+  isApplyingToNode(tNode) {
+    if (this._appliesToNextNode && (this.metadata.flags & 1 /* QueryFlags.descendants */) !== 1 /* QueryFlags.descendants */) {
+      const declarationNodeIdx = this._declarationNodeIndex;
+      let parent = tNode.parent;
+      // Determine if a given TNode is a "direct" child of a node on which a content query was
+      // declared (only direct children of query's host node can match with the descendants: false
+      // option). There are 3 main use-case / conditions to consider here:
+      // - <needs-target><i #target></i></needs-target>: here <i #target> parent node is a query
+      // host node;
+      // - <needs-target><ng-template [ngIf]="true"><i #target></i></ng-template></needs-target>:
+      // here <i #target> parent node is null;
+      // - <needs-target><ng-container><i #target></i></ng-container></needs-target>: here we need
+      // to go past `<ng-container>` to determine <i #target> parent node (but we shouldn't traverse
+      // up past the query's host node!).
+      while (parent !== null && parent.type & 8 /* TNodeType.ElementContainer */ && parent.index !== declarationNodeIdx) {
+        parent = parent.parent;
+      }
+      return declarationNodeIdx === (parent !== null ? parent.index : -1);
+    }
+    return this._appliesToNextNode;
+  }
+  matchTNode(tView, tNode) {
+    const predicate = this.metadata.predicate;
+    if (Array.isArray(predicate)) {
+      for (let i = 0; i < predicate.length; i++) {
+        const name = predicate[i];
+        this.matchTNodeWithReadOption(tView, tNode, getIdxOfMatchingSelector(tNode, name));
+        // Also try matching the name to a provider since strings can be used as DI tokens too.
+        this.matchTNodeWithReadOption(tView, tNode, locateDirectiveOrProvider(tNode, tView, name, false, false));
+      }
+    } else {
+      if (predicate === TemplateRef) {
+        if (tNode.type & 4 /* TNodeType.Container */) {
+          this.matchTNodeWithReadOption(tView, tNode, -1);
+        }
+      } else {
+        this.matchTNodeWithReadOption(tView, tNode, locateDirectiveOrProvider(tNode, tView, predicate, false, false));
+      }
+    }
+  }
+  matchTNodeWithReadOption(tView, tNode, nodeMatchIdx) {
+    if (nodeMatchIdx !== null) {
+      const read = this.metadata.read;
+      if (read !== null) {
+        if (read === ElementRef || read === ViewContainerRef || read === TemplateRef && tNode.type & 4 /* TNodeType.Container */) {
+          this.addMatch(tNode.index, -2);
+        } else {
+          const directiveOrProviderIdx = locateDirectiveOrProvider(tNode, tView, read, false, false);
+          if (directiveOrProviderIdx !== null) {
+            this.addMatch(tNode.index, directiveOrProviderIdx);
+          }
+        }
+      } else {
+        this.addMatch(tNode.index, nodeMatchIdx);
+      }
+    }
+  }
+  addMatch(tNodeIdx, matchIdx) {
+    if (this.matches === null) {
+      this.matches = [tNodeIdx, matchIdx];
+    } else {
+      this.matches.push(tNodeIdx, matchIdx);
+    }
+  }
+}
+/**
+ * Iterates over local names for a given node and returns directive index
+ * (or -1 if a local name points to an element).
+ *
+ * @param tNode static data of a node to check
+ * @param selector selector to match
+ * @returns directive index, -1 or null if a selector didn't match any of the local names
+ */
+function getIdxOfMatchingSelector(tNode, selector) {
+  const localNames = tNode.localNames;
+  if (localNames !== null) {
+    for (let i = 0; i < localNames.length; i += 2) {
+      if (localNames[i] === selector) {
+        return localNames[i + 1];
+      }
+    }
+  }
+  return null;
+}
+function createResultByTNodeType(tNode, currentView) {
+  if (tNode.type & (3 /* TNodeType.AnyRNode */ | 8 /* TNodeType.ElementContainer */)) {
+    return createElementRef(tNode, currentView);
+  } else if (tNode.type & 4 /* TNodeType.Container */) {
+    return createTemplateRef(tNode, currentView);
+  }
+  return null;
+}
+function createResultForNode(lView, tNode, matchingIdx, read) {
+  if (matchingIdx === -1) {
+    // if read token and / or strategy is not specified, detect it using appropriate tNode type
+    return createResultByTNodeType(tNode, lView);
+  } else if (matchingIdx === -2) {
+    // read a special token from a node injector
+    return createSpecialToken(lView, tNode, read);
+  } else {
+    // read a token
+    return getNodeInjectable(lView, lView[TVIEW], matchingIdx, tNode);
+  }
+}
+function createSpecialToken(lView, tNode, read) {
+  if (read === ElementRef) {
+    return createElementRef(tNode, lView);
+  } else if (read === TemplateRef) {
+    return createTemplateRef(tNode, lView);
+  } else if (read === ViewContainerRef) {
+    ngDevMode && assertTNodeType(tNode, 3 /* TNodeType.AnyRNode */ | 12 /* TNodeType.AnyContainer */);
+    return createContainerRef(tNode, lView);
+  } else {
+    ngDevMode && throwError(`Special token to read should be one of ElementRef, TemplateRef or ViewContainerRef but got ${stringify(read)}.`);
+  }
+}
+/**
+ * A helper function that creates query results for a given view. This function is meant to do the
+ * processing once and only once for a given view instance (a set of results for a given view
+ * doesn't change).
+ */
+function materializeViewResults(tView, lView, tQuery, queryIndex) {
+  const lQuery = lView[QUERIES].queries[queryIndex];
+  if (lQuery.matches === null) {
+    const tViewData = tView.data;
+    const tQueryMatches = tQuery.matches;
+    const result = [];
+    for (let i = 0; i < tQueryMatches.length; i += 2) {
+      const matchedNodeIdx = tQueryMatches[i];
+      if (matchedNodeIdx < 0) {
+        // we at the <ng-template> marker which might have results in views created based on this
+        // <ng-template> - those results will be in separate views though, so here we just leave
+        // null as a placeholder
+        result.push(null);
+      } else {
+        ngDevMode && assertIndexInRange(tViewData, matchedNodeIdx);
+        const tNode = tViewData[matchedNodeIdx];
+        result.push(createResultForNode(lView, tNode, tQueryMatches[i + 1], tQuery.metadata.read));
+      }
+    }
+    lQuery.matches = result;
+  }
+  return lQuery.matches;
+}
+/**
+ * A helper function that collects (already materialized) query results from a tree of views,
+ * starting with a provided LView.
+ */
+function collectQueryResults(tView, lView, queryIndex, result) {
+  const tQuery = tView.queries.getByIndex(queryIndex);
+  const tQueryMatches = tQuery.matches;
+  if (tQueryMatches !== null) {
+    const lViewResults = materializeViewResults(tView, lView, tQuery, queryIndex);
+    for (let i = 0; i < tQueryMatches.length; i += 2) {
+      const tNodeIdx = tQueryMatches[i];
+      if (tNodeIdx > 0) {
+        result.push(lViewResults[i / 2]);
+      } else {
+        const childQueryIndex = tQueryMatches[i + 1];
+        const declarationLContainer = lView[-tNodeIdx];
+        ngDevMode && assertLContainer(declarationLContainer);
+        // collect matches for views inserted in this container
+        for (let i = CONTAINER_HEADER_OFFSET; i < declarationLContainer.length; i++) {
+          const embeddedLView = declarationLContainer[i];
+          if (embeddedLView[DECLARATION_LCONTAINER] === embeddedLView[PARENT]) {
+            collectQueryResults(embeddedLView[TVIEW], embeddedLView, childQueryIndex, result);
+          }
+        }
+        // collect matches for views created from this declaration container and inserted into
+        // different containers
+        if (declarationLContainer[MOVED_VIEWS] !== null) {
+          const embeddedLViews = declarationLContainer[MOVED_VIEWS];
+          for (let i = 0; i < embeddedLViews.length; i++) {
+            const embeddedLView = embeddedLViews[i];
+            collectQueryResults(embeddedLView[TVIEW], embeddedLView, childQueryIndex, result);
+          }
+        }
+      }
+    }
+  }
+  return result;
+}
+function loadQueryInternal(lView, queryIndex) {
+  ngDevMode && assertDefined(lView[QUERIES], 'LQueries should be defined when trying to load a query');
+  ngDevMode && assertIndexInRange(lView[QUERIES].queries, queryIndex);
+  return lView[QUERIES].queries[queryIndex].queryList;
+}
+function createLQuery(tView, lView, flags) {
+  const queryList = new QueryList((flags & 4 /* QueryFlags.emitDistinctChangesOnly */) === 4 /* QueryFlags.emitDistinctChangesOnly */);
+  storeCleanupWithContext(tView, lView, queryList, queryList.destroy);
+  if (lView[QUERIES] === null) lView[QUERIES] = new LQueries_();
+  lView[QUERIES].queries.push(new LQuery_(queryList));
+}
+function createTQuery(tView, metadata, nodeIndex) {
+  if (tView.queries === null) tView.queries = new TQueries_();
+  tView.queries.track(new TQuery_(metadata, nodeIndex));
+}
+function saveContentQueryAndDirectiveIndex(tView, directiveIndex) {
+  const tViewContentQueries = tView.contentQueries || (tView.contentQueries = []);
+  const lastSavedDirectiveIndex = tViewContentQueries.length ? tViewContentQueries[tViewContentQueries.length - 1] : -1;
+  if (directiveIndex !== lastSavedDirectiveIndex) {
+    tViewContentQueries.push(tView.queries.length - 1, directiveIndex);
+  }
+}
+function getTQuery(tView, index) {
+  ngDevMode && assertDefined(tView.queries, 'TQueries must be defined to retrieve a TQuery');
+  return tView.queries.getByIndex(index);
+}
+
+/**
+ * Registers a QueryList, associated with a content query, for later refresh (part of a view
+ * refresh).
+ *
+ * @param directiveIndex Current directive index
+ * @param predicate The type for which the query will search
+ * @param flags Flags associated with the query
+ * @param read What to save in the query
+ * @returns QueryList<T>
+ *
+ * @codeGenApi
+ */
+function ɵɵcontentQuery(directiveIndex, predicate, flags, read) {
+  ngDevMode && assertNumber(flags, 'Expecting flags');
+  const tView = getTView();
+  if (tView.firstCreatePass) {
+    const tNode = getCurrentTNode();
+    createTQuery(tView, new TQueryMetadata_(predicate, flags, read), tNode.index);
+    saveContentQueryAndDirectiveIndex(tView, directiveIndex);
+    if ((flags & 2 /* QueryFlags.isStatic */) === 2 /* QueryFlags.isStatic */) {
+      tView.staticContentQueries = true;
+    }
+  }
+  createLQuery(tView, getLView(), flags);
+}
+/**
+ * Creates new QueryList, stores the reference in LView and returns QueryList.
+ *
+ * @param predicate The type for which the query will search
+ * @param flags Flags associated with the query
+ * @param read What to save in the query
+ *
+ * @codeGenApi
+ */
+function ɵɵviewQuery(predicate, flags, read) {
+  ngDevMode && assertNumber(flags, 'Expecting flags');
+  const tView = getTView();
+  if (tView.firstCreatePass) {
+    createTQuery(tView, new TQueryMetadata_(predicate, flags, read), -1);
+    if ((flags & 2 /* QueryFlags.isStatic */) === 2 /* QueryFlags.isStatic */) {
+      tView.staticViewQueries = true;
+    }
+  }
+  createLQuery(tView, getLView(), flags);
+}
+/**
+ * Refreshes a query by combining matches from all active views and removing matches from deleted
+ * views.
+ *
+ * @returns `true` if a query got dirty during change detection or if this is a static query
+ * resolving in creation mode, `false` otherwise.
+ *
+ * @codeGenApi
+ */
+function ɵɵqueryRefresh(queryList) {
+  const lView = getLView();
+  const tView = getTView();
+  const queryIndex = getCurrentQueryIndex();
+  setCurrentQueryIndex(queryIndex + 1);
+  const tQuery = getTQuery(tView, queryIndex);
+  if (queryList.dirty && isCreationMode(lView) === ((tQuery.metadata.flags & 2 /* QueryFlags.isStatic */) === 2 /* QueryFlags.isStatic */)) {
+    if (tQuery.matches === null) {
+      queryList.reset([]);
+    } else {
+      const result = tQuery.crossesNgTemplate ? collectQueryResults(tView, lView, queryIndex, []) : materializeViewResults(tView, lView, tQuery, queryIndex);
+      queryList.reset(result, unwrapElementRef);
+      queryList.notifyOnChanges();
+    }
+    return true;
+  }
+  return false;
+}
+/**
+ * Loads a QueryList corresponding to the current view or content query.
+ *
+ * @codeGenApi
+ */
+function ɵɵloadQuery() {
+  return loadQueryInternal(getLView(), getCurrentQueryIndex());
 }
 
 /** Store a value in the `data` at a given `index`. */
@@ -46119,7 +46950,6 @@ function resolveProvider(provider, tInjectables, lInjectablesBlueprint, isCompon
         if (isViewProvider) {
           tNode.providerIndexes += 1048576 /* TNodeProviderIndexes.CptViewProvidersCountShifter */;
         }
-
         lInjectablesBlueprint.push(factory);
         lView.push(factory);
       } else {
@@ -46165,7 +46995,6 @@ function resolveProvider(provider, tInjectables, lInjectablesBlueprint, isCompon
         if (isViewProvider) {
           tNode.providerIndexes += 1048576 /* TNodeProviderIndexes.CptViewProvidersCountShifter */;
         }
-
         lInjectablesBlueprint.push(factory);
         lView.push(factory);
       } else {
@@ -46791,8 +47620,9 @@ function getDirectiveMetadata$1(directiveOrComponentInstance) {
   // To ensure we don't get the metadata of the directive, we want to call `getComponentDef` first.
   const componentDef = getComponentDef(constructor);
   if (componentDef) {
+    const inputs = extractInputDebugMetadata(componentDef.inputs);
     return {
-      inputs: componentDef.inputs,
+      inputs,
       outputs: componentDef.outputs,
       encapsulation: componentDef.encapsulation,
       changeDetection: componentDef.onPush ? ChangeDetectionStrategy.OnPush : ChangeDetectionStrategy.Default
@@ -46800,8 +47630,9 @@ function getDirectiveMetadata$1(directiveOrComponentInstance) {
   }
   const directiveDef = getDirectiveDef(constructor);
   if (directiveDef) {
+    const inputs = extractInputDebugMetadata(directiveDef.inputs);
     return {
-      inputs: directiveDef.inputs,
+      inputs,
       outputs: directiveDef.outputs
     };
   }
@@ -46958,6 +47789,35 @@ function assertDomElement(value) {
   if (typeof Element !== 'undefined' && !(value instanceof Element)) {
     throw new Error('Expecting instance of DOM Element');
   }
+}
+/**
+ * A directive definition holds additional metadata using bitwise flags to indicate
+ * for example whether it is signal based.
+ *
+ * This information needs to be separate from the `publicName -> minifiedName`
+ * mappings for backwards compatibility.
+ */
+function extractInputDebugMetadata(inputs) {
+  const res = {};
+  for (const key in inputs) {
+    if (!inputs.hasOwnProperty(key)) {
+      continue;
+    }
+    const value = inputs[key];
+    if (value === undefined) {
+      continue;
+    }
+    let minifiedName;
+    if (Array.isArray(value)) {
+      minifiedName = value[0];
+      // flags are not used for now.
+      // TODO: Consider exposing flag information in discovery.
+    } else {
+      minifiedName = value;
+    }
+    res[key] = minifiedName;
+  }
+  return res;
 }
 
 /**
@@ -47562,667 +48422,6 @@ function ɵɵpipeBindV(index, slotOffset, values) {
 function isPure(lView, index) {
   return lView[TVIEW].data[index].pure;
 }
-function symbolIterator() {
-  // @ts-expect-error accessing a private member
-  return this._results[Symbol.iterator]();
-}
-/**
- * An unmodifiable list of items that Angular keeps up to date when the state
- * of the application changes.
- *
- * The type of object that {@link ViewChildren}, {@link ContentChildren}, and {@link QueryList}
- * provide.
- *
- * Implements an iterable interface, therefore it can be used in both ES6
- * javascript `for (var i of items)` loops as well as in Angular templates with
- * `*ngFor="let i of myList"`.
- *
- * Changes can be observed by subscribing to the changes `Observable`.
- *
- * NOTE: In the future this class will implement an `Observable` interface.
- *
- * @usageNotes
- * ### Example
- * ```typescript
- * @Component({...})
- * class Container {
- *   @ViewChildren(Item) items:QueryList<Item>;
- * }
- * ```
- *
- * @publicApi
- */
-class QueryList {
-  static #_ = Symbol.iterator;
-  /**
-   * Returns `Observable` of `QueryList` notifying the subscriber of changes.
-   */
-  get changes() {
-    return this._changes ??= new EventEmitter();
-  }
-  /**
-   * @param emitDistinctChangesOnly Whether `QueryList.changes` should fire only when actual change
-   *     has occurred. Or if it should fire when query is recomputed. (recomputing could resolve in
-   *     the same result)
-   */
-  constructor(_emitDistinctChangesOnly = false) {
-    this._emitDistinctChangesOnly = _emitDistinctChangesOnly;
-    this.dirty = true;
-    this._results = [];
-    this._changesDetected = false;
-    this._changes = undefined;
-    this.length = 0;
-    this.first = undefined;
-    this.last = undefined;
-    // This function should be declared on the prototype, but doing so there will cause the class
-    // declaration to have side-effects and become not tree-shakable. For this reason we do it in
-    // the constructor.
-    // [Symbol.iterator](): Iterator<T> { ... }
-    const proto = QueryList.prototype;
-    if (!proto[Symbol.iterator]) proto[Symbol.iterator] = symbolIterator;
-  }
-  /**
-   * Returns the QueryList entry at `index`.
-   */
-  get(index) {
-    return this._results[index];
-  }
-  /**
-   * See
-   * [Array.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
-   */
-  map(fn) {
-    return this._results.map(fn);
-  }
-  filter(fn) {
-    return this._results.filter(fn);
-  }
-  /**
-   * See
-   * [Array.find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
-   */
-  find(fn) {
-    return this._results.find(fn);
-  }
-  /**
-   * See
-   * [Array.reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
-   */
-  reduce(fn, init) {
-    return this._results.reduce(fn, init);
-  }
-  /**
-   * See
-   * [Array.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-   */
-  forEach(fn) {
-    this._results.forEach(fn);
-  }
-  /**
-   * See
-   * [Array.some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
-   */
-  some(fn) {
-    return this._results.some(fn);
-  }
-  /**
-   * Returns a copy of the internal results list as an Array.
-   */
-  toArray() {
-    return this._results.slice();
-  }
-  toString() {
-    return this._results.toString();
-  }
-  /**
-   * Updates the stored data of the query list, and resets the `dirty` flag to `false`, so that
-   * on change detection, it will not notify of changes to the queries, unless a new change
-   * occurs.
-   *
-   * @param resultsTree The query results to store
-   * @param identityAccessor Optional function for extracting stable object identity from a value
-   *    in the array. This function is executed for each element of the query result list while
-   *    comparing current query list with the new one (provided as a first argument of the `reset`
-   *    function) to detect if the lists are different. If the function is not provided, elements
-   *    are compared as is (without any pre-processing).
-   */
-  reset(resultsTree, identityAccessor) {
-    this.dirty = false;
-    const newResultFlat = flatten(resultsTree);
-    if (this._changesDetected = !arrayEquals(this._results, newResultFlat, identityAccessor)) {
-      this._results = newResultFlat;
-      this.length = newResultFlat.length;
-      this.last = newResultFlat[this.length - 1];
-      this.first = newResultFlat[0];
-    }
-  }
-  /**
-   * Triggers a change event by emitting on the `changes` {@link EventEmitter}.
-   */
-  notifyOnChanges() {
-    if (this._changes !== undefined && (this._changesDetected || !this._emitDistinctChangesOnly)) this._changes.emit(this);
-  }
-  /** internal */
-  setDirty() {
-    this.dirty = true;
-  }
-  /** internal */
-  destroy() {
-    if (this._changes !== undefined) {
-      this._changes.complete();
-      this._changes.unsubscribe();
-    }
-  }
-}
-
-/**
- * Represents an embedded template that can be used to instantiate embedded views.
- * To instantiate embedded views based on a template, use the `ViewContainerRef`
- * method `createEmbeddedView()`.
- *
- * Access a `TemplateRef` instance by placing a directive on an `<ng-template>`
- * element (or directive prefixed with `*`). The `TemplateRef` for the embedded view
- * is injected into the constructor of the directive,
- * using the `TemplateRef` token.
- *
- * You can also use a `Query` to find a `TemplateRef` associated with
- * a component or a directive.
- *
- * @see {@link ViewContainerRef}
- * @see [Navigate the Component Tree with DI](guide/dependency-injection-navtree)
- *
- * @publicApi
- */
-class TemplateRef {
-  /**
-   * @internal
-   * @nocollapse
-   */
-  static #_ = this.__NG_ELEMENT_ID__ = injectTemplateRef;
-}
-const ViewEngineTemplateRef = TemplateRef;
-// TODO(alxhub): combine interface and implementation. Currently this is challenging since something
-// in g3 depends on them being separate.
-const R3TemplateRef = class TemplateRef extends ViewEngineTemplateRef {
-  constructor(_declarationLView, _declarationTContainer, elementRef) {
-    super();
-    this._declarationLView = _declarationLView;
-    this._declarationTContainer = _declarationTContainer;
-    this.elementRef = elementRef;
-  }
-  /**
-   * Returns an `ssrId` associated with a TView, which was used to
-   * create this instance of the `TemplateRef`.
-   *
-   * @internal
-   */
-  get ssrId() {
-    return this._declarationTContainer.tView?.ssrId || null;
-  }
-  createEmbeddedView(context, injector) {
-    return this.createEmbeddedViewImpl(context, injector);
-  }
-  /**
-   * @internal
-   */
-  createEmbeddedViewImpl(context, injector, dehydratedView) {
-    const embeddedLView = createAndRenderEmbeddedLView(this._declarationLView, this._declarationTContainer, context, {
-      injector,
-      dehydratedView
-    });
-    return new ViewRef$1(embeddedLView);
-  }
-};
-/**
- * Creates a TemplateRef given a node.
- *
- * @returns The TemplateRef instance to use
- */
-function injectTemplateRef() {
-  return createTemplateRef(getCurrentTNode(), getLView());
-}
-/**
- * Creates a TemplateRef and stores it on the injector.
- *
- * @param hostTNode The node on which a TemplateRef is requested
- * @param hostLView The `LView` to which the node belongs
- * @returns The TemplateRef instance or null if we can't create a TemplateRef on a given node type
- */
-function createTemplateRef(hostTNode, hostLView) {
-  if (hostTNode.type & 4 /* TNodeType.Container */) {
-    ngDevMode && assertDefined(hostTNode.tView, 'TView must be allocated');
-    return new R3TemplateRef(hostLView, hostTNode, createElementRef(hostTNode, hostLView));
-  }
-  return null;
-}
-class LQuery_ {
-  constructor(queryList) {
-    this.queryList = queryList;
-    this.matches = null;
-  }
-  clone() {
-    return new LQuery_(this.queryList);
-  }
-  setDirty() {
-    this.queryList.setDirty();
-  }
-}
-class LQueries_ {
-  constructor(queries = []) {
-    this.queries = queries;
-  }
-  createEmbeddedView(tView) {
-    const tQueries = tView.queries;
-    if (tQueries !== null) {
-      const noOfInheritedQueries = tView.contentQueries !== null ? tView.contentQueries[0] : tQueries.length;
-      const viewLQueries = [];
-      // An embedded view has queries propagated from a declaration view at the beginning of the
-      // TQueries collection and up until a first content query declared in the embedded view. Only
-      // propagated LQueries are created at this point (LQuery corresponding to declared content
-      // queries will be instantiated from the content query instructions for each directive).
-      for (let i = 0; i < noOfInheritedQueries; i++) {
-        const tQuery = tQueries.getByIndex(i);
-        const parentLQuery = this.queries[tQuery.indexInDeclarationView];
-        viewLQueries.push(parentLQuery.clone());
-      }
-      return new LQueries_(viewLQueries);
-    }
-    return null;
-  }
-  insertView(tView) {
-    this.dirtyQueriesWithMatches(tView);
-  }
-  detachView(tView) {
-    this.dirtyQueriesWithMatches(tView);
-  }
-  dirtyQueriesWithMatches(tView) {
-    for (let i = 0; i < this.queries.length; i++) {
-      if (getTQuery(tView, i).matches !== null) {
-        this.queries[i].setDirty();
-      }
-    }
-  }
-}
-class TQueryMetadata_ {
-  constructor(predicate, flags, read = null) {
-    this.predicate = predicate;
-    this.flags = flags;
-    this.read = read;
-  }
-}
-class TQueries_ {
-  constructor(queries = []) {
-    this.queries = queries;
-  }
-  elementStart(tView, tNode) {
-    ngDevMode && assertFirstCreatePass(tView, 'Queries should collect results on the first template pass only');
-    for (let i = 0; i < this.queries.length; i++) {
-      this.queries[i].elementStart(tView, tNode);
-    }
-  }
-  elementEnd(tNode) {
-    for (let i = 0; i < this.queries.length; i++) {
-      this.queries[i].elementEnd(tNode);
-    }
-  }
-  embeddedTView(tNode) {
-    let queriesForTemplateRef = null;
-    for (let i = 0; i < this.length; i++) {
-      const childQueryIndex = queriesForTemplateRef !== null ? queriesForTemplateRef.length : 0;
-      const tqueryClone = this.getByIndex(i).embeddedTView(tNode, childQueryIndex);
-      if (tqueryClone) {
-        tqueryClone.indexInDeclarationView = i;
-        if (queriesForTemplateRef !== null) {
-          queriesForTemplateRef.push(tqueryClone);
-        } else {
-          queriesForTemplateRef = [tqueryClone];
-        }
-      }
-    }
-    return queriesForTemplateRef !== null ? new TQueries_(queriesForTemplateRef) : null;
-  }
-  template(tView, tNode) {
-    ngDevMode && assertFirstCreatePass(tView, 'Queries should collect results on the first template pass only');
-    for (let i = 0; i < this.queries.length; i++) {
-      this.queries[i].template(tView, tNode);
-    }
-  }
-  getByIndex(index) {
-    ngDevMode && assertIndexInRange(this.queries, index);
-    return this.queries[index];
-  }
-  get length() {
-    return this.queries.length;
-  }
-  track(tquery) {
-    this.queries.push(tquery);
-  }
-}
-class TQuery_ {
-  constructor(metadata, nodeIndex = -1) {
-    this.metadata = metadata;
-    this.matches = null;
-    this.indexInDeclarationView = -1;
-    this.crossesNgTemplate = false;
-    /**
-     * A flag indicating if a given query still applies to nodes it is crossing. We use this flag
-     * (alongside with _declarationNodeIndex) to know when to stop applying content queries to
-     * elements in a template.
-     */
-    this._appliesToNextNode = true;
-    this._declarationNodeIndex = nodeIndex;
-  }
-  elementStart(tView, tNode) {
-    if (this.isApplyingToNode(tNode)) {
-      this.matchTNode(tView, tNode);
-    }
-  }
-  elementEnd(tNode) {
-    if (this._declarationNodeIndex === tNode.index) {
-      this._appliesToNextNode = false;
-    }
-  }
-  template(tView, tNode) {
-    this.elementStart(tView, tNode);
-  }
-  embeddedTView(tNode, childQueryIndex) {
-    if (this.isApplyingToNode(tNode)) {
-      this.crossesNgTemplate = true;
-      // A marker indicating a `<ng-template>` element (a placeholder for query results from
-      // embedded views created based on this `<ng-template>`).
-      this.addMatch(-tNode.index, childQueryIndex);
-      return new TQuery_(this.metadata);
-    }
-    return null;
-  }
-  isApplyingToNode(tNode) {
-    if (this._appliesToNextNode && (this.metadata.flags & 1 /* QueryFlags.descendants */) !== 1 /* QueryFlags.descendants */) {
-      const declarationNodeIdx = this._declarationNodeIndex;
-      let parent = tNode.parent;
-      // Determine if a given TNode is a "direct" child of a node on which a content query was
-      // declared (only direct children of query's host node can match with the descendants: false
-      // option). There are 3 main use-case / conditions to consider here:
-      // - <needs-target><i #target></i></needs-target>: here <i #target> parent node is a query
-      // host node;
-      // - <needs-target><ng-template [ngIf]="true"><i #target></i></ng-template></needs-target>:
-      // here <i #target> parent node is null;
-      // - <needs-target><ng-container><i #target></i></ng-container></needs-target>: here we need
-      // to go past `<ng-container>` to determine <i #target> parent node (but we shouldn't traverse
-      // up past the query's host node!).
-      while (parent !== null && parent.type & 8 /* TNodeType.ElementContainer */ && parent.index !== declarationNodeIdx) {
-        parent = parent.parent;
-      }
-      return declarationNodeIdx === (parent !== null ? parent.index : -1);
-    }
-    return this._appliesToNextNode;
-  }
-  matchTNode(tView, tNode) {
-    const predicate = this.metadata.predicate;
-    if (Array.isArray(predicate)) {
-      for (let i = 0; i < predicate.length; i++) {
-        const name = predicate[i];
-        this.matchTNodeWithReadOption(tView, tNode, getIdxOfMatchingSelector(tNode, name));
-        // Also try matching the name to a provider since strings can be used as DI tokens too.
-        this.matchTNodeWithReadOption(tView, tNode, locateDirectiveOrProvider(tNode, tView, name, false, false));
-      }
-    } else {
-      if (predicate === TemplateRef) {
-        if (tNode.type & 4 /* TNodeType.Container */) {
-          this.matchTNodeWithReadOption(tView, tNode, -1);
-        }
-      } else {
-        this.matchTNodeWithReadOption(tView, tNode, locateDirectiveOrProvider(tNode, tView, predicate, false, false));
-      }
-    }
-  }
-  matchTNodeWithReadOption(tView, tNode, nodeMatchIdx) {
-    if (nodeMatchIdx !== null) {
-      const read = this.metadata.read;
-      if (read !== null) {
-        if (read === ElementRef || read === ViewContainerRef || read === TemplateRef && tNode.type & 4 /* TNodeType.Container */) {
-          this.addMatch(tNode.index, -2);
-        } else {
-          const directiveOrProviderIdx = locateDirectiveOrProvider(tNode, tView, read, false, false);
-          if (directiveOrProviderIdx !== null) {
-            this.addMatch(tNode.index, directiveOrProviderIdx);
-          }
-        }
-      } else {
-        this.addMatch(tNode.index, nodeMatchIdx);
-      }
-    }
-  }
-  addMatch(tNodeIdx, matchIdx) {
-    if (this.matches === null) {
-      this.matches = [tNodeIdx, matchIdx];
-    } else {
-      this.matches.push(tNodeIdx, matchIdx);
-    }
-  }
-}
-/**
- * Iterates over local names for a given node and returns directive index
- * (or -1 if a local name points to an element).
- *
- * @param tNode static data of a node to check
- * @param selector selector to match
- * @returns directive index, -1 or null if a selector didn't match any of the local names
- */
-function getIdxOfMatchingSelector(tNode, selector) {
-  const localNames = tNode.localNames;
-  if (localNames !== null) {
-    for (let i = 0; i < localNames.length; i += 2) {
-      if (localNames[i] === selector) {
-        return localNames[i + 1];
-      }
-    }
-  }
-  return null;
-}
-function createResultByTNodeType(tNode, currentView) {
-  if (tNode.type & (3 /* TNodeType.AnyRNode */ | 8 /* TNodeType.ElementContainer */)) {
-    return createElementRef(tNode, currentView);
-  } else if (tNode.type & 4 /* TNodeType.Container */) {
-    return createTemplateRef(tNode, currentView);
-  }
-  return null;
-}
-function createResultForNode(lView, tNode, matchingIdx, read) {
-  if (matchingIdx === -1) {
-    // if read token and / or strategy is not specified, detect it using appropriate tNode type
-    return createResultByTNodeType(tNode, lView);
-  } else if (matchingIdx === -2) {
-    // read a special token from a node injector
-    return createSpecialToken(lView, tNode, read);
-  } else {
-    // read a token
-    return getNodeInjectable(lView, lView[TVIEW], matchingIdx, tNode);
-  }
-}
-function createSpecialToken(lView, tNode, read) {
-  if (read === ElementRef) {
-    return createElementRef(tNode, lView);
-  } else if (read === TemplateRef) {
-    return createTemplateRef(tNode, lView);
-  } else if (read === ViewContainerRef) {
-    ngDevMode && assertTNodeType(tNode, 3 /* TNodeType.AnyRNode */ | 12 /* TNodeType.AnyContainer */);
-    return createContainerRef(tNode, lView);
-  } else {
-    ngDevMode && throwError(`Special token to read should be one of ElementRef, TemplateRef or ViewContainerRef but got ${stringify(read)}.`);
-  }
-}
-/**
- * A helper function that creates query results for a given view. This function is meant to do the
- * processing once and only once for a given view instance (a set of results for a given view
- * doesn't change).
- */
-function materializeViewResults(tView, lView, tQuery, queryIndex) {
-  const lQuery = lView[QUERIES].queries[queryIndex];
-  if (lQuery.matches === null) {
-    const tViewData = tView.data;
-    const tQueryMatches = tQuery.matches;
-    const result = [];
-    for (let i = 0; i < tQueryMatches.length; i += 2) {
-      const matchedNodeIdx = tQueryMatches[i];
-      if (matchedNodeIdx < 0) {
-        // we at the <ng-template> marker which might have results in views created based on this
-        // <ng-template> - those results will be in separate views though, so here we just leave
-        // null as a placeholder
-        result.push(null);
-      } else {
-        ngDevMode && assertIndexInRange(tViewData, matchedNodeIdx);
-        const tNode = tViewData[matchedNodeIdx];
-        result.push(createResultForNode(lView, tNode, tQueryMatches[i + 1], tQuery.metadata.read));
-      }
-    }
-    lQuery.matches = result;
-  }
-  return lQuery.matches;
-}
-/**
- * A helper function that collects (already materialized) query results from a tree of views,
- * starting with a provided LView.
- */
-function collectQueryResults(tView, lView, queryIndex, result) {
-  const tQuery = tView.queries.getByIndex(queryIndex);
-  const tQueryMatches = tQuery.matches;
-  if (tQueryMatches !== null) {
-    const lViewResults = materializeViewResults(tView, lView, tQuery, queryIndex);
-    for (let i = 0; i < tQueryMatches.length; i += 2) {
-      const tNodeIdx = tQueryMatches[i];
-      if (tNodeIdx > 0) {
-        result.push(lViewResults[i / 2]);
-      } else {
-        const childQueryIndex = tQueryMatches[i + 1];
-        const declarationLContainer = lView[-tNodeIdx];
-        ngDevMode && assertLContainer(declarationLContainer);
-        // collect matches for views inserted in this container
-        for (let i = CONTAINER_HEADER_OFFSET; i < declarationLContainer.length; i++) {
-          const embeddedLView = declarationLContainer[i];
-          if (embeddedLView[DECLARATION_LCONTAINER] === embeddedLView[PARENT]) {
-            collectQueryResults(embeddedLView[TVIEW], embeddedLView, childQueryIndex, result);
-          }
-        }
-        // collect matches for views created from this declaration container and inserted into
-        // different containers
-        if (declarationLContainer[MOVED_VIEWS] !== null) {
-          const embeddedLViews = declarationLContainer[MOVED_VIEWS];
-          for (let i = 0; i < embeddedLViews.length; i++) {
-            const embeddedLView = embeddedLViews[i];
-            collectQueryResults(embeddedLView[TVIEW], embeddedLView, childQueryIndex, result);
-          }
-        }
-      }
-    }
-  }
-  return result;
-}
-/**
- * Refreshes a query by combining matches from all active views and removing matches from deleted
- * views.
- *
- * @returns `true` if a query got dirty during change detection or if this is a static query
- * resolving in creation mode, `false` otherwise.
- *
- * @codeGenApi
- */
-function ɵɵqueryRefresh(queryList) {
-  const lView = getLView();
-  const tView = getTView();
-  const queryIndex = getCurrentQueryIndex();
-  setCurrentQueryIndex(queryIndex + 1);
-  const tQuery = getTQuery(tView, queryIndex);
-  if (queryList.dirty && isCreationMode(lView) === ((tQuery.metadata.flags & 2 /* QueryFlags.isStatic */) === 2 /* QueryFlags.isStatic */)) {
-    if (tQuery.matches === null) {
-      queryList.reset([]);
-    } else {
-      const result = tQuery.crossesNgTemplate ? collectQueryResults(tView, lView, queryIndex, []) : materializeViewResults(tView, lView, tQuery, queryIndex);
-      queryList.reset(result, unwrapElementRef);
-      queryList.notifyOnChanges();
-    }
-    return true;
-  }
-  return false;
-}
-/**
- * Creates new QueryList, stores the reference in LView and returns QueryList.
- *
- * @param predicate The type for which the query will search
- * @param flags Flags associated with the query
- * @param read What to save in the query
- *
- * @codeGenApi
- */
-function ɵɵviewQuery(predicate, flags, read) {
-  ngDevMode && assertNumber(flags, 'Expecting flags');
-  const tView = getTView();
-  if (tView.firstCreatePass) {
-    createTQuery(tView, new TQueryMetadata_(predicate, flags, read), -1);
-    if ((flags & 2 /* QueryFlags.isStatic */) === 2 /* QueryFlags.isStatic */) {
-      tView.staticViewQueries = true;
-    }
-  }
-  createLQuery(tView, getLView(), flags);
-}
-/**
- * Registers a QueryList, associated with a content query, for later refresh (part of a view
- * refresh).
- *
- * @param directiveIndex Current directive index
- * @param predicate The type for which the query will search
- * @param flags Flags associated with the query
- * @param read What to save in the query
- * @returns QueryList<T>
- *
- * @codeGenApi
- */
-function ɵɵcontentQuery(directiveIndex, predicate, flags, read) {
-  ngDevMode && assertNumber(flags, 'Expecting flags');
-  const tView = getTView();
-  if (tView.firstCreatePass) {
-    const tNode = getCurrentTNode();
-    createTQuery(tView, new TQueryMetadata_(predicate, flags, read), tNode.index);
-    saveContentQueryAndDirectiveIndex(tView, directiveIndex);
-    if ((flags & 2 /* QueryFlags.isStatic */) === 2 /* QueryFlags.isStatic */) {
-      tView.staticContentQueries = true;
-    }
-  }
-  createLQuery(tView, getLView(), flags);
-}
-/**
- * Loads a QueryList corresponding to the current view or content query.
- *
- * @codeGenApi
- */
-function ɵɵloadQuery() {
-  return loadQueryInternal(getLView(), getCurrentQueryIndex());
-}
-function loadQueryInternal(lView, queryIndex) {
-  ngDevMode && assertDefined(lView[QUERIES], 'LQueries should be defined when trying to load a query');
-  ngDevMode && assertIndexInRange(lView[QUERIES].queries, queryIndex);
-  return lView[QUERIES].queries[queryIndex].queryList;
-}
-function createLQuery(tView, lView, flags) {
-  const queryList = new QueryList((flags & 4 /* QueryFlags.emitDistinctChangesOnly */) === 4 /* QueryFlags.emitDistinctChangesOnly */);
-  storeCleanupWithContext(tView, lView, queryList, queryList.destroy);
-  if (lView[QUERIES] === null) lView[QUERIES] = new LQueries_();
-  lView[QUERIES].queries.push(new LQuery_(queryList));
-}
-function createTQuery(tView, metadata, nodeIndex) {
-  if (tView.queries === null) tView.queries = new TQueries_();
-  tView.queries.track(new TQuery_(metadata, nodeIndex));
-}
-function saveContentQueryAndDirectiveIndex(tView, directiveIndex) {
-  const tViewContentQueries = tView.contentQueries || (tView.contentQueries = []);
-  const lastSavedDirectiveIndex = tViewContentQueries.length ? tViewContentQueries[tViewContentQueries.length - 1] : -1;
-  if (directiveIndex !== lastSavedDirectiveIndex) {
-    tViewContentQueries.push(tView.queries.length - 1, directiveIndex);
-  }
-}
-function getTQuery(tView, index) {
-  ngDevMode && assertDefined(tView.queries, 'TQueries must be defined to retrieve a TQuery');
-  return tView.queries.getByIndex(index);
-}
 
 /**
  * Retrieves `TemplateRef` instance from `Injector` when a local reference is placed on the
@@ -48436,7 +48635,8 @@ const angularCoreEnv = (() => ({
   'ɵɵtrustConstantResourceUrl': ɵɵtrustConstantResourceUrl,
   'ɵɵvalidateIframeAttribute': ɵɵvalidateIframeAttribute,
   'forwardRef': forwardRef,
-  'resolveForwardRef': resolveForwardRef
+  'resolveForwardRef': resolveForwardRef,
+  'ɵɵInputFlags': InputFlags
 }))();
 let jitOptions = null;
 function setJitOptions(options) {
@@ -49625,7 +49825,7 @@ class Version {
 /**
  * @publicApi
  */
-const VERSION = new Version('17.0.8');
+const VERSION = new Version('17.1.2');
 
 /*
  * This file exists to support compilation of @angular/core in Ivy mode.
@@ -49775,7 +49975,7 @@ class Compiler {
  *
  * @publicApi
  */
-const COMPILER_OPTIONS = new InjectionToken('compilerOptions');
+const COMPILER_OPTIONS = new InjectionToken(ngDevMode ? 'compilerOptions' : '');
 /**
  * A factory for creating a Compiler
  *
@@ -49802,7 +50002,7 @@ class PendingTasks {
   constructor() {
     this.taskId = 0;
     this.pendingTasks = new Set();
-    this.hasPendingTasks = new rxjs__WEBPACK_IMPORTED_MODULE_3__.BehaviorSubject(false);
+    this.hasPendingTasks = new rxjs__WEBPACK_IMPORTED_MODULE_4__.BehaviorSubject(false);
   }
   get _hasPendingTasks() {
     return this.hasPendingTasks.value;
@@ -50696,6 +50896,29 @@ function getModuleInjectorOfNodeInjector(injector) {
  * tools are patched (window.ng).
  * */
 const GLOBAL_PUBLISH_EXPANDO_KEY = 'ng';
+const globalUtilsFunctions = {
+  /**
+   * Warning: functions that start with `ɵ` are considered *INTERNAL* and should not be relied upon
+   * in application's code. The contract of those functions might be changed in any release and/or a
+   * function can be removed completely.
+   */
+  'ɵgetDependenciesFromInjectable': getDependenciesFromInjectable,
+  'ɵgetInjectorProviders': getInjectorProviders,
+  'ɵgetInjectorResolutionPath': getInjectorResolutionPath,
+  'ɵgetInjectorMetadata': getInjectorMetadata,
+  'ɵsetProfiler': setProfiler,
+  'getDirectiveMetadata': getDirectiveMetadata$1,
+  'getComponent': getComponent,
+  'getContext': getContext,
+  'getListeners': getListeners,
+  'getOwningComponent': getOwningComponent,
+  'getHostElement': getHostElement,
+  'getInjector': getInjector,
+  'getRootComponents': getRootComponents,
+  'getDirectives': getDirectives,
+  'applyChanges': applyChanges,
+  'isSignal': isSignal
+};
 let _published = false;
 /**
  * Publishes a collection of default debug tools onto`window.ng`.
@@ -50707,26 +50930,9 @@ function publishDefaultGlobalUtils$1() {
   if (!_published) {
     _published = true;
     setupFrameworkInjectorProfiler();
-    publishGlobalUtil('ɵgetDependenciesFromInjectable', getDependenciesFromInjectable);
-    publishGlobalUtil('ɵgetInjectorProviders', getInjectorProviders);
-    publishGlobalUtil('ɵgetInjectorResolutionPath', getInjectorResolutionPath);
-    publishGlobalUtil('ɵgetInjectorMetadata', getInjectorMetadata);
-    /**
-     * Warning: this function is *INTERNAL* and should not be relied upon in application's code.
-     * The contract of the function might be changed in any release and/or the function can be
-     * removed completely.
-     */
-    publishGlobalUtil('ɵsetProfiler', setProfiler);
-    publishGlobalUtil('getDirectiveMetadata', getDirectiveMetadata$1);
-    publishGlobalUtil('getComponent', getComponent);
-    publishGlobalUtil('getContext', getContext);
-    publishGlobalUtil('getListeners', getListeners);
-    publishGlobalUtil('getOwningComponent', getOwningComponent);
-    publishGlobalUtil('getHostElement', getHostElement);
-    publishGlobalUtil('getInjector', getInjector);
-    publishGlobalUtil('getRootComponents', getRootComponents);
-    publishGlobalUtil('getDirectives', getDirectives);
-    publishGlobalUtil('applyChanges', applyChanges);
+    for (const [methodName, method] of Object.entries(globalUtilsFunctions)) {
+      publishGlobalUtil(methodName, method);
+    }
   }
 }
 /**
@@ -50741,13 +50947,8 @@ function publishGlobalUtil(name, fn) {
     //   for typings for AngularJS (via `goog.provide('ng....')`).
     const w = _global;
     ngDevMode && assertDefined(fn, 'function not defined');
-    if (w) {
-      let container = w[GLOBAL_PUBLISH_EXPANDO_KEY];
-      if (!container) {
-        container = w[GLOBAL_PUBLISH_EXPANDO_KEY] = {};
-      }
-      container[name] = fn;
-    }
+    w[GLOBAL_PUBLISH_EXPANDO_KEY] ??= {};
+    w[GLOBAL_PUBLISH_EXPANDO_KEY][name] = fn;
   }
 }
 
@@ -50791,13 +50992,6 @@ class Testability {
     this.registry = registry;
     this._pendingCount = 0;
     this._isZoneStable = true;
-    /**
-     * Whether any work was done since the last 'whenStable' callback. This is
-     * useful to detect if this could have potentially destabilized another
-     * component while it is stabilizing.
-     * @internal
-     */
-    this._didWork = false;
     this._callbacks = [];
     this.taskTrackingZone = null;
     // If there was no Testability logic registered in the global scope
@@ -50814,7 +51008,6 @@ class Testability {
   _watchAngularEvents() {
     this._ngZone.onUnstable.subscribe({
       next: () => {
-        this._didWork = true;
         this._isZoneStable = false;
       }
     });
@@ -50836,7 +51029,6 @@ class Testability {
    */
   increasePendingRequestCount() {
     this._pendingCount += 1;
-    this._didWork = true;
     return this._pendingCount;
   }
   /**
@@ -50864,9 +51056,8 @@ class Testability {
         while (this._callbacks.length !== 0) {
           let cb = this._callbacks.pop();
           clearTimeout(cb.timeoutId);
-          cb.doneCb(this._didWork);
+          cb.doneCb();
         }
-        this._didWork = false;
       });
     } else {
       // Still not stable, send updates.
@@ -50878,7 +51069,6 @@ class Testability {
         }
         return true;
       });
-      this._didWork = true;
     }
   }
   getPendingTasks() {
@@ -50901,7 +51091,7 @@ class Testability {
     if (timeout && timeout > 0) {
       timeoutId = setTimeout(() => {
         this._callbacks = this._callbacks.filter(cb => cb.timeoutId !== timeoutId);
-        cb(this._didWork, this.getPendingTasks());
+        cb();
       }, timeout);
     }
     this._callbacks.push({
@@ -50926,7 +51116,6 @@ class Testability {
     if (updateCb && !this.taskTrackingZone) {
       throw new Error('Task tracking zone is required when passing an update callback to ' + 'whenStable(). Is "zone.js/plugins/task-tracking" loaded?');
     }
-    // These arguments are 'Function' above to keep the public API simple.
     this.addCallback(doneCb, timeout, updateCb);
     this._runCallbacksIfReady();
   }
@@ -51191,7 +51380,7 @@ let _testabilityGetter;
  *
  * @publicApi
  */
-const APP_INITIALIZER = new InjectionToken('Application Initializer');
+const APP_INITIALIZER = new InjectionToken(ngDevMode ? 'Application Initializer' : '');
 /**
  * A class that reflects the state of running {@link APP_INITIALIZER} functions.
  *
@@ -51275,7 +51464,7 @@ class ApplicationInitStatus {
  *
  * @publicApi
  */
-const APP_BOOTSTRAP_LISTENER = new InjectionToken('appBootstrapListener');
+const APP_BOOTSTRAP_LISTENER = new InjectionToken(ngDevMode ? 'appBootstrapListener' : '');
 function compileNgModuleFactory(injector, options, moduleType) {
   ngDevMode && assertNgModuleType(moduleType);
   const moduleFactory = new NgModuleFactory(moduleType);
@@ -51322,7 +51511,7 @@ function publishDefaultGlobalUtils() {
  * Sets the error for an invalid write to a signal to be an Angular `RuntimeError`.
  */
 function publishSignalConfiguration() {
-  (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_0__.setThrowInvalidWriteToSignalError)(() => {
+  (0,_angular_core_primitives_signals__WEBPACK_IMPORTED_MODULE_1__.setThrowInvalidWriteToSignalError)(() => {
     throw new RuntimeError(600 /* RuntimeErrorCode.SIGNAL_WRITE_FROM_ILLEGAL_CONTEXT */, ngDevMode && 'Writing to signals is not allowed in a `computed` or an `effect` by default. ' + 'Use `allowSignalWrites` in the `CreateEffectOptions` to enable this inside effects.');
   });
 }
@@ -51469,6 +51658,7 @@ class ApplicationRef {
     /** @internal */
     this._views = [];
     this.internalErrorHandler = inject(INTERNAL_APPLICATION_ERROR_HANDLER);
+    this.afterRenderEffectManager = inject(AfterRenderEventManager);
     /**
      * Get a list of component types registered to this application.
      * This list is populated even before the component is created.
@@ -51481,7 +51671,7 @@ class ApplicationRef {
     /**
      * Returns an Observable that indicates when the application is stable or unstable.
      */
-    this.isStable = inject(PendingTasks).hasPendingTasks.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.map)(pending => !pending));
+    this.isStable = inject(PendingTasks).hasPendingTasks.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(pending => !pending));
     this._injector = inject(EnvironmentInjector);
   }
   /**
@@ -51539,8 +51729,8 @@ class ApplicationRef {
     const initStatus = this._injector.get(ApplicationInitStatus);
     if (!initStatus.done) {
       const standalone = !isComponentFactory && isStandalone(componentOrFactory);
-      const errorMessage = 'Cannot bootstrap as there are still asynchronous initializers running.' + (standalone ? '' : ' Bootstrap components in the `ngDoBootstrap` method of the root module.');
-      throw new RuntimeError(405 /* RuntimeErrorCode.ASYNC_INITIALIZERS_STILL_RUNNING */, (typeof ngDevMode === 'undefined' || ngDevMode) && errorMessage);
+      const errorMessage = (typeof ngDevMode === 'undefined' || ngDevMode) && 'Cannot bootstrap as there are still asynchronous initializers running.' + (standalone ? '' : ' Bootstrap components in the `ngDoBootstrap` method of the root module.');
+      throw new RuntimeError(405 /* RuntimeErrorCode.ASYNC_INITIALIZERS_STILL_RUNNING */, errorMessage);
     }
     let componentFactory;
     if (isComponentFactory) {
@@ -51598,6 +51788,17 @@ class ApplicationRef {
       // Attention: Don't rethrow as it could cancel subscriptions to Observables!
       this.internalErrorHandler(e);
     } finally {
+      // Catch any `ExpressionChanged...` errors and report them to error handler like above
+      try {
+        const callbacksExecuted = this.afterRenderEffectManager.execute();
+        if ((typeof ngDevMode === 'undefined' || ngDevMode) && callbacksExecuted) {
+          for (let view of this._views) {
+            view.checkNoChanges();
+          }
+        }
+      } catch (e) {
+        this.internalErrorHandler(e);
+      }
       this._runningTick = false;
     }
   }
@@ -51730,7 +51931,7 @@ function whenStable(applicationRef) {
   if (cachedWhenStable) {
     return cachedWhenStable;
   }
-  const whenStablePromise = applicationRef.isStable.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.first)(isStable => isStable)).toPromise().then(() => void 0);
+  const whenStablePromise = applicationRef.isStable.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.first)(isStable => isStable)).toPromise().then(() => void 0);
   whenStableStore.set(applicationRef, whenStablePromise);
   // Be a good citizen and clean the store `onDestroy` even though we are using `WeakMap`.
   applicationRef.onDestroy(() => whenStableStore?.delete(applicationRef));
@@ -51852,7 +52053,7 @@ function getNgZoneOptions(options) {
 }
 class ZoneStablePendingTask {
   constructor() {
-    this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_2__.Subscription();
+    this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_3__.Subscription();
     this.initialized = false;
     this.zone = inject(NgZone);
     this.pendingTasks = inject(PendingTasks);
@@ -51952,7 +52153,7 @@ function getGlobalLocale() {
  *
  * @publicApi
  */
-const LOCALE_ID = new InjectionToken('LocaleId', {
+const LOCALE_ID = new InjectionToken(ngDevMode ? 'LocaleId' : '', {
   providedIn: 'root',
   factory: () => inject(LOCALE_ID, InjectFlags.Optional | InjectFlags.SkipSelf) || getGlobalLocale()
 });
@@ -51994,7 +52195,7 @@ const LOCALE_ID = new InjectionToken('LocaleId', {
  *
  * @publicApi
  */
-const DEFAULT_CURRENCY_CODE = new InjectionToken('DefaultCurrencyCode', {
+const DEFAULT_CURRENCY_CODE = new InjectionToken(ngDevMode ? 'DefaultCurrencyCode' : '', {
   providedIn: 'root',
   factory: () => USD_CURRENCY_CODE
 });
@@ -52022,7 +52223,7 @@ const DEFAULT_CURRENCY_CODE = new InjectionToken('DefaultCurrencyCode', {
  *
  * @publicApi
  */
-const TRANSLATIONS = new InjectionToken('Translations');
+const TRANSLATIONS = new InjectionToken(ngDevMode ? 'Translations' : '');
 /**
  * Provide this token at bootstrap to set the format of your {@link TRANSLATIONS}: `xtb`,
  * `xlf` or `xlf2`.
@@ -52044,7 +52245,7 @@ const TRANSLATIONS = new InjectionToken('Translations');
  *
  * @publicApi
  */
-const TRANSLATIONS_FORMAT = new InjectionToken('TranslationsFormat');
+const TRANSLATIONS_FORMAT = new InjectionToken(ngDevMode ? 'TranslationsFormat' : '');
 /**
  * Use this enum at bootstrap as an option of `bootstrapModule` to define the strategy
  * that the compiler should use in case of missing translations:
@@ -52081,7 +52282,7 @@ var MissingTranslationStrategy;
  * `PlatformRef` class (i.e. register the callback via `PlatformRef.onDestroy`), thus making the
  * entire class tree-shakeable.
  */
-const PLATFORM_DESTROY_LISTENERS = new InjectionToken('PlatformDestroyListeners');
+const PLATFORM_DESTROY_LISTENERS = new InjectionToken(ngDevMode ? 'PlatformDestroyListeners' : '');
 /**
  * The Angular platform is the entry point for Angular on a web page.
  * Each page has exactly one platform. Services (such as reflection) which are common
@@ -52242,7 +52443,7 @@ let _platformInjector = null;
  * Internal token to indicate whether having multiple bootstrapped platform should be allowed (only
  * one bootstrapped platform is allowed by default). This token helps to support SSR scenarios.
  */
-const ALLOW_MULTIPLE_PLATFORMS = new InjectionToken('AllowMultipleToken');
+const ALLOW_MULTIPLE_PLATFORMS = new InjectionToken(ngDevMode ? 'AllowMultipleToken' : '');
 /**
  * Creates a platform.
  * Platforms must be created on launch using this function.
@@ -53146,7 +53347,6 @@ function producerAccessed(node) {
       // `activeConsumer.producerNode[idx]` which will be overwritten below.
     }
   }
-
   if (activeConsumer.producerNode[idx] !== node) {
     // We're a new dependency of the consumer (at `idx`).
     activeConsumer.producerNode[idx] = node;
@@ -53502,14 +53702,6 @@ function signalUpdateFn(node, updater) {
   }
   signalSetFn(node, updater(node.value));
 }
-function signalMutateFn(node, mutator) {
-  if (!producerUpdatesAllowed()) {
-    throwInvalidWriteToSignalError();
-  }
-  // Mutate bypasses equality checks as it's by definition changing the value.
-  mutator(node.value);
-  signalValueChanged(node);
-}
 // Note: Using an IIFE here to ensure that the spread assignment is not considered
 // a side-effect, ending up preserving `COMPUTED_NODE` and `REACTIVE_NODE`.
 // TODO: remove when https://github.com/evanw/esbuild/issues/3392 is resolved.
@@ -53840,6 +54032,92 @@ function internalCreateApplication(config) {
   } catch (e) {
     return Promise.reject(e);
   }
+}
+class ChangeDetectionSchedulerImpl {
+  constructor() {
+    this.appRef = inject(ApplicationRef);
+    this.taskService = inject(PendingTasks);
+    this.pendingRenderTaskId = null;
+  }
+  notify() {
+    if (this.pendingRenderTaskId !== null) return;
+    this.pendingRenderTaskId = this.taskService.add();
+    this.raceTimeoutAndRequestAnimationFrame();
+  }
+  /**
+   * Run change detection after the first of setTimeout and requestAnimationFrame resolves.
+   *
+   * - `requestAnimationFrame` ensures that change detection runs ahead of a browser repaint.
+   * This ensures that the create and update passes of a change detection always happen
+   * in the same frame.
+   * - When the browser is resource-starved, `rAF` can execute _before_ a `setTimeout` because
+   * rendering is a very high priority process. This means that `setTimeout` cannot guarantee
+   * same-frame create and update pass, when `setTimeout` is used to schedule the update phase.
+   * - While `rAF` gives us the desirable same-frame updates, it has two limitations that
+   * prevent it from being used alone. First, it does not run in background tabs, which would
+   * prevent Angular from initializing an application when opened in a new tab (for example).
+   * Second, repeated calls to requestAnimationFrame will execute at the refresh rate of the
+   * hardware (~16ms for a 60Hz display). This would cause significant slowdown of tests that
+   * are written with several updates and asserts in the form of "update; await stable; assert;".
+   * - Both `setTimeout` and `rAF` are able to "coalesce" several events from a single user
+   * interaction into a single change detection. Importantly, this reduces view tree traversals when
+   * compared to an alternative timing mechanism like `queueMicrotask`, where change detection would
+   * then be interleaves between each event.
+   *
+   * By running change detection after the first of `setTimeout` and `rAF` to execute, we get the
+   * best of both worlds.
+   */
+  raceTimeoutAndRequestAnimationFrame() {
+    var _this = this;
+    return (0,_home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_7_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      const timeout = new Promise(resolve => setTimeout(resolve));
+      const rAF = typeof _global['requestAnimationFrame'] === 'function' ? new Promise(resolve => requestAnimationFrame(() => resolve())) : null;
+      yield Promise.race([timeout, rAF]);
+      _this.tick();
+    })();
+  }
+  tick() {
+    try {
+      if (!this.appRef.destroyed) {
+        this.appRef.tick();
+      }
+    } finally {
+      // If this is the last task, the service will synchronously emit a stable notification. If
+      // there is a subscriber that then acts in a way that tries to notify the scheduler again,
+      // we need to be able to respond to schedule a new change detection. Therefore, we should
+      // clear the task ID before removing it from the pending tasks (or the tasks service should
+      // not synchronously emit stable, similar to how Zone stableness only happens if it's still
+      // stable after a microtask).
+      const taskId = this.pendingRenderTaskId;
+      this.pendingRenderTaskId = null;
+      this.taskService.remove(taskId);
+    }
+  }
+  static #_ = this.ɵfac = function ChangeDetectionSchedulerImpl_Factory(t) {
+    return new (t || ChangeDetectionSchedulerImpl)();
+  };
+  static #_2 = this.ɵprov = /*@__PURE__*/ɵɵdefineInjectable({
+    token: ChangeDetectionSchedulerImpl,
+    factory: ChangeDetectionSchedulerImpl.ɵfac,
+    providedIn: 'root'
+  });
+}
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ChangeDetectionSchedulerImpl, [{
+    type: Injectable,
+    args: [{
+      providedIn: 'root'
+    }]
+  }], null, null);
+})();
+function provideZonelessChangeDetection() {
+  return makeEnvironmentProviders([{
+    provide: ChangeDetectionScheduler,
+    useExisting: ChangeDetectionSchedulerImpl
+  }, {
+    provide: NgZone,
+    useClass: NoopNgZone
+  }]);
 }
 
 /**
@@ -54273,7 +54551,6 @@ function serializeLView(lView, context) {
       }
     }
   }
-
   return ngh;
 }
 /**
@@ -54514,7 +54791,6 @@ function withDomHydration() {
       }
       return () => {}; // noop
     },
-
     multi: true
   }]);
 }
@@ -54893,9 +55169,9 @@ if (typeof ngDevMode !== 'undefined' && ngDevMode) {
 
 /***/ }),
 
-/***/ 6393:
+/***/ 9944:
 /*!**************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@angular+core@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/@angular/core/fesm2022/primitives/signals.mjs ***!
+  !*** ./node_modules/.pnpm/@angular+core@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/@angular/core/fesm2022/primitives/signals.mjs ***!
   \**************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -54903,6 +55179,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   REACTIVE_NODE: () => (/* binding */ REACTIVE_NODE),
 /* harmony export */   SIGNAL: () => (/* binding */ SIGNAL),
+/* harmony export */   SIGNAL_NODE: () => (/* binding */ SIGNAL_NODE),
 /* harmony export */   consumerAfterComputation: () => (/* binding */ consumerAfterComputation),
 /* harmony export */   consumerBeforeComputation: () => (/* binding */ consumerBeforeComputation),
 /* harmony export */   consumerDestroy: () => (/* binding */ consumerDestroy),
@@ -54922,12 +55199,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   setAlternateWeakRefImpl: () => (/* binding */ setAlternateWeakRefImpl),
 /* harmony export */   setPostSignalSetFn: () => (/* binding */ setPostSignalSetFn),
 /* harmony export */   setThrowInvalidWriteToSignalError: () => (/* binding */ setThrowInvalidWriteToSignalError),
-/* harmony export */   signalMutateFn: () => (/* binding */ signalMutateFn),
 /* harmony export */   signalSetFn: () => (/* binding */ signalSetFn),
 /* harmony export */   signalUpdateFn: () => (/* binding */ signalUpdateFn)
 /* harmony export */ });
 /**
- * @license Angular v17.0.8
+ * @license Angular v17.1.2
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -55017,7 +55293,6 @@ function producerAccessed(node) {
       // `activeConsumer.producerNode[idx]` which will be overwritten below.
     }
   }
-
   if (activeConsumer.producerNode[idx] !== node) {
     // We're a new dependency of the consumer (at `idx`).
     activeConsumer.producerNode[idx] = node;
@@ -55373,14 +55648,6 @@ function signalUpdateFn(node, updater) {
   }
   signalSetFn(node, updater(node.value));
 }
-function signalMutateFn(node, mutator) {
-  if (!producerUpdatesAllowed()) {
-    throwInvalidWriteToSignalError();
-  }
-  // Mutate bypasses equality checks as it's by definition changing the value.
-  mutator(node.value);
-  signalValueChanged(node);
-}
 // Note: Using an IIFE here to ensure that the spread assignment is not considered
 // a side-effect, ending up preserving `COMPUTED_NODE` and `REACTIVE_NODE`.
 // TODO: remove when https://github.com/evanw/esbuild/issues/3392 is resolved.
@@ -55476,9 +55743,9 @@ function setAlternateWeakRefImpl(impl) {
 
 /***/ }),
 
-/***/ 5357:
+/***/ 8306:
 /*!********************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@angular+core@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/@angular/core/fesm2022/rxjs-interop.mjs ***!
+  !*** ./node_modules/.pnpm/@angular+core@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/@angular/core/fesm2022/rxjs-interop.mjs ***!
   \********************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -55488,12 +55755,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   toObservable: () => (/* binding */ toObservable),
 /* harmony export */   toSignal: () => (/* binding */ toSignal)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 5195);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 1235);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 1480);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 3782);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 2507);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 70);
 /**
- * @license Angular v17.0.8
+ * @license Angular v17.1.2
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -55628,7 +55895,6 @@ function toSignal(source, options) {
     // Completion of the Observable is meaningless to the signal. Signals don't have a concept of
     // "complete".
   });
-
   if (ngDevMode && options?.requireSync && state().kind === 0 /* StateKind.NoValue */) {
     throw new _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵRuntimeError"](601 /* ɵRuntimeErrorCode.REQUIRE_SYNC_WITHOUT_SYNC_EMIT */, '`toSignal()` called with `requireSync` but `Observable` did not emit synchronously.');
   }
@@ -55659,9 +55925,9 @@ function toSignal(source, options) {
 
 /***/ }),
 
-/***/ 9010:
+/***/ 1707:
 /*!*****************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@angular+forms@17.0.8_@angular+common@17.0.8_@angular+core@17.0.8_@angular+platform-browser@17.0.8_rxjs@7.8.1/node_modules/@angular/forms/fesm2022/forms.mjs ***!
+  !*** ./node_modules/.pnpm/@angular+forms@17.1.2_@angular+common@17.1.2_@angular+core@17.1.2_@angular+platform-browser@17.1.2_rxjs@7.8.1/node_modules/@angular/forms/fesm2022/forms.mjs ***!
   \*****************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -55724,13 +55990,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵNgNoValidate": () => (/* binding */ ɵNgNoValidate),
 /* harmony export */   "ɵNgSelectMultipleOption": () => (/* binding */ ɵNgSelectMultipleOption)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ 5505);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 2058);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 4546);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ 5082);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 2984);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 1126);
 /**
- * @license Angular v17.0.8
+ * @license Angular v17.1.2
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -55842,7 +56108,7 @@ class BuiltInControlValueAccessor extends BaseControlValueAccessor {
  *
  * @publicApi
  */
-const NG_VALUE_ACCESSOR = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('NgValueAccessor');
+const NG_VALUE_ACCESSOR = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken(ngDevMode ? 'NgValueAccessor' : '');
 const CHECKBOX_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => CheckboxControlValueAccessor),
@@ -55932,7 +56198,7 @@ function _isAndroid() {
  * the "compositionend" event occurs.
  * @publicApi
  */
-const COMPOSITION_BUFFER_MODE = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('CompositionEventMode');
+const COMPOSITION_BUFFER_MODE = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken(ngDevMode ? 'CompositionEventMode' : '');
 /**
  * The default `ControlValueAccessor` for writing a value and listening to changes on input
  * elements. The accessor is used by the `FormControlDirective`, `FormControlName`, and
@@ -56093,7 +56359,7 @@ function hasValidLength(value) {
  *
  * @publicApi
  */
-const NG_VALIDATORS = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('NgValidators');
+const NG_VALIDATORS = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken(ngDevMode ? 'NgValidators' : '');
 /**
  * @description
  * An `InjectionToken` for registering additional asynchronous validators used with
@@ -56123,7 +56389,7 @@ const NG_VALIDATORS = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionTo
  *
  * @publicApi
  */
-const NG_ASYNC_VALIDATORS = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('NgAsyncValidators');
+const NG_ASYNC_VALIDATORS = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken(ngDevMode ? 'NgAsyncValidators' : '');
 /**
  * A regular expression that matches valid e-mail addresses.
  *
@@ -56451,7 +56717,6 @@ function minValidator(min) {
     if (isEmptyInputValue(control.value) || isEmptyInputValue(min)) {
       return null; // don't validate empty values to allow optional controls
     }
-
     const value = parseFloat(control.value);
     // Controls with NaN values after parsing should be treated as not having a
     // minimum, per the HTML forms spec: https://www.w3.org/TR/html5/forms.html#attr-input-min
@@ -56472,7 +56737,6 @@ function maxValidator(max) {
     if (isEmptyInputValue(control.value) || isEmptyInputValue(max)) {
       return null; // don't validate empty values to allow optional controls
     }
-
     const value = parseFloat(control.value);
     // Controls with NaN values after parsing should be treated as not having a
     // maximum, per the HTML forms spec: https://www.w3.org/TR/html5/forms.html#attr-input-max
@@ -56511,7 +56775,6 @@ function emailValidator(control) {
   if (isEmptyInputValue(control.value)) {
     return null; // don't validate empty values to allow optional controls
   }
-
   return EMAIL_REGEXP.test(control.value) ? null : {
     'email': true
   };
@@ -56571,7 +56834,6 @@ function patternValidator(pattern) {
     if (isEmptyInputValue(control.value)) {
       return null; // don't validate empty values to allow optional controls
     }
-
     const value = control.value;
     return regex.test(value) ? null : {
       'pattern': {
@@ -59383,7 +59645,7 @@ class NgForm extends ControlContainer {
       }
     },
     inputs: {
-      options: ["ngFormOptions", "options"]
+      options: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "ngFormOptions", "options"]
     },
     outputs: {
       ngSubmit: "ngSubmit"
@@ -59718,7 +59980,7 @@ class NgModelGroup extends AbstractFormGroupDirective {
     type: NgModelGroup,
     selectors: [["", "ngModelGroup", ""]],
     inputs: {
-      name: ["ngModelGroup", "name"]
+      name: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "ngModelGroup", "name"]
     },
     exportAs: ["ngModelGroup"],
     features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([modelGroupProvider]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
@@ -60027,9 +60289,9 @@ class NgModel extends NgControl {
     selectors: [["", "ngModel", "", 3, "formControlName", "", 3, "formControl", ""]],
     inputs: {
       name: "name",
-      isDisabled: ["disabled", "isDisabled"],
-      model: ["ngModel", "model"],
-      options: ["ngModelOptions", "options"]
+      isDisabled: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "disabled", "isDisabled"],
+      model: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "ngModel", "model"],
+      options: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "ngModelOptions", "options"]
     },
     outputs: {
       update: "ngModelChange"
@@ -60254,26 +60516,6 @@ function throwNameError() {
     `);
 }
 /**
- * Internal-only NgModule that works as a host for the `RadioControlRegistry` tree-shakable
- * provider. Note: the `InternalFormsSharedModule` can not be used here directly, since it's
- * declared *after* the `RadioControlRegistry` class and the `providedIn` doesn't support
- * `forwardRef` logic.
- */
-class RadioControlRegistryModule {
-  static #_ = this.ɵfac = function RadioControlRegistryModule_Factory(t) {
-    return new (t || RadioControlRegistryModule)();
-  };
-  static #_2 = this.ɵmod = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
-    type: RadioControlRegistryModule
-  });
-  static #_3 = this.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({});
-}
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](RadioControlRegistryModule, [{
-    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.NgModule
-  }], null, null);
-})();
-/**
  * @description
  * Class used by Angular to track radio buttons. For internal use only.
  */
@@ -60321,14 +60563,14 @@ class RadioControlRegistry {
   static #_2 = this.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
     token: RadioControlRegistry,
     factory: RadioControlRegistry.ɵfac,
-    providedIn: RadioControlRegistryModule
+    providedIn: 'root'
   });
 }
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](RadioControlRegistry, [{
     type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Injectable,
     args: [{
-      providedIn: RadioControlRegistryModule
+      providedIn: 'root'
     }]
   }], null, null);
 })();
@@ -60579,7 +60821,7 @@ class RangeValueAccessor extends BuiltInControlValueAccessor {
 /**
  * Token to provide to turn off the ngModel warning on formControl and formControlName.
  */
-const NG_MODEL_WITH_FORM_CONTROL_WARNING = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken('NgModelWithFormControlWarning');
+const NG_MODEL_WITH_FORM_CONTROL_WARNING = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.InjectionToken(ngDevMode ? 'NgModelWithFormControlWarning' : '');
 const formControlBinding = {
   provide: NgControl,
   useExisting: (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => FormControlDirective)
@@ -60703,9 +60945,9 @@ class FormControlDirective extends NgControl {
     type: FormControlDirective,
     selectors: [["", "formControl", ""]],
     inputs: {
-      form: ["formControl", "form"],
-      isDisabled: ["disabled", "isDisabled"],
-      model: ["ngModel", "model"]
+      form: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "formControl", "form"],
+      isDisabled: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "disabled", "isDisabled"],
+      model: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "ngModel", "model"]
     },
     outputs: {
       update: "ngModelChange"
@@ -61106,7 +61348,7 @@ class FormGroupDirective extends ControlContainer {
       }
     },
     inputs: {
-      form: ["formGroup", "form"]
+      form: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "formGroup", "form"]
     },
     outputs: {
       ngSubmit: "ngSubmit"
@@ -61246,7 +61488,7 @@ class FormGroupName extends AbstractFormGroupDirective {
     type: FormGroupName,
     selectors: [["", "formGroupName", ""]],
     inputs: {
-      name: ["formGroupName", "name"]
+      name: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "formGroupName", "name"]
     },
     features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([formGroupNameProvider]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
   });
@@ -61391,7 +61633,7 @@ class FormArrayName extends ControlContainer {
     type: FormArrayName,
     selectors: [["", "formArrayName", ""]],
     inputs: {
-      name: ["formArrayName", "name"]
+      name: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "formArrayName", "name"]
     },
     features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([formArrayNameProvider]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]]
   });
@@ -61590,9 +61832,9 @@ class FormControlName extends NgControl {
     type: FormControlName,
     selectors: [["", "formControlName", ""]],
     inputs: {
-      name: ["formControlName", "name"],
-      isDisabled: ["disabled", "isDisabled"],
-      model: ["ngModel", "model"]
+      name: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "formControlName", "name"],
+      isDisabled: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "disabled", "isDisabled"],
+      model: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "ngModel", "model"]
     },
     outputs: {
       update: "ngModelChange"
@@ -62904,16 +63146,13 @@ class ɵInternalFormsSharedModule {
   static #_2 = this.ɵmod = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
     type: ɵInternalFormsSharedModule
   });
-  static #_3 = this.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
-    imports: [RadioControlRegistryModule]
-  });
+  static #_3 = this.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({});
 }
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ɵInternalFormsSharedModule, [{
     type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.NgModule,
     args: [{
       declarations: SHARED_FORM_DIRECTIVES,
-      imports: [RadioControlRegistryModule],
       exports: SHARED_FORM_DIRECTIVES
     }]
   }], null, null);
@@ -63662,14 +63901,11 @@ class UntypedFormBuilder extends FormBuilder {
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('17.0.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('17.1.2');
 
 /**
  * Exports the required providers and directives for template-driven forms,
  * making them available for import by NgModules that import this module.
- *
- * Providers associated with this module:
- * * `RadioControlRegistry`
  *
  * @see [Forms Overview](/guide/forms-overview)
  * @see [Template-driven Forms Guide](/guide/forms)
@@ -63716,9 +63952,6 @@ class FormsModule {
 /**
  * Exports the required infrastructure and directives for reactive forms,
  * making them available for import by NgModules that import this module.
- *
- * Providers associated with this module:
- * * `RadioControlRegistry`
  *
  * @see [Forms Overview](guide/forms-overview)
  * @see [Reactive Forms Guide](guide/reactive-forms)
@@ -63796,9 +64029,9 @@ class ReactiveFormsModule {
 
 /***/ }),
 
-/***/ 3858:
+/***/ 8094:
 /*!***************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@angular+platform-browser@17.0.8_@angular+animations@17.0.8_@angular+common@17.0.8_@angular+core@17.0.8/node_modules/@angular/platform-browser/fesm2022/animations.mjs ***!
+  !*** ./node_modules/.pnpm/@angular+platform-browser@17.1.2_@angular+animations@17.1.2_@angular+common@17.1.2_@angular+core@17.1.2/node_modules/@angular/platform-browser/fesm2022/animations.mjs ***!
   \***************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -63811,12 +64044,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   provideNoopAnimations: () => (/* binding */ provideNoopAnimations),
 /* harmony export */   "ɵInjectableAnimationEngine": () => (/* binding */ InjectableAnimationEngine)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ 6856);
-/* harmony import */ var _angular_animations_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations/browser */ 5077);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 912);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ 83);
+/* harmony import */ var _angular_animations_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations/browser */ 8018);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4290);
 /**
- * @license Angular v17.0.8
+ * @license Angular v17.1.2
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -63832,14 +64065,16 @@ class InjectableAnimationEngine extends _angular_animations_browser__WEBPACK_IMP
   // The `ApplicationRef` is injected here explicitly to force the dependency ordering.
   // Since the `ApplicationRef` should be created earlier before the `AnimationEngine`, they
   // both have `ngOnDestroy` hooks and `flush()` must be called after all views are destroyed.
-  constructor(doc, driver, normalizer, appRef) {
-    super(doc, driver, normalizer);
+  constructor(doc, driver, normalizer) {
+    super(doc, driver, normalizer, (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵChangeDetectionScheduler"], {
+      optional: true
+    }));
   }
   ngOnDestroy() {
     this.flush();
   }
   static #_ = this.ɵfac = function InjectableAnimationEngine_Factory(t) {
-    return new (t || InjectableAnimationEngine)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_2__.DOCUMENT), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_animations_browser__WEBPACK_IMPORTED_MODULE_1__.AnimationDriver), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_animations_browser__WEBPACK_IMPORTED_MODULE_1__["ɵAnimationStyleNormalizer"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.ApplicationRef));
+    return new (t || InjectableAnimationEngine)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_2__.DOCUMENT), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_animations_browser__WEBPACK_IMPORTED_MODULE_1__.AnimationDriver), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_animations_browser__WEBPACK_IMPORTED_MODULE_1__["ɵAnimationStyleNormalizer"]));
   };
   static #_2 = this.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
     token: InjectableAnimationEngine,
@@ -63859,8 +64094,6 @@ class InjectableAnimationEngine extends _angular_animations_browser__WEBPACK_IMP
     type: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_1__.AnimationDriver
   }, {
     type: _angular_animations_browser__WEBPACK_IMPORTED_MODULE_1__["ɵAnimationStyleNormalizer"]
-  }, {
-    type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ApplicationRef
   }], null);
 })();
 function instantiateDefaultStyleNormalizer() {
@@ -64052,9 +64285,9 @@ function provideNoopAnimations() {
 
 /***/ }),
 
-/***/ 6856:
+/***/ 83:
 /*!*********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@angular+platform-browser@17.0.8_@angular+animations@17.0.8_@angular+common@17.0.8_@angular+core@17.0.8/node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs ***!
+  !*** ./node_modules/.pnpm/@angular+platform-browser@17.1.2_@angular+animations@17.1.2_@angular+common@17.1.2_@angular+core@17.1.2/node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs ***!
   \*********************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -64070,6 +64303,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   HAMMER_LOADER: () => (/* binding */ HAMMER_LOADER),
 /* harmony export */   HammerGestureConfig: () => (/* binding */ HammerGestureConfig),
 /* harmony export */   HammerModule: () => (/* binding */ HammerModule),
+/* harmony export */   HydrationFeatureKind: () => (/* binding */ HydrationFeatureKind),
 /* harmony export */   Meta: () => (/* binding */ Meta),
 /* harmony export */   REMOVE_STYLES_ON_COMPONENT_DESTROY: () => (/* binding */ REMOVE_STYLES_ON_COMPONENT_DESTROY),
 /* harmony export */   Title: () => (/* binding */ Title),
@@ -64097,11 +64331,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵgetDOM": () => (/* reexport safe */ _angular_common__WEBPACK_IMPORTED_MODULE_0__["ɵgetDOM"]),
 /* harmony export */   "ɵinitDomAdapter": () => (/* binding */ initDomAdapter)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ 8139);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ 1338);
 /**
- * @license Angular v17.0.8
+ * @license Angular v17.1.2
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -64217,12 +64451,10 @@ class BrowserGetTestability {
     const whenAllStable = callback => {
       const testabilities = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵglobal"]['getAllAngularTestabilities']();
       let count = testabilities.length;
-      let didWork = false;
-      const decrement = function (didWork_) {
-        didWork = didWork || didWork_;
+      const decrement = function () {
         count--;
         if (count == 0) {
-          callback(didWork);
+          callback();
         }
       };
       testabilities.forEach(testability => {
@@ -64277,7 +64509,7 @@ class BrowserXhr {
  *
  * @publicApi
  */
-const EVENT_MANAGER_PLUGINS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.InjectionToken('EventManagerPlugins');
+const EVENT_MANAGER_PLUGINS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.InjectionToken(ngDevMode ? 'EventManagerPlugins' : '');
 /**
  * An injectable service that provides event management for Angular
  * through a browser plug-in.
@@ -64561,7 +64793,7 @@ const REMOVE_STYLES_ON_COMPONENT_DESTROY_DEFAULT = true;
  * By default, the value is set to `true`.
  * @publicApi
  */
-const REMOVE_STYLES_ON_COMPONENT_DESTROY = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.InjectionToken('RemoveStylesOnCompDestroy', {
+const REMOVE_STYLES_ON_COMPONENT_DESTROY = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.InjectionToken(ngDevMode ? 'RemoveStylesOnCompDestroy' : '', {
   providedIn: 'root',
   factory: () => REMOVE_STYLES_ON_COMPONENT_DESTROY_DEFAULT
 });
@@ -65092,7 +65324,6 @@ class KeyEventsPlugin extends EventManagerPlugin {
     } else if (keycode === '.') {
       keycode = 'dot'; // because '.' is used as a separator in event names
     }
-
     MODIFIER_KEYS.forEach(modifierName => {
       if (modifierName !== keycode) {
         const modifierGetter = MODIFIER_KEY_GETTERS[modifierName];
@@ -65292,6 +65523,7 @@ const TESTABILITY_PROVIDERS = [{
   deps: [_angular_core__WEBPACK_IMPORTED_MODULE_1__.NgZone, _angular_core__WEBPACK_IMPORTED_MODULE_1__.TestabilityRegistry, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵTESTABILITY_GETTER"]]
 }, {
   provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Testability,
+  // Also provide as `Testability` for backwards-compatibility.
   useClass: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Testability,
   deps: [_angular_core__WEBPACK_IMPORTED_MODULE_1__.NgZone, _angular_core__WEBPACK_IMPORTED_MODULE_1__.TestabilityRegistry, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵTESTABILITY_GETTER"]]
 }];
@@ -65388,12 +65620,6 @@ class BrowserModule {
   }], null);
 })();
 
-/**
- * Factory to create a `Meta` service instance for the current DOM document.
- */
-function createMeta() {
-  return new Meta((0,_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_0__.DOCUMENT));
-}
 /**
  * A service for managing HTML `<meta>` tags.
  *
@@ -65542,15 +65768,7 @@ class Meta {
   };
   static #_2 = this.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
     token: Meta,
-    factory: function Meta_Factory(t) {
-      let r = null;
-      if (t) {
-        r = new t();
-      } else {
-        r = createMeta();
-      }
-      return r;
-    },
+    factory: Meta.ɵfac,
     providedIn: 'root'
   });
 }
@@ -65558,9 +65776,7 @@ class Meta {
   (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](Meta, [{
     type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Injectable,
     args: [{
-      providedIn: 'root',
-      useFactory: createMeta,
-      deps: []
+      providedIn: 'root'
     }]
   }], () => [{
     type: undefined,
@@ -65577,12 +65793,6 @@ const META_KEYS_MAP = {
   httpEquiv: 'http-equiv'
 };
 
-/**
- * Factory to create Title service.
- */
-function createTitle() {
-  return new Title((0,_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_0__.DOCUMENT));
-}
 /**
  * A service that can be used to get and set the title of a current HTML document.
  *
@@ -65615,15 +65825,7 @@ class Title {
   };
   static #_2 = this.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
     token: Title,
-    factory: function Title_Factory(t) {
-      let r = null;
-      if (t) {
-        r = new t();
-      } else {
-        r = createTitle();
-      }
-      return r;
-    },
+    factory: Title.ɵfac,
     providedIn: 'root'
   });
 }
@@ -65631,9 +65833,7 @@ class Title {
   (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](Title, [{
     type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Injectable,
     args: [{
-      providedIn: 'root',
-      useFactory: createTitle,
-      deps: []
+      providedIn: 'root'
     }]
   }], () => [{
     type: undefined,
@@ -65661,7 +65861,6 @@ function exportNgVar(name, value) {
     ng[name] = value;
   }
 }
-const win = typeof window !== 'undefined' && window || {};
 class ChangeDetectionPerfRecord {
   constructor(msPerTick, numTicks) {
     this.msPerTick = msPerTick;
@@ -65697,28 +65896,24 @@ class AngularProfiler {
     const record = config && config['record'];
     const profileName = 'Change Detection';
     // Profiler is not available in Android browsers without dev tools opened
-    const isProfilerAvailable = win.console.profile != null;
-    if (record && isProfilerAvailable) {
-      win.console.profile(profileName);
+    if (record && 'profile' in console && typeof console.profile === 'function') {
+      console.profile(profileName);
     }
-    const start = performanceNow();
+    const start = performance.now();
     let numTicks = 0;
-    while (numTicks < 5 || performanceNow() - start < 500) {
+    while (numTicks < 5 || performance.now() - start < 500) {
       this.appRef.tick();
       numTicks++;
     }
-    const end = performanceNow();
-    if (record && isProfilerAvailable) {
-      win.console.profileEnd(profileName);
+    const end = performance.now();
+    if (record && 'profileEnd' in console && typeof console.profileEnd === 'function') {
+      console.profileEnd(profileName);
     }
     const msPerTick = (end - start) / numTicks;
-    win.console.log(`ran ${numTicks} change detection cycles`);
-    win.console.log(`${msPerTick.toFixed(2)} ms per check`);
+    console.log(`ran ${numTicks} change detection cycles`);
+    console.log(`${msPerTick.toFixed(2)} ms per check`);
     return new ChangeDetectionPerfRecord(msPerTick, numTicks);
   }
-}
-function performanceNow() {
-  return win.performance && win.performance.now ? win.performance.now() : new Date().getTime();
 }
 const PROFILER_GLOBAL_NAME = 'profiler';
 /**
@@ -66144,9 +66339,6 @@ class DomSanitizer {
     }]
   }], null, null);
 })();
-function domSanitizerImplFactory(injector) {
-  return new DomSanitizerImpl(injector.get(_angular_common__WEBPACK_IMPORTED_MODULE_0__.DOCUMENT));
-}
 class DomSanitizerImpl extends DomSanitizer {
   constructor(_doc) {
     super();
@@ -66206,15 +66398,7 @@ class DomSanitizerImpl extends DomSanitizer {
   };
   static #_2 = this.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
     token: DomSanitizerImpl,
-    factory: function DomSanitizerImpl_Factory(t) {
-      let r = null;
-      if (t) {
-        r = new t();
-      } else {
-        r = domSanitizerImplFactory(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.Injector));
-      }
-      return r;
-    },
+    factory: DomSanitizerImpl.ɵfac,
     providedIn: 'root'
   });
 }
@@ -66222,9 +66406,7 @@ class DomSanitizerImpl extends DomSanitizer {
   (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](DomSanitizerImpl, [{
     type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Injectable,
     args: [{
-      providedIn: 'root',
-      useFactory: domSanitizerImplFactory,
-      deps: [_angular_core__WEBPACK_IMPORTED_MODULE_1__.Injector]
+      providedIn: 'root'
     }]
   }], () => [{
     type: undefined,
@@ -66235,6 +66417,17 @@ class DomSanitizerImpl extends DomSanitizer {
   }], null);
 })();
 
+/**
+ * The list of features as an enum to uniquely type each `HydrationFeature`.
+ * @see {@link HydrationFeature}
+ *
+ * @publicApi
+ */
+var HydrationFeatureKind;
+(function (HydrationFeatureKind) {
+  HydrationFeatureKind[HydrationFeatureKind["NoHttpTransferCache"] = 0] = "NoHttpTransferCache";
+  HydrationFeatureKind[HydrationFeatureKind["HttpTransferCacheOptions"] = 1] = "HttpTransferCacheOptions";
+})(HydrationFeatureKind || (HydrationFeatureKind = {}));
 /**
  * Helper function to create an object that represents a Hydration feature.
  */
@@ -66253,7 +66446,7 @@ function hydrationFeature(ɵkind, ɵproviders = [], ɵoptions = {}) {
 function withNoHttpTransferCache() {
   // This feature has no providers and acts as a flag that turns off
   // HTTP transfer cache (which otherwise is turned on by default).
-  return hydrationFeature(0 /* HydrationFeatureKind.NoHttpTransferCache */);
+  return hydrationFeature(HydrationFeatureKind.NoHttpTransferCache);
 }
 /**
  * The function accepts a an object, which allows to configure cache parameters,
@@ -66265,7 +66458,7 @@ function withNoHttpTransferCache() {
  */
 function withHttpTransferCacheOptions(options) {
   // This feature has no providers and acts as a flag to pass options to the HTTP transfer cache.
-  return hydrationFeature(1 /* HydrationFeatureKind.HttpTransferCacheOptions */, (0,_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["ɵwithHttpTransferCache"])(options));
+  return hydrationFeature(HydrationFeatureKind.HttpTransferCacheOptions, (0,_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["ɵwithHttpTransferCache"])(options));
 }
 /**
  * Returns an `ENVIRONMENT_INITIALIZER` token setup with a function
@@ -66336,7 +66529,7 @@ function provideZoneJsCompatibilityDetector() {
 function provideClientHydration(...features) {
   const providers = [];
   const featuresKind = new Set();
-  const hasHttpTransferCacheOptions = featuresKind.has(1 /* HydrationFeatureKind.HttpTransferCacheOptions */);
+  const hasHttpTransferCacheOptions = featuresKind.has(HydrationFeatureKind.HttpTransferCacheOptions);
   for (const {
     ɵproviders,
     ɵkind
@@ -66346,11 +66539,11 @@ function provideClientHydration(...features) {
       providers.push(ɵproviders);
     }
   }
-  if (typeof ngDevMode !== 'undefined' && ngDevMode && featuresKind.has(0 /* HydrationFeatureKind.NoHttpTransferCache */) && hasHttpTransferCacheOptions) {
+  if (typeof ngDevMode !== 'undefined' && ngDevMode && featuresKind.has(HydrationFeatureKind.NoHttpTransferCache) && hasHttpTransferCacheOptions) {
     // TODO: Make this a runtime error
     throw new Error('Configuration error: found both withHttpTransferCacheOptions() and withNoHttpTransferCache() in the same call to provideClientHydration(), which is a contradiction.');
   }
-  return (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.makeEnvironmentProviders)([typeof ngDevMode !== 'undefined' && ngDevMode ? provideZoneJsCompatibilityDetector() : [], (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵwithDomHydration"])(), featuresKind.has(0 /* HydrationFeatureKind.NoHttpTransferCache */) || hasHttpTransferCacheOptions ? [] : (0,_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["ɵwithHttpTransferCache"])({}), providers]);
+  return (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.makeEnvironmentProviders)([typeof ngDevMode !== 'undefined' && ngDevMode ? provideZoneJsCompatibilityDetector() : [], (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵwithDomHydration"])(), featuresKind.has(HydrationFeatureKind.NoHttpTransferCache) || hasHttpTransferCacheOptions ? [] : (0,_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["ɵwithHttpTransferCache"])({}), providers]);
 }
 
 /**
@@ -66361,7 +66554,7 @@ function provideClientHydration(...features) {
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('17.0.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('17.1.2');
 
 // Re-export TransferState to the public API of the `platform-browser` for backwards-compatibility.
 /**
@@ -66401,9 +66594,9 @@ const TransferState = _angular_core__WEBPACK_IMPORTED_MODULE_1__.TransferState;
 
 /***/ }),
 
-/***/ 1330:
+/***/ 2596:
 /*!********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@angular+router@17.0.8_@angular+common@17.0.8_@angular+core@17.0.8_@angular+platform-browser@17.0.8_rxjs@7.8.1/node_modules/@angular/router/fesm2022/router.mjs ***!
+  !*** ./node_modules/.pnpm/@angular+router@17.1.2_@angular+common@17.1.2_@angular+core@17.1.2_@angular+platform-browser@17.1.2_rxjs@7.8.1/node_modules/@angular/router/fesm2022/router.mjs ***!
   \********************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -66419,12 +66612,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ChildrenOutletContexts: () => (/* binding */ ChildrenOutletContexts),
 /* harmony export */   DefaultTitleStrategy: () => (/* binding */ DefaultTitleStrategy),
 /* harmony export */   DefaultUrlSerializer: () => (/* binding */ DefaultUrlSerializer),
+/* harmony export */   EventType: () => (/* binding */ EventType),
 /* harmony export */   GuardsCheckEnd: () => (/* binding */ GuardsCheckEnd),
 /* harmony export */   GuardsCheckStart: () => (/* binding */ GuardsCheckStart),
 /* harmony export */   NavigationCancel: () => (/* binding */ NavigationCancel),
+/* harmony export */   NavigationCancellationCode: () => (/* binding */ NavigationCancellationCode),
 /* harmony export */   NavigationEnd: () => (/* binding */ NavigationEnd),
 /* harmony export */   NavigationError: () => (/* binding */ NavigationError),
 /* harmony export */   NavigationSkipped: () => (/* binding */ NavigationSkipped),
+/* harmony export */   NavigationSkippedCode: () => (/* binding */ NavigationSkippedCode),
 /* harmony export */   NavigationStart: () => (/* binding */ NavigationStart),
 /* harmony export */   NoPreloading: () => (/* binding */ NoPreloading),
 /* harmony export */   OutletContext: () => (/* binding */ OutletContext),
@@ -66483,44 +66679,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ɵafterNextNavigation": () => (/* binding */ afterNextNavigation),
 /* harmony export */   "ɵloadChildren": () => (/* binding */ loadChildren)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ 59);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ 5505);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 9288);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 804);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ 9531);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ 1673);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! rxjs */ 2024);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! rxjs */ 5325);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! rxjs */ 6392);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! rxjs */ 8065);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! rxjs */ 191);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! rxjs */ 9207);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! rxjs */ 7714);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! rxjs */ 6496);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ 4546);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ 1362);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/operators */ 609);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ 5329);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/operators */ 7447);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs/operators */ 1098);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! rxjs/operators */ 2952);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! rxjs/operators */ 1329);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! rxjs/operators */ 7420);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! rxjs/operators */ 5273);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! rxjs/operators */ 9317);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! rxjs/operators */ 1360);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! rxjs/operators */ 8137);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! rxjs/operators */ 3564);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! rxjs/operators */ 3270);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! rxjs/operators */ 1138);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! rxjs/operators */ 3214);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! rxjs/operators */ 1480);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! rxjs/operators */ 5297);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @angular/platform-browser */ 6856);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ 8099);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ 5082);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 237);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 1935);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ 9347);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ 7090);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! rxjs */ 3302);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! rxjs */ 6957);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! rxjs */ 6016);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! rxjs */ 5583);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! rxjs */ 6140);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! rxjs */ 4403);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! rxjs */ 9764);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! rxjs */ 4979);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ 1126);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ 4617);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/operators */ 7500);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ 4126);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/operators */ 2219);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs/operators */ 8330);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! rxjs/operators */ 3775);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! rxjs/operators */ 7943);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! rxjs/operators */ 471);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! rxjs/operators */ 2182);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! rxjs/operators */ 3844);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! rxjs/operators */ 7927);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! rxjs/operators */ 3538);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! rxjs/operators */ 4919);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! rxjs/operators */ 6974);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! rxjs/operators */ 2651);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! rxjs/operators */ 7938);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! rxjs/operators */ 70);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! rxjs/operators */ 9744);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @angular/platform-browser */ 83);
 /**
- * @license Angular v17.0.8
+ * @license Angular v17.1.2
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -66794,9 +66990,7 @@ class UrlTree {
     }
   }
   get queryParamMap() {
-    if (!this._queryParamMap) {
-      this._queryParamMap = convertToParamMap(this.queryParams);
-    }
+    this._queryParamMap ??= convertToParamMap(this.queryParams);
     return this._queryParamMap;
   }
   /** @docsNotRequired */
@@ -66870,9 +67064,7 @@ class UrlSegment {
     this.parameters = parameters;
   }
   get parameterMap() {
-    if (!this._parameterMap) {
-      this._parameterMap = convertToParamMap(this.parameters);
-    }
+    this._parameterMap ??= convertToParamMap(this.parameters);
     return this._parameterMap;
   }
   /** @docsNotRequired */
@@ -67044,13 +67236,12 @@ function serializePath(path) {
   return `${encodeUriSegment(path.path)}${serializeMatrixParams(path.parameters)}`;
 }
 function serializeMatrixParams(params) {
-  return Object.keys(params).map(key => `;${encodeUriSegment(key)}=${encodeUriSegment(params[key])}`).join('');
+  return Object.entries(params).map(([key, value]) => `;${encodeUriSegment(key)}=${encodeUriSegment(value)}`).join('');
 }
 function serializeQueryParams(params) {
-  const strParams = Object.keys(params).map(name => {
-    const value = params[name];
+  const strParams = Object.entries(params).map(([name, value]) => {
     return Array.isArray(value) ? value.map(v => `${encodeUriQuery(name)}=${encodeUriQuery(v)}`).join('&') : `${encodeUriQuery(name)}=${encodeUriQuery(value)}`;
-  }).filter(s => !!s);
+  }).filter(s => s);
   return strParams.length ? `?${strParams.join('&')}` : '';
 }
 const SEGMENT_RE = /^[^\/()?;#]+/;
@@ -67250,8 +67441,7 @@ function createRoot(rootCandidate) {
  */
 function squashSegmentGroup(segmentGroup) {
   const newChildren = {};
-  for (const childOutlet of Object.keys(segmentGroup.children)) {
-    const child = segmentGroup.children[childOutlet];
+  for (const [childOutlet, child] of Object.entries(segmentGroup.children)) {
     const childCandidate = squashSegmentGroup(child);
     // moves named children in an empty path primary child into this group
     if (childOutlet === PRIMARY_OUTLET && childCandidate.segments.length === 0 && childCandidate.hasChildren()) {
@@ -67531,9 +67721,7 @@ function getOutlets(commands) {
   };
 }
 function updateSegmentGroup(segmentGroup, startIndex, commands) {
-  if (!segmentGroup) {
-    segmentGroup = new UrlSegmentGroup([], {});
-  }
+  segmentGroup ??= new UrlSegmentGroup([], {});
   if (segmentGroup.segments.length === 0 && segmentGroup.hasChildren()) {
     return updateSegmentGroupChildren(segmentGroup, startIndex, commands);
   }
@@ -67686,6 +67874,31 @@ function compare(path, params, segment) {
 }
 const IMPERATIVE_NAVIGATION = 'imperative';
 /**
+ * Identifies the type of a router event.
+ *
+ * @publicApi
+ */
+var EventType;
+(function (EventType) {
+  EventType[EventType["NavigationStart"] = 0] = "NavigationStart";
+  EventType[EventType["NavigationEnd"] = 1] = "NavigationEnd";
+  EventType[EventType["NavigationCancel"] = 2] = "NavigationCancel";
+  EventType[EventType["NavigationError"] = 3] = "NavigationError";
+  EventType[EventType["RoutesRecognized"] = 4] = "RoutesRecognized";
+  EventType[EventType["ResolveStart"] = 5] = "ResolveStart";
+  EventType[EventType["ResolveEnd"] = 6] = "ResolveEnd";
+  EventType[EventType["GuardsCheckStart"] = 7] = "GuardsCheckStart";
+  EventType[EventType["GuardsCheckEnd"] = 8] = "GuardsCheckEnd";
+  EventType[EventType["RouteConfigLoadStart"] = 9] = "RouteConfigLoadStart";
+  EventType[EventType["RouteConfigLoadEnd"] = 10] = "RouteConfigLoadEnd";
+  EventType[EventType["ChildActivationStart"] = 11] = "ChildActivationStart";
+  EventType[EventType["ChildActivationEnd"] = 12] = "ChildActivationEnd";
+  EventType[EventType["ActivationStart"] = 13] = "ActivationStart";
+  EventType[EventType["ActivationEnd"] = 14] = "ActivationEnd";
+  EventType[EventType["Scroll"] = 15] = "Scroll";
+  EventType[EventType["NavigationSkipped"] = 16] = "NavigationSkipped";
+})(EventType || (EventType = {}));
+/**
  * Base for events the router goes through, as opposed to events tied to a specific
  * route. Fired one time for any given navigation.
  *
@@ -67729,7 +67942,7 @@ class NavigationStart extends RouterEvent {
   navigationTrigger = 'imperative', /** @docsNotRequired */
   restoredState = null) {
     super(id, url);
-    this.type = 0 /* EventType.NavigationStart */;
+    this.type = EventType.NavigationStart;
     this.navigationTrigger = navigationTrigger;
     this.restoredState = restoredState;
   }
@@ -67754,13 +67967,58 @@ class NavigationEnd extends RouterEvent {
   urlAfterRedirects) {
     super(id, url);
     this.urlAfterRedirects = urlAfterRedirects;
-    this.type = 1 /* EventType.NavigationEnd */;
+    this.type = EventType.NavigationEnd;
   }
   /** @docsNotRequired */
   toString() {
     return `NavigationEnd(id: ${this.id}, url: '${this.url}', urlAfterRedirects: '${this.urlAfterRedirects}')`;
   }
 }
+/**
+ * A code for the `NavigationCancel` event of the `Router` to indicate the
+ * reason a navigation failed.
+ *
+ * @publicApi
+ */
+var NavigationCancellationCode;
+(function (NavigationCancellationCode) {
+  /**
+   * A navigation failed because a guard returned a `UrlTree` to redirect.
+   */
+  NavigationCancellationCode[NavigationCancellationCode["Redirect"] = 0] = "Redirect";
+  /**
+   * A navigation failed because a more recent navigation started.
+   */
+  NavigationCancellationCode[NavigationCancellationCode["SupersededByNewNavigation"] = 1] = "SupersededByNewNavigation";
+  /**
+   * A navigation failed because one of the resolvers completed without emitting a value.
+   */
+  NavigationCancellationCode[NavigationCancellationCode["NoDataFromResolver"] = 2] = "NoDataFromResolver";
+  /**
+   * A navigation failed because a guard returned `false`.
+   */
+  NavigationCancellationCode[NavigationCancellationCode["GuardRejected"] = 3] = "GuardRejected";
+})(NavigationCancellationCode || (NavigationCancellationCode = {}));
+/**
+ * A code for the `NavigationSkipped` event of the `Router` to indicate the
+ * reason a navigation was skipped.
+ *
+ * @publicApi
+ */
+var NavigationSkippedCode;
+(function (NavigationSkippedCode) {
+  /**
+   * A navigation was skipped because the navigation URL was the same as the current Router URL.
+   */
+  NavigationSkippedCode[NavigationSkippedCode["IgnoredSameUrlNavigation"] = 0] = "IgnoredSameUrlNavigation";
+  /**
+   * A navigation was skipped because the configured `UrlHandlingStrategy` return `false` for both
+   * the current Router URL and the target of the navigation.
+   *
+   * @see {@link UrlHandlingStrategy}
+   */
+  NavigationSkippedCode[NavigationSkippedCode["IgnoredByUrlHandlingStrategy"] = 1] = "IgnoredByUrlHandlingStrategy";
+})(NavigationSkippedCode || (NavigationSkippedCode = {}));
 /**
  * An event triggered when a navigation is canceled, directly or indirectly.
  * This can happen for several reasons including when a route guard
@@ -67790,7 +68048,7 @@ class NavigationCancel extends RouterEvent {
     super(id, url);
     this.reason = reason;
     this.code = code;
-    this.type = 2 /* EventType.NavigationCancel */;
+    this.type = EventType.NavigationCancel;
   }
   /** @docsNotRequired */
   toString() {
@@ -67823,7 +68081,7 @@ class NavigationSkipped extends RouterEvent {
     super(id, url);
     this.reason = reason;
     this.code = code;
-    this.type = 16 /* EventType.NavigationSkipped */;
+    this.type = EventType.NavigationSkipped;
   }
 }
 /**
@@ -67850,7 +68108,7 @@ class NavigationError extends RouterEvent {
     super(id, url);
     this.error = error;
     this.target = target;
-    this.type = 3 /* EventType.NavigationError */;
+    this.type = EventType.NavigationError;
   }
   /** @docsNotRequired */
   toString() {
@@ -67871,7 +68129,7 @@ class RoutesRecognized extends RouterEvent {
     super(id, url);
     this.urlAfterRedirects = urlAfterRedirects;
     this.state = state;
-    this.type = 4 /* EventType.RoutesRecognized */;
+    this.type = EventType.RoutesRecognized;
   }
   /** @docsNotRequired */
   toString() {
@@ -67894,9 +68152,8 @@ class GuardsCheckStart extends RouterEvent {
     super(id, url);
     this.urlAfterRedirects = urlAfterRedirects;
     this.state = state;
-    this.type = 7 /* EventType.GuardsCheckStart */;
+    this.type = EventType.GuardsCheckStart;
   }
-
   toString() {
     return `GuardsCheckStart(id: ${this.id}, url: '${this.url}', urlAfterRedirects: '${this.urlAfterRedirects}', state: ${this.state})`;
   }
@@ -67919,9 +68176,8 @@ class GuardsCheckEnd extends RouterEvent {
     this.urlAfterRedirects = urlAfterRedirects;
     this.state = state;
     this.shouldActivate = shouldActivate;
-    this.type = 8 /* EventType.GuardsCheckEnd */;
+    this.type = EventType.GuardsCheckEnd;
   }
-
   toString() {
     return `GuardsCheckEnd(id: ${this.id}, url: '${this.url}', urlAfterRedirects: '${this.urlAfterRedirects}', state: ${this.state}, shouldActivate: ${this.shouldActivate})`;
   }
@@ -67945,9 +68201,8 @@ class ResolveStart extends RouterEvent {
     super(id, url);
     this.urlAfterRedirects = urlAfterRedirects;
     this.state = state;
-    this.type = 5 /* EventType.ResolveStart */;
+    this.type = EventType.ResolveStart;
   }
-
   toString() {
     return `ResolveStart(id: ${this.id}, url: '${this.url}', urlAfterRedirects: '${this.urlAfterRedirects}', state: ${this.state})`;
   }
@@ -67967,9 +68222,8 @@ class ResolveEnd extends RouterEvent {
     super(id, url);
     this.urlAfterRedirects = urlAfterRedirects;
     this.state = state;
-    this.type = 6 /* EventType.ResolveEnd */;
+    this.type = EventType.ResolveEnd;
   }
-
   toString() {
     return `ResolveEnd(id: ${this.id}, url: '${this.url}', urlAfterRedirects: '${this.urlAfterRedirects}', state: ${this.state})`;
   }
@@ -67985,9 +68239,8 @@ class RouteConfigLoadStart {
   constructor( /** @docsNotRequired */
   route) {
     this.route = route;
-    this.type = 9 /* EventType.RouteConfigLoadStart */;
+    this.type = EventType.RouteConfigLoadStart;
   }
-
   toString() {
     return `RouteConfigLoadStart(path: ${this.route.path})`;
   }
@@ -68003,9 +68256,8 @@ class RouteConfigLoadEnd {
   constructor( /** @docsNotRequired */
   route) {
     this.route = route;
-    this.type = 10 /* EventType.RouteConfigLoadEnd */;
+    this.type = EventType.RouteConfigLoadEnd;
   }
-
   toString() {
     return `RouteConfigLoadEnd(path: ${this.route.path})`;
   }
@@ -68022,9 +68274,8 @@ class ChildActivationStart {
   constructor( /** @docsNotRequired */
   snapshot) {
     this.snapshot = snapshot;
-    this.type = 11 /* EventType.ChildActivationStart */;
+    this.type = EventType.ChildActivationStart;
   }
-
   toString() {
     const path = this.snapshot.routeConfig && this.snapshot.routeConfig.path || '';
     return `ChildActivationStart(path: '${path}')`;
@@ -68041,9 +68292,8 @@ class ChildActivationEnd {
   constructor( /** @docsNotRequired */
   snapshot) {
     this.snapshot = snapshot;
-    this.type = 12 /* EventType.ChildActivationEnd */;
+    this.type = EventType.ChildActivationEnd;
   }
-
   toString() {
     const path = this.snapshot.routeConfig && this.snapshot.routeConfig.path || '';
     return `ChildActivationEnd(path: '${path}')`;
@@ -68061,9 +68311,8 @@ class ActivationStart {
   constructor( /** @docsNotRequired */
   snapshot) {
     this.snapshot = snapshot;
-    this.type = 13 /* EventType.ActivationStart */;
+    this.type = EventType.ActivationStart;
   }
-
   toString() {
     const path = this.snapshot.routeConfig && this.snapshot.routeConfig.path || '';
     return `ActivationStart(path: '${path}')`;
@@ -68081,9 +68330,8 @@ class ActivationEnd {
   constructor( /** @docsNotRequired */
   snapshot) {
     this.snapshot = snapshot;
-    this.type = 14 /* EventType.ActivationEnd */;
+    this.type = EventType.ActivationEnd;
   }
-
   toString() {
     const path = this.snapshot.routeConfig && this.snapshot.routeConfig.path || '';
     return `ActivationEnd(path: '${path}')`;
@@ -68102,9 +68350,8 @@ class Scroll {
     this.routerEvent = routerEvent;
     this.position = position;
     this.anchor = anchor;
-    this.type = 15 /* EventType.Scroll */;
+    this.type = EventType.Scroll;
   }
-
   toString() {
     const pos = this.position ? `${this.position[0]}, ${this.position[1]}` : null;
     return `Scroll(anchor: '${this.anchor}', position: '${pos}')`;
@@ -68118,39 +68365,39 @@ class RedirectRequest {
 }
 function stringifyEvent(routerEvent) {
   switch (routerEvent.type) {
-    case 14 /* EventType.ActivationEnd */:
+    case EventType.ActivationEnd:
       return `ActivationEnd(path: '${routerEvent.snapshot.routeConfig?.path || ''}')`;
-    case 13 /* EventType.ActivationStart */:
+    case EventType.ActivationStart:
       return `ActivationStart(path: '${routerEvent.snapshot.routeConfig?.path || ''}')`;
-    case 12 /* EventType.ChildActivationEnd */:
+    case EventType.ChildActivationEnd:
       return `ChildActivationEnd(path: '${routerEvent.snapshot.routeConfig?.path || ''}')`;
-    case 11 /* EventType.ChildActivationStart */:
+    case EventType.ChildActivationStart:
       return `ChildActivationStart(path: '${routerEvent.snapshot.routeConfig?.path || ''}')`;
-    case 8 /* EventType.GuardsCheckEnd */:
+    case EventType.GuardsCheckEnd:
       return `GuardsCheckEnd(id: ${routerEvent.id}, url: '${routerEvent.url}', urlAfterRedirects: '${routerEvent.urlAfterRedirects}', state: ${routerEvent.state}, shouldActivate: ${routerEvent.shouldActivate})`;
-    case 7 /* EventType.GuardsCheckStart */:
+    case EventType.GuardsCheckStart:
       return `GuardsCheckStart(id: ${routerEvent.id}, url: '${routerEvent.url}', urlAfterRedirects: '${routerEvent.urlAfterRedirects}', state: ${routerEvent.state})`;
-    case 2 /* EventType.NavigationCancel */:
+    case EventType.NavigationCancel:
       return `NavigationCancel(id: ${routerEvent.id}, url: '${routerEvent.url}')`;
-    case 16 /* EventType.NavigationSkipped */:
+    case EventType.NavigationSkipped:
       return `NavigationSkipped(id: ${routerEvent.id}, url: '${routerEvent.url}')`;
-    case 1 /* EventType.NavigationEnd */:
+    case EventType.NavigationEnd:
       return `NavigationEnd(id: ${routerEvent.id}, url: '${routerEvent.url}', urlAfterRedirects: '${routerEvent.urlAfterRedirects}')`;
-    case 3 /* EventType.NavigationError */:
+    case EventType.NavigationError:
       return `NavigationError(id: ${routerEvent.id}, url: '${routerEvent.url}', error: ${routerEvent.error})`;
-    case 0 /* EventType.NavigationStart */:
+    case EventType.NavigationStart:
       return `NavigationStart(id: ${routerEvent.id}, url: '${routerEvent.url}')`;
-    case 6 /* EventType.ResolveEnd */:
+    case EventType.ResolveEnd:
       return `ResolveEnd(id: ${routerEvent.id}, url: '${routerEvent.url}', urlAfterRedirects: '${routerEvent.urlAfterRedirects}', state: ${routerEvent.state})`;
-    case 5 /* EventType.ResolveStart */:
+    case EventType.ResolveStart:
       return `ResolveStart(id: ${routerEvent.id}, url: '${routerEvent.url}', urlAfterRedirects: '${routerEvent.urlAfterRedirects}', state: ${routerEvent.state})`;
-    case 10 /* EventType.RouteConfigLoadEnd */:
+    case EventType.RouteConfigLoadEnd:
       return `RouteConfigLoadEnd(path: ${routerEvent.route.path})`;
-    case 9 /* EventType.RouteConfigLoadStart */:
+    case EventType.RouteConfigLoadStart:
       return `RouteConfigLoadStart(path: ${routerEvent.route.path})`;
-    case 4 /* EventType.RoutesRecognized */:
+    case EventType.RoutesRecognized:
       return `RoutesRecognized(id: ${routerEvent.id}, url: '${routerEvent.url}', urlAfterRedirects: '${routerEvent.urlAfterRedirects}', state: ${routerEvent.state})`;
-    case 15 /* EventType.Scroll */:
+    case EventType.Scroll:
       const pos = routerEvent.position ? `${routerEvent.position[0]}, ${routerEvent.position[1]}` : null;
       return `Scroll(anchor: '${routerEvent.anchor}', position: '${pos}')`;
   }
@@ -68364,8 +68611,8 @@ class RouterState extends Tree {
     return this.snapshot.toString();
   }
 }
-function createEmptyState(urlTree, rootComponent) {
-  const snapshot = createEmptyStateSnapshot(urlTree, rootComponent);
+function createEmptyState(rootComponent) {
+  const snapshot = createEmptyStateSnapshot(rootComponent);
   const emptyUrl = new rxjs__WEBPACK_IMPORTED_MODULE_4__.BehaviorSubject([new UrlSegment('', {})]);
   const emptyParams = new rxjs__WEBPACK_IMPORTED_MODULE_4__.BehaviorSubject({});
   const emptyData = new rxjs__WEBPACK_IMPORTED_MODULE_4__.BehaviorSubject({});
@@ -68375,7 +68622,7 @@ function createEmptyState(urlTree, rootComponent) {
   activated.snapshot = snapshot.root;
   return new RouterState(new TreeNode(activated, []), snapshot);
 }
-function createEmptyStateSnapshot(urlTree, rootComponent) {
+function createEmptyStateSnapshot(rootComponent) {
   const emptyParams = {};
   const emptyData = {};
   const emptyQueryParams = {};
@@ -68458,9 +68705,7 @@ class ActivatedRoute {
    * The map supports retrieving single and multiple values from the same parameter.
    */
   get paramMap() {
-    if (!this._paramMap) {
-      this._paramMap = this.params.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(p => convertToParamMap(p)));
-    }
+    this._paramMap ??= this.params.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(p => convertToParamMap(p)));
     return this._paramMap;
   }
   /**
@@ -68468,9 +68713,7 @@ class ActivatedRoute {
    * The map supports retrieving single and multiple values from the query parameter.
    */
   get queryParamMap() {
-    if (!this._queryParamMap) {
-      this._queryParamMap = this.queryParams.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(p => convertToParamMap(p)));
-    }
+    this._queryParamMap ??= this.queryParams.pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.map)(p => convertToParamMap(p)));
     return this._queryParamMap;
   }
   toString() {
@@ -68626,15 +68869,11 @@ class ActivatedRouteSnapshot {
     return this._routerState.pathFromRoot(this);
   }
   get paramMap() {
-    if (!this._paramMap) {
-      this._paramMap = convertToParamMap(this.params);
-    }
+    this._paramMap ??= convertToParamMap(this.params);
     return this._paramMap;
   }
   get queryParamMap() {
-    if (!this._queryParamMap) {
-      this._queryParamMap = convertToParamMap(this.queryParams);
-    }
+    this._queryParamMap ??= convertToParamMap(this.queryParams);
     return this._queryParamMap;
   }
   toString() {
@@ -69138,25 +69377,22 @@ function redirectingNavigationError(urlSerializer, redirect) {
     redirectTo: redirect,
     navigationBehaviorOptions: undefined
   } : redirect;
-  const error = navigationCancelingError(ngDevMode && `Redirecting to "${urlSerializer.serialize(redirectTo)}"`, 0 /* NavigationCancellationCode.Redirect */, redirect);
+  const error = navigationCancelingError(ngDevMode && `Redirecting to "${urlSerializer.serialize(redirectTo)}"`, NavigationCancellationCode.Redirect);
   error.url = redirectTo;
   error.navigationBehaviorOptions = navigationBehaviorOptions;
   return error;
 }
-function navigationCancelingError(message, code, redirectUrl) {
-  const error = new Error('NavigationCancelingError: ' + (message || ''));
+function navigationCancelingError(message, code) {
+  const error = new Error(`NavigationCancelingError: ${message || ''}`);
   error[NAVIGATION_CANCELING_ERROR] = true;
   error.cancellationCode = code;
-  if (redirectUrl) {
-    error.url = redirectUrl;
-  }
   return error;
 }
-function isRedirectingNavigationCancelingError$1(error) {
-  return isNavigationCancelingError$1(error) && isUrlTree(error.url);
+function isRedirectingNavigationCancelingError(error) {
+  return isNavigationCancelingError(error) && isUrlTree(error.url);
 }
-function isNavigationCancelingError$1(error) {
-  return error && error[NAVIGATION_CANCELING_ERROR];
+function isNavigationCancelingError(error) {
+  return !!error && error[NAVIGATION_CANCELING_ERROR];
 }
 
 /**
@@ -69446,8 +69682,8 @@ class ActivateRoutes {
     const context = parentContexts.getContext(route.value.outlet);
     const contexts = context && route.value.component ? context.children : parentContexts;
     const children = nodeChildrenAsMap(route);
-    for (const childOutlet of Object.keys(children)) {
-      this.deactivateRouteAndItsChildren(children[childOutlet], contexts);
+    for (const treeNode of Object.values(children)) {
+      this.deactivateRouteAndItsChildren(treeNode, contexts);
     }
     if (context && context.outlet) {
       const componentRef = context.outlet.detach();
@@ -69465,8 +69701,8 @@ class ActivateRoutes {
     // children that need deactivating.
     const contexts = context && route.value.component ? context.children : parentContexts;
     const children = nodeChildrenAsMap(route);
-    for (const childOutlet of Object.keys(children)) {
-      this.deactivateRouteAndItsChildren(children[childOutlet], contexts);
+    for (const treeNode of Object.values(children)) {
+      this.deactivateRouteAndItsChildren(treeNode, contexts);
     }
     if (context) {
       if (context.outlet) {
@@ -69718,12 +69954,6 @@ function isCanDeactivate(guard) {
 function isCanMatch(guard) {
   return guard && isFunction(guard.canMatch);
 }
-function isRedirectingNavigationCancelingError(error) {
-  return isNavigationCancelingError(error) && isUrlTree(error.url);
-}
-function isNavigationCancelingError(error) {
-  return error && error[NAVIGATION_CANCELING_ERROR];
-}
 function isEmptyError(e) {
   return e instanceof rxjs__WEBPACK_IMPORTED_MODULE_8__.EmptyError || e?.name === 'EmptyError';
 }
@@ -69903,9 +70133,8 @@ function namedOutletsRedirect(redirectTo) {
   return (0,rxjs__WEBPACK_IMPORTED_MODULE_19__.throwError)(new _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵRuntimeError"](4000 /* RuntimeErrorCode.NAMED_OUTLET_REDIRECT */, (typeof ngDevMode === 'undefined' || ngDevMode) && `Only absolute redirects can have named outlets. redirectTo: '${redirectTo}'`));
 }
 function canLoadFails(route) {
-  return (0,rxjs__WEBPACK_IMPORTED_MODULE_19__.throwError)(navigationCancelingError((typeof ngDevMode === 'undefined' || ngDevMode) && `Cannot load children because the guard of the route "path: '${route.path}'" returned false`, 3 /* NavigationCancellationCode.GuardRejected */));
+  return (0,rxjs__WEBPACK_IMPORTED_MODULE_19__.throwError)(navigationCancelingError((typeof ngDevMode === 'undefined' || ngDevMode) && `Cannot load children because the guard of the route "path: '${route.path}'" returned false`, NavigationCancellationCode.GuardRejected));
 }
-
 class ApplyRedirects {
   constructor(urlSerializer, urlTree) {
     this.urlSerializer = urlSerializer;
@@ -70054,7 +70283,7 @@ function split(segmentGroup, consumedSegments, slicedSegments, config) {
     };
   }
   if (slicedSegments.length === 0 && containsEmptyPathMatches(segmentGroup, slicedSegments, config)) {
-    const s = new UrlSegmentGroup(segmentGroup.segments, addEmptyPathsToChildrenIfNeeded(segmentGroup, consumedSegments, slicedSegments, config, segmentGroup.children));
+    const s = new UrlSegmentGroup(segmentGroup.segments, addEmptyPathsToChildrenIfNeeded(segmentGroup, slicedSegments, config, segmentGroup.children));
     return {
       segmentGroup: s,
       slicedSegments
@@ -70066,7 +70295,7 @@ function split(segmentGroup, consumedSegments, slicedSegments, config) {
     slicedSegments
   };
 }
-function addEmptyPathsToChildrenIfNeeded(segmentGroup, consumedSegments, slicedSegments, routes, children) {
+function addEmptyPathsToChildrenIfNeeded(segmentGroup, slicedSegments, routes, children) {
   const res = {};
   for (const r of routes) {
     if (emptyPathMatch(segmentGroup, slicedSegments, r) && !children[getOutlet(r)]) {
@@ -70669,7 +70898,7 @@ const ROUTER_CONFIGURATION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Inje
  *
  * @publicApi
  */
-const ROUTES = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.InjectionToken('ROUTES');
+const ROUTES = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.InjectionToken(ngDevMode ? 'ROUTES' : '');
 class RouterConfigLoader {
   constructor() {
     this.componentLoaders = new WeakMap();
@@ -71020,7 +71249,7 @@ class NavigationTransitions {
         const onSameUrlNavigation = t.extras.onSameUrlNavigation ?? router.onSameUrlNavigation;
         if (!urlTransition && onSameUrlNavigation !== 'reload') {
           const reason = typeof ngDevMode === 'undefined' || ngDevMode ? `Navigation to ${t.rawUrl} was ignored because it is the same as the current Router URL.` : '';
-          this.events.next(new NavigationSkipped(t.id, this.urlSerializer.serialize(t.rawUrl), reason, 0 /* NavigationSkippedCode.IgnoredSameUrlNavigation */));
+          this.events.next(new NavigationSkipped(t.id, this.urlSerializer.serialize(t.rawUrl), reason, NavigationSkippedCode.IgnoredSameUrlNavigation));
           t.resolve(null);
           return rxjs__WEBPACK_IMPORTED_MODULE_25__.EMPTY;
         }
@@ -71064,7 +71293,7 @@ class NavigationTransitions {
           } = t;
           const navStart = new NavigationStart(id, this.urlSerializer.serialize(extractedUrl), source, restoredState);
           this.events.next(navStart);
-          const targetSnapshot = createEmptyState(extractedUrl, this.rootComponentType).snapshot;
+          const targetSnapshot = createEmptyState(this.rootComponentType).snapshot;
           this.currentTransition = overallTransitionState = {
             ...t,
             targetSnapshot,
@@ -71084,7 +71313,7 @@ class NavigationTransitions {
            * from the current URL in the browser.
            */
           const reason = typeof ngDevMode === 'undefined' || ngDevMode ? `Navigation was ignored because the UrlHandlingStrategy` + ` indicated neither the current URL ${t.currentRawUrl} nor target URL ${t.rawUrl} should be processed.` : '';
-          this.events.next(new NavigationSkipped(t.id, this.urlSerializer.serialize(t.extractedUrl), reason, 1 /* NavigationSkippedCode.IgnoredByUrlHandlingStrategy */));
+          this.events.next(new NavigationSkipped(t.id, this.urlSerializer.serialize(t.extractedUrl), reason, NavigationSkippedCode.IgnoredByUrlHandlingStrategy));
           t.resolve(null);
           return rxjs__WEBPACK_IMPORTED_MODULE_25__.EMPTY;
         }
@@ -71108,7 +71337,7 @@ class NavigationTransitions {
         this.events.next(guardsEnd);
       }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_11__.filter)(t => {
         if (!t.guardsResult) {
-          this.cancelNavigationTransition(t, '', 3 /* NavigationCancellationCode.GuardRejected */);
+          this.cancelNavigationTransition(t, '', NavigationCancellationCode.GuardRejected);
           return false;
         }
         return true;
@@ -71125,7 +71354,7 @@ class NavigationTransitions {
               next: () => dataResolved = true,
               complete: () => {
                 if (!dataResolved) {
-                  this.cancelNavigationTransition(t, typeof ngDevMode === 'undefined' || ngDevMode ? `At least one route resolver didn't emit any value.` : '', 2 /* NavigationCancellationCode.NoDataFromResolver */);
+                  this.cancelNavigationTransition(t, typeof ngDevMode === 'undefined' || ngDevMode ? `At least one route resolver didn't emit any value.` : '', NavigationCancellationCode.NoDataFromResolver);
                 }
               }
             }));
@@ -71204,7 +71433,7 @@ class NavigationTransitions {
          * navigation gets cancelled but not caught by other means. */
         if (!completed && !errored) {
           const cancelationReason = typeof ngDevMode === 'undefined' || ngDevMode ? `Navigation ID ${overallTransitionState.id} is not equal to the current navigation id ${this.navigationId}` : '';
-          this.cancelNavigationTransition(overallTransitionState, cancelationReason, 1 /* NavigationCancellationCode.SupersededByNewNavigation */);
+          this.cancelNavigationTransition(overallTransitionState, cancelationReason, NavigationCancellationCode.SupersededByNewNavigation);
         }
         // Only clear current navigation if it is still set to the one that
         // finalized.
@@ -71215,11 +71444,11 @@ class NavigationTransitions {
         errored = true;
         /* This error type is issued during Redirect, and is handled as a
          * cancellation rather than an error. */
-        if (isNavigationCancelingError$1(e)) {
+        if (isNavigationCancelingError(e)) {
           this.events.next(new NavigationCancel(overallTransitionState.id, this.urlSerializer.serialize(overallTransitionState.extractedUrl), e.message, e.cancellationCode));
           // When redirecting, we need to delay resolving the navigation
           // promise and push it to the redirect navigation
-          if (!isRedirectingNavigationCancelingError$1(e)) {
+          if (!isRedirectingNavigationCancelingError(e)) {
             overallTransitionState.resolve(false);
           } else {
             this.events.next(new RedirectRequest(e.url));
@@ -71231,7 +71460,20 @@ class NavigationTransitions {
           try {
             overallTransitionState.resolve(router.errorHandler(e));
           } catch (ee) {
-            overallTransitionState.reject(ee);
+            // TODO(atscott): consider flipping the default behavior of
+            // resolveNavigationPromiseOnError to be `resolve(false)` when
+            // undefined. This is the most sane thing to do given that
+            // applications very rarely handle the promise rejection and, as a
+            // result, would get "unhandled promise rejection" console logs.
+            // The vast majority of applications would not be affected by this
+            // change so omitting a migration seems reasonable. Instead,
+            // applications that rely on rejection can specifically opt-in to the
+            // old behavior.
+            if (this.options.resolveNavigationPromiseOnError) {
+              overallTransitionState.resolve(false);
+            } else {
+              overallTransitionState.reject(ee);
+            }
           }
         }
         return rxjs__WEBPACK_IMPORTED_MODULE_25__.EMPTY;
@@ -71239,7 +71481,6 @@ class NavigationTransitions {
       // casting because `pipe` returns observable({}) when called with 8+ arguments
     }));
   }
-
   cancelNavigationTransition(t, reason, code) {
     const navCancel = new NavigationCancel(t.id, this.urlSerializer.serialize(t.extractedUrl), reason, code);
     this.events.next(navCancel);
@@ -71426,7 +71667,7 @@ class HistoryStateManager extends StateManager {
      */
     this.currentPageId = 0;
     this.lastSuccessfulId = -1;
-    this.routerState = createEmptyState(this.currentUrlTree, null);
+    this.routerState = createEmptyState(null);
     this.stateMemento = this.createStateMemento();
   }
   getCurrentUrlTree() {
@@ -71487,7 +71728,7 @@ class HistoryStateManager extends StateManager {
           this.setBrowserUrl(this.rawUrlTree, currentTransition);
         }
       }
-    } else if (e instanceof NavigationCancel && (e.code === 3 /* NavigationCancellationCode.GuardRejected */ || e.code === 2 /* NavigationCancellationCode.NoDataFromResolver */)) {
+    } else if (e instanceof NavigationCancel && (e.code === NavigationCancellationCode.GuardRejected || e.code === NavigationCancellationCode.NoDataFromResolver)) {
       this.restoreHistory(currentTransition);
     } else if (e instanceof NavigationError) {
       this.restoreHistory(currentTransition, true);
@@ -71609,7 +71850,7 @@ function afterNextNavigation(router, action) {
     if (e instanceof NavigationEnd || e instanceof NavigationSkipped) {
       return NavigationResult.COMPLETE;
     }
-    const redirecting = e instanceof NavigationCancel ? e.code === 0 /* NavigationCancellationCode.Redirect */ || e.code === 1 /* NavigationCancellationCode.SupersededByNewNavigation */ : false;
+    const redirecting = e instanceof NavigationCancel ? e.code === NavigationCancellationCode.Redirect || e.code === NavigationCancellationCode.SupersededByNewNavigation : false;
     return redirecting ? NavigationResult.REDIRECTING : NavigationResult.FAILED;
   }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_11__.filter)(result => result !== NavigationResult.REDIRECTING), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_9__.take)(1)).subscribe(() => {
     action();
@@ -71752,7 +71993,7 @@ class Router {
         const currentNavigation = this.navigationTransitions.currentNavigation;
         if (currentTransition !== null && currentNavigation !== null) {
           this.stateManager.handleRouterEvent(e, currentNavigation);
-          if (e instanceof NavigationCancel && e.code !== 0 /* NavigationCancellationCode.Redirect */ && e.code !== 1 /* NavigationCancellationCode.SupersededByNewNavigation */) {
+          if (e instanceof NavigationCancel && e.code !== NavigationCancellationCode.Redirect && e.code !== NavigationCancellationCode.SupersededByNewNavigation) {
             // It seems weird that `navigated` is set to `true` when the navigation is rejected,
             // however it's how things were written initially. Investigation would need to be done
             // to determine if this can be removed.
@@ -71762,6 +72003,8 @@ class Router {
           } else if (e instanceof RedirectRequest) {
             const mergedTree = this.urlHandlingStrategy.merge(e.url, currentTransition.currentRawUrl);
             const extras = {
+              // Persist transient navigation info from the original navigation request.
+              info: currentTransition.extras.info,
               skipLocationChange: currentTransition.extras.skipLocationChange,
               // The URL is already updated at this point if we have 'eager' URL
               // updates or if the navigation was triggered by the browser (back
@@ -71813,15 +72056,13 @@ class Router {
     // Don't need to use Zone.wrap any more, because zone.js
     // already patch onPopState, so location change callback will
     // run into ngZone
-    if (!this.nonRouterCurrentEntryChangeSubscription) {
-      this.nonRouterCurrentEntryChangeSubscription = this.stateManager.registerNonRouterCurrentEntryChangeListener((url, state) => {
-        // The `setTimeout` was added in #12160 and is likely to support Angular/AngularJS
-        // hybrid apps.
-        setTimeout(() => {
-          this.navigateToSyncWithBrowser(url, 'popstate', state);
-        }, 0);
-      });
-    }
+    this.nonRouterCurrentEntryChangeSubscription ??= this.stateManager.registerNonRouterCurrentEntryChangeListener((url, state) => {
+      // The `setTimeout` was added in #12160 and is likely to support Angular/AngularJS
+      // hybrid apps.
+      setTimeout(() => {
+        this.navigateToSyncWithBrowser(url, 'popstate', state);
+      }, 0);
+    });
   }
   /**
    * Schedules a router navigation to synchronize Router state with the browser state.
@@ -72056,9 +72297,9 @@ class Router {
    * @param extras An options object that determines how the URL should be constructed or
    *     interpreted.
    *
-   * @returns A Promise that resolves to `true` when navigation succeeds, to `false` when navigation
-   *     fails,
-   * or is rejected on error.
+   * @returns A Promise that resolves to `true` when navigation succeeds, or `false` when navigation
+   *     fails. The Promise is rejected when an error occurs if `resolveNavigationPromiseOnError` is
+   * not `true`.
    *
    * @usageNotes
    *
@@ -72112,8 +72353,7 @@ class Router {
     return containsTree(this.currentUrlTree, urlTree, options);
   }
   removeEmptyProps(params) {
-    return Object.keys(params).reduce((result, key) => {
-      const value = params[key];
+    return Object.entries(params).reduce((result, [key, value]) => {
       if (value !== null && value !== undefined) {
         result[key] = value;
       }
@@ -72375,7 +72615,8 @@ class RouterLink {
   }
   /** @nodoc */
   onClick(button, ctrlKey, shiftKey, altKey, metaKey) {
-    if (this.urlTree === null) {
+    const urlTree = this.urlTree;
+    if (urlTree === null) {
       return true;
     }
     if (this.isAnchorElement) {
@@ -72389,9 +72630,10 @@ class RouterLink {
     const extras = {
       skipLocationChange: this.skipLocationChange,
       replaceUrl: this.replaceUrl,
-      state: this.state
+      state: this.state,
+      info: this.info
     };
-    this.router.navigateByUrl(this.urlTree, extras);
+    this.router.navigateByUrl(urlTree, extras);
     // Return `false` for `<a>` elements to prevent default action
     // and cancel the native behavior, since the navigation is handled
     // by the Router.
@@ -72402,7 +72644,8 @@ class RouterLink {
     this.subscription?.unsubscribe();
   }
   updateHref() {
-    this.href = this.urlTree !== null && this.locationStrategy ? this.locationStrategy?.prepareExternalUrl(this.router.serializeUrl(this.urlTree)) : null;
+    const urlTree = this.urlTree;
+    this.href = urlTree !== null && this.locationStrategy ? this.locationStrategy?.prepareExternalUrl(this.router.serializeUrl(urlTree)) : null;
     const sanitizedValue = this.href === null ? null :
     // This class represents a directive that can be added to both `<a>` elements,
     // as well as other elements. As a result, we can't define security context at
@@ -72463,10 +72706,11 @@ class RouterLink {
       fragment: "fragment",
       queryParamsHandling: "queryParamsHandling",
       state: "state",
+      info: "info",
       relativeTo: "relativeTo",
-      preserveFragment: ["preserveFragment", "preserveFragment", _angular_core__WEBPACK_IMPORTED_MODULE_1__.booleanAttribute],
-      skipLocationChange: ["skipLocationChange", "skipLocationChange", _angular_core__WEBPACK_IMPORTED_MODULE_1__.booleanAttribute],
-      replaceUrl: ["replaceUrl", "replaceUrl", _angular_core__WEBPACK_IMPORTED_MODULE_1__.booleanAttribute],
+      preserveFragment: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInputFlags"].HasDecoratorInputTransform, "preserveFragment", "preserveFragment", _angular_core__WEBPACK_IMPORTED_MODULE_1__.booleanAttribute],
+      skipLocationChange: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInputFlags"].HasDecoratorInputTransform, "skipLocationChange", "skipLocationChange", _angular_core__WEBPACK_IMPORTED_MODULE_1__.booleanAttribute],
+      replaceUrl: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInputFlags"].HasDecoratorInputTransform, "replaceUrl", "replaceUrl", _angular_core__WEBPACK_IMPORTED_MODULE_1__.booleanAttribute],
       routerLink: "routerLink"
     },
     standalone: true,
@@ -72513,6 +72757,9 @@ class RouterLink {
       type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
     }],
     state: [{
+      type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
+    }],
+    info: [{
       type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.Input
     }],
     relativeTo: [{
@@ -72718,7 +72965,10 @@ class RouterLinkActive {
     const options = isActiveMatchOptions(this.routerLinkActiveOptions) ? this.routerLinkActiveOptions :
     // While the types should disallow `undefined` here, it's possible without strict inputs
     this.routerLinkActiveOptions.exact || false;
-    return link => link.urlTree ? router.isActive(link.urlTree, options) : false;
+    return link => {
+      const urlTree = link.urlTree;
+      return urlTree ? router.isActive(urlTree, options) : false;
+    };
   }
   hasActiveLinks() {
     const isActiveCheckFn = this.isLinkActive(this.router);
@@ -72994,8 +73244,8 @@ class RouterScroller {
     this.restoredId = 0;
     this.store = {};
     // Default both options to 'disabled'
-    options.scrollPositionRestoration = options.scrollPositionRestoration || 'disabled';
-    options.anchorScrolling = options.anchorScrolling || 'disabled';
+    options.scrollPositionRestoration ||= 'disabled';
+    options.anchorScrolling ||= 'disabled';
   }
   init() {
     // we want to disable the automatic scrolling because having two places
@@ -73017,7 +73267,7 @@ class RouterScroller {
       } else if (e instanceof NavigationEnd) {
         this.lastId = e.id;
         this.scheduleScrollEvent(e, this.urlSerializer.parse(e.urlAfterRedirects).fragment);
-      } else if (e instanceof NavigationSkipped && e.code === 0 /* NavigationSkippedCode.IgnoredSameUrlNavigation */) {
+      } else if (e instanceof NavigationSkipped && e.code === NavigationSkippedCode.IgnoredSameUrlNavigation) {
         this.lastSource = undefined;
         this.restoredId = 0;
         this.scheduleScrollEvent(e, this.urlSerializer.parse(e.url).fragment);
@@ -73368,7 +73618,6 @@ function withDisabledInitialNavigation() {
     provide: INITIAL_NAVIGATION,
     useValue: 2 /* InitialNavigation.Disabled */
   }];
-
   return routerFeature(3 /* RouterFeatureKind.DisabledInitialNavigationFeature */, providers);
 }
 /**
@@ -73906,7 +74155,7 @@ function mapToResolve(provider) {
 /**
  * @publicApi
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('17.0.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('17.1.2');
 
 /**
  * @module
@@ -73925,9 +74174,9 @@ const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.Version('17.0.8')
 
 /***/ }),
 
-/***/ 33:
+/***/ 885:
 /*!************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@ngx-translate+core@15.0.0_@angular+common@17.0.8_@angular+core@17.0.8_rxjs@7.8.1/node_modules/@ngx-translate/core/dist/fesm2022/ngx-translate-core.mjs ***!
+  !*** ./node_modules/.pnpm/@ngx-translate+core@15.0.0_@angular+common@17.1.2_@angular+core@17.1.2_rxjs@7.8.1/node_modules/@ngx-translate/core/dist/fesm2022/ngx-translate-core.mjs ***!
   \************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -73951,17 +74200,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   USE_EXTEND: () => (/* binding */ USE_EXTEND),
 /* harmony export */   USE_STORE: () => (/* binding */ USE_STORE)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ 9288);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 59);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ 2058);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ 2024);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ 5325);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 609);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 895);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 4546);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ 1329);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ 1362);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ 237);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 8099);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ 2984);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ 3302);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ 6957);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 7500);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 4287);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 1126);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ 7943);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ 4617);
 
 
 
@@ -75133,9 +75382,9 @@ class TranslateModule {
 
 /***/ }),
 
-/***/ 2451:
+/***/ 5029:
 /*!***********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@ngx-translate+http-loader@8.0.0_@angular+common@17.0.8_@angular+core@17.0.8_@ngx-translate+core@15.0.0_rxjs@7.8.1/node_modules/@ngx-translate/http-loader/dist/fesm2022/ngx-translate-http-loader.mjs ***!
+  !*** ./node_modules/.pnpm/@ngx-translate+http-loader@8.0.0_@angular+common@17.1.2_@angular+core@17.1.2_@ngx-translate+core@15.0.0_rxjs@7.8.1/node_modules/@ngx-translate/http-loader/dist/fesm2022/ngx-translate-http-loader.mjs ***!
   \***********************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -75168,7 +75417,7 @@ class TranslateHttpLoader {
 
 /***/ }),
 
-/***/ 9820:
+/***/ 2415:
 /*!*******************************************************************************!*\
   !*** ./node_modules/.pnpm/marked@4.3.0/node_modules/marked/lib/marked.esm.js ***!
   \*******************************************************************************/
@@ -76053,7 +76302,6 @@ class Tokenizer {
             continue; // CommonMark Emphasis Rules 9-10
           }
         }
-
         delimTotal -= rLength;
         if (delimTotal > 0) continue; // Haven't found enough closing delimiters
 
@@ -76258,7 +76506,6 @@ block.gfm = {
   + ' {0,3}(?:\\| *)?(:?-+:? *(?:\\| *:?-+:? *)*)(?:\\| *)?' // Align
   + '(?:\\n((?:(?! *\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)' // Cells
 };
-
 block.gfm.table = edit(block.gfm.table).replace('hr', block.hr).replace('heading', ' {0,3}#{1,6} ').replace('blockquote', ' {0,3}>').replace('code', ' {4}[^\\n]').replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n').replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
 .replace('html', '</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)').replace('tag', block._tag) // tables can be interrupted by type (6) html blocks
 .getRegex();
@@ -76307,7 +76554,6 @@ const inline = {
     rDelimAst: /^(?:[^_*\\]|\\.)*?\_\_(?:[^_*\\]|\\.)*?\*(?:[^_*\\]|\\.)*?(?=\_\_)|(?:[^*\\]|\\.)+(?=[^*])|[punct_](\*+)(?=[\s]|$)|(?:[^punct*_\s\\]|\\.)(\*+)(?=[punct_\s]|$)|[punct_\s](\*+)(?=[^punct*_\s])|[\s](\*+)(?=[punct_])|[punct_](\*+)(?=[punct_])|(?:[^punct*_\s\\]|\\.)(\*+)(?=[^punct*_\s])/,
     rDelimUnd: /^(?:[^_*\\]|\\.)*?\*\*(?:[^_*\\]|\\.)*?\_(?:[^_*\\]|\\.)*?(?=\*\*)|(?:[^_\\]|\\.)+(?=[^_])|[punct*](\_+)(?=[\s]|$)|(?:[^punct*_\s\\]|\\.)(\_+)(?=[punct*\s]|$)|[punct*\s](\_+)(?=[^punct*_\s])|[\s](\_+)(?=[punct*])|[punct*](\_+)(?=[punct*])/ // ^- Not allowed for _
   },
-
   code: /^(`+)([^`]|[^`][\s\S]*?[^`])\1(?!`)/,
   br: /^( {2,}|\\)\n(?!\s*$)/,
   del: noopTest,
@@ -77830,9 +78076,9 @@ const lexer = Lexer.lex;
 
 /***/ }),
 
-/***/ 7421:
+/***/ 2555:
 /*!*********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/ngx-markdown@17.1.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+platform-browser@17._ch5bslnfr2elb5z6vjgth32ljq/node_modules/ngx-markdown/fesm2022/ngx-markdown.mjs ***!
+  !*** ./node_modules/.pnpm/ngx-markdown@17.1.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+platform-browser@17._inkibhbgzgxwvxomfx4tsr7xuu/node_modules/ngx-markdown/fesm2022/ngx-markdown.mjs ***!
   \*********************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -77861,24 +78107,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   errorSrcWithoutHttpClient: () => (/* binding */ errorSrcWithoutHttpClient),
 /* harmony export */   provideMarkdown: () => (/* binding */ provideMarkdown)
 /* harmony export */ });
-/* harmony import */ var _home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_2_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 2542);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ 7714);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 2368);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 9288);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ 2890);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 1362);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ 3270);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ 7898);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/operators */ 895);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ 5329);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/operators */ 4546);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! rxjs/operators */ 1480);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! rxjs/operators */ 2952);
-/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! marked */ 9820);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/common/http */ 8139);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/platform-browser */ 6856);
+/* harmony import */ var _home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_7_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/.pnpm/@babel+runtime@7.23.7/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 6638);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ 9764);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 9987);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 237);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ 3882);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 4617);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ 6974);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ 8044);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/operators */ 4287);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ 4126);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/operators */ 1126);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! rxjs/operators */ 70);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! rxjs/operators */ 3775);
+/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! marked */ 2415);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/common/http */ 1338);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/platform-browser */ 83);
 
 
 
@@ -78519,7 +78765,7 @@ class MarkdownComponent {
   }
   render(markdown, decodeHtml = false) {
     var _this = this;
-    return (0,_home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_2_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_7_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const parsedOptions = {
         decodeHtml,
         inline: _this.inline,
@@ -78777,7 +79023,7 @@ class MarkdownPipe {
   }
   transform(value, options) {
     var _this2 = this;
-    return (0,_home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_2_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_home_runner_work_gilles_gardet_github_io_gilles_gardet_github_io_node_modules_pnpm_babel_runtime_7_23_7_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (value == null) {
         return '';
       }
@@ -78927,9 +79173,9 @@ var MermaidAPI;
 
 /***/ }),
 
-/***/ 7340:
+/***/ 7821:
 /*!*************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-api.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-api.mjs ***!
   \*************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -78952,10 +79198,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   TranslationKeys: () => (/* binding */ TranslationKeys),
 /* harmony export */   TreeDragDropService: () => (/* binding */ TreeDragDropService)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ 7714);
-/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/utils */ 4933);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 912);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ 9764);
+/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/utils */ 6876);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 4290);
 
 
 
@@ -79736,7 +79982,7 @@ PrimeTemplate.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__[
   selectors: [["", "pTemplate", ""]],
   inputs: {
     type: "type",
-    name: ["pTemplate", "name"]
+    name: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInputFlags"].None, "pTemplate", "name"]
   }
 });
 (() => {
@@ -79857,9 +80103,9 @@ TreeDragDropService.ɵprov = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODU
 
 /***/ }),
 
-/***/ 9499:
+/***/ 9630:
 /*!****************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-avatar.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-avatar.mjs ***!
   \****************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -79868,8 +80114,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Avatar: () => (/* binding */ Avatar),
 /* harmony export */   AvatarModule: () => (/* binding */ AvatarModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 912);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 4290);
 
 
 
@@ -79882,7 +80128,7 @@ function Avatar_span_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r0.label);
   }
 }
@@ -80072,9 +80318,9 @@ AvatarModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["
 
 /***/ }),
 
-/***/ 6728:
+/***/ 9065:
 /*!******************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-baseicon.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-baseicon.mjs ***!
   \******************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -80082,8 +80328,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   BaseIcon: () => (/* binding */ BaseIcon)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/utils */ 4933);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/utils */ 6876);
 
 
 
@@ -80165,9 +80411,9 @@ BaseIcon.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵ
 
 /***/ }),
 
-/***/ 4568:
+/***/ 1525:
 /*!*****************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-blockui.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-blockui.mjs ***!
   \*****************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -80176,11 +80422,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   BlockUI: () => (/* binding */ BlockUI),
 /* harmony export */   BlockUIModule: () => (/* binding */ BlockUIModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ 7340);
-/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/utils */ 4933);
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/dom */ 8359);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ 7821);
+/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/utils */ 6876);
+/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/dom */ 4001);
 
 
 
@@ -80425,9 +80671,9 @@ BlockUIModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__[
 
 /***/ }),
 
-/***/ 2209:
+/***/ 2193:
 /*!****************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-button.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-button.mjs ***!
   \****************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -80437,13 +80683,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ButtonDirective: () => (/* binding */ ButtonDirective),
 /* harmony export */   ButtonModule: () => (/* binding */ ButtonModule)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ 7340);
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ 8359);
-/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/ripple */ 9246);
-/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/utils */ 4933);
-/* harmony import */ var primeng_icons_spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/icons/spinner */ 2752);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ 7821);
+/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ 4001);
+/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/ripple */ 3510);
+/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/utils */ 6876);
+/* harmony import */ var primeng_icons_spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/icons/spinner */ 6176);
 
 
 
@@ -80486,9 +80732,9 @@ function Button_ng_container_3_ng_container_1_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r5.loadingIcon);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r5.loadingIcon);
   }
 }
@@ -80506,7 +80752,7 @@ function Button_ng_container_3_span_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r6.loadingIconTemplate);
   }
 }
@@ -80518,9 +80764,9 @@ function Button_ng_container_3_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r1.loadingIconTemplate);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.loadingIconTemplate);
   }
 }
@@ -80553,7 +80799,7 @@ function Button_ng_container_4_span_2_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", ctx_r12.iconClass());
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r12.iconTemplate);
   }
 }
@@ -80565,9 +80811,9 @@ function Button_ng_container_4_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r2.icon && !ctx_r2.iconTemplate);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r2.icon && ctx_r2.iconTemplate);
   }
 }
@@ -80580,7 +80826,7 @@ function Button_span_5_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("aria-hidden", ctx_r3.icon && !ctx_r3.label);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r3.label);
   }
 }
@@ -80594,7 +80840,7 @@ function Button_span_6_Template(rf, ctx) {
     const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx_r4.badgeClass);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", ctx_r4.badgeStyleClass());
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r4.badge);
   }
 }
@@ -80908,13 +81154,13 @@ Button.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("type", ctx.type)("aria-label", ctx.ariaLabel);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx.contentTemplate);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.loading);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.loading);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.contentTemplate && ctx.label);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.contentTemplate && ctx.badge);
     }
   },
@@ -81049,9 +81295,9 @@ ButtonModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["
 
 /***/ }),
 
-/***/ 198:
+/***/ 8909:
 /*!**************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-card.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-card.mjs ***!
   \**************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -81060,9 +81306,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Card: () => (/* binding */ Card),
 /* harmony export */   CardModule: () => (/* binding */ CardModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/api */ 7340);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/api */ 7821);
 
 
 
@@ -81100,9 +81346,9 @@ function Card_div_3_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r1.header, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r1.titleTemplate);
   }
 }
@@ -81120,9 +81366,9 @@ function Card_div_4_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r2.subheader, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r2.subtitleTemplate);
   }
 }
@@ -81230,15 +81476,15 @@ Card.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx.styleClass);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", "p-card p-component")("ngStyle", ctx.style);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.headerFacet || ctx.headerTemplate);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.header || ctx.titleTemplate);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.subheader || ctx.subtitleTemplate);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx.contentTemplate);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.footerFacet || ctx.footerTemplate);
     }
   },
@@ -81346,9 +81592,9 @@ CardModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
 
 /***/ }),
 
-/***/ 8564:
+/***/ 1731:
 /*!**************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-chip.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-chip.mjs ***!
   \**************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -81357,10 +81603,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Chip: () => (/* binding */ Chip),
 /* harmony export */   ChipModule: () => (/* binding */ ChipModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var primeng_icons_timescircle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/icons/timescircle */ 5638);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/api */ 7340);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var primeng_icons_timescircle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/icons/timescircle */ 4248);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/api */ 7821);
 
 
 
@@ -81410,7 +81656,7 @@ function Chip_div_0_div_5_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r4.label);
   }
 }
@@ -81463,9 +81709,9 @@ function Chip_div_0_ng_container_6_ng_container_1_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r9.removeIcon);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r9.removeIcon);
   }
 }
@@ -81493,7 +81739,7 @@ function Chip_div_0_ng_container_6_span_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r10.removeIconTemplate);
   }
 }
@@ -81505,9 +81751,9 @@ function Chip_div_0_ng_container_6_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r5.removeIconTemplate);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r5.removeIconTemplate);
   }
 }
@@ -81527,7 +81773,7 @@ function Chip_div_0_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.image)("ngIfElse", _r3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.label);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.removable);
   }
 }
@@ -81704,9 +81950,9 @@ ChipModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
 
 /***/ }),
 
-/***/ 5697:
+/***/ 316:
 /*!****************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-dialog.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-dialog.mjs ***!
   \****************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -81715,17 +81961,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Dialog: () => (/* binding */ Dialog),
 /* harmony export */   DialogModule: () => (/* binding */ DialogModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ 9461);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/dom */ 8359);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ 7340);
-/* harmony import */ var primeng_focustrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/focustrap */ 1502);
-/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/ripple */ 9246);
-/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/utils */ 4933);
-/* harmony import */ var primeng_icons_times__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primeng/icons/times */ 5833);
-/* harmony import */ var primeng_icons_windowmaximize__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primeng/icons/windowmaximize */ 4738);
-/* harmony import */ var primeng_icons_windowminimize__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/icons/windowminimize */ 3256);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ 5377);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/dom */ 4001);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ 7821);
+/* harmony import */ var primeng_focustrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/focustrap */ 983);
+/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/ripple */ 3510);
+/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/utils */ 6876);
+/* harmony import */ var primeng_icons_times__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primeng/icons/times */ 2759);
+/* harmony import */ var primeng_icons_windowmaximize__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primeng/icons/windowmaximize */ 4803);
+/* harmony import */ var primeng_icons_windowminimize__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/icons/windowminimize */ 9925);
 
 
 
@@ -81766,7 +82012,7 @@ function Dialog_div_0_div_1_div_3_span_2_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("id", ctx_r11.id + "-label");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r11.header);
   }
 }
@@ -81819,9 +82065,9 @@ function Dialog_div_0_div_1_div_3_button_6_ng_container_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r17 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r17.maximized && !ctx_r17.maximizeIconTemplate);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r17.maximized && !ctx_r17.minimizeIconTemplate);
   }
 }
@@ -81839,7 +82085,7 @@ function Dialog_div_0_div_1_div_3_button_6_ng_container_3_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r18 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r18.maximizeIconTemplate);
   }
 }
@@ -81857,7 +82103,7 @@ function Dialog_div_0_div_1_div_3_button_6_ng_container_4_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r19 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r19.minimizeIconTemplate);
   }
 }
@@ -81883,13 +82129,13 @@ function Dialog_div_0_div_1_div_3_button_6_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](5, _c3));
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r14.maximizeIcon && !ctx_r14.maximizeIconTemplate && !ctx_r14.minimizeIconTemplate);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r14.maximizeIcon);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r14.maximized);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r14.maximized);
   }
 }
@@ -81918,9 +82164,9 @@ function Dialog_div_0_div_1_div_3_button_7_ng_container_1_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r29 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r29.closeIcon);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r29.closeIcon);
   }
 }
@@ -81938,7 +82184,7 @@ function Dialog_div_0_div_1_div_3_button_7_span_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r30 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r30.closeIconTemplate);
   }
 }
@@ -81965,9 +82211,9 @@ function Dialog_div_0_div_1_div_3_button_7_Template(rf, ctx) {
     const ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](5, _c4));
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("aria-label", ctx_r15.closeAriaLabel)("tabindex", ctx_r15.closeTabindex);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r15.closeIconTemplate);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r15.closeIconTemplate);
   }
 }
@@ -81989,13 +82235,13 @@ function Dialog_div_0_div_1_div_3_Template(rf, ctx) {
     const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r4.headerFacet && !ctx_r4.headerTemplate);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r4.headerFacet);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r4.headerTemplate);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r4.maximizable);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r4.closable);
   }
 }
@@ -82065,14 +82311,14 @@ function Dialog_div_0_div_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("aria-labelledby", ctx_r1.id + "-label");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.resizable);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.showHeader);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx_r1.contentStyleClass);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", "p-dialog-content")("ngStyle", ctx_r1.contentStyle);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r1.contentTemplate);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.footerFacet || ctx_r1.footerTemplate);
   }
 }
@@ -82099,7 +82345,7 @@ function Dialog_div_0_Template(rf, ctx) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx_r0.maskStyleClass);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunctionV"](4, _c8, [ctx_r0.modal, ctx_r0.modal || ctx_r0.blockScroll, ctx_r0.position === "left", ctx_r0.position === "right", ctx_r0.position === "top", ctx_r0.position === "topleft" || ctx_r0.position === "top-left", ctx_r0.position === "topright" || ctx_r0.position === "top-right", ctx_r0.position === "bottom", ctx_r0.position === "bottomleft" || ctx_r0.position === "bottom-left", ctx_r0.position === "bottomright" || ctx_r0.position === "bottom-right"]));
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.visible);
   }
 }
@@ -83031,9 +83277,9 @@ DialogModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["
 
 /***/ }),
 
-/***/ 8359:
+/***/ 4001:
 /*!*************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-dom.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-dom.mjs ***!
   \*************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -83636,9 +83882,9 @@ class ConnectedOverlayScrollHandler {
 
 /***/ }),
 
-/***/ 1502:
+/***/ 983:
 /*!*******************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-focustrap.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-focustrap.mjs ***!
   \*******************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -83647,9 +83893,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   FocusTrap: () => (/* binding */ FocusTrap),
 /* harmony export */   FocusTrapModule: () => (/* binding */ FocusTrapModule)
 /* harmony export */ });
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/dom */ 8359);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
+/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/dom */ 4001);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
 
 
 
@@ -83745,9 +83991,9 @@ FocusTrapModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1_
 
 /***/ }),
 
-/***/ 2365:
+/***/ 4028:
 /*!*************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-icons-chevronup.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-icons-chevronup.mjs ***!
   \*************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -83755,8 +84001,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ChevronUpIcon: () => (/* binding */ ChevronUpIcon)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 6728);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 9065);
 
 
 
@@ -83817,9 +84063,9 @@ ChevronUpIcon.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__[
 
 /***/ }),
 
-/***/ 7684:
+/***/ 9671:
 /*!*********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-icons-minus.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-icons-minus.mjs ***!
   \*********************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -83827,9 +84073,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   MinusIcon: () => (/* binding */ MinusIcon)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 6728);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 9065);
 
 
 
@@ -83892,9 +84138,9 @@ MinusIcon.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵ�
 
 /***/ }),
 
-/***/ 5363:
+/***/ 4458:
 /*!********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-icons-plus.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-icons-plus.mjs ***!
   \********************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -83902,8 +84148,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   PlusIcon: () => (/* binding */ PlusIcon)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 6728);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 9065);
 
 
 
@@ -83974,9 +84220,9 @@ PlusIcon.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵ
 
 /***/ }),
 
-/***/ 2752:
+/***/ 6176:
 /*!***********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-icons-spinner.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-icons-spinner.mjs ***!
   \***********************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -83984,8 +84230,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   SpinnerIcon: () => (/* binding */ SpinnerIcon)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 6728);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 9065);
 
 
 
@@ -84056,9 +84302,9 @@ SpinnerIcon.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["�
 
 /***/ }),
 
-/***/ 5833:
+/***/ 2759:
 /*!*********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-icons-times.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-icons-times.mjs ***!
   \*********************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -84066,8 +84312,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TimesIcon: () => (/* binding */ TimesIcon)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 6728);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 9065);
 
 
 
@@ -84128,9 +84374,9 @@ TimesIcon.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵ�
 
 /***/ }),
 
-/***/ 5638:
+/***/ 4248:
 /*!***************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-icons-timescircle.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-icons-timescircle.mjs ***!
   \***************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -84138,8 +84384,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TimesCircleIcon: () => (/* binding */ TimesCircleIcon)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 6728);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 9065);
 
 
 
@@ -84212,9 +84458,9 @@ TimesCircleIcon.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_1_
 
 /***/ }),
 
-/***/ 4738:
+/***/ 4803:
 /*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-icons-windowmaximize.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-icons-windowmaximize.mjs ***!
   \******************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -84222,8 +84468,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   WindowMaximizeIcon: () => (/* binding */ WindowMaximizeIcon)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 6728);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 9065);
 
 
 
@@ -84296,9 +84542,9 @@ WindowMaximizeIcon.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE
 
 /***/ }),
 
-/***/ 3256:
+/***/ 9925:
 /*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-icons-windowminimize.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-icons-windowminimize.mjs ***!
   \******************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -84306,8 +84552,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   WindowMinimizeIcon: () => (/* binding */ WindowMinimizeIcon)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 6728);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var primeng_baseicon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/baseicon */ 9065);
 
 
 
@@ -84380,9 +84626,9 @@ WindowMinimizeIcon.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE
 
 /***/ }),
 
-/***/ 7974:
+/***/ 9014:
 /*!*********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-inputswitch.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-inputswitch.mjs ***!
   \*********************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -84392,9 +84638,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   InputSwitch: () => (/* binding */ InputSwitch),
 /* harmony export */   InputSwitchModule: () => (/* binding */ InputSwitchModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ 9010);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ 1707);
 
 
 
@@ -84641,9 +84887,9 @@ InputSwitchModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_
 
 /***/ }),
 
-/***/ 5862:
+/***/ 8214:
 /*!**************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-menu.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-menu.mjs ***!
   \**************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -84653,15 +84899,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   MenuItemContent: () => (/* binding */ MenuItemContent),
 /* harmony export */   MenuModule: () => (/* binding */ MenuModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/animations */ 9461);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ 8359);
-/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/utils */ 4933);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 1330);
-/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/ripple */ 9246);
-/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/tooltip */ 8465);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/api */ 7340);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/animations */ 5377);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ 4001);
+/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/utils */ 6876);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 2596);
+/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/ripple */ 3510);
+/* harmony import */ var primeng_tooltip__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/tooltip */ 7165);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/api */ 7821);
 
 
 
@@ -84695,7 +84941,7 @@ function MenuItemContent_a_0_span_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r3.item.label);
   }
 }
@@ -84717,7 +84963,7 @@ function MenuItemContent_a_0_span_5_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", ctx_r6.item.badgeStyleClass);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r6.item.badge);
   }
 }
@@ -84745,9 +84991,9 @@ function MenuItemContent_a_0_Template(rf, ctx) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("target", ctx_r0.item.target)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](12, _c1, ctx_r0.item.disabled))("target", ctx_r0.item.target);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("href", ctx_r0.item.url || null, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"])("tabindex", ctx_r0.item.disabled ? null : "0")("data-automationid", ctx_r0.item.automationId)("title", ctx_r0.item.title)("id", ctx_r0.item.id);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.item.icon);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.item.escape !== false)("ngIfElse", _r5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.item.badge);
@@ -84770,7 +85016,7 @@ function MenuItemContent_a_1_span_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r11.item.label);
   }
 }
@@ -84792,7 +85038,7 @@ function MenuItemContent_a_1_span_5_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", ctx_r14.item.badgeStyleClass);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r14.item.badge);
   }
 }
@@ -84820,9 +85066,9 @@ function MenuItemContent_a_1_Template(rf, ctx) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", ctx_r1.item.routerLink)("queryParams", ctx_r1.item.queryParams)("routerLinkActive", "p-menuitem-link-active")("routerLinkActiveOptions", ctx_r1.item.routerLinkActiveOptions || _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](20, _c2))("target", ctx_r1.item.target)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](21, _c1, ctx_r1.item.disabled))("fragment", ctx_r1.item.fragment)("queryParamsHandling", ctx_r1.item.queryParamsHandling)("preserveFragment", ctx_r1.item.preserveFragment)("skipLocationChange", ctx_r1.item.skipLocationChange)("replaceUrl", ctx_r1.item.replaceUrl)("state", ctx_r1.item.state);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("data-automationid", ctx_r1.item.automationId)("id", ctx_r1.item.id)("tabindex", ctx_r1.item.disabled ? null : "0")("title", ctx_r1.item.title);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.item.icon);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.item.escape !== false)("ngIfElse", _r13);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.item.badge);
@@ -84849,7 +85095,7 @@ function Menu_div_0_3_ng_template_0_li_1_span_1_Template(rf, ctx) {
   }
   if (rf & 2) {
     const submenu_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](submenu_r5.label);
   }
 }
@@ -84877,7 +85123,7 @@ function Menu_div_0_3_ng_template_0_li_1_Template(rf, ctx) {
     const submenu_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](5, _c5, submenu_r5.visible === false, submenu_r5.visible))("tooltipOptions", submenu_r5.tooltipOptions);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("data-automationid", submenu_r5.automationId);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", submenu_r5.escape !== false)("ngIfElse", _r12);
   }
 }
@@ -84909,7 +85155,7 @@ function Menu_div_0_3_ng_template_0_ng_template_2_Template(rf, ctx) {
   if (rf & 2) {
     const item_r16 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", item_r16.separator);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !item_r16.separator);
   }
 }
@@ -84920,9 +85166,9 @@ function Menu_div_0_3_ng_template_0_Template(rf, ctx) {
   if (rf & 2) {
     const submenu_r5 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", submenu_r5.separator);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !submenu_r5.separator);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", submenu_r5.items);
   }
 }
@@ -84961,7 +85207,7 @@ function Menu_div_0_4_ng_template_0_Template(rf, ctx) {
   if (rf & 2) {
     const item_r24 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", item_r24.separator);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !item_r24.separator);
   }
 }
@@ -85013,7 +85259,7 @@ function Menu_div_0_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](8, _c6, ctx_r0.popup))("ngStyle", ctx_r0.style)("@overlayAnimation", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](13, _c8, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](10, _c7, ctx_r0.showTransitionOptions, ctx_r0.hideTransitionOptions)))("@.disabled", ctx_r0.popup !== true);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.hasSubMenu());
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r0.hasSubMenu());
   }
 }
@@ -85066,7 +85312,7 @@ MenuItemContent.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0_
   selectors: [["", "pMenuItemContent", ""]],
   hostAttrs: [1, "p-element"],
   inputs: {
-    item: ["pMenuItemContent", "item"]
+    item: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInputFlags"].None, "pMenuItemContent", "item"]
   },
   attrs: _c0,
   decls: 2,
@@ -85078,7 +85324,7 @@ MenuItemContent.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0_
     }
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.item.routerLink);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.item.routerLink);
     }
   },
@@ -85576,9 +85822,9 @@ MenuModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
 
 /***/ }),
 
-/***/ 4118:
+/***/ 5903:
 /*!***************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-panel.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-panel.mjs ***!
   \***************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -85587,13 +85833,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Panel: () => (/* binding */ Panel),
 /* harmony export */   PanelModule: () => (/* binding */ PanelModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/api */ 7340);
-/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/ripple */ 9246);
-/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/animations */ 9461);
-/* harmony import */ var primeng_icons_minus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/icons/minus */ 7684);
-/* harmony import */ var primeng_icons_plus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/icons/plus */ 5363);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/api */ 7821);
+/* harmony import */ var primeng_ripple__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/ripple */ 3510);
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/animations */ 5377);
+/* harmony import */ var primeng_icons_minus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/icons/minus */ 9671);
+/* harmony import */ var primeng_icons_plus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/icons/plus */ 4458);
 
 
 
@@ -85613,7 +85859,7 @@ function Panel_div_1_span_1_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("id", ctx_r3.id + "_header");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r3.header);
   }
 }
@@ -85655,9 +85901,9 @@ function Panel_div_1_button_6_ng_container_1_ng_container_1_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r10.collapseIcon);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r10.collapseIcon);
   }
 }
@@ -85688,9 +85934,9 @@ function Panel_div_1_button_6_ng_container_1_ng_container_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r11.expandIcon);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r11.expandIcon);
   }
 }
@@ -85702,9 +85948,9 @@ function Panel_div_1_button_6_ng_container_1_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r8.collapsed);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r8.collapsed);
   }
 }
@@ -85736,9 +85982,9 @@ function Panel_div_1_button_6_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("aria-label", "collapse button")("id", ctx_r6.id + "-label")("aria-controls", ctx_r6.id + "-content")("aria-expanded", !ctx_r6.collapsed);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r6.headerIconTemplate);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r6.headerIconTemplate)("ngTemplateOutletContext", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](7, _c0, ctx_r6.collapsed));
   }
 }
@@ -85766,15 +86012,15 @@ function Panel_div_1_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("id", ctx_r0.id + "-titlebar");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.header);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r0.headerTemplate);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction3"](6, _c1, ctx_r0.iconPos === "start", ctx_r0.iconPos === "end", ctx_r0.iconPos === "center"));
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r0.iconTemplate);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.toggleable);
   }
 }
@@ -85967,14 +86213,14 @@ Panel.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx.styleClass);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](12, _c3, ctx.toggleable, !ctx.collapsed && ctx.toggleable))("ngStyle", ctx.style);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("id", ctx.id);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showHeader);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("@panelContent", ctx.collapsed ? _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](17, _c5, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](15, _c4, ctx.animating ? ctx.transitionOptions : "0ms")) : _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](21, _c7, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](19, _c6, ctx.animating ? ctx.transitionOptions : "0ms")));
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("id", ctx.id + "-content")("aria-hidden", ctx.collapsed)("aria-labelledby", ctx.id + "-titlebar");
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx.contentTemplate);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.footerFacet || ctx.footerTemplate);
     }
   },
@@ -86168,9 +86414,9 @@ PanelModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["�
 
 /***/ }),
 
-/***/ 202:
+/***/ 4747:
 /*!*********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-progressbar.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-progressbar.mjs ***!
   \*********************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -86179,8 +86425,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ProgressBar: () => (/* binding */ ProgressBar),
 /* harmony export */   ProgressBarModule: () => (/* binding */ ProgressBarModule)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
 
 
 
@@ -86194,7 +86440,7 @@ function ProgressBar_div_1_div_1_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("display", ctx_r2.value != null && ctx_r2.value !== 0 ? "flex" : "none");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", ctx_r2.value, "", ctx_r2.unit, "");
   }
 }
@@ -86207,7 +86453,7 @@ function ProgressBar_div_1_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("width", ctx_r0.value + "%")("background", ctx_r0.color);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.showValue);
   }
 }
@@ -86219,7 +86465,7 @@ function ProgressBar_div_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("background", ctx_r1.color);
   }
 }
@@ -86264,9 +86510,9 @@ ProgressBar.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["�
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx.styleClass);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngStyle", ctx.style)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](7, _c0, ctx.mode === "determinate", ctx.mode === "indeterminate"));
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("aria-valuenow", ctx.value);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.mode === "determinate");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.mode === "indeterminate");
     }
   },
@@ -86359,9 +86605,9 @@ ProgressBarModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_
 
 /***/ }),
 
-/***/ 8132:
+/***/ 7:
 /*!*************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-progressspinner.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-progressspinner.mjs ***!
   \*************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -86370,8 +86616,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ProgressSpinner: () => (/* binding */ ProgressSpinner),
 /* harmony export */   ProgressSpinnerModule: () => (/* binding */ ProgressSpinnerModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 912);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 4290);
 
 
 
@@ -86410,9 +86656,9 @@ ProgressSpinner.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0_
     }
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngStyle", ctx.style)("ngClass", ctx.styleClass);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("animation-duration", ctx.animationDuration);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("fill", ctx.fill)("stroke-width", ctx.strokeWidth);
     }
   },
@@ -86488,9 +86734,9 @@ ProgressSpinnerModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MOD
 
 /***/ }),
 
-/***/ 9246:
+/***/ 3510:
 /*!****************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-ripple.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-ripple.mjs ***!
   \****************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -86499,10 +86745,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Ripple: () => (/* binding */ Ripple),
 /* harmony export */   RippleModule: () => (/* binding */ RippleModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ 8359);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/api */ 7340);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ 4001);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/api */ 7821);
 
 
 
@@ -86670,9 +86916,9 @@ RippleModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_2__["
 
 /***/ }),
 
-/***/ 1640:
+/***/ 8823:
 /*!*******************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-scrolltop.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-scrolltop.mjs ***!
   \*******************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -86681,13 +86927,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ScrollTop: () => (/* binding */ ScrollTop),
 /* harmony export */   ScrollTopModule: () => (/* binding */ ScrollTopModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/animations */ 9461);
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/dom */ 8359);
-/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/utils */ 4933);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ 7340);
-/* harmony import */ var primeng_icons_chevronup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/icons/chevronup */ 2365);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/animations */ 5377);
+/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/dom */ 4001);
+/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/utils */ 6876);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ 7821);
+/* harmony import */ var primeng_icons_chevronup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/icons/chevronup */ 4028);
 
 
 
@@ -86728,9 +86974,9 @@ function ScrollTop_button_0_ng_container_1_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.icon);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r1.icon);
   }
 }
@@ -86779,9 +87025,9 @@ function ScrollTop_button_0_Template(rf, ctx) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx_r0.styleClass);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("@animation", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](11, _c2, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](8, _c1, ctx_r0.showTransitionOptions, ctx_r0.hideTransitionOptions)))("ngClass", ctx_r0.containerClass())("ngStyle", ctx_r0.style);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r0.iconTemplate);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r0.iconTemplate)("ngTemplateOutletContext", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](13, _c3));
   }
 }
@@ -87050,9 +87296,9 @@ ScrollTopModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0_
 
 /***/ }),
 
-/***/ 2963:
+/***/ 4686:
 /*!*************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-tag.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-tag.mjs ***!
   \*************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -87061,9 +87307,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Tag: () => (/* binding */ Tag),
 /* harmony export */   TagModule: () => (/* binding */ TagModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/api */ 7340);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/api */ 7821);
 
 
 
@@ -87086,7 +87332,7 @@ function Tag_ng_container_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.icon);
   }
 }
@@ -87104,7 +87350,7 @@ function Tag_span_3_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r1.iconTemplate);
   }
 }
@@ -87173,7 +87419,7 @@ Tag.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", ctx.containerClass())("ngStyle", ctx.style);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.iconTemplate);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.iconTemplate);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.value);
@@ -87263,9 +87509,9 @@ TagModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
 
 /***/ }),
 
-/***/ 6816:
+/***/ 9547:
 /*!******************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-timeline.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-timeline.mjs ***!
   \******************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -87274,9 +87520,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Timeline: () => (/* binding */ Timeline),
 /* harmony export */   TimelineModule: () => (/* binding */ TimelineModule)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/api */ 7340);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/api */ 7821);
 
 
 
@@ -87304,7 +87550,7 @@ function Timeline_div_1_ng_container_4_Template(rf, ctx) {
   if (rf & 2) {
     const event_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
     const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngTemplateOutlet", ctx_r4.markerTemplate)("ngTemplateOutletContext", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](2, _c0, event_r1));
   }
 }
@@ -87420,7 +87666,7 @@ Timeline.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx.styleClass);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngStyle", ctx.style)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction7"](5, _c1, ctx.align === "left", ctx.align === "right", ctx.align === "top", ctx.align === "bottom", ctx.align === "alternate", ctx.layout === "vertical", ctx.layout === "horizontal"));
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.value);
     }
   },
@@ -87531,9 +87777,9 @@ TimelineModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_0__
 
 /***/ }),
 
-/***/ 8465:
+/***/ 7165:
 /*!*****************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-tooltip.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-tooltip.mjs ***!
   \*****************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -87542,11 +87788,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Tooltip: () => (/* binding */ Tooltip),
 /* harmony export */   TooltipModule: () => (/* binding */ TooltipModule)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ 912);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 8559);
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ 8359);
-/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/utils */ 4933);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ 7340);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ 4290);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 3646);
+/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ 4001);
+/* harmony import */ var primeng_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/utils */ 6876);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ 7821);
 
 
 
@@ -88070,8 +88316,8 @@ Tooltip.ɵdir = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵd
     autoHide: "autoHide",
     fitContent: "fitContent",
     hideOnEscape: "hideOnEscape",
-    text: ["pTooltip", "text"],
-    disabled: ["tooltipDisabled", "disabled"],
+    text: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵInputFlags"].None, "pTooltip", "text"],
+    disabled: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵInputFlags"].None, "tooltipDisabled", "disabled"],
     tooltipOptions: "tooltipOptions"
   },
   features: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵNgOnChangesFeature"]]
@@ -88196,9 +88442,9 @@ TooltipModule.ɵinj = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE_3__[
 
 /***/ }),
 
-/***/ 4933:
+/***/ 6876:
 /*!***************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.0.8_@angular+core@17.0.8_@angular+forms@17.0.8_rxjs@7.8.1_zone.js@0.14.2/node_modules/primeng/fesm2020/primeng-utils.mjs ***!
+  !*** ./node_modules/.pnpm/primeng@15.4.1_@angular+common@17.1.2_@angular+core@17.1.2_@angular+forms@17.1.2_rxjs@7.8.1_zone.js@0.14.3/node_modules/primeng/fesm2020/primeng-utils.mjs ***!
   \***************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -88419,9 +88665,9 @@ var zindexutils = ZIndexUtils();
 
 /***/ }),
 
-/***/ 2542:
+/***/ 6638:
 /*!**************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js ***!
+  !*** ./node_modules/.pnpm/@babel+runtime@7.23.7/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js ***!
   \**************************************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
@@ -88462,7 +88708,7 @@ function _asyncToGenerator(fn) {
 
 /***/ }),
 
-/***/ 106:
+/***/ 1899:
 /*!*************************************************************************!*\
   !*** ./node_modules/.pnpm/tslib@2.6.2/node_modules/tslib/tslib.es6.mjs ***!
   \*************************************************************************/
