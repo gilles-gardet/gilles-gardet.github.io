@@ -7749,26 +7749,29 @@ html body ul li {
   .pagebreak-before {
     page-break-before: always;
   }
-  .p-card {
-    box-shadow: none !important;
-    border: 1px solid #dee2e6;
-  }
   cv-missions > p-panel > div,
   cv-hobbies > p-panel > div {
     page-break-before: always;
     padding-top: 2rem;
   }
-  .customized-timeline.p-timeline {
-    display: block;
+  cv-missions > p-panel .p-panel-header {
+    display: none;
   }
-  .customized-timeline .p-timeline-event,
-  .customized-timeline .p-card .p-card-body {
+  cv-missions > p-panel .p-panel .p-panel-content {
+    border: unset;
+  }
+  cv-missions > p-panel .mission__title {
+    color: hsl(214, 18%, 15%);
+  }
+  .customized-timeline.p-timeline {
+    display: flex;
+    gap: 2rem;
+    align-content: space-evenly;
+  }
+  .customized-timeline .p-timeline-event {
     page-break-inside: avoid;
     page-break-after: auto;
     page-break-before: auto;
-  }
-  .customized-timeline .p-timeline-event:not(:first-child) {
-    padding-top: 2rem;
   }
   .customized-timeline .p-timeline-event-separator {
     display: none;
@@ -7776,9 +7779,6 @@ html body ul li {
   .customized-timeline .p-timeline-event-opposite {
     flex: 0;
     padding: 0 !important;
-  }
-  .customized-timeline .p-card {
-    margin-top: 1rem;
   }
   .customized-timeline .p-timeline-event:nth-child(even) {
     flex-direction: row !important;

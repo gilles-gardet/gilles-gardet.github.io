@@ -1278,7 +1278,7 @@ class MissionsComponent {
     features: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵStandaloneFeature"]],
     decls: 5,
     vars: 4,
-    consts: [["id", "experience", 3, "header"], ["align", "alternate", "styleClass", "customized-timeline", 3, "value"], ["pTemplate", "marker"], ["pTemplate", "content"], [1, "custom-marker"], [3, "ngClass"], [1, "flex", "flex-col", "mt-4", "p-4", "gap-4"], [1, "flex", "flex-col"], [1, "text-2xl", "font-bold", "mb-2", "text-center"], [1, "font-normal", "mb-2", "text-center"], [1, "flex", "flex-col", "pb-4", "gap-4", "text-start"], [3, "innerHTML"], [1, "mission__button"], [3, "click"]],
+    consts: [["id", "experience", 3, "header"], ["align", "alternate", "styleClass", "customized-timeline", 3, "value"], ["pTemplate", "marker"], ["pTemplate", "content"], [1, "custom-marker"], [3, "ngClass"], [1, "flex", "flex-col", "mt-4", "p-4", "gap-4"], [1, "flex", "flex-col"], [1, "text-2xl", "font-bold", "mb-2", "text-center", "mission__title"], [1, "font-normal", "mb-2", "text-center"], [1, "flex", "flex-col", "pb-4", "gap-4", "text-start"], [3, "innerHTML"], [1, "mission__button"], [3, "click"]],
     template: function MissionsComponent_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "p-panel", 0);
