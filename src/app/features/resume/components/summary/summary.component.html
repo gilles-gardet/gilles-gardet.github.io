@@ -1,3 +1,5 @@
-<p-panel id="summary" [header]="'cv.summary.panelTitle' | translate">
-  <div class="summary" [innerHTML]="'cv.summary.content' | translate: { value: yearsOfExperience }"></div>
-</p-panel>
+<ng-container *transloco="let translate">
+  <p-panel id="summary" [header]="translate('cv.summary.panelTitle')">
+    <div class="summary" [innerHTML]="translate('cv.summary.content', { value: yearsOfExperience })"></div>
+  </p-panel>
+</ng-container>

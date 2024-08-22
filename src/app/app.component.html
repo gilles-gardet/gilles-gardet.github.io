@@ -1,4 +1,4 @@
-@if (isLoading$()) {
+@if (isLoading$ | async) {
   <p-progressSpinner strokeWidth="6" styleClass="spinner"></p-progressSpinner>
 } @else {
   <div id="container">

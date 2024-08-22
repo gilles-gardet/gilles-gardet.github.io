@@ -6,14 +6,12 @@ import {
   HostListener,
   inject,
   OnInit,
-  Signal,
   ViewEncapsulation,
 } from '@angular/core';
 import { GeneralComponent } from '@features/general/components/general/general.component';
 import { ResumeComponent } from '@features/resume/components/resume/resume.component';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { CommonModule, NgClass, NgIf } from '@angular/common';
-import { TranslateService } from '@ngx-translate/core';
 import { EMPTY_STRING, isBlank } from '@core/utils/string.utils';
 import { ConfigService, LANGUAGE_KEY } from '@core/services/config.service';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
@@ -21,6 +19,7 @@ import { BlockUIModule } from 'primeng/blockui';
 import { switchMap, tap } from 'rxjs/operators';
 import { Observable, timer } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { TranslocoService } from '@jsverse/transloco';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -41,26 +40,26 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
-  private readonly translateService: TranslateService = inject(TranslateService);
+  private readonly translocoService: TranslocoService = inject(TranslocoService);
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   private readonly configService: ConfigService = inject(ConfigService);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   protected language: string = EMPTY_STRING;
-  protected isLoading$: Signal<boolean> = this.configService.loading$;
+  protected isLoading$: Observable<boolean>;
 
   /**
    * @constructor
    */
   constructor() {
-    this.translateService.addLangs(['fr', 'en']);
     this._initLanguagePreference();
+    this.isLoading$ = this.configService.loading$;
   }
 
   /**
    * @inheritDoc
    */
   ngOnInit(): void {
-    const language$: Observable<unknown> = this.translateService.onLangChange.pipe(
+    const language$: Observable<unknown> = this.translocoService.langChanges$.pipe(
       tap((): void => this.configService.setLoading$(true)),
       switchMap(() => timer(600)),
       tap((): void => this.configService.setLoading$(false)),
@@ -90,12 +89,12 @@ export class AppComponent implements OnInit {
     const languageKey: string = localStorage.getItem(LANGUAGE_KEY) ?? 'en';
     let sessionLanguage: string;
     if (isBlank(languageKey) || !/en|fr/.exec(languageKey)) {
-      const browserLang: string = this.translateService.getBrowserLang() ?? 'en';
+      const browserLang: string = navigator.language ?? 'en';
       sessionLanguage = /en|fr/.exec(browserLang) ? browserLang : 'en';
     } else {
       sessionLanguage = languageKey;
     }
-    this._changeLanguage(sessionLanguage);
+    this._setLanguage(sessionLanguage);
   }
 
   /**
@@ -103,8 +102,8 @@ export class AppComponent implements OnInit {
    *
    * @param language the new language to be set
    */
-  private _changeLanguage(language: string): void {
-    this.translateService.use(language);
+  private _setLanguage(language: string): void {
+    this.translocoService.setActiveLang(language);
     this.language = language;
     if (localStorage.getItem(LANGUAGE_KEY) !== language) {
       localStorage.setItem(LANGUAGE_KEY, this.language);

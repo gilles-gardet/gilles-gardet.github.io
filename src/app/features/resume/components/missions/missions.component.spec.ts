@@ -9,11 +9,12 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { SharedModule } from '@shared/shared.module';
 import { TagModule } from 'primeng/tag';
 import { TimelineModule } from 'primeng/timeline';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MissionsComponent } from '@features/resume/components/missions/missions.component';
 import { Mission } from '@core/models/mission.model';
-import { TranslateModule } from '@ngx-translate/core';
+import { getTranslocoModule } from '@core/__mock/transloco-testing.module';
+import { provideHttpClient } from '@angular/common/http';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
   observe: (): unknown => null,
@@ -30,7 +31,6 @@ describe('MissionsComponent', () => {
         CardModule,
         CommonModule,
         DialogModule,
-        HttpClientTestingModule,
         MarkdownModule.forRoot(),
         PanelModule,
         ProgressBarModule,
@@ -38,9 +38,9 @@ describe('MissionsComponent', () => {
         SharedModule,
         TagModule,
         TimelineModule,
-        TranslateModule.forRoot(),
+        getTranslocoModule(),
       ],
-      providers: [MarkdownService],
+      providers: [MarkdownService, provideHttpClient(), provideHttpClientTesting()],
     }).compileComponents();
     componentFixture = TestBed.createComponent(MissionsComponent);
     missionsComponent = componentFixture.componentInstance;

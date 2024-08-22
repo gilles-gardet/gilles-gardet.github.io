@@ -9,13 +9,13 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { SharedModule } from '@shared/shared.module';
 import { TagModule } from 'primeng/tag';
 import { TimelineModule } from 'primeng/timeline';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
 import { Mission } from '@core/models/mission.model';
 import { DetailsComponent } from '@features/resume/components/details/details.component';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MissionService } from '@core/services/mission.service';
+import { getTranslocoModule } from "@core/__mock/transloco-testing.module";
+import { TranslocoService } from "@jsverse/transloco";
 
 describe('DetailsComponent', (): void => {
   let detailsComponent: DetailsComponent;
@@ -29,7 +29,6 @@ describe('DetailsComponent', (): void => {
         CardModule,
         CommonModule,
         DialogModule,
-        HttpClientTestingModule,
         MarkdownModule.forRoot(),
         PanelModule,
         ProgressBarModule,
@@ -37,11 +36,10 @@ describe('DetailsComponent', (): void => {
         SharedModule,
         TagModule,
         TimelineModule,
-        TranslateModule.forRoot(),
+        getTranslocoModule(),
       ],
       providers: [
         MarkdownService,
-        { provide: TranslateService, useValue: { currentLang: 'en' } },
         {
           provide: MissionService,
           useValue: {

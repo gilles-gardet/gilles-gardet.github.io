@@ -1,12 +1,12 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input } from "@angular/core";
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input } from '@angular/core';
 import { Skill } from '@core/models/skill.model';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { PanelModule } from 'primeng/panel';
 import { SharedModule } from '@shared/shared.module';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
-  imports: [PanelModule, ProgressBarModule, SharedModule, TranslateModule],
+  imports: [PanelModule, ProgressBarModule, SharedModule, TranslocoDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'cv-skills',
   standalone: true,
@@ -22,6 +22,7 @@ export class SkillsComponent implements AfterViewInit {
   public get skills(): Skill[] {
     return this._skills;
   }
+
   public set skills(value: Skill[]) {
     this._skills = value;
     this.changeDetectorRef.markForCheck();
@@ -31,6 +32,7 @@ export class SkillsComponent implements AfterViewInit {
   public get clones(): Skill[] {
     return this._clones;
   }
+
   public set clones(value: Skill[]) {
     this._clones = value;
     this.changeDetectorRef.markForCheck();

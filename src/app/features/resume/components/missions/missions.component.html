@@ -1,27 +1,29 @@
-<p-panel id="experience" [header]="'cv.missions.panelTitle' | translate">
-  <p-timeline [value]="missions" align="alternate" styleClass="customized-timeline">
-    <ng-template pTemplate="marker">
+<ng-container *transloco="let translate">
+  <p-panel id="experience" [header]="translate('cv.missions.panelTitle')">
+    <p-timeline [value]="missions" align="alternate" styleClass="customized-timeline">
+      <ng-template pTemplate="marker">
       <span class="custom-marker" [style.background-color]="'#495057'">
         <i [ngClass]="'pi pi-bookmark'"></i>
       </span>
-    </ng-template>
-    <ng-template pTemplate="content" let-mission>
-      <div class="flex flex-col mt-4 p-4 gap-4">
-        <div class="flex flex-col">
+      </ng-template>
+      <ng-template pTemplate="content" let-mission>
+        <div class="flex flex-col mt-4 p-4 gap-4">
+          <div class="flex flex-col">
           <span class="text-2xl	font-bold	mb-2 text-center mission__title">
             {{ mission['client'] }}
           </span>
-          <span class="font-normal mb-2 text-center" [style.color]="'#6c757d'">
+            <span class="font-normal mb-2 text-center" [style.color]="'#6c757d'">
             {{ mission['timelapse'] }}
           </span>
-        </div>
-        <div class="flex flex-col pb-4 gap-4 text-start">
-          <markdown [innerHTML]="mission.description"></markdown>
-          <div class="mission__button">
-            <cv-slide-button (click)="emitOpenMissionDialog(mission)"></cv-slide-button>
+          </div>
+          <div class="flex flex-col pb-4 gap-4 text-start">
+            <markdown [innerHTML]="mission.description"></markdown>
+            <div class="mission__button">
+              <cv-slide-button (click)="emitOpenMissionDialog(mission)"></cv-slide-button>
+            </div>
           </div>
         </div>
-      </div>
-    </ng-template>
-  </p-timeline>
-</p-panel>
+      </ng-template>
+    </p-timeline>
+  </p-panel>
+</ng-container>

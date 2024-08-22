@@ -2,17 +2,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { GeneralComponent } from '@features/general/components/general/general.component';
 import { ChangeDetectorRef, Component, NO_ERRORS_SCHEMA } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { of } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 import { ResumeComponent } from '@features/resume/components/resume/resume.component';
-import { ConfigService } from "@core/services/config.service";
+import { ConfigService } from '@core/services/config.service';
+import { TranslocoService } from '@jsverse/transloco';
 
-const translateServiceMock: unknown = {
-  addLangs: jest.fn(),
-  use: jest.fn(),
-  getBrowserLang: jest.fn().mockReturnValue('fr'),
+const translocoServiceMock: unknown = {
+  setActiveLang: jest.fn(),
 };
-Object.defineProperty(translateServiceMock, 'onLangChange', { get: jest.fn(() => of({ lang: 'en' })) });
+Object.defineProperty(translocoServiceMock, 'langChanges$', { get: jest.fn(() => of({ lang: 'en' })) });
 
 @Component({
   selector: 'cv-general',
@@ -37,7 +35,11 @@ describe(AppComponent.name, (): void => {
         providers: [
           ConfigService,
           { provide: ChangeDetectorRef, useValue: { markForCheck: jest.fn() } },
-          { provide: TranslateService, useValue: translateServiceMock },
+          { provide: Navigator, useValue: { language: 'en' } },
+          {
+            provide: TranslocoService,
+            useValue: { setActiveLang: jest.fn(), langChanges$: of('fr') },
+          },
         ],
         imports: [FakeGeneralComponent, FakeResumeComponent],
         schemas: [NO_ERRORS_SCHEMA],

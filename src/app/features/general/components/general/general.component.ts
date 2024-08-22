@@ -1,14 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DestroyRef,
-  effect,
-  HostListener,
-  inject,
-  Injector,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
 import { ConfigService, DARK_THEME, LANGUAGE_KEY, LIGHT_THEME, THEME_KEY } from '@core/services/config.service';
 import { tap } from 'rxjs/operators';
 import { AvatarModule } from 'primeng/avatar';
@@ -21,11 +11,13 @@ import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { SharedModule } from '@shared/shared.module';
 import { Menu, MenuModule } from 'primeng/menu';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MenuItem } from 'primeng/api';
 import { environment } from '@environments/environment';
 import { MissionService } from '@core/services/mission.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { combineLatest } from 'rxjs';
+import { Contact } from '@core/models/contact.model';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -40,7 +32,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     RippleModule,
     SharedModule,
     TooltipModule,
-    TranslateModule,
+    TranslocoDirective,
   ],
   selector: 'cv-general',
   standalone: true,
@@ -49,10 +41,9 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class GeneralComponent implements OnInit {
   private readonly configService: ConfigService = inject(ConfigService);
-  private readonly translateService: TranslateService = inject(TranslateService);
+  private readonly translocoService: TranslocoService = inject(TranslocoService);
   private readonly missionService: MissionService = inject(MissionService);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
-  private readonly injector: Injector = inject(Injector);
   protected isDarkTheme: boolean | undefined;
   protected menuItems: MenuItem[] = [];
 
@@ -70,42 +61,44 @@ export class GeneralComponent implements OnInit {
    * @inheritDoc
    */
   ngOnInit() {
-    this._initMenuItems();
-    this.translateService.onLangChange
+    const contactTranslatedObject$ = this.translocoService
+      .selectTranslateObject('cv.contact')
+      .pipe(tap((contactTranslatedObject) => this._setMenuItems(contactTranslatedObject)));
+    combineLatest([contactTranslatedObject$, this.configService.theme$])
       .pipe(
-        tap(() => this._initMenuItems()),
+        tap(([contactTranslatedObject, theme]) => this.onThemeChange(contactTranslatedObject, theme)),
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe();
-    effect((): void => this.onThemeChange(this.configService.theme$()), { injector: this.injector });
   }
 
   /**
    * Initialize the contextual menu with the default items.
+   *
+   * @param contact the contact translated object
    */
-  private _initMenuItems(): void {
+  private _setMenuItems(contact: Contact): void {
     this.menuItems = [
       {
         label: 'Menu',
         items: [
           {
-            label: this.translateService.instant('cv.contact.menu.items.mode.label', {
-              value: this.translateService.instant(this.isDarkTheme ? 'cv.mode.label.dark' : 'cv.mode.label.light'),
-            }),
+            label: this.isDarkTheme ? contact.menu.items.mode.dark : contact.menu.items.mode.light,
             icon: this.isDarkTheme ? 'pi pi-moon' : 'pi pi-sun',
-            title: this.translateService.instant('cv.contact.menu.items.mode.title'),
-            command: () => this.configService.setTheme$(!this.isDarkTheme ? DARK_THEME : LIGHT_THEME),
+            title: contact.menu.items.mode.title,
+            command: () =>
+              this.isDarkTheme ? this.configService.setTheme$(LIGHT_THEME) : this.configService.setTheme$(DARK_THEME),
           },
           {
-            label: this.translateService.instant('cv.contact.menu.items.language.label'),
+            label: contact.menu.items.language.label,
             icon: 'pi pi-globe',
-            title: this.translateService.instant('cv.contact.menu.items.language.title'),
-            command: () => this.changeLanguage(this.translateService.currentLang === 'fr' ? 'en' : 'fr'),
+            title: contact.menu.items.language.title,
+            command: () => this.changeLanguage(this.translocoService.getActiveLang() === 'fr' ? 'en' : 'fr'),
           },
           {
-            label: this.translateService.instant('cv.contact.menu.items.download.label'),
+            label: contact.menu.items.download.label,
             icon: 'pi pi-download',
-            title: this.translateService.instant('cv.contact.menu.items.download.title'),
+            title: contact.menu.items.download.title,
             command: () => this._downloadCurriculumVitae(),
           },
         ],
@@ -119,7 +112,7 @@ export class GeneralComponent implements OnInit {
    * @param language the new language to be set
    */
   changeLanguage(language: string): void {
-    this.translateService.use(language);
+    this.translocoService.setActiveLang(language);
     if (localStorage.getItem(LANGUAGE_KEY) !== language) {
       localStorage.setItem(LANGUAGE_KEY, language);
     }
@@ -130,35 +123,36 @@ export class GeneralComponent implements OnInit {
    * Listen for the changes on the theme mode selection and apply the CSS theme according to it.
    *
    * @param theme the selected theme (light or dark)
+   * @param contact the contact translated object
    */
-  onThemeChange(theme: string): void {
+  onThemeChange(contact: Contact, theme: string): void {
     if (theme === DARK_THEME) {
-      this._setDarkTheme();
+      this._setDarkTheme(contact);
       return;
     }
-    this._setLightTheme();
+    this._setLightTheme(contact);
   }
 
   /**
    * Set the light theme, chnage its corresponding menu item and store it as a local browser value.
+   *
+   * @param contact the contact translated object
    */
-  private _setLightTheme(): void {
+  private _setLightTheme(contact: Contact): void {
     this.isDarkTheme = false;
     document.documentElement.classList.remove(DARK_THEME);
     localStorage.setItem(THEME_KEY, LIGHT_THEME);
-    const childMenuItem: MenuItem = this._extractChildMenuItem();
-    childMenuItem.label = this.translateService.instant('cv.contact.menu.items.mode.label', {
-      value: this.translateService.instant('cv.mode.label.dark'),
-    });
+    const childMenuItem: MenuItem = this._extractModeMenuItem();
+    childMenuItem.label = contact.menu.items.mode.dark;
     childMenuItem.icon = 'pi pi-moon';
   }
 
   /**
-   * Extract the child menu item from the menu items.
+   * Extract the first child menu item (dark/light mode) from the menu items.
    *
    * @return the child menu item as a {@link MenuItem}
    */
-  private _extractChildMenuItem(): MenuItem {
+  private _extractModeMenuItem(): MenuItem {
     if (!this.menuItems || this.menuItems.length === 0) {
       throw new Error('The menu items are not initialized');
     }
@@ -175,15 +169,15 @@ export class GeneralComponent implements OnInit {
 
   /**
    * Set the dark theme, chnage its corresponding menu item and store it as a local browser value.
+   *
+   * @param contact the contact translated object
    */
-  private _setDarkTheme(): void {
+  private _setDarkTheme(contact: Contact): void {
     this.isDarkTheme = true;
     document.documentElement.classList.add(DARK_THEME);
     localStorage.setItem(THEME_KEY, DARK_THEME);
-    const childMenuItem: MenuItem = this._extractChildMenuItem();
-    childMenuItem.label = this.translateService.instant('cv.contact.menu.items.mode.label', {
-      value: this.translateService.instant('cv.mode.label.light'),
-    });
+    const childMenuItem: MenuItem = this._extractModeMenuItem();
+    childMenuItem.label = contact.menu.items.mode.light;
     childMenuItem.icon = 'pi pi-sun';
   }
 

@@ -1,23 +1,18 @@
 {
   "cv": {
-    "mode": {
-      "label": {
-        "dark": "sombre",
-        "light": "clair"
-      }
-    },
     "contact": {
       "presentation": "Développeur fullstack, curieux par nature et passionné par son métier.",
       "menu": {
         "tooltip": "Afficher le menu",
         "items": {
           "mode": {
-            "label": "Mode {{value}}",
-            "title": "Changer le mode"
+            "title": "Changer le mode",
+            "dark": "Mode sombre",
+            "light": "Mode clair"
           },
           "download": {
             "label": "Télécharger",
-            "title": "Télécharger le CV au format PDF"
+            "title": "{{ label }} le CV au format PDF"
           },
           "language": {
             "label": "English",

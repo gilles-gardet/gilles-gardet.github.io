@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SkillsComponent } from '@features/resume/components/skills/skills.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ChangeDetectorRef } from '@angular/core';
-import { TranslateModule } from "@ngx-translate/core";
+import { getTranslocoModule } from '@core/__mock/transloco-testing.module';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
   observe: (): unknown => null,
@@ -17,7 +17,7 @@ describe('SkillsComponent', (): void => {
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, PanelModule, ProgressBarModule, TranslateModule.forRoot()],
+      imports: [BrowserAnimationsModule, CommonModule, PanelModule, ProgressBarModule, getTranslocoModule()],
       providers: [{ provide: ChangeDetectorRef, useValue: {} }],
     }).compileComponents();
     componentFixture = TestBed.createComponent(SkillsComponent);

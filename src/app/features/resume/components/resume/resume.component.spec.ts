@@ -10,16 +10,17 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { SharedModule } from '@shared/shared.module';
 import { TagModule } from 'primeng/tag';
 import { TimelineModule } from 'primeng/timeline';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Mission } from '@core/models/mission.model';
-import { TranslateModule } from '@ngx-translate/core';
 import { MissionService } from '@core/services/mission.service';
 import { of } from 'rxjs';
 import { Skill } from '@core/models/skill.model';
 import mockMissions from '@assets/resume/missions.json';
 import mockSkills from '@assets/resume/skills.json';
-import { ConfigService } from "@core/services/config.service";
+import { ConfigService } from '@core/services/config.service';
+import { getTranslocoModule } from '@core/__mock/transloco-testing.module';
+import { provideHttpClient } from '@angular/common/http';
 
 const tools: unknown = [
   {
@@ -219,7 +220,6 @@ describe('ResumeComponent', (): void => {
         CardModule,
         CommonModule,
         DialogModule,
-        HttpClientTestingModule,
         MarkdownModule.forRoot(),
         PanelModule,
         ProgressBarModule,
@@ -227,9 +227,7 @@ describe('ResumeComponent', (): void => {
         SharedModule,
         TagModule,
         TimelineModule,
-        TranslateModule.forRoot({
-          defaultLanguage: 'fr',
-        }),
+        getTranslocoModule(),
       ],
       providers: [
         ConfigService,
@@ -242,6 +240,8 @@ describe('ResumeComponent', (): void => {
             missionFromDate: jest.fn().mockReturnValue(''),
           },
         },
+        provideHttpClient(),
+        provideHttpClientTesting(),
       ],
     }).compileComponents();
     componentFixture = TestBed.createComponent(ResumeComponent);

@@ -14,11 +14,11 @@ import { TimelineModule } from 'primeng/timeline';
 import { CardModule } from 'primeng/card';
 import { SharedModule } from '@shared/shared.module';
 import { MarkdownModule } from 'ngx-markdown';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CardModule, MarkdownModule, PanelModule, SharedModule, TimelineModule, TranslateModule],
+  imports: [CardModule, MarkdownModule, PanelModule, SharedModule, TimelineModule, TranslocoDirective],
   selector: 'cv-missions',
   standalone: true,
   styleUrls: ['./missions.component.scss'],
@@ -32,6 +32,7 @@ export class MissionsComponent implements OnInit, AfterViewInit {
   public get missions(): Mission[] {
     return this._missions;
   }
+
   public set missions(value: Mission[]) {
     this._missions = value;
   }

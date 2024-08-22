@@ -1,18 +1,18 @@
 import { inject, Injectable } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { forkJoin, Observable, of, shareReplay } from 'rxjs';
 import { Skill } from '@core/models/skill.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '@environments/environment';
-import { Mission, MissionDescriptionType } from "@core/models/mission.model";
+import { Mission, MissionDescriptionType } from '@core/models/mission.model';
 import { switchMap } from 'rxjs/operators';
 import { EMPTY_STRING } from '@core/utils/string.utils';
+import { TranslocoService } from '@jsverse/transloco';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MissionService {
-  private readonly translateService: TranslateService = inject(TranslateService);
+  private readonly translocoService: TranslocoService = inject(TranslocoService);
   private readonly httpClient: HttpClient = inject(HttpClient);
 
   private readonly baseUrl: string = `${environment.cdnUrl}/src/assets/resume`;
@@ -29,7 +29,7 @@ export class MissionService {
   public missionFromDate(startingDate: string, type: MissionDescriptionType): string {
     const date: Date = new Date(startingDate);
     const month: string = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
-    const language: string = this.translateService.currentLang;
+    const language: string = this.translocoService.getActiveLang();
     return `${
       this.baseUrl
     }/missions/${language}/${date.getFullYear()}${month}/${date.getFullYear()}${month}_${type}.md`;
@@ -100,7 +100,7 @@ export class MissionService {
         start,
         end,
       )})`;
-    const onGoingLabel: string = this.translateService.currentLang === 'fr' ? 'en cours' : 'ongoing';
+    const onGoingLabel: string = this.translocoService.getActiveLang() === 'fr' ? 'en cours' : 'ongoing';
     return `${this.formatDate(new Date(start))} - ${onGoingLabel} (${this.missionDuration(start, end)})`;
   }
 
@@ -150,7 +150,7 @@ export class MissionService {
    * @return the translated labels
    */
   private getTranslatedLabels(): { yearLabel: string; monthLabel: string; andLabel: string } {
-    if (this.translateService.currentLang === 'fr') {
+    if (this.translocoService.getActiveLang() === 'fr') {
       return { yearLabel: 'an', monthLabel: 'mois', andLabel: 'et' };
     }
     return { yearLabel: 'year', monthLabel: 'months', andLabel: 'and' };

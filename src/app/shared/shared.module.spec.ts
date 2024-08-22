@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { APP_BASE_HREF } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
-import { TranslateModule } from "@ngx-translate/core";
+import { getTranslocoModule } from "@core/__mock/transloco-testing.module";
 
 describe('SharedModule', (): void => {
   beforeEach((): void => {
     TestBed.configureTestingModule({
-      imports: [SharedModule, TranslateModule],
+      imports: [SharedModule, getTranslocoModule()],
       providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
     });
   });

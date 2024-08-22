@@ -2,10 +2,11 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MissionService } from './mission.service';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
-import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting, TestRequest } from '@angular/common/http/testing';
 import { Skill } from '@core/models/skill.model';
 import { Mission } from '@core/models/mission.model';
+import { getTranslocoModule } from '@core/__mock/transloco-testing.module';
+import { provideHttpClient } from "@angular/common/http";
 
 describe('MissionService', (): void => {
   let service: MissionService;
@@ -13,14 +14,8 @@ describe('MissionService', (): void => {
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [
-        CommonModule,
-        HttpClientTestingModule,
-        TranslateModule.forRoot({
-          defaultLanguage: 'fr',
-        }),
-      ],
-      providers: [MissionService],
+      imports: [CommonModule, getTranslocoModule()],
+      providers: [MissionService, provideHttpClient(), provideHttpClientTesting()],
     });
     service = TestBed.inject(MissionService);
     httpTestingController = TestBed.inject(HttpTestingController);
@@ -43,14 +38,14 @@ describe('MissionService', (): void => {
   it(`should get the path of the full mardown file related to a mission's date`, async (): Promise<void> => {
     const path: string = service.missionFromDate('2019-01-01', 'full');
     expect(path).toEqual(
-      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions/undefined/201901/201901_full.md',
+      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions/en/201901/201901_full.md',
     );
   });
 
   it(`should get the path of the light mardown file related to a mission's date`, async (): Promise<void> => {
     const path: string = service.missionFromDate('2019-01-01', 'light');
     expect(path).toEqual(
-      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions/undefined/201901/201901_light.md',
+      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions/en/201901/201901_light.md',
     );
   });
 
@@ -86,7 +81,7 @@ describe('MissionService', (): void => {
     missionsRequest.flush(missions);
     expect(missionsRequest.request.method).toEqual('GET');
     const descriptionRequest: TestRequest = httpTestingController.expectOne(
-      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions/undefined/202007/202007_light.md',
+      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions/en/202007/202007_light.md',
     );
     descriptionRequest.flush(description);
     expect(descriptionRequest.request.method).toEqual('GET');
@@ -115,7 +110,7 @@ describe('MissionService', (): void => {
     const start: Date = new Date('2018-10-02');
     const end: Date = new Date('2022-04-16');
     const missionDuration: string = (service as any).missionDuration(start.toDateString());
-    expect(missionDuration).toMatch(/^[\d] years/);
+    expect(missionDuration).toMatch(/^\d years/);
     const missionWithEndDuration: string = (service as any).missionDuration(start.toDateString(), end.toDateString());
     expect(missionWithEndDuration).toEqual('3 years and 6 months');
   });
