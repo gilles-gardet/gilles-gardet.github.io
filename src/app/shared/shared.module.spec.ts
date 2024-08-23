@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { APP_BASE_HREF } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
-import { getTranslocoModule } from "@core/__mock/transloco-testing.module";
+import { getTranslocoModule } from "../../__mock/transloco-testing.module";
 
 describe('SharedModule', (): void => {
   beforeEach((): void => {

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TagModule } from 'primeng/tag';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
-import { getTranslocoModule } from "@core/__mock/transloco-testing.module";
+import { getTranslocoModule } from "../../../../../__mock/transloco-testing.module";
 
 describe('HobbiesComponent', (): void => {
   let hobbiesComponent: HobbiesComponent;

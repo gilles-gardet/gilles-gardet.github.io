@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { SlideButtonComponent } from '@shared/components/slide-button/slide-button.component';
-import { getTranslocoModule } from '@core/__mock/transloco-testing.module';
+import { getTranslocoModule } from '../../../../__mock/transloco-testing.module';
 
 describe('SlideButtonComponent', (): void => {
   let component: SlideButtonComponent;

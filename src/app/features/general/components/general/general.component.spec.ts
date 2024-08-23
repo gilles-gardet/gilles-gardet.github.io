@@ -10,7 +10,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { ConfigService } from '@core/services/config.service';
 import { GeneralComponent } from '@features/general/components/general/general.component';
 import { MissionService } from '@core/services/mission.service';
-import { getTranslocoModule } from "@core/__mock/transloco-testing.module";
+import { getTranslocoModule } from "../../../../../__mock/transloco-testing.module";
 
 describe('GeneralComponent', (): void => {
   let contactComponent: GeneralComponent;

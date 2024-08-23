@@ -3,7 +3,7 @@ import { PanelModule } from 'primeng/panel';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SummaryComponent } from '@features/resume/components/summary/summary.component';
-import { getTranslocoModule } from '@core/__mock/transloco-testing.module';
+import { getTranslocoModule } from '../../../../../__mock/transloco-testing.module';
 
 describe('SummaryComponent', (): void => {
   let summaryComponent: SummaryComponent;

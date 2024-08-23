@@ -1,0 +1,55 @@
+name: 🛠️ Test build & deploy
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+jobs:
+  test:
+    name: Unit test CV & push coverage to Cobertura
+    continue-on-error: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9.3.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Run unit tests
+        run: pnpm run test:ci
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/cobertura-coverage.xml
+          verbose: true
+  build-and-deploy:
+    name: Build & deploy CV
+    needs:
+      - test
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://cv.gilles-gardet.com
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9.3.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build application
+        run: pnpm run build
+      - name: Deploy application
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: pages
+          folder: docs

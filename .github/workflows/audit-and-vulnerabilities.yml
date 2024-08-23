@@ -1,0 +1,41 @@
+name: 🛡️ Audit dependencies & check vulnerabilities
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+jobs:
+  audit:
+    name: Auditing the dependencies
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9.3.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Audit dependencies
+        run: |
+          pnpm audit --prod
+  security:
+    name: Use snyck to search for vulnerabilities
+    runs-on: ubuntu-latest
+    needs:
+      - audit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9.3.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

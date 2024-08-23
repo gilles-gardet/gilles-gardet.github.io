@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HttpTestingController, provideHttpClientTesting, TestRequest } from '@angular/common/http/testing';
 import { Skill } from '@core/models/skill.model';
 import { Mission } from '@core/models/mission.model';
-import { getTranslocoModule } from '@core/__mock/transloco-testing.module';
+import { getTranslocoModule } from '../../../__mock/transloco-testing.module';
 import { provideHttpClient } from "@angular/common/http";
 
 describe('MissionService', (): void => {

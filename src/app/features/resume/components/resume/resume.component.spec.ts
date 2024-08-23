@@ -19,7 +19,7 @@ import { Skill } from '@core/models/skill.model';
 import mockMissions from '@assets/resume/missions.json';
 import mockSkills from '@assets/resume/skills.json';
 import { ConfigService } from '@core/services/config.service';
-import { getTranslocoModule } from '@core/__mock/transloco-testing.module';
+import { getTranslocoModule } from '../../../../../__mock/transloco-testing.module';
 import { provideHttpClient } from '@angular/common/http';
 
 const tools: unknown = [

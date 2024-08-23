@@ -14,8 +14,7 @@ Le CV est directement accessible à l'adresse [cv.gilles-gardet.com](https://cv.
 
 À noter que l'application est de plus autonome dans le sens où elle ne nécessite pas de *BFF* (Backend For Frontend) pour requêter le contenu à afficher, les descriptifs sont en effet embarqués dans les assets de l'application au format **Markdown** puis parsé avant d'être finalement affichés.
 
-[![audit test & build](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/main.yml)
-[![deployment](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/pages/pages-build-deployment/badge.svg?branch=pages)](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/pages/pages-build-deployment)
+[![pages-build-deployment](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/pages/pages-build-deployment/badge.svg?branch=pages)](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/pages/pages-build-deployment)
 [![codecov](https://codecov.io/gh/gilles-gardet/gilles-gardet.github.io/branch/master/graph/badge.svg?token=MJD58OG7SA)](https://codecov.io/gh/gilles-gardet/gilles-gardet.github.io)
 [![CodeFactor](https://www.codefactor.io/repository/github/gilles-gardet/gilles-gardet.github.io/badge)](https://www.codefactor.io/repository/github/gilles-gardet/gilles-gardet.github.io)
 
@@ -52,9 +51,9 @@ Ces étapes comprennent :
 > 
 > Pour mettre à jour les snapshots de playwright il faut passer par une image docker *pinned* (ex: 1.22.0-focal) sur un poste local :
 >
-> Lancer l'image via `docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.22.0-focal /bin/bash`  
+> Lancer l'image via `docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.46.1-focal /bin/bash`  
 > Puis en executant directement dans l'image le workflow suivant :
-> - `apt update && apt upgrade -y  && apt install make g++ && npm ci`
+> - `apt update && apt upgrade -y && apt install make g++ && npm i`
 > - `npx playwright test --config=e2e/playwright.config.ts --update-snapshots`
 > Il faudra ensuite relancer la dernière commande pour récupérer les snapshots darwin (macos) directement depuis le répertoire local.
 >
