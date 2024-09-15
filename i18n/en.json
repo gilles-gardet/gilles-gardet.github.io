@@ -1,7 +1,7 @@
 {
   "cv": {
     "contact": {
-      "presentation": "Fullstack developer, curious by nature and passionate about his profession.",
+      "presentation": "Technical leader, curious by nature and passionate about his profession.",
       "menu": {
         "tooltip": "Show menu",
         "items": {
@@ -30,9 +30,7 @@
     },
     "missions": {
       "panelTitle": "Experience",
-      "content": {
-
-      }
+      "content": {}
     },
     "hobbies": {
       "panelTitle": "Hobbies",
