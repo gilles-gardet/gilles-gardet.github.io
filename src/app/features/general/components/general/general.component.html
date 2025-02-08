@@ -1,20 +1,25 @@
 <ng-container *transloco="let translate">
-<div class="container">
-  <div class="general">
-    <p-avatar size="xlarge" shape="circle" styleClass="p-mt-5" image="assets/pictures/me.jpg"></p-avatar>
-    <span class="general__name">Gilles Gardet</span>
-    <span class="general__presentation">{{ translate('cv.contact.presentation') }}</span>
-    <p-chip label="gilles.gardet@gmail.com" icon="pi pi-envelope" (click)="openEmailClient()"></p-chip>
-    <button
-      pButton
-      pRipple
-      type="button"
-      icon="pi pi-bars"
-      class="p-button-rounded p-button-text general__button-left"
-      [pTooltip]="translate('cv.contact.menu.tooltip')"
-      (click)="menu.toggle($event)"
-    ></button>
-    <p-menu #menu [popup]="true" [model]="menuItems" appendTo="body" [autoZIndex]="true"></p-menu>
+  <div class="container">
+    <div class="general">
+      <p-avatar size="xlarge" shape="circle" styleClass="p-mt-5" image="assets/pictures/me.jpg"></p-avatar>
+      <span class="general__name">Gilles Gardet</span>
+      <span class="general__presentation">{{ translate('cv.contact.presentation') }}</span>
+      <p-chip
+        label="gilles.gardet@gmail.com"
+        icon="pi pi-envelope"
+        (click)="openEmailClient()"
+        onKeyDown="openEmailClient()"
+      ></p-chip>
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-bars"
+        class="p-button-rounded p-button-text general__button-left"
+        [pTooltip]="translate('cv.contact.menu.tooltip')"
+        (click)="menu.toggle($event)"
+      ></button>
+      <p-menu #menu [popup]="true" [model]="menuItems" appendTo="body" [autoZIndex]="true"></p-menu>
+    </div>
   </div>
-</div>
 </ng-container>

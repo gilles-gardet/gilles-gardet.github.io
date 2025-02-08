@@ -1,7 +1,7 @@
 name: 🛡️ Audit dependencies & check vulnerabilities
 on:
   push:
-    branches: [master]
+    branches: [main]
   workflow_dispatch:
 jobs:
   audit:

@@ -34,7 +34,14 @@ code[class*='language-'] {
 code {
   @apply bg-pre-bg dark:bg-dark-pre-bg;
   @apply text-pre-text dark:text-dark-pre-text;
-  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
   font-size: 0.7rem;
   border-radius: 5px;
   padding: 0.2rem;

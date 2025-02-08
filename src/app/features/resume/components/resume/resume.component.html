@@ -5,4 +5,8 @@
 <cv-skills [skills]="skills" [clones]="clones"></cv-skills>
 <cv-missions [missions]="missions" (openDialog)="openDialog($event)"></cv-missions>
 <cv-hobbies></cv-hobbies>
-<cv-details [selectedMission]="selectedMission" [isDialogDisplayed]="displayDialog" (detailsChange)="onDetailsClose()"></cv-details>
+<cv-details
+  [selectedMission]="selectedMission"
+  [isDialogDisplayed]="displayDialog"
+  (detailsChange)="onDetailsClose()"
+></cv-details>

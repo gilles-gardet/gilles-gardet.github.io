@@ -6,7 +6,6 @@ import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { SharedModule } from '@shared/shared.module';
 import { TagModule } from 'primeng/tag';
 import { TimelineModule } from 'primeng/timeline';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,8 +13,7 @@ import { of } from 'rxjs';
 import { Mission } from '@core/models/mission.model';
 import { DetailsComponent } from '@features/resume/components/details/details.component';
 import { MissionService } from '@core/services/mission.service';
-import { getTranslocoModule } from "../../../../../__mock/transloco-testing.module";
-import { TranslocoService } from "@jsverse/transloco";
+import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
 
 describe('DetailsComponent', (): void => {
   let detailsComponent: DetailsComponent;
@@ -33,7 +31,6 @@ describe('DetailsComponent', (): void => {
         PanelModule,
         ProgressBarModule,
         ProgressSpinnerModule,
-        SharedModule,
         TagModule,
         TimelineModule,
         getTranslocoModule(),

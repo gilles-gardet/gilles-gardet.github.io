@@ -2,11 +2,10 @@ import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, i
 import { Skill } from '@core/models/skill.model';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { PanelModule } from 'primeng/panel';
-import { SharedModule } from '@shared/shared.module';
 import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
-  imports: [PanelModule, ProgressBarModule, SharedModule, TranslocoDirective],
+  imports: [PanelModule, ProgressBarModule, TranslocoDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'cv-skills',
   standalone: true,

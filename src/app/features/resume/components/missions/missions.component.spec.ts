@@ -6,14 +6,13 @@ import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { SharedModule } from '@shared/shared.module';
 import { TagModule } from 'primeng/tag';
 import { TimelineModule } from 'primeng/timeline';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MissionsComponent } from '@features/resume/components/missions/missions.component';
 import { Mission } from '@core/models/mission.model';
-import { getTranslocoModule } from '../../../../../__mock/transloco-testing.module';
+import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
 import { provideHttpClient } from '@angular/common/http';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
@@ -35,7 +34,6 @@ describe('MissionsComponent', () => {
         PanelModule,
         ProgressBarModule,
         ProgressSpinnerModule,
-        SharedModule,
         TagModule,
         TimelineModule,
         getTranslocoModule(),

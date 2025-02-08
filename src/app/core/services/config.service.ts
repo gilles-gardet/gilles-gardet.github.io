@@ -19,10 +19,12 @@ const theme: string = ((): string => {
   return localStorage.getItem(THEME_KEY) ?? LIGHT_THEME;
 })();
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ConfigService {
-  private _theme$: BehaviorSubject<string> = new BehaviorSubject<string>(theme);
-  private _loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  private readonly _theme$: BehaviorSubject<string> = new BehaviorSubject<string>(theme);
+  private readonly _loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
   /**
    * Set the theme

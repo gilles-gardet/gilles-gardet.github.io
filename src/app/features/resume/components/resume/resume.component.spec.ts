@@ -7,7 +7,6 @@ import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { SharedModule } from '@shared/shared.module';
 import { TagModule } from 'primeng/tag';
 import { TimelineModule } from 'primeng/timeline';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
@@ -19,7 +18,7 @@ import { Skill } from '@core/models/skill.model';
 import mockMissions from '@assets/resume/missions.json';
 import mockSkills from '@assets/resume/skills.json';
 import { ConfigService } from '@core/services/config.service';
-import { getTranslocoModule } from '../../../../../__mock/transloco-testing.module';
+import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
 import { provideHttpClient } from '@angular/common/http';
 
 const tools: unknown = [
@@ -224,7 +223,6 @@ describe('ResumeComponent', (): void => {
         PanelModule,
         ProgressBarModule,
         ProgressSpinnerModule,
-        SharedModule,
         TagModule,
         TimelineModule,
         getTranslocoModule(),

@@ -11,7 +11,7 @@ import {
 import { GeneralComponent } from '@features/general/components/general/general.component';
 import { ResumeComponent } from '@features/resume/components/resume/resume.component';
 import { ScrollTopModule } from 'primeng/scrolltop';
-import { CommonModule, NgClass, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { EMPTY_STRING, isBlank } from '@core/utils/string.utils';
 import { ConfigService, LANGUAGE_KEY } from '@core/services/config.service';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
@@ -24,16 +24,7 @@ import { TranslocoService } from '@jsverse/transloco';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [
-    BlockUIModule,
-    CommonModule,
-    GeneralComponent,
-    NgClass,
-    NgIf,
-    ProgressSpinnerModule,
-    ResumeComponent,
-    ScrollTopModule,
-  ],
+  imports: [BlockUIModule, CommonModule, GeneralComponent, ProgressSpinnerModule, ResumeComponent, ScrollTopModule],
   selector: 'cv-root',
   standalone: true,
   styleUrls: ['./app.component.scss'],

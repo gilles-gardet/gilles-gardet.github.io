@@ -32,7 +32,7 @@ module.exports = {
       'chip-bg': 'hsl(207, 9%, 31%)',
       'pre-bg': 'hsl(74, 7%, 15%)',
       'pre-text': 'hsl(60, 28%, 96%)',
-      'progress': 'hsl(180, 0%, 30%)',
+      progress: 'hsl(180, 0%, 30%)',
       'dark-body-bg': 'hsl(214, 18%, 15%)',
       'dark-card-bg': 'hsl(217, 17%, 20%)',
       'dark-menu-bg': 'hsl(217, 17%, 20%)',

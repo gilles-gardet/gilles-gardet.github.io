@@ -12,13 +12,14 @@ import { Mission } from '@core/models/mission.model';
 import { PanelModule } from 'primeng/panel';
 import { TimelineModule } from 'primeng/timeline';
 import { CardModule } from 'primeng/card';
-import { SharedModule } from '@shared/shared.module';
 import { MarkdownModule } from 'ngx-markdown';
 import { TranslocoDirective } from '@jsverse/transloco';
+import { SlideButtonComponent } from '@shared/components/slide-button/slide-button.component';
+import { NgClass } from '@angular/common';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CardModule, MarkdownModule, PanelModule, SharedModule, TimelineModule, TranslocoDirective],
+  imports: [CardModule, MarkdownModule, PanelModule, SlideButtonComponent, TimelineModule, TranslocoDirective, NgClass],
   selector: 'cv-missions',
   standalone: true,
   styleUrls: ['./missions.component.scss'],

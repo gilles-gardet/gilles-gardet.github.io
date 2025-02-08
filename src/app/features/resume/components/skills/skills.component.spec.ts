@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SkillsComponent } from '@features/resume/components/skills/skills.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ChangeDetectorRef } from '@angular/core';
-import { getTranslocoModule } from '../../../../../__mock/transloco-testing.module';
+import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
   observe: (): unknown => null,

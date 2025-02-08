@@ -5,15 +5,13 @@ import { CommonModule } from '@angular/common';
 describe('ConfigService', (): void => {
   let service: ConfigService;
 
-  beforeEach(
-    waitForAsync((): void => {
-      TestBed.configureTestingModule({
-        imports: [CommonModule],
-        providers: [ConfigService],
-      });
-      service = TestBed.inject(ConfigService);
-    })
-  );
+  beforeEach(waitForAsync((): void => {
+    TestBed.configureTestingModule({
+      imports: [CommonModule],
+      providers: [ConfigService],
+    });
+    service = TestBed.inject(ConfigService);
+  }));
 
   it('should create', async (): Promise<void> => {
     expect(service).toBeTruthy();

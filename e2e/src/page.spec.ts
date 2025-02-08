@@ -81,15 +81,17 @@ test.describe('Summary panel structure', () => {
   test('should have a description', async ({ page }) => {
     const content = page.locator('cv-summary .p-panel-content');
     await expect(content).toBeVisible();
-    await expect(content).toContainText(`I have 11 years of experience as a designer developer in information systems.`);
     await expect(content).toContainText(
-      `Mainly specialized in backend technologies (Java, Spring...), which I was able to experience on different missions themselves touching on several fields of activity (space, human resources, communities...).`
+      `I have 11 years of experience as a designer developer in information systems.`,
     );
     await expect(content).toContainText(
-      `Nevertheless, I have a fullstack profile thanks to the many frontend projects that I have been able to carry out in parallel.`
+      `Mainly specialized in backend technologies (Java, Spring...), which I was able to experience on different missions themselves touching on several fields of activity (space, human resources, communities...).`,
     );
     await expect(content).toContainText(
-      `I am used to working with the Agile methods that I like when it comes to managing a project (Scrum, Kanban..).`
+      `Nevertheless, I have a fullstack profile thanks to the many frontend projects that I have been able to carry out in parallel.`,
+    );
+    await expect(content).toContainText(
+      `I am used to working with the Agile methods that I like when it comes to managing a project (Scrum, Kanban..).`,
     );
   });
 

@@ -2,7 +2,9 @@
 *::before,
 *::after {
   box-sizing: inherit;
-  transition: color 0.15s, background-color 0.5s;
+  transition:
+    color 0.15s,
+    background-color 0.5s;
 }
 
 html {
@@ -26,6 +28,7 @@ html {
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
     overflow-y: auto;
+    overflow-x: hidden;
 
     p,
     li {

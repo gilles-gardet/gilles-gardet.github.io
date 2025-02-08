@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
-import { SharedModule } from '@shared/shared.module';
 import { Menu, MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
 import { environment } from '@environments/environment';
@@ -30,7 +29,6 @@ import { Contact } from '@core/models/contact.model';
     InputSwitchModule,
     MenuModule,
     RippleModule,
-    SharedModule,
     TooltipModule,
     TranslocoDirective,
   ],

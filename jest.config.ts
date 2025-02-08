@@ -22,8 +22,5 @@ export default {
   // transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
   transformIgnorePatterns: [],
   testEnvironment: '@happy-dom/jest-environment',
-  testMatch: [
-    '<rootDir>/src/**/__tests__/**/*.[jt]s?(x)',
-    '<rootDir>/src/**/*(*.)@(spec|test).[jt]s?(x)',
-  ],
+  testMatch: ['<rootDir>/src/**/__tests__/**/*.[jt]s?(x)', '<rootDir>/src/**/*(*.)@(spec|test).[jt]s?(x)'],
 };

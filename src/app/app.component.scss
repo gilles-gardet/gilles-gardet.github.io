@@ -42,7 +42,8 @@
         &::after {
           width: 0.125em;
           background: var(--black);
-          animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards,
+          animation:
+            typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards,
             blink 750ms steps(var(--typewriterCharacters)) infinite;
         }
       }
@@ -59,7 +60,8 @@
 
       &__goto {
         opacity: 0;
-        animation: bounce 1.5s infinite calc(var(--typewriterSpeed) + 3s),
+        animation:
+          bounce 1.5s infinite calc(var(--typewriterSpeed) + 3s),
           visibility 1.5s forwards calc(var(--typewriterSpeed) + 3s);
 
         &:hover {
@@ -140,7 +142,9 @@
 }
 
 .spinner {
-  animation: progress-spinner-dash 1.5s ease-in-out infinite, progress-spinner-color 6s ease-in-out infinite;
+  animation:
+    progress-spinner-dash 1.5s ease-in-out infinite,
+    progress-spinner-color 6s ease-in-out infinite;
 }
 
 @keyframes progress-spinner-color {

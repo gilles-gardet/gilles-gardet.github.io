@@ -1,30 +1,27 @@
 import { enableProdMode, importProvidersFrom, isDevMode } from '@angular/core';
-
-import { environment } from '@environments/environment';
 import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
-import { AppRoutingModule } from './app/app-routing.module';
+import { routes } from './routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoreModule } from '@core/core.module';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
-import { SharedModule } from '@shared/shared.module';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@jsverse/transloco';
+import { provideEffects } from '@ngrx/effects';
+import { provideState, provideStore } from '@ngrx/store';
+import * as fromMissions from './+state/missions.reducer';
+import { MissionsEffects } from './+state/missions.effects';
+import { provideRouter } from '@angular/router';
 
-if (environment.production) {
-  enableProdMode();
-}
-
+enableProdMode();
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(AppRoutingModule),
-    importProvidersFrom(BrowserModule),
-    importProvidersFrom(BrowserAnimationsModule),
-    importProvidersFrom(CoreModule),
-    importProvidersFrom(MarkdownModule.forRoot()),
-    importProvidersFrom(SharedModule),
+    importProvidersFrom(BrowserModule, BrowserAnimationsModule, MarkdownModule.forRoot()),
+    provideEffects(MissionsEffects),
     provideHttpClient(withInterceptorsFromDi()),
+    provideRouter(routes),
+    provideState(fromMissions.MISSIONS_FEATURE_KEY, fromMissions.missionsReducer),
+    provideStore(),
     provideTransloco({
       config: {
         availableLangs: ['fr', 'en'],

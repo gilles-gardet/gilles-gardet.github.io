@@ -14,10 +14,14 @@
     &__content {
       max-height: 100px;
       max-width: 100px;
-      transition: max-height 800ms ease-in-out, max-width 800ms ease-in-out;
+      transition:
+        max-height 800ms ease-in-out,
+        max-width 800ms ease-in-out;
 
       &__spinner {
-        animation: progress-spinner-dash 1.5s ease-in-out infinite, progress-spinner-color 6s ease-in-out infinite;
+        animation:
+          progress-spinner-dash 1.5s ease-in-out infinite,
+          progress-spinner-color 6s ease-in-out infinite;
       }
 
       @keyframes progress-spinner-color {

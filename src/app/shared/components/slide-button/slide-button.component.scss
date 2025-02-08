@@ -1,4 +1,4 @@
-@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, 0.076, 1)) {
   transition: $property $duration $ease;
 }
 
@@ -22,7 +22,7 @@ button.learn-more {
 
     .circle {
       @apply bg-dark-slide-circle-button-bg dark:bg-slide-circle-button-bg;
-      @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+      @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
       position: relative;
       display: block;
       margin: 0;
@@ -31,14 +31,14 @@ button.learn-more {
       border-radius: $radius;
 
       .icon {
-        @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+        @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
         position: absolute;
         top: 0;
         bottom: 0;
         margin: auto;
 
         &.arrow {
-          @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+          @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
           left: 0.125rem;
           width: 1.125rem;
           height: 0.125rem;
@@ -65,7 +65,7 @@ button.learn-more {
 
     .button-text {
       @apply text-dark-text-color dark:text-text-color;
-      @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+      @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
       position: absolute;
       top: 0;
       left: 0;

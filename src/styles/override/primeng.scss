@@ -23,7 +23,6 @@ p-scrolltop > button.p-scrolltop {
 }
 
 p-panel {
-
   .p-panel-header {
     display: grid;
     justify-content: center;
@@ -81,14 +80,18 @@ p-card {
   }
 
   .p-menuitem-icon {
-    transition: color 0s, background-color 0s;
+    transition:
+      color 0s,
+      background-color 0s;
   }
 
   .p-menuitem-link:not(.p-disabled):hover {
     @apply bg-menu-item-hover dark:bg-dark-menu-item-hover #{!important};
     .p-menuitem-text,
     .p-menuitem-icon {
-      transition: color 0s, background-color 0s;
+      transition:
+        color 0s,
+        background-color 0s;
       @apply text-text-color dark:text-dark-text-color #{!important};
     }
   }
@@ -124,7 +127,9 @@ p-chip[label='gilles.gardet@gmail.com'] {
   .p-chip {
     position: relative;
     overflow: hidden;
-    transition: color var(--params), background-color var(--params);
+    transition:
+      color var(--params),
+      background-color var(--params);
     z-index: 0;
     @apply bg-chip-bg dark:bg-dark-chip-bg #{!important};
     @apply text-dark-text-color dark:text-text-color #{!important};
@@ -139,7 +144,9 @@ p-chip[label='gilles.gardet@gmail.com'] {
       z-index: -1;
       @apply bg-dark-chip-bg dark:bg-chip-bg #{!important};
       transform: translateX(100%);
-      transition: transform var(--params), opacity var(--params);
+      transition:
+        transform var(--params),
+        opacity var(--params);
     }
 
     &:hover {
@@ -236,7 +243,9 @@ p-chip[label='gilles.gardet@gmail.com'] {
     overflow-y: hidden;
 
     .p-progress-spinner-circle {
-      animation: progress-spinner-dash 1.5s ease-in-out infinite, progress-spinner-color 6s ease-in-out infinite;
+      animation:
+        progress-spinner-dash 1.5s ease-in-out infinite,
+        progress-spinner-color 6s ease-in-out infinite;
     }
 
     @keyframes progress-spinner-color {
@@ -286,7 +295,6 @@ p-chip[label='gilles.gardet@gmail.com'] {
 .p-link:focus {
   box-shadow: 0 0 0 0.2rem #aab1b9;
 }
-
 
 @keyframes hideScroll {
   from,

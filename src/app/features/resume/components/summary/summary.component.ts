@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PanelModule } from 'primeng/panel';
-import { SharedModule } from '@shared/shared.module';
 import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PanelModule, SharedModule, TranslocoDirective],
+  imports: [PanelModule, TranslocoDirective],
   selector: 'cv-summary',
   standalone: true,
   styleUrls: ['./summary.component.scss'],
