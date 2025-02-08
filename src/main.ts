@@ -11,6 +11,10 @@ import { MarkdownModule } from 'ngx-markdown';
 import { SharedModule } from '@shared/shared.module';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@jsverse/transloco';
+import { provideEffects } from '@ngrx/effects';
+import { provideStore, provideState } from '@ngrx/store';
+import * as fromMissions from './+state/missions.reducer';
+import { MissionsEffects } from './+state/missions.effects';
 
 if (environment.production) {
   enableProdMode();
@@ -18,6 +22,9 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
+    provideStore(),
+    provideEffects(MissionsEffects),
+    provideState(fromMissions.MISSIONS_FEATURE_KEY, fromMissions.missionsReducer),
     importProvidersFrom(AppRoutingModule),
     importProvidersFrom(BrowserModule),
     importProvidersFrom(BrowserAnimationsModule),

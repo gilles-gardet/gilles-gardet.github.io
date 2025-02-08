@@ -14,8 +14,8 @@ import { SharedModule } from '@shared/shared.module';
 import { TagModule } from 'primeng/tag';
 import { TimelineModule } from 'primeng/timeline';
 import { ConfigService } from '@core/services/config.service';
-import { HttpClientTestingModule, provideHttpClientTesting } from '@angular/common/http/testing';
-import { getTranslocoModule } from '../__mock/transloco-testing.module';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
 import { provideHttpClient } from '@angular/common/http';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({

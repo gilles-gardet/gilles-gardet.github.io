@@ -14,8 +14,7 @@ import { of } from 'rxjs';
 import { Mission } from '@core/models/mission.model';
 import { DetailsComponent } from '@features/resume/components/details/details.component';
 import { MissionService } from '@core/services/mission.service';
-import { getTranslocoModule } from "../../../../../__mock/transloco-testing.module";
-import { TranslocoService } from "@jsverse/transloco";
+import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
 
 describe('DetailsComponent', (): void => {
   let detailsComponent: DetailsComponent;

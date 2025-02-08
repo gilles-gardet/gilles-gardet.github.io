@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
 export class TranslocoHttpLoader implements TranslocoLoader {
-    private httpClient = inject(HttpClient);
+    private readonly httpClient = inject(HttpClient);
 
     /**
      * Load translation for selected language.
