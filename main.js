@@ -1,6 +1,116 @@
 "use strict";
 (self["webpackChunkcv"] = self["webpackChunkcv"] || []).push([["main"],{
 
+/***/ 8474:
+/*!****************************************!*\
+  !*** ./src/+state/missions.actions.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initMissions: () => (/* binding */ initMissions),
+/* harmony export */   loadMissionsFailure: () => (/* binding */ loadMissionsFailure),
+/* harmony export */   loadMissionsSuccess: () => (/* binding */ loadMissionsSuccess)
+/* harmony export */ });
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ngrx/store */ 3583);
+
+const initMissions = (0,_ngrx_store__WEBPACK_IMPORTED_MODULE_0__.createAction)('[Missions Page] Init');
+const loadMissionsSuccess = (0,_ngrx_store__WEBPACK_IMPORTED_MODULE_0__.createAction)('[Missions/API] Load Missions Success', (0,_ngrx_store__WEBPACK_IMPORTED_MODULE_0__.props)());
+const loadMissionsFailure = (0,_ngrx_store__WEBPACK_IMPORTED_MODULE_0__.createAction)('[Missions/API] Load Missions Failure', (0,_ngrx_store__WEBPACK_IMPORTED_MODULE_0__.props)());
+
+/***/ }),
+
+/***/ 7863:
+/*!****************************************!*\
+  !*** ./src/+state/missions.effects.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MissionsEffects: () => (/* binding */ MissionsEffects)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3928);
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/effects */ 8234);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 4128);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 3835);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 6887);
+/* harmony import */ var _missions_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./missions.actions */ 8474);
+
+
+
+
+
+class MissionsEffects {
+  constructor() {
+    this.actions$ = (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.inject)(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__.Actions);
+    this.init$ = (0,_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__.createEffect)(() => this.actions$.pipe((0,_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__.ofType)(_missions_actions__WEBPACK_IMPORTED_MODULE_0__.initMissions), (0,rxjs__WEBPACK_IMPORTED_MODULE_3__.switchMap)(() => (0,rxjs__WEBPACK_IMPORTED_MODULE_4__.of)(_missions_actions__WEBPACK_IMPORTED_MODULE_0__.loadMissionsSuccess({
+      missions: []
+    }))), (0,rxjs__WEBPACK_IMPORTED_MODULE_5__.catchError)(error => {
+      console.error('Error', error);
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_4__.of)(_missions_actions__WEBPACK_IMPORTED_MODULE_0__.loadMissionsFailure({
+        error
+      }));
+    })));
+  }
+  static #_ = this.ɵfac = function MissionsEffects_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || MissionsEffects)();
+  };
+  static #_2 = this.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
+    token: MissionsEffects,
+    factory: MissionsEffects.ɵfac
+  });
+}
+
+/***/ }),
+
+/***/ 4317:
+/*!****************************************!*\
+  !*** ./src/+state/missions.reducer.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MISSIONS_FEATURE_KEY: () => (/* binding */ MISSIONS_FEATURE_KEY),
+/* harmony export */   initialMissionsState: () => (/* binding */ initialMissionsState),
+/* harmony export */   missionsAdapter: () => (/* binding */ missionsAdapter),
+/* harmony export */   missionsReducer: () => (/* binding */ missionsReducer)
+/* harmony export */ });
+/* harmony import */ var _ngrx_entity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/entity */ 2319);
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/store */ 3583);
+/* harmony import */ var _missions_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./missions.actions */ 8474);
+
+
+
+const MISSIONS_FEATURE_KEY = 'missions';
+const missionsAdapter = (0,_ngrx_entity__WEBPACK_IMPORTED_MODULE_1__.createEntityAdapter)();
+const initialMissionsState = missionsAdapter.getInitialState({
+  // set initial required properties
+  loaded: false
+});
+const reducer = (0,_ngrx_store__WEBPACK_IMPORTED_MODULE_2__.createReducer)(initialMissionsState, (0,_ngrx_store__WEBPACK_IMPORTED_MODULE_2__.on)(_missions_actions__WEBPACK_IMPORTED_MODULE_0__.initMissions, state => ({
+  ...state,
+  loaded: false,
+  error: null
+})), (0,_ngrx_store__WEBPACK_IMPORTED_MODULE_2__.on)(_missions_actions__WEBPACK_IMPORTED_MODULE_0__.loadMissionsSuccess, (state, {
+  missions
+}) => missionsAdapter.setAll(missions, {
+  ...state,
+  loaded: true
+})), (0,_ngrx_store__WEBPACK_IMPORTED_MODULE_2__.on)(_missions_actions__WEBPACK_IMPORTED_MODULE_0__.loadMissionsFailure, (state, {
+  error
+}) => ({
+  ...state,
+  error
+})));
+function missionsReducer(state, action) {
+  return reducer(state, action);
+}
+
+/***/ }),
+
 /***/ 4121:
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -1449,12 +1559,12 @@ function SkillsComponent_ng_container_0_Conditional_3_For_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](skill_r1.name);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("value", skill_r1.rate)("showValue", false);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("value", skill_r1.rate);
   }
 }
 function SkillsComponent_ng_container_0_Conditional_3_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrepeaterCreate"](0, SkillsComponent_ng_container_0_Conditional_3_For_1_Template, 4, 3, "div", 3, _forTrack0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrepeaterCreate"](0, SkillsComponent_ng_container_0_Conditional_3_For_1_Template, 4, 2, "div", 3, _forTrack0);
   }
   if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
@@ -1540,7 +1650,7 @@ class SkillsComponent {
     features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵStandaloneFeature"]],
     decls: 1,
     vars: 0,
-    consts: [[4, "transloco"], ["id", "skills", 3, "header"], [1, "skills"], [1, "skills__languages"], [3, "value", "showValue"]],
+    consts: [[4, "transloco"], ["id", "skills", 3, "header"], [1, "skills"], [1, "skills__languages"], [3, "value"]],
     template: function SkillsComponent_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](0, SkillsComponent_ng_container_0_Template, 4, 2, "ng-container", 0);
@@ -1753,18 +1863,26 @@ const environment = {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 3928);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 3928);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @environments/environment */ 6419);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ 6971);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/platform-browser */ 6971);
 /* harmony import */ var _app_app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/app.component */ 381);
 /* harmony import */ var _app_app_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/app-routing.module */ 4121);
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser/animations */ 1408);
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/platform-browser/animations */ 1408);
 /* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @core/core.module */ 3496);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common/http */ 9575);
-/* harmony import */ var ngx_markdown__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-markdown */ 4349);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/common/http */ 9575);
+/* harmony import */ var ngx_markdown__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ngx-markdown */ 4349);
 /* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shared/shared.module */ 6428);
 /* harmony import */ var _transloco_loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./transloco-loader */ 2532);
-/* harmony import */ var _jsverse_transloco__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @jsverse/transloco */ 1945);
+/* harmony import */ var _jsverse_transloco__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @jsverse/transloco */ 1945);
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ngrx/effects */ 8234);
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngrx/store */ 3583);
+/* harmony import */ var _state_missions_reducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./+state/missions.reducer */ 4317);
+/* harmony import */ var _state_missions_effects__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./+state/missions.effects */ 7863);
+
+
+
+
 
 
 
@@ -1778,15 +1896,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 if (_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.production) {
-  (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.enableProdMode)();
+  (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.enableProdMode)();
 }
-(0,_angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__.bootstrapApplication)(_app_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent, {
-  providers: [(0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.importProvidersFrom)(_app_app_routing_module__WEBPACK_IMPORTED_MODULE_2__.AppRoutingModule), (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.importProvidersFrom)(_angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__.BrowserModule), (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.importProvidersFrom)(_angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__.BrowserAnimationsModule), (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.importProvidersFrom)(_core_core_module__WEBPACK_IMPORTED_MODULE_3__.CoreModule), (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.importProvidersFrom)(ngx_markdown__WEBPACK_IMPORTED_MODULE_9__.MarkdownModule.forRoot()), (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.importProvidersFrom)(_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__.SharedModule), (0,_angular_common_http__WEBPACK_IMPORTED_MODULE_10__.provideHttpClient)((0,_angular_common_http__WEBPACK_IMPORTED_MODULE_10__.withInterceptorsFromDi)()), (0,_jsverse_transloco__WEBPACK_IMPORTED_MODULE_11__.provideTransloco)({
+(0,_angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__.bootstrapApplication)(_app_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent, {
+  providers: [(0,_ngrx_store__WEBPACK_IMPORTED_MODULE_10__.provideStore)(), (0,_ngrx_effects__WEBPACK_IMPORTED_MODULE_11__.provideEffects)(_state_missions_effects__WEBPACK_IMPORTED_MODULE_7__.MissionsEffects), (0,_ngrx_store__WEBPACK_IMPORTED_MODULE_10__.provideState)(_state_missions_reducer__WEBPACK_IMPORTED_MODULE_6__.MISSIONS_FEATURE_KEY, _state_missions_reducer__WEBPACK_IMPORTED_MODULE_6__.missionsReducer), (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.importProvidersFrom)(_app_app_routing_module__WEBPACK_IMPORTED_MODULE_2__.AppRoutingModule), (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.importProvidersFrom)(_angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__.BrowserModule), (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.importProvidersFrom)(_angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__.BrowserAnimationsModule), (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.importProvidersFrom)(_core_core_module__WEBPACK_IMPORTED_MODULE_3__.CoreModule), (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.importProvidersFrom)(ngx_markdown__WEBPACK_IMPORTED_MODULE_13__.MarkdownModule.forRoot()), (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.importProvidersFrom)(_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__.SharedModule), (0,_angular_common_http__WEBPACK_IMPORTED_MODULE_14__.provideHttpClient)((0,_angular_common_http__WEBPACK_IMPORTED_MODULE_14__.withInterceptorsFromDi)()), (0,_jsverse_transloco__WEBPACK_IMPORTED_MODULE_15__.provideTransloco)({
     config: {
       availableLangs: ['fr', 'en'],
       defaultLang: 'fr',
       reRenderOnLangChange: true,
-      prodMode: !(0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.isDevMode)()
+      prodMode: !(0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.isDevMode)()
     },
     loader: _transloco_loader__WEBPACK_IMPORTED_MODULE_5__.TranslocoHttpLoader
   })]
