@@ -22,28 +22,28 @@ test.describe('General page structure', () => {
   });
 
   test('Should have a panel "profil et généralités"', async ({ page }) => {
-    await expect(page.locator('.p-panel-title:has-text("Profile and generalities")')).toBeVisible();
+    await expect(page.locator('.cv-panel-title:has-text("Profile and generalities")')).toBeVisible();
   });
 
   test('Should match the snapshot of the panel "profil et généralités"', async ({ page }) => {
-    const panel = page.locator('p-panel#summary');
+    const panel = page.locator('cv-panel#summary');
     expect(await panel.screenshot()).toMatchSnapshot('summary.png');
   });
 
   test('Should have a panel "langages et outils"', async ({ page }) => {
-    await expect(page.locator('p-panel#skills')).toBeVisible();
+    await expect(page.locator('cv-panel#skills')).toBeVisible();
   });
 
   test('Should have a panel "expérience"', async ({ page }) => {
-    await expect(page.locator('.p-panel-title:has-text("Experience")')).toBeVisible();
+    await expect(page.locator('.cv-panel-title:has-text("Experience")')).toBeVisible();
   });
 
   test('Should have a panel "loisirs"', async ({ page }) => {
-    await expect(page.locator('.p-panel-title:has-text("Hobbies")')).toBeVisible();
+    await expect(page.locator('.cv-panel-title:has-text("Hobbies")')).toBeVisible();
   });
 
   test('Should match the snapshot of the panel "loisirs"', async ({ page }) => {
-    const panel = page.locator('p-panel#hobbies');
+    const panel = page.locator('cv-panel#hobbies');
     expect(await panel.screenshot()).toMatchSnapshot('hobbies.png');
   });
 });
@@ -79,7 +79,7 @@ test.describe('General card structure', () => {
 
 test.describe('Summary panel structure', () => {
   test('should have a description', async ({ page }) => {
-    const content = page.locator('cv-summary .p-panel-content');
+    const content = page.locator('cv-summary .panel__content');
     await expect(content).toBeVisible();
     await expect(content).toContainText(
       `I have 12 years of experience as a designer developer in information systems.`,
@@ -96,7 +96,7 @@ test.describe('Summary panel structure', () => {
   });
 
   test('should have important keyword in bold', async ({ page }) => {
-    const bolds = page.locator('cv-summary .p-panel-content b');
+    const bolds = page.locator('cv-summary .panel__content b');
     const texts = await bolds.allTextContents();
     await expect(texts).toHaveLength(4);
     expect(texts).toContain('12 years');
@@ -109,7 +109,7 @@ test.describe('Summary panel structure', () => {
 test.describe('Skills panel structure', () => {
   test('should have a description', async ({ page }) => {
     await page.waitForSelector('cv-skills');
-    const skills = page.locator('cv-skills .p-panel-content .skills__languages');
+    const skills = page.locator('cv-skills .panel__content .skills__languages');
     const texts = await skills.allTextContents();
     await expect(texts).toHaveLength(17);
     expect(await skills.locator('span').count()).toBe(17);

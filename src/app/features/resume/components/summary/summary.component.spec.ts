@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { PanelModule } from 'primeng/panel';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SummaryComponent } from '@features/resume/components/summary/summary.component';
 import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
+import { PanelComponent } from '@shared/components/panel/panel.component';
 
 describe('SummaryComponent', (): void => {
   let summaryComponent: SummaryComponent;
@@ -11,7 +11,7 @@ describe('SummaryComponent', (): void => {
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, PanelModule, getTranslocoModule()],
+      imports: [BrowserAnimationsModule, CommonModule, PanelComponent, getTranslocoModule()],
     }).compileComponents();
     componentFixture = TestBed.createComponent(SummaryComponent);
     summaryComponent = componentFixture.componentInstance;

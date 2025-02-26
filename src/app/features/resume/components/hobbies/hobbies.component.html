@@ -1,5 +1,5 @@
 <ng-container *transloco="let translate">
-  <p-panel id="hobbies" [header]="translate('cv.hobbies.panelTitle')">
+  <cv-panel id="hobbies" [header]="translate('cv.hobbies.panelTitle')">
     <div class="hobbies">
       <p-tag [rounded]="true">{{ translate('cv.hobbies.content.dev') }}</p-tag>
       <p-tag [rounded]="true">{{ translate('cv.hobbies.content.homelab') }}</p-tag>
@@ -7,5 +7,5 @@
       <p-tag [rounded]="true">{{ translate('cv.hobbies.content.basket') }}</p-tag>
       <p-tag [rounded]="true">{{ translate('cv.hobbies.content.running') }}</p-tag>
     </div>
-  </p-panel>
+  </cv-panel>
 </ng-container>

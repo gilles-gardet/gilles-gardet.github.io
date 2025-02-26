@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DialogModule } from 'primeng/dialog';
 import { PanelModule } from 'primeng/panel';
-import { ResumeComponent } from '@features/resume/components/resume/resume.component';
+import { ResumeComponent } from '@features/resume/resume.component';
 import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
@@ -18,7 +18,7 @@ import { Skill } from '@core/models/skill.model';
 import mockMissions from '@assets/resume/missions.json';
 import mockSkills from '@assets/resume/skills.json';
 import { ConfigService } from '@core/services/config.service';
-import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
+import { getTranslocoModule } from '../../../__mock__/transloco-testing.module';
 import { provideHttpClient } from '@angular/common/http';
 
 const tools: unknown = [

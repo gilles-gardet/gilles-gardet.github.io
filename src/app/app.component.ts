@@ -8,8 +8,8 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { GeneralComponent } from '@features/general/components/general/general.component';
-import { ResumeComponent } from '@features/resume/components/resume/resume.component';
+import { GeneralComponent } from '@features/general/general.component';
+import { ResumeComponent } from '@features/resume/resume.component';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { CommonModule } from '@angular/common';
 import { EMPTY_STRING, isBlank } from '@core/utils/string.utils';

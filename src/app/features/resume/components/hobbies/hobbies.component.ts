@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TagModule } from 'primeng/tag';
-import { PanelModule } from 'primeng/panel';
 import { TranslocoDirective } from '@jsverse/transloco';
+import { PanelComponent } from '@shared/components/panel/panel.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PanelModule, TagModule, TranslocoDirective],
+  imports: [PanelComponent, TagModule, TranslocoDirective],
   selector: 'cv-hobbies',
   standalone: true,
   styleUrls: ['./hobbies.component.scss'],

@@ -1,5 +1,5 @@
 <ng-container *transloco="let translate">
-  <p-panel id="summary" [header]="translate('cv.summary.panelTitle')">
+  <cv-panel id="summary" [header]="translate('cv.summary.panelTitle')">
     <div class="summary" [innerHTML]="translate('cv.summary.content', { value: yearsOfExperience })"></div>
-  </p-panel>
+  </cv-panel>
 </ng-container>

@@ -1,5 +1,5 @@
 <ng-container *transloco="let translate">
-  <p-panel id="experience" [header]="translate('cv.missions.panelTitle')">
+  <cv-panel id="experience" [header]="translate('cv.missions.panelTitle')">
     <p-timeline [value]="missions" align="alternate" styleClass="customized-timeline">
       <ng-template pTemplate="marker">
         <span class="custom-marker" [style.background-color]="'#495057'">
@@ -28,5 +28,5 @@
         </div>
       </ng-template>
     </p-timeline>
-  </p-panel>
+  </cv-panel>
 </ng-container>
