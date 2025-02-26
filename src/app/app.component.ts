@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 import { GeneralComponent } from '@features/general/general.component';
 import { ResumeComponent } from '@features/resume/resume.component';
-import { ScrollTopModule } from 'primeng/scrolltop';
 import { CommonModule } from '@angular/common';
 import { EMPTY_STRING, isBlank } from '@core/utils/string.utils';
 import { ConfigService, LANGUAGE_KEY } from '@core/services/config.service';
@@ -20,11 +19,12 @@ import { switchMap, tap } from 'rxjs/operators';
 import { Observable, timer } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
+import { ScrollTopComponent } from '@shared/components/scroll-top/scroll-top.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [BlockUIModule, CommonModule, GeneralComponent, ProgressSpinnerModule, ResumeComponent, ScrollTopModule],
+  imports: [BlockUIModule, CommonModule, GeneralComponent, ProgressSpinnerModule, ResumeComponent, ScrollTopComponent],
   selector: 'cv-root',
   standalone: true,
   styleUrls: ['./app.component.scss'],
