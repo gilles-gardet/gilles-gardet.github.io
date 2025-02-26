@@ -26,18 +26,18 @@
     page-break-before: always;
   }
 
-  cv-missions > p-panel > div,
-  cv-hobbies > p-panel > div {
+  cv-missions > cv-panel > div,
+  cv-hobbies > cv-panel > div {
     page-break-before: always;
     padding-top: 2rem;
   }
 
-  cv-missions > p-panel {
-    .p-panel-header {
+  cv-missions > cv-panel {
+    .panel__header {
       display: none;
     }
 
-    .p-panel .p-panel-content {
+    .panel .panel__content {
       border: unset;
     }
 

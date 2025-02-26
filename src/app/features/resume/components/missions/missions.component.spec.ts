@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DialogModule } from 'primeng/dialog';
-import { PanelModule } from 'primeng/panel';
 import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
@@ -14,6 +13,7 @@ import { MissionsComponent } from '@features/resume/components/missions/missions
 import { Mission } from '@core/models/mission.model';
 import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
 import { provideHttpClient } from '@angular/common/http';
+import { PanelComponent } from '@shared/components/panel/panel.component';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
   observe: (): unknown => null,
@@ -31,7 +31,7 @@ describe('MissionsComponent', () => {
         CommonModule,
         DialogModule,
         MarkdownModule.forRoot(),
-        PanelModule,
+        PanelComponent,
         ProgressBarModule,
         ProgressSpinnerModule,
         TagModule,

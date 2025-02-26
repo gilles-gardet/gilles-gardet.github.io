@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { GeneralComponent } from '@features/general/components/general/general.component';
+import { GeneralComponent } from '@features/general/general.component';
 import { ChangeDetectorRef, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { of } from 'rxjs';
-import { ResumeComponent } from '@features/resume/components/resume/resume.component';
+import { ResumeComponent } from '@features/resume/resume.component';
 import { ConfigService } from '@core/services/config.service';
 import { TranslocoService } from '@jsverse/transloco';
 

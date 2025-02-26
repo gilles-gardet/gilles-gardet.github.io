@@ -9,17 +9,25 @@ import {
   Output,
 } from '@angular/core';
 import { Mission } from '@core/models/mission.model';
-import { PanelModule } from 'primeng/panel';
 import { TimelineModule } from 'primeng/timeline';
 import { CardModule } from 'primeng/card';
 import { MarkdownModule } from 'ngx-markdown';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { SlideButtonComponent } from '@shared/components/slide-button/slide-button.component';
 import { NgClass } from '@angular/common';
+import { PanelComponent } from '@shared/components/panel/panel.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CardModule, MarkdownModule, PanelModule, SlideButtonComponent, TimelineModule, TranslocoDirective, NgClass],
+  imports: [
+    CardModule,
+    MarkdownModule,
+    PanelComponent,
+    SlideButtonComponent,
+    TimelineModule,
+    TranslocoDirective,
+    NgClass,
+  ],
   selector: 'cv-missions',
   standalone: true,
   styleUrls: ['./missions.component.scss'],
@@ -95,7 +103,7 @@ export class MissionsComponent implements OnInit, AfterViewInit {
       },
     );
     const experienceElements: NodeListOf<Element> = document.querySelectorAll(
-      'p-panel#experience .p-component .p-timeline-alternate .p-timeline-event',
+      'cv-panel#experience .p-timeline-alternate .p-timeline-event',
     );
     experienceElements.forEach((experienceElement: Element): void => {
       intersectionObserver.observe(experienceElement);

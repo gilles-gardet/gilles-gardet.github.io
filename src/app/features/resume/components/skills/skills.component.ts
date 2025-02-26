@@ -1,11 +1,11 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input } from '@angular/core';
 import { Skill } from '@core/models/skill.model';
-import { PanelModule } from 'primeng/panel';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { ProgressBarComponent } from '@shared/components/progress-bar/progress-bar.component';
+import { PanelComponent } from '@shared/components/panel/panel.component';
 
 @Component({
-  imports: [PanelModule, ProgressBarComponent, TranslocoDirective],
+  imports: [PanelComponent, ProgressBarComponent, TranslocoDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'cv-skills',
   standalone: true,
@@ -56,7 +56,7 @@ export class SkillsComponent implements AfterViewInit {
         threshold: 0,
       },
     );
-    const rateElement: Element | null = document.querySelector('p-panel#skills .p-component');
+    const rateElement: Element | null = document.querySelector('cv-panel#skills');
     if (rateElement) {
       rateIntersectionObserver.observe(rateElement);
     }

@@ -22,25 +22,6 @@ p-scrolltop > button.p-scrolltop {
   z-index: 1004;
 }
 
-p-panel {
-  .p-panel-header {
-    display: grid;
-    justify-content: center;
-    @apply border;
-  }
-
-  .p-panel-content {
-    @apply border-b border-r border-l;
-  }
-
-  .p-panel-header,
-  .p-panel-content {
-    @apply bg-panel-title-bg dark:bg-dark-panel-title-bg #{!important};
-    @apply text-text-color dark:text-dark-text-color #{!important};
-    @apply border-panel-border dark:border-dark-panel-border #{!important};
-  }
-}
-
 p-card {
   > div.p-card {
     @apply bg-card-bg dark:bg-dark-card-bg #{!important};

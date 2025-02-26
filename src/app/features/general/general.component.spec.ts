@@ -8,9 +8,9 @@ import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { ConfigService } from '@core/services/config.service';
-import { GeneralComponent } from '@features/general/components/general/general.component';
+import { GeneralComponent } from '@features/general/general.component';
 import { MissionService } from '@core/services/mission.service';
-import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
+import { getTranslocoModule } from '../../../__mock__/transloco-testing.module';
 
 describe('GeneralComponent', (): void => {
   let contactComponent: GeneralComponent;
