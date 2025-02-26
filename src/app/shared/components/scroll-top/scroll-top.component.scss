@@ -1,0 +1,34 @@
+.scroll-top {
+  @apply bg-scroll-bg dark:bg-dark-scroll-bg;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  box-shadow:
+    0 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+  z-index: 1004;
+
+  &__icon {
+    @apply text-dark-text-color dark:text-text-color;
+    @apply w-4 h-4;
+    font-size: 1.5rem;
+    color: #f8f9fa;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem #aab1b9;
+  }
+}

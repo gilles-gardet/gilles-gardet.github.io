@@ -11,9 +11,9 @@ import { TimelineModule } from 'primeng/timeline';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
 import { Mission } from '@core/models/mission.model';
-import { DetailsComponent } from '@features/resume/components/missions/components/details/details.component';
+import { DetailsComponent } from '@features/resume/components/details/details.component';
 import { MissionService } from '@core/services/mission.service';
-import { getTranslocoModule } from '../../../../../../../__mock__/transloco-testing.module';
+import { getTranslocoModule } from '../../../../../__mock__/transloco-testing.module';
 
 describe('DetailsComponent', (): void => {
   let detailsComponent: DetailsComponent;

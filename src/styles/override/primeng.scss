@@ -18,10 +18,6 @@
   @apply text-dark-text-color dark:text-text-color #{!important};
 }
 
-p-scrolltop > button.p-scrolltop {
-  z-index: 1004;
-}
-
 p-card {
   > div.p-card {
     @apply bg-card-bg dark:bg-dark-card-bg #{!important};
@@ -78,30 +74,6 @@ p-card {
   }
 }
 
-button.p-button {
-  > span {
-    @apply text-base;
-  }
-
-  @apply text-menu-button dark:text-dark-menu-button #{!important};
-
-  &.p-button.p-button-text,
-  &.p-button.p-button-text:enabled:hover,
-  &.p-button.p-button-text:enabled:active {
-    @apply text-menu-button dark:text-dark-menu-button #{!important};
-  }
-
-  &.p-button.p-button-text:enabled:hover,
-  &.p-button.p-button-text:enabled:active {
-    background: rgba(75, 85, 94, 0.04);
-  }
-
-  &.p-button:focus,
-  &.p-button.p-button-text:enabled:active {
-    box-shadow: 0 0 0 0.2rem #aab1b9;
-  }
-}
-
 p-chip[label='gilles.gardet@gmail.com'] {
   --params: 0.8s ease;
 
@@ -146,10 +118,6 @@ p-chip[label='gilles.gardet@gmail.com'] {
 .p-timeline-event-content,
 .p-timeline-event-opposite {
   line-height: 1;
-}
-
-.p-button.p-button-secondary.p-button-outlined {
-  color: var(--dark);
 }
 
 .mission {
@@ -259,17 +227,6 @@ p-chip[label='gilles.gardet@gmail.com'] {
   .p-dialog-content-scroll {
     overflow-y: auto;
     animation: hideScroll 800ms backwards;
-  }
-}
-
-.p-scrolltop {
-  &.p-link {
-    @apply bg-scroll-bg dark:bg-dark-scroll-bg #{!important};
-  }
-
-  .p-scrolltop-icon {
-    @apply text-dark-text-color dark:text-text-color #{!important};
-    @apply w-4 h-4;
   }
 }
 
