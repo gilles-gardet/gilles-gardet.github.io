@@ -1,10 +1,10 @@
 "use strict";
 (self["webpackChunkcv"] = self["webpackChunkcv"] || []).push([["polyfills"],{
 
-/***/ 7549:
-/*!**********************************************************************************!*\
-  !*** ./node_modules/.pnpm/zone.js@0.14.10/node_modules/zone.js/fesm2015/zone.js ***!
-  \**********************************************************************************/
+/***/ 5516:
+/*!*********************************************************************************!*\
+  !*** ./node_modules/.pnpm/zone.js@0.15.0/node_modules/zone.js/fesm2015/zone.js ***!
+  \*********************************************************************************/
 /***/ (() => {
 
 
@@ -32,7 +32,9 @@ function initZone() {
   mark('Zone');
   class ZoneImpl {
     // tslint:disable-next-line:require-internal-with-underscore
-    static #_ = this.__symbol__ = __symbol__;
+    static {
+      this.__symbol__ = __symbol__;
+    }
     static assertZonePatched() {
       if (global['Promise'] !== patches['ZoneAwarePromise']) {
         throw new Error('Zone.js has detected that ZoneAwarePromise `(window|global).Promise` ' + 'has been overwritten.\n' + 'Most likely cause is that a Promise polyfill has been loaded ' + 'after Zone.js (Polyfilling Promise api is not necessary when zone.js is loaded. ' + 'If you must load one, do so before loading zone.js.)');
@@ -2851,7 +2853,7 @@ patchBrowser(Zone$1);
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ var __webpack_exports__ = (__webpack_exec__(7549));
+/******/ var __webpack_exports__ = (__webpack_exec__(5516));
 /******/ }
 ]);
 //# sourceMappingURL=polyfills.js.map
