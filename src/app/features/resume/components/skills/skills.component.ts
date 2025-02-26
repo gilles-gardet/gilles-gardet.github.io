@@ -1,11 +1,11 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input } from '@angular/core';
 import { Skill } from '@core/models/skill.model';
-import { ProgressBarModule } from 'primeng/progressbar';
 import { PanelModule } from 'primeng/panel';
 import { TranslocoDirective } from '@jsverse/transloco';
+import { ProgressBarComponent } from '@shared/components/progress-bar/progress-bar.component';
 
 @Component({
-  imports: [PanelModule, ProgressBarModule, TranslocoDirective],
+  imports: [PanelModule, ProgressBarComponent, TranslocoDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'cv-skills',
   standalone: true,

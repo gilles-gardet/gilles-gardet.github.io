@@ -5,7 +5,8 @@
         @for (skill of _skills; track skill.name) {
           <div class="skills__languages">
             <span>{{ skill.name }}</span>
-            <p-progressBar [value]="skill.rate" [showValue]="false"></p-progressBar>
+<!--            <p-progressBar [value]="skill.rate" [showValue]="false"></p-progressBar>-->
+            <cv-progress-bar [value]="skill.rate"></cv-progress-bar>
           </div>
         }
       }
