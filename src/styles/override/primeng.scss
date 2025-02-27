@@ -1,36 +1,3 @@
-.p-card-title,
-.p-card-subtitle {
-  text-align: center;
-}
-
-.p-progressbar {
-  @apply bg-progress-bar-bg dark:bg-dark-progress-bar-bg #{!important};
-  height: 0.5rem;
-  border-radius: 5px;
-
-  .p-progressbar-value {
-    @apply bg-progress-bar dark:bg-dark-progress-bar;
-  }
-}
-
-.p-tag {
-  @apply bg-progress-bar dark:bg-dark-progress-bar #{!important};
-  @apply text-dark-text-color dark:text-text-color #{!important};
-}
-
-p-card {
-  > div.p-card {
-    @apply bg-card-bg dark:bg-dark-card-bg #{!important};
-    @apply text-text-color dark:text-dark-text-color #{!important};
-    position: sticky;
-    top: 2rem;
-  }
-
-  &.alt-card > div.p-card {
-    @apply bg-card-bg dark:bg-dark-body-bg #{!important};
-  }
-}
-
 .p-menu {
   ul {
     @apply list-none;
@@ -116,11 +83,6 @@ p-card {
   @apply bg-timeline-connector dark:bg-dark-timeline-connector #{!important};
 }
 
-.p-card-content {
-  display: grid;
-  gap: 1rem;
-}
-
 .p-dialog {
   .p-dialog-header,
   .p-dialog-content {
@@ -187,10 +149,6 @@ p-card {
     overflow-y: auto;
     animation: hideScroll 800ms backwards;
   }
-}
-
-.p-link:focus {
-  box-shadow: 0 0 0 0.2rem #aab1b9;
 }
 
 @keyframes hideScroll {
@@ -272,10 +230,6 @@ p-card {
 
     .p-timeline-event-opposite {
       display: none;
-    }
-
-    .p-card {
-      margin-top: 1rem;
     }
   }
 }
