@@ -1,0 +1,58 @@
+:host {
+  --params: 0.8s ease;
+
+  .chip {
+    @apply bg-chip-bg dark:bg-dark-chip-bg;
+    @apply text-dark-text-color dark:text-text-color;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition:
+      color var(--params),
+      background-color var(--params);
+    z-index: 0;
+    border-radius: 16px;
+    padding: 0 0.5rem;
+    gap: 0.5rem;
+
+    &::before {
+      @apply bg-dark-chip-bg dark:bg-chip-bg;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      transform: translateX(100%);
+      transition:
+        transform var(--params),
+        opacity var(--params);
+    }
+
+    &:hover {
+      @apply text-text-color dark:text-dark-text-color;
+      cursor: pointer;
+      background-color: transparent;
+
+      &::before {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    &__icon {
+      color: inherit;
+      line-height: 1;
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+
+    &__label {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+      user-select: none;
+    }
+  }
+}
