@@ -9,32 +9,21 @@ import {
   Output,
 } from '@angular/core';
 import { Mission } from '@core/models/mission.model';
-import { TimelineModule } from 'primeng/timeline';
-import { CardModule } from 'primeng/card';
 import { MarkdownModule } from 'ngx-markdown';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { SlideButtonComponent } from '@shared/components/slide-button/slide-button.component';
-import { NgClass } from '@angular/common';
 import { PanelComponent } from '@shared/components/panel/panel.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    CardModule,
-    MarkdownModule,
-    PanelComponent,
-    SlideButtonComponent,
-    TimelineModule,
-    TranslocoDirective,
-    NgClass,
-  ],
+  imports: [MarkdownModule, PanelComponent, SlideButtonComponent, TranslocoDirective],
   selector: 'cv-missions',
   standalone: true,
   styleUrls: ['./missions.component.scss'],
   templateUrl: './missions.component.html',
 })
 export class MissionsComponent implements OnInit, AfterViewInit {
-  protected screenWidth: number | undefined;
+  protected screenWidth = 0;
   protected _missions: Mission[] = [];
 
   @Input()
@@ -86,14 +75,14 @@ export class MissionsComponent implements OnInit, AfterViewInit {
           }
           if (this.screenWidth > 960) {
             entry.target
-              .querySelectorAll(':nth-child(2n + 1) > .p-timeline-event-content')
+              .querySelectorAll(':nth-child(2n + 1) > .timeline__event-content')
               .forEach((element: Element) => element.classList.add('mission__animation-right'));
             entry.target
-              .querySelectorAll(':nth-child(2n) > .p-timeline-event-content')
+              .querySelectorAll(':nth-child(2n) > .timeline__event-content')
               .forEach((element: Element) => element.classList.add('mission__animation-left'));
           } else {
             entry.target
-              .querySelectorAll('.p-timeline-event-content')
+              .querySelectorAll('.timeline__event-content')
               .forEach((element: Element) => element.classList.add('mission__animation-right'));
           }
         });
@@ -103,7 +92,7 @@ export class MissionsComponent implements OnInit, AfterViewInit {
       },
     );
     const experienceElements: NodeListOf<Element> = document.querySelectorAll(
-      'cv-panel#experience .p-timeline-alternate .p-timeline-event',
+      'cv-panel#experience .timeline__event',
     );
     experienceElements.forEach((experienceElement: Element): void => {
       intersectionObserver.observe(experienceElement);

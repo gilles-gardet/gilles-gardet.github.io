@@ -1,12 +1,149 @@
-.custom-marker {
+.timeline {
   display: flex;
-  width: 2rem;
-  height: 2rem;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  border-radius: 50%;
-  z-index: 1;
+  flex-grow: 1;
+  flex-direction: column;
+
+  &__event {
+    display: flex;
+    position: relative;
+    min-height: 70px;
+
+    &-opposite,
+    &-content {
+      flex: 1;
+      min-width: 100px;
+      padding: 0 1rem;
+      line-height: 1;
+    }
+
+    &-connector {
+      @apply bg-timeline-connector dark:bg-dark-timeline-connector;
+      flex-grow: 1;
+      width: 2px;
+    }
+
+    &-separator {
+      flex: 0;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      &__icon {
+        display: flex;
+        width: 2rem;
+        height: 2rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        z-index: 1;
+        background-color: #495057;
+
+        > svg {
+          color: var(--white);
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    &:nth-child(even) &-opposite {
+      text-align: left;
+    }
+
+    &:nth-child(odd) &-opposite {
+      text-align: right;
+    }
+
+    &:nth-child(even) &-content {
+      text-align: right;
+    }
+
+    &:nth-child(odd) &-content {
+      text-align: left;
+    }
+
+    &:last-child {
+      min-height: 0;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    .timeline__event:nth-child(even) {
+      flex-direction: row !important;
+
+      .timeline__event-content {
+        text-align: left !important;
+      }
+    }
+
+    .timeline__event-opposite {
+      display: none;
+    }
+  }
+}
+
+.mission {
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+
+    &__client {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 2rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    &__timelapse {
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      color: #6c757d;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding-bottom: 1rem;
+    gap: 1rem;
+
+    &__button {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__animation-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: fadeIn 3s forwards;
+    -webkit-animation: fadeIn 3s forwards;
+    -moz-animation: fadeIn 3s forwards;
+    -o-animation: fadeIn 3s forwards;
+  }
+
+  &__animation-right {
+    opacity: 0;
+    transform: translateX(40px);
+    animation: fadeIn 3s forwards;
+    -webkit-animation: fadeIn 3s forwards;
+    -moz-animation: fadeIn 3s forwards;
+    -o-animation: fadeIn 3s forwards;
+  }
 }
 
 @media print {
