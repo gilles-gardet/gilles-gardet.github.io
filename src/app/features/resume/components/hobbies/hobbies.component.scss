@@ -1,7 +1,21 @@
-.hobbies {
+.hobby {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: center;
+
+  &__tag {
+    @apply bg-progress-bar dark:bg-dark-progress-bar #{!important};
+    @apply text-dark-text-color dark:text-text-color #{!important};
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10rem;
+    line-height: 1.5;
+    font-weight: 700;
+    padding: 0.25rem 0.4rem;
+    user-select: none;
+  }
 }
 
 @media print {

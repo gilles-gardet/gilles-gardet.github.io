@@ -1,11 +1,9 @@
 <ng-container *transloco="let translate">
   <cv-panel id="hobbies" [header]="translate('cv.hobbies.panelTitle')">
-    <div class="hobbies">
-      <p-tag [rounded]="true">{{ translate('cv.hobbies.content.dev') }}</p-tag>
-      <p-tag [rounded]="true">{{ translate('cv.hobbies.content.homelab') }}</p-tag>
-      <p-tag [rounded]="true">{{ translate('cv.hobbies.content.movie') }}</p-tag>
-      <p-tag [rounded]="true">{{ translate('cv.hobbies.content.basket') }}</p-tag>
-      <p-tag [rounded]="true">{{ translate('cv.hobbies.content.running') }}</p-tag>
+    <div class="hobby">
+      @for (tag of tags; track tag) {
+        <div class="hobby__tag">{{ translate(tag) }}</div>
+      }
     </div>
   </cv-panel>
 </ng-container>

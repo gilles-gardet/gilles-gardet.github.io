@@ -11,4 +11,12 @@ import { PanelComponent } from '@shared/components/panel/panel.component';
   styleUrls: ['./hobbies.component.scss'],
   templateUrl: './hobbies.component.html',
 })
-export class HobbiesComponent {}
+export class HobbiesComponent {
+  protected readonly tags: string[] = [
+    'cv.hobbies.content.dev',
+    'cv.hobbies.content.homelab',
+    'cv.hobbies.content.movie',
+    'cv.hobbies.content.basket',
+    'cv.hobbies.content.running',
+  ];
+}
