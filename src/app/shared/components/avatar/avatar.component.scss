@@ -1,4 +1,5 @@
 .avatar {
+  @apply outline-panel-border dark:outline-dark-panel-border #{!important};
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -8,4 +9,5 @@
   overflow: hidden;
   width: 4rem;
   height: 4rem;
+  outline: 1px solid;
 }
