@@ -1,32 +1,38 @@
 <ng-container *transloco="let translate">
   <cv-panel id="experience" [header]="translate('cv.missions.panelTitle')">
-    <p-timeline [value]="missions" align="alternate" styleClass="customized-timeline">
-      <ng-template pTemplate="marker">
-        <span class="custom-marker" [style.background-color]="'#495057'">
-          <i [ngClass]="'pi pi-bookmark'"></i>
-        </span>
-      </ng-template>
-      <ng-template pTemplate="content" let-mission>
-        <div class="flex flex-col mt-4 p-4 gap-4">
-          <div class="flex flex-col">
-            <span class="text-2xl font-bold mb-2 text-center mission__title">
-              {{ mission['client'] }}
-            </span>
-            <span class="font-normal mb-2 text-center" [style.color]="'#6c757d'">
-              {{ mission['timelapse'] }}
-            </span>
+    <div class="timeline">
+      @for (mission of missions; track mission['client']; let last = $last) {
+        <div class="timeline-event">
+          <div class="timeline-event-opposite"></div>
+          <div class="timeline-event-separator">
+            <i class="pi pi-bookmark"></i>
+            @if (!last) {
+              <div class="timeline-event-connector"></div>
+            }
           </div>
-          <div class="flex flex-col pb-4 gap-4 text-start">
-            <markdown [innerHTML]="mission.description"></markdown>
-            <div class="mission__button">
-              <cv-slide-button
-                (click)="emitOpenMissionDialog(mission)"
-                onKeyDown="emitOpenMissionDialog({mission})"
-              ></cv-slide-button>
+          <div class="timeline-event-content">
+            <div class="mission flex flex-col p-4 mt-4 4 gap-4">
+              <div class="flex flex-col">
+                <span class="text-2xl font-bold mb-2 text-center mission__title">
+                  {{ mission['client'] }}
+                </span>
+                <span class="font-normal mb-2 text-center" [style.color]="'#6c757d'">
+                  {{ mission['timelapse'] }}
+                </span>
+              </div>
+              <div class="flex flex-col pb-4 gap-4 text-start">
+                <markdown [innerHTML]="mission.description"></markdown>
+                <div class="mission__button">
+                  <cv-slide-button
+                    (click)="emitOpenMissionDialog(mission)"
+                    onKeyDown="emitOpenMissionDialog({mission})"
+                  ></cv-slide-button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </ng-template>
-    </p-timeline>
+      }
+    </div>
   </cv-panel>
 </ng-container>

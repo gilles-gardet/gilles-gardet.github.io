@@ -1,11 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DialogModule } from 'primeng/dialog';
 import { MarkdownModule, MarkdownService } from 'ngx-markdown';
-import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { TagModule } from 'primeng/tag';
 import { TimelineModule } from 'primeng/timeline';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,14 +25,12 @@ describe('MissionsComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
-        CardModule,
         CommonModule,
         DialogModule,
         MarkdownModule.forRoot(),
         PanelComponent,
         ProgressBarModule,
         ProgressSpinnerModule,
-        TagModule,
         TimelineModule,
         getTranslocoModule(),
       ],
