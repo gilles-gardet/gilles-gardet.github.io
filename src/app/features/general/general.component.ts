@@ -3,7 +3,6 @@ import { ConfigService, DARK_THEME, LANGUAGE_KEY, LIGHT_THEME, THEME_KEY } from 
 import { tap } from 'rxjs/operators';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-import { ChipModule } from 'primeng/chip';
 import { FormsModule } from '@angular/forms';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { RippleModule } from 'primeng/ripple';
@@ -17,6 +16,7 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { combineLatest } from 'rxjs';
 import { Contact } from '@core/models/contact.model';
 import { AvatarComponent } from '@shared/components/avatar/avatar.component';
+import { EmailComponent } from '@features/general/components/email/email.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,7 +24,7 @@ import { AvatarComponent } from '@shared/components/avatar/avatar.component';
     AvatarComponent,
     ButtonModule,
     CardModule,
-    ChipModule,
+    EmailComponent,
     FormsModule,
     InputSwitchModule,
     MenuModule,

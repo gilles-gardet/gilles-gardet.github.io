@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
-import { ChipModule } from 'primeng/chip';
 import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputSwitchModule } from 'primeng/inputswitch';
@@ -11,6 +10,7 @@ import { GeneralComponent } from '@features/general/general.component';
 import { MissionService } from '@core/services/mission.service';
 import { getTranslocoModule } from '../../../__mock__/transloco-testing.module';
 import { AvatarComponent } from '@shared/components/avatar/avatar.component';
+import { EmailComponent } from '@features/general/components/email/email.component';
 
 describe('GeneralComponent', (): void => {
   let contactComponent: GeneralComponent;
@@ -22,7 +22,7 @@ describe('GeneralComponent', (): void => {
         AvatarComponent,
         ButtonModule,
         CardModule,
-        ChipModule,
+        EmailComponent,
         CommonModule,
         InputSwitchModule,
         RippleModule,

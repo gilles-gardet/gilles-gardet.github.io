@@ -74,47 +74,6 @@ p-card {
   }
 }
 
-p-chip[label='gilles.gardet@gmail.com'] {
-  --params: 0.8s ease;
-
-  .p-chip {
-    position: relative;
-    overflow: hidden;
-    transition:
-      color var(--params),
-      background-color var(--params);
-    z-index: 0;
-    @apply bg-chip-bg dark:bg-dark-chip-bg #{!important};
-    @apply text-dark-text-color dark:text-text-color #{!important};
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: -1;
-      @apply bg-dark-chip-bg dark:bg-chip-bg #{!important};
-      transform: translateX(100%);
-      transition:
-        transform var(--params),
-        opacity var(--params);
-    }
-
-    &:hover {
-      cursor: pointer;
-      @apply text-text-color dark:text-dark-text-color #{!important};
-      background-color: transparent;
-
-      &::before {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-  }
-}
-
 .p-timeline-event-content,
 .p-timeline-event-opposite {
   line-height: 1;
