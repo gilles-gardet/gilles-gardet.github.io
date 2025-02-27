@@ -106,11 +106,10 @@ export class ScrollTopComponent implements OnInit, OnDestroy {
    * @param animationEvent the animation animationEvent
    */
   protected onLeave(animationEvent: AnimationEvent): void {
-    switch (animationEvent.toState) {
-      case 'void':
-        animationEvent.element.style.zIndex = '';
-        break;
+    if (animationEvent.toState !== 'void') {
+      return;
     }
+    animationEvent.element.style.zIndex = '';
   }
 
   /**

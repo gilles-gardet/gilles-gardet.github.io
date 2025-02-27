@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
-import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { ChipModule } from 'primeng/chip';
 import { RippleModule } from 'primeng/ripple';
@@ -11,6 +10,7 @@ import { ConfigService } from '@core/services/config.service';
 import { GeneralComponent } from '@features/general/general.component';
 import { MissionService } from '@core/services/mission.service';
 import { getTranslocoModule } from '../../../__mock__/transloco-testing.module';
+import { AvatarComponent } from '@shared/components/avatar/avatar.component';
 
 describe('GeneralComponent', (): void => {
   let contactComponent: GeneralComponent;
@@ -19,7 +19,7 @@ describe('GeneralComponent', (): void => {
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
       imports: [
-        AvatarModule,
+        AvatarComponent,
         ButtonModule,
         CardModule,
         ChipModule,

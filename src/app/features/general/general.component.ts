@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
 import { ConfigService, DARK_THEME, LANGUAGE_KEY, LIGHT_THEME, THEME_KEY } from '@core/services/config.service';
 import { tap } from 'rxjs/operators';
-import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ChipModule } from 'primeng/chip';
@@ -17,11 +16,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { combineLatest } from 'rxjs';
 import { Contact } from '@core/models/contact.model';
+import { AvatarComponent } from '@shared/components/avatar/avatar.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    AvatarModule,
+    AvatarComponent,
     ButtonModule,
     CardModule,
     ChipModule,
