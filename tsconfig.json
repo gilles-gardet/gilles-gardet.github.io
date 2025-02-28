@@ -28,7 +28,8 @@
       "@environments/*": ["./src/environments/*"],
       "@features/*": ["./src/app/features/*"],
       "@pages/*": ["./src/app/pages/*"],
-      "@shared/*": ["./src/app/shared/*"]
+      "@shared/*": ["./src/app/shared/*"],
+      "@state/*": ["./src/+state/*"]
     },
     "resolveJsonModule": true,
     "rootDir": ".",

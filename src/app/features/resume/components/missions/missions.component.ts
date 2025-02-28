@@ -1,12 +1,12 @@
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   EventEmitter,
-  HostListener,
+  HostListener, inject,
   Input,
   OnInit,
-  Output,
+  Output
 } from '@angular/core';
 import { Mission } from '@core/models/mission.model';
 import { MarkdownModule } from 'ngx-markdown';
@@ -23,6 +23,7 @@ import { PanelComponent } from '@shared/components/panel/panel.component';
   templateUrl: './missions.component.html',
 })
 export class MissionsComponent implements OnInit, AfterViewInit {
+  private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   protected screenWidth = 0;
   protected _missions: Mission[] = [];
 
@@ -48,7 +49,7 @@ export class MissionsComponent implements OnInit, AfterViewInit {
    * @inheritDoc
    */
   ngAfterViewInit(): void {
-    this._animateMissionsOnView();
+    setTimeout((): void => this._animateMissionsOnView());
   }
 
   /**
@@ -91,9 +92,7 @@ export class MissionsComponent implements OnInit, AfterViewInit {
         threshold: 0,
       },
     );
-    const experienceElements: NodeListOf<Element> = document.querySelectorAll(
-      'cv-panel#experience .timeline__event',
-    );
+    const experienceElements: NodeListOf<Element> = document.querySelectorAll('cv-panel#experience .timeline__event');
     experienceElements.forEach((experienceElement: Element): void => {
       intersectionObserver.observe(experienceElement);
     });
