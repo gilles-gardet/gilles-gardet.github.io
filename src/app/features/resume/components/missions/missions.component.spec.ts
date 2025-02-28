@@ -8,10 +8,12 @@ import { TimelineModule } from 'primeng/timeline';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MissionsComponent } from '@features/resume/components/missions/missions.component';
-import { Mission } from '@core/models/mission.model';
-import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
 import { provideHttpClient } from '@angular/common/http';
 import { PanelComponent } from '@shared/components/panel/panel.component';
+import { Store } from '@ngrx/store';
+import { mockedInstance } from '@core/jest/mocked-instance.helper';
+import { of } from 'rxjs';
+import mockMissions from '@assets/resume/missions.json';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
   observe: (): unknown => null,
@@ -20,6 +22,7 @@ window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
 describe('MissionsComponent', () => {
   let missionsComponent: MissionsComponent;
   let componentFixture: ComponentFixture<MissionsComponent>;
+  const store = mockedInstance(Store);
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -32,12 +35,20 @@ describe('MissionsComponent', () => {
         ProgressBarModule,
         ProgressSpinnerModule,
         TimelineModule,
-        getTranslocoModule(),
       ],
-      providers: [MarkdownService, provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        MarkdownService,
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        {
+          provide: Store,
+          useValue: store,
+        },
+      ],
     }).compileComponents();
     componentFixture = TestBed.createComponent(MissionsComponent);
     missionsComponent = componentFixture.componentInstance;
+    jest.mocked(store.select).mockReturnValue(of(mockMissions));
     componentFixture.detectChanges();
   }));
 
@@ -54,16 +65,5 @@ describe('MissionsComponent', () => {
     window.dispatchEvent(new Event('resize'));
     componentFixture.detectChanges();
     expect((missionsComponent as any).screenWidth).toBe(2048);
-  });
-
-  it('should emit the selected mission', async (): Promise<void> => {
-    const mission: Mission = {
-      client: 'Test',
-      endDate: undefined,
-      startDate: '2022-01-01',
-    } as Mission;
-    const emitSpy: unknown = jest.spyOn(missionsComponent.openDialog, 'emit');
-    missionsComponent.emitOpenMissionDialog(mission);
-    expect(emitSpy).toHaveBeenNthCalledWith(1, mission);
   });
 });

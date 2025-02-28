@@ -2,8 +2,8 @@
   <div id="scroll-tracker"></div>
 </div>
 <cv-summary></cv-summary>
-<cv-skills [skills]="skills" [clones]="clones"></cv-skills>
-<cv-missions [missions]="missions" (openDialog)="openDialog($event)"></cv-missions>
+<cv-skills></cv-skills>
+<cv-missions (openDialog)="openDialog($event)"></cv-missions>
 <cv-hobbies></cv-hobbies>
 <cv-details
   [selectedMission]="selectedMission"

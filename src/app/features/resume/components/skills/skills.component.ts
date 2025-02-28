@@ -1,8 +1,21 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  DestroyRef,
+  inject,
+} from '@angular/core';
 import { Skill } from '@core/models/skill.model';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { ProgressBarComponent } from '@shared/components/progress-bar/progress-bar.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';
+import { AppState } from '@state/state';
+import { Store } from '@ngrx/store';
+import { SkillsActions } from '@state/skills/skills.actions';
+import { ConfigService } from '@core/services/config.service';
+import { selectSkills } from '@state/skills/skills.selector';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   imports: [PanelComponent, ProgressBarComponent, TranslocoDirective],
@@ -14,34 +27,27 @@ import { PanelComponent } from '@shared/components/panel/panel.component';
 })
 export class SkillsComponent implements AfterViewInit {
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
-  protected _skills: Skill[] = [];
-  protected _clones: Skill[] = [];
-
-  @Input()
-  public get skills(): Skill[] {
-    return this._skills;
-  }
-
-  public set skills(value: Skill[]) {
-    this._skills = value;
-    this.changeDetectorRef.markForCheck();
-  }
-
-  @Input()
-  public get clones(): Skill[] {
-    return this._clones;
-  }
-
-  public set clones(value: Skill[]) {
-    this._clones = value;
-    this.changeDetectorRef.markForCheck();
-  }
+  private readonly configService: ConfigService = inject(ConfigService);
+  private readonly destroyRef: DestroyRef = inject(DestroyRef);
+  private readonly store: Store<AppState> = inject(Store);
+  protected skills: Skill[] = [];
+  protected clones: Skill[] = [];
 
   /**
    * @inheritDoc
    */
   ngAfterViewInit(): void {
-    setTimeout((): void => this._animateSkillsOnView());
+    this.store
+      .select(selectSkills)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((skills: Skill[]): void => {
+        this.skills = this.clones = skills;
+        this.skills = skills.map((skill: Skill): Skill => ({ name: skill.name, rate: 0 }));
+        this.configService.setLoading$(false);
+        setTimeout((): void => this._animateSkillsOnView()); // FIXME: setTimeout is a workaround
+        this.changeDetectorRef.markForCheck();
+      });
+    this.store.dispatch(SkillsActions.loadSkills());
   }
 
   /**
@@ -62,14 +68,19 @@ export class SkillsComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * Check the intersection of the skills bar with the screen and update the rate of each skill.
+   *
+   * @param entry the intersection observer entry
+   */
   private _checkSkillIntersection(entry: IntersectionObserverEntry): void {
-    if (entry.isIntersecting && this._clones.length > 0) {
-      this._skills.forEach(
+    if (entry.isIntersecting && this.clones.length > 0) {
+      this.skills.forEach(
         (tool: Skill) =>
-          (tool.rate = this._clones?.find((clone: Skill): boolean => clone.name === tool.name)?.rate ?? 0),
+          (tool.rate = this.clones?.find((clone: Skill): boolean => clone.name === tool.name)?.rate ?? 0),
       );
     } else {
-      this._skills.forEach((tool: Skill): number => (tool.rate = 0));
+      this.skills.forEach((tool: Skill): number => (tool.rate = 0));
     }
     this.changeDetectorRef.markForCheck();
   }

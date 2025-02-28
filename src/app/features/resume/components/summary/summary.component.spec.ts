@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SummaryComponent } from '@features/resume/components/summary/summary.component';
-import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
 import { PanelComponent } from '@shared/components/panel/panel.component';
 
 describe('SummaryComponent', (): void => {
@@ -11,7 +10,7 @@ describe('SummaryComponent', (): void => {
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, PanelComponent, getTranslocoModule()],
+      imports: [BrowserAnimationsModule, CommonModule, PanelComponent],
     }).compileComponents();
     componentFixture = TestBed.createComponent(SummaryComponent);
     summaryComponent = componentFixture.componentInstance;

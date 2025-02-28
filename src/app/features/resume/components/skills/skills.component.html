@@ -1,8 +1,8 @@
 <ng-container *transloco="let translate">
   <cv-panel id="skills" [header]="translate('cv.skills.panelTitle')">
     <div class="skills">
-      @if (!!_skills && !!_clones) {
-        @for (skill of _skills; track skill.name) {
+      @if (!!skills && !!clones) {
+        @for (skill of skills; track skill.name) {
           <div class="skills__languages">
             <span>{{ skill.name }}</span>
             <cv-progress-bar [value]="skill.rate"></cv-progress-bar>

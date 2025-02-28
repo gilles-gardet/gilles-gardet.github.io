@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { TagModule } from 'primeng/tag';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
-import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
 import { PanelComponent } from '@shared/components/panel/panel.component';
 
 describe('HobbiesComponent', (): void => {
@@ -12,7 +11,7 @@ describe('HobbiesComponent', (): void => {
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, PanelComponent, TagModule, getTranslocoModule()],
+      imports: [BrowserAnimationsModule, CommonModule, PanelComponent, TagModule],
     }).compileComponents();
     componentFixture = TestBed.createComponent(HobbiesComponent);
     hobbiesComponent = componentFixture.componentInstance;

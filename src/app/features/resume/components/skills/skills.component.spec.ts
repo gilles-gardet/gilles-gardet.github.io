@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SkillsComponent } from '@features/resume/components/skills/skills.component';
 import { ChangeDetectorRef } from '@angular/core';
-import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
 import { ProgressBarComponent } from '@shared/components/progress-bar/progress-bar.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';
+import { mockedInstance } from '@core/jest/mocked-instance.helper';
+import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
+import mockSkills from '@assets/resume/skills.json';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
   observe: (): unknown => null,
@@ -14,12 +17,20 @@ window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
 describe('SkillsComponent', (): void => {
   let skillsComponent: SkillsComponent;
   let componentFixture: ComponentFixture<SkillsComponent>;
+  const store = mockedInstance(Store);
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, PanelComponent, ProgressBarComponent, getTranslocoModule()],
-      providers: [{ provide: ChangeDetectorRef, useValue: {} }],
+      imports: [BrowserAnimationsModule, CommonModule, PanelComponent, ProgressBarComponent],
+      providers: [
+        { provide: ChangeDetectorRef, useValue: {} },
+        {
+          provide: Store,
+          useValue: store,
+        },
+      ],
     }).compileComponents();
+    jest.mocked(store.select).mockReturnValue(of(mockSkills));
     componentFixture = TestBed.createComponent(SkillsComponent);
     skillsComponent = componentFixture.componentInstance;
     componentFixture.detectChanges();
@@ -27,13 +38,5 @@ describe('SkillsComponent', (): void => {
 
   it('should create', async (): Promise<void> => {
     expect(skillsComponent).toBeTruthy();
-  });
-
-  it('should have an empty array of skills by default', async (): Promise<void> => {
-    expect(componentFixture.componentInstance.skills).toStrictEqual([]);
-  });
-
-  it('should have an empty array of clones by default', async (): Promise<void> => {
-    expect(componentFixture.componentInstance.clones).toStrictEqual([]);
   });
 });
