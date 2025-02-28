@@ -41,7 +41,7 @@ export class SkillsComponent implements AfterViewInit {
    * @inheritDoc
    */
   ngAfterViewInit(): void {
-    this._animateSkillsOnView();
+    setTimeout((): void => this._animateSkillsOnView());
   }
 
   /**

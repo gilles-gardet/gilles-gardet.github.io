@@ -10,7 +10,7 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": ["@assets/**", "@core/**", "@environments/**", "@features/**", "@shared/**"],
+            "allow": ["@assets/**", "@core/**", "@environments/**", "@features/**", "@shared/**", "@state/**"],
             "allowCircularSelfDependency": true,
             "depConstraints": [
               {

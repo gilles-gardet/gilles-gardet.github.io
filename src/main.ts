@@ -8,20 +8,19 @@ import { MarkdownModule } from 'ngx-markdown';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@jsverse/transloco';
 import { provideEffects } from '@ngrx/effects';
-import { provideState, provideStore } from '@ngrx/store';
-import * as fromMissions from './+state/missions.reducer';
-import { MissionsEffects } from './+state/missions.effects';
+import { provideStore } from '@ngrx/store';
 import { provideRouter } from '@angular/router';
+import { missionsReducer } from '@state/missions/missions.reducer';
+import { loadMissions } from '@state/missions/missions.effects';
 
 enableProdMode();
 bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(BrowserModule, BrowserAnimationsModule, MarkdownModule.forRoot()),
-    provideEffects(MissionsEffects),
+    provideEffects({ loadMissions }),
     provideHttpClient(withInterceptorsFromDi()),
     provideRouter(routes),
-    provideState(fromMissions.MISSIONS_FEATURE_KEY, fromMissions.missionsReducer),
-    provideStore(),
+    provideStore({ missionsState: missionsReducer }),
     provideTransloco({
       config: {
         availableLangs: ['fr', 'en'],
