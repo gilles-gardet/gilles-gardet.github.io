@@ -8,7 +8,7 @@ jobs:
     name: Pass end-to-end local tests using a playwright container
     continue-on-error: true
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
