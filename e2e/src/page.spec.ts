@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
 test.describe('General page structure', () => {
   test('Title should be Gilles Gardet', async ({ page }) => {
     await expect(page).toHaveURL('http://localhost:4200');
-    await expect(page).toHaveTitle('Gilles Gardet');
+    await expect(page).toHaveTitle('Gilles Gardet - CV');
   });
 
   test('should have a sidebar', async ({ page }) => {
@@ -22,28 +22,28 @@ test.describe('General page structure', () => {
   });
 
   test('Should have a panel "profil et généralités"', async ({ page }) => {
-    await expect(page.locator('.cv-panel-title:has-text("Profile and generalities")')).toBeVisible();
+    await expect(page.locator('#summary .panel__header__title:has-text("Profile and generalities")')).toBeVisible();
   });
 
   test('Should match the snapshot of the panel "profil et généralités"', async ({ page }) => {
-    const panel = page.locator('cv-panel#summary');
+    const panel = page.locator('#summary');
     expect(await panel.screenshot()).toMatchSnapshot('summary.png');
   });
 
   test('Should have a panel "langages et outils"', async ({ page }) => {
-    await expect(page.locator('cv-panel#skills')).toBeVisible();
+    await expect(page.locator('#skills')).toBeVisible();
   });
 
   test('Should have a panel "expérience"', async ({ page }) => {
-    await expect(page.locator('.cv-panel-title:has-text("Experience")')).toBeVisible();
+    await expect(page.locator('#experience .panel__header__title:has-text("Experience")')).toBeVisible();
   });
 
   test('Should have a panel "loisirs"', async ({ page }) => {
-    await expect(page.locator('.cv-panel-title:has-text("Hobbies")')).toBeVisible();
+    await expect(page.locator('#hobbies .panel__header__title:has-text("Hobbies")')).toBeVisible();
   });
 
   test('Should match the snapshot of the panel "loisirs"', async ({ page }) => {
-    const panel = page.locator('cv-panel#hobbies');
+    const panel = page.locator('#hobbies');
     expect(await panel.screenshot()).toMatchSnapshot('hobbies.png');
   });
 });
@@ -53,13 +53,13 @@ test.describe('General card structure', () => {
     const aside = page.locator('aside');
     await expect(aside).toBeVisible();
     await expect(aside).toContainText('Gilles Gardet');
-    await expect(aside).toContainText('Fullstack developer, curious by nature and passionate about his profession.');
-    const avatar = aside.locator('p-avatar');
+    await expect(aside).toContainText('Lead developer, curious by nature and passionate about his profession.');
+    const avatar = aside.locator('cv-avatar');
     await expect(avatar).toBeVisible();
   });
 
   test('should have a contact button', async ({ page }) => {
-    const button = page.locator('aside p-chip');
+    const button = page.locator('aside cv-email');
     await expect(button).toContainText('gilles.gardet@gmail.com');
   });
 
@@ -113,6 +113,6 @@ test.describe('Skills panel structure', () => {
     const texts = await skills.allTextContents();
     await expect(texts).toHaveLength(17);
     expect(await skills.locator('span').count()).toBe(17);
-    expect(await skills.locator('.p-progressbar').count()).toBe(17);
+    expect(await skills.locator('cv-progress-bar').count()).toBe(17);
   });
 });
