@@ -28,5 +28,5 @@ export const missionsReducer = createReducer(
   on(MissionsActions.selectMission, (state, { mission }) => ({
     ...state,
     selectedMission: mission,
-  }))
+  })),
 );

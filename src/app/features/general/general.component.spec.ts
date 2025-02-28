@@ -5,12 +5,33 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputSwitchModule } from 'primeng/inputswitch';
-import { ConfigService } from '@core/services/config.service';
+import { ConfigService, DARK_THEME, LIGHT_THEME } from '@core/services/config.service';
 import { GeneralComponent } from '@features/general/general.component';
 import { MissionService } from '@core/services/mission.service';
-import { getTranslocoModule } from '../../../__mock__/transloco-testing.module';
 import { AvatarComponent } from '@shared/components/avatar/avatar.component';
 import { EmailComponent } from '@features/general/components/email/email.component';
+import { TranslocoService } from '@jsverse/transloco';
+import { of } from 'rxjs';
+
+const lang = {
+  menu: {
+    items: {
+      mode: {
+        dark: 'Dark mode',
+        light: 'Light mode',
+        title: 'Change the theme',
+      },
+      language: {
+        label: 'Language',
+        title: 'Change the language',
+      },
+      download: {
+        label: 'Download my CV',
+        title: 'Download my Curriculum Vitae',
+      },
+    },
+  },
+};
 
 describe('GeneralComponent', (): void => {
   let contactComponent: GeneralComponent;
@@ -27,7 +48,6 @@ describe('GeneralComponent', (): void => {
         InputSwitchModule,
         RippleModule,
         TooltipModule,
-        getTranslocoModule(),
       ],
       providers: [
         ConfigService,
@@ -35,6 +55,14 @@ describe('GeneralComponent', (): void => {
           provide: MissionService,
           useValue: {
             clearCache: jest.fn().mockImplementation(),
+          },
+        },
+        {
+          provide: TranslocoService,
+          useValue: {
+            setActiveLang: jest.fn(),
+            selectTranslateObject: jest.fn().mockReturnValue(of(lang)),
+            langChanges$: of('fr'),
           },
         },
       ],

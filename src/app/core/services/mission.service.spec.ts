@@ -5,8 +5,9 @@ import { CommonModule } from '@angular/common';
 import { HttpTestingController, provideHttpClientTesting, TestRequest } from '@angular/common/http/testing';
 import { Skill } from '@core/models/skill.model';
 import { Mission } from '@core/models/mission.model';
-import { getTranslocoModule } from 'src/__mock__/transloco-testing.module';
 import { provideHttpClient } from '@angular/common/http';
+import { TranslocoService } from '@jsverse/transloco';
+import { of } from 'rxjs';
 
 describe('MissionService', (): void => {
   let service: MissionService;
@@ -14,8 +15,18 @@ describe('MissionService', (): void => {
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [CommonModule, getTranslocoModule()],
-      providers: [MissionService, provideHttpClient(), provideHttpClientTesting()],
+      imports: [CommonModule],
+      providers: [
+        MissionService,
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        {
+          provide: TranslocoService,
+          useValue: {
+            getActiveLang: jest.fn().mockReturnValue('en'),
+          },
+        },
+      ],
     });
     service = TestBed.inject(MissionService);
     httpTestingController = TestBed.inject(HttpTestingController);

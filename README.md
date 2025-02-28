@@ -28,7 +28,7 @@ En premier lieu, il faut donc faire un `nvm use` suivi de l'éxécution de la co
 Cela devrait par la même occasion permettre l'installation d'un outil de gestion des commits (à savoir [husky](https://typicode.github.io/husky/#/)).  
 Ce dernier s'occupe de :
 
-1. _"[linter](<https://en.wikipedia.org/wiki/Lint_(software)>)"_ le code en s'appuyant sur [eslint](https://eslint.org/) et formater le code via [prettier](https://prettier.io/) (avant le commit)
+1. _"[linter](<https://en.wikipedia.org/wiki/Lint_(software)>)"\_ le code en s'appuyant sur [eslint](https://eslint.org/) et formater le code via [prettier](https://prettier.io/) (avant le commit)
 2. valider le message de commit via [commitlint](https://commitlint.js.org/#/) (au commit)
 3. valider les tests unitaires [jest](https://jestjs.io/) (avant de pousser le commit sur la branche distante)
 
@@ -58,9 +58,8 @@ Les étapes de la CI/CD comprennent :
 > Puis en executant directement dans l'image le workflow suivant :~~
 >
 > - ~~`apt update && apt upgrade -y && apt install make g++ && npm i -g pnpm@latest && pnpm i --frozen-lockfile --force`~~
-> - ~~`pnpm exec playwright test --config=e2e/playwright.config.ts --update-snapshots`~~
->   ~~Il faudra ensuite relancer la dernière commande pour récupérer les snapshots darwin (macos) directement depuis le répertoire local.~~
-> 
+> - ~~`pnpm exec playwright test --config=e2e/playwright.config.ts --update-snapshots`~~ > ~~Il faudra ensuite relancer la dernière commande pour récupérer les snapshots darwin (macos) directement depuis le répertoire local.~~
+>
 > Lancer la commande suivante depuis un poste MacOs: `pnpm exec playwright test --config=e2e/playwright.config.ts --update-snapshots`
 >
 > Normalement les snapshots devraient être mis à jours directement dans le répertoire local [e2e/src/page.spec.ts-snapshots](./e2e/integration/page.spec.ts-snapshots)
