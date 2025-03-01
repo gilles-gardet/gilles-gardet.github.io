@@ -17,6 +17,7 @@ import { combineLatest } from 'rxjs';
 import { Contact } from '@core/models/contact.model';
 import { AvatarComponent } from '@shared/components/avatar/avatar.component';
 import { EmailComponent } from '@features/general/components/email/email.component';
+import { SkillService } from '@core/services/skill.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -41,6 +42,7 @@ export class GeneralComponent implements OnInit {
   private readonly configService: ConfigService = inject(ConfigService);
   private readonly translocoService: TranslocoService = inject(TranslocoService);
   private readonly missionService: MissionService = inject(MissionService);
+  private readonly skillService: SkillService = inject(SkillService);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   protected isDarkTheme: boolean | undefined;
   protected menuItems: MenuItem[] = [];
@@ -115,6 +117,7 @@ export class GeneralComponent implements OnInit {
       localStorage.setItem(LANGUAGE_KEY, language);
     }
     this.missionService.clearCache();
+    this.skillService.clearCache();
   }
 
   /**

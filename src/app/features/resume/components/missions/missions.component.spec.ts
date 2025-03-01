@@ -46,9 +46,9 @@ describe('MissionsComponent', () => {
         },
       ],
     }).compileComponents();
+    jest.mocked(store.select).mockReturnValue(of(mockMissions));
     componentFixture = TestBed.createComponent(MissionsComponent);
     missionsComponent = componentFixture.componentInstance;
-    jest.mocked(store.select).mockReturnValue(of(mockMissions));
     componentFixture.detectChanges();
   }));
 
