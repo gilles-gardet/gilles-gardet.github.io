@@ -13,18 +13,18 @@ import { ResumeComponent } from '@features/resume/resume.component';
 import { CommonModule } from '@angular/common';
 import { EMPTY_STRING, isBlank } from '@core/utils/string.utils';
 import { ThemeService } from '@core/services/theme.service';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { BlockUIModule } from 'primeng/blockui';
 import { switchMap, tap } from 'rxjs/operators';
 import { Observable, timer } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { ScrollTopComponent } from '@shared/components/scroll-top/scroll-top.component';
+import { SpinnerComponent } from '@shared/components/spinner/spinner.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [BlockUIModule, CommonModule, GeneralComponent, ProgressSpinnerModule, ResumeComponent, ScrollTopComponent],
+  imports: [BlockUIModule, CommonModule, GeneralComponent, ResumeComponent, ScrollTopComponent, SpinnerComponent],
   selector: 'cv-root',
   standalone: true,
   styleUrls: ['./app.component.scss'],

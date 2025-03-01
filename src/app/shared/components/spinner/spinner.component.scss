@@ -1,0 +1,68 @@
+.spinner {
+  position: relative;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+
+  &__svg {
+    height: 100%;
+    width: 100%;
+    transform-origin: center center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    animation: rotate 2s linear infinite;
+    will-change: transform;
+
+    &__circle {
+      stroke-linecap: round;
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: 0;
+      animation:
+              dash 1.5s ease-in-out infinite,
+              color 6s ease-in-out infinite;
+    }
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+}
+
+@keyframes color {
+  100%,
+  0%,
+  40%,
+  66%,
+  80%,
+  90% {
+    @apply stroke-text-color dark:stroke-dark-text-color;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

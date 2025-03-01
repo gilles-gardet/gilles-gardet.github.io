@@ -11,14 +11,14 @@ import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { tap } from 'rxjs/operators';
 import { Mission } from '@core/models/mission.model';
 import { DialogModule } from 'primeng/dialog';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { CommonModule } from '@angular/common';
 import { EMPTY_STRING } from '@core/utils/string.utils';
 import { MissionService } from '@core/services/mission.service';
+import { SpinnerComponent } from '@shared/components/spinner/spinner.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, DialogModule, ProgressSpinnerModule, MarkdownModule],
+  imports: [CommonModule, DialogModule, MarkdownModule, SpinnerComponent],
   selector: 'cv-details',
   standalone: true,
   styleUrls: ['./details.component.scss'],
