@@ -3,11 +3,9 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { MissionService } from './mission.service';
 import { CommonModule } from '@angular/common';
 import { HttpTestingController, provideHttpClientTesting, TestRequest } from '@angular/common/http/testing';
-import { Skill } from '@core/models/skill.model';
 import { Mission } from '@core/models/mission.model';
 import { provideHttpClient } from '@angular/common/http';
 import { TranslocoService } from '@jsverse/transloco';
-import { of } from 'rxjs';
 
 describe('MissionService', (): void => {
   let service: MissionService;
@@ -58,20 +56,6 @@ describe('MissionService', (): void => {
     expect(path).toEqual(
       'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions/en/201901/201901_light.md',
     );
-  });
-
-  it(`should fetch the list of skills`, async (): Promise<void> => {
-    const skills: Skill[] = [
-      { name: 'HTML', rate: 80 },
-      { name: 'Java', rate: 90 },
-    ];
-    service.fetchSkills$().subscribe((response: Skill[]) => expect(response).toEqual(skills));
-    const testRequest: TestRequest = httpTestingController.expectOne(
-      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/skills.json',
-    );
-    expect(testRequest.request.method).toEqual('GET');
-    testRequest.flush(skills);
-    httpTestingController.verify();
   });
 
   it(`should fetch the list of missions`, async (): Promise<void> => {

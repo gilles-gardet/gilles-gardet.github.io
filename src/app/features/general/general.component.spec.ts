@@ -12,6 +12,7 @@ import { AvatarComponent } from '@shared/components/avatar/avatar.component';
 import { EmailComponent } from '@features/general/components/email/email.component';
 import { TranslocoService } from '@jsverse/transloco';
 import { of } from 'rxjs';
+import { SkillService } from '@core/services/skill.service';
 
 const lang = {
   menu: {
@@ -53,6 +54,12 @@ describe('GeneralComponent', (): void => {
         ConfigService,
         {
           provide: MissionService,
+          useValue: {
+            clearCache: jest.fn().mockImplementation(),
+          },
+        },
+        {
+          provide: SkillService,
           useValue: {
             clearCache: jest.fn().mockImplementation(),
           },

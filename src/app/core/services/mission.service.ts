@@ -1,6 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 import { forkJoin, Observable, of, shareReplay } from 'rxjs';
-import { Skill } from '@core/models/skill.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '@environments/environment';
 import { Mission, MissionDescriptionType } from '@core/models/mission.model';
@@ -17,7 +16,6 @@ export class MissionService {
 
   private readonly baseUrl: string = `${environment.cdnUrl}/src/assets/resume`;
   private missions$?: Observable<Mission[]>;
-  private skills$?: Observable<Skill[]>;
 
   /**
    * Retrieve the mission from the passed date
@@ -54,18 +52,6 @@ export class MissionService {
       );
     }
     return this.missions$;
-  }
-
-  /**
-   * Retrieve the skills from the json file stored in the repository assets folder
-   *
-   * @return skills the list of skills wrapped in an observable
-   */
-  public fetchSkills$(): Observable<Skill[]> {
-    if (!this.skills$) {
-      this.skills$ = this.httpClient.get<Skill[]>(`${this.baseUrl}/skills.json`).pipe(shareReplay(1));
-    }
-    return this.skills$;
   }
 
   /**
@@ -171,8 +157,10 @@ export class MissionService {
     return months <= 0 ? 0 : months;
   }
 
+  /**
+   * Clear the missions cache
+   */
   public clearCache(): void {
     this.missions$ = undefined;
-    this.skills$ = undefined;
   }
 }
