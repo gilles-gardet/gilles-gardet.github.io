@@ -13,7 +13,6 @@ import { TranslocoService } from '@jsverse/transloco';
 export class MissionService {
   private readonly translocoService: TranslocoService = inject(TranslocoService);
   private readonly httpClient: HttpClient = inject(HttpClient);
-
   private readonly baseUrl: string = `${environment.cdnUrl}/src/assets/resume`;
   private missions$?: Observable<Mission[]>;
 

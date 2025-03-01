@@ -5,7 +5,7 @@ import { MissionsComponent } from '@features/resume/components/missions/missions
 import { SkillsComponent } from '@features/resume/components/skills/skills.component';
 import { SummaryComponent } from '@features/resume/components/summary/summary.component';
 import { DetailsComponent } from '@features/resume/components/details/details.component';
-import { ConfigService } from '@core/services/config.service';
+import { ThemeService } from '@core/services/theme.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,7 +16,7 @@ import { ConfigService } from '@core/services/config.service';
   templateUrl: './resume.component.html',
 })
 export class ResumeComponent implements OnInit {
-  private readonly configService: ConfigService = inject(ConfigService);
+  private readonly themeService: ThemeService = inject(ThemeService);
   protected selectedMission: Mission = {} as Mission;
   protected displayDialog = false;
 
@@ -24,7 +24,7 @@ export class ResumeComponent implements OnInit {
    * @inheritDoc
    */
   ngOnInit(): void {
-    this.configService.setLoading$(true);
+    this.themeService.setLoading$(true);
   }
 
   /**

@@ -9,7 +9,6 @@ import { environment } from '@environments/environment';
 })
 export class SkillService {
   private readonly httpClient: HttpClient = inject(HttpClient);
-
   private readonly baseUrl: string = `${environment.cdnUrl}/src/assets/resume`;
   private skills$?: Observable<Skill[]>;
 

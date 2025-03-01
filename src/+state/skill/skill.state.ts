@@ -1,9 +1,9 @@
 import { Skill } from '@core/models/skill.model';
 
 /**
- * Interface for the 'Missions' data
+ * Interface for the 'Skills' data
  */
-export interface SkillsState {
+export interface SkillState {
   skills: Skill[];
   loading: boolean;
   error: string | null;

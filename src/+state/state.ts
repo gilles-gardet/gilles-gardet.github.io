@@ -1,36 +1,42 @@
-import { MissionsState } from './missions/missions.state';
-import { SkillsState } from '@state/skills/skills.state';
+import { MissionState } from './mission/mission.state';
+import { SkillState } from '@state/skill/skill.state';
+import { ThemeState } from '@state/theme/theme.state';
 import { Action, ActionReducer } from '@ngrx/store';
-import { missionsReducer } from '@state/missions/missions.reducer';
-import { loadMissions } from '@state/missions/missions.effects';
-import { loadSkills } from '@state/skills/skills.effects';
-import { skillsReducer } from '@state/skills/skills.reducer';
+import { missionReducer } from '@state/mission/mission.reducer';
+import { skillReducer } from '@state/skill/skill.reducer';
+import { themeReducer } from '@state/theme/theme.reducer';
+import { loadMissions } from '@state/mission/mission.effects';
+import { loadSkills } from '@state/skill/skill.effects';
+import { loadTheme, updateTheme } from '@state/theme/theme.effects';
 
 /**
  * Feature properties of the application state.
  */
 export interface AppState {
-  missionsState: MissionsState;
-  skillsState: SkillsState;
+  missionState: MissionState;
+  skillState: SkillState;
+  themeState: ThemeState;
 }
 
 /**
  * Definition of the application reducer types.
  */
 export interface AppStore {
-  missionsState: ActionReducer<MissionsState, Action<string>>;
-  skillsState: ActionReducer<SkillsState, Action<string>>;
+  missionState: ActionReducer<MissionState, Action<string>>;
+  skillState: ActionReducer<SkillState, Action<string>>;
+  themeState: ActionReducer<ThemeState, Action<string>>;
 }
 
 /**
  * Configure the store module.
  */
 export const appStore: AppStore = {
-  missionsState: missionsReducer,
-  skillsState: skillsReducer,
+  missionState: missionReducer,
+  skillState: skillReducer,
+  themeState: themeReducer,
 };
 
 /**
  * Configure the effects for the application.
  */
-export const appEffects = { loadMissions, loadSkills };
+export const appEffects = { loadMissions, loadSkills, loadTheme, updateTheme };

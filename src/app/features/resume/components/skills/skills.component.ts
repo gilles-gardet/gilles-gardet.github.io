@@ -12,9 +12,9 @@ import { ProgressBarComponent } from '@shared/components/progress-bar/progress-b
 import { PanelComponent } from '@shared/components/panel/panel.component';
 import { AppState } from '@state/state';
 import { Store } from '@ngrx/store';
-import { SkillsActions } from '@state/skills/skills.actions';
-import { ConfigService } from '@core/services/config.service';
-import { selectSkills } from '@state/skills/skills.selector';
+import { SkillActions } from '@state/skill/skill.actions';
+import { ThemeService } from '@core/services/theme.service';
+import { selectSkills } from '@state/skill/skill.selector';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -27,7 +27,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class SkillsComponent implements AfterViewInit {
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
-  private readonly configService: ConfigService = inject(ConfigService);
+  private readonly themeService: ThemeService = inject(ThemeService);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   private readonly store: Store<AppState> = inject(Store);
   protected skills: Skill[] = [];
@@ -43,11 +43,11 @@ export class SkillsComponent implements AfterViewInit {
       .subscribe((skills: Skill[]): void => {
         this.skills = this.clones = skills;
         this.skills = skills.map((skill: Skill): Skill => ({ name: skill.name, rate: 0 }));
-        this.configService.setLoading$(false);
+        this.themeService.setLoading$(false);
         setTimeout((): void => this._animateSkillsOnView()); // FIXME: setTimeout is a workaround
         this.changeDetectorRef.markForCheck();
       });
-    this.store.dispatch(SkillsActions.loadSkills());
+    this.store.dispatch(SkillActions.loadSkills());
   }
 
   /**

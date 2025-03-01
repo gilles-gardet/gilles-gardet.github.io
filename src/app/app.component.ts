@@ -12,7 +12,7 @@ import { GeneralComponent } from '@features/general/general.component';
 import { ResumeComponent } from '@features/resume/resume.component';
 import { CommonModule } from '@angular/common';
 import { EMPTY_STRING, isBlank } from '@core/utils/string.utils';
-import { ConfigService, LANGUAGE_KEY } from '@core/services/config.service';
+import { ThemeService } from '@core/services/theme.service';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { BlockUIModule } from 'primeng/blockui';
 import { switchMap, tap } from 'rxjs/operators';
@@ -33,7 +33,7 @@ import { ScrollTopComponent } from '@shared/components/scroll-top/scroll-top.com
 export class AppComponent implements OnInit {
   private readonly translocoService: TranslocoService = inject(TranslocoService);
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
-  private readonly configService: ConfigService = inject(ConfigService);
+  private readonly themeService: ThemeService = inject(ThemeService);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   protected language: string = EMPTY_STRING;
   protected isLoading$: Observable<boolean>;
@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
    */
   constructor() {
     this._initLanguagePreference();
-    this.isLoading$ = this.configService.loading$;
+    this.isLoading$ = this.themeService.loading$;
   }
 
   /**
@@ -51,9 +51,9 @@ export class AppComponent implements OnInit {
    */
   ngOnInit(): void {
     const language$: Observable<unknown> = this.translocoService.langChanges$.pipe(
-      tap((): void => this.configService.setLoading$(true)),
+      tap((): void => this.themeService.setLoading$(true)),
       switchMap(() => timer(600)),
-      tap((): void => this.configService.setLoading$(false)),
+      tap((): void => this.themeService.setLoading$(false)),
       takeUntilDestroyed(this.destroyRef),
     );
     language$.subscribe(() => this.changeDetectorRef.markForCheck());
@@ -77,7 +77,7 @@ export class AppComponent implements OnInit {
    * Define the navigation session language.
    */
   private _initLanguagePreference(): void {
-    const languageKey: string = localStorage.getItem(LANGUAGE_KEY) ?? 'en';
+    const languageKey: string = localStorage.getItem('lang') ?? 'en';
     let sessionLanguage: string;
     if (isBlank(languageKey) || !/en|fr/.exec(languageKey)) {
       const browserLang: string = navigator.language ?? 'en';
@@ -96,8 +96,8 @@ export class AppComponent implements OnInit {
   private _setLanguage(language: string): void {
     this.translocoService.setActiveLang(language);
     this.language = language;
-    if (localStorage.getItem(LANGUAGE_KEY) !== language) {
-      localStorage.setItem(LANGUAGE_KEY, this.language);
+    if (localStorage.getItem('lang') !== language) {
+      localStorage.setItem('lang', this.language);
     }
   }
 }

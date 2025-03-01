@@ -4,15 +4,15 @@ import { exhaustMap, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { MissionService } from '@core/services/mission.service';
 import { Mission } from '@core/models/mission.model';
-import { MissionsActions } from '@state/missions/missions.actions';
+import { MissionActions } from '@state/mission/mission.actions';
 
 export const loadMissions = createEffect(
   (actions$ = inject(Actions), missionService = inject(MissionService)) => {
     return actions$.pipe(
-      ofType(MissionsActions.loadMissions),
+      ofType(MissionActions.loadMissions),
       exhaustMap(() => missionService.fetchMissions$()),
-      map((missions: Mission[]) => MissionsActions.loadMissionsSuccess({ missions })),
-      catchError((error) => of(MissionsActions.loadMissionsFailure({ error: error.message }))),
+      map((missions: Mission[]) => MissionActions.loadMissionsSuccess({ missions })),
+      catchError((error) => of(MissionActions.loadMissionsFailure({ error: error.message }))),
     );
   },
   { functional: true },
