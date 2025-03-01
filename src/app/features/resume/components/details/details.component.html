@@ -19,7 +19,7 @@
     <ng-template pTemplate="content">
       <div [class.mission__content-transition]="!isLoading" class="mission__content">
         @if (isLoading) {
-          <p-progressSpinner strokeWidth="6" styleClass="mission__content__spinner"></p-progressSpinner>
+          <cv-spinner></cv-spinner>
         } @else {
           <div class="mission__content__text">
             <markdown [data]="innerLightMission"></markdown>
