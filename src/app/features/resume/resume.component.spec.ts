@@ -17,7 +17,7 @@ import { of } from 'rxjs';
 import { Skill } from '@core/models/skill.model';
 import mockMissions from '@assets/resume/missions.json';
 import mockSkills from '@assets/resume/skills.json';
-import { ConfigService } from '@core/services/config.service';
+import { ThemeService } from '@core/services/theme.service';
 import { provideHttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { mockedInstance } from '@core/jest/mocked-instance.helper';
@@ -46,7 +46,7 @@ describe('ResumeComponent', (): void => {
         TimelineModule,
       ],
       providers: [
-        ConfigService,
+        ThemeService,
         MarkdownService,
         {
           provide: MissionService,

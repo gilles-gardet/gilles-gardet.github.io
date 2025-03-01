@@ -4,7 +4,7 @@ import { GeneralComponent } from '@features/general/general.component';
 import { ChangeDetectorRef, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { of } from 'rxjs';
 import { ResumeComponent } from '@features/resume/resume.component';
-import { ConfigService } from '@core/services/config.service';
+import { ThemeService } from '@core/services/theme.service';
 import { TranslocoService } from '@jsverse/transloco';
 
 const translocoServiceMock: unknown = {
@@ -33,7 +33,7 @@ describe(AppComponent.name, (): void => {
     TestBed.overrideComponent(AppComponent, {
       add: {
         providers: [
-          ConfigService,
+          ThemeService,
           { provide: ChangeDetectorRef, useValue: { markForCheck: jest.fn() } },
           { provide: Navigator, useValue: { language: 'en' } },
           {

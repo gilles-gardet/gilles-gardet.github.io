@@ -15,10 +15,10 @@ import { MarkdownModule } from 'ngx-markdown';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { SlideButtonComponent } from '@shared/components/slide-button/slide-button.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';
-import { selectMissions } from '@state/missions/missions.selector';
+import { selectMissions } from '@state/mission/mission.selector';
 import { Store } from '@ngrx/store';
 import { AppState } from '@state/state';
-import { MissionsActions } from '@state/missions/missions.actions';
+import { MissionActions } from '@state/mission/mission.actions';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -58,7 +58,7 @@ export class MissionsComponent implements OnInit, AfterViewInit {
         setTimeout((): void => this._animateMissionsOnView()); // FIXME: setTimeout is a workaround
         this.changeDetectorRef.markForCheck();
       });
-    this.store.dispatch(MissionsActions.loadMissions());
+    this.store.dispatch(MissionActions.loadMissions());
   }
 
   /**
