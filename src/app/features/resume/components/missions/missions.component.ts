@@ -18,7 +18,6 @@ import { PanelComponent } from '@shared/components/panel/panel.component';
 import { selectMissions } from '@state/mission/mission.selector';
 import { Store } from '@ngrx/store';
 import { AppState } from '@state/state';
-import { MissionActions } from '@state/mission/mission.actions';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -55,10 +54,9 @@ export class MissionsComponent implements OnInit, AfterViewInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((missions: Mission[]): void => {
         this.missions = missions;
-        setTimeout((): void => this._animateMissionsOnView()); // FIXME: setTimeout is a workaround
+        setTimeout((): void => this._animateMissionsOnView(), 100); // FIXME: setTimeout is a workaround
         this.changeDetectorRef.markForCheck();
       });
-    this.store.dispatch(MissionActions.loadMissions());
   }
 
   /**

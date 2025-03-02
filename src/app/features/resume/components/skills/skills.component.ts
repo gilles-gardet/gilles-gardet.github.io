@@ -12,7 +12,6 @@ import { ProgressBarComponent } from '@shared/components/progress-bar/progress-b
 import { PanelComponent } from '@shared/components/panel/panel.component';
 import { AppState } from '@state/state';
 import { Store } from '@ngrx/store';
-import { SkillActions } from '@state/skill/skill.actions';
 import { ThemeService } from '@core/services/theme.service';
 import { selectSkills } from '@state/skill/skill.selector';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -44,10 +43,9 @@ export class SkillsComponent implements AfterViewInit {
         this.skills = this.clones = skills;
         this.skills = skills.map((skill: Skill): Skill => ({ name: skill.name, rate: 0 }));
         this.themeService.setLoading$(false);
-        setTimeout((): void => this._animateSkillsOnView()); // FIXME: setTimeout is a workaround
+        setTimeout((): void => this._animateSkillsOnView(), 100); // FIXME: setTimeout is a workaround
         this.changeDetectorRef.markForCheck();
       });
-    this.store.dispatch(SkillActions.loadSkills());
   }
 
   /**
@@ -79,8 +77,6 @@ export class SkillsComponent implements AfterViewInit {
         (tool: Skill) =>
           (tool.rate = this.clones?.find((clone: Skill): boolean => clone.name === tool.name)?.rate ?? 0),
       );
-    } else {
-      this.skills.forEach((tool: Skill): number => (tool.rate = 0));
     }
     this.changeDetectorRef.markForCheck();
   }
