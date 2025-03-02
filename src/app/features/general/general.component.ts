@@ -9,19 +9,18 @@ import { TooltipModule } from 'primeng/tooltip';
 import { Menu, MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
 import { environment } from '@environments/environment';
-import { MissionService } from '@core/services/mission.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { combineLatest, Observable } from 'rxjs';
 import { Contact } from '@core/models/contact.model';
 import { AvatarComponent } from '@shared/components/avatar/avatar.component';
 import { EmailComponent } from '@features/general/components/email/email.component';
-import { SkillService } from '@core/services/skill.service';
 import { AppState } from '@state/state';
 import { Store } from '@ngrx/store';
 import { selectTheme } from '@state/theme/theme.selector';
 import { Theme } from '@state/theme/theme.state';
 import { ThemeActions } from '@state/theme/theme.actions';
+import { LanguageActions } from '@state/language/language.actions';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,8 +44,6 @@ import { ThemeActions } from '@state/theme/theme.actions';
 export class GeneralComponent implements OnInit {
   private readonly store: Store<AppState> = inject(Store);
   private readonly translocoService: TranslocoService = inject(TranslocoService);
-  private readonly missionService: MissionService = inject(MissionService);
-  private readonly skillService: SkillService = inject(SkillService);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   protected isDarkTheme: boolean | undefined;
   protected menuItems: MenuItem[] = [];
@@ -100,7 +97,13 @@ export class GeneralComponent implements OnInit {
             label: contact.menu.items.language.label,
             icon: 'pi pi-globe',
             title: contact.menu.items.language.title,
-            command: () => this.changeLanguage(this.translocoService.getActiveLang() === 'fr' ? 'en' : 'fr'),
+            command: () =>
+              this.store.dispatch(
+                LanguageActions.updateLanguage({
+                  language: this.translocoService.getActiveLang() === 'fr' ? 'en' : 'fr',
+                  loading: true,
+                }),
+              ),
           },
           {
             label: contact.menu.items.download.label,
@@ -111,20 +114,6 @@ export class GeneralComponent implements OnInit {
         ],
       },
     ];
-  }
-
-  /**
-   * .Change the current language by the given one.
-   *
-   * @param language the new language to be set
-   */
-  changeLanguage(language: string): void {
-    this.translocoService.setActiveLang(language);
-    if (localStorage.getItem('lang') !== language) {
-      localStorage.setItem('lang', language);
-    }
-    this.missionService.clearCache();
-    this.skillService.clearCache();
   }
 
   /**

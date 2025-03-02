@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '@environments/environment';
 import { Mission, MissionDescriptionType } from '@core/models/mission.model';
 import { switchMap } from 'rxjs/operators';
-import { EMPTY_STRING } from '@core/utils/string.utils';
 import { TranslocoService } from '@jsverse/transloco';
 
 @Injectable({
@@ -14,7 +13,6 @@ export class MissionService {
   private readonly translocoService: TranslocoService = inject(TranslocoService);
   private readonly httpClient: HttpClient = inject(HttpClient);
   private readonly baseUrl: string = `${environment.cdnUrl}/src/assets/resume`;
-  private missions$?: Observable<Mission[]>;
 
   /**
    * Retrieve the mission from the passed date
@@ -38,19 +36,16 @@ export class MissionService {
    * @return missions the list of missions wrapped in an observable
    */
   public fetchMissions$(): Observable<Mission[]> {
-    if (!this.missions$) {
-      this.missions$ = this.httpClient.get<Mission[]>(`${this.baseUrl}/missions.json`).pipe(
-        switchMap((missions: Mission[]) => {
-          const missionsWithDescription$: Observable<Mission>[] = missions.map((mission: Mission) => {
-            const url: string = this.missionFromDate(mission.startDate, 'light');
-            return this.fetchEnrichedMission$(url, mission);
-          });
-          return forkJoin([...missionsWithDescription$]);
-        }),
-        shareReplay(1),
-      );
-    }
-    return this.missions$;
+    return this.httpClient.get<Mission[]>(`${this.baseUrl}/missions.json`).pipe(
+      switchMap((missions: Mission[]) => {
+        const missionsWithDescription$: Observable<Mission>[] = missions.map((mission: Mission) => {
+          const url: string = this.missionFromDate(mission.startDate, 'light');
+          return this.fetchEnrichedMission$(url, mission);
+        });
+        return forkJoin([...missionsWithDescription$]);
+      }),
+      shareReplay(1),
+    );
   }
 
   /**
@@ -120,11 +115,11 @@ export class MissionService {
     if (monthsBetweenDates > 12 && monthsBetweenDates % 12 > 0) {
       const years: number = Math.trunc(monthsBetweenDates / 12);
       const months: number = monthsBetweenDates % 12;
-      return `${years} ${yearLabel}${years > 1 ? 's' : EMPTY_STRING} ${andLabel} ${months} ${monthLabel}`;
+      return `${years} ${yearLabel}${years > 1 ? 's' : ''} ${andLabel} ${months} ${monthLabel}`;
     }
     if (monthsBetweenDates % 12 === 0) {
       const years: number = Math.trunc(monthsBetweenDates / 12);
-      return `${years} ${yearLabel}${years > 1 ? 's' : EMPTY_STRING}`;
+      return `${years} ${yearLabel}${years > 1 ? 's' : ''}`;
     }
     return `${monthsBetweenDates} ${monthLabel}`;
   }
@@ -154,12 +149,5 @@ export class MissionService {
     months -= start.getMonth();
     months += end.getMonth();
     return months <= 0 ? 0 : months;
-  }
-
-  /**
-   * Clear the missions cache
-   */
-  public clearCache(): void {
-    this.missions$ = undefined;
   }
 }

@@ -6,11 +6,8 @@ import { of } from 'rxjs';
 import { ResumeComponent } from '@features/resume/resume.component';
 import { ThemeService } from '@core/services/theme.service';
 import { TranslocoService } from '@jsverse/transloco';
-
-const translocoServiceMock: unknown = {
-  setActiveLang: jest.fn(),
-};
-Object.defineProperty(translocoServiceMock, 'langChanges$', { get: jest.fn(() => of({ lang: 'en' })) });
+import { mockedInstance } from '@core/jest/mocked-instance.helper';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'cv-general',
@@ -28,6 +25,7 @@ class FakeResumeComponent {}
 
 describe(AppComponent.name, (): void => {
   let component: ComponentFixture<AppComponent>;
+  const store = mockedInstance(Store);
 
   beforeEach((): void => {
     TestBed.overrideComponent(AppComponent, {
@@ -40,6 +38,10 @@ describe(AppComponent.name, (): void => {
             provide: TranslocoService,
             useValue: { setActiveLang: jest.fn(), langChanges$: of('fr') },
           },
+          {
+            provide: Store,
+            useValue: store,
+          },
         ],
         imports: [FakeGeneralComponent, FakeResumeComponent],
         schemas: [NO_ERRORS_SCHEMA],
@@ -48,6 +50,7 @@ describe(AppComponent.name, (): void => {
         imports: [GeneralComponent, ResumeComponent],
       },
     });
+    jest.mocked(store.select).mockReturnValue(of('en'));
     component = TestBed.createComponent(AppComponent);
     component.autoDetectChanges();
   });
@@ -59,6 +62,7 @@ describe(AppComponent.name, (): void => {
   it('should process on language selection', async (): Promise<void> => {
     const changeDetectorRef: ChangeDetectorRef = (component.componentInstance as any).changeDetectorRef;
     const spyInstance: unknown = jest.spyOn(changeDetectorRef, 'markForCheck');
+    component.componentInstance.ngOnInit();
     await new Promise((resolve) => setTimeout(resolve, 1000));
     expect(spyInstance).toHaveBeenCalled();
   });
