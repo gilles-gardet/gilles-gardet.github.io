@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
-import { ConfigService, DARK_THEME, LANGUAGE_KEY, LIGHT_THEME, THEME_KEY } from '@core/services/config.service';
 import { tap } from 'rxjs/operators';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -10,13 +9,19 @@ import { TooltipModule } from 'primeng/tooltip';
 import { Menu, MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
 import { environment } from '@environments/environment';
-import { MissionService } from '@core/services/mission.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
-import { combineLatest } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { Contact } from '@core/models/contact.model';
 import { AvatarComponent } from '@shared/components/avatar/avatar.component';
 import { EmailComponent } from '@features/general/components/email/email.component';
+import { AppState } from '@state/state';
+import { Store } from '@ngrx/store';
+import { selectTheme } from '@state/theme/theme.selector';
+import { Theme } from '@state/theme/theme.state';
+import { ThemeActions } from '@state/theme/theme.actions';
+import { LanguageActions } from '@state/language/language.actions';
+import { selectLanguage } from '@state/language/language.selector';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -38,9 +43,8 @@ import { EmailComponent } from '@features/general/components/email/email.compone
   templateUrl: './general.component.html',
 })
 export class GeneralComponent implements OnInit {
-  private readonly configService: ConfigService = inject(ConfigService);
+  private readonly store: Store<AppState> = inject(Store);
   private readonly translocoService: TranslocoService = inject(TranslocoService);
-  private readonly missionService: MissionService = inject(MissionService);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   protected isDarkTheme: boolean | undefined;
   protected menuItems: MenuItem[] = [];
@@ -62,7 +66,8 @@ export class GeneralComponent implements OnInit {
     const contactTranslatedObject$ = this.translocoService
       .selectTranslateObject('cv.contact')
       .pipe(tap((contactTranslatedObject) => this._setMenuItems(contactTranslatedObject)));
-    combineLatest([contactTranslatedObject$, this.configService.theme$])
+    const theme$: Observable<Theme> = this.store.select(selectTheme);
+    combineLatest([contactTranslatedObject$, theme$])
       .pipe(
         tap(([contactTranslatedObject, theme]) => this.onThemeChange(contactTranslatedObject, theme)),
         takeUntilDestroyed(this.destroyRef),
@@ -84,14 +89,22 @@ export class GeneralComponent implements OnInit {
             label: this.isDarkTheme ? contact.menu.items.mode.dark : contact.menu.items.mode.light,
             icon: this.isDarkTheme ? 'pi pi-moon' : 'pi pi-sun',
             title: contact.menu.items.mode.title,
-            command: () =>
-              this.isDarkTheme ? this.configService.setTheme$(LIGHT_THEME) : this.configService.setTheme$(DARK_THEME),
+            command: () => {
+              const theme: Theme = this.isDarkTheme ? 'light' : 'dark';
+              this.store.dispatch(ThemeActions.updateTheme({ theme }));
+            },
           },
           {
             label: contact.menu.items.language.label,
             icon: 'pi pi-globe',
             title: contact.menu.items.language.title,
-            command: () => this.changeLanguage(this.translocoService.getActiveLang() === 'fr' ? 'en' : 'fr'),
+            command: () =>
+              this.store.dispatch(
+                LanguageActions.updateLanguage({
+                  language: this.store.selectSignal(selectLanguage)() === 'fr' ? 'en' : 'fr',
+                  loading: true,
+                }),
+              ),
           },
           {
             label: contact.menu.items.download.label,
@@ -105,26 +118,13 @@ export class GeneralComponent implements OnInit {
   }
 
   /**
-   * .Change the current language by the given one.
-   *
-   * @param language the new language to be set
-   */
-  changeLanguage(language: string): void {
-    this.translocoService.setActiveLang(language);
-    if (localStorage.getItem(LANGUAGE_KEY) !== language) {
-      localStorage.setItem(LANGUAGE_KEY, language);
-    }
-    this.missionService.clearCache();
-  }
-
-  /**
    * Listen for the changes on the theme mode selection and apply the CSS theme according to it.
    *
    * @param theme the selected theme (light or dark)
    * @param contact the contact translated object
    */
-  onThemeChange(contact: Contact, theme: string): void {
-    if (theme === DARK_THEME) {
+  onThemeChange(contact: Contact, theme: Theme): void {
+    if (theme === 'dark') {
       this._setDarkTheme(contact);
       return;
     }
@@ -138,8 +138,7 @@ export class GeneralComponent implements OnInit {
    */
   private _setLightTheme(contact: Contact): void {
     this.isDarkTheme = false;
-    document.documentElement.classList.remove(DARK_THEME);
-    localStorage.setItem(THEME_KEY, LIGHT_THEME);
+    document.documentElement.classList.remove('dark');
     const childMenuItem: MenuItem = this._extractModeMenuItem();
     childMenuItem.label = contact.menu.items.mode.dark;
     childMenuItem.icon = 'pi pi-moon';
@@ -172,8 +171,7 @@ export class GeneralComponent implements OnInit {
    */
   private _setDarkTheme(contact: Contact): void {
     this.isDarkTheme = true;
-    document.documentElement.classList.add(DARK_THEME);
-    localStorage.setItem(THEME_KEY, DARK_THEME);
+    document.documentElement.classList.add('dark');
     const childMenuItem: MenuItem = this._extractModeMenuItem();
     childMenuItem.label = contact.menu.items.mode.light;
     childMenuItem.icon = 'pi pi-sun';

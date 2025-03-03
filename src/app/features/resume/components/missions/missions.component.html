@@ -29,7 +29,7 @@
                 </span>
               </div>
               <div class="mission__body">
-                <markdown [innerHTML]="mission.description"></markdown>
+                <markdown [data]="mission.description"></markdown>
                 <div class="mission__body__button">
                   <cv-slide-button
                     (click)="emitOpenMissionDialog(mission)"

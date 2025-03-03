@@ -11,14 +11,13 @@ import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { tap } from 'rxjs/operators';
 import { Mission } from '@core/models/mission.model';
 import { DialogModule } from 'primeng/dialog';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { CommonModule } from '@angular/common';
-import { EMPTY_STRING } from '@core/utils/string.utils';
 import { MissionService } from '@core/services/mission.service';
+import { SpinnerComponent } from '@shared/components/spinner/spinner.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, DialogModule, ProgressSpinnerModule, MarkdownModule],
+  imports: [CommonModule, DialogModule, MarkdownModule, SpinnerComponent],
   selector: 'cv-details',
   standalone: true,
   styleUrls: ['./details.component.scss'],
@@ -31,8 +30,8 @@ export class DetailsComponent {
   private _isDialogDisplayed = false;
   private _selectedMission: Mission = {} as Mission;
   public isLoading = true;
-  public innerFullMission: string = EMPTY_STRING;
-  public innerLightMission: string = EMPTY_STRING;
+  public innerFullMission = '';
+  public innerLightMission = '';
 
   @Input()
   public get selectedMission(): Mission {
@@ -69,7 +68,7 @@ export class DetailsComponent {
     );
     this.markdownService
       .getSource(fullMissionDescriptionUrl)
-      .pipe(tap(() => (this.innerLightMission = this._selectedMission.description ?? EMPTY_STRING)))
+      .pipe(tap(() => (this.innerLightMission = this._selectedMission.description ?? '')))
       .subscribe((fullMission: string): void => {
         this.innerFullMission = fullMission;
         this.isLoading = false;

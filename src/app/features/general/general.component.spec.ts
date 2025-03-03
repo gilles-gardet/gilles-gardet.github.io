@@ -5,16 +5,41 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputSwitchModule } from 'primeng/inputswitch';
-import { ConfigService } from '@core/services/config.service';
+import { ThemeService } from '@core/services/theme.service';
 import { GeneralComponent } from '@features/general/general.component';
 import { MissionService } from '@core/services/mission.service';
-import { getTranslocoModule } from '../../../__mock__/transloco-testing.module';
 import { AvatarComponent } from '@shared/components/avatar/avatar.component';
 import { EmailComponent } from '@features/general/components/email/email.component';
+import { TranslocoService } from '@jsverse/transloco';
+import { of } from 'rxjs';
+import { SkillService } from '@core/services/skill.service';
+import { mockedInstance } from '@core/jest/mocked-instance.helper';
+import { Store } from '@ngrx/store';
+
+const lang = {
+  menu: {
+    items: {
+      mode: {
+        dark: 'Dark mode',
+        light: 'Light mode',
+        title: 'Change the theme',
+      },
+      language: {
+        label: 'Language',
+        title: 'Change the language',
+      },
+      download: {
+        label: 'Download my CV',
+        title: 'Download my Curriculum Vitae',
+      },
+    },
+  },
+};
 
 describe('GeneralComponent', (): void => {
   let contactComponent: GeneralComponent;
   let componentFixture: ComponentFixture<GeneralComponent>;
+  const store = mockedInstance(Store);
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
@@ -27,15 +52,32 @@ describe('GeneralComponent', (): void => {
         InputSwitchModule,
         RippleModule,
         TooltipModule,
-        getTranslocoModule(),
       ],
       providers: [
-        ConfigService,
+        ThemeService,
         {
           provide: MissionService,
           useValue: {
             clearCache: jest.fn().mockImplementation(),
           },
+        },
+        {
+          provide: SkillService,
+          useValue: {
+            clearCache: jest.fn().mockImplementation(),
+          },
+        },
+        {
+          provide: TranslocoService,
+          useValue: {
+            setActiveLang: jest.fn(),
+            selectTranslateObject: jest.fn().mockReturnValue(of(lang)),
+            langChanges$: of('fr'),
+          },
+        },
+        {
+          provide: Store,
+          useValue: store,
         },
       ],
     }).compileComponents();
@@ -46,12 +88,6 @@ describe('GeneralComponent', (): void => {
 
   it('should create', async (): Promise<void> => {
     expect(contactComponent).toBeTruthy();
-  });
-
-  it(`should have no theme by default`, async (): Promise<void> => {
-    expect((contactComponent as any).isDarkTheme).toBeFalsy();
-    expect(localStorage.getItem('theme')).toEqual('light');
-    expect(document.getElementsByTagName('html')[0].classList).not.toContain('dark');
   });
 
   it(`should open the email adress`, async (): Promise<void> => {

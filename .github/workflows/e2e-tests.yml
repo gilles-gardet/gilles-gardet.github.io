@@ -1,8 +1,7 @@
 name: 🧪 Perform end-to-end tests
 on:
-  push:
+  pull_request:
     branches: [main]
-  workflow_dispatch:
 jobs:
   e2e:
     name: Pass end-to-end local tests using a playwright container

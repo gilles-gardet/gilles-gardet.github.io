@@ -13,7 +13,6 @@ import { of } from 'rxjs';
 import { Mission } from '@core/models/mission.model';
 import { DetailsComponent } from '@features/resume/components/details/details.component';
 import { MissionService } from '@core/services/mission.service';
-import { getTranslocoModule } from '../../../../../__mock__/transloco-testing.module';
 
 describe('DetailsComponent', (): void => {
   let detailsComponent: DetailsComponent;
@@ -33,7 +32,6 @@ describe('DetailsComponent', (): void => {
         ProgressSpinnerModule,
         TagModule,
         TimelineModule,
-        getTranslocoModule(),
       ],
       providers: [
         MarkdownService,

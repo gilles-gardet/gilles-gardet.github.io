@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, numberAttribute, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, numberAttribute } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
