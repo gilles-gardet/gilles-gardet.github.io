@@ -6,3 +6,13 @@ export const selectMissions = createSelector(
   (appState: AppState) => appState.missionState,
   (missionsState: MissionState) => missionsState.missions,
 );
+
+export const selectMission = createSelector(
+  (appState: AppState) => appState.missionState,
+  (missionsState: MissionState) => missionsState.selectedMission,
+);
+
+export const selectIsDialogDisplayed = createSelector(
+  (appState: AppState) => appState.missionState,
+  (missionState: MissionState) => missionState.isDialogDisplayed,
+);

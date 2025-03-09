@@ -6,7 +6,7 @@ import { Skill } from '@core/models/skill.model';
 import { provideHttpClient } from '@angular/common/http';
 import { SkillService } from '@core/services/skill.service';
 
-describe('MissionService', (): void => {
+describe('SkillService', (): void => {
   let service: SkillService;
   let httpTestingController: HttpTestingController;
 
@@ -30,7 +30,7 @@ describe('MissionService', (): void => {
     ];
     service.fetchSkills$().subscribe((response: Skill[]) => expect(response).toEqual(skills));
     const testRequest: TestRequest = httpTestingController.expectOne(
-      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/skills.json',
+      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/main/src/assets/resume/skills.json',
     );
     expect(testRequest.request.method).toEqual('GET');
     testRequest.flush(skills);

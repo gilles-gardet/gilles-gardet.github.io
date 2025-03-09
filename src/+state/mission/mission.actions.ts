@@ -7,6 +7,7 @@ export const MissionActions = createActionGroup({
     loadMissions: emptyProps(),
     loadMissionsSuccess: props<{ missions: Mission[] }>(),
     loadMissionsFailure: props<{ error: string }>(),
-    selectMission: props<{ mission: Mission }>(),
+    openMissionDialog: props<{ mission: Mission }>(),
+    closeMissionDialog: emptyProps(),
   },
 });

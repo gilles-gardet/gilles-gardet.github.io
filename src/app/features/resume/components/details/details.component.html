@@ -1,32 +1,31 @@
-@if (selectedMission) {
-  <p-dialog
-    [(visible)]="isDialogDisplayed"
-    [header]="selectedMission.client"
-    [modal]="true"
-    [style]="{ maxWidth: '960px' }"
-    [closeOnEscape]="true"
-    [dismissableMask]="true"
-    [blockScroll]="true"
-    (onHide)="onDialogHiding()"
-    (onShow)="onMissionLoading()"
-  >
-    <ng-template pTemplate="header">
-      <div class="mission__title">
-        <h2 class="prose prose-2xl font-bold text-slate-600 dark:text-slate-100">{{ selectedMission.client }}</h2>
-        <span class="mission__title__timelapse">{{ selectedMission.timelapse }}</span>
-      </div>
-    </ng-template>
-    <ng-template pTemplate="content">
-      <div [class.mission__content-transition]="!isLoading" class="mission__content">
-        @if (isLoading) {
-          <cv-spinner></cv-spinner>
-        } @else {
-          <div class="mission__content__text">
-            <markdown [data]="innerLightMission"></markdown>
-            <markdown [data]="innerFullMission" class="flex flex-col gap-3"></markdown>
-          </div>
-        }
-      </div>
-    </ng-template>
-  </p-dialog>
-}
+@let _isDialogDisplayed = isDialogDisplayed();
+<p-dialog
+  [visible]="_isDialogDisplayed"
+  (visibleChange)="onDialogVisibilityChange($event)"
+  [header]="clientMission"
+  [modal]="true"
+  [style]="{ maxWidth: '960px' }"
+  [closeOnEscape]="true"
+  [dismissableMask]="true"
+  [blockScroll]="true"
+  (onHide)="onDialogHiding()"
+>
+  <ng-template pTemplate="header">
+    <div class="mission__title">
+      <h2 class="prose prose-2xl font-bold text-slate-600 dark:text-slate-100">{{ clientMission }}</h2>
+      <span class="mission__title__timelapse">{{ timelapseMission }}</span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="content">
+    <div [class.mission__content-transition]="!isLoading" class="mission__content">
+      @if (isLoading) {
+        <cv-spinner></cv-spinner>
+      } @else {
+        <div class="mission__content__text">
+          <markdown [data]="innerLightMission"></markdown>
+          <markdown [data]="innerFullMission" class="flex flex-col gap-3"></markdown>
+        </div>
+      }
+    </div>
+  </ng-template>
+</p-dialog>

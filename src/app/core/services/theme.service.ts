@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Theme } from '@state/theme/theme.state';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
-  private readonly _loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-
   /**
    * Get the current theme from the local storage or the operating system.
    */
@@ -29,21 +27,5 @@ export class ThemeService {
   public setTheme$(theme: Theme): Observable<Theme> {
     localStorage.setItem('theme', theme);
     return of(theme);
-  }
-
-  /**
-   * Set the loading flag
-   *
-   * @param loading the flag to be set
-   */
-  setLoading$(loading: boolean): void {
-    this._loading$.next(loading);
-  }
-
-  /**
-   * Return the current loading flag
-   */
-  get loading$(): BehaviorSubject<boolean> {
-    return this._loading$;
   }
 }

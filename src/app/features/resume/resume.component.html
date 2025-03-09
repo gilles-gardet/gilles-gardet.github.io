@@ -3,10 +3,6 @@
 </div>
 <cv-summary></cv-summary>
 <cv-skills></cv-skills>
-<cv-missions (openDialog)="openDialog($event)"></cv-missions>
+<cv-missions></cv-missions>
 <cv-hobbies></cv-hobbies>
-<cv-details
-  [selectedMission]="selectedMission"
-  [isDialogDisplayed]="displayDialog"
-  (detailsChange)="onDetailsClose()"
-></cv-details>
+<cv-details></cv-details>

@@ -21,6 +21,8 @@ import { ThemeService } from '@core/services/theme.service';
 import { provideHttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { mockedInstance } from '@core/jest/mocked-instance.helper';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
   observe: (): unknown => null,
@@ -74,22 +76,17 @@ describe('ResumeComponent', (): void => {
     expect(resumeComponent).toBeTruthy();
   });
 
-  it(`should open the dialog with the selected mission`, async (): Promise<void> => {
-    const mission: Mission = {
-      client: 'Test',
-      endDate: undefined,
-      startDate: '2022-01-01',
-    } as Mission;
-    (resumeComponent as any).displayDialog = false;
-    (resumeComponent as any).selectedMission = {} as Mission;
-    expect((resumeComponent as any).displayDialog).toBeFalsy();
-    expect((resumeComponent as any).selectedMission).toEqual({});
-    resumeComponent.openDialog(mission);
-    expect((resumeComponent as any).displayDialog).toBeTruthy();
-    expect((resumeComponent as any).selectedMission).toEqual(mission);
-  });
-
-  afterEach((): void => {
-    jest.useRealTimers();
+  it('should contains the 5 child components', () => {
+    const debugElement: DebugElement = componentFixture.debugElement;
+    const summaryComponent = debugElement.query(By.css('cv-summary')).componentInstance;
+    const skillsComponent = debugElement.query(By.css('cv-skills')).componentInstance;
+    const missionsComponent = debugElement.query(By.css('cv-missions')).componentInstance;
+    const hobbiesComponent = debugElement.query(By.css('cv-hobbies')).componentInstance;
+    const detailsComponent = debugElement.query(By.css('cv-details')).componentInstance;
+    expect(summaryComponent).toBeTruthy();
+    expect(skillsComponent).toBeTruthy();
+    expect(missionsComponent).toBeTruthy();
+    expect(hobbiesComponent).toBeTruthy();
+    expect(detailsComponent).toBeTruthy();
   });
 });

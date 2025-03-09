@@ -1,18 +1,10 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  DestroyRef,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { Skill } from '@core/models/skill.model';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { ProgressBarComponent } from '@shared/components/progress-bar/progress-bar.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';
 import { AppState } from '@state/state';
 import { Store } from '@ngrx/store';
-import { SkillActions } from '@state/skill/skill.actions';
 import { ThemeService } from '@core/services/theme.service';
 import { selectSkills } from '@state/skill/skill.selector';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -25,7 +17,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrls: ['./skills.component.scss'],
   templateUrl: './skills.component.html',
 })
-export class SkillsComponent implements AfterViewInit {
+export class SkillsComponent implements OnInit {
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   private readonly themeService: ThemeService = inject(ThemeService);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
@@ -36,18 +28,16 @@ export class SkillsComponent implements AfterViewInit {
   /**
    * @inheritDoc
    */
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.store
       .select(selectSkills)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((skills: Skill[]): void => {
         this.skills = this.clones = skills;
         this.skills = skills.map((skill: Skill): Skill => ({ name: skill.name, rate: 0 }));
-        this.themeService.setLoading$(false);
-        setTimeout((): void => this._animateSkillsOnView()); // FIXME: setTimeout is a workaround
+        setTimeout((): void => this._animateSkillsOnView(), 100); // FIXME: setTimeout is a workaround
         this.changeDetectorRef.markForCheck();
       });
-    this.store.dispatch(SkillActions.loadSkills());
   }
 
   /**

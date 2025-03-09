@@ -5,6 +5,7 @@ import { MissionState } from './mission.state';
 const initialState: MissionState = {
   missions: [],
   selectedMission: null,
+  isDialogDisplayed: false,
   loading: false,
   error: null,
 };
@@ -25,8 +26,14 @@ export const missionReducer = createReducer(
     error,
     loading: false,
   })),
-  on(MissionActions.selectMission, (state, { mission }) => ({
+  on(MissionActions.openMissionDialog, (state, { mission }) => ({
     ...state,
     selectedMission: mission,
+    isDialogDisplayed: true,
+  })),
+  on(MissionActions.closeMissionDialog, (state) => ({
+    ...state,
+    selectedMission: null,
+    isDialogDisplayed: false,
   })),
 );

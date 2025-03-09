@@ -10,7 +10,7 @@ import { loadSkills } from '@state/skill/skill.effects';
 import { loadTheme, updateTheme } from '@state/theme/theme.effects';
 import { LanguageState } from '@state/language/language.state';
 import { languageReducer } from '@state/language/language.reducer';
-import { loadLanguage, updateLanguage } from '@state/language/language.effects';
+import { loadLanguage, updateLanguage, updateLoaderAfterLoad } from '@state/language/language.effects';
 
 /**
  * Feature properties of the application state.
@@ -45,4 +45,12 @@ export const appStore: AppStore = {
 /**
  * Configure the effects for the application.
  */
-export const appEffects = { loadMissions, loadSkills, loadTheme, updateTheme, loadLanguage, updateLanguage };
+export const appEffects = {
+  loadMissions,
+  loadSkills,
+  loadTheme,
+  updateTheme,
+  loadLanguage,
+  updateLanguage,
+  updateLoaderAfterLoad,
+};

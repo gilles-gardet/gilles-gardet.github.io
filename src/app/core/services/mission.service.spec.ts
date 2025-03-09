@@ -47,14 +47,14 @@ describe('MissionService', (): void => {
   it(`should get the path of the full mardown file related to a mission's date`, async (): Promise<void> => {
     const path: string = service.missionFromDate('2019-01-01', 'full');
     expect(path).toEqual(
-      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions/en/201901/201901_full.md',
+      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/main/src/assets/resume/missions/en/201901/201901_full.md',
     );
   });
 
   it(`should get the path of the light mardown file related to a mission's date`, async (): Promise<void> => {
     const path: string = service.missionFromDate('2019-01-01', 'light');
     expect(path).toEqual(
-      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions/en/201901/201901_light.md',
+      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/main/src/assets/resume/missions/en/201901/201901_light.md',
     );
   });
 
@@ -71,12 +71,12 @@ describe('MissionService', (): void => {
     const description = 'test';
     service.fetchMissions$().subscribe((response: Mission[]) => expect(response).toEqual(missions));
     const missionsRequest: TestRequest = httpTestingController.expectOne(
-      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions.json',
+      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/main/src/assets/resume/missions.json',
     );
     missionsRequest.flush(missions);
     expect(missionsRequest.request.method).toEqual('GET');
     const descriptionRequest: TestRequest = httpTestingController.expectOne(
-      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/master/src/assets/resume/missions/en/202007/202007_light.md',
+      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/main/src/assets/resume/missions/en/202007/202007_light.md',
     );
     descriptionRequest.flush(description);
     expect(descriptionRequest.request.method).toEqual('GET');
