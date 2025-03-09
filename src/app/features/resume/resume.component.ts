@@ -26,19 +26,4 @@ export class ResumeComponent implements OnInit {
   ngOnInit(): void {
     this.themeService.setLoading$(true);
   }
-
-  /**
-   * Change the close dialog flag when the details' dialog component was closed from itself.
-   */
-  onDetailsClose(): void {
-    this.displayDialog = false;
-  }
-
-  /**
-   * Open the details dialog
-   */
-  openDialog(mission: Mission): void {
-    this.displayDialog = true;
-    this.selectedMission = mission;
-  }
 }

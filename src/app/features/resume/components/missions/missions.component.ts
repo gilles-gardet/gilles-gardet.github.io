@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -29,7 +28,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrls: ['./missions.component.scss'],
   templateUrl: './missions.component.html',
 })
-export class MissionsComponent implements OnInit, AfterViewInit {
+export class MissionsComponent implements OnInit {
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   private readonly store: Store<AppState> = inject(Store);
@@ -44,21 +43,14 @@ export class MissionsComponent implements OnInit, AfterViewInit {
    */
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  ngAfterViewInit(): void {
     this.store
       .select(selectMissions)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((missions: Mission[]): void => {
         this.missions = missions;
-        setTimeout((): void => this._animateMissionsOnView()); // FIXME: setTimeout is a workaround
+        setTimeout((): void => this._animateMissionsOnView(), 100); // FIXME: setTimeout is a workaround
         this.changeDetectorRef.markForCheck();
       });
-    this.store.dispatch(MissionActions.loadMissions());
   }
 
   /**
@@ -116,6 +108,6 @@ export class MissionsComponent implements OnInit, AfterViewInit {
    * Open the details dialog
    */
   protected emitOpenMissionDialog(mission: Mission): void {
-    this.openDialog.emit(mission);
+    this.store.dispatch(MissionActions.openMissionDialog({ mission }));
   }
 }

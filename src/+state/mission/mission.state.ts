@@ -6,6 +6,7 @@ import { Mission } from '@core/models/mission.model';
 export interface MissionState {
   missions: Mission[];
   selectedMission: Mission | null;
+  isDialogDisplayed: boolean;
   loading: boolean;
   error: string | null;
 }

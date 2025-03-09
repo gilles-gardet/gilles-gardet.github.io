@@ -1,11 +1,12 @@
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType, ROOT_EFFECTS_INIT } from '@ngrx/effects';
-import { delay, map, switchMap, tap } from 'rxjs/operators';
+import { bufferCount, concatMap, delay, map, switchMap, tap } from 'rxjs/operators';
 import { exhaustMap, Observable } from 'rxjs';
 import { LanguageService } from '@core/services/language.service';
 import { LanguageActions } from '@state/language/language.actions';
 import { TranslocoService } from '@jsverse/transloco';
 import { MissionActions } from '@state/mission/mission.actions';
+import { SkillActions } from '@state/skill/skill.actions';
 
 export const loadLanguage = createEffect(
   (actions$ = inject(Actions), languageService: LanguageService = inject(LanguageService)) => {
@@ -31,9 +32,24 @@ export const updateLanguage = createEffect(
       switchMap(({ language }) =>
         languageService.setLanguage$(language).pipe(
           tap(() => translocoService.setActiveLang(language)),
-          map(() => MissionActions.loadMissions()),
+          concatMap(() => [MissionActions.loadMissions(), SkillActions.loadSkills()]),
         ),
       ),
+    );
+  },
+  { functional: true },
+);
+
+export const updateLoaderAfterLoad = createEffect(
+  (actions$ = inject(Actions)) => {
+    return actions$.pipe(
+      ofType(
+        MissionActions.loadMissionsSuccess,
+        MissionActions.loadMissionsFailure,
+        SkillActions.loadSkillsSuccess,
+        SkillActions.loadSkillsFailure,
+      ),
+      bufferCount(2), // Wait for both resources to complete loading
       map(() => LanguageActions.updateLoader({ loading: false })),
     );
   },
