@@ -4,12 +4,7 @@
       <cv-avatar class="p-mt-5" avatar="assets/pictures/me.jpg"></cv-avatar>
       <span class="general__name">Gilles Gardet</span>
       <span class="general__presentation">{{ translate('cv.contact.presentation') }}</span>
-      <cv-email
-        label="gilles.gardet@gmail.com"
-        icon="pi pi-envelope"
-        (click)="openEmailClient()"
-        onKeyDown="openEmailClient()"
-      ></cv-email>
+      <cv-email label="gilles.gardet@gmail.com" (click)="openEmailClient()" onKeyDown="openEmailClient()"></cv-email>
       <button
         pButton
         pRipple
