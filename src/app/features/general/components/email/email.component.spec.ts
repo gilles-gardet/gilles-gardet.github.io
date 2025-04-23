@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { EmailComponent } from './email.component';
+import { signal } from '@angular/core';
 
-describe('ChipComponent', () => {
+describe('EmailComponent', () => {
   let component: EmailComponent;
   let fixture: ComponentFixture<EmailComponent>;
 
@@ -9,7 +10,6 @@ describe('ChipComponent', () => {
     await TestBed.configureTestingModule({
       imports: [EmailComponent],
     }).compileComponents();
-
     fixture = TestBed.createComponent(EmailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,7 +1,7 @@
 <ng-container *transloco="let translate">
   <div class="container">
     <div class="general">
-      <cv-avatar class="p-mt-5" avatar="assets/pictures/me.jpg"></cv-avatar>
+      <cv-avatar avatar="assets/pictures/me.jpg"></cv-avatar>
       <span class="general__name">Gilles Gardet</span>
       <span class="general__presentation">{{ translate('cv.contact.presentation') }}</span>
       <cv-email label="gilles.gardet@gmail.com" (click)="openEmailClient()" onKeyDown="openEmailClient()"></cv-email>

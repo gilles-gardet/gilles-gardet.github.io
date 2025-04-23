@@ -7,8 +7,7 @@ import { PanelComponent } from '@shared/components/panel/panel.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [PanelComponent, TagModule, TranslocoDirective],
   selector: 'cv-hobbies',
-  standalone: true,
-  styleUrls: ['./hobbies.component.scss'],
+  styleUrl: './hobbies.component.scss',
   templateUrl: './hobbies.component.html',
 })
 export class HobbiesComponent {

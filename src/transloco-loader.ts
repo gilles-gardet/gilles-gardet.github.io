@@ -8,7 +8,7 @@ export class TranslocoHttpLoader implements TranslocoLoader {
   private readonly httpClient = inject(HttpClient);
 
   /**
-   * Load translation for selected language.
+   * Load translation for the selected language.
    *
    * @param language the chosen language
    */

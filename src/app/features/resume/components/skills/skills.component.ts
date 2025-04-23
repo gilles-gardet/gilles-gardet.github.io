@@ -5,7 +5,6 @@ import { ProgressBarComponent } from '@shared/components/progress-bar/progress-b
 import { PanelComponent } from '@shared/components/panel/panel.component';
 import { AppState } from '@state/state';
 import { Store } from '@ngrx/store';
-import { ThemeService } from '@core/services/theme.service';
 import { selectSkills } from '@state/skill/skill.selector';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
@@ -13,13 +12,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   imports: [PanelComponent, ProgressBarComponent, TranslocoDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'cv-skills',
-  standalone: true,
-  styleUrls: ['./skills.component.scss'],
+
+  styleUrl: './skills.component.scss',
   templateUrl: './skills.component.html',
 })
 export class SkillsComponent implements OnInit {
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
-  private readonly themeService: ThemeService = inject(ThemeService);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   private readonly store: Store<AppState> = inject(Store);
   protected skills: Skill[] = [];

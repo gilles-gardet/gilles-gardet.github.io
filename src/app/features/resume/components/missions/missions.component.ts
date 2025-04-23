@@ -24,8 +24,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [MarkdownModule, PanelComponent, SlideButtonComponent, TranslocoDirective],
   selector: 'cv-missions',
-  standalone: true,
-  styleUrls: ['./missions.component.scss'],
+  styleUrl: './missions.component.scss',
   templateUrl: './missions.component.html',
 })
 export class MissionsComponent implements OnInit {

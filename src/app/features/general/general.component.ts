@@ -37,8 +37,7 @@ import { LanguageActions } from '@state/language/language.actions';
     TranslocoDirective,
   ],
   selector: 'cv-general',
-  standalone: true,
-  styleUrls: ['./general.component.scss'],
+  styleUrl: './general.component.scss',
   templateUrl: './general.component.html',
 })
 export class GeneralComponent implements OnInit {

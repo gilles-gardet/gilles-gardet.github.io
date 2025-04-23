@@ -8,8 +8,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
   encapsulation: ViewEncapsulation.None,
   imports: [ButtonModule, CommonModule, TranslocoDirective],
   selector: 'cv-slide-button',
-  standalone: true,
-  styleUrls: ['./slide-button.component.scss'],
+  styleUrl: './slide-button.component.scss',
   templateUrl: './slide-button.component.html',
 })
 export class SlideButtonComponent {}

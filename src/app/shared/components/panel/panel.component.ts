@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
   encapsulation: ViewEncapsulation.None,
   imports: [CommonModule],
   selector: 'cv-panel',
-  standalone: true,
   styleUrl: './panel.component.scss',
   templateUrl: './panel.component.html',
 })

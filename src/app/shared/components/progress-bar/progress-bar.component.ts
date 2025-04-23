@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule],
   selector: 'cv-progress-bar',
-  standalone: true,
   styleUrl: './progress-bar.component.scss',
   templateUrl: './progress-bar.component.html',
 })

@@ -17,8 +17,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, DialogModule, MarkdownModule, SpinnerComponent],
   selector: 'cv-details',
-  standalone: true,
-  styleUrls: ['./details.component.scss'],
+  styleUrl: './details.component.scss',
   templateUrl: './details.component.html',
 })
 export class DetailsComponent {

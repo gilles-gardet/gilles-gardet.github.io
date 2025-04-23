@@ -11,14 +11,14 @@ import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'cv-general',
-  standalone: true,
+  
   template: ``,
 })
 class FakeGeneralComponent {}
 
 @Component({
   selector: 'cv-resume',
-  standalone: true,
+  
   template: ``,
 })
 class FakeResumeComponent {}

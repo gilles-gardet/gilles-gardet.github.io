@@ -9,8 +9,7 @@ import { DetailsComponent } from '@features/resume/components/details/details.co
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [DetailsComponent, HobbiesComponent, MissionsComponent, SkillsComponent, SummaryComponent],
   selector: 'cv-resume',
-  standalone: true,
-  styleUrls: ['./resume.component.scss'],
+  styleUrl: './resume.component.scss',
   templateUrl: './resume.component.html',
 })
 export class ResumeComponent {}

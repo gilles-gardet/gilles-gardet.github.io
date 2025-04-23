@@ -34,4 +34,4 @@ bootstrapApplication(AppComponent, {
     provideStore(appStore),
     provideTransloco(translocoOptions),
   ],
-}).catch((err) => console.error(err));
+}).catch((err): void => console.error(err));

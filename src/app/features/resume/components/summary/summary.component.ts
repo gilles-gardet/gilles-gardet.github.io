@@ -6,8 +6,7 @@ import { PanelComponent } from '@shared/components/panel/panel.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [PanelComponent, TranslocoDirective],
   selector: 'cv-summary',
-  standalone: true,
-  styleUrls: ['./summary.component.scss'],
+  styleUrl: './summary.component.scss',
   templateUrl: './summary.component.html',
 })
 export class SummaryComponent {

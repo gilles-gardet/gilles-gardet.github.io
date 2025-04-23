@@ -34,8 +34,7 @@ import { selectLanguage, selectLoader } from '@state/language/language.selector'
     SpinnerComponent,
   ],
   selector: 'cv-root',
-  standalone: true,
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
