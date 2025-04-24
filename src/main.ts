@@ -11,6 +11,9 @@ import { provideStore } from '@ngrx/store';
 import { provideRouter } from '@angular/router';
 import { appEffects, appStore } from '@state/state';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import { definePreset } from '@primeng/themes';
+import Material from '@primeng/themes/material';
 
 const translocoOptions: TranslocoOptions = {
   config: {
@@ -21,6 +24,25 @@ const translocoOptions: TranslocoOptions = {
   },
   loader: TranslocoHttpLoader,
 };
+
+const Preset = definePreset(Material, {
+  semantic: {
+    primary: {
+      0: '#ffffff',
+      50: '{slate.50}',
+      100: '{slate.100}',
+      200: '{slate.200}',
+      300: '{slate.300}',
+      400: '{slate.400}',
+      500: '{slate.500}',
+      600: '{slate.600}',
+      700: '{slate.700}',
+      800: '{slate.800}',
+      900: '{slate.900}',
+      950: '{slate.950}',
+    },
+  },
+});
 
 enableProdMode();
 
@@ -33,5 +55,10 @@ bootstrapApplication(AppComponent, {
     provideRouter(routes),
     provideStore(appStore),
     provideTransloco(translocoOptions),
+    providePrimeNG({
+      theme: {
+        preset: Preset,
+      },
+    }),
   ],
 }).catch((err): void => console.error(err));
