@@ -26,19 +26,39 @@
         margin-bottom: 1rem;
       }
 
+
       &__button {
-        &-left {
-          position: absolute;
-          top: 0.5rem;
-          left: 0.5rem;
+        @apply bg-card-bg dark:bg-dark-card-bg #{!important};
+        @apply text-text-color dark:text-dark-text-color #{!important};
+
+        &:hover {
+          @apply bg-dark-card-bg dark:bg-card-bg #{!important};
+          @apply text-dark-text-color dark:text-text-color #{!important};
         }
 
-        &-right {
-          position: absolute;
-          top: 0.5rem;
-          left: 0.5rem;
-        }
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        cursor: pointer;
+        -webkit-appearance: button;
+        background-image: none;
+        text-transform: none;
+        font-size: 100%;
+        margin: 0;
+        padding: 0;
+        border-radius: 50%;
+        height: 2rem;
+        width: 2rem;
+        outline-color: transparent;
+        overflow: hidden;
+        display: inline-flex;
+        user-select: none;
+        align-items: center;
+        vertical-align: bottom;
+        text-align: center;
+        justify-content: center;
       }
     }
   }
 }
+

@@ -6,15 +6,6 @@
   --p-menu-item-focus-background: rgba(194, 194, 194, 0.68) !important;
 }
 
-.p-button {
-  @apply bg-card-bg dark:bg-dark-card-bg #{!important};
-  @apply text-text-color dark:text-dark-text-color #{!important};
-  &:hover {
-    @apply bg-dark-card-bg dark:bg-card-bg #{!important};
-    @apply text-dark-text-color dark:text-text-color #{!important};
-  }
-}
-
 .p-menu {
   ul {
     @apply list-none;
