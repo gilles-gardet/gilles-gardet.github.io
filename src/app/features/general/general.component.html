@@ -7,11 +7,9 @@
       <cv-email label="gilles.gardet@gmail.com" (click)="openEmailClient()" onKeyDown="openEmailClient()"></cv-email>
       <button
         pButton
-        pRipple
         type="button"
         pButtonIcon="pi pi-bars"
         class="p-button-rounded p-button-text general__button-left"
-        [pTooltip]="translate('cv.contact.menu.tooltip')"
         (click)="menu.toggle($event)"
       ></button>
       <p-menu #menu [popup]="true" [model]="menuItems" appendTo="body" [autoZIndex]="true"></p-menu>

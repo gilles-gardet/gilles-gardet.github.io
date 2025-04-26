@@ -7,7 +7,7 @@ test.beforeAll(async () => {
 
 test.beforeEach(async ({ page }) => {
   await page.goto('http://localhost:4200');
-  await page.waitForSelector('p-progressSpinner', { state: 'detached' });
+  await page.waitForSelector('cv-spinner', { state: 'detached' });
 });
 
 test.describe('General page structure', () => {
@@ -66,9 +66,6 @@ test.describe('General card structure', () => {
   test('should have a download cv button', async ({ page }) => {
     const button = page.locator('aside button');
     await expect(button).toHaveAttribute('icon', 'pi pi-bars');
-    await button.hover();
-    const tooltip = page.locator('.p-tooltip-text');
-    await expect(tooltip).toHaveText('Show menu');
   });
 
   test('Should match the snapshot of the sidebar', async ({ page }) => {

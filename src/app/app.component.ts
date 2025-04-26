@@ -12,8 +12,6 @@ import {
 import { GeneralComponent } from '@features/general/general.component';
 import { ResumeComponent } from '@features/resume/resume.component';
 import { CommonModule } from '@angular/common';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { BlockUIModule } from 'primeng/blockui';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ScrollTopComponent } from '@shared/components/scroll-top/scroll-top.component';
 import { SpinnerComponent } from '@shared/components/spinner/spinner.component';
@@ -24,15 +22,7 @@ import { selectLanguage, selectLoader } from '@state/language/language.selector'
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [
-    BlockUIModule,
-    CommonModule,
-    GeneralComponent,
-    ProgressSpinnerModule,
-    ResumeComponent,
-    ScrollTopComponent,
-    SpinnerComponent,
-  ],
+  imports: [CommonModule, GeneralComponent, ResumeComponent, ScrollTopComponent, SpinnerComponent],
   selector: 'cv-root',
   styleUrl: './app.component.scss',
   templateUrl: './app.component.html',

@@ -2,9 +2,6 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DialogModule } from 'primeng/dialog';
 import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { CommonModule } from '@angular/common';
-import { ProgressBarModule } from 'primeng/progressbar';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { TimelineModule } from 'primeng/timeline';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MissionsComponent } from '@features/resume/components/missions/missions.component';
@@ -26,16 +23,7 @@ describe('MissionsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        BrowserAnimationsModule,
-        CommonModule,
-        DialogModule,
-        MarkdownModule.forRoot(),
-        PanelComponent,
-        ProgressBarModule,
-        ProgressSpinnerModule,
-        TimelineModule,
-      ],
+      imports: [BrowserAnimationsModule, CommonModule, DialogModule, MarkdownModule.forRoot(), PanelComponent],
       providers: [
         MarkdownService,
         provideHttpClient(),

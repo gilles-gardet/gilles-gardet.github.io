@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { ButtonModule } from 'primeng/button';
-import { TooltipModule } from 'primeng/tooltip';
 import { Menu, MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
 import { environment } from '@environments/environment';
@@ -20,7 +19,7 @@ import { LanguageActions } from '@state/language/language.actions';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AvatarComponent, ButtonModule, EmailComponent, MenuModule, TooltipModule, TranslocoDirective],
+  imports: [AvatarComponent, ButtonModule, EmailComponent, MenuModule, TranslocoDirective],
   selector: 'cv-general',
   styleUrl: './general.component.scss',
   templateUrl: './general.component.html',

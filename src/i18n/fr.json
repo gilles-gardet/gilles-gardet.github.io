@@ -3,7 +3,6 @@
     "contact": {
       "presentation": "Lead developer, curieux par nature et passionné par son métier.",
       "menu": {
-        "tooltip": "Afficher le menu",
         "items": {
           "mode": {
             "title": "Changer le mode",

@@ -1,14 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DialogModule } from 'primeng/dialog';
-import { PanelModule } from 'primeng/panel';
 import { ResumeComponent } from '@features/resume/resume.component';
 import { MarkdownModule, MarkdownService } from 'ngx-markdown';
-import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
-import { ProgressBarModule } from 'primeng/progressbar';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { TagModule } from 'primeng/tag';
-import { TimelineModule } from 'primeng/timeline';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Mission } from '@core/models/mission.model';
@@ -35,18 +29,7 @@ describe('ResumeComponent', (): void => {
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [
-        BrowserAnimationsModule,
-        CardModule,
-        CommonModule,
-        DialogModule,
-        MarkdownModule.forRoot(),
-        PanelModule,
-        ProgressBarModule,
-        ProgressSpinnerModule,
-        TagModule,
-        TimelineModule,
-      ],
+      imports: [BrowserAnimationsModule, CommonModule, DialogModule, MarkdownModule.forRoot()],
       providers: [
         ThemeService,
         MarkdownService,
