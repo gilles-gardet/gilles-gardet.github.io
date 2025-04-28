@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -7,7 +8,7 @@ import {
   HostListener,
   inject,
   OnInit,
-  Output,
+  Output
 } from '@angular/core';
 import { Mission } from '@core/models/mission.model';
 import { MarkdownModule } from 'ngx-markdown';
@@ -27,11 +28,10 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrl: './missions.component.scss',
   templateUrl: './missions.component.html',
 })
-export class MissionsComponent implements OnInit {
+export class MissionsComponent implements AfterViewInit, OnInit {
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   private readonly store: Store<AppState> = inject(Store);
-  protected selectedMission: Mission = {} as Mission;
   protected screenWidth = 0;
   protected missions?: Mission[];
 
@@ -42,6 +42,12 @@ export class MissionsComponent implements OnInit {
    */
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  ngAfterViewInit(): void {
     this.store
       .select(selectMissions)
       .pipe(takeUntilDestroyed(this.destroyRef))
@@ -61,7 +67,7 @@ export class MissionsComponent implements OnInit {
   }
 
   /**
-   * Animate the missions cards when visible on screen
+   * Animate the mission cards when visible on screen
    */
   private _animateMissionsOnView(): void {
     const intersectionObserver: IntersectionObserver = new IntersectionObserver(

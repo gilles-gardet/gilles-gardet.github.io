@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  DestroyRef,
+  inject,
+  OnInit
+} from '@angular/core';
 import { Skill } from '@core/models/skill.model';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { ProgressBarComponent } from '@shared/components/progress-bar/progress-bar.component';
@@ -16,7 +24,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrl: './skills.component.scss',
   templateUrl: './skills.component.html',
 })
-export class SkillsComponent implements OnInit {
+export class SkillsComponent implements AfterViewInit {
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   private readonly store: Store<AppState> = inject(Store);
@@ -26,7 +34,7 @@ export class SkillsComponent implements OnInit {
   /**
    * @inheritDoc
    */
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.store
       .select(selectSkills)
       .pipe(takeUntilDestroyed(this.destroyRef))
@@ -39,7 +47,7 @@ export class SkillsComponent implements OnInit {
   }
 
   /**
-   * Animate the skills bar when visible on screen
+   * Animate the skill bars when visible on screen
    */
   private _animateSkillsOnView(): void {
     const rateIntersectionObserver: IntersectionObserver = new IntersectionObserver(
