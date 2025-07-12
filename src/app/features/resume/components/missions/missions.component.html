@@ -2,7 +2,7 @@
   <cv-panel id="experience" [header]="translate('cv.missions.panelTitle')">
     <div class="timeline">
       @for (mission of missions; track mission['client']; let last = $last) {
-        <div class="timeline__event">
+        <div #missionElement class="timeline__event">
           <div class="timeline__event-opposite"></div>
           <div class="timeline__event-separator">
             <div class="timeline__event-separator__icon">
@@ -29,7 +29,7 @@
                 </span>
               </div>
               <div class="mission__body">
-                <markdown [data]="mission.description"></markdown>
+                <markdown [data]="mission.description" (ready)="onMarkdownReady()"></markdown>
                 <div class="mission__body__button">
                   <cv-slide-button
                     (click)="emitOpenMissionDialog(mission)"

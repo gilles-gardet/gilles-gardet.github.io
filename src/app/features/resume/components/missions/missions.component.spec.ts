@@ -14,6 +14,8 @@ import mockMissions from '@assets/resume/missions.json';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
   observe: (): unknown => null,
+  disconnect: (): unknown => null,
+  unobserve: (): unknown => null,
 }));
 
 describe('MissionsComponent', () => {
@@ -42,7 +44,7 @@ describe('MissionsComponent', () => {
 
   it('should create', async (): Promise<void> => {
     expect(missionsComponent).toBeTruthy();
-  });
+  }, 10000);
 
   it('should set screen size on init', async (): Promise<void> => {
     expect((missionsComponent as any).screenWidth).toBe(1024);

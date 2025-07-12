@@ -4,11 +4,15 @@ import {
   ChangeDetectorRef,
   Component,
   DestroyRef,
+  ElementRef,
   EventEmitter,
   HostListener,
   inject,
+  OnDestroy,
   OnInit,
-  Output
+  Output,
+  QueryList,
+  ViewChildren,
 } from '@angular/core';
 import { Mission } from '@core/models/mission.model';
 import { MarkdownModule } from 'ngx-markdown';
@@ -28,14 +32,18 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrl: './missions.component.scss',
   templateUrl: './missions.component.html',
 })
-export class MissionsComponent implements AfterViewInit, OnInit {
+export class MissionsComponent implements AfterViewInit, OnInit, OnDestroy {
   private readonly changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   private readonly store: Store<AppState> = inject(Store);
+  private intersectionObserver?: IntersectionObserver;
+  private markdownReadyCount = 0;
+  private expectedMarkdownCount = 0;
   protected screenWidth = 0;
   protected missions?: Mission[];
 
   @Output() openDialog: EventEmitter<Mission> = new EventEmitter<Mission>();
+  @ViewChildren('missionElement') missionElements?: QueryList<ElementRef<HTMLElement>>;
 
   /**
    * @inheritDoc
@@ -53,7 +61,8 @@ export class MissionsComponent implements AfterViewInit, OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((missions: Mission[]): void => {
         this.missions = missions;
-        setTimeout((): void => this._animateMissionsOnView(), 100); // FIXME: setTimeout is a workaround
+        this.expectedMarkdownCount = missions.length;
+        this.markdownReadyCount = 0;
         this.changeDetectorRef.markForCheck();
       });
   }
@@ -67,10 +76,21 @@ export class MissionsComponent implements AfterViewInit, OnInit {
   }
 
   /**
-   * Animate the mission cards when visible on screen
+   * Animate the mission cards when visible on screen.
+   * Called when all markdown elements are ready (parsed and rendered).
    */
+  protected onMarkdownReady(): void {
+    this.markdownReadyCount++;
+    if (this.markdownReadyCount === this.expectedMarkdownCount) {
+      this._animateMissionsOnView();
+    }
+  }
+
   private _animateMissionsOnView(): void {
-    const intersectionObserver: IntersectionObserver = new IntersectionObserver(
+    if (this.intersectionObserver) {
+      this.intersectionObserver.disconnect();
+    }
+    this.intersectionObserver = new IntersectionObserver(
       (entries: IntersectionObserverEntry[]): void => {
         entries.forEach((entry: IntersectionObserverEntry): void => this._manageAnimationOnElement(entry));
       },
@@ -78,9 +98,17 @@ export class MissionsComponent implements AfterViewInit, OnInit {
         threshold: 0,
       },
     );
-    const experienceElements: NodeListOf<Element> = document.querySelectorAll('cv-panel#experience .timeline__event');
-    experienceElements.forEach((experienceElement: Element): void => {
-      intersectionObserver.observe(experienceElement);
+    // use ViewChildren reference first, then fallback to document.querySelectorAll
+    let experienceElements: (Element | HTMLElement)[];
+    if (this.missionElements && this.missionElements.length > 0) {
+      experienceElements = this.missionElements.toArray().map((el) => el.nativeElement);
+    } else {
+      experienceElements = Array.from(document.querySelectorAll('cv-panel#experience .timeline__event'));
+    }
+    experienceElements.forEach((experienceElement: Element | HTMLElement): void => {
+      if (experienceElement) {
+        this.intersectionObserver?.observe(experienceElement);
+      }
     });
   }
 
@@ -114,5 +142,14 @@ export class MissionsComponent implements AfterViewInit, OnInit {
    */
   protected emitOpenMissionDialog(mission: Mission): void {
     this.store.dispatch(MissionActions.openMissionDialog({ mission }));
+  }
+
+  /**
+   * Clean up intersection observer on component destruction
+   */
+  ngOnDestroy(): void {
+    if (this.intersectionObserver) {
+      this.intersectionObserver.disconnect();
+    }
   }
 }
