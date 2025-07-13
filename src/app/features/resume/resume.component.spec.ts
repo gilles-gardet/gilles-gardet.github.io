@@ -20,6 +20,7 @@ import { DebugElement } from '@angular/core';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
   observe: (): unknown => null,
+  disconnect: (): unknown => null,
 }));
 
 describe('ResumeComponent', (): void => {

@@ -12,6 +12,7 @@ import mockSkills from '@assets/resume/skills.json';
 
 window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
   observe: (): unknown => null,
+  disconnect: (): unknown => null,
 }));
 
 describe('SkillsComponent', (): void => {
@@ -23,7 +24,7 @@ describe('SkillsComponent', (): void => {
     TestBed.configureTestingModule({
       imports: [BrowserAnimationsModule, CommonModule, PanelComponent, ProgressBarComponent],
       providers: [
-        { provide: ChangeDetectorRef, useValue: {} },
+        { provide: ChangeDetectorRef, useValue: { markForCheck: jest.fn() } },
         {
           provide: Store,
           useValue: store,
