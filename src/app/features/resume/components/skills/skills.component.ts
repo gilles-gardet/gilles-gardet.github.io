@@ -53,7 +53,7 @@ export class SkillsComponent implements AfterViewInit, AfterViewChecked, OnDestr
    */
   ngAfterViewChecked(): void {
     // setup observer only when data is ready and DOM is fully rendered
-    if (this.shouldSetupObserver && !this.intersectionObserver && this.clones.length > 0) {
+    if (this.shouldSetupObserver && !this.intersectionObserver && !!this.clones.length) {
       const skillsElement: Element | null = document.querySelector('cv-panel#skills .skills');
       if (skillsElement) {
         this.shouldSetupObserver = false;
@@ -71,7 +71,7 @@ export class SkillsComponent implements AfterViewInit, AfterViewChecked, OnDestr
         entries.forEach((entry: IntersectionObserverEntry) => this._checkSkillIntersection(entry));
       },
       {
-        threshold: 0.1,
+        threshold: 0,
       },
     );
     const skillsElement: Element | null = document.querySelector('cv-panel#skills');
