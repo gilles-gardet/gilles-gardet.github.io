@@ -23,7 +23,7 @@ test.describe('General page structure', () => {
   });
 
   test('Should have a panel "profil et généralités"', async ({ page }) => {
-    await expect(page.locator('#summary .panel__header__title:has-text("Profile and generalities")')).toBeVisible();
+    await expect(page.locator('#summary .panel__header__title:has-text("Professional Profile")')).toBeVisible();
   });
 
   test('Should match the snapshot of the panel "profil et généralités"', async ({ page }) => {
@@ -36,11 +36,11 @@ test.describe('General page structure', () => {
   });
 
   test('Should have a panel "expérience"', async ({ page }) => {
-    await expect(page.locator('#experience .panel__header__title:has-text("Experience")')).toBeVisible();
+    await expect(page.locator('#experience .panel__header__title:has-text("Professional Experience")')).toBeVisible();
   });
 
   test('Should have a panel "loisirs"', async ({ page }) => {
-    await expect(page.locator('#hobbies .panel__header__title:has-text("Hobbies")')).toBeVisible();
+    await expect(page.locator('#hobbies .panel__header__title:has-text("Interests")')).toBeVisible();
   });
 
   test('Should match the snapshot of the panel "loisirs"', async ({ page }) => {
@@ -54,7 +54,7 @@ test.describe('General card structure', () => {
     const aside: Locator = page.locator('aside');
     await expect(aside).toBeVisible();
     await expect(aside).toContainText('Gilles Gardet');
-    await expect(aside).toContainText('Lead developer, curious by nature and passionate about his profession.');
+    await expect(aside).toContainText('Lead Developer, naturally curious and passionate about the profession.');
     const avatar: Locator = aside.locator('cv-avatar');
     await expect(avatar).toBeVisible();
   });
@@ -80,16 +80,16 @@ test.describe('Summary panel structure', () => {
     const content: Locator = page.locator('cv-summary .panel__content');
     await expect(content).toBeVisible();
     await expect(content).toContainText(
-      `I have 12 years of experience as a designer developer in information systems.`,
+      `I have 12 years of experience as a software developer specializing in information systems.`,
     );
     await expect(content).toContainText(
-      `Mainly specialized in backend technologies (Java, Spring...), which I was able to experience on different missions themselves touching on several fields of activity (space, human resources, communities...).`,
+      `Primarily focused on backend technologies (Java, Spring...), gained through diverse projects across multiple business domains including aerospace, human resources, and community platforms.`,
     );
     await expect(content).toContainText(
-      `Nevertheless, I have a fullstack profile thanks to the many frontend projects that I have been able to carry out in parallel.`,
+      `I maintain a full-stack profile through numerous frontend projects developed in parallel with my backend expertise.`,
     );
     await expect(content).toContainText(
-      `I am used to working with the Agile methods that I like when it comes to managing a project (Scrum, Kanban..).`,
+      `I am experienced in Agile methodologies and enjoy collaborative project management approaches (Scrum, Kanban...).`,
     );
   });
 
@@ -99,7 +99,7 @@ test.describe('Summary panel structure', () => {
     expect(texts).toHaveLength(4);
     expect(texts).toContain('12 years');
     expect(texts).toContain('backend');
-    expect(texts).toContain('fullstack');
+    expect(texts).toContain('full-stack');
     expect(texts).toContain('Agile');
   });
 });

@@ -1,48 +1,48 @@
 {
   "cv": {
     "contact": {
-      "presentation": "Lead developer, curious by nature and passionate about his profession.",
+      "presentation": "Lead Developer, naturally curious and passionate about the profession.",
       "menu": {
         "items": {
           "mode": {
-            "title": "Change mode",
+            "title": "Toggle display mode",
             "dark": "Dark mode",
             "light": "Light mode"
           },
           "download": {
             "label": "Download",
-            "title": "{{ label }} CV in PDF format"
+            "title": "{{ label }} resume in PDF format"
           },
           "language": {
             "label": "Français",
-            "title": "Change the language"
+            "title": "Switch language"
           }
         }
       }
     },
     "summary": {
-      "panelTitle": "Profile and generalities",
-      "content": "<p>I have <b>{{ value }} years</b> of experience as a designer developer in information systems.</p><p>Mainly specialized in <b>backend</b> technologies (Java, Spring...), which I was able to experience on different missions themselves touching on several fields of activity (space, human resources, communities...).</p><p>Nevertheless, I have a <b>fullstack</b> profile thanks to the many frontend projects that I have been able to carry out in parallel.</p><p>I am used to working with the <b>Agile</b> methods that I like when it comes to managing a project (Scrum, Kanban..).</p>"
+      "panelTitle": "Professional Profile",
+      "content": "<p>I have <b>{{ value }} years</b> of experience as a software developer specializing in information systems.</p><p>Primarily focused on <b>backend</b> technologies (Java, Spring...), gained through diverse projects across multiple business domains including aerospace, human resources, and community platforms.</p><p>I maintain a <b>full-stack</b> profile through numerous frontend projects developed in parallel with my backend expertise.</p><p>I am experienced in <b>Agile</b> methodologies and enjoy collaborative project management approaches (Scrum, Kanban...).</p>"
     },
     "skills": {
-      "panelTitle": "Languages and tools"
+      "panelTitle": "Technical Skills"
     },
     "missions": {
-      "panelTitle": "Experience",
+      "panelTitle": "Professional Experience",
       "content": {}
     },
     "hobbies": {
-      "panelTitle": "Hobbies",
+      "panelTitle": "Interests",
       "content": {
-        "dev": "Development related to all types of languages and technologies",
-        "homelab": "Build and maintain a homelab dedicated to software development",
-        "basket": "Competitive Basketball",
-        "running": "Running (participation in the Toulouse marathon as a team)",
-        "movie": "Horror films of the 80s-90s (Carpenter, Cronenberg, Romero...)"
+        "dev": "Software development across various programming languages and technologies",
+        "homelab": "Building and maintaining a personal homelab for software development",
+        "basket": "Competitive basketball",
+        "running": "Distance running (team participant in Toulouse Marathon)",
+        "movie": "Classic horror cinema from the 80s-90s (Carpenter, Cronenberg, Romero...)"
       }
     },
     "shared": {
-      "slideButton": "Learn more"
+      "slideButton": "View details"
     }
   }
 }
