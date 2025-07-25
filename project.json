@@ -43,7 +43,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@angular-eslint/builder:lint",
       "options": {
         "lintFilePatterns": ["./src/**/*.html", "./src/**/*.ts"]
       },
