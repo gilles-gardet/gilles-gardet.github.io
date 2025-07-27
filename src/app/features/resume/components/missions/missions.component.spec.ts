@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { DialogModule } from 'primeng/dialog';
 import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { CommonModule } from '@angular/common';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
@@ -25,7 +24,7 @@ describe('MissionsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, DialogModule, MarkdownModule.forRoot(), PanelComponent],
+      imports: [BrowserAnimationsModule, CommonModule, MarkdownModule.forRoot(), MissionsComponent, PanelComponent],
       providers: [
         MarkdownService,
         provideHttpClient(),

@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
 import { SlideButtonComponent } from '@shared/components/slide-button/slide-button.component';
 
 describe('SlideButtonComponent', (): void => {
@@ -9,7 +8,7 @@ describe('SlideButtonComponent', (): void => {
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [ButtonModule, CommonModule, SlideButtonComponent],
+      imports: [CommonModule, SlideButtonComponent],
     }).compileComponents();
     fixture = TestBed.createComponent(SlideButtonComponent);
     component = fixture.componentInstance;

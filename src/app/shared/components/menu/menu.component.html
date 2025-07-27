@@ -1,0 +1,39 @@
+@if (visible) {
+  <div #menuContainer class="cv-menu" [class.cv-menu-popup]="popup">
+    @for (menuGroup of model; track trackByIndex($index)) {
+      @if (menuGroup.items && menuGroup.items.length > 0) {
+        <div class="cv-menu-group">
+          @if (menuGroup.label) {
+            <div class="cv-menu-group-label">{{ menuGroup.label }}</div>
+          }
+          <ul class="cv-menu-list">
+            @for (item of menuGroup.items; track trackByIndex($index)) {
+              @if (item.visible !== false) {
+                @if (item.separator) {
+                  <li class="cv-menu-separator"></li>
+                } @else {
+                  <li class="cv-menu-item" [class.cv-menu-item-disabled]="item.disabled">
+                    <button
+                      type="button"
+                      class="cv-menu-item-link"
+                      (click)="onItemClick(item)"
+                      [disabled]="item.disabled"
+                      [title]="item.title || ''"
+                    >
+                      @if (item.icon) {
+                        <i [class]="item.icon" class="cv-menu-item-icon"></i>
+                      }
+                      @if (item.label) {
+                        <span class="cv-menu-item-text">{{ item.label }}</span>
+                      }
+                    </button>
+                  </li>
+                }
+              }
+            }
+          </ul>
+        </div>
+      }
+    }
+  </div>
+}

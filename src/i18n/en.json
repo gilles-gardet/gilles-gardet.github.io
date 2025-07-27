@@ -43,6 +43,9 @@
     },
     "shared": {
       "slideButton": "View details"
+    },
+    "dialog": {
+      "close": "Close dialog"
     }
   }
 }

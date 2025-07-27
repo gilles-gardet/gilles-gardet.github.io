@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { DialogModule } from 'primeng/dialog';
 import { ResumeComponent } from '@features/resume/resume.component';
 import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { CommonModule } from '@angular/common';
@@ -30,7 +29,7 @@ describe('ResumeComponent', (): void => {
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, DialogModule, MarkdownModule.forRoot()],
+      imports: [BrowserAnimationsModule, CommonModule, MarkdownModule.forRoot(), ResumeComponent],
       providers: [
         ThemeService,
         MarkdownService,

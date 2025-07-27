@@ -1,19 +1,30 @@
 :host {
-  display: grid;
-  grid-row-gap: 2rem;
-
   .mission {
+    @apply bg-panel-content-bg dark:bg-dark-panel-content-bg;
+    
     &__title {
-      grid-area: 1 / 2 / 1 / 3;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 1rem;
+
+      h2 {
+        margin: 0;
+        line-height: 1.2;
+        @apply text-text-color dark:text-dark-text-color;
+      }
 
       &__timelapse {
         font-style: italic;
+        @apply text-text-color dark:text-dark-text-color;
+        opacity: 0.7;
+        font-size: 0.875rem;
       }
     }
 
     &__content {
-      max-height: 100px;
-      max-width: 100px;
       transition:
         max-height 800ms ease-in-out,
         max-width 800ms ease-in-out;
@@ -24,28 +35,63 @@
         text-align: left;
         opacity: 0;
         animation: fadeText 800ms forwards 800ms;
+        gap: 1.5rem;
+        @apply bg-panel-content-bg dark:bg-dark-panel-content-bg;
+
+        markdown {
+          display: block;
+        }
 
         ul {
-          @apply list-disc;
+          @apply list-disc text-text-color dark:text-dark-text-color;
+          padding-left: 1.5rem;
+          
           li {
-            @apply ml-8;
+            @apply ml-0;
+            margin-bottom: 0.5rem;
+            
+            ul {
+              margin-top: 0.5rem;
+              padding-left: 1.5rem;
+            }
           }
         }
-      }
 
-      &-transition {
-        max-height: 100vh;
-        max-width: calc(1280px - 3rem);
-      }
-
-      @keyframes fadeText {
-        from {
-          opacity: 0;
+        p {
+          margin-bottom: 1rem;
+          line-height: 1.6;
+          @apply text-text-color dark:text-dark-text-color;
         }
-        to {
+
+        pre {
+          @apply bg-pre-bg text-pre-text dark:bg-dark-pre-bg dark:text-dark-pre-text;
+          padding: 1rem;
+          border-radius: 0.375rem;
+          font-size: 0.875rem;
+          overflow-x: auto;
+          margin: 1rem 0;
+        }
+
+        code {
+          font-family: 'Courier New', monospace;
+        }
+      }
+
+      &--transition {
+        .mission__content__text {
           opacity: 1;
+          animation: none;
         }
       }
+    }
+  }
+
+  @keyframes fadeText {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 }

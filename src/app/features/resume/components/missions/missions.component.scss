@@ -59,7 +59,7 @@
     }
 
     &:nth-child(even) &-content {
-      text-align: right;
+      text-align: left;
     }
 
     &:nth-child(odd) &-content {
@@ -143,6 +143,47 @@
     -webkit-animation: fadeIn 3s forwards;
     -moz-animation: fadeIn 3s forwards;
     -o-animation: fadeIn 3s forwards;
+  }
+}
+
+// Animation keyframes
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
