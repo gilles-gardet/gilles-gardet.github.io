@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
+import { MenuComponent } from '@shared/components/menu/menu.component';
 import { ThemeService } from '@core/services/theme.service';
 import { GeneralComponent } from '@features/general/general.component';
 import { MissionService } from '@core/services/mission.service';
@@ -39,7 +39,7 @@ describe('GeneralComponent', (): void => {
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [AvatarComponent, ButtonModule, EmailComponent, CommonModule],
+      imports: [AvatarComponent, EmailComponent, GeneralComponent, MenuComponent, CommonModule],
       providers: [
         ThemeService,
         {

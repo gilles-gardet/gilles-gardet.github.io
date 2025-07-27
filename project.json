@@ -28,7 +28,6 @@
         "polyfills": "zone.js",
         "scripts": ["node_modules/marked/marked.min.js", "node_modules/prismjs/prism.js"],
         "styles": [
-          "node_modules/primeicons/primeicons.css",
           "node_modules/prismjs/themes/prism-okaidia.css",
           "./src/styles/styles.scss"
         ],

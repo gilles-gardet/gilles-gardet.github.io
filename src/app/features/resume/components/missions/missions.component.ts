@@ -122,17 +122,30 @@ export class MissionsComponent implements AfterViewInit, OnInit, OnDestroy {
     if (!intersectionObserverEntry.isIntersecting || !this.screenWidth) {
       return;
     }
+    
+    const timelineEvent = intersectionObserverEntry.target as HTMLElement;
+    const eventContent = timelineEvent.querySelector('.timeline__event-content') as HTMLElement;
+    
+    if (!eventContent) {
+      return;
+    }
+    
+    // Get the index of this timeline event within its parent container
+    const allEvents = timelineEvent.parentElement?.children;
+    const eventIndex = allEvents ? Array.from(allEvents).indexOf(timelineEvent) : 0;
+    
     if (this.screenWidth > 960) {
-      intersectionObserverEntry.target
-        .querySelectorAll(':nth-child(2n + 1) > .timeline__event-content')
-        .forEach((element: Element) => element.classList.add('mission__animation-right'));
-      intersectionObserverEntry.target
-        .querySelectorAll(':nth-child(2n) > .timeline__event-content')
-        .forEach((element: Element) => element.classList.add('mission__animation-left'));
+      // Alternate between left and right animations based on index
+      if (eventIndex % 2 === 0) {
+        // Even index (0, 2, 4...) - animate from right
+        eventContent.classList.add('mission__animation-right');
+      } else {
+        // Odd index (1, 3, 5...) - animate from left
+        eventContent.classList.add('mission__animation-left');
+      }
     } else {
-      intersectionObserverEntry.target
-        .querySelectorAll('.timeline__event-content')
-        .forEach((element: Element) => element.classList.add('mission__animation-right'));
+      // Mobile: always animate from right
+      eventContent.classList.add('mission__animation-right');
     }
     this.changeDetectorRef.markForCheck();
   }

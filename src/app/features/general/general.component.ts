@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
 import { tap } from 'rxjs/operators';
-import { ButtonModule } from 'primeng/button';
-import { Menu, MenuModule } from 'primeng/menu';
-import { MenuItem } from 'primeng/api';
+import { MenuComponent } from '@shared/components/menu/menu.component';
+import { MenuItem } from '@shared/models/menu-item.model';
 import { environment } from '@environments/environment';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
@@ -19,7 +18,7 @@ import { LanguageActions } from '@state/language/language.actions';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AvatarComponent, ButtonModule, EmailComponent, MenuModule, TranslocoDirective],
+  imports: [AvatarComponent, EmailComponent, MenuComponent, TranslocoDirective],
   selector: 'cv-general',
   styleUrl: './general.component.scss',
   templateUrl: './general.component.html',
@@ -31,7 +30,7 @@ export class GeneralComponent implements OnInit {
   protected isDarkTheme: boolean | undefined;
   protected menuItems: MenuItem[] = [];
 
-  @ViewChild('menu') menu: Menu | undefined;
+  @ViewChild('menu') menu: MenuComponent | undefined;
 
   /**
    * Listen for the scroll events to close the menu (workaround to avoid the menu to scroll with the content of the
@@ -69,7 +68,7 @@ export class GeneralComponent implements OnInit {
         items: [
           {
             label: this.isDarkTheme ? contact.menu.items.mode.dark : contact.menu.items.mode.light,
-            icon: this.isDarkTheme ? 'pi pi-moon' : 'pi pi-sun',
+            icon: this.isDarkTheme ? 'icon icon-moon' : 'icon icon-sun',
             title: contact.menu.items.mode.title,
             command: () => {
               const theme: Theme = this.isDarkTheme ? 'light' : 'dark';
@@ -78,7 +77,7 @@ export class GeneralComponent implements OnInit {
           },
           {
             label: contact.menu.items.language.label,
-            icon: 'pi pi-globe',
+            icon: 'icon icon-globe',
             title: contact.menu.items.language.title,
             command: () =>
               this.store.dispatch(
@@ -90,7 +89,7 @@ export class GeneralComponent implements OnInit {
           },
           {
             label: contact.menu.items.download.label,
-            icon: 'pi pi-download',
+            icon: 'icon icon-download',
             title: contact.menu.items.download.title,
             command: () => this._downloadCurriculumVitae(),
           },
@@ -123,7 +122,7 @@ export class GeneralComponent implements OnInit {
     document.documentElement.classList.remove('dark');
     const childMenuItem: MenuItem = this._extractModeMenuItem();
     childMenuItem.label = contact.menu.items.mode.dark;
-    childMenuItem.icon = 'pi pi-moon';
+    childMenuItem.icon = 'icon icon-moon';
   }
 
   /**
@@ -156,7 +155,7 @@ export class GeneralComponent implements OnInit {
     document.documentElement.classList.add('dark');
     const childMenuItem: MenuItem = this._extractModeMenuItem();
     childMenuItem.label = contact.menu.items.mode.light;
-    childMenuItem.icon = 'pi pi-sun';
+    childMenuItem.icon = 'icon icon-sun';
   }
 
   /**

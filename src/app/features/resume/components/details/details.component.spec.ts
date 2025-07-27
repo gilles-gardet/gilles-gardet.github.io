@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { DialogModule } from 'primeng/dialog';
+import { DialogComponent } from '@shared/components/dialog/dialog.component';
 import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,7 +30,8 @@ describe('DetailsComponent', (): void => {
       imports: [
         BrowserAnimationsModule,
         CommonModule,
-        DialogModule,
+        DialogComponent,
+        DetailsComponent,
         HttpClientModule,
         MarkdownModule.forRoot({
           loader: HttpClient,
@@ -68,12 +69,10 @@ describe('DetailsComponent', (): void => {
 
   it(`should fetch the mission's content during the mission's loading`, async (): Promise<void> => {
     detailsComponent.isLoading = true;
-    expect(document.body.querySelector('.p-dialog-content-scroll')).toBeNull();
     componentFixture.detectChanges();
     expect(store.select).toHaveBeenCalledTimes(1);
     expect(store.select).toHaveBeenCalledWith(selectMission);
     expect(detailsComponent.innerFullMission).toEqual('test');
-    expect(document.body.getElementsByClassName('p-dialog-content-scroll')[0]).not.toBeNull();
   });
 
   afterEach((): void => {

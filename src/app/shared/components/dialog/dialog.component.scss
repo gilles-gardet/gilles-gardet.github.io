@@ -1,0 +1,130 @@
+.cv-dialog-mask {
+  @apply fixed inset-0 flex items-center justify-center;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: brightness(0.5);
+  animation: maskShow 0.3s ease-out;
+  z-index: 1010;
+}
+
+.cv-dialog {
+  @apply relative bg-panel-content-bg dark:bg-dark-panel-content-bg shadow-2xl w-full max-w-md;
+
+  border-radius: 3px;
+  animation: dialogShow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.cv-dialog-header {
+  @apply flex items-start justify-between p-6;
+}
+
+.cv-dialog-header-actions {
+  @apply flex items-center gap-2;
+}
+
+.cv-dialog-title {
+  @apply text-xl font-semibold text-text-color dark:text-dark-text-color m-0;
+}
+
+.cv-dialog-close {
+  @apply inline-flex items-center justify-center relative;
+
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: 50%;
+  
+  @apply bg-transparent border border-transparent text-gray-500 dark:text-gray-400;
+
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  
+  &:enabled:hover {
+    @apply bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400;
+  }
+  
+  &:enabled:active {
+    @apply bg-gray-200 text-gray-500 dark:bg-gray-600 dark:text-gray-400;
+  }
+  
+  &:focus-visible {
+    @apply outline-none ring-2 ring-gray-300 dark:ring-gray-600;
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+}
+
+.cv-dialog-content {
+  @apply overflow-auto;
+
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  min-height: 0; // needed for the overflow
+}
+
+@keyframes dialogShow {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes maskShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// content scrollbar
+.cv-dialog-content {
+  @apply text-text-color dark:text-dark-text-color;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(148 163 184) transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(148 163 184);
+    border-radius: 4px;
+    
+    &:hover {
+      background-color: rgb(100 116 139);
+    }
+  }
+}
+
+.dark .cv-dialog-content {
+  scrollbar-color: rgb(71 85 105) transparent;
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(71 85 105);
+    
+    &:hover {
+      background-color: rgb(51 65 85);
+    }
+  }
+}

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inje
 import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { filter, switchMap, tap } from 'rxjs/operators';
 import { Mission } from '@core/models/mission.model';
-import { DialogModule } from 'primeng/dialog';
+import { DialogComponent } from '@shared/components/dialog/dialog.component';
 import { CommonModule } from '@angular/common';
 import { MissionService } from '@core/services/mission.service';
 import { SpinnerComponent } from '@shared/components/spinner/spinner.component';
@@ -15,7 +15,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, DialogModule, MarkdownModule, SpinnerComponent],
+  imports: [CommonModule, DialogComponent, MarkdownModule, SpinnerComponent],
   selector: 'cv-details',
   styleUrl: './details.component.scss',
   templateUrl: './details.component.html',
@@ -71,9 +71,6 @@ export class DetailsComponent {
     this.innerFullMission = missionContent;
     this.isLoading = false;
     this.changeDetectorRef.markForCheck();
-    document
-      .querySelector('p-dialog > .p-dialog-mask > .p-dialog > .p-dialog-content')
-      ?.classList.add('p-dialog-content-scroll');
   }
 
   /**

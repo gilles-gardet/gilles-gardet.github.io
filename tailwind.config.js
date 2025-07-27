@@ -14,7 +14,7 @@ module.exports = {
     colors: ({ colors }) => ({
       'body-bg': 'hsl(0, 0% 92%)',
       'card-bg': 'hsl(204, 23%, 98%)',
-      'menu-bg': 'hsl(0, 0%, 100%)',
+      'menu-bg': 'hsl(204, 23%, 98%)',
       'panel-title-bg': 'hsl(210, 17%, 98%)',
       'panel-content-bg': 'hsl(0, 0%, 100%)',
       'panel-border': 'hsl(210, 14%, 89%)',

@@ -1,23 +1,21 @@
 @let _isDialogDisplayed = isDialogDisplayed();
-<p-dialog
+<cv-dialog
   [visible]="_isDialogDisplayed"
   (visibleChange)="onDialogVisibilityChange($event)"
-  [header]="clientMission"
-  [modal]="true"
-  [style]="{ maxWidth: '960px' }"
+  [style]="{ 'max-width': '960px' }"
   [closeOnEscape]="true"
   [dismissableMask]="true"
   [blockScroll]="true"
-  (onHide)="onDialogHiding()"
+  (hide)="onDialogHiding()"
 >
-  <ng-template pTemplate="header">
+  <ng-template #header>
     <div class="mission__title">
       <h2 class="prose prose-2xl font-bold text-slate-600 dark:text-slate-100">{{ clientMission }}</h2>
       <span class="mission__title__timelapse">{{ timelapseMission }}</span>
     </div>
   </ng-template>
-  <ng-template pTemplate="content">
-    <div [class.mission__content-transition]="!isLoading" class="mission__content">
+  <ng-template #content>
+    <div [class.mission__content--transition]="!isLoading" class="mission__content">
       @if (isLoading) {
         <cv-spinner></cv-spinner>
       } @else {
@@ -28,4 +26,4 @@
       }
     </div>
   </ng-template>
-</p-dialog>
+</cv-dialog>

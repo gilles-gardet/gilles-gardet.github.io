@@ -46,29 +46,27 @@
     }
   }
 
-  .customized-timeline {
-    &.p-timeline {
-      display: flex;
-      gap: 2rem;
-      align-content: space-evenly;
-    }
+  .timeline {
+    display: flex;
+    gap: 2rem;
+    align-content: space-evenly;
 
-    .p-timeline-event {
+    .timeline__event {
       page-break-inside: avoid;
       page-break-after: auto;
       page-break-before: auto;
     }
 
-    .p-timeline-event-separator {
+    .timeline__event-separator {
       display: none;
     }
 
-    .p-timeline-event-opposite {
+    .timeline__event-opposite {
       flex: 0;
       padding: 0 !important;
     }
 
-    .p-timeline-event:nth-child(even) {
+    .timeline__event:nth-child(even) {
       flex-direction: row !important;
     }
   }
