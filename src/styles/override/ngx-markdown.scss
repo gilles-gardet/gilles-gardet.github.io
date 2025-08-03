@@ -1,9 +1,9 @@
 :not(pre) > pre {
-  @apply bg-pre-bg dark:bg-dark-pre-bg;
+  @apply bg-slate-900 dark:bg-dark-cream;
 }
 
 pre {
-  @apply text-pre-text dark:text-dark-pre-text;
+  @apply text-cream dark:text-dark-slate-900;
   padding: 0.3rem;
   margin: 0.5em 0;
   border-radius: 0.3em;
@@ -32,8 +32,8 @@ code[class*='language-'] {
 }
 
 code {
-  @apply bg-pre-bg dark:bg-dark-pre-bg;
-  @apply text-pre-text dark:text-dark-pre-text;
+  @apply bg-slate-900 dark:bg-dark-cream;
+  @apply text-cream dark:text-dark-slate-900;
   font-family:
     ui-monospace,
     SFMono-Regular,

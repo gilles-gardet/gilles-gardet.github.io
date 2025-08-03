@@ -1,7 +1,7 @@
 .container {
-  @apply text-text-color dark:text-dark-text-color #{!important};
-  @apply bg-card-bg dark:bg-dark-card-bg #{!important};
-  @apply border-panel-border dark:border-dark-panel-border #{!important};
+  @apply text-gray-600 dark:text-dark-gray-300;
+  @apply bg-gray-25 dark:bg-dark-slate-700;
+  @apply border-gray-300 dark:border-dark-slate-600 #{!important};
   border-radius: 3px;
   border: 1px solid;
   padding: 2rem 1rem;
@@ -28,12 +28,12 @@
 
 
       &__button {
-        @apply bg-card-bg dark:bg-dark-card-bg #{!important};
-        @apply text-text-color dark:text-dark-text-color #{!important};
+        @apply bg-gray-25 dark:bg-dark-slate-700;
+        @apply text-gray-600 dark:text-dark-gray-300;
 
         &:hover {
-          @apply bg-dark-card-bg dark:bg-card-bg #{!important};
-          @apply text-dark-text-color dark:text-text-color #{!important};
+          @apply bg-dark-slate-700 dark:bg-gray-25;
+          @apply text-dark-gray-300 dark:text-gray-600;
         }
 
         position: absolute;

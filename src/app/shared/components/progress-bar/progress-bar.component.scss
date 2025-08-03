@@ -2,14 +2,14 @@
   flex: 2;
 
   .progress-bar {
-    @apply bg-progress-bar-bg dark:bg-dark-progress-bar-bg;
+    @apply bg-gray-300 dark:bg-dark-gray-600;
     height: 0.5rem;
     border-radius: 5px;
     position: relative;
     overflow: hidden;
 
     .progress-bar__value {
-      @apply bg-progress-bar dark:bg-dark-progress-bar;
+      @apply bg-gray-600 dark:bg-dark-gray-300-light;
       height: 100%;
       width: 0;
       position: absolute;

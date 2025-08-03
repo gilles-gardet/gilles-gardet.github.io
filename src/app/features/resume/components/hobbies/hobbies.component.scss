@@ -5,8 +5,8 @@
   align-items: center;
 
   &__tag {
-    @apply bg-progress-bar dark:bg-dark-progress-bar #{!important};
-    @apply text-dark-text-color dark:text-text-color #{!important};
+    @apply bg-gray-600 dark:bg-dark-gray-300-light;
+    @apply text-white dark:text-gray-600;
     display: inline-flex;
     align-items: center;
     justify-content: center;
