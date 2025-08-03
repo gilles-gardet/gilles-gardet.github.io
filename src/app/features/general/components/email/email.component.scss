@@ -2,8 +2,8 @@
   --params: 0.8s ease;
 
   .chip {
-    @apply bg-chip-bg dark:bg-dark-chip-bg;
-    @apply text-dark-text-color dark:text-text-color;
+    @apply bg-gray-700 dark:bg-dark-gray-300-chip;
+    @apply text-white dark:text-gray-600;
     display: inline-flex;
     align-items: center;
     position: relative;
@@ -16,7 +16,7 @@
     gap: 0.5rem;
 
     &::before {
-      @apply bg-dark-chip-bg dark:bg-chip-bg;
+      @apply bg-dark-gray-300-chip dark:bg-gray-700;
       content: '';
       position: absolute;
       top: 0;
@@ -31,7 +31,7 @@
     }
 
     &:hover {
-      @apply text-text-color dark:text-dark-text-color;
+      @apply text-gray-600 dark:text-white;
       cursor: pointer;
       background-color: transparent;
 

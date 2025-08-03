@@ -1,5 +1,5 @@
 .cv-menu {
-  @apply bg-menu-bg dark:bg-dark-menu-bg border border-panel-border dark:border-dark-panel-border rounded-sm shadow-lg min-w-[200px] z-50;
+  @apply bg-gray-25 dark:bg-dark-slate-700 border border-gray-300 dark:border-dark-slate-600 rounded-sm shadow-lg min-w-[200px] z-50;
   animation: menuShow 0.15s ease-out;
 
   &-popup {
@@ -10,11 +10,11 @@
     @apply pb-4 pt-2;
     
     &:not(:last-child) {
-      @apply border-b border-panel-border dark:border-dark-panel-border;
+      @apply border-b border-gray-300 dark:border-dark-slate-600;
     }
 
     &-label {
-      @apply text-sm font-medium text-text-color dark:text-dark-text-color px-4 py-3 mb-0 flex justify-center;
+      @apply text-sm font-medium text-gray-600 dark:text-dark-gray-300 px-4 py-3 mb-0 flex justify-center;
       background: transparent;
     }
   }
@@ -27,7 +27,7 @@
     @apply m-0;
 
     &-link {
-      @apply flex items-center w-full px-4 py-2 text-sm text-text-color dark:text-dark-text-color rounded-none transition-colors duration-150 hover:bg-menu-item-hover dark:hover:bg-dark-menu-item-hover focus:outline-none focus:ring-0 border-0;
+      @apply flex items-center w-full px-4 py-2 text-sm text-gray-600 dark:text-dark-gray-300 rounded-none transition-colors duration-150 hover:bg-gray-100 dark:hover:bg-dark-slate-500 focus:outline-none focus:ring-0 border-0;
       
       &:disabled {
         @apply opacity-50 cursor-not-allowed hover:bg-transparent dark:hover:bg-transparent;
@@ -55,7 +55,7 @@
   }
 
   &-separator {
-    @apply h-px bg-panel-border dark:bg-dark-panel-border my-2 mx-3;
+    @apply h-px bg-gray-300 dark:bg-dark-slate-600 my-2 mx-3;
   }
 }
 

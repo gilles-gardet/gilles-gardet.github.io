@@ -11,20 +11,14 @@ html {
   font-size: 100%;
   box-sizing: border-box;
 
-  &.dark {
-    body {
-      background: var(--dark-body-bg);
-    }
-  }
-
   body {
+    @apply bg-gray-100 dark:bg-dark-slate-800;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     display: grid;
     place-content: center;
     text-align: center;
-    background: var(--body-bg);
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
     overflow-y: auto;

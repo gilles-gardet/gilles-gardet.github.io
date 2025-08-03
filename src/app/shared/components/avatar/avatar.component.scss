@@ -1,5 +1,5 @@
 .avatar {
-  @apply outline-panel-border dark:outline-dark-panel-border #{!important};
+  @apply outline-gray-300 dark:outline-dark-slate-600 #{!important};
   display: inline-flex;
   align-items: center;
   justify-content: center;

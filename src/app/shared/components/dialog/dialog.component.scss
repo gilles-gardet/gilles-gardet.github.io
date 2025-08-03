@@ -8,7 +8,7 @@
 }
 
 .cv-dialog {
-  @apply relative bg-panel-content-bg dark:bg-dark-panel-content-bg shadow-2xl w-full max-w-md;
+  @apply relative bg-white dark:bg-dark-slate-700 shadow-2xl w-full max-w-md;
 
   border-radius: 3px;
   animation: dialogShow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -27,7 +27,7 @@
 }
 
 .cv-dialog-title {
-  @apply text-xl font-semibold text-text-color dark:text-dark-text-color m-0;
+  @apply text-xl font-semibold text-gray-600 dark:text-dark-gray-300 m-0;
 }
 
 .cv-dialog-close {
@@ -95,7 +95,7 @@
 
 // content scrollbar
 .cv-dialog-content {
-  @apply text-text-color dark:text-dark-text-color;
+  @apply text-gray-600 dark:text-dark-gray-300;
   scrollbar-width: thin;
   scrollbar-color: rgb(148 163 184) transparent;
 

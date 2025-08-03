@@ -1,5 +1,5 @@
 .scroll-top {
-  @apply bg-scroll-bg dark:bg-dark-scroll-bg;
+  @apply bg-slate-800 dark:bg-dark-gray-300-light;
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -20,7 +20,7 @@
   z-index: 1004;
 
   &__icon {
-    @apply text-dark-text-color dark:text-text-color;
+    @apply text-white dark:text-gray-600;
     @apply w-4 h-4;
     font-size: 1.5rem;
     color: #f8f9fa;

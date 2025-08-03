@@ -31,8 +31,8 @@
 
   &__header,
   &__content {
-    @apply bg-panel-title-bg dark:bg-dark-panel-title-bg #{!important};
-    @apply text-text-color dark:text-dark-text-color #{!important};
-    @apply border-panel-border dark:border-dark-panel-border #{!important};
+    @apply bg-gray-25-alt dark:bg-dark-slate-700;
+    @apply text-gray-600 dark:text-dark-gray-300;
+    @apply border-gray-300 dark:border-dark-slate-600;
   }
 }
