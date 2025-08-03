@@ -11,7 +11,7 @@
           },
           "download": {
             "label": "Télécharger",
-            "title": "{{ label }} le CV au format PDF"
+            "title": "Télécharger le CV au format PDF"
           },
           "language": {
             "label": "English",
