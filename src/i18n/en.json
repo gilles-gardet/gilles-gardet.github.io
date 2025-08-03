@@ -11,7 +11,7 @@
           },
           "download": {
             "label": "Download",
-            "title": "{{ label }} resume in PDF format"
+            "title": "Download resume in PDF format"
           },
           "language": {
             "label": "Français",
