@@ -15,9 +15,11 @@
     </div>
   </ng-template>
   <ng-template #content>
-    <div [class.mission__content--transition]="!isLoading" class="mission__content">
+    <div [class.mission__content--transition]="!isLoading" class="mission__content flex flex-grow">
       @if (isLoading) {
-        <cv-spinner></cv-spinner>
+        <div class="flex flex-grow justify-center">
+          <cv-spinner></cv-spinner>
+        </div>
       } @else {
         <div class="mission__content__text">
           <markdown [data]="innerLightMission"></markdown>

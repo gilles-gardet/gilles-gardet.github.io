@@ -122,31 +122,25 @@ export class MissionsComponent implements AfterViewInit, OnInit, OnDestroy {
     if (!intersectionObserverEntry.isIntersecting || !this.screenWidth) {
       return;
     }
-    
     const timelineEvent = intersectionObserverEntry.target as HTMLElement;
     const eventContent = timelineEvent.querySelector('.timeline__event-content') as HTMLElement;
-    
     if (!eventContent) {
       return;
     }
-    
-    // Get the index of this timeline event within its parent container
-    const allEvents = timelineEvent.parentElement?.children;
-    const eventIndex = allEvents ? Array.from(allEvents).indexOf(timelineEvent) : 0;
-    
+    const allEvents: HTMLCollection | undefined = timelineEvent.parentElement?.children;
+    const eventIndex: number = allEvents ? Array.from(allEvents).indexOf(timelineEvent) : 0;
+    eventContent.style.opacity = '0';
+    eventContent.style.transform =
+      this.screenWidth > 960 && eventIndex % 2 !== 0 ? 'translateX(-40px)' : 'translateX(40px)';
+    void eventContent.offsetHeight; // force reflow to ensure the initial state is applied
     if (this.screenWidth > 960) {
-      // Alternate between left and right animations based on index
-      if (eventIndex % 2 === 0) {
-        // Even index (0, 2, 4...) - animate from right
-        eventContent.classList.add('mission__animation-right');
-      } else {
-        // Odd index (1, 3, 5...) - animate from left
-        eventContent.classList.add('mission__animation-left');
-      }
+      eventContent.classList.add(eventIndex % 2 === 0 ? 'mission__animation-right' : 'mission__animation-left');
     } else {
-      // Mobile: always animate from right
       eventContent.classList.add('mission__animation-right');
     }
+    requestAnimationFrame((): unknown =>
+      setTimeout((): void => eventContent.classList.add('mission__animation-visible'), 100),
+    );
     this.changeDetectorRef.markForCheck();
   }
 

@@ -127,22 +127,17 @@
     }
   }
 
-  &__animation-left {
-    opacity: 0;
-    transform: translateX(-40px);
-    animation: fadeIn 3s forwards;
-    -webkit-animation: fadeIn 3s forwards;
-    -moz-animation: fadeIn 3s forwards;
-    -o-animation: fadeIn 3s forwards;
+  &__animation-left,
+  &__animation-right {
+    transition: opacity 3s ease-out, transform 3s ease-out;
+    -webkit-transition: opacity 3s ease-out, transform 3s ease-out;
+    -moz-transition: opacity 3s ease-out, transform 3s ease-out;
+    -o-transition: opacity 3s ease-out, transform 3s ease-out;
   }
 
-  &__animation-right {
-    opacity: 0;
-    transform: translateX(40px);
-    animation: fadeIn 3s forwards;
-    -webkit-animation: fadeIn 3s forwards;
-    -moz-animation: fadeIn 3s forwards;
-    -o-animation: fadeIn 3s forwards;
+  &__animation-visible {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
   }
 }
 
