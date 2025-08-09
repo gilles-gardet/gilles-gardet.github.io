@@ -1,4 +1,4 @@
-@use 'src/styles/override/ngx-markdown';
+@use '../styles/override/ngx-markdown';
 
 #container {
   @apply bg-gray-100 dark:bg-dark-slate-800;
@@ -48,7 +48,20 @@
   66%,
   80%,
   90% {
-    @apply stroke-gray-600 dark:stroke-dark-gray-300;
+    stroke: theme('colors.gray.600');
+  }
+}
+
+:is(.dark *) {
+  @keyframes progress-spinner-color {
+    100%,
+    0%,
+    40%,
+    66%,
+    80%,
+    90% {
+      stroke: theme('colors.dark-gray-300');
+    }
   }
 }
 
