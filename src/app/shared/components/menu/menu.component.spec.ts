@@ -13,12 +13,12 @@ describe('MenuComponent', () => {
         {
           label: 'Item 1',
           icon: 'icon icon-test',
-          command: jest.fn(),
+          command: vi.fn(),
         },
         {
           label: 'Item 2',
           disabled: true,
-          command: jest.fn(),
+          command: vi.fn(),
         },
       ],
     },

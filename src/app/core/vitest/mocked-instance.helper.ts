@@ -1,3 +1,5 @@
+import { MockedFunction } from 'vitest';
+
 type AbstractConstructor<T> = abstract new (...args: never[]) => T;
 type Constructor<T> = new (...args: never[]) => T;
 
@@ -6,5 +8,5 @@ type Constructor<T> = new (...args: never[]) => T;
  * A simple trick to avoid the class constructor parameter when creating a mock object.
  */
 export function mockedInstance<T>(classType: Constructor<T> | AbstractConstructor<T>): T {
-  return new (classType as jest.Mock)();
+  return new (classType as MockedFunction<any>)();
 }

@@ -2,36 +2,27 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SkillsComponent } from '@features/resume/components/skills/skills.component';
-import { ChangeDetectorRef } from '@angular/core';
-import { ProgressBarComponent } from '@shared/components/progress-bar/progress-bar.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';
-import { mockedInstance } from '@core/jest/mocked-instance.helper';
 import { Store } from '@ngrx/store';
-import { of } from 'rxjs';
-import mockSkills from '@assets/resume/skills.json';
-
-window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
-  observe: (): unknown => null,
-  disconnect: (): unknown => null,
-}));
+import { getTranslocoTestProviders } from '@core/testing/transloco-test.helper';
+import { createMockStore } from '@core/testing/ngrx-test.helper';
 
 describe('SkillsComponent', (): void => {
   let skillsComponent: SkillsComponent;
   let componentFixture: ComponentFixture<SkillsComponent>;
-  const store = mockedInstance(Store);
+  const store = createMockStore();
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, PanelComponent, ProgressBarComponent],
+      imports: [BrowserAnimationsModule, CommonModule, PanelComponent],
       providers: [
-        { provide: ChangeDetectorRef, useValue: { markForCheck: jest.fn() } },
+        ...getTranslocoTestProviders(),
         {
           provide: Store,
           useValue: store,
         },
-      ],
+      ]
     }).compileComponents();
-    jest.mocked(store.select).mockReturnValue(of(mockSkills));
     componentFixture = TestBed.createComponent(SkillsComponent);
     skillsComponent = componentFixture.componentInstance;
     componentFixture.detectChanges();
