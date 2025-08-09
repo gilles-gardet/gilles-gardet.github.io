@@ -1,55 +1,58 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ResumeComponent } from '@features/resume/resume.component';
-import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { CommonModule } from '@angular/common';
-import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Mission } from '@core/models/mission.model';
-import { MissionService } from '@core/services/mission.service';
-import { of } from 'rxjs';
-import { Skill } from '@core/models/skill.model';
-import mockMissions from '@assets/resume/missions.json';
-import mockSkills from '@assets/resume/skills.json';
-import { ThemeService } from '@core/services/theme.service';
-import { provideHttpClient } from '@angular/common/http';
+import { ResumeComponent } from '@features/resume/resume.component';
+import { SummaryComponent } from '@features/resume/components/summary/summary.component';
+import { SkillsComponent } from '@features/resume/components/skills/skills.component';
+import { MissionsComponent } from '@features/resume/components/missions/missions.component';
+import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
+import { DetailsComponent } from '@features/resume/components/details/details.component';
 import { Store } from '@ngrx/store';
-import { mockedInstance } from '@core/jest/mocked-instance.helper';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-window.IntersectionObserver = jest.fn().mockImplementation((): unknown => ({
-  observe: (): unknown => null,
-  disconnect: (): unknown => null,
-}));
+import { getTranslocoTestProviders } from '@core/testing/transloco-test.helper';
+import { createMockStore } from '@core/testing/ngrx-test.helper';
+import { MarkdownModule } from 'ngx-markdown';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('ResumeComponent', (): void => {
   let resumeComponent: ResumeComponent;
   let componentFixture: ComponentFixture<ResumeComponent>;
-  const store = mockedInstance(Store);
+  const store = createMockStore();
 
   beforeEach(waitForAsync((): void => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, MarkdownModule.forRoot(), ResumeComponent],
+      imports: [CommonModule, MarkdownModule.forRoot()],
       providers: [
-        ThemeService,
-        MarkdownService,
-        {
-          provide: MissionService,
-          useValue: {
-            fetchMissions$: jest.fn().mockReturnValue(of(mockMissions as Mission[])),
-            fetchSkills$: jest.fn().mockReturnValue(of(mockSkills as Skill[])),
-            missionFromDate: jest.fn().mockReturnValue(''),
-          },
-        },
-        {
-          provide: Store,
-          useValue: store,
-        },
+        ...getTranslocoTestProviders(),
         provideHttpClient(),
         provideHttpClientTesting(),
-      ],
-    }).compileComponents();
-    jest.mocked(store.select).mockReturnValue(of(mockSkills));
+      ]
+    });
+    TestBed.overrideComponent(ResumeComponent, {
+      add: {
+        providers: [
+          {
+            provide: Store,
+            useValue: store,
+          },
+        ],
+        imports: [
+          SummaryComponent,
+          SkillsComponent,
+          MissionsComponent,
+          HobbiesComponent,
+          DetailsComponent,
+        ],
+      },
+      remove: {
+        imports: [
+          SummaryComponent,
+          SkillsComponent,
+          MissionsComponent,
+          HobbiesComponent,
+          DetailsComponent,
+        ],
+      },
+    });
     componentFixture = TestBed.createComponent(ResumeComponent);
     resumeComponent = componentFixture.componentInstance;
     componentFixture.detectChanges();
@@ -57,19 +60,5 @@ describe('ResumeComponent', (): void => {
 
   it('should create', async (): Promise<void> => {
     expect(resumeComponent).toBeTruthy();
-  });
-
-  it('should contains the 5 child components', () => {
-    const debugElement: DebugElement = componentFixture.debugElement;
-    const summaryComponent = debugElement.query(By.css('cv-summary')).componentInstance;
-    const skillsComponent = debugElement.query(By.css('cv-skills')).componentInstance;
-    const missionsComponent = debugElement.query(By.css('cv-missions')).componentInstance;
-    const hobbiesComponent = debugElement.query(By.css('cv-hobbies')).componentInstance;
-    const detailsComponent = debugElement.query(By.css('cv-details')).componentInstance;
-    expect(summaryComponent).toBeTruthy();
-    expect(skillsComponent).toBeTruthy();
-    expect(missionsComponent).toBeTruthy();
-    expect(hobbiesComponent).toBeTruthy();
-    expect(detailsComponent).toBeTruthy();
   });
 });

@@ -1,33 +1,32 @@
 import { defineConfig, devices } from '@playwright/test';
-import { nxE2EPreset } from '@nx/playwright/preset';
-import { workspaceRoot } from '@nx/devkit';
 
 export default defineConfig({
-  ...nxE2EPreset(__filename, { testDir: './src' }),
-  timeout: 120 * 1_000,
+  testDir: './src',
+  timeout: 120 * 1000,
   expect: {
-    timeout: 5_000,
+    timeout: 5000,
     toMatchSnapshot: { maxDiffPixels: 100 },
   },
   forbidOnly: !!process.env?.['CI'],
-  retries: 1,
+  retries: process.env?.['CI'] ? 1 : 0,
   workers: process.env?.['CI'] ? 1 : undefined,
   reporter: process.env?.['CI'] ? [['html', { outputFolder: 'report' }], ['github']] : 'list',
   use: {
-    actionTimeout: 0,
+    baseURL: 'http://localhost:4200',
+    actionTimeout: 10000,
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
   },
   projects: [
     {
       name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-      },
+      use: { ...devices['Desktop Chrome'] },
     },
   ],
   webServer: {
-    command: 'pnpm exec nx serve cv',
-    port: 4_200,
-    cwd: workspaceRoot,
+    command: 'ng serve --host=0.0.0.0 --port=4200',
+    port: 4200,
+    reuseExistingServer: !process.env?.['CI'],
+    timeout: 120000,
   },
 });

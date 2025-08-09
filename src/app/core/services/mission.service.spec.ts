@@ -1,11 +1,17 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
+import { getTranslocoTestProviders } from '@core/testing/transloco-test.helper';
 
 import { MissionService } from './mission.service';
 import { CommonModule } from '@angular/common';
+import { getTranslocoTestProviders } from '@core/testing/transloco-test.helper';
 import { HttpTestingController, provideHttpClientTesting, TestRequest } from '@angular/common/http/testing';
+import { getTranslocoTestProviders } from '@core/testing/transloco-test.helper';
 import { Mission } from '@core/models/mission.model';
+import { getTranslocoTestProviders } from '@core/testing/transloco-test.helper';
 import { provideHttpClient } from '@angular/common/http';
+import { getTranslocoTestProviders } from '@core/testing/transloco-test.helper';
 import { TranslocoService } from '@jsverse/transloco';
+import { getTranslocoTestProviders } from '@core/testing/transloco-test.helper';
 
 describe('MissionService', (): void => {
   let service: MissionService;
@@ -15,13 +21,14 @@ describe('MissionService', (): void => {
     TestBed.configureTestingModule({
       imports: [CommonModule],
       providers: [
+        ...getTranslocoTestProviders(),
         MissionService,
         provideHttpClient(),
         provideHttpClientTesting(),
         {
           provide: TranslocoService,
           useValue: {
-            getActiveLang: jest.fn().mockReturnValue('en'),
+            getActiveLang: vi.fn().mockReturnValue('en'),
           },
         },
       ],

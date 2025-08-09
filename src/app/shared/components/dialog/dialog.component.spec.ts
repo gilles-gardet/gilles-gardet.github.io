@@ -25,8 +25,8 @@ describe('DialogComponent', () => {
   });
 
   it('should emit visibleChange when hideDialog is called', () => {
-    jest.spyOn(component.visibleChange, 'emit');
-    jest.spyOn(component.hide, 'emit');
+    vi.spyOn(component.visibleChange, 'emit');
+    vi.spyOn(component.hide, 'emit');
     
     component.hideDialog();
     
@@ -38,10 +38,10 @@ describe('DialogComponent', () => {
   it('should handle escape key when closeOnEscape is true', () => {
     component.visible = true;
     component.closeOnEscape = true;
-    jest.spyOn(component, 'hideDialog');
+    vi.spyOn(component, 'hideDialog');
     
     const event = new KeyboardEvent('keydown', { key: 'Escape' });
-    jest.spyOn(event, 'preventDefault');
+    vi.spyOn(event, 'preventDefault');
     
     component.onEscapeKey(event);
     
@@ -52,7 +52,7 @@ describe('DialogComponent', () => {
   it('should not handle escape key when closeOnEscape is false', () => {
     component.visible = true;
     component.closeOnEscape = false;
-    jest.spyOn(component, 'hideDialog');
+    vi.spyOn(component, 'hideDialog');
     
     const event = new KeyboardEvent('keydown', { key: 'Escape' });
     
@@ -63,7 +63,7 @@ describe('DialogComponent', () => {
 
   it('should handle mask click when dismissableMask is true', () => {
     component.dismissableMask = true;
-    jest.spyOn(component, 'hideDialog');
+    vi.spyOn(component, 'hideDialog');
     
     component.onMaskClick();
     
@@ -72,7 +72,7 @@ describe('DialogComponent', () => {
 
   it('should not handle mask click when dismissableMask is false', () => {
     component.dismissableMask = false;
-    jest.spyOn(component, 'hideDialog');
+    vi.spyOn(component, 'hideDialog');
     
     component.onMaskClick();
     

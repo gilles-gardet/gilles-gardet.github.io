@@ -1,6 +1,6 @@
 # 🗃 Curriculum Vitae - Gilles Gardet
 
-Application réalisée à l'aide d'[Angular](https://angular.io/) et [Nx](https://nx.dev/).  
+Application réalisée à l'aide d'[Angular](https://angular.io/) et du [CLI Angular](https://angular.io/cli).  
 Le but étant d'avoir un CV facilement maintenable et hébergé via [Github pages](https://pages.github.com/).
 
 La gestion CI/CD est directement assurée via [GitHub Actions](https://fr.github.com/features/actions).
@@ -21,9 +21,21 @@ les descriptifs sont en effet embarqués dans les assets de l'application au for
 
 ## 🚀 Environnement de développement
 
-Cette application s'appuit sur [pnpm](https://pnpm.io/) pour gérer ses dépendances et sur [nvm](https://github.com/nvm-sh/nvm) pour faciliter la gestion de la version de **NodeJS** à utiliser.
+Cette application s'appuie sur [pnpm](https://pnpm.io/) pour gérer ses dépendances et sur [nvm](https://github.com/nvm-sh/nvm) pour faciliter la gestion de la version de **NodeJS** à utiliser.
 
-En premier lieu, il faut donc faire un `nvm use` suivi de l'éxécution de la commande `pnpm install` depuis la racine du répertoire du projet pour installer les dépendances nécessaire au lancement du projet.
+### 🔄 Migration Nx → Angular CLI
+
+L'application a été migrée de **Nx** vers le **CLI Angular standard** pour simplifier la configuration et l'outillage. Cette migration inclut :
+
+- Remplacement des commandes `nx` par `ng` et `jest` 
+- Suppression des dépendances Nx spécifiques
+- Configuration ESLint adaptée au CLI Angular
+- Tests Jest configurés avec les alias de chemin
+- Tests Playwright fonctionnant avec `ng serve`
+
+### 🛠️ Installation et lancement
+
+En premier lieu, il faut donc faire un `nvm use` suivi de l'exécution de la commande `pnpm install` depuis la racine du répertoire du projet pour installer les dépendances nécessaires au lancement du projet.
 
 Cela devrait par la même occasion permettre l'installation d'un outil de gestion des commits (à savoir [husky](https://typicode.github.io/husky/#/)).  
 Ce dernier s'occupe de :
@@ -34,9 +46,23 @@ Ce dernier s'occupe de :
 
 Les scripts principaux gérant notamment les cycles de vie de l'application sont les suivants :
 
-- La commande `nx serve` démarre l'application à l'adresse suivante par défaut `http://localhost:4200/`. L'application se recharge automatiquement en cas de changement des fichiers sources du projet.
-- La commande `nx test` lance les tests unitaires en s'appuyant sur la bibliothèque [Jest](https://jestjs.io/).
-- La commande `nx e2e` lance les tests _end-to-end_ en s'appuyant sur la bibliothèque [Playwright](https://playwright.dev/).
+- La commande `ng serve` ou `pnpm start` démarre l'application à l'adresse suivante par défaut `http://localhost:4200/`. L'application se recharge automatiquement en cas de changement des fichiers sources du projet.
+- La commande `jest` ou `pnpm test` lance les tests unitaires en s'appuyant sur la bibliothèque [Jest](https://jestjs.io/).
+- La commande `pnpm test:ci` lance les tests unitaires en mode CI avec génération de la couverture de code.
+- La commande `pnpm e2e` lance les tests _end-to-end_ en s'appuyant sur la bibliothèque [Playwright](https://playwright.dev/).
+- La commande `ng build` ou `pnpm build` génère la version de production de l'application.
+- La commande `ng lint` ou `pnpm lint` vérifie la qualité du code avec ESLint.
+
+## 🛠️ Stack technique
+
+- **Framework** : Angular 19 avec composants standalone
+- **Build Tool** : CLI Angular
+- **State Management** : NgRx avec signals
+- **UI/Styling** : PrimeNG + Tailwind CSS + SCSS
+- **Internationalisation** : Transloco (français/anglais)
+- **Content Rendering** : ngx-markdown + Prism.js pour la coloration syntaxique
+- **Testing** : Jest (tests unitaires) + Playwright (tests e2e)
+- **Quality** : ESLint + Prettier + commitlint + Husky
 
 ## ⚙️ Intégration continue
 
@@ -62,7 +88,7 @@ Les étapes de la CI/CD comprennent :
 >
 > Lancer la commande suivante depuis un poste MacOs: `pnpm exec playwright test --config=e2e/playwright.config.ts --update-snapshots`
 >
-> Normalement les snapshots devraient être mis à jours directement dans le répertoire local [e2e/src/page.spec.ts-snapshots](./e2e/integration/page.spec.ts-snapshots)
+> Normalement les snapshots devraient être mis à jour directement dans le répertoire local [e2e/src/page.spec.ts-snapshots](./e2e/src/page.spec.ts-snapshots)
 
 ## 🔍 Fonctionnalités à venir
 
@@ -71,6 +97,7 @@ Il est prévu de rajouter à l'application plusieurs fonctionnalités :
 - [x] Responsive et adapaté aux petits écrans
 - [x] Adapter le style lorsque l'on veut imprimer la page (sur chrome seulement)
 - [x] Mise en place de tests end-to-end avec [Playwright](https://playwright.dev/)
-- [x] Ajout d'un **darkmode** qui s'appuirait sur les préférences utilisateur en premier lieu
+- [x] Ajout d'un **darkmode** qui s'appuie sur les préférences utilisateur en premier lieu
 - [x] Possibilité de changer la langue entre le français et l'anglais
-- [ ] Gestion d'un state via NgRx (complétement overkill mais pourquoi pas)
+- [x] Gestion d'un state via NgRx avec signals (theme, language, missions, skills)
+- [x] Migration de Nx vers CLI Angular standard pour simplifier l'outillage

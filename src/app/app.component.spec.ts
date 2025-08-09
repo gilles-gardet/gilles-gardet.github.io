@@ -6,8 +6,9 @@ import { of } from 'rxjs';
 import { ResumeComponent } from '@features/resume/resume.component';
 import { ThemeService } from '@core/services/theme.service';
 import { TranslocoService } from '@jsverse/transloco';
-import { mockedInstance } from '@core/jest/mocked-instance.helper';
 import { Store } from '@ngrx/store';
+import { getTranslocoTestProviders } from '@core/testing/transloco-test.helper';
+import { createMockStore } from '@core/testing/ngrx-test.helper';
 
 @Component({
   selector: 'cv-general',
@@ -25,18 +26,23 @@ class FakeResumeComponent {}
 
 describe(AppComponent.name, (): void => {
   let component: ComponentFixture<AppComponent>;
-  const store = mockedInstance(Store);
+  const store = createMockStore();
 
   beforeEach((): void => {
+    TestBed.configureTestingModule({
+      providers: [
+        ...getTranslocoTestProviders(),
+      ]
+    });
     TestBed.overrideComponent(AppComponent, {
       add: {
         providers: [
           ThemeService,
-          { provide: ChangeDetectorRef, useValue: { markForCheck: jest.fn() } },
+          { provide: ChangeDetectorRef, useValue: { markForCheck: vi.fn() } },
           { provide: Navigator, useValue: { language: 'en' } },
           {
             provide: TranslocoService,
-            useValue: { setActiveLang: jest.fn(), langChanges$: of('fr') },
+            useValue: { setActiveLang: vi.fn(), langChanges$: of('fr') },
           },
           {
             provide: Store,
@@ -50,7 +56,7 @@ describe(AppComponent.name, (): void => {
         imports: [GeneralComponent, ResumeComponent],
       },
     });
-    jest.mocked(store.select).mockReturnValue(of('en'));
+    vi.mocked(store.select).mockReturnValue(of('en'));
     component = TestBed.createComponent(AppComponent);
     component.autoDetectChanges();
   });
@@ -61,7 +67,7 @@ describe(AppComponent.name, (): void => {
 
   it('should process on language selection', async (): Promise<void> => {
     const changeDetectorRef: ChangeDetectorRef = (component.componentInstance as any).changeDetectorRef;
-    const spyInstance: unknown = jest.spyOn(changeDetectorRef, 'markForCheck');
+    const spyInstance: unknown = vi.spyOn(changeDetectorRef, 'markForCheck');
     component.componentInstance.ngOnInit();
     await new Promise((resolve) => setTimeout(resolve, 1000));
     expect(spyInstance).toHaveBeenCalled();
