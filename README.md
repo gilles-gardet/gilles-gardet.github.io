@@ -48,8 +48,8 @@ Les scripts principaux gérant notamment les cycles de vie de l'application sont
 
 - La commande `ng serve` ou `pnpm start` démarre l'application à l'adresse suivante par défaut `http://localhost:4200/`. L'application se recharge automatiquement en cas de changement des fichiers sources du projet.
 - La commande `jest` ou `pnpm test` lance les tests unitaires en s'appuyant sur la bibliothèque [Jest](https://jestjs.io/).
-- La commande `pnpm test:ci` lance les tests unitaires en mode CI avec génération de la couverture de code.
-- La commande `pnpm e2e` lance les tests _end-to-end_ en s'appuyant sur la bibliothèque [Playwright](https://playwright.dev/).
+- La commande `pnpm test:coverage` lance les tests unitaires en mode CI avec génération de la couverture de code.
+- La commande `pnpm test:e2e` lance les tests _end-to-end_ en s'appuyant sur la bibliothèque [Playwright](https://playwright.dev/).
 - La commande `ng build` ou `pnpm build` génère la version de production de l'application.
 - La commande `ng lint` ou `pnpm lint` vérifie la qualité du code avec ESLint.
 

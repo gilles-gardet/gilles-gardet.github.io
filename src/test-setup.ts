@@ -1,39 +1,57 @@
-import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
+/// <reference types="vitest/globals" />
+import '@angular/compiler';
+import '@analogjs/vitest-angular/setup-zone';
+import { vi } from 'vitest';
 
-setupZoneTestEnv({
-  errorOnUnknownElements: true,
-  errorOnUnknownProperties: true,
-});
+import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
+import { getTestBed } from '@angular/core/testing';
 
+getTestBed().initTestEnvironment(BrowserTestingModule, platformBrowserTesting());
+
+// Make vi available globally
+Object.assign(globalThis, { vi });
+
+// Browser API mocks
 Object.defineProperty(window, 'CSS', { value: null });
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: jest.fn().mockImplementation((query) => ({
+  value: vi.fn().mockImplementation((query: string) => ({
     matches: false,
     media: query,
     onchange: null,
-    addListener: jest.fn(), // Deprecated
-    removeListener: jest.fn(), // Deprecated
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn(),
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
   })),
 });
 
 Object.defineProperty(window, 'getComputedStyle', {
-  value: () => {
-    return {
-      display: 'none',
-      appearance: ['-webkit-appearance'],
-    };
-  },
+  value: () => ({
+    display: 'none',
+    appearance: ['-webkit-appearance'],
+  }),
 });
 
 Object.defineProperty(document, 'doctype', {
   value: '<!DOCTYPE html>',
 });
 
-window.IntersectionObserver = jest.fn().mockImplementation(() => ({
+// IntersectionObserver mock
+window.IntersectionObserver = vi.fn().mockImplementation(() => ({
   observe: () => null,
+  unobserve: () => null,
+  disconnect: () => null,
 }));
+
+// Storage mocks
+const localStorageMock = {
+  getItem: vi.fn(),
+  setItem: vi.fn(),
+  removeItem: vi.fn(),
+  clear: vi.fn(),
+};
+Object.defineProperty(window, 'localStorage', { value: localStorageMock });
+Object.defineProperty(window, 'sessionStorage', { value: localStorageMock });

@@ -12,10 +12,10 @@ describe('ScrollTopComponent', () => {
 
   beforeEach(async (): Promise<void> => {
     renderer = {
-      listen: jest.fn().mockReturnValue(jest.fn()),
+      listen: vi.fn().mockReturnValue(vi.fn()),
     };
     changeDetectorRef = {
-      markForCheck: jest.fn(),
+      markForCheck: vi.fn(),
     };
     await TestBed.configureTestingModule({
       imports: [ScrollTopComponent, NoopAnimationsModule],
@@ -27,7 +27,7 @@ describe('ScrollTopComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(ScrollTopComponent);
     component = fixture.componentInstance;
-    global.window.scroll = jest.fn();
+    global.window.scroll = vi.fn();
     fixture.detectChanges();
   });
 

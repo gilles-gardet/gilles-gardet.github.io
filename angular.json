@@ -23,25 +23,12 @@
             "outputPath": "docs",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/assets/icons",
-              "src/assets/pictures/me.jpg",
-              "src/favicon.ico",
-              "src/i18n"
-            ],
-            "styles": [
-              "node_modules/prismjs/themes/prism-okaidia.css",
-              "src/styles/styles.scss"
-            ],
-            "scripts": [
-              "node_modules/marked/marked.min.js",
-              "node_modules/prismjs/prism.js"
-            ]
+            "assets": ["src/assets/icons", "src/assets/pictures/me.jpg", "src/favicon.ico", "src/i18n"],
+            "styles": ["node_modules/prismjs/themes/prism-okaidia.css", "src/styles/styles.scss"],
+            "scripts": ["node_modules/marked/marked.min.js", "node_modules/prismjs/prism.js"]
           },
           "configurations": {
             "production": {
@@ -79,13 +66,13 @@
             "buildTarget": "cv:build"
           }
         },
+        "test": {
+          "builder": "@analogjs/vitest-angular:test"
+        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.html",
-              "src/**/*.ts"
-            ]
+            "lintFilePatterns": ["src/**/*.html", "src/**/*.ts"]
           }
         }
       }

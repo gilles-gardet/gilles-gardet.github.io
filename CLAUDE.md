@@ -7,9 +7,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Core Commands
 - `ng serve` or `pnpm start` - Start development server on http://localhost:4200 (host: 0.0.0.0)
 - `ng build` or `pnpm build` - Build the application for production
-- `jest` or `pnpm test` - Run unit tests with Jest
-- `jest --ci --coverage` or `pnpm test:ci` - Run tests in CI mode with coverage reports
-- `playwright test --config=e2e/playwright.config.ts` or `pnpm e2e` - Run end-to-end tests with Playwright
+- `ng test` or `pnpm test` - Run unit tests with Vitest
+- `ng test --watch=false --code-coverage` or `pnpm test:coverage` - Run tests in CI mode with coverage reports
+- `playwright test --config=e2e/playwright.config.ts` or `pnpm test:e2e` - Run end-to-end tests with Playwright
 - `ng lint` or `pnpm lint` - Run ESLint for code quality
 
 ### Package Management
@@ -52,14 +52,14 @@ All states follow the same pattern: actions, effects, reducer, selector, and sta
 - **UI**: PrimeNG + Tailwind CSS
 - **i18n**: Transloco
 - **Content**: Markdown rendering with ngx-markdown and Prism.js
-- **Testing**: Jest (unit) + Playwright (e2e)
+- **Testing**: Vitest (unit) + Playwright (e2e)
 
 ## Code Quality
 - **Linting**: ESLint with Angular-specific rules
 - **Formatting**: Prettier (runs on pre-commit via Husky)
 - **Commit**: Conventional commits validated by commitlint
 - **Pre-commit**: Husky runs linting and formatting
-- **Pre-push**: Jest tests must pass
+- **Pre-push**: Vitest tests must pass
 
 ## Coding Standards
 
