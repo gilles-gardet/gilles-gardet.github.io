@@ -45,7 +45,7 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Build application
         run: pnpm run build
-      - name: Upload dist folder as artifact
+      - name: Upload docs folder as artifact
         id: deployment
         uses: actions/upload-pages-artifact@v3
         with:

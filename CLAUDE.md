@@ -5,12 +5,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development Commands
 
 ### Core Commands
-- `nx serve` or `pnpm start` - Start development server on http://localhost:4200 (host: 0.0.0.0)
-- `nx build` or `pnpm build` - Build the application for production
-- `nx test` or `pnpm test` - Run unit tests with Jest
-- `nx test --ci=true --coverage=true` or `pnpm test:ci` - Run tests in CI mode with coverage
-- `nx e2e` or `pnpm e2e` - Run end-to-end tests with Playwright
-- `nx lint` or `pnpm lint` - Run ESLint for code quality
+- `ng serve` or `pnpm start` - Start development server on http://localhost:4200 (host: 0.0.0.0)
+- `ng build` or `pnpm build` - Build the application for production
+- `jest` or `pnpm test` - Run unit tests with Jest
+- `jest --ci --coverage` or `pnpm test:ci` - Run tests in CI mode with coverage reports
+- `playwright test --config=e2e/playwright.config.ts` or `pnpm e2e` - Run end-to-end tests with Playwright
+- `ng lint` or `pnpm lint` - Run ESLint for code quality
 
 ### Package Management
 - Uses `pnpm` as package manager
@@ -47,7 +47,7 @@ All states follow the same pattern: actions, effects, reducer, selector, and sta
 
 ## Technology Stack
 - **Framework**: Angular 19 with standalone components
-- **Build Tool**: Nx monorepo
+- **Build Tool**: Angular CLI
 - **State**: NgRx with signals
 - **UI**: PrimeNG + Tailwind CSS
 - **i18n**: Transloco

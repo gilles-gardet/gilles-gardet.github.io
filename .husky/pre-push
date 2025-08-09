@@ -1,1 +1,1 @@
-nx test
+pnpm test
