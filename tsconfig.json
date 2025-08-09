@@ -38,7 +38,7 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2022",
-    "types": ["node", "jest"],
+    "types": ["node"],
     "typeRoots": ["node_modules/@types"],
     "useDefineForClassFields": false
   },
@@ -48,9 +48,6 @@
   "references": [
     {
       "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.editor.json"
     },
     {
       "path": "./tsconfig.spec.json"
