@@ -30,7 +30,7 @@ describe('SkillService', (): void => {
     ];
     service.fetchSkills$().subscribe((response: Skill[]) => expect(response).toEqual(skills));
     const testRequest: TestRequest = httpTestingController.expectOne(
-      'https://cdn.statically.io/gh/gilles-gardet/gilles-gardet.github.io/main/src/assets/resume/skills.json',
+      'https://raw.githubusercontent.com/gilles-gardet/gilles-gardet.github.io/main/src/assets/resume/skills.json',
     );
     expect(testRequest.request.method).toEqual('GET');
     testRequest.flush(skills);
