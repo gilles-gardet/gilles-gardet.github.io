@@ -10,14 +10,14 @@
 >
   <ng-template #header>
     <div class="mission__title">
-      <h2 class="prose prose-2xl font-bold text-slate-600 dark:text-slate-100">{{ clientMission }}</h2>
+      <h2 class="prose prose-2xl! font-bold text-slate-600 dark:text-slate-100">{{ clientMission }}</h2>
       <span class="mission__title__timelapse">{{ timelapseMission }}</span>
     </div>
   </ng-template>
   <ng-template #content>
-    <div [class.mission__content--transition]="!isLoading" class="mission__content flex flex-grow">
+    <div [class.mission__content--transition]="!isLoading" class="mission__content flex grow">
       @if (isLoading) {
-        <div class="flex flex-grow justify-center">
+        <div class="flex grow justify-center">
           <cv-spinner></cv-spinner>
         </div>
       } @else {

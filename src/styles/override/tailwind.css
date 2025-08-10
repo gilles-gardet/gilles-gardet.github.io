@@ -1,0 +1,41 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 736px;
+  --breakpoint-lg: 960px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1440px;
+
+  --color-gray-50: hsl(0, 0%, 92%);
+  --color-gray-25: hsl(204, 23%, 98%);
+  --color-gray-25-alt: hsl(210, 17%, 98%);
+  --color-gray-100: hsl(214, 16%, 93%);
+  --color-gray-300: hsl(210, 14%, 89%);
+  --color-gray-300-alt: hsl(218, 12%, 89%);
+  --color-gray-300-timeline: hsl(216, 14%, 89%);
+  --color-gray-600: hsl(210, 9%, 31%);
+  --color-gray-700: hsl(207, 9%, 31%);
+  --color-slate-800: hsl(0, 0%, 30%);
+  --color-slate-900: hsl(74, 7%, 15%);
+  --color-cream: hsl(60, 28%, 96%);
+  --color-progress: hsl(180, 0%, 30%);
+  --color-dark-slate-800: hsl(214, 18%, 15%);
+  --color-dark-slate-700: hsl(217, 17%, 20%);
+  --color-dark-slate-600: hsl(213, 19%, 30%);
+  --color-dark-slate-500: hsl(215, 15%, 23%);
+  --color-dark-gray-300: hsl(240, 4%, 90%);
+  --color-dark-gray-400: hsl(212, 10%, 70%);
+  --color-dark-gray-300-light: hsl(210, 14%, 89%);
+  --color-dark-gray-600: hsl(210, 9%, 31%);
+  --color-dark-gray-300-button: hsl(218, 12%, 89%);
+  --color-dark-gray-300-chip: hsl(216, 14%, 89%);
+  --color-dark-gray-700: hsl(207, 9%, 31%);
+  --color-dark-cream: hsl(60, 28%, 96%);
+  --color-dark-slate-900: hsl(74, 7%, 15%);
+  --color-dark-progress: hsl(210, 14%, 89%);
+}

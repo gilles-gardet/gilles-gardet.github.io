@@ -1,9 +1,12 @@
+@reference "../../../../styles/override/tailwind.css";
+
 .cv-dialog-mask {
   @apply fixed inset-0 flex items-center justify-center;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: brightness(0.5);
   animation: maskShow 0.3s ease-out;
   z-index: 1010;
+  padding: 1rem;
 }
 
 .cv-dialog {
@@ -11,7 +14,7 @@
   border-radius: 3px;
   display: grid;
   grid-template-rows: auto 1fr;
-  overflow: hidden;
+  max-height: calc(100vh - 2rem);
 }
 
 .cv-dialog-header {
@@ -80,7 +83,7 @@
 .cv-dialog-content {
   @apply text-gray-600 dark:text-dark-gray-300;
   scrollbar-width: thin;
-  scrollbar-color: rgb(148 163 184) transparent;
+  scrollbar-color: hsl(var(--scrollbar-thumb-light)) transparent;
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -91,23 +94,23 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgb(148 163 184);
+    background-color: hsl(var(--scrollbar-thumb-light));
     border-radius: 4px;
 
     &:hover {
-      background-color: rgb(100 116 139);
+      background-color: hsl(var(--scrollbar-thumb-light-hover));
     }
   }
 }
 
 .dark .cv-dialog-content {
-  scrollbar-color: rgb(71 85 105) transparent;
+  scrollbar-color: hsl(var(--scrollbar-thumb-dark)) transparent;
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgb(71 85 105);
+    background-color: hsl(var(--scrollbar-thumb-dark));
 
     &:hover {
-      background-color: rgb(51 65 85);
+      background-color: hsl(var(--scrollbar-thumb-dark-hover));
     }
   }
 }

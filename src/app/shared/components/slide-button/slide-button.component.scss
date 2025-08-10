@@ -1,3 +1,5 @@
+@reference "../../../../styles/override/tailwind.css";
+
 @mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, 0.076, 1)) {
   transition: $property $duration $ease;
 }
@@ -44,12 +46,13 @@ button.learn-more {
           background: none;
 
           &::before {
-            @apply border-t-dark-gray-700 dark:border-t-white;
-            @apply border-r-dark-gray-700 dark:border-r-white;
-            border-top-width: 0.125rem;
-            border-right-width: 0.125rem;
-            border-top-style: solid;
-            border-right-style: solid;
+            border-top: 0.125rem solid hsl(207, 9%, 31%);
+            border-right: 0.125rem solid hsl(207, 9%, 31%);
+            
+            :is(.dark *) & { // workarouund
+              border-top: 0.125rem solid white;
+              border-right: 0.125rem solid white;
+            }
             position: absolute;
             content: '';
             top: -0.25rem;

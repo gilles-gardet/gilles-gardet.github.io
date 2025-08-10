@@ -1,7 +1,9 @@
+@reference "../../../styles/override/tailwind.css";
+
 .container {
   @apply text-gray-600 dark:text-dark-gray-300;
   @apply bg-gray-25 dark:bg-dark-slate-700;
-  @apply border-gray-300 dark:border-dark-slate-600 #{!important};
+  @apply border-gray-300! dark:border-dark-slate-600!;
   border-radius: 3px;
   border: 1px solid;
   padding: 2rem 1rem;

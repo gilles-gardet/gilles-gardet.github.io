@@ -1,22 +1,22 @@
+@reference "../../../../../styles/override/tailwind.css";
+
 :host {
   --params: 0.8s ease;
 
   .chip {
-    @apply bg-gray-700 dark:bg-dark-gray-300-chip;
-    @apply text-white dark:text-gray-600;
+    @apply bg-gray-700 text-white dark:bg-gray-300 dark:text-gray-600;
     display: inline-flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    transition:
-      background-color var(--params);
+    transition: background-color var(--params);
     z-index: 0;
     border-radius: 16px;
     padding: 0 0.5rem;
     gap: 0.5rem;
 
     &::before {
-      @apply bg-dark-gray-300-chip dark:bg-gray-700;
+      @apply bg-gray-300;
       content: '';
       position: absolute;
       top: 0;
@@ -28,12 +28,22 @@
       transition:
         transform var(--params),
         opacity var(--params);
+
+      :is(.dark *) & {
+        // FIXME: workaround for the non-working `dark:` selector here
+        @apply bg-gray-700;
+      }
     }
 
     &:hover {
-      @apply text-gray-600 dark:text-white;
+      @apply text-gray-700;
       cursor: pointer;
       background-color: transparent;
+
+      :is(.dark *) & {
+        // FIXME: workaround for the non-working `dark:` selector here
+        @apply text-gray-300;
+      }
 
       &::before {
         transform: translateX(0);
