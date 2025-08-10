@@ -1,3 +1,5 @@
+@reference "../../../../styles/override/tailwind.css";
+
 .scroll-top {
   @apply bg-slate-800 dark:bg-dark-gray-300-light;
   position: fixed;
@@ -30,5 +32,14 @@
 
   &:focus {
     box-shadow: 0 0 0 0.2rem #aab1b9;
+  }
+
+  &:hover {
+    cursor: pointer;
+    @apply bg-white dark:bg-slate-800;
+    
+    .scroll-top__icon {
+      @apply text-slate-800 dark:text-white;
+    }
   }
 }

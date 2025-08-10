@@ -1,3 +1,5 @@
+@reference "../../../../../styles/override/tailwind.css";
+
 .timeline {
   display: flex;
   flex-grow: 1;
@@ -39,7 +41,7 @@
         background-color: #495057;
 
         > svg {
-          color: var(--white);
+          color: var(--color-gray-100);
           width: 1.5rem;
           height: 1.5rem;
         }

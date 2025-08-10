@@ -1,9 +1,12 @@
+@reference "../../../../../styles/override/tailwind.css";
+
 .mission {
   @apply bg-white dark:bg-dark-slate-700;
 
   &__title {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.5rem;
     text-align: center;
     width: 100%;
@@ -28,7 +31,6 @@
     grid-template-rows: 0fr;
     max-width: calc(1280px - 3rem);
     transition: grid-template-rows 400ms ease-in-out;
-    overflow: hidden;
 
     &--transition {
       grid-template-rows: 1fr;

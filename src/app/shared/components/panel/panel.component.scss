@@ -1,3 +1,5 @@
+@reference "../../../../styles/override/tailwind.css";
+
 .panel {
   &__header {
     @apply border;
