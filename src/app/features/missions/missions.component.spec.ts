@@ -3,7 +3,7 @@ import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { CommonModule } from '@angular/common';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MissionsComponent } from '@features/resume/components/missions/missions.component';
+import { MissionsComponent } from '@features/missions/missions.component';
 import { provideHttpClient } from '@angular/common/http';
 import { PanelComponent } from '@shared/components/panel/panel.component';
 import { Store } from '@ngrx/store';

@@ -4,7 +4,7 @@ import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
-import { DetailsComponent } from '@features/resume/components/details/details.component';
+import { DetailsComponent } from '@features/details/details.component';
 import { MissionService } from '@core/services/mission.service';
 import { Store } from '@ngrx/store';
 import { mockedInstance } from '@core/jest/mocked-instance.helper';

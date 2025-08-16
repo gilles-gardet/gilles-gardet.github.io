@@ -8,7 +8,7 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { combineLatest, Observable } from 'rxjs';
 import { Contact } from '@core/models/contact.model';
 import { AvatarComponent } from '@shared/components/avatar/avatar.component';
-import { EmailComponent } from '@features/general/components/email/email.component';
+import { EmailComponent } from '@features/email/email.component';
 import { AppState } from '@state/state';
 import { Store } from '@ngrx/store';
 import { selectTheme } from '@state/theme/theme.selector';
