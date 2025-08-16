@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
-import { MissionsComponent } from '@features/resume/components/missions/missions.component';
-import { SkillsComponent } from '@features/resume/components/skills/skills.component';
-import { SummaryComponent } from '@features/resume/components/summary/summary.component';
-import { DetailsComponent } from '@features/resume/components/details/details.component';
+import { HobbiesComponent } from '@features/hobbies/hobbies.component';
+import { MissionsComponent } from '@features/missions/missions.component';
+import { SkillsComponent } from '@features/skills/skills.component';
+import { SummaryComponent } from '@features/summary/summary.component';
+import { DetailsComponent } from '@features/details/details.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

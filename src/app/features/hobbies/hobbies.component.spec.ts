@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HobbiesComponent } from '@features/resume/components/hobbies/hobbies.component';
+import { HobbiesComponent } from '@features/hobbies/hobbies.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';
 
 describe('HobbiesComponent', (): void => {

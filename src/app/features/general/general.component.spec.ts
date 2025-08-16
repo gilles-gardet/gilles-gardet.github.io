@@ -5,7 +5,7 @@ import { ThemeService } from '@core/services/theme.service';
 import { GeneralComponent } from '@features/general/general.component';
 import { MissionService } from '@core/services/mission.service';
 import { AvatarComponent } from '@shared/components/avatar/avatar.component';
-import { EmailComponent } from '@features/general/components/email/email.component';
+import { EmailComponent } from '@features/email/email.component';
 import { TranslocoService } from '@jsverse/transloco';
 import { of } from 'rxjs';
 import { SkillService } from '@core/services/skill.service';

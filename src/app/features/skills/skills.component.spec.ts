@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SkillsComponent } from '@features/resume/components/skills/skills.component';
+import { SkillsComponent } from '@features/skills/skills.component';
 import { ChangeDetectorRef } from '@angular/core';
 import { ProgressBarComponent } from '@shared/components/progress-bar/progress-bar.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';

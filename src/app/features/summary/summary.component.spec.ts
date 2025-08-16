@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SummaryComponent } from '@features/resume/components/summary/summary.component';
+import { SummaryComponent } from '@features/summary/summary.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';
 
 describe('SummaryComponent', (): void => {
