@@ -1,0 +1,9 @@
+[
+  {
+    "id": "202409",
+    "client": "Acme Corp - Plateforme E-commerce",
+    "startDate": "2024-09-01",
+    "endDate": "2024-12-01",
+    "technologies": ["Kotlin", "Spring Boot 3", "Kubernetes", "PostgreSQL", "React", "Docker", "RabbitMQ", "Redis"]
+  }
+]
