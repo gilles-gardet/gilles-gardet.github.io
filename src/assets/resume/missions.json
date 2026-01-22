@@ -1,42 +1,9 @@
 [
   {
-    "client": "Air France KLM (Inetum) - Dev Portal",
-    "startDate": "2021-01-01",
-    "endDate": null
-  },
-  {
-    "client": "Orange (Inetum) - SPDP & O2H",
-    "startDate": "2020-12-01",
-    "endDate": "2021-12-01"
-  },
-  {
-    "client": "MAIF (Inetum) - IRSA",
-    "startDate": "2020-07-01",
-    "endDate": "2020-12-01"
-  },
-  {
-    "client": "Air France KLM (Inetum) - CCAPI",
-    "startDate": "2016-07-01",
-    "endDate": "2019-01-01"
-  },
-  {
-    "client": "Airbus (GFI) - GAS",
-    "startDate": "2016-01-01",
-    "endDate": "2016-07-01"
-  },
-  {
-    "client": "GFI - Gimaweb",
-    "startDate": "2015-04-01",
-    "endDate": "2016-01-01"
-  },
-  {
-    "client": "Mairie de Toulouse (GFI) - Portail interne",
-    "startDate": "2015-01-01",
-    "endDate": "2015-04-01"
-  },
-  {
-    "client": "Airbus (GFI) - Flight Ops Document Manager",
-    "startDate": "2013-04-01",
-    "endDate": "2015-01-01"
+    "id": "202601",
+    "client": "Air France KLM (Inetum) - MCP Registry",
+    "startDate": "2026-01-01",
+    "endDate": null,
+    "technologies": ["Java 21", "Angular 20", "Maven", "Spring Data", "SpringBoot", "Camunda", "Copilot"]
   }
 ]
