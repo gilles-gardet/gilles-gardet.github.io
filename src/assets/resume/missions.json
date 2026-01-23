@@ -1,11 +1,18 @@
 [
 {
-  "id": "202601",
-  "client": "Air France KLM (Inetum) - MCP Registry",
-  "startDate": "2026-01-01",
+  "id": "202501",
+  "client": "Air France KLM (Inetum) - KPI as a Service (KAAS)",
+  "startDate": "2025-01-01",
   "endDate": null,
-  "technologies": ["Java 21", "Angular 20", "Maven", "Spring Data", "SpringBoot", "Camunda", "Copilot"]
+  "technologies": ["Java 21", "SpringBoot", "Spring Batch", "Spring JDBC", "Teradata", "MongoDB", "PostgresQL", "Control-M", "Angular", "Azure Kubernetes Service", "Hive MQ"]
 },
+  {
+    "id": "202601",
+    "client": "Air France KLM (Inetum) - MCP Registry",
+    "startDate": "2026-01-01",
+    "endDate": null,
+    "technologies": ["Java 21", "Angular 20", "Maven", "Spring Data", "SpringBoot", "Camunda", "Copilot"]
+  },
   {
     "client": "Air France KLM (Inetum) - Dev Portal",
     "startDate": "2021-01-01",
