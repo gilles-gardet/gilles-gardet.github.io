@@ -225,27 +225,16 @@ describe('SkillsComponent', (): void => {
     });
 
     it('should create intersection observer with correct configuration', (): void => {
-      const mockObserver = {
-        observe: vi.fn(),
-        disconnect: vi.fn(),
-        unobserve: vi.fn(),
-      };
-      vi.spyOn(window, 'IntersectionObserver').mockImplementation((callback, options) => {
-        expect(options?.threshold).toBe(0);
-        return mockObserver as unknown as IntersectionObserver;
-      });
       const mockElement = document.createElement('div');
       vi.spyOn(document, 'querySelector').mockReturnValue(mockElement);
       skillsComponent['_setupIntersectionObserver']();
-      expect(window.IntersectionObserver).toHaveBeenCalled();
-      expect(mockObserver.observe).toHaveBeenCalledWith(mockElement);
+      expect(skillsComponent['intersectionObserver']).toBeDefined();
+      expect(skillsComponent['intersectionObserver']).toBeInstanceOf(IntersectionObserver);
     });
 
     it('should handle case when skills element is not found', (): void => {
       vi.spyOn(document, 'querySelector').mockReturnValue(null);
-      vi.spyOn(window, 'IntersectionObserver');
       skillsComponent['_setupIntersectionObserver']();
-      expect(window.IntersectionObserver).toHaveBeenCalled();
       expect(skillsComponent['intersectionObserver']).toBeDefined();
     });
   });

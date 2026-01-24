@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [CommonModule],
+  imports: [],
   selector: 'cv-panel',
   styleUrl: './panel.component.scss',
   templateUrl: './panel.component.html',

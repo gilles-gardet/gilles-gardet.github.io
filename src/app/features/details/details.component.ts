@@ -3,7 +3,7 @@ import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { filter, switchMap, tap } from 'rxjs/operators';
 import { Mission } from '@core/models/mission.model';
 import { DialogComponent } from '@shared/components/dialog/dialog.component';
-import { CommonModule } from '@angular/common';
+
 import { MissionService } from '@core/services/mission.service';
 import { SpinnerComponent } from '@shared/components/spinner/spinner.component';
 import { MissionActions } from '@state/mission/mission.actions';
@@ -15,7 +15,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, DialogComponent, MarkdownModule, SpinnerComponent],
+  imports: [DialogComponent, MarkdownModule, SpinnerComponent],
   selector: 'cv-details',
   styleUrl: './details.component.scss',
   templateUrl: './details.component.html',

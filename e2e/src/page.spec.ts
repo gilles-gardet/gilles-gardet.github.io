@@ -80,7 +80,7 @@ test.describe('Summary panel structure', () => {
     const content: Locator = page.locator('cv-summary .panel__content');
     await expect(content).toBeVisible();
     await expect(content).toContainText(
-      `I have 12 years of experience as a software developer specializing in information systems.`,
+      `I have 13 years of experience as a software developer specializing in information systems.`,
     );
     await expect(content).toContainText(
       `Primarily focused on backend technologies (Java, Spring...), gained through diverse projects across multiple business domains including aerospace, human resources, and community platforms.`,
@@ -97,7 +97,7 @@ test.describe('Summary panel structure', () => {
     const bolds: Locator = page.locator('cv-summary .panel__content b');
     const texts: string[] = await bolds.allTextContents();
     expect(texts).toHaveLength(4);
-    expect(texts).toContain('12 years');
+    expect(texts).toContain('13 years');
     expect(texts).toContain('backend');
     expect(texts).toContain('full-stack');
     expect(texts).toContain('Agile');

@@ -70,7 +70,7 @@ export class MissionsComponent implements AfterViewInit, OnInit, OnDestroy {
   /**
    * Listen for the screen size changes and keep track of these sizes
    */
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
   onWindowResize(): void {
     this.screenWidth = window.innerWidth;
   }

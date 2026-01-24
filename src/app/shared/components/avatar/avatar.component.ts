@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [NgOptimizedImage],
   selector: 'cv-avatar',
   styleUrl: './avatar.component.scss',
   templateUrl: './avatar.component.html',

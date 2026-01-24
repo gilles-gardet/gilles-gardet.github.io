@@ -7,13 +7,13 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MenuItem } from '@shared/models/menu-item.model';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [CommonModule],
+  imports: [],
   selector: 'cv-menu',
   styleUrl: './menu.component.scss',
   templateUrl: './menu.component.html',

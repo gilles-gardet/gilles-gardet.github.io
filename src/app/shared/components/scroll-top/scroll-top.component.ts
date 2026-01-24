@@ -8,7 +8,7 @@ import {
   PLATFORM_ID,
   Renderer2,
 } from '@angular/core';
-import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import {
   animate,
   AnimationEvent,
@@ -42,7 +42,7 @@ const scrollTopAnimations: AnimationTriggerMetadata[] = [
 @Component({
   animations: scrollTopAnimations,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule],
+  imports: [],
   selector: 'cv-scroll-top',
   styleUrl: './scroll-top.component.scss',
   templateUrl: './scroll-top.component.html',

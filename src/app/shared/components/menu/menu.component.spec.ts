@@ -366,39 +366,35 @@ describe('MenuComponent', (): void => {
   });
 
   describe('template rendering', (): void => {
-    beforeEach((): void => {
-      // Don't set model and visible here to allow individual tests to control it
-    });
+    const setVisibleAndDetect = (model: MenuItem[], visible: boolean, popup = false): void => {
+      componentFixture.componentRef.setInput('model', model);
+      componentFixture.componentRef.setInput('popup', popup);
+      menuComponent.visible = visible;
+      componentFixture.changeDetectorRef.markForCheck();
+      componentFixture.detectChanges();
+    };
 
     it('should not render menu when not visible', (): void => {
-      menuComponent.model = mockComplexMenuItems;
-      menuComponent.visible = false;
-      componentFixture.detectChanges();
+      setVisibleAndDetect(mockComplexMenuItems, false);
       const compiled = componentFixture.nativeElement;
       expect(compiled.querySelector('.cv-menu')).toBeNull();
     });
 
     it('should render menu when visible', (): void => {
-      menuComponent.model = mockComplexMenuItems;
-      menuComponent.visible = true;
-      componentFixture.detectChanges();
+      setVisibleAndDetect(mockComplexMenuItems, true);
       const compiled = componentFixture.nativeElement;
       expect(compiled.querySelector('.cv-menu')).toBeTruthy();
     });
 
     it('should add popup class when popup is true', (): void => {
-      menuComponent.popup = true;
-      menuComponent.visible = true;
-      componentFixture.detectChanges();
+      setVisibleAndDetect([], true, true);
       const compiled = componentFixture.nativeElement;
       const menuElement = compiled.querySelector('.cv-menu');
       expect(menuElement.classList.contains('cv-menu-popup')).toBe(true);
     });
 
     it('should render menu groups with labels', (): void => {
-      menuComponent.model = mockComplexMenuItems;
-      menuComponent.visible = true;
-      componentFixture.detectChanges();
+      setVisibleAndDetect(mockComplexMenuItems, true);
       const compiled = componentFixture.nativeElement;
       const groupLabel = compiled.querySelector('.cv-menu-group-label');
       expect(groupLabel).toBeTruthy();
@@ -406,18 +402,14 @@ describe('MenuComponent', (): void => {
     });
 
     it('should render menu groups without labels', (): void => {
-      menuComponent.model = mockComplexMenuItems;
-      menuComponent.visible = true;
-      componentFixture.detectChanges();
+      setVisibleAndDetect(mockComplexMenuItems, true);
       const compiled = componentFixture.nativeElement;
       const groups = compiled.querySelectorAll('.cv-menu-group');
       expect(groups.length).toBeGreaterThan(1);
     });
 
     it('should render menu items with icons', (): void => {
-      menuComponent.model = mockComplexMenuItems;
-      menuComponent.visible = true;
-      componentFixture.detectChanges();
+      setVisibleAndDetect(mockComplexMenuItems, true);
       const compiled = componentFixture.nativeElement;
       const icon = compiled.querySelector('.cv-menu-item-icon');
       expect(icon).toBeTruthy();
@@ -426,9 +418,7 @@ describe('MenuComponent', (): void => {
     });
 
     it('should render menu items without icons', (): void => {
-      menuComponent.model = mockComplexMenuItems;
-      menuComponent.visible = true;
-      componentFixture.detectChanges();
+      setVisibleAndDetect(mockComplexMenuItems, true);
       const compiled = componentFixture.nativeElement;
       const menuItems = compiled.querySelectorAll('.cv-menu-item-link');
       const itemWithoutIcon = Array.from(menuItems as NodeListOf<Element>).find(
@@ -438,36 +428,28 @@ describe('MenuComponent', (): void => {
     });
 
     it('should render separators', (): void => {
-      menuComponent.model = mockComplexMenuItems;
-      menuComponent.visible = true;
-      componentFixture.detectChanges();
+      setVisibleAndDetect(mockComplexMenuItems, true);
       const compiled = componentFixture.nativeElement;
       const separator = compiled.querySelector('.cv-menu-separator');
       expect(separator).toBeTruthy();
     });
 
     it('should add disabled class to disabled items', (): void => {
-      menuComponent.model = mockComplexMenuItems;
-      menuComponent.visible = true;
-      componentFixture.detectChanges();
+      setVisibleAndDetect(mockComplexMenuItems, true);
       const compiled = componentFixture.nativeElement;
       const disabledItem = compiled.querySelector('.cv-menu-item-disabled');
       expect(disabledItem).toBeTruthy();
     });
 
     it('should set title attribute when provided', (): void => {
-      menuComponent.model = mockComplexMenuItems;
-      menuComponent.visible = true;
-      componentFixture.detectChanges();
+      setVisibleAndDetect(mockComplexMenuItems, true);
       const compiled = componentFixture.nativeElement;
       const buttonWithTitle = compiled.querySelector('button[title="Home item"]');
       expect(buttonWithTitle).toBeTruthy();
     });
 
     it('should not render hidden items', (): void => {
-      menuComponent.model = mockComplexMenuItems;
-      menuComponent.visible = true;
-      componentFixture.detectChanges();
+      setVisibleAndDetect(mockComplexMenuItems, true);
       const compiled = componentFixture.nativeElement;
       const menuTexts = compiled.querySelectorAll('.cv-menu-item-text');
       const hiddenItemText = Array.from(menuTexts as NodeListOf<Element>).find(
@@ -477,9 +459,7 @@ describe('MenuComponent', (): void => {
     });
 
     it('should not render empty groups', (): void => {
-      menuComponent.model = mockComplexMenuItems;
-      menuComponent.visible = true;
-      componentFixture.detectChanges();
+      setVisibleAndDetect(mockComplexMenuItems, true);
       const compiled = componentFixture.nativeElement;
       const groupLabels = compiled.querySelectorAll('.cv-menu-group-label');
       const emptyGroupLabel = Array.from(groupLabels as NodeListOf<Element>).find(
@@ -489,9 +469,7 @@ describe('MenuComponent', (): void => {
     });
 
     it('should handle groups without items array', (): void => {
-      menuComponent.model = [{ label: 'No Items' }];
-      menuComponent.visible = true;
-      componentFixture.detectChanges();
+      setVisibleAndDetect([{ label: 'No Items' }], true);
       const compiled = componentFixture.nativeElement;
       expect(compiled.querySelector('.cv-menu')).toBeTruthy();
     });
@@ -499,8 +477,9 @@ describe('MenuComponent', (): void => {
 
   describe('integration behavior', (): void => {
     it('should work with complex menu structure', (): void => {
-      menuComponent.model = mockComplexMenuItems;
+      componentFixture.componentRef.setInput('model', mockComplexMenuItems);
       menuComponent.visible = true;
+      componentFixture.changeDetectorRef.markForCheck();
       componentFixture.detectChanges();
       const compiled = componentFixture.nativeElement;
       expect(compiled.querySelector('.cv-menu')).toBeTruthy();
@@ -509,8 +488,9 @@ describe('MenuComponent', (): void => {
     });
 
     it('should handle empty model gracefully', (): void => {
-      menuComponent.model = [];
+      componentFixture.componentRef.setInput('model', []);
       menuComponent.visible = true;
+      componentFixture.changeDetectorRef.markForCheck();
       componentFixture.detectChanges();
       const compiled = componentFixture.nativeElement;
       expect(compiled.querySelector('.cv-menu')).toBeTruthy();

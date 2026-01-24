@@ -79,7 +79,7 @@ export class DialogComponent implements OnChanges {
     this.visible = false;
     this.visibleChange.emit(false);
     this.hide.emit();
-    
+
     if (this.blockScroll) {
       this.disableScrollBlock();
     }

@@ -5,7 +5,8 @@ markdown {
 
   pre {
     @apply text-cream! dark:text-dark-slate-900!;
-    padding: 0.3rem;
+    @apply bg-slate-900! dark:bg-dark-cream!;
+    padding: 1em;
     margin: 0.5em 0;
     border-radius: 0.3em;
     background: none;

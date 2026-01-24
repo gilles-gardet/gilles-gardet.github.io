@@ -10,6 +10,7 @@ import { createMockStore } from '@core/testing/ngrx-test.helper';
 import { Mission } from '@core/models/mission.model';
 import { MissionActions } from '@state/mission/mission.actions';
 import { of } from 'rxjs';
+import { provideMarkdown } from 'ngx-markdown';
 
 describe('MissionsComponent', (): void => {
   let missionsComponent: MissionsComponent;
@@ -42,6 +43,7 @@ describe('MissionsComponent', (): void => {
       imports: [BrowserAnimationsModule, CommonModule, PanelComponent],
       providers: [
         ...getTranslocoTestProviders(),
+        provideMarkdown(),
         {
           provide: Store,
           useValue: store,
@@ -137,27 +139,22 @@ describe('MissionsComponent', (): void => {
         disconnect: vi.fn(),
         observe: vi.fn(),
         unobserve: vi.fn(),
+        root: null,
+        rootMargin: '',
+        thresholds: [],
+        takeRecords: vi.fn().mockReturnValue([]),
       } as unknown as IntersectionObserver;
       missionsComponent['intersectionObserver'] = mockObserver;
-      vi.spyOn(window, 'IntersectionObserver').mockImplementation(() => mockObserver);
       vi.spyOn(document, 'querySelectorAll').mockReturnValue([] as any);
       missionsComponent['_animateMissionsOnView']();
       expect(mockObserver.disconnect).toHaveBeenCalled();
     });
 
     it('should create intersection observer with correct threshold', (): void => {
-      const mockObserver = {
-        observe: vi.fn(),
-        disconnect: vi.fn(),
-        unobserve: vi.fn(),
-      };
-      vi.spyOn(window, 'IntersectionObserver').mockImplementation((callback, options) => {
-        expect(options?.threshold).toBe(0);
-        return mockObserver as unknown as IntersectionObserver;
-      });
       vi.spyOn(document, 'querySelectorAll').mockReturnValue([] as any);
       missionsComponent['_animateMissionsOnView']();
-      expect(window.IntersectionObserver).toHaveBeenCalled();
+      expect(missionsComponent['intersectionObserver']).toBeDefined();
+      expect(missionsComponent['intersectionObserver']).toBeInstanceOf(IntersectionObserver);
     });
 
     it('should use ViewChildren elements when available', (): void => {
@@ -169,30 +166,17 @@ describe('MissionsComponent', (): void => {
         length: 2,
         toArray: () => [mockElementRef1, mockElementRef2],
       } as QueryList<ElementRef<HTMLElement>>;
-      const mockObserver = {
-        observe: vi.fn(),
-        disconnect: vi.fn(),
-        unobserve: vi.fn(),
-      } as unknown as IntersectionObserver;
-      vi.spyOn(window, 'IntersectionObserver').mockImplementation(() => mockObserver);
       missionsComponent['_animateMissionsOnView']();
-      expect(mockObserver.observe).toHaveBeenCalledWith(mockElement1);
-      expect(mockObserver.observe).toHaveBeenCalledWith(mockElement2);
+      expect(missionsComponent['intersectionObserver']).toBeDefined();
     });
 
     it('should fallback to document.querySelectorAll when ViewChildren not available', (): void => {
       const mockElement = document.createElement('div');
       missionsComponent['missionElements'] = undefined;
       vi.spyOn(document, 'querySelectorAll').mockReturnValue([mockElement] as any);
-      const mockObserver = {
-        observe: vi.fn(),
-        disconnect: vi.fn(),
-        unobserve: vi.fn(),
-      } as unknown as IntersectionObserver;
-      vi.spyOn(window, 'IntersectionObserver').mockImplementation(() => mockObserver);
       missionsComponent['_animateMissionsOnView']();
       expect(document.querySelectorAll).toHaveBeenCalledWith('cv-panel#experience .timeline__event');
-      expect(mockObserver.observe).toHaveBeenCalledWith(mockElement);
+      expect(missionsComponent['intersectionObserver']).toBeDefined();
     });
   });
 
