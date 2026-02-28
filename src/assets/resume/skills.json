@@ -15,5 +15,5 @@
   { "name": "ReactJS", "rate": 65 },
   { "name": "Hibernate", "rate": 80 },
   { "name": "Typeorm", "rate": 70 },
-  { "name": "Kotlin", "rate": 70 }
+  { "name": "Kotlin", "rate": 75 }
 ]
