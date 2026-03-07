@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import General from '../../components/General.astro';
+import Resume from '../../components/Resume.astro';
+import ScrollTop from '../../components/ScrollTop.astro';
+import type { Language } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'en' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Language };
+---
+
+<Layout lang={lang}>
+  <div id="container">
+    <aside>
+      <General lang={lang} />
+    </aside>
+    <main>
+      <Resume lang={lang} />
+      <ScrollTop />
+    </main>
+  </div>
+</Layout>

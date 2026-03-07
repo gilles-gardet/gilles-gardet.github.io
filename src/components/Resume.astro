@@ -1,0 +1,35 @@
+---
+import Summary from './Summary.astro';
+import Skills from './Skills.astro';
+import Missions from './Missions.astro';
+import Hobbies from './Hobbies.astro';
+import type { Language } from '../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+---
+
+<div class="scroll-wrapper">
+  <div id="scroll-tracker"></div>
+</div>
+<div class="resume">
+  <Summary lang={lang} />
+  <Skills lang={lang} />
+  <Missions lang={lang} />
+  <Hobbies lang={lang} />
+</div>
+
+<script>
+  /** Update the scroll progress indicator bar as the user scrolls. */
+  window.addEventListener('scroll', () => {
+    const tracker = document.getElementById('scroll-tracker');
+    if (!tracker) return;
+    const scrollDistance = document.documentElement.scrollTop || document.body.scrollTop;
+    const totalHeight = document.body.scrollHeight - document.documentElement.clientHeight;
+    const progress = totalHeight > 0 ? (scrollDistance / totalHeight) * 100 : 0;
+    tracker.style.width = `${progress}%`;
+  });
+</script>

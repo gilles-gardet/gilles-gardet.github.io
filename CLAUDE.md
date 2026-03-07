@@ -5,12 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development Commands
 
 ### Core Commands
-- `ng serve` or `pnpm start` - Start development server on http://localhost:4200 (host: 0.0.0.0)
-- `ng build` or `pnpm build` - Build the application for production
-- `ng test` or `pnpm test` - Run unit tests with Vitest
-- `ng test --watch=false --code-coverage` or `pnpm test:coverage` - Run tests in CI mode with coverage reports
-- `playwright test --config=e2e/playwright.config.ts` or `pnpm test:e2e` - Run end-to-end tests with Playwright
-- `ng lint` or `pnpm lint` - Run ESLint for code quality
+- `pnpm start` - Start development server on http://localhost:4200 (host: 0.0.0.0)
+- `pnpm build` - Build the application for production
+- `pnpm preview` - Preview the production build locally
+- `pnpm check` - Run Astro type checking
 
 ### Package Management
 - Uses `pnpm` as package manager
@@ -19,82 +17,58 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-### State Management (NgRx)
-The application uses NgRx for global state management with four main feature states:
-- **Mission State** (`src/+state/mission/`) - Manages career missions data
-- **Skill State** (`src/+state/skill/`) - Manages technical skills data  
-- **Theme State** (`src/+state/theme/`) - Manages dark/light theme preferences
-- **Language State** (`src/+state/language/`) - Manages i18n (French/English)
-
-All states follow the same pattern: actions, effects, reducer, selector, and state files.
+### Routing and i18n
+- Astro i18n routing with two locales: `fr` (default) and `en`
+- All URLs are prefixed: `/fr/`, `/en/`
+- Root `/` redirects to `/fr/`
+- Language switch navigates to the alternate URL
 
 ### Content Management
-- Mission descriptions stored as Markdown files in `src/assets/resume/missions/[lang]/[date]/`
-- Each mission has `full.md` and `light.md` versions
+- Mission descriptions: Markdown files in `src/assets/resume/missions/[lang]/[date]/`
+- Each mission has `[date]_full.md` and `[date]_light.md` versions
+- All markdown compiled at build time via `import.meta.glob` + `marked` (zero runtime fetches)
 - Skills defined in `src/assets/resume/skills.json`
-- i18n translations in `src/i18n/[lang].json`
+- i18n translations in `src/i18n/fr.json` and `src/i18n/en.json`, accessed via `src/i18n/utils.ts`
 
 ### Components Structure
-- **Features**: `src/app/features/` - Main page components (general, resume)
-- **Shared**: `src/app/shared/` - Reusable UI components (avatar, panel, progress-bar, etc.)
-- **Core**: `src/app/core/` - Services, models, and utilities
+- `src/layouts/Layout.astro` - Base HTML shell with theme persistence
+- `src/pages/index.astro` - Root redirect to `/fr/`
+- `src/pages/[lang]/index.astro` - Main CV page
+- `src/components/` - Astro components (General, Resume, Missions, Skills, Summary, Hobbies, etc.)
+- `src/styles/global.css` - Single CSS file with all styles (Tailwind v4, theme tokens, print styles)
 
 ### Styling
-- Uses SCSS with organized structure in `src/styles/`
-- Integrates Tailwind CSS (`tailwind.config.js`)
-- PrimeNG components with custom theming
+- Tailwind CSS v4 via `@tailwindcss/vite` Vite plugin (no PostCSS)
+- Single `src/styles/global.css` file — no component-scoped CSS
+- CSS custom properties for theme tokens (light/dark)
 - Print-specific styles for CV printing
 
+### State Management
+- No framework state — vanilla JS only
+- Theme: `localStorage` + `document.documentElement.classList.toggle('dark')`
+- Language: URL navigation (`/fr/` ↔ `/en/`)
+- Mission dialogs: CSS class (`is-open`) on pre-rendered hidden `<div>`
+- Scroll progress: `window.addEventListener('scroll', ...)` updating a `<div>` width
+- Animations: `IntersectionObserver` for skills progress bars and mission cards
+
 ## Technology Stack
-- **Framework**: Angular 19 with standalone components
-- **Build Tool**: Angular CLI
-- **State**: NgRx with signals
-- **UI**: PrimeNG + Tailwind CSS
-- **i18n**: Transloco
-- **Content**: Markdown rendering with ngx-markdown and Prism.js
-- **Testing**: Vitest (unit) + Playwright (e2e)
+- **Framework**: Astro 5 (static output)
+- **Build Tool**: Vite (via Astro)
+- **Styling**: Tailwind CSS v4 + custom CSS
+- **Markdown**: `marked` (build-time rendering)
+- **i18n**: Custom lightweight utility (`src/i18n/utils.ts`)
 
 ## Code Quality
-- **Linting**: ESLint with Angular-specific rules
+- **Type checking**: `astro check`
 - **Formatting**: Prettier (runs on pre-commit via Husky)
 - **Commit**: Conventional commits validated by commitlint
-- **Pre-commit**: Husky runs linting and formatting
-- **Pre-push**: Vitest tests must pass
-
-## Coding Standards
-
-### General Rules
-- Write all code, comments, and documentation in English
-- Use clear and explicit variable names while keeping code concise
-- Avoid unnecessary blank lines within methods
-- Comments should start with lowercase letter (unless proper noun)
-
-### Documentation
-- Always add JSDoc to new methods and functions
-- Update existing JSDoc when modifying methods
-- Use descriptive parameter and return type documentation
-- Include usage examples for complex methods
-
-### TypeScript/Angular Specific
-- Prefer `const` over `let` when variable won't be reassigned
-- Use meaningful component and service names following Angular conventions
-- Implement proper error handling with try-catch blocks
-- Use readonly for properties that shouldn't be modified
-- Leverage Angular's dependency injection properly
-
-### Code Structure
-- Keep methods focused on single responsibility
-- Extract complex logic into separate private methods
-- Use early returns to reduce nesting
-- Group related functionality together
-- Maintain consistent indentation and spacing
 
 ## Build Configuration
 - Output directory: `docs/` (for GitHub Pages)
-- Production build uses optimization disabled for GitHub Pages compatibility
-- Assets include icons, profile picture, PDF CV, and i18n files
+- Static site generation — all pages pre-rendered at build time
+- Assets served from `public/` directory
 
 ## Deployment
 - Deployed to GitHub Pages from `docs/` folder
 - CI/CD via GitHub Actions on main branch
-- Includes dependency audit, tests, and automated deployment
+- Custom domain: `cv.gilles-gardet.com`

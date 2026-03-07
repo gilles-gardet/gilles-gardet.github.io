@@ -1,0 +1,18 @@
+---
+import Panel from './Panel.astro';
+import type { Language } from '../i18n/utils';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const yearsOfExperience = new Date().getFullYear() - new Date(2013, 4).getFullYear();
+const panelTitle = t(lang, 'cv.summary.panelTitle');
+const content = t(lang, 'cv.summary.content', { value: yearsOfExperience });
+---
+
+<Panel id="summary" header={panelTitle}>
+  <div class="summary" set:html={content} />
+</Panel>

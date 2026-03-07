@@ -1,0 +1,71 @@
+---
+import Panel from './Panel.astro';
+import ProgressBar from './ProgressBar.astro';
+import type { Language } from '../i18n/utils';
+import { t } from '../i18n/utils';
+import skillsData from '../assets/resume/skills.json';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const panelTitle = t(lang, 'cv.skills.panelTitle');
+---
+
+<Panel id="skills" header={panelTitle}>
+  <div class="skills">
+    {skillsData.map((skill) => (
+      <div class="skills__languages">
+        <span>{skill.name}</span>
+        <ProgressBar value={skill.rate} name={skill.name} />
+      </div>
+    ))}
+  </div>
+</Panel>
+
+<script>
+  /**
+   * Animate skill progress bars when the skills panel enters the viewport.
+   * Progress bars start at 0% and animate to their target value.
+   */
+  function setupSkillsAnimation(): void {
+    const panel = document.getElementById('skills');
+    const bars = document.querySelectorAll<HTMLElement>('#skills .progress-bar');
+    if (!panel || bars.length === 0) return;
+
+    const animate = (): void => {
+      bars.forEach((bar) => {
+        const target = bar.dataset.target ?? '0';
+        const fill = bar.querySelector<HTMLElement>('.progress-bar__value');
+        if (fill) fill.style.width = `${target}%`;
+      });
+    };
+
+    const reset = (): void => {
+      bars.forEach((bar) => {
+        const fill = bar.querySelector<HTMLElement>('.progress-bar__value');
+        if (fill) fill.style.width = '0%';
+      });
+    };
+
+    const isVisible = (): boolean => {
+      const rect = panel.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    };
+
+    if (isVisible()) animate();
+
+    new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate();
+        } else {
+          reset();
+        }
+      });
+    }, { threshold: 0 }).observe(panel);
+  }
+
+  setupSkillsAnimation();
+</script>

@@ -1,0 +1,17 @@
+---
+interface Props {
+  id?: string;
+  header: string;
+}
+
+const { id, header } = Astro.props;
+---
+
+<div class="panel" id={id}>
+  <div class="panel__header">
+    <span class="panel__header__title">{header}</span>
+  </div>
+  <div class="panel__content">
+    <slot />
+  </div>
+</div>

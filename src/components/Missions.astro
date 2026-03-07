@@ -1,0 +1,195 @@
+---
+import Panel from './Panel.astro';
+import SlideButton from './SlideButton.astro';
+import type { Language } from '../i18n/utils';
+import { t, missionTimelapse } from '../i18n/utils';
+import { marked } from 'marked';
+import missionsData from '../assets/resume/missions.json';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const panelTitle = t(lang, 'cv.missions.panelTitle');
+const slideButtonLabel = t(lang, 'cv.shared.slideButton');
+const dialogCloseLabel = t(lang, 'cv.dialog.close');
+
+// Load all markdown files at build time — no HTTP fetch at runtime
+const lightFiles = import.meta.glob<string>('/src/assets/resume/missions/**/*_light.md', { query: '?raw', import: 'default', eager: true });
+const fullFiles = import.meta.glob<string>('/src/assets/resume/missions/**/*_full.md', { query: '?raw', import: 'default', eager: true });
+
+interface MissionWithContent {
+  id: string;
+  client: string;
+  startDate: string;
+  endDate: string | null;
+  timelapse: string;
+  lightHtml: string;
+  fullHtml: string;
+}
+
+const missions: MissionWithContent[] = await Promise.all(
+  missionsData.map(async (mission, index) => {
+    const date = new Date(mission.startDate);
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const dateKey = `${date.getFullYear()}${month}`;
+    const lightKey = `/src/assets/resume/missions/${lang}/${dateKey}/${dateKey}_light.md`;
+    const fullKey = `/src/assets/resume/missions/${lang}/${dateKey}/${dateKey}_full.md`;
+    const lightRaw = lightFiles[lightKey] ?? '';
+    const fullRaw = fullFiles[fullKey] ?? '';
+    return {
+      id: (mission as { id?: string }).id ?? String(index),
+      client: mission.client,
+      startDate: mission.startDate,
+      endDate: mission.endDate ?? null,
+      timelapse: missionTimelapse(lang, mission.startDate, mission.endDate),
+      lightHtml: await marked.parse(lightRaw),
+      fullHtml: await marked.parse(fullRaw),
+    };
+  }),
+);
+---
+
+<Panel id="experience" header={panelTitle}>
+  <div class="timeline">
+    {missions.map((mission, index) => (
+      <div class="timeline__event" data-mission-index={index}>
+        <div class="timeline__event-opposite"></div>
+        <div class="timeline__event-separator">
+          <div class="timeline__event-separator__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <g id="bookmark">
+                <path d="M17.75,20.75a.83.83,0,0,1-.43-.13L12,16.91,6.68,20.62a.75.75,0,0,1-.78,0A.74.74,0,0,1,5.5,20V6A2.75,2.75,0,0,1,8.25,3.25h7.5A2.75,2.75,0,0,1,18.5,6V20a.74.74,0,0,1-.4.66A.73.73,0,0,1,17.75,20.75ZM12,15.25a.75.75,0,0,1,.43.13L17,18.56V6a1.25,1.25,0,0,0-1.25-1.25H8.25A1.25,1.25,0,0,0,7,6V18.56l4.57-3.18A.75.75,0,0,1,12,15.25Z" />
+              </g>
+            </svg>
+          </div>
+          {index < missions.length - 1 && <div class="timeline__event-connector"></div>}
+        </div>
+        <div class="timeline__event-content">
+          <div class="mission">
+            <div class="mission__header">
+              <span class="mission__header__client">{mission.client}</span>
+              <span class="mission__header__timelapse">{mission.timelapse}</span>
+            </div>
+            <div class="mission__body">
+              <div class="markdown-content" set:html={mission.lightHtml} />
+              <div class="mission__body__button">
+                <SlideButton label={slideButtonLabel} missionIndex={index} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</Panel>
+
+<!-- Pre-rendered mission dialogs — one per mission, shown on demand -->
+{missions.map((mission, index) => (
+  <div class="cv-dialog-mask" id={`dialog-${index}`} role="dialog" aria-modal="true" aria-labelledby={`dialog-title-${index}`}>
+    <div class="cv-dialog" style="max-width: 960px">
+      <div class="cv-dialog-header">
+        <div class="mission__title">
+          <h2 id={`dialog-title-${index}`} class="prose font-bold text-slate-600 dark:text-slate-100">{mission.client}</h2>
+          <span class="mission__title__timelapse">{mission.timelapse}</span>
+        </div>
+        <div class="cv-dialog-header-actions">
+          <button class="cv-dialog-close" type="button" data-close={index} aria-label={dialogCloseLabel}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.707 7l3.647-3.646a.5.5 0 0 0-.708-.708L7 6.293 3.354 2.646a.5.5 0 0 0-.708.708L6.293 7l-3.647 3.646a.5.5 0 0 0 .708.708L7 7.707l3.646 3.647a.5.5 0 0 0 .708-.708L7.707 7Z" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="cv-dialog-content">
+        <div class="mission__content">
+          <div class="mission__content__text">
+            <div class="markdown-content" set:html={mission.lightHtml} />
+            <div class="markdown-content" set:html={mission.fullHtml} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+))}
+
+<script>
+  /**
+   * Handle mission card animations using IntersectionObserver.
+   * Each mission card slides in from the side when it enters the viewport.
+   */
+  function setupMissionAnimations(): void {
+    const events = document.querySelectorAll<HTMLElement>('.timeline__event');
+    const screenWidth = window.innerWidth;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const content = entry.target.querySelector<HTMLElement>('.timeline__event-content');
+        if (!content || !entry.isIntersecting) return;
+        const allEvents = Array.from(entry.target.parentElement?.children ?? []);
+        const eventIndex = allEvents.indexOf(entry.target);
+        content.style.opacity = '0';
+        content.style.transform = screenWidth > 960 && eventIndex % 2 !== 0 ? 'translateX(-40px)' : 'translateX(40px)';
+        void content.offsetHeight;
+        if (screenWidth > 960) {
+          content.classList.add(eventIndex % 2 === 0 ? 'mission__animation-right' : 'mission__animation-left');
+        } else {
+          content.classList.add('mission__animation-right');
+        }
+        requestAnimationFrame(() => setTimeout(() => content.classList.add('mission__animation-visible'), 100));
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0 });
+
+    events.forEach((el) => observer.observe(el));
+  }
+
+  /**
+   * Wire up the "view details" buttons to open the corresponding pre-rendered dialog.
+   */
+  function setupDialogs(): void {
+    document.querySelectorAll<HTMLButtonElement>('button[data-mission]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const index = btn.dataset.mission;
+        const dialog = document.getElementById(`dialog-${index}`);
+        dialog?.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    document.querySelectorAll<HTMLButtonElement>('button[data-close]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const index = btn.dataset.close;
+        closeDialog(index);
+      });
+    });
+
+    document.querySelectorAll<HTMLElement>('.cv-dialog-mask').forEach((mask) => {
+      mask.addEventListener('click', (e) => {
+        if (e.target === mask) {
+          const index = mask.id.replace('dialog-', '');
+          closeDialog(index);
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      document.querySelectorAll<HTMLElement>('.cv-dialog-mask.is-open').forEach((mask) => {
+        const index = mask.id.replace('dialog-', '');
+        closeDialog(index);
+      });
+    });
+  }
+
+  function closeDialog(index: string | undefined): void {
+    if (index === undefined) return;
+    const dialog = document.getElementById(`dialog-${index}`);
+    dialog?.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  setupMissionAnimations();
+  setupDialogs();
+</script>

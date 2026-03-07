@@ -1,0 +1,21 @@
+---
+import Panel from './Panel.astro';
+import type { Language } from '../i18n/utils';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const panelTitle = t(lang, 'cv.hobbies.panelTitle');
+const tags = ['dev', 'homelab', 'movie', 'basket', 'running'] as const;
+---
+
+<Panel id="hobbies" header={panelTitle}>
+  <div class="hobby">
+    {tags.map((tag) => (
+      <div class="hobby__tag">{t(lang, `cv.hobbies.content.${tag}`)}</div>
+    ))}
+  </div>
+</Panel>

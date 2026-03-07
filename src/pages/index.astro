@@ -1,0 +1,6 @@
+---
+// Redirect to the default locale when visiting the root URL.
+// The browser language is not available at build time for a static site,
+// so we default to French and let the user switch via the menu.
+return Astro.redirect('/fr/');
+---
