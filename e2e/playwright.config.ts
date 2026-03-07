@@ -24,7 +24,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'ng serve --host=0.0.0.0 --port=4200',
+    command: 'pnpm build && pnpm preview --port 4200',
     port: 4200,
     reuseExistingServer: !process.env?.['CI'],
     timeout: 120000,

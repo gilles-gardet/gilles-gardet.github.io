@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 /docs
+/.astro
+/.svelte-kit
 # Only exists if Bazel was run
 /bazel-out
 
@@ -56,3 +58,7 @@ test-results/
 playwright-report/
 junit.xml
 /.scannerwork/
+
+# AI & MCP
+/.claude/
+/.playwright-mcp/

@@ -1,103 +1,106 @@
 # 🗃 Curriculum Vitae - Gilles Gardet
 
-Application réalisée à l'aide d'[Angular](https://angular.io/) et du [CLI Angular](https://angular.io/cli).  
-Le but étant d'avoir un CV facilement maintenable et hébergé via [Github pages](https://pages.github.com/).
+Application réalisée à l'aide de [SvelteKit](https://kit.svelte.dev/) et hébergée via [GitHub Pages](https://pages.github.com/).
+Le but étant d'avoir un CV facilement maintenable, bilingue (français/anglais) et consultable en ligne.
 
 La gestion CI/CD est directement assurée via [GitHub Actions](https://fr.github.com/features/actions).
 
-![demo](./src/assets/pictures/demo.gif)
-
 Le CV est directement accessible à l'adresse [cv.gilles-gardet.com](https://cv.gilles-gardet.com).
 
-> **Note**  
-> L'application est toujours en cours de développement et ne réflète donc pas toujours mon actualité.
+> **Note**
+> L'application est toujours en cours de développement et ne reflète donc pas toujours mon actualité.
 
-GitHub Page oblige, l'application fonctionne sans _BFF_ (Backend For Frontend) pour requêter le contenu à afficher.  
-les descriptifs sont en effet embarqués dans les assets de l'application au format **Markdown** puis parsé avant d'être finalement affichés.
+GitHub Pages oblige, l'application fonctionne sans _BFF_ (Backend For Frontend).
+Les descriptifs de missions sont embarqués dans les assets au format **Markdown** (fichiers `_light.md` et `_full.md`), parsés à la compilation via `marked` et intégrés statiquement dans le bundle.
 
 [![pages-build-deployment](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/pages/pages-build-deployment/badge.svg?branch=pages)](https://github.com/gilles-gardet/gilles-gardet.github.io/actions/workflows/pages/pages-build-deployment)
-[![codecov](https://codecov.io/gh/gilles-gardet/gilles-gardet.github.io/branch/master/graph/badge.svg?token=MJD58OG7SA)](https://codecov.io/gh/gilles-gardet/gilles-gardet.github.io)
-[![CodeFactor](https://www.codefactor.io/repository/github/gilles-gardet/gilles-gardet.github.io/badge)](https://www.codefactor.io/repository/github/gilles-gardet/gilles-gardet.github.io)
 
 ## 🚀 Environnement de développement
 
-Cette application s'appuie sur [pnpm](https://pnpm.io/) pour gérer ses dépendances et sur [nvm](https://github.com/nvm-sh/nvm) pour faciliter la gestion de la version de **NodeJS** à utiliser.
-
-### 🔄 Migration Nx → Angular CLI
-
-L'application a été migrée de **Nx** vers le **CLI Angular standard** pour simplifier la configuration et l'outillage. Cette migration inclut :
-
-- Remplacement des commandes `nx` par `ng` et `jest` 
-- Suppression des dépendances Nx spécifiques
-- Configuration ESLint adaptée au CLI Angular
-- Tests Jest configurés avec les alias de chemin
-- Tests Playwright fonctionnant avec `ng serve`
+Cette application s'appuie sur [pnpm](https://pnpm.io/) pour la gestion des dépendances et sur [nvm](https://github.com/nvm-sh/nvm) pour la version de **Node.js**.
 
 ### 🛠️ Installation et lancement
 
-En premier lieu, il faut donc faire un `nvm use` suivi de l'exécution de la commande `pnpm install` depuis la racine du répertoire du projet pour installer les dépendances nécessaires au lancement du projet.
+```bash
+nvm use
+pnpm install
+pnpm start
+```
 
-Cela devrait par la même occasion permettre l'installation d'un outil de gestion des commits (à savoir [husky](https://typicode.github.io/husky/#/)).  
-Ce dernier s'occupe de :
+L'application est accessible par défaut sur `http://localhost:4200`.
 
-1. _"[linter](<https://en.wikipedia.org/wiki/Lint_(software)>)"\_ le code en s'appuyant sur [eslint](https://eslint.org/) et formater le code via [prettier](https://prettier.io/) (avant le commit)
-2. valider le message de commit via [commitlint](https://commitlint.js.org/#/) (au commit)
-3. valider les tests unitaires [jest](https://jestjs.io/) (avant de pousser le commit sur la branche distante)
+### Scripts disponibles
 
-Les scripts principaux gérant notamment les cycles de vie de l'application sont les suivants :
+| Commande | Description |
+|---|---|
+| `pnpm start` | Démarre le serveur de développement Vite |
+| `pnpm build` | Génère la version de production dans `docs/` |
+| `pnpm preview` | Prévisualise le build de production en local |
+| `pnpm check` | Synchronise SvelteKit et vérifie les types TypeScript |
+| `pnpm test` | Lance les tests unitaires avec Vitest |
+| `pnpm test:coverage` | Lance les tests avec rapport de couverture |
+| `pnpm test:watch` | Lance Vitest en mode watch |
 
-- La commande `ng serve` ou `pnpm start` démarre l'application à l'adresse suivante par défaut `http://localhost:4200/`. L'application se recharge automatiquement en cas de changement des fichiers sources du projet.
-- La commande `jest` ou `pnpm test` lance les tests unitaires en s'appuyant sur la bibliothèque [Jest](https://jestjs.io/).
-- La commande `pnpm test:coverage` lance les tests unitaires en mode CI avec génération de la couverture de code.
-- La commande `pnpm test:e2e` lance les tests _end-to-end_ en s'appuyant sur la bibliothèque [Playwright](https://playwright.dev/).
-- La commande `ng build` ou `pnpm build` génère la version de production de l'application.
-- La commande `ng lint` ou `pnpm lint` vérifie la qualité du code avec ESLint.
+### Hooks Git (Husky)
+
+À chaque commit, [Husky](https://typicode.github.io/husky/) s'occupe de :
+
+1. **Formater** le code via [Prettier](https://prettier.io/) (pre-commit)
+2. **Valider** le message de commit via [commitlint](https://commitlint.js.org/#/) (commit-msg)
+
+Les messages de commit suivent la convention [Conventional Commits](https://www.conventionalcommits.org/).
 
 ## 🛠️ Stack technique
 
-- **Framework** : Angular 19 avec composants standalone
-- **Build Tool** : CLI Angular
-- **State Management** : NgRx avec signals
-- **UI/Styling** : PrimeNG + Tailwind CSS + SCSS
-- **Internationalisation** : Transloco (français/anglais)
-- **Content Rendering** : ngx-markdown + Prism.js pour la coloration syntaxique
-- **Testing** : Jest (tests unitaires) + Playwright (tests e2e)
-- **Quality** : ESLint + Prettier + commitlint + Husky
+- **Framework** : SvelteKit avec `@sveltejs/adapter-static`
+- **UI** : Svelte (composants rune-based)
+- **Build Tool** : Vite
+- **Styling** : Tailwind CSS via `@tailwindcss/vite`
+- **Contenu** : Markdown rendu par `marked`
+- **Internationalisation** : utilitaires maison (`src/lib/i18n/`)
+- **Thème** : store Svelte (`src/lib/stores/theme.ts`) — dark/light, persisté en `localStorage`
+- **Qualité** : Prettier + commitlint + Husky
 
 ## ⚙️ Intégration continue
 
-L'application est déployée sur [Github pages](https://pages.github.com/) quand un commit est réalisé sur la branche principale.
+L'application est déployée sur [GitHub Pages](https://pages.github.com/) à chaque push sur la branche `main`.
 
-Les étapes de la CI/CD comprennent :
+Les workflows GitHub Actions comprennent :
 
-- **audit** des dépendances (en passant par pnpm ais aussi via snyk)
-- **tests unitaires** sur les composants (avec récupération de la couverture de test et affichage sous forme de badge)
-- tests **end-to-end** sur l'ensemble de la _[SPA](https://developer.mozilla.org/fr/docs/Glossary/SPA)_
-- **déploiement** sur l'environnement github pages (grace au [plugin](https://github.com/marketplace/actions/deploy-to-github-pages) précédemment évoqué)
+- **`build-and-deploy`** — build de l'application et déploiement sur GitHub Pages
+- **`audit-and-vulnerabilities`** — audit pnpm des dépendances + analyse Snyk (déclenché aussi chaque vendredi)
+- **`e2e-tests`** — tests end-to-end avec [Playwright](https://playwright.dev/) (sur macOS)
 
-> **Warning**  
-> Il est nécessaires de créer des snapshots expressément pour le _job_ de test e2e ~~car ceux-ci sont liées au navigateur de l'OS (dans notre cas **Alpine**)~~.
->
-> ~~Dans le cas où l'on doit mettre à jour les snapshots de playwright il faut donc passer par une image docker _pinned_ (ex: 1.50.1-focal) sur un poste local :~~
->
-> ~~Lancer l'image via `docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.50.1-focal /bin/bash`  
-> Puis en executant directement dans l'image le workflow suivant :~~
->
-> - ~~`apt update && apt upgrade -y && apt install make g++ && npm i -g pnpm@latest && pnpm i --frozen-lockfile --force`~~
-> - ~~`pnpm exec playwright test --config=e2e/playwright.config.ts --update-snapshots`~~ > ~~Il faudra ensuite relancer la dernière commande pour récupérer les snapshots darwin (macos) directement depuis le répertoire local.~~
->
-> Lancer la commande suivante depuis un poste MacOs: `pnpm exec playwright test --config=e2e/playwright.config.ts --update-snapshots`
->
-> Normalement les snapshots devraient être mis à jour directement dans le répertoire local [e2e/src/page.spec.ts-snapshots](./e2e/src/page.spec.ts-snapshots)
+## 🔍 Analyse des dépendances inutilisées
 
-## 🔍 Fonctionnalités à venir
+[knip](https://knip.dev/) permet de détecter les dépendances, exports et fichiers non utilisés dans le projet.  
+Il supporte SvelteKit nativement et évite les faux positifs liés aux conventions de fichiers du framework (`+page.svelte`, `+layout.ts`, etc.).
 
-Il est prévu de rajouter à l'application plusieurs fonctionnalités :
+```bash
+pnpm dlx knip
+```
 
-- [x] Responsive et adapaté aux petits écrans
-- [x] Adapter le style lorsque l'on veut imprimer la page (sur chrome seulement)
-- [x] Mise en place de tests end-to-end avec [Playwright](https://playwright.dev/)
-- [x] Ajout d'un **darkmode** qui s'appuie sur les préférences utilisateur en premier lieu
-- [x] Possibilité de changer la langue entre le français et l'anglais
-- [x] Gestion d'un state via NgRx avec signals (theme, language, missions, skills)
-- [x] Migration de Nx vers CLI Angular standard pour simplifier l'outillage
+À noter que certains résultats peuvent être des faux positifs : par exemple les binaires CLI utilisés via Husky (ex. `@commitlint/cli`) ne sont pas détectés comme utilisés car ils ne sont pas importés dans le code source.
+
+## 🗂️ Structure du projet
+
+```
+src/
+├── assets/resume/
+│   ├── missions/[lang]/[YYYYMM]/   # Fichiers Markdown des missions (_light.md, _full.md)
+│   └── skills.json
+├── lib/
+│   ├── components/                 # Composants Svelte (General, Resume, …)
+│   ├── data/                       # missions.json, skills.json
+│   ├── i18n/                       # fr.json, en.json, utils.ts
+│   └── stores/                     # theme.ts
+├── routes/
+│   ├── +page.svelte                # Redirection vers /fr/
+│   ├── +layout.ts                  # prerender = true, trailingSlash = 'always'
+│   └── [lang]/
+│       ├── +page.ts                # Chargement des données par langue
+│       └── +page.svelte            # Page principale du CV
+└── styles/
+    └── global.css                  # Styles globaux, tokens de thème, styles d'impression
+docs/                               # Sortie du build (déployée sur GitHub Pages)
+```

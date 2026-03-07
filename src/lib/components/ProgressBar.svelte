@@ -1,0 +1,15 @@
+<script lang="ts">
+  let { value, name }: { value: number; name: string } = $props();
+</script>
+
+<div
+  class="progress-bar"
+  data-target={value}
+  aria-label={name}
+  role="progressbar"
+  aria-valuenow={0}
+  aria-valuemin={0}
+  aria-valuemax={100}
+>
+  <div class="progress-bar__value progress-bar__value-animate" style="width: 0%"></div>
+</div>

@@ -1,0 +1,19 @@
+[
+  { "name": "HTML", "rate": 80 },
+  { "name": "Java", "rate": 90 },
+  { "name": "Spring Boot", "rate": 85 },
+  { "name": "Spring MVC", "rate": 85 },
+  { "name": "Spring Data", "rate": 75 },
+  { "name": "Spring Security", "rate": 70 },
+  { "name": "CSS", "rate": 75 },
+  { "name": "Sass", "rate": 75 },
+  { "name": "Javascript", "rate": 80 },
+  { "name": "SQL", "rate": 70 },
+  { "name": "TypeScript", "rate": 80 },
+  { "name": "Angular", "rate": 85 },
+  { "name": "NestJS", "rate": 70 },
+  { "name": "ReactJS", "rate": 65 },
+  { "name": "Hibernate", "rate": 80 },
+  { "name": "Typeorm", "rate": 70 },
+  { "name": "Kotlin", "rate": 70 }
+]

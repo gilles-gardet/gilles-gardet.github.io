@@ -1,9 +1,0 @@
-<ng-container *transloco="let translate">
-  <cv-panel id="hobbies" [header]="translate('cv.hobbies.panelTitle')">
-    <div class="hobby">
-      @for (tag of tags; track tag) {
-        <div class="hobby__tag">{{ translate(tag) }}</div>
-      }
-    </div>
-  </cv-panel>
-</ng-container>
