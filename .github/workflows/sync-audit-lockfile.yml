@@ -1,0 +1,40 @@
+name: 🔄 Sync pnpm-lock.yaml on audit fix branches
+on:
+  push:
+    branches:
+      - 'fix/pnpm-audit-*'
+jobs:
+  sync-lockfile:
+    name: Regenerate lockfile
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          token: ${{ secrets.PNPM_BOT_TOKEN }}
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 10.4.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install dependencies (regenerate lockfile)
+        run: pnpm install --no-frozen-lockfile
+      - name: Check if lockfile changed
+        id: check
+        run: |
+          if git diff --quiet pnpm-lock.yaml; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Commit updated lockfile
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pnpm-lock.yaml
+          git commit -m "chore: sync pnpm-lock.yaml with audit fixes"
+          git push
