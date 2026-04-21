@@ -83,7 +83,7 @@
     "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^4.0.18"
   },
-    "lint-staged": {
+  "lint-staged": {
     "*.ts": [
       "eslint --cache --fix"
     ],
@@ -101,8 +101,9 @@
       "minimatch": ">=9.0.7",
       "serialize-javascript": ">=7.0.3",
       "ajv": ">=8.18.0",
-      "lodash-es": ">=4.17.23",
-      "@tootallnate/once": ">=3.0.1"
+      "lodash-es": ">=4.18.0",
+      "@tootallnate/once": ">=3.0.1",
+      "dompurify": ">=3.4.0"
     }
   }
 }
