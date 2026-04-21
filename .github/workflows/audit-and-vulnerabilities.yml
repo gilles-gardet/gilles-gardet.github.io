@@ -9,6 +9,9 @@ jobs:
   audit:
     name: Auditing the dependencies
     continue-on-error: true
+    outputs:
+      vuln_count: ${{ steps.audit.outputs.vuln_count }}
+      exit_code: ${{ steps.audit.outputs.exit_code }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,8 +22,22 @@ jobs:
         with:
           node-version-file: '.nvmrc'
       - name: Audit dependencies
+        id: audit
         run: |
-          pnpm audit --prod
+          set +e
+          pnpm audit --prod --json > audit.json
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          # Compter les vulnérabilités (0 si pas de champ advisories)
+          count=$(jq '(.advisories // {}) | length' audit.json)
+          echo "vuln_count=$count" >> "$GITHUB_OUTPUT"
+          cat audit.json
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pnpm-audit-report
+          path: audit.json
+          retention-days: 7
   security:
     name: Use snyck to search for vulnerabilities
     runs-on: ubuntu-latest
