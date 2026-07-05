@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailsComponent } from '@features/details/details.component';
 import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 import { Store } from '@ngrx/store';
@@ -37,7 +36,7 @@ describe('DetailsComponent', (): void => {
     vi.mocked(store.select).mockReturnValue(of(null));
     vi.mocked(store.dispatch).mockReturnValue(undefined);
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, MarkdownModule.forRoot(), DialogComponent, SpinnerComponent],
+      imports: [CommonModule, MarkdownModule.forRoot(), DialogComponent, SpinnerComponent],
       providers: [
         ...getTranslocoTestProviders(),
         provideHttpClient(),

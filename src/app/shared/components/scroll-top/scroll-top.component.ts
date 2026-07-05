@@ -9,38 +9,8 @@ import {
   Renderer2,
 } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import {
-  animate,
-  AnimationEvent,
-  AnimationTriggerMetadata,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
-import { HTMLElement } from 'happy-dom';
-
-const scrollTopAnimations: AnimationTriggerMetadata[] = [
-  trigger('animation', [
-    state(
-      'void',
-      style({
-        opacity: 0,
-      }),
-    ),
-    state(
-      'open',
-      style({
-        opacity: 1,
-      }),
-    ),
-    transition('void => open', animate('.15s')),
-    transition('open => void', animate('.15s')),
-  ]),
-];
 
 @Component({
-  animations: scrollTopAnimations,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
   selector: 'cv-scroll-top',
@@ -53,7 +23,6 @@ export class ScrollTopComponent implements OnInit, OnDestroy {
   private readonly renderer = inject(Renderer2);
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly window: Window | null;
-  protected overlay?: HTMLElement;
   protected visible = false;
   protected documentScrollListener?: VoidFunction;
 
@@ -79,37 +48,6 @@ export class ScrollTopComponent implements OnInit, OnDestroy {
       top: 0,
       behavior: 'smooth',
     });
-  }
-
-  /**
-   * Set the overlay element when the enter animation is triggered.
-   *
-   * @param animationEvent the animation event
-   */
-  protected onEnter(animationEvent: AnimationEvent): void {
-    switch (animationEvent.toState) {
-      case 'open':
-        this.overlay = animationEvent.element;
-        if (this.overlay) {
-          this.overlay.style.zIndex = String(1002);
-        }
-        break;
-      case 'void':
-        this.overlay = undefined;
-        break;
-    }
-  }
-
-  /**
-   * Set the overlay element when the leaver animation is triggered.
-   *
-   * @param animationEvent the animation animationEvent
-   */
-  protected onLeave(animationEvent: AnimationEvent): void {
-    if (animationEvent.toState !== 'void') {
-      return;
-    }
-    animationEvent.element.style.zIndex = '';
   }
 
   /**
@@ -159,9 +97,5 @@ export class ScrollTopComponent implements OnInit, OnDestroy {
    */
   ngOnDestroy(): void {
     this.unbindDocumentScrollListener();
-    if (this.overlay) {
-      this.overlay.style.zIndex = '';
-      this.overlay = undefined;
-    }
   }
 }

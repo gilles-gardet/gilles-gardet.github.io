@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SkillsComponent } from '@features/skills/skills.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';
 import { Store } from '@ngrx/store';
@@ -27,7 +26,7 @@ describe('SkillsComponent', (): void => {
     store = createMockStore();
     vi.mocked(store.select).mockReturnValue(of(mockSkills));
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, PanelComponent],
+      imports: [CommonModule, PanelComponent],
       providers: [
         ...getTranslocoTestProviders(),
         {

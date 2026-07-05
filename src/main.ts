@@ -10,7 +10,6 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideRouter } from '@angular/router';
 import { appEffects, appStore } from '@state/state';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 const translocoOptions: TranslocoOptions = {
   config: {

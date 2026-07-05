@@ -43,6 +43,12 @@ export class MockTranslocoLoader implements TranslocoLoader {
             running: 'Running'
           }
         },
+        missions: {
+          panelTitle: 'Experience'
+        },
+        shared: {
+          slideButton: 'View details'
+        },
         contact: {
           menu: {
             items: {
@@ -62,6 +68,9 @@ export class MockTranslocoLoader implements TranslocoLoader {
             }
           }
         }
+      },
+      dialog: {
+        close: 'Close dialog'
       }
     };
     return of(mockTranslations);

@@ -7,7 +7,6 @@
   },
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,

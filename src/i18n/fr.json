@@ -43,9 +43,9 @@
     },
     "shared": {
       "slideButton": "En savoir plus"
-    },
-    "dialog": {
-      "close": "Fermer la boîte de dialogue"
     }
+  },
+  "dialog": {
+    "close": "Fermer la boîte de dialogue"
   }
 }

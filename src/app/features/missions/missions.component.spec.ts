@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChangeDetectorRef, ElementRef, QueryList } from '@angular/core';
 import { MissionsComponent } from '@features/missions/missions.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';
@@ -40,7 +39,7 @@ describe('MissionsComponent', (): void => {
     vi.mocked(store.select).mockReturnValue(of(mockMissions));
     vi.mocked(store.dispatch).mockReturnValue(undefined);
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, CommonModule, PanelComponent],
+      imports: [CommonModule, PanelComponent],
       providers: [
         ...getTranslocoTestProviders(),
         provideMarkdown(),
