@@ -14,11 +14,11 @@ jobs:
       exit_code: ${{ steps.audit.outputs.exit_code }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
         with:
-          version: 10.4.1
-      - uses: actions/setup-node@v4
+          version: 11.9.0
+      - uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
       - name: Audit dependencies
@@ -44,11 +44,11 @@ jobs:
     needs:
       - audit
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
         with:
-          version: 10.4.1
-      - uses: actions/setup-node@v4
+          version: 11.9.0
+      - uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
@@ -56,5 +56,7 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Check for vulnerabilities
         uses: snyk/actions/node@master
+        with:
+          args: --all-projects
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

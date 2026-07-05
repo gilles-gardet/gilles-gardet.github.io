@@ -43,10 +43,16 @@ Object.defineProperty(document, 'doctype', {
 class MockIntersectionObserver implements IntersectionObserver {
   readonly root: Element | Document | null = null;
   readonly rootMargin: string = '';
-  readonly thresholds: ReadonlyArray<number> = [];
-  observe(): void {}
-  unobserve(): void {}
-  disconnect(): void {}
+  readonly thresholds: readonly number[] = [];
+  observe(): void {
+    // ponytail: test double, no-op is the intended behavior
+  }
+  unobserve(): void {
+    // ponytail: test double, no-op is the intended behavior
+  }
+  disconnect(): void {
+    // ponytail: test double, no-op is the intended behavior
+  }
   takeRecords(): IntersectionObserverEntry[] {
     return [];
   }

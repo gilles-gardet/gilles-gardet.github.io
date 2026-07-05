@@ -10,14 +10,14 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.ref }}
           token: ${{ secrets.PNPM_BOT_TOKEN }}
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v6
         with:
-          version: 10.4.1
-      - uses: actions/setup-node@v4
+          version: 11.9.0
+      - uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
       - name: Install dependencies (regenerate lockfile)

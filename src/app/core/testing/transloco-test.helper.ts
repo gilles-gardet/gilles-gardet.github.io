@@ -1,10 +1,10 @@
-import { provideTransloco, TranslocoService, TranslocoModule, TRANSLOCO_LOADER, TranslocoLoader } from '@jsverse/transloco';
+import { provideTransloco, TRANSLOCO_LOADER, TranslocoLoader, Translation } from '@jsverse/transloco';
 import { isDevMode, Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
 
 @Injectable()
 export class MockTranslocoLoader implements TranslocoLoader {
-  getTranslation(lang: string): Observable<any> {
+  getTranslation(): Observable<Translation> {
     // Common mock translations used in tests
     const mockTranslations = {
       test: 'test',

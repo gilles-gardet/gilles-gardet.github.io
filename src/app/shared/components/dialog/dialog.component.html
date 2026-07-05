@@ -1,5 +1,7 @@
 @if (visible) {
+  <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -- backdrop dismiss already has a keyboard equivalent via the document-level Escape handler in dialog.component.ts -->
   <div class="cv-dialog-mask" (click)="onMaskClick()">
+    <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -- stops backdrop click propagation, not an interactive control -->
     <div class="cv-dialog" [ngStyle]="getDialogStyles()" (click)="$event.stopPropagation()" *transloco="let translate">
       @if (header || headerTemplate) {
         <div class="cv-dialog-header">
