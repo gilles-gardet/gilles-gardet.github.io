@@ -184,7 +184,7 @@ describe('GeneralComponent', (): void => {
     });
 
     it('should call download CV when download command is executed', (): void => {
-      vi.spyOn(generalComponent as any, '_downloadCurriculumVitae');
+      vi.spyOn(generalComponent as any, '_downloadCurriculumVitae').mockImplementation((): void => {});
       const downloadItem = generalComponent['menuItems'][0].items![2];
       downloadItem.command!();
       expect(generalComponent['_downloadCurriculumVitae']).toHaveBeenCalled();

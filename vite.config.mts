@@ -1,23 +1,21 @@
 import { defineConfig } from 'vitest/config';
 import angular from '@analogjs/vite-plugin-angular';
-import tsconfigPaths from 'vite-tsconfig-paths';
-import { resolve } from 'path';
 import type { PluginOption } from 'vite';
+import { resolve } from 'node:path';
 
 export default defineConfig({
   plugins: [
-    angular() as PluginOption,
-    tsconfigPaths()
+    angular() as PluginOption
   ],
   resolve: {
     alias: {
-      '@assets': resolve(__dirname, './src/assets'),
-      '@core': resolve(__dirname, './src/app/core'),
-      '@environments': resolve(__dirname, './src/environments'),
-      '@features': resolve(__dirname, './src/app/features'),
-      '@pages': resolve(__dirname, './src/app/pages'),
-      '@shared': resolve(__dirname, './src/app/shared'),
-      '@state': resolve(__dirname, './src/+state'),
+      '@assets': resolve(import.meta.dirname, './src/assets'),
+      '@core': resolve(import.meta.dirname, './src/app/core'),
+      '@environments': resolve(import.meta.dirname, './src/environments'),
+      '@features': resolve(import.meta.dirname, './src/app/features'),
+      '@pages': resolve(import.meta.dirname, './src/app/pages'),
+      '@shared': resolve(import.meta.dirname, './src/app/shared'),
+      '@state': resolve(import.meta.dirname, './src/+state'),
     },
   },
   test: {

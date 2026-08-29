@@ -28,7 +28,7 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/assets/icons", "src/assets/pictures/me.jpg", "src/favicon.ico", "src/i18n"],
             "styles": ["node_modules/prismjs/themes/prism-okaidia.css", "src/styles/styles.scss"],
-            "scripts": ["node_modules/marked/bin/marked.js", "node_modules/prismjs/prism.js"]
+            "scripts": ["node_modules/prismjs/prism.js"]
           },
           "configurations": {
             "production": {
