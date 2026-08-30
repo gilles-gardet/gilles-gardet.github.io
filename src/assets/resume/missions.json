@@ -1,7 +1,13 @@
 [
   {
+    "id": "202607",
+    "client": "Air France KLM (Inetum) - Integration Portal AI Agent",
+    "startDate": "2026-07-01",
+    "endDate": null
+  },
+  {
     "id": "202601",
-    "client": "Air France KLM (Inetum) - MCP Registry",
+    "client": "Air France KLM (Inetum) - MCP & A2A Registries",
     "startDate": "2026-01-01",
     "endDate": null
   },
