@@ -1,10 +1,5 @@
 [
     {
-        "id": "209909",
-        "client": "TEST Client",
-        "startDate": "2099-09-01"
-    },
-    {
         "id": "202607",
         "client": "Air France KLM (Inetum) - Integration Portal AI Agent",
         "startDate": "2026-07-01"
