@@ -52,10 +52,5 @@
         "client": "Airbus (GFI) - Flight Ops Document Manager",
         "startDate": "2013-04-01",
         "endDate": "2015-01-01"
-    },
-    {
-        "id": "777777",
-        "client": "E2E Test Client",
-        "startDate": "2026-09-01"
     }
 ]
