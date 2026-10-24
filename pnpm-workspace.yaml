@@ -3,8 +3,8 @@ allowBuilds:
   esbuild: true
   lmdb: true
   msgpackr-extract: true
-  nx: true
-minimumReleaseAgeExclude:
-  - happy-dom@20.12.0
 overrides:
-  esbuild@>=0.27.3 <0.28.1: ^0.28.1
+  # @angular/build pins vite 8.3.0, which is affected by several CVEs fixed in 8.3.3
+  vite@>=8.3.0 <8.3.3: ^8.3.5
+  # @tailwindcss/typography pins postcss-selector-parser 6.0.10 (CPU exhaustion CVE fixed in 7.1.6)
+  postcss-selector-parser@<7.1.6: ^7.1.6
