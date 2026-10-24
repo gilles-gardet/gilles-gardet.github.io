@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { AvatarComponent } from './avatar.component';
 
@@ -8,13 +8,13 @@ describe('AvatarComponent', (): void => {
 
   const testAvatarUrl = 'https://avatars.githubusercontent.com/u/1234567?v=4';
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [CommonModule, NgOptimizedImage, AvatarComponent],
     }).compileComponents();
     componentFixture = TestBed.createComponent(AvatarComponent);
     avatarComponent = componentFixture.componentInstance;
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();

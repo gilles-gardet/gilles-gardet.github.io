@@ -1,17 +1,17 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProgressBarComponent } from './progress-bar.component';
 
 describe('ProgressBarComponent', (): void => {
   let progressBarComponent: ProgressBarComponent;
   let componentFixture: ComponentFixture<ProgressBarComponent>;
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [ProgressBarComponent],
     }).compileComponents();
     componentFixture = TestBed.createComponent(ProgressBarComponent);
     progressBarComponent = componentFixture.componentInstance;
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();
@@ -209,9 +209,9 @@ describe('ProgressBarComponent', (): void => {
       componentFixture.componentRef.setInput('value', 40);
       componentFixture.detectChanges();
       const compiled: HTMLElement = componentFixture.nativeElement;
-      const initialWidth: string = compiled.querySelector('.progress-bar__value')?.style.width ?? '';
+      const initialWidth: string = compiled.querySelector<HTMLElement>('.progress-bar__value')?.style.width ?? '';
       componentFixture.detectChanges();
-      const finalWidth: string = compiled.querySelector('.progress-bar__value')?.style.width ?? '';
+      const finalWidth: string = compiled.querySelector<HTMLElement>('.progress-bar__value')?.style.width ?? '';
       expect(finalWidth).toBe(initialWidth);
     });
   });

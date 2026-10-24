@@ -67,7 +67,14 @@
           }
         },
         "test": {
-          "builder": "@analogjs/vitest-angular:test"
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "tsconfig.spec.json",
+            "setupFiles": ["src/test-setup.ts"],
+            "isolate": true,
+            "coverageReporters": ["text", "html", "cobertura"],
+            "coverageExclude": ["src/test-setup.ts", "src/main.ts", "src/routes.ts", "src/**/testing/**", "src/environments/**"]
+          }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",

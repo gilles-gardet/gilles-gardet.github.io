@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { SkillsComponent } from '@features/skills/skills.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';
@@ -22,7 +22,7 @@ describe('SkillsComponent', (): void => {
     { name: 'Python', rate: 75 },
   ];
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     store = createMockStore();
     vi.mocked(store.select).mockReturnValue(of(mockSkills));
     TestBed.configureTestingModule({
@@ -39,7 +39,7 @@ describe('SkillsComponent', (): void => {
     skillsComponent = componentFixture.componentInstance;
     changeDetectorRef = skillsComponent['changeDetectorRef'];
     vi.spyOn(changeDetectorRef, 'markForCheck');
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();

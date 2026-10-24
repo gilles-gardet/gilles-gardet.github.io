@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { SlideButtonComponent } from '@shared/components/slide-button/slide-button.component';
 import { getTranslocoTestProviders } from '@core/testing/transloco-test.helper';
@@ -7,14 +7,14 @@ describe('SlideButtonComponent', (): void => {
   let slideButtonComponent: SlideButtonComponent;
   let componentFixture: ComponentFixture<SlideButtonComponent>;
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [CommonModule, SlideButtonComponent],
       providers: [...getTranslocoTestProviders()],
     }).compileComponents();
     componentFixture = TestBed.createComponent(SlideButtonComponent);
     slideButtonComponent = componentFixture.componentInstance;
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();

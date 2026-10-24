@@ -31,9 +31,9 @@ describe('ThemeState', (): void => {
     });
 
     it('should support theme comparison', (): void => {
-      const theme1: Theme = 'dark';
-      const theme2: Theme = 'light';
-      const theme3: Theme = 'dark';
+      const theme1: Theme = 'dark' as Theme;
+      const theme2: Theme = 'light' as Theme;
+      const theme3: Theme = 'dark' as Theme;
       expect(theme1 === theme3).toBe(true);
       expect(theme1 === theme2).toBe(false);
       expect(theme2 === theme3).toBe(false);

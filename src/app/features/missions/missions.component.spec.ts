@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, ElementRef, QueryList } from '@angular/core';
 import { MissionsComponent } from '@features/missions/missions.component';
@@ -34,7 +34,7 @@ describe('MissionsComponent', (): void => {
     },
   ];
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     store = createMockStore();
     vi.mocked(store.select).mockReturnValue(of(mockMissions));
     vi.mocked(store.dispatch).mockReturnValue(undefined);
@@ -54,7 +54,7 @@ describe('MissionsComponent', (): void => {
     changeDetectorRef = missionsComponent['changeDetectorRef'];
     vi.spyOn(changeDetectorRef, 'markForCheck');
     Object.defineProperty(window, 'innerWidth', { value: 1200, writable: true });
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();

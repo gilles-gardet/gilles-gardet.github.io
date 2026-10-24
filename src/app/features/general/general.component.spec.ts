@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MenuComponent } from '@shared/components/menu/menu.component';
 import { ThemeService } from '@core/services/theme.service';
 import { GeneralComponent } from '@features/general/general.component';
@@ -39,7 +39,7 @@ describe('GeneralComponent', (): void => {
     },
   };
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     store = createMockStore();
     translocoService = createMockTranslocoService();
     vi.mocked(store.select).mockReturnValue(of('light'));
@@ -72,7 +72,7 @@ describe('GeneralComponent', (): void => {
     });
     componentFixture = TestBed.createComponent(GeneralComponent);
     generalComponent = componentFixture.componentInstance;
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();

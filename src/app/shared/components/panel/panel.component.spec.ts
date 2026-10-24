@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PanelComponent } from './panel.component';
 import { Component } from '@angular/core';
 
@@ -18,13 +18,13 @@ describe('PanelComponent', (): void => {
   let panelComponent: PanelComponent;
   let componentFixture: ComponentFixture<PanelComponent>;
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [PanelComponent, TestHostComponent],
     }).compileComponents();
     componentFixture = TestBed.createComponent(PanelComponent);
     panelComponent = componentFixture.componentInstance;
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();

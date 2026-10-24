@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { SummaryComponent } from '@features/summary/summary.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';
@@ -8,7 +8,7 @@ describe('SummaryComponent', (): void => {
   let summaryComponent: SummaryComponent;
   let componentFixture: ComponentFixture<SummaryComponent>;
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [CommonModule, PanelComponent],
       providers: [
@@ -18,7 +18,7 @@ describe('SummaryComponent', (): void => {
     componentFixture = TestBed.createComponent(SummaryComponent);
     summaryComponent = componentFixture.componentInstance;
     componentFixture.detectChanges();
-  }));
+  });
 
   it('should create', async (): Promise<void> => {
     expect(summaryComponent).toBeTruthy();

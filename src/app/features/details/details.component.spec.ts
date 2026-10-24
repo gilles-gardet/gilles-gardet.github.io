@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { DetailsComponent } from '@features/details/details.component';
 import { MarkdownModule, MarkdownService } from 'ngx-markdown';
@@ -30,7 +30,7 @@ describe('DetailsComponent', (): void => {
     description: 'Test mission description',
   };
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     store = createMockStore();
     vi.mocked(store.selectSignal).mockReturnValue(signal(false));
     vi.mocked(store.select).mockReturnValue(of(null));
@@ -52,7 +52,7 @@ describe('DetailsComponent', (): void => {
     detailsComponent = componentFixture.componentInstance;
     markdownService = TestBed.inject(MarkdownService);
     missionService = TestBed.inject(MissionService);
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { EmailComponent } from './email.component';
 
@@ -6,13 +6,13 @@ describe('EmailComponent', (): void => {
   let emailComponent: EmailComponent;
   let componentFixture: ComponentFixture<EmailComponent>;
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [CommonModule, EmailComponent],
     }).compileComponents();
     componentFixture = TestBed.createComponent(EmailComponent);
     emailComponent = componentFixture.componentInstance;
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();

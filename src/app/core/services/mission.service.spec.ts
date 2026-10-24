@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { getTranslocoTestProviders } from '@core/testing/transloco-test.helper';
 import { MissionService } from './mission.service';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,7 @@ describe('MissionService', (): void => {
   let service: MissionService;
   let httpTestingController: HttpTestingController;
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [CommonModule],
       providers: [
@@ -29,7 +29,7 @@ describe('MissionService', (): void => {
     });
     service = TestBed.inject(MissionService);
     httpTestingController = TestBed.inject(HttpTestingController);
-  }));
+  });
 
   it('should be created', (): void => {
     expect(service).toBeTruthy();

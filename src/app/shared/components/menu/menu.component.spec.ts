@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu.component';
 import { MenuItem } from '@shared/models/menu-item.model';
@@ -65,13 +65,13 @@ describe('MenuComponent', (): void => {
     },
   ];
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [CommonModule, MenuComponent],
     }).compileComponents();
     componentFixture = TestBed.createComponent(MenuComponent);
     menuComponent = componentFixture.componentInstance;
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();

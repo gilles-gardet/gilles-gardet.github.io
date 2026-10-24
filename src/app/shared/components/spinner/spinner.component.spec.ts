@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from './spinner.component';
 
@@ -6,13 +6,13 @@ describe('SpinnerComponent', (): void => {
   let spinnerComponent: SpinnerComponent;
   let componentFixture: ComponentFixture<SpinnerComponent>;
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [CommonModule, SpinnerComponent],
     }).compileComponents();
     componentFixture = TestBed.createComponent(SpinnerComponent);
     spinnerComponent = componentFixture.componentInstance;
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();

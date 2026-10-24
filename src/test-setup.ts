@@ -1,12 +1,5 @@
 /// <reference types="vitest/globals" />
-import '@angular/compiler';
-import '@analogjs/vitest-angular/setup-zone';
 import { vi } from 'vitest';
-
-import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
-import { getTestBed } from '@angular/core/testing';
-
-getTestBed().initTestEnvironment(BrowserTestingModule, platformBrowserTesting());
 
 // Make vi available globally
 Object.assign(globalThis, { vi });
@@ -43,6 +36,7 @@ Object.defineProperty(document, 'doctype', {
 class MockIntersectionObserver implements IntersectionObserver {
   readonly root: Element | Document | null = null;
   readonly rootMargin: string = '';
+  readonly scrollMargin: string = '';
   readonly thresholds: readonly number[] = [];
   observe(): void {
     // ponytail: test double, no-op is the intended behavior

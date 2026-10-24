@@ -1,12 +1,12 @@
 import { ThemeService } from '@core/services/theme.service';
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 
 describe('ThemeService', (): void => {
   let service: ThemeService;
   let localStorageMock: any;
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     // Setup localStorage mock for each test
     localStorageMock = {
       getItem: vi.fn(),
@@ -24,7 +24,7 @@ describe('ThemeService', (): void => {
       providers: [ThemeService],
     });
     service = TestBed.inject(ThemeService);
-  }));
+  });
 
   afterEach(() => {
     vi.clearAllMocks();

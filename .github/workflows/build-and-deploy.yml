@@ -25,7 +25,7 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage/cobertura-coverage.xml
+          files: ./coverage/cv/cobertura-coverage.xml
           verbose: true
   build:
     name: Build CV application

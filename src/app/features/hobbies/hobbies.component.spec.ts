@@ -1,9 +1,8 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { HobbiesComponent } from '@features/hobbies/hobbies.component';
 import { PanelComponent } from '@shared/components/panel/panel.component';
 import { getTranslocoTestProviders } from '@core/testing/transloco-test.helper';
-import { HTMLElement } from 'happy-dom';
 
 describe('HobbiesComponent', (): void => {
   let hobbiesComponent: HobbiesComponent;
@@ -17,14 +16,14 @@ describe('HobbiesComponent', (): void => {
     'cv.hobbies.content.running',
   ];
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [CommonModule, PanelComponent],
       providers: [...getTranslocoTestProviders()],
     }).compileComponents();
     componentFixture = TestBed.createComponent(HobbiesComponent);
     hobbiesComponent = componentFixture.componentInstance;
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();

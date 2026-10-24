@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { ChangeDetectorRef, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
@@ -44,7 +44,7 @@ describe('AppComponent', (): void => {
   let mockLoaderSubject: BehaviorSubject<boolean>;
   let mockLanguageSubject: BehaviorSubject<string>;
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     mockLoaderSubject = new BehaviorSubject<boolean>(false);
     mockLanguageSubject = new BehaviorSubject<string>('en');
     mockStore = createMockStore();
@@ -94,7 +94,7 @@ describe('AppComponent', (): void => {
     });
     componentFixture = TestBed.createComponent(AppComponent);
     appComponent = componentFixture.componentInstance;
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();
@@ -107,7 +107,7 @@ describe('AppComponent', (): void => {
   describe('constructor', (): void => {
     it('should initialize isLoading signal from store', (): void => {
       expect(mockStore.selectSignal).toHaveBeenCalled();
-      expect(appComponent.isLoading).toBeDefined();
+      expect(appComponent['isLoading']).toBeDefined();
     });
   });
 
@@ -260,8 +260,8 @@ describe('AppComponent', (): void => {
 
   describe('component integration', (): void => {
     it('should handle store signal correctly', (): void => {
-      expect(appComponent.isLoading).toBeDefined();
-      expect(typeof appComponent.isLoading).toBe('function');
+      expect(appComponent['isLoading']).toBeDefined();
+      expect(typeof appComponent['isLoading']).toBe('function');
     });
 
     it('should maintain component structure', (): void => {
@@ -291,7 +291,7 @@ describe('AppComponent', (): void => {
     });
 
     it('should properly initialize isLoading signal from store', (): void => {
-      const isLoadingResult = appComponent.isLoading();
+      const isLoadingResult = appComponent['isLoading']();
       expect(typeof isLoadingResult).toBe('boolean');
     });
 
@@ -320,10 +320,10 @@ describe('AppComponent', (): void => {
     it('should handle store selector with different values', (): void => {
       vi.mocked(mockStore.selectSignal).mockReturnValue(vi.fn(() => true));
       const component = TestBed.createComponent(AppComponent).componentInstance;
-      expect(component.isLoading()).toBe(true);
+      expect(component['isLoading']()).toBe(true);
       vi.mocked(mockStore.selectSignal).mockReturnValue(vi.fn(() => false));
       const component2 = TestBed.createComponent(AppComponent).componentInstance;
-      expect(component2.isLoading()).toBe(false);
+      expect(component2['isLoading']()).toBe(false);
     });
 
     it('should handle scroll calculations with zero dimensions', (): void => {

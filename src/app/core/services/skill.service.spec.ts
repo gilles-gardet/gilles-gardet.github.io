@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { CommonModule } from '@angular/common';
 import { HttpTestingController, provideHttpClientTesting, TestRequest } from '@angular/common/http/testing';
@@ -10,14 +10,14 @@ describe('SkillService', (): void => {
   let service: SkillService;
   let httpTestingController: HttpTestingController;
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({
       imports: [CommonModule],
       providers: [SkillService, provideHttpClient(), provideHttpClientTesting()],
     });
     service = TestBed.inject(SkillService);
     httpTestingController = TestBed.inject(HttpTestingController);
-  }));
+  });
 
   it('should be created', (): void => {
     expect(service).toBeTruthy();

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ResumeComponent } from '@features/resume/resume.component';
@@ -15,7 +15,7 @@ describe('ResumeComponent', (): void => {
   let componentFixture: ComponentFixture<ResumeComponent>;
   let store: any;
 
-  beforeEach(waitForAsync((): void => {
+  beforeEach((): void => {
     store = createMockStore();
     vi.mocked(store.select).mockReturnValue(of([]));
     TestBed.configureTestingModule({
@@ -33,7 +33,7 @@ describe('ResumeComponent', (): void => {
     });
     componentFixture = TestBed.createComponent(ResumeComponent);
     resumeComponent = componentFixture.componentInstance;
-  }));
+  });
 
   afterEach((): void => {
     vi.clearAllMocks();
